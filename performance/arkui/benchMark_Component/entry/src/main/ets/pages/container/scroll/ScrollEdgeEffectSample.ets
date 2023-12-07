@@ -19,42 +19,53 @@ import { TimeHelper } from '../../../util/TimeHelper';
 
 @Entry
 @Component
-struct Sample {
-  timeHelper: TimeHelper = new TimeHelper('Sample');
+struct ScrollEdgeEffectSample {
+  timeHelper: TimeHelper = new TimeHelper('ScrollEdgeEffectSample');
   buttonName: string = '';
   scroller: Scroller = new Scroller();
-  edgeEffect: EdgeEffect = EdgeEffect.Spring;
-  @State initEdgeEffect: EdgeEffect = EdgeEffect.Spring;
+  edgeEffect: EdgeEffect = EdgeEffect.None;
+  @State initEdgeEffect: EdgeEffect = EdgeEffect.None;
   isToEnd: boolean = false;
 
   aboutToAppear() {
     this.buttonName = (router.getParams() as Record<string, string>)['buttonName'];
     this.timeHelper = new TimeHelper(this.buttonName + 'Sample');
-    this.edgeEffect = Number((router.getParams() as Record<string, string>)['text']);
-    this.initEdgeEffect = Number((router.getParams() as Record<string, string>)['text']) + 1;
-    if (this.initEdgeEffect == 3) {
-      this.initEdgeEffect = 0;
-    }
   }
 
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        Row() {
-          Button('Scroll EdgeEffect')
-            .id(this.buttonName)
+        Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
+          Button('ScrollEdgeEffectSpring')
+            .id('ScrollEdgeEffectSpring')
             .margin('5vp')
             .onClick(() => {
-              this.initEdgeEffect = this.edgeEffect
+              this.edgeEffect = EdgeEffect.Fade
+              this.initEdgeEffect = EdgeEffect.Spring
+              this.scroller.scrollEdge(Edge.End)
+            })
+          Button('ScrollEdgeEffectFade')
+            .id('ScrollEdgeEffectFade')
+            .margin('5vp')
+            .onClick(() => {
+              this.edgeEffect = EdgeEffect.None
+              this.initEdgeEffect = EdgeEffect.Fade
+              this.scroller.scrollEdge(Edge.Top)
+            })
+          Button('ScrollEdgeEffectNone')
+            .id('ScrollEdgeEffectNone')
+            .margin('5vp')
+            .onClick(() => {
+              this.edgeEffect = EdgeEffect.Spring
+              this.initEdgeEffect = EdgeEffect.None
               this.scroller.scrollEdge(Edge.End)
             })
         }.width('100%')
 
-
         Scroll(this.scroller) {
           Column() {
             ForEach(ArrEntity.arr, (index: number) => {
-              if (this.edgeEffect === this.initEdgeEffect && this.timeHelper.printTime(true, 1)) {
+              if (this.edgeEffect != this.initEdgeEffect && this.timeHelper.printTime(true, 1)) {
               }
               Column()
                 .width('100%')
@@ -156,7 +167,7 @@ struct Sample {
                 .height(20)
                 .margin(5)
                 .backgroundColor(Color.Blue)
-              if (this.edgeEffect === this.initEdgeEffect && this.timeHelper.printTime(false, 1)) {
+              if (this.edgeEffect != this.initEdgeEffect && this.timeHelper.printTime(false, 1)) {
               }
             }, (item: number) => JSON.stringify(item))
 
@@ -166,7 +177,7 @@ struct Sample {
         .width('100%')
         .height('100%')
         .backgroundColor(Color.Red)
-        .edgeEffect(this.initEdgeEffect)
+        .edgeEffect(this.edgeEffect)
 
       }
       .width('100%')

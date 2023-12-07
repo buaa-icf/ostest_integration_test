@@ -19,8 +19,8 @@ import { TimeHelper } from '../../../util/TimeHelper';
 
 @Entry
 @Component
-struct Sample {
-  timeHelper: TimeHelper = new TimeHelper('Sample');
+struct ScrollEnableScrollInteractionSample {
+  timeHelper: TimeHelper = new TimeHelper('ScrollEnableScrollInteractionSample');
   buttonName: string = '';
   scroller: Scroller = new Scroller();
   @State changeValue: boolean = false;
@@ -36,146 +36,152 @@ struct Sample {
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        Row() {
-          Button('change enableScrollInteraction:' + this.changeValue)
-            .id(this.buttonName)
+        Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
+          Button('false to true')
+            .id('ScrollEnableScrollInteractionFalseToTrue')
             .margin('5vp')
             .onClick(() => {
-              this.changeValue = !this.changeValue;
+              this.initBoolean = false;
+              this.changeValue = true;
+              this.scroller.scrollBy(200, 200);
+            })
+          Button('true to false')
+            .id('ScrollEnableScrollInteractionTrueToFalse')
+            .margin('5vp')
+            .onClick(() => {
+              this.initBoolean = true;
+              this.changeValue = false;
               this.scroller.scrollBy(200, 200);
             })
         }.width('100%')
 
-
         Scroll(this.scroller) {
-          Column() {
-            ForEach(ArrEntity.arr, (index: number) => {
-              if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(true, 1)) {
-              }
+          ForEach(ArrEntity.arr, (index: number) => {
+            if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(true, 1)) {
+            }
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
 
-              Column()
-                .width('100%')
-                .height(20)
-                .margin(5)
-                .backgroundColor(Color.Blue)
-              if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(false, 1)) {
-              }
-            }, (item: number) => JSON.stringify(item))
-          }
+            Column()
+              .width('100%')
+              .height(20)
+              .margin(5)
+              .backgroundColor(Color.Blue)
+            if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(false, 1)) {
+            }
+          }, (item: number) => JSON.stringify(item))
         }
         .scrollable(ScrollDirection.Vertical)
         .width('100%')

@@ -17,13 +17,13 @@
  * Swiper组件duration属性更新滑动布局耗时
  */
 
-import { ArrEntity } from '../../../entity/ArrEntity'
-import { TimeHelper } from '../../../util/TimeHelper'
+import { ArrEntity } from '../../../entity/ArrEntity';
+import { TimeHelper } from '../../../util/TimeHelper';
 
 @Entry
 @Component
 struct SwiperDurationSample {
-  // timeHelper: TimeHelper = new TimeHelper('SwiperDurationSample');
+  timeHelper: TimeHelper = new TimeHelper('SwiperDurationSample');
   @State duration: number = 200;
 
   build() {
@@ -38,11 +38,10 @@ struct SwiperDurationSample {
             })
         }.width('100%')
 
-        // if (this.duration != null && this.timeHelper.printTime(true)) {
-        // }
-
         Swiper() {
           ForEach(ArrEntity.arr, (index: number) => {
+            if (this.duration != null && this.timeHelper.printTime(true)) {
+            }
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
@@ -63,12 +62,10 @@ struct SwiperDurationSample {
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
+            if (this.duration != null && this.timeHelper.printTime(false)) {
+            }
           })
         }.duration(this.duration)
-
-        // if (this.duration != null && this.timeHelper.printTime(false)) {
-        // }
-
       }
       .width('100%')
     }.margin({ bottom: 60 })
