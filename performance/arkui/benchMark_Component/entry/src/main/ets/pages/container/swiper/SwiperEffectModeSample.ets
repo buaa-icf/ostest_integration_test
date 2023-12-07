@@ -17,13 +17,13 @@
  * Swiper组件边缘滑动页面布局
  */
 
-import { ArrEntity } from '../../../entity/ArrEntity'
-import { TimeHelper } from '../../../util/TimeHelper'
+import { ArrEntity } from '../../../entity/ArrEntity';
+import { TimeHelper } from '../../../util/TimeHelper';
 
 @Entry
 @Component
 struct SwiperEffectModeSample {
-  // timeHelper: TimeHelper = new TimeHelper('SwiperEffectModeSample');
+  timeHelper: TimeHelper = new TimeHelper('SwiperEffectModeSample');
   @State effectMode: EdgeEffect = EdgeEffect.None;
 
   build() {
@@ -50,11 +50,10 @@ struct SwiperEffectModeSample {
             })
         }.width('100%')
 
-        // if (this.effectMode != null && this.timeHelper.printTime(true)) {
-        // }
-
         Swiper() {
           ForEach(ArrEntity.arr, (index: number) => {
+            if (this.effectMode != null && this.timeHelper.printTime(true)) {
+            }
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
@@ -75,15 +74,12 @@ struct SwiperEffectModeSample {
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
+            if (this.effectMode != null && this.timeHelper.printTime(false)) {
+            }
           })
         }
         .loop(false)
         .effectMode(this.effectMode)
-
-
-        // if (this.effectMode != null && this.timeHelper.printTime(false)) {
-        // }
-
       }
       .width('100%')
     }.margin({ bottom: 60 })

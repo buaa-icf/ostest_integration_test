@@ -17,13 +17,13 @@
  * SwiperController控制页面滑动布局
  */
 
-import { ArrEntity } from '../../../entity/ArrEntity'
-import { TimeHelper } from '../../../util/TimeHelper'
+import { ArrEntity } from '../../../entity/ArrEntity';
+import { TimeHelper } from '../../../util/TimeHelper';
 
 @Entry
 @Component
 struct SwiperControllerShowNextSample {
-  // timeHelper: TimeHelper = new TimeHelper('SwiperControllerShowNextSample');
+  timeHelper: TimeHelper = new TimeHelper('SwiperControllerShowNextSample');
   private swiperController: SwiperController = new SwiperController();
 
   build() {
@@ -38,12 +38,10 @@ struct SwiperControllerShowNextSample {
             })
         }.width('100%')
 
-        // if (this.timeHelper.printTime(true)) {
-        // }
-
         Swiper(this.swiperController) {
           ForEach(ArrEntity.arr, (index: number) => {
-
+            if (this.timeHelper.printTime(true)) {
+            }
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
@@ -64,13 +62,10 @@ struct SwiperControllerShowNextSample {
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
-
+            if (this.timeHelper.printTime(false)) {
+            }
           })
         }
-
-        // if (this.timeHelper.printTime(false)) {
-        // }
-
       }
       .width('100%')
     }.margin({ bottom: 60 })

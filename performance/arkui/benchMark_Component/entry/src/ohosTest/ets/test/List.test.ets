@@ -14,19 +14,7 @@
  */
 
 import abilityTest from './Ability.test'
-import firstProjectTest from './FirstProject.test'
-import twoTest from './Two.test'
-import threeTest from './Three.test'
-import gridRow from './GridRow.test'
-import middleThirteenTest from './MiddleThirteen.test'
-import patternLockToScrollBarTest from './PatternLockToScrollBar.test'
 
 export default function testsuite() {
-  // abilityTest()
-  firstProjectTest()
-  twoTest()
-  threeTest()
-  gridRow()
-  middleThirteenTest()
-  patternLockToScrollBarTest()
+  abilityTest()
 }

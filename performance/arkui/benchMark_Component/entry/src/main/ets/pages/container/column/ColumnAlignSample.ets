@@ -19,7 +19,7 @@ import { TimeHelper } from '../../../util/TimeHelper'
 @Entry
 @Component
 struct ColumnAlignSample {
-  timeHelper: TimeHelper = new TimeHelper('TextAlignSample');
+  timeHelper: TimeHelper = new TimeHelper('ColumnAlignSample');
   @State columnAlign: HorizontalAlign = HorizontalAlign.Center;
 
   build() {

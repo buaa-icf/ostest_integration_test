@@ -18,8 +18,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct columnSpaceMarginSample {
-  timeHelper: TimeHelper = new TimeHelper('columnSpaceMarginSample');
+struct ColumnSpaceMarginSample {
+  timeHelper: TimeHelper = new TimeHelper('ColumnSpaceMarginSample');
   @State columnSpace: number = 20;
   @State columnMargin: number = 20;
 

@@ -19,8 +19,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct Sample {
-  timeHelper: TimeHelper = new TimeHelper('Sample');
+struct ScrollPaddingSample {
+  timeHelper: TimeHelper = new TimeHelper('ScrollPaddingSample');
   buttonName: string = '';
   @State changeValue: number = 20;
 

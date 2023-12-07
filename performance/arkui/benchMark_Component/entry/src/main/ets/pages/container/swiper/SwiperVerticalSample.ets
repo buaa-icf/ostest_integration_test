@@ -64,7 +64,7 @@ struct SwiperVerticalSample {
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
 
-            if (this.swiperVertical != null && this.timeHelper.printTime(false)) {
+            if (this.swiperVertical && this.timeHelper.printTime(false)) {
             }
           })
         }.vertical(this.swiperVertical)

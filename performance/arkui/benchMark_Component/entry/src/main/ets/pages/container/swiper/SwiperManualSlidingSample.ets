@@ -17,23 +17,21 @@
  * 手指滑动页面布局耗时
  */
 
-import { ArrEntity } from '../../../entity/ArrEntity'
-import { TimeHelper } from '../../../util/TimeHelper'
+import { ArrEntity } from '../../../entity/ArrEntity';
+import { TimeHelper } from '../../../util/TimeHelper';
 
 @Entry
 @Component
 struct SwiperManualSlidingSample {
-  // timeHelper: TimeHelper = new TimeHelper('SwiperManualSlidingSample');
+  timeHelper: TimeHelper = new TimeHelper('SwiperManualSlidingSample');
 
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-
-        // if (this.timeHelper.printTime(true)) {
-        // }
-
         Swiper() {
           ForEach(ArrEntity.arr, (index: number) => {
+            if (this.timeHelper.printTime(true)) {
+            }
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
@@ -54,12 +52,10 @@ struct SwiperManualSlidingSample {
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
             Text("" + index).width('100%').height('80%')
+            if (this.timeHelper.printTime(false)) {
+            }
           })
         }
-
-        // if (this.timeHelper.printTime(false)) {
-        // }
-
       }
       .width('100%')
     }.margin({ bottom: 60 })
