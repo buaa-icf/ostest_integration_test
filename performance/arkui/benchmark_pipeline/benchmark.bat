@@ -17,9 +17,9 @@
 set testname=test
 set tagname=tag
 set rownum=0
- 
+
 ::场景条件
-echo Benchmark场景及测试模块
+echo Benchmark场景用例
 echo 1：界面上Column中包含100个button，点击某一button【DispatchTouchEvent】
 echo 2：界面上Column中包含100个button（使用自定义组件包裹）点击某一button【DispatchTouchEvent】
 echo 3：界面上嵌套100层Column，最底层为button，点击button【DispatchTouchEvent】
@@ -49,11 +49,19 @@ echo 19：界面上Column中包含100个button，点击button改变button宽高【HandleOnAreaCh
 echo 20：界面上Column中包含100个button（使用自定义组件包裹），点击button改变button宽高【HandleOnAreaChangeEvent】
 
 
-
 echo ------------------
 echo ------------------
-set /P mode=请输入Benchmark场景及测试模块编号：
 
+::如果大于20就停止运行
+if %mode% gtr 20 (
+echo Benchmark场景用例已全部运行
+pause
+exit
+)
+
+::如果非自动运行
+if %isAuto% equ 2 (set /P mode=请输入Benchmark场景用例编号：)
+ 
 set rownum=%mode%
 
 if %mode% equ 1 (
@@ -120,10 +128,6 @@ set tagname=HandleOnAreaChangeEvent
 
 @echo on
 
-echo testname=%testname%
-echo tagname=%tagname%
-echo rownum=%rownum%
-
 
 ::获取年月日
 set ymd=%date:~0,4%%date:~5,2%%date:~8,2%
@@ -138,15 +142,9 @@ for /f "tokens=* delims=" %%a in ("%hms%") do set hms=%%a
 set tracefolder=trace_%ymd%
 set filename=%testname%_%ymd%_%hms%.ftrace
 if not exist %tracefolder% (mkdir %tracefolder%)
-::屏幕常亮，600是关闭
-hdc shell power-shell setmode 602
-::先卸载再安装
-hdc app uninstall com.example.benchmark
-hdc install Benchmark\entry\build\default\outputs\default\entry-default-signed.hap
-hdc install Benchmark\entry\build\default\outputs\ohosTest\entry-ohosTest-signed.hap
+
+
 ::运行自动化和bytrace
-hdc wait-for-device shell mount -o remount,rw /
-hdc shell "setenforce 0"
 start cmd /c test.bat %testname%
 timeout -nobreak 3
-start cmd /c bytrace.bat %filename% %tracefolder% %tagname% %rownum%
+start cmd /c bytrace.bat %filename% %tracefolder% %tagname% %rownum% %mode% %isAuto%

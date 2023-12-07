@@ -11,22 +11,6 @@
 :: See the License for the specific language governing permissions and
 :: limitations under the License.
 
-::运行bytrace
-hdc shell "bytrace -t 10 -b 40960 --overwrite ability ace graphic > /data/%filename%"
-hdc shell "sed -i '1,2d' /data/%filename%"
-hdc file recv /data/%filename% ./%tracefolder%/%filename%
-:: 解析
-python3 traceParseFile.py --ftrace %tracefolder%/%filename% --tags %tagname% --ofile 渲染管线报告.xls --ofilePos %rownum%,6
-
-::延迟1秒
-timeout -nobreak 3
-
-::如果自动运行，mode小于等于20就递增1
-if %isAuto% equ 1 (
-if %mode% leq 20 (
-set /a mode=%mode%+1
-start cmd /c benchmark.bat %isAuto% %mode%
-)
-) else (
-start cmd /c benchmark.bat
-)
+::安装python插件读写Excel
+pip3 install xlrd
+pip3 install xlutils
