@@ -34,4 +34,4 @@
 > 
 > 4、在运行用例时，禁止打开【渲染管线报告.xls】，否则耗时时间无法写入
 > 
-> !([图片6](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image6.png))
+> ![图片6](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image6.png)
