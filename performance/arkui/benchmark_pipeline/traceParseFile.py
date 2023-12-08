@@ -1,15 +1,15 @@
-# Copyright (c) 2023 Huawei Device Co., Ltd.
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+#Copyright (c) 2023 Huawei Device Co., Ltd.
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
 #
-#  http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#Unless required by applicable law or agreed to in writing, software
+#distributed under the License is distributed on an "AS IS" BASIS,
+#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#See the License for the specific language governing permissions and
+#limitations under the License.
 
 #!/usr/bin/python3 
 import re
@@ -73,6 +73,14 @@ taskAndId="benchmark"
 currUnCompleteTagsQue = []
 #指定需要处理的，已完成的tag
 completeTagsDict = {}
+
+#特殊处理
+dispatchTouchEventPreDuration=0
+dispatchTouchEventComplete=False
+flushLayoutTaskMaxDuration=0
+flushMessagesMaxDuration=0
+
+
 #读取读取文件
 with open(ftraceFile) as file:
     for item in file:
@@ -118,16 +126,44 @@ with open(ftraceFile) as file:
                                     #有其他帧记录的话，时长求和，更新该{tag}的时长
                                     if(completeTag == tag):
                                         foundSameTag=True
-                                       
+                                        
                                         totalDuration=int(completeDuration)+duration 
                                         completeTagsDict[tag]=totalDuration
                                         print("update TAG[%s] total time:%d μs, currduration:%d μs, oriDuration:%d μs " % (tag,totalDuration,duration,completeDuration)) 
                                         print("completeTagsDict:" ,completeTagsDict)
+
+                                        #特殊处理
+                                        if(tag.find('FlushLayoutTask')==0): 
+                                            if(flushLayoutTaskMaxDuration<duration):
+                                                flushLayoutTaskMaxDuration=duration
+
+                                        if(tag.find('FlushMessages')==0): 
+                                            if(flushMessagesMaxDuration<duration):
+                                                flushMessagesMaxDuration=duration
+                                            
+                                        if(tag.find('DispatchTouchEvent')==0): 
+                                            if(dispatchTouchEventComplete is False): 
+                                                completeTagsDict[tag]=0
+                                                dispatchTouchEventComplete=True
+
                                         break
 
                                 if(foundSameTag is False): 
                                     #没有过这个{tag}记录的话，添加记录 
                                     completeTagsDict[tag]=duration
+
+                                    #特殊处理
+                                    if(tag.find('FlushLayoutTask')==0): 
+                                        if(flushLayoutTaskMaxDuration<duration):
+                                            flushLayoutTaskMaxDuration=duration
+
+                                    if(tag.find('FlushMessages')==0): 
+                                        if(flushMessagesMaxDuration<duration):
+                                            flushMessagesMaxDuration=duration
+                                    
+                                    if(tag.find('DispatchTouchEvent')==0): 
+                                        completeTagsDict[tag]=0
+
                                     print("add TAG[%s] duration:%d μs" % (tag,duration))
                                     print("completeTagsDict:", completeTagsDict)
                                 break
@@ -135,6 +171,16 @@ with open(ftraceFile) as file:
 #相同tag时长求和
 print("result:",completeTagsDict)
 
+#特殊处理
+for completeTag, completeDuration in  completeTagsDict.items(): 
+    if(tag.find('FlushLayoutTask')==0): 
+        completeTagsDict[tag]=flushLayoutTaskMaxDuration
+    
+    if(tag.find('FlushMessages')==0): 
+        completeTagsDict[tag]=flushMessagesMaxDuration 
+
+
+    
 ##################写结果到文件中##################
 print("outExcelFile:",outExcelFile)
 if(len(tagDict)==1):

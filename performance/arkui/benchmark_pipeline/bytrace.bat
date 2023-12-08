@@ -19,7 +19,7 @@ hdc file recv /data/%filename% ./%tracefolder%/%filename%
 python3 traceParseFile.py --ftrace %tracefolder%/%filename% --tags %tagname% --ofile 渲染管线报告.xls --ofilePos %rownum%,6
 
 ::延迟1秒
-timeout -nobreak 3
+timeout -nobreak 1
 
 ::如果自动运行，mode小于等于20就递增1
 if %isAuto% equ 1 (
