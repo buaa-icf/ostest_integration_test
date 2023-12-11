@@ -12,8 +12,7 @@
 ├── xlpip.bat                         // 安装读写Excel插件的工具
 ```
 
-
-
+>  **benchmark_pipeline_report.html 需把html后缀改为xls** 
 
 
 # 安装python最新版，至少3.x以上
