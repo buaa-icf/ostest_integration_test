@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import router from '@ohos.router';
+
+@Entry
+@Component
+struct Index {
+  buttons: string[] = [
+    'benchmark01',
+    'benchmark02',
+    'benchmark03',
+    'benchmark04',
+    'benchmark05',
+    'benchmark06',
+    'benchmark07',
+    'benchmark08',
+    'benchmark09',
+    'benchmark10',
+    'benchmark11',
+    'benchmark12'
+  ]
+
+  build() {
+    Column() {
+      ForEach(this.buttons, (item: string) => {
+        Button(item).onClick((event: ClickEvent) => {
+          let capitalized = item.charAt(0).toUpperCase() + item.slice(1)
+          let page = `pages/${capitalized}`
+            router.pushUrl({url: page})
+        }).id(item)
+      }, (item: string) => item)
+    }
+    .width('100%').height('100%')
+    
+  }
+}
