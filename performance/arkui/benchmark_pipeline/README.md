@@ -1,14 +1,15 @@
-```工程目录结构
-├── Benchmark    // 场景用例Sample及ohosTest
-├── pip            // python安装读写Excel插件的配置文件
-├── screenshot    // 截图
-├── benchmark.bat         // 工具主体，启动trace生成解析和自动化
+# 工程目录结构
+```
+├── Benchmark                         // 场景用例Sample及ohosTest
+├── pip                               // python安装读写Excel插件的配置文件
+├── screenshot                        // 截图
+├── benchmark.bat                     // 工具主体，启动trace生成解析和自动化
 ├── benchmark_pipeline_report.html    // 管线渲染报告
-├── bytrace.bat         // trace生成工具
-├── startBuild.bat    // 工具入口
-├── test.bat    // 启动ohosTest
-├── traceParseFile.py    // trace解析
-├── xlpip.bat    // 安装读写Excel插件的工具
+├── bytrace.bat                       // trace生成工具
+├── startBuild.bat                    // 工具入口
+├── test.bat                          // 启动ohosTest
+├── traceParseFile.py                 // trace解析
+├── xlpip.bat                         // 安装读写Excel插件的工具
 ```
 
 
