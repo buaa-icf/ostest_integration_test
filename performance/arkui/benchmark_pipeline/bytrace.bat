@@ -16,7 +16,7 @@ hdc shell "bytrace -t 10 -b 40960 --overwrite ability ace graphic > /data/%filen
 hdc shell "sed -i '1,2d' /data/%filename%"
 hdc file recv /data/%filename% ./%tracefolder%/%filename%
 :: 解析
-python3 traceParseFile.py --ftrace %tracefolder%/%filename% --tags %tagname% --ofile 渲染管线报告.xls --ofilePos %rownum%,6
+python3 traceParseFile.py --ftrace %tracefolder%/%filename% --tags %tagname% --ofile benchmark_pipeline_report.xls --ofilePos %rownum%,6
 
 ::延迟1秒
 timeout -nobreak 1
