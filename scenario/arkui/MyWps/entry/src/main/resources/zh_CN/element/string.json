@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "MyWps"
+    },
+    {
+      "name": "wps_homepage",
+      "value": "首页"
+    },
+    {
+      "name": "wps_clouddoc",
+      "value": "云文档"
+    },
+    {
+      "name": "wps_service",
+      "value": "服务"
+    },
+    {
+      "name": "wps_daoker",
+      "value": "稻壳儿"
+    },
+    {
+      "name": "wps_me",
+      "value": "我"
+    },
+    {
+      "name": "wps_recent",
+      "value": "最近"
+    },
+    {
+      "name": "wps_share",
+      "value": "共享"
+    },
+    {
+      "name": "wps_star",
+      "value": "星标"
+    },
+    {
+      "name": "wps_label",
+      "value": "标签"
+    },
+    {
+      "name": "wps_local",
+      "value": "本机"
+    },
+    {
+      "name": "wps_today",
+      "value": "今天"
+    },
+    {
+      "name": "wps_sevendays",
+      "value": "七天内"
+    },
+    {
+      "name": "wps_earlier",
+      "value": "更早"
+    }
+  ]
+}

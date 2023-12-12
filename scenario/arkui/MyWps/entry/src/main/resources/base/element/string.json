@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "wps_homepage",
+      "value": "WpsHomePage"
+    },
+    {
+      "name": "wps_clouddoc",
+      "value": "WpsCloudDoc"
+    },
+    {
+      "name": "wps_service",
+      "value": "WpsService"
+    },
+    {
+      "name": "wps_daoker",
+      "value": "WpsDaoke"
+    },
+    {
+      "name": "wps_me",
+      "value": "WpsMe"
+    },
+    {
+      "name": "wps_recent",
+      "value": "WpsRecent"
+    },
+    {
+      "name": "wps_share",
+      "value": "WpsShare"
+    },
+    {
+      "name": "wps_star",
+      "value": "WpsStar"
+    },
+    {
+      "name": "wps_label",
+      "value": "WpsLabel"
+    },
+    {
+      "name": "wps_local",
+      "value": "WpsLocal"
+    },
+    {
+      "name": "wps_today",
+      "value": "WpsToday"
+    },
+    {
+      "name": "wps_sevendays",
+      "value": "WpsSevenDays"
+    },
+    {
+      "name": "wps_earlier",
+      "value": "WpsEarlier"
+    }
+  ]
+}
