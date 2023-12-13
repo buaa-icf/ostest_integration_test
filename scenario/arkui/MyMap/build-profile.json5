@@ -1,0 +1,49 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:\\Users\\shouz\\.ohos\\config\\openharmony\\auto_ohos_default_fMyMap_ohos.samples.mymap.cer",
+          "storePassword": "0000001B99E81160CFF29F29B0109B23412EB4FEA734A362AFA985C327B89F23E2D143CDE0DDD9C0129DF5",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B78C30858836845F6B11A9A9CFC7CE492283CAA5C8DAB1A7BEABFE2D74C7CD21F713C353F79A62F",
+          "profile": "C:\\Users\\shouz\\.ohos\\config\\openharmony\\auto_ohos_default_fMyMap_ohos.samples.mymap.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\shouz\\.ohos\\config\\openharmony\\auto_ohos_default_fMyMap_ohos.samples.mymap.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": 10,
+        "compatibleSdkVersion": 10,
+        "runtimeOS": "OpenHarmony",
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
