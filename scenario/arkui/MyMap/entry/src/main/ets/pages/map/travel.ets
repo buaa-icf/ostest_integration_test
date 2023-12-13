@@ -275,7 +275,7 @@ export struct travel {
                 .padding({ top: 15 })
 
                 Column() {
-                  Image($r('app.media.icon_blue_fMyMap'))
+                  Image($r('app.media.ic_orange_fMyMap'))
                     .height(45)
                     .objectFit(ImageFit.Contain)
                     .id('backBtn')
@@ -283,7 +283,7 @@ export struct travel {
                     .fontSize(16)
                     .align(Alignment.Start)
                     .padding({ top: 5, bottom: 20 })
-                  Image($r('app.media.icon_green_fMyMap'))
+                  Image($r('app.media.ic_orange_fMyMap'))
                     .height(45)
                     .objectFit(ImageFit.Contain)
                     .id('backBtn')
@@ -297,7 +297,7 @@ export struct travel {
                 .padding({ top: 15 })
 
                 Column() {
-                  Image($r('app.media.icon_blue_fMyMap'))
+                  Image($r('app.media.ic_purple_fMyMap'))
                     .height(45)
                     .objectFit(ImageFit.Contain)
                     .id('backBtn')
@@ -305,7 +305,7 @@ export struct travel {
                     .fontSize(16)
                     .align(Alignment.Start)
                     .padding({ top: 5, bottom: 20 })
-                  Image($r('app.media.icon_blue_fMyMap'))
+                  Image($r('app.media.icon_green_fMyMap'))
                     .height(45)
                     .objectFit(ImageFit.Contain)
                     .id('backBtn')
@@ -319,7 +319,7 @@ export struct travel {
                 .padding({ top: 15 })
 
                 Column() {
-                  Image($r('app.media.icon_blue_fMyMap'))
+                  Image($r('app.media.ic_purple_fMyMap'))
                     .height(45)
                     .objectFit(ImageFit.Contain)
                     .id('backBtn')
@@ -327,7 +327,7 @@ export struct travel {
                     .fontSize(16)
                     .align(Alignment.Start)
                     .padding({ top: 5, bottom: 20 })
-                  Image($r('app.media.icon_blue_fMyMap'))
+                  Image($r('app.media.ic_gray_fMyMap'))
                     .height(45)
                     .objectFit(ImageFit.Contain)
                     .id('backBtn')
@@ -358,7 +358,7 @@ export struct travel {
           Column({ space: 8 }) {
             Column() {
               Row() {
-                Image($r('app.media.icon_green_fMyMap'))
+                Image($r('app.media.ic_orange_fMyMap'))
                   .width('10%')
                   .height(30)
                   .objectFit(ImageFit.Contain)
