@@ -1,0 +1,44 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "MyShopping"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "MyShopping"
+    },
+    {
+      "name": "navigator_third_page_back",
+      "value": "Go back to the first page"
+    },
+    {
+      "name": "navigator_return_message",
+      "value": "hello! This is a param form the first page"
+    },
+    {
+      "name": "tabbar_home",
+      "value": "Home"
+    },
+    {
+      "name": "tabbar_guang",
+      "value": "Guang"
+    },
+    {
+      "name": "tabbar_new",
+      "value": "New"
+    },
+    {
+      "name": "tabbar_cart",
+      "value": "Cart"
+    },
+    {
+      "name": "tabbar_mine",
+      "value": "Mine"
+    }
+  ]
+}
