@@ -82,7 +82,7 @@ flushMessagesMaxDuration=0
 
 
 #读取读取文件
-with open(ftraceFile) as file:
+with open(ftraceFile, 'r', errors='ignore') as file:
     for item in file:
         #在ftrace中是多进程一起记录，故各个进程必须独立解析
         #初步判断是当前任务
@@ -189,8 +189,27 @@ if(len(tagDict)==1):
     new_workbook = copy(workbook) 
     write_save = new_workbook.get_sheet(0)
     outExcelFilePosArr=outExcelFilePosition.split(",")
-
-    write_save.write(int(outExcelFilePosArr[0]), int(outExcelFilePosArr[1]), str(completeTagsDict[tagOri])+"μs")
+    row=int(outExcelFilePosArr[0])
+    column=int(outExcelFilePosArr[1])
+    # 测试数据
+    test_data=completeTagsDict[tagOri]
+    write_save.write(row, column, test_data)
+    
+    # 读取基线数据
+    work_sheet=workbook.sheets()[0]
+    base_line_data=int(work_sheet.cell_value(row, column-1))
+    # 测试数据与基线数据比对并写入结果
+    result="Pass"
+    # 如果测试数据大于基线数据
+    if(test_data>base_line_data):
+        # 不大于10%也算通过
+        if(((test_data-base_line_data)/base_line_data)<=0.1):
+            result="Pass"
+        else:
+            result="Fail"
+    write_save.write(row, column+1, result)
+    
+    print("test_data=%d, base_line_data:%d, comparison_result=%s" % (test_data,base_line_data,result)) 
 
     new_workbook.save(tempFileName) 
     workbook.release_resources() 

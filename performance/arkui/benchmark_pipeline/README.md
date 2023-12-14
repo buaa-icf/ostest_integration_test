@@ -1,4 +1,5 @@
 # 工程目录结构
+
 ```
 ├── Benchmark                         // 场景用例Sample及ohosTest
 ├── pip                               // python安装读写Excel插件的配置文件
@@ -14,6 +15,15 @@
 
 >  **benchmark_pipeline_report.html 需把html后缀改为xls** 
 
+# 前期准备
+
+### 设备
+
+> 1、手机要求Mate 60或同等级设备及以上
+> 
+> 2、系统要求ALN-AL00
+
+### 锁频锁核
 
 # 安装python最新版，至少3.x以上
 
@@ -43,12 +53,14 @@
 
 > 说明：
 > 
-> 1、确保所有工具和【渲染管线报告.xls】处于同一目录下；
+> 1、确保所有工具和【benchmark_pipeline_report.xls】处于同一目录下；
 > 
 > 2、如果选择1，则自动运行全部用例，中间无需做其他操作；如果选择2只可以运行具体某用例；
 > 
-> 3、无论选择1还是2，耗时时间都会自动写入【渲染管线报告.xls】；
+> 3、无论选择1还是2，耗时时间都会自动写入【benchmark_pipeline_report.xls】；
 > 
-> 4、在运行用例时，禁止打开【渲染管线报告.xls】，否则耗时时间无法写入。
+> 4、工具会自动比对，耗时时间小于基线时间或者不大于基线时间10%均为Pass，否则Fail
+> 
+> 5、在运行用例时，禁止打开【渲染管线报告.xls】，否则耗时时间无法写入。
 > 
 > ![图片6](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image6.png)

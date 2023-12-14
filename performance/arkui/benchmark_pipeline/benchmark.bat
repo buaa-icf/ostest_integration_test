@@ -42,8 +42,8 @@ echo ------------------
 echo 15：界面上Column中包含100个button，点击button改变button文字【FlushDirtyNodeUpdate】
 echo 16：界面上Column中包含100个button（使用自定义组件包裹），点击button改变button文字【FlushDirtyNodeUpdate】
 echo ------------------
-echo 17：界面上Column中包含100个button，点击button变为不可见【HandleVisibleAreaChangeEvent】
-echo 18：界面上Column中包含100个button（使用自定义组件包裹），点击button变为不可见【HandleVisibleAreaChangeEvent】
+echo 17：界面上Column中包含100个button，可以滑动，滑动到底部【HandleVisibleAreaChangeEvent】
+echo 18：界面上Column中包含100个button（使用自定义组件包裹），可以滑动，滑动到底部【HandleVisibleAreaChangeEvent】
 echo ------------------
 echo 19：界面上Column中包含100个button，点击button改变button宽高【HandleOnAreaChangeEvent】
 echo 20：界面上Column中包含100个button（使用自定义组件包裹），点击button改变button宽高【HandleOnAreaChangeEvent】
@@ -146,5 +146,5 @@ if not exist %tracefolder% (mkdir %tracefolder%)
 
 ::运行自动化和bytrace
 start cmd /c test.bat %testname%
-timeout -nobreak 3
+timeout -nobreak 5
 start cmd /c bytrace.bat %filename% %tracefolder% %tagname% %rownum% %mode% %isAuto%

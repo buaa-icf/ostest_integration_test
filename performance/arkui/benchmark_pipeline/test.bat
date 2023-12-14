@@ -12,4 +12,4 @@
 :: limitations under the License.
 
 ::×Ô¶¯»¯ÃüÁî
-hdc shell aa test -b com.example.benchmark -m entry_test -s unittest OpenHarmonyTestRunner -s class IndexTest#%1 -s timeout 150000
+hdc shell aa test -b com.example.benchmark -m entry_test -s unittest /ets/testrunner/OpenHarmonyTestRunner -s itName %1 -s timeout 60000
