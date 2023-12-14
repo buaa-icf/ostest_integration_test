@@ -33,7 +33,7 @@ struct TabsWidthSample {
           })
 
         ForEach(ArrEntity.arr, (index: number) => {
-          if (this.tabsWidth == '100%' && this.timeHelper.printTime(true)) {
+          if (this.tabsWidth != null && this.timeHelper.printTime(true)) {
           }
           Tabs().width(this.tabsWidth)
           Tabs().width(this.tabsWidth)
@@ -55,7 +55,7 @@ struct TabsWidthSample {
           Tabs().width(this.tabsWidth)
           Tabs().width(this.tabsWidth)
           Tabs().width(this.tabsWidth)
-          if (this.tabsWidth == '100%' && this.timeHelper.printTime(false)) {
+          if (this.tabsWidth != null && this.timeHelper.printTime(false)) {
           }
         }, (item: number) => JSON.stringify(item))
 

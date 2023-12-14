@@ -23,17 +23,16 @@ import { TimeHelper } from '../../../util/TimeHelper'
 @Entry
 @Component
 struct GridManualScrollingSample {
-  // timeHelper: TimeHelper = new TimeHelper('GridManualScrollingSample');
+  timeHelper: TimeHelper = new TimeHelper('GridManualScrollingSample');
 
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
 
         Grid() {
-          // if (this.timeHelper.printTime(true)) {
-          // }
           ForEach(ArrEntity.arr, (index: number) => {
-
+            if (this.timeHelper.printTime(true)) {
+            }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
@@ -54,10 +53,9 @@ struct GridManualScrollingSample {
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
-
+            if (this.timeHelper.printTime(false)) {
+            }
           })
-          // if (this.timeHelper.printTime(false)) {
-          // }
         }
         .height('100%')
         .columnsTemplate('1fr')

@@ -1,6 +1,6 @@
 import openpyxl
 
-file_path = 'D:/BenchMark/benchmark_next.ftrace'
+file_path = 'D:/BenchMark_tool/benchmark_next.ftrace'
 with open(file_path, 'r+', encoding='ISO-8859-1') as file:
    content = file.read()  # 读取文件内容
    new_content = content.replace(".N..", "....")  

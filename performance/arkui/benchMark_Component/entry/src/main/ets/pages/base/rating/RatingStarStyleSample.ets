@@ -35,7 +35,7 @@ struct RatingStarStyletyleSample {
         }.width('100%')
 
         ForEach(ArrEntity.arr, (index: number) => {
-          if (this.ratingStarStyle == 200 && this.timeHelper.printTime(true)) {
+          if (this.ratingStarStyle == 10 && this.timeHelper.printTime(true)) {
           }
 
           Rating().starStyle({ backgroundUri: '/common/notCompleteStar.svg', foregroundUri: '/common/completeStar.svg', secondaryUri: '/common/halfStar.svg' })

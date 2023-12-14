@@ -30,7 +30,8 @@ struct TextPickerMouseScrollSample {
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-
+        if (this.timeHelper.printTime(true)) {
+        }
         TextPicker({ range: this.dataStr })
           .onTouch((event: TouchEvent) => {
             if (event.type == TouchType.Down) {
@@ -40,7 +41,8 @@ struct TextPickerMouseScrollSample {
               this.timeHelper.printTime(false);
             }
           })
-
+        if (this.timeHelper.printTime(false)) {
+        }
       }
       .width('100%')
     }.margin({ bottom: 60 })

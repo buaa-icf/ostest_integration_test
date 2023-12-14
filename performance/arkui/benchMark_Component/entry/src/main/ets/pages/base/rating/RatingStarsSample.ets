@@ -35,7 +35,7 @@ struct RatingStarsSample {
         }.width('100%')
 
         ForEach(ArrEntity.arr, (index: number) => {
-          if (this.ratingStars == 200 && this.timeHelper.printTime(true)) {
+          if (this.ratingStars == 10 && this.timeHelper.printTime(true)) {
           }
 
           Rating().stars(this.ratingStars)

@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import { TimeHelper } from '../../../util/TimeHelper'
+import { TimeHelper } from '../../../util/TimeHelper';
 
 @Entry
 @Component
 struct SelectFirstExpandSample {
   timeHelper: TimeHelper = new TimeHelper('SelectFirstExpandSample');
-  // @State selectWidth: number = 100;
+  @State isExpand: boolean = false;
   selectOption: SelectOption[] = [{ value: 'aaa', icon: $r('app.media.app_icon') },
     { value: 'bbb', icon: $r('app.media.app_icon') },
     { value: 'ccc', icon: $r('app.media.app_icon') },
@@ -29,16 +29,15 @@ struct SelectFirstExpandSample {
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-
-        if (this.timeHelper.printTime(true)) {
+        if (this.isExpand && this.timeHelper.printTime(true)) {
         }
-
         Select(this.selectOption)
           .id('SelectFirstExpand')
-
-        if (this.timeHelper.printTime(false)) {
+          .onClick(() => {
+            this.isExpand = true;
+          })
+        if (this.isExpand && this.timeHelper.printTime(false)) {
         }
-
       }
       .width('100%')
     }.margin({ bottom: 60 })

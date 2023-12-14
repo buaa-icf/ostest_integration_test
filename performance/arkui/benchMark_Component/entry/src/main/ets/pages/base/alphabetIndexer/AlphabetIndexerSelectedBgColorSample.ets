@@ -18,8 +18,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct AlphabetIndexerSelectedBackgroundColorSample {
-  timeHelper: TimeHelper = new TimeHelper('AlphabetIndexerSelectedBackgroundColorSample');
+struct AlphabetIndexerSelectedBgColorSample {
+  timeHelper: TimeHelper = new TimeHelper('AlphabetIndexerSelectedBgColorSample');
   @State selectedBackgroundColor: Color = Color.Red;
   value: string[] = ['A', 'B', 'C'];
 
@@ -36,7 +36,7 @@ struct AlphabetIndexerSelectedBackgroundColorSample {
         }.width('100%')
 
         ForEach(ArrEntity.arr, (index: number) => {
-          if (this.selectedBackgroundColor == Color.Yellow && this.timeHelper.printTime(true)) {
+          if (this.selectedBackgroundColor != null && this.timeHelper.printTime(true)) {
           }
 
           AlphabetIndexer({ arrayValue: this.value, selected: 0 }).selectedBackgroundColor(this.selectedBackgroundColor);
@@ -60,7 +60,7 @@ struct AlphabetIndexerSelectedBackgroundColorSample {
           AlphabetIndexer({ arrayValue: this.value, selected: 0 }).selectedBackgroundColor(this.selectedBackgroundColor);
           AlphabetIndexer({ arrayValue: this.value, selected: 0 }).selectedBackgroundColor(this.selectedBackgroundColor);
 
-          if (this.selectedBackgroundColor == Color.Yellow && this.timeHelper.printTime(false)) {
+          if (this.selectedBackgroundColor != null && this.timeHelper.printTime(false)) {
           }
         }, (item: number) => JSON.stringify(item))
 

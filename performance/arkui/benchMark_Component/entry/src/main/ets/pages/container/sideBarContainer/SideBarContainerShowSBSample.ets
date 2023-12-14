@@ -22,8 +22,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct SideBarContainerShowSideBarSample {
-  timeHelper: TimeHelper = new TimeHelper('SideBarContainerShowSideBarSample');
+struct SideBarContainerShowSBSample {
+  timeHelper: TimeHelper = new TimeHelper('SideBarContainerShowSBSample');
   @State sideBarContainerShowSideBar: boolean = true;
 
   build() {
