@@ -18,7 +18,6 @@ hdc file recv /data/%filename% ./%tracefolder%/%filename%
 :: Ω‚Œˆ
 python3 traceParseFile.py --ftrace %tracefolder%/%filename% --tags %tagname% --ofile benchmark_pipeline_report.xls --ofilePos %rownum%,6
 
-
 ::—”≥Ÿ1√Î
 timeout -nobreak 1
 
