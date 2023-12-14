@@ -31,7 +31,7 @@ struct AlphabetIndexerHome {
         CommonButton({buttonName:'AlphabetIndexerCreate',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerCreateSample'});
         CommonButton({buttonName:'AlphabetIndexerSelectedColor',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerSelectedColorSample'});
         CommonButton({buttonName:'AlphabetIndexerPopupColor',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerPopupColorSample'});
-        CommonButton({buttonName:'AlphabetIndexerSelectedBackgroundColor',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerSelectedBackgroundColorSample'});
+        CommonButton({buttonName:'AlphabetIndexerSelectedBgColorSample',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerSelectedBgColorSample'});
         CommonButton({buttonName:'AlphabetIndexerPopupBackground',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerPopupBackgroundSample'});
         CommonButton({buttonName:'AlphabetIndexerSelectedFont',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerSelectedFontSample'});
         CommonButton({buttonName:'AlphabetIndexerPopupFont',buttonUrl:'pages/base/alphabetIndexer/AlphabetIndexerPopupFontSample'});

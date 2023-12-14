@@ -23,7 +23,7 @@ import { TimeHelper } from '../../../util/TimeHelper'
 @Entry
 @Component
 struct GridEdgeEffectSample {
-  // timeHelper: TimeHelper = new TimeHelper('GridEdgeEffectSample');
+  timeHelper: TimeHelper = new TimeHelper('GridEdgeEffectSample');
   @State edgeEffect: EdgeEffect = EdgeEffect.None;
   scroller: Scroller = new Scroller()
 
@@ -52,10 +52,9 @@ struct GridEdgeEffectSample {
         }.width('100%')
 
         Grid(this.scroller) {
-          // if (this.edgeValue >= 0 && this.timeHelper.printTime(true)) {
-          // }
           ForEach(ArrEntity.arr, (index: number) => {
-
+            if (this.edgeEffect >= 0 && this.timeHelper.printTime(true)) {
+            }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
@@ -76,10 +75,9 @@ struct GridEdgeEffectSample {
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
-
+            if (this.edgeEffect >= 0 && this.timeHelper.printTime(false)) {
+            }
           })
-          // if (this.edgeValue >= 0 && this.timeHelper.printTime(false)) {
-          // }
         }
         .height('100%')
         .columnsTemplate('1fr')

@@ -18,8 +18,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct DividerCreateSample {
-  timeHelper: TimeHelper = new TimeHelper('DividerCreateSample');
+struct MenuCreateSample {
+  timeHelper: TimeHelper = new TimeHelper('MenuCreateSample');
 
   build() {
     Scroll() {

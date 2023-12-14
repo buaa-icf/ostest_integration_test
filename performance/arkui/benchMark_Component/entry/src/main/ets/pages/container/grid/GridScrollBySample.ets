@@ -23,8 +23,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 @Entry
 @Component
 struct GridScrollBySample {
-  // timeHelper: TimeHelper = new TimeHelper('GridScrollBySample');
-  // @State scrollByY: number = 0;
+  timeHelper: TimeHelper = new TimeHelper('GridScrollBySample');
+  @State scrollByY: number = 0;
   scroller: Scroller = new Scroller();
 
   build() {
@@ -40,10 +40,9 @@ struct GridScrollBySample {
         }.width('100%')
 
         Grid(this.scroller) {
-          // if (this.scrollByY >= 0 && this.timeHelper.printTime(true)) {
-          // }
           ForEach(ArrEntity.arr, (index: number) => {
-
+            if (this.scrollByY >= 0 && this.timeHelper.printTime(true)) {
+            }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
@@ -64,10 +63,9 @@ struct GridScrollBySample {
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
             GridItem() { Text(index.toString()) }
-
+            if (this.scrollByY >= 0 && this.timeHelper.printTime(false)) {
+            }
           })
-          // if (this.scrollByY >= 0 && this.timeHelper.printTime(false)) {
-          // }
         }
         .height('100%')
         .columnsTemplate('1fr')

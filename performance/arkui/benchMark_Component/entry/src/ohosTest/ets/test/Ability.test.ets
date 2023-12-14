@@ -1892,7 +1892,7 @@ export default function abilityTest() {
       await checkButtonAndClickWithID('GaugeStrokeWidthSample');
       await checkButtonAndClickWithID('change strokeWidth 4 to 10');
       await pressBack();
-      // await checkButtonAndClickWithID('GaugeTrackShadowSample');
+      // await checkButtonAndClickWithID('GaugeTrackShadowSample'); //trackShadow是api11的属性
       // await checkButtonAndClickWithID('change trackShadow');
       // await pressBack();
       await checkButtonAndClickWithID('GaugeAngleSample');
@@ -1948,7 +1948,7 @@ export default function abilityTest() {
       await checkButtonAndClickWithID('AlphabetIndexerChangePopupColor');
       await pressBack();
       //改变SelectedBackgroundColor
-      await checkButtonAndClickWithID('AlphabetIndexerSelectedBackgroundColor');
+      await checkButtonAndClickWithID('AlphabetIndexerSelectedBgColorSample');
       await checkButtonAndClickWithID('AlphabetIndexerChangeSelectedBackgroundColor');
       await pressBack();
       // 改变PopupBackground
@@ -2187,6 +2187,18 @@ export default function abilityTest() {
       //改变PathStrokeWidth
       await checkButtonAndClickWithID('PatternLockPathStrokeWidth');
       await checkButtonAndClickWithID('PatternLockChangePathStrokeWidth');
+      await pressBack();
+      await checkButtonAndClickWithID('PatternLockWidth');
+      await checkButtonAndClickWithID('PatternLockChangeWidth');
+      await pressBack();
+      await checkButtonAndClickWithID('PatternLockHeight');
+      await checkButtonAndClickWithID('PatternLockChangeHeight');
+      await pressBack();
+      await checkButtonAndClickWithID('PatternLockPadding');
+      await checkButtonAndClickWithID('PatternLockChangePadding');
+      await pressBack();
+      await checkButtonAndClickWithID('PatternLockMargin');
+      await checkButtonAndClickWithID('PatternLockChangeMargin');
       await pressBack();
       await pressBack(); //返回首页
     })
@@ -2440,42 +2452,42 @@ export default function abilityTest() {
       await checkButtonAndClickWithID('SideBarContainerMarginSample');
       await checkButtonAndClickWithID('change margin 20 to 30');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerShowSideBarSample');
+      await checkButtonAndClickWithID('SideBarContainerShowSBSample');
       await checkButtonAndClickWithID('change showSideBar');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerControlButtonSample');
+      await checkButtonAndClickWithID('SideBarContainerCBSample');
       await checkButtonAndClickWithID('change controlButton');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerShowControlButtonSample');
+      await checkButtonAndClickWithID('SideBarContainerShowCBSample');
       await checkButtonAndClickWithID('change showControlButton');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerSideBarWidthSample');
+      await checkButtonAndClickWithID('SideBarContainerSideBarWSample');
       await checkButtonAndClickWithID('change sideBarWidth');
       await pressBack();
       await checkButtonAndClickWithID('SideBarContainerAutoHideSample');
       await checkButtonAndClickWithID('change autoHide');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerSideBarPositionSample');
+      await checkButtonAndClickWithID('SideBarContainerSideBarPSample');
       await checkButtonAndClickWithID('change sideBarPosition');
       await pressBack();
       await checkButtonAndClickWithID('SideBarContainerDividerSample');
       await checkButtonAndClickWithID('change divider');
       await pressBack();
       await driver.swipe(540, 1000, 540, 500);
-      await checkButtonAndClickWithID('SideBarContainerMinContentWidthSample');
+      await checkButtonAndClickWithID('SideBarContainerMinCWSample');
       await checkButtonAndClickWithID('change minContentWidth');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerMinSideBarWidthSample');
+      await checkButtonAndClickWithID('SideBarContainerMinSBWSample');
       await checkButtonAndClickWithID('change minSideBarWidth');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerMaxSideBarWidthSample');
+      await checkButtonAndClickWithID('SideBarContainerMaxSBWSample');
       await checkButtonAndClickWithID('change maxSideBarWidth');
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerDragSideBarSample');
+      await checkButtonAndClickWithID('SideBarContainerDragSBSample');
       await driver.delayMs(1000);
       await driver.swipe(300, 500, 100, 500);
       await pressBack();
-      await checkButtonAndClickWithID('SideBarContainerDragContentSample');
+      await checkButtonAndClickWithID('SideBarContainerDragCoSample');
       await driver.delayMs(1000);
       await driver.drag(300, 500, 500, 500);
       await pressBack();

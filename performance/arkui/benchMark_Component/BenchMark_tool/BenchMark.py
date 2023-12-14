@@ -4,7 +4,7 @@ from openpyxl.styles import Alignment
 samples = []
 components = []
 file_contents = []
-file_path = 'D:/BenchMark/benchmark_next.ftrace'
+file_path = 'D:/BenchMark_tool/benchmark_next.ftrace'
 content = "LoadJsWithModule Execute Page code : pages"
 last_line_content = 'tracing_mark_write: trace_event_clock_sync: parent_ts'
 

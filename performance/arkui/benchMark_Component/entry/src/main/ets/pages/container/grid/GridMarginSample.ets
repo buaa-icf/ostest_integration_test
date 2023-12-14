@@ -22,8 +22,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct FlexMarginSample {
-  timeHelper: TimeHelper = new TimeHelper('FlexMarginSample');
+struct GridMarginSample {
+  timeHelper: TimeHelper = new TimeHelper('GridMarginSample');
   @State GridMargin: number = 20;
 
   build() {

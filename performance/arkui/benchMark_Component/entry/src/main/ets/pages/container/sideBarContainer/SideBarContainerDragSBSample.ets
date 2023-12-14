@@ -22,8 +22,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct SideBarContainerDragSideBarSample {
-  timeHelper: TimeHelper = new TimeHelper('SideBarContainerDragSideBarSample');
+struct SideBarContainerDragSBSample {
+  timeHelper: TimeHelper = new TimeHelper('SideBarContainerDragSBSample');
 
   build() {
     Scroll() {

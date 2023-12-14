@@ -22,8 +22,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
-struct SideBarContainerMinSideBarWidthSample {
-  timeHelper: TimeHelper = new TimeHelper('SideBarContainerMinSideBarWidthSample');
+struct SideBarContainerMinSBWSample {
+  timeHelper: TimeHelper = new TimeHelper('SideBarContainerMinSBWSample');
   @State sideBarContainerMinSideBarWidth: number = 200;
 
   build() {

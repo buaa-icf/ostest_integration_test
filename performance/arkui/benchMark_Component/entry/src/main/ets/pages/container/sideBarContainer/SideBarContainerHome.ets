@@ -32,18 +32,18 @@ struct SideBarContainerHome {
         CommonButton({ buttonName: 'SideBarContainerHeightSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerHeightSample' });
         CommonButton({ buttonName: 'SideBarContainerPaddingSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerPaddingSample' });
         CommonButton({ buttonName: 'SideBarContainerMarginSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerMarginSample' });
-        CommonButton({ buttonName: 'SideBarContainerShowSideBarSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerShowSideBarSample' });
-        CommonButton({ buttonName: 'SideBarContainerControlButtonSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerControlButtonSample' });
-        CommonButton({ buttonName: 'SideBarContainerShowControlButtonSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerShowControlButtonSample' });
-        CommonButton({ buttonName: 'SideBarContainerSideBarWidthSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerSideBarWidthSample' });
+        CommonButton({ buttonName: 'SideBarContainerShowSBSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerShowSBSample' });
+        CommonButton({ buttonName: 'SideBarContainerCBSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerCBSample' });
+        CommonButton({ buttonName: 'SideBarContainerShowCBSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerShowCBSample' });
+        CommonButton({ buttonName: 'SideBarContainerSideBarWSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerSideBarWSample' });
         CommonButton({ buttonName: 'SideBarContainerAutoHideSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerAutoHideSample' });
-        CommonButton({ buttonName: 'SideBarContainerSideBarPositionSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerSideBarPositionSample' });
+        CommonButton({ buttonName: 'SideBarContainerSideBarPSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerSideBarPSample' });
         CommonButton({ buttonName: 'SideBarContainerDividerSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerDividerSample' });
-        CommonButton({ buttonName: 'SideBarContainerMinContentWidthSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerMinContentWidthSample' });
-        CommonButton({ buttonName: 'SideBarContainerMinSideBarWidthSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerMinSideBarWidthSample' });
-        CommonButton({ buttonName: 'SideBarContainerMaxSideBarWidthSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerMaxSideBarWidthSample' });
-        CommonButton({ buttonName: 'SideBarContainerDragSideBarSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerDragSideBarSample' });
-        CommonButton({ buttonName: 'SideBarContainerDragContentSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerDragContentSample' });
+        CommonButton({ buttonName: 'SideBarContainerMinCWSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerMinCWSample' });
+        CommonButton({ buttonName: 'SideBarContainerMinSBWSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerMinSBWSample' });
+        CommonButton({ buttonName: 'SideBarContainerMaxSBWSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerMaxSBWSample' });
+        CommonButton({ buttonName: 'SideBarContainerDragSBSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerDragSBSample' });
+        CommonButton({ buttonName: 'SideBarContainerDragCoSample', buttonUrl: 'pages/container/sideBarContainer/SideBarContainerDragCoSample' });
 
       }
       .padding('5vp')

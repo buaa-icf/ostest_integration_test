@@ -19,7 +19,7 @@ import { TimeHelper } from '../../../util/TimeHelper'
 @Component
 struct SelectSecondExpandSample {
   timeHelper: TimeHelper = new TimeHelper('SelectSecondExpandSample');
-  // @State selectWidth: number = 100;
+  @State isExpand: boolean = false;
   selectOption: SelectOption[] = [{ value: 'aaa', icon: $r('app.media.app_icon') },
     { value: 'bbb', icon: $r('app.media.app_icon') },
     { value: 'ccc', icon: $r('app.media.app_icon') },
@@ -29,16 +29,15 @@ struct SelectSecondExpandSample {
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-
-        // if (this.selectWidth == 200 && this.timeHelper.printTime(true)) {
-        // }
-
+        if (this.isExpand && this.timeHelper.printTime(true)) {
+        }
         Select(this.selectOption)
           .id('SelectSecondExpand')
-
-        // if (this.selectWidth == 200 && this.timeHelper.printTime(false)) {
-        // }
-
+          .onClick(() => {
+            this.isExpand = true;
+          })
+        if (this.isExpand && this.timeHelper.printTime(false)) {
+        }
       }
       .width('100%')
     }.margin({ bottom: 60 })
