@@ -21,9 +21,9 @@
         "type": "HarmonyOS",
         "material": {
           "certpath": "C:\\Users\\LeeiOS\\.ohos\\config\\auto_debug_Benchmark_com.example.benchmark_2850086000500386127.cer",
-          "storePassword": "0000001A8B84254F56DEBBB02E7D698F0FED83DBFA69347BBBB1C1DABCFE6B630D2A20C2C0215560CA4B",
+          "storePassword": "0000001A61C9AAB1D34D4683D01A84952C62F8FDA60704162E3C3277EB16A657072CC0AFCBE8F75FD151",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001A5DD9164C6B958A05D9A532352F07A012659A36A9BBDC5A26847736547F873912B137D7E0DBF0",
+          "keyPassword": "0000001A32C6990C4CA92032D943A1CCA53077CC0EE6074F63A3ECB627E672D2ADDD249C8C2A8E5C59E4",
           "profile": "C:\\Users\\LeeiOS\\.ohos\\config\\auto_debug_Benchmark_com.example.benchmark_2850086000500386127.p7b",
           "signAlg": "SHA256withECDSA",
           "storeFile": "C:\\Users\\LeeiOS\\.ohos\\config\\auto_debug_Benchmark_com.example.benchmark_2850086000500386127.p12"

@@ -27,6 +27,10 @@ async function startApp() {
   await abilityDelegatorRegistry.getAbilityDelegator().startAbility(want)
 }
 
+function sleep(time: number) {
+  return new Promise<void>((resolve: Function) => setTimeout(resolve, time));
+}
+
 // 通用测试case
 async function commonTestCase(pageBtnId: string, compId: string) {
   // 启动App
@@ -36,6 +40,9 @@ async function commonTestCase(pageBtnId: string, compId: string) {
   await driver.delayMs(5000) // 延迟1s
   // 点击跳转用例页面
   let bk = await driver.findComponent(ON.id(pageBtnId))
+  while (bk == null) {
+    bk = await driver.findComponent(ON.id(pageBtnId))
+  }
   await bk.click()
   // 跳转页面耗时
   await driver.delayMs(1000)
@@ -50,7 +57,7 @@ async function commonTestCase(pageBtnId: string, compId: string) {
     await firstBtn.click()
   }
   // **当前页面跳转or显示有转场动画时间or按钮点击事件处理，需要延迟**
-  await driver.delayMs(2000)
+  await driver.delayMs(3000)
 }
 
 export default function IndexTest() {
