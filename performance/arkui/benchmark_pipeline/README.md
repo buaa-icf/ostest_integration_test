@@ -25,7 +25,7 @@
 
 ### 锁频锁核
 
-> [脚本地址下载](wiki.huawei.com/domains/1456/wiki/8/WIKI20220906294838)
+> [脚本地址下载](https://wiki.huawei.com/domains/1456/wiki/8/WIKI20220906294838)
 > 
 > 使用方法按上面wiki文档说明操作即可
 
