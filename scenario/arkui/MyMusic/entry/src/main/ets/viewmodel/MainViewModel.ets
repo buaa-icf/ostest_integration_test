@@ -232,8 +232,8 @@ export class MainViewModel {
       new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万', ''),
       new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万', ''),
       new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万', '收藏过万'),
-      new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万', ''),
-      new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万', '收藏过万')
+      new MidItemData('节奏控系列【抖腿-ing】11', $r('app.media.brand'), '47万', ''),
+      new MidItemData('下班回家时超适合放松的歌单11', $r('app.media.found'), '475万', '收藏过万')
     ];
     return aGridData;
   }
@@ -369,6 +369,18 @@ export class MainViewModel {
       new MineListItemData('2018-3 彷徨之伤', $r("app.media.fig4"), '歌单·42首·闲潭春半', Visibility.None, Visibility.None),
       new MineListItemData('2022-1 飘渺之缘', $r("app.media.fig5"), '歌单·17首·闲潭春半', Visibility.None, Visibility.None),
       new MineListItemData('2021-2 荒芜之路', $r("app.media.fig21"), '歌单·20首·闲潭春半', Visibility.None, Visibility.None),
+      new MineListItemData('新建歌单', $r("app.media.ic_public_add"), '', Visibility.None, Visibility.None)
+    ];
+    return listData;
+  }
+  getMineListItemDataCreate(): Array<ItemData> {
+    let listData: MineListItemData[] = [
+      new MineListItemData('日推01', $r("app.media.brand1"), '32首·0次播放', Visibility.Visible, Visibility.None),
+      new MineListItemData('2023-1 漫天之尘', $r("app.media.fig3"), '歌单·19首·闲潭春半', Visibility.Visible, Visibility.None),
+      new MineListItemData('2022-1 飘渺之缘', $r("app.media.fig5"), '歌单·17首·闲潭春半', Visibility.Visible, Visibility.None),
+      new MineListItemData('2021-2 荒芜之路', $r("app.media.fig21"), '歌单·20首·闲潭春半', Visibility.Visible, Visibility.None),
+      new MineListItemData('2018-3 彷徨之伤', $r("app.media.fig4"), '歌单·42首·闲潭春半', Visibility.Visible, Visibility.None),
+      new MineListItemData('时空之力', $r("app.media.fig2"), '歌单·26首·闲潭春半', Visibility.Visible, Visibility.None),
       new MineListItemData('新建歌单', $r("app.media.ic_public_add"), '', Visibility.None, Visibility.None)
     ];
     return listData;

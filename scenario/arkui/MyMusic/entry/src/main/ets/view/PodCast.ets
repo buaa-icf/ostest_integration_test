@@ -15,6 +15,7 @@
 
 import CommonConstants from '../common/constants/CommonConstants';
 import { PodCastHead } from './PodCastHead';
+import { PodCastHeadRight } from './PodCastHeadRight';
 import PodCastContentFirst from './PodCastContentFirst';
 import PodCastContentSecond from './PodCastContentSecond';
 import PodCastContentThird from './PodCastContentThird';
@@ -86,13 +87,15 @@ export default struct PodCast {
       }
       .width(CommonConstants.FULL_PARENT)
       .barHeight($r('app.float.mainPage_barHeight'))
+      .barWidth('70%')
       .barMode(BarMode.Scrollable)
       .barPosition(BarPosition.Start)
       .onChange((index: number) => {
         this.subCurrentIndex = index;
       })
 
-      PodCastHead()
+      PodCastHead().width('10%').position({x:'5%',y:0})
+      PodCastHeadRight().width('10%').position({x:'90%',y:0})
       Search({
         placeholder: '大家都在听 爵士的音乐解读'
       })

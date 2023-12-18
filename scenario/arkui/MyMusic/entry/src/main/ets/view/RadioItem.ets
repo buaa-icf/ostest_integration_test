@@ -23,7 +23,6 @@ import prompt from '@ohos.promptAction';
 @Component
 export struct RadioItem {
   private items: ItemData[] = new Array<ItemData>();
-  ;
   @Consume playingTitle: string;
   @Consume playingArtist: string;
   @Consume playingImg: Resource;
