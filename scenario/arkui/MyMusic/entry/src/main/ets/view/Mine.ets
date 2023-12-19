@@ -19,6 +19,9 @@ import { MineInfo } from './MineInfo';
 import { MineListItem } from './MineListItem';
 import MineListItemData from '../viewmodel/MineListItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
+import MineMusic from './MineMusic';
+import MinePodCast from './MinePodCast';
+import MineActivity from './MineActivity';
 
 
 /**
@@ -29,10 +32,9 @@ export default struct Mine {
   @State subCurrentIndex: number = CommonConstants.HOME_TAB_INDEX;
   @State subCurrentIndex2: number = 0;
   @State headBackground: number = 0;
-  @Provide addVisibility: Visibility = Visibility.Visible
-  @Provide nameVisibility: Visibility = Visibility.None
+  @Provide addVisibility: boolean = true
+  @Provide nameVisibility: boolean = false
   private tabsController: TabsController = new TabsController();
-  private tabsController2: TabsController = new TabsController();
   private scroller: Scroller = new Scroller()
 
   @Builder
@@ -58,21 +60,6 @@ export default struct Mine {
     })
   }
 
-  @Builder
-  TabBuilder2(title: string, index: number) {
-    Column() {
-      Text(title)
-        .fontSize($r('app.float.little_text_size'))
-        .width('30%')
-        .textAlign(TextAlign.Center)
-        .fontColor(this.subCurrentIndex2 === index ? $r('app.color.mainPage_selected') : $r('app.color.mainPage_normal'))
-    }
-    .onClick(() => {
-      this.subCurrentIndex2 = index;
-      this.tabsController2.changeIndex(this.subCurrentIndex2);
-    })
-  }
-
   build() {
     Stack({ alignContent: Alignment.Top }) {
       Scroll(this.scroller) {
@@ -93,61 +80,20 @@ export default struct Mine {
               controller: this.tabsController
             }) {
               TabContent() {
-                Tabs({
-                  barPosition: BarPosition.End,
-                  controller: this.tabsController2
-                }) {
-                  TabContent() {
-                    List({ space: 10 }) {
-                      ForEach(mainViewModel.getMineListItemData(), (item: MineListItemData) => {
-                        ListItem() {
-                          MineListItem({ item })
-                        }
-                        .align(Alignment.Start)
-                      }, (item: MineListItemData) => JSON.stringify(item))
-                    }.margin('12vp')
-                    .edgeEffect(EdgeEffect.Spring)
-                    .nestedScroll({
-                      scrollForward: NestedScrollMode.PARENT_FIRST,
-                      scrollBackward: NestedScrollMode.SELF_FIRST
-                    })
-                  }.align(Alignment.Top)
-                  .tabBar(this.TabBuilder2('近期', 0))
-
-                  TabContent() {
-                    List({ space: 10 }) {
-                      ForEach(mainViewModel.getMineListItemData(), (item: MineListItemData) => {
-                        ListItem() {
-                          MineListItem({ item })
-                        }
-                        .align(Alignment.Start)
-                      }, (item: MineListItemData) => JSON.stringify(item))
-                    }.margin('12vp')
-                    .edgeEffect(EdgeEffect.Spring)
-                    .nestedScroll({
-                      scrollForward: NestedScrollMode.PARENT_FIRST,
-                      scrollBackward: NestedScrollMode.SELF_FIRST
-                    })
-                  }.align(Alignment.Top)
-                  .tabBar(this.TabBuilder2('创建', 1))
-                }
-                .barPosition(BarPosition.Start)
-                .onChange((index: number) => {
-                  this.subCurrentIndex2 = index;
-                })
+                MineMusic()
               }
               .align(Alignment.Top)
               .tabBar(this.TabBuilder('音乐', 0,
                 $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
 
               TabContent() {
-                Text('121212123221')
+                MinePodCast()
               }
               .tabBar(this.TabBuilder('播客', 1,
                 $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
 
               TabContent() {
-                Text('121212123221')
+                MineActivity()
               }
               .tabBar(this.TabBuilder('动态', 2,
                 $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
@@ -156,7 +102,7 @@ export default struct Mine {
             .width(CommonConstants.FULL_PARENT)
             .margin({ top: '24vp' })
             .barHeight($r('app.float.mainPage_barHeight'))
-            .barMode(BarMode.Scrollable)
+            .barMode(BarMode.Fixed)
             .barPosition(BarPosition.Start)
             .borderRadius('12vp')
             .backgroundColor('#F9F9F9')
@@ -178,21 +124,21 @@ export default struct Mine {
         let scrollStep: number = Math.abs(this.scroller.currentOffset().yOffset / 300);
         this.headBackground = scrollStep;
         if (scrollStep > 0.4) {
-          if (this.addVisibility !== Visibility.None) {
-            this.addVisibility = Visibility.None
+          if (this.addVisibility !== false) {
+            this.addVisibility = false
           }
         } else {
-          if (this.addVisibility !== Visibility.Visible) {
-            this.addVisibility = Visibility.Visible
+          if (this.addVisibility !== true) {
+            this.addVisibility = true
           }
         }
         if (scrollStep > 0.6) {
-          if (this.nameVisibility !== Visibility.Visible) {
-            this.nameVisibility = Visibility.Visible
+          if (this.nameVisibility !== true) {
+            this.nameVisibility = true
           }
         } else {
-          if (this.nameVisibility !== Visibility.None) {
-            this.nameVisibility = Visibility.None
+          if (this.nameVisibility !== false) {
+            this.nameVisibility = false
           }
         }
       })

@@ -17,13 +17,14 @@
  * List item information component.
  */
 import curves from '@ohos.curves'
+import prompt from '@ohos.promptAction';
 
 @Component
 export struct MineHead {
   @State handlePopup1: boolean = false
   @State handlePopup2: boolean = false
-  @Consume addVisibility: Visibility
-  @Consume nameVisibility: Visibility
+  @Consume addVisibility: boolean
+  @Consume nameVisibility: boolean
 
   build() {
     Row() {
@@ -36,32 +37,40 @@ export struct MineHead {
         .bindPopup(this.handlePopup1, {
           message: '这是个人菜单.',
         })
-      Row() {
-        Image($r('app.media.ic_public_add'))
-          .width('20vp')
-          .height('20vp')
-          .borderRadius('16vp')
-        Text('添加状态')
-          .margin({ left: '4vp' })
-      }.visibility(this.addVisibility)
-      .alignItems(VerticalAlign.Center)
-      .transition(TransitionEffect.OPACITY
-        .animation({ curve: curves.springMotion() })
-        .combine(TransitionEffect.move(TransitionEdge.TOP)))
-
-      Row() {
-        Image($r('app.media.brand'))
-          .width('28vp')
-          .height('28vp')
-          .borderRadius('16vp')
-        Text('闲潭春半')
-          .fontSize('20fp')
-          .margin({ left: '4vp' })
-      }.visibility(this.nameVisibility)
-      .alignItems(VerticalAlign.Center)
-      .transition(TransitionEffect.OPACITY
-        .animation({ curve: curves.springMotion() })
-        .combine(TransitionEffect.move(TransitionEdge.TOP)))
+      if (this.addVisibility) {
+        Row() {
+          Image($r('app.media.ic_public_add'))
+            .width('20vp')
+            .height('20vp')
+            .borderRadius('16vp')
+          Text('添加状态')
+            .margin({ left: '4vp' })
+        }
+        .alignItems(VerticalAlign.Center)
+        .transition(TransitionEffect.OPACITY
+          .animation({ curve: curves.springMotion() })
+          .combine(TransitionEffect.move(TransitionEdge.TOP)))
+        .onClick(() => {
+          prompt.showToast({
+            message: '添加状态'
+          })
+        })
+      }
+      if (this.nameVisibility) {
+        Row() {
+          Image($r('app.media.brand'))
+            .width('28vp')
+            .height('28vp')
+            .borderRadius('16vp')
+          Text('闲潭春半')
+            .fontSize('20fp')
+            .margin({ left: '4vp' })
+        }
+        .alignItems(VerticalAlign.Center)
+        .transition(TransitionEffect.OPACITY
+          .animation({ curve: curves.springMotion() })
+          .combine(TransitionEffect.move(TransitionEdge.TOP)))
+      }
 
       Row() {
         Image($r('app.media.search'))
