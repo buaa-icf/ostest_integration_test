@@ -22,12 +22,12 @@ ArkUI组件性能测试用例
 
 4. 抓取C++层trace数据（组件布局耗时数据）
 
-   运行单元测试（每次运行3-5个Function）![image-20231212160052752](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20231212160052752.png)
+   运行单元测试（每次运行3-5个Function）
+   ![1.png](preview/1.png)
 
    将生成的两个hap包复制到D://BenchMark_tool文件夹中
-
-    ![image-20231212160211450](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20231212160211450.png)
-
+   ![2.png](preview/2.png)
+ 
    修改bytrace执行时间，将D://BenchMark_tool/1.bat中hdc_std shell "bytrace -t 360 -b 204800 --overwrite ace  > /data/%filename%"命令中-t后边的360替换为当前单元测试的执行时间（单位秒）
 
    执行D://BenchMark_tool/1.bat脚本，紧接着执行2.bat脚本；等待脚本执行结束会在BenchMark_tool文件中生成BenchMark.xlsx
@@ -35,9 +35,7 @@ ArkUI组件性能测试用例
 5. 抓取js层组件创建耗时数据
    
    在D://BenchMark_tool下新建BenchMark_js.txt文件，将DevEco Studio控制台打印的数据（如下图数据）复制到BenchMark_js.txt文件中并保存，执行3.bat，等待脚本执行结束会在BenchMark_tool文件中生成BenchMark_js.xlsx
-   
-   ![image-20231213094019476](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20231213094019476.png)
-   
-   
+   ![3.png](preview/3.png)
+
    
    
