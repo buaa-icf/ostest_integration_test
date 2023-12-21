@@ -44,12 +44,12 @@ export struct MineListItem {
           .fontSize($r('app.float.small_text_size'))
           .fontColor(Color.Grey)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
-          .maxLines(1)
-          .margin({ top: '4vp' })
+          .maxLines(2)
+          .margin({ top: '4vp', right: '8vp' })
       }
-      .margin({ left: '4vp' })
+      .margin({ left: '4vp'})
       .alignItems(HorizontalAlign.Start)
-      .width('60%')
+      //.width('60%')
 
       Blank()
       Row() {
@@ -71,10 +71,12 @@ export struct MineListItem {
           .margin('1vp')
           .visibility(this.item.moreVisibility)
       }.justifyContent(FlexAlign.SpaceBetween)
-      .width('20%')
+      //.width('20%')
 
     }
     .justifyContent(FlexAlign.SpaceBetween)
+    .alignItems(VerticalAlign.Center)
+    .width('100%')
     .onClick(() => {
       this.playingTitle = this.item.title;
       this.playingArtist = this.item.subTitle;

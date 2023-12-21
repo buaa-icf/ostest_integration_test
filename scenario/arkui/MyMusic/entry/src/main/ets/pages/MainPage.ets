@@ -19,6 +19,7 @@ import PodCast from "../view/PodCast"
 import Mine from '../view/Mine'
 import { PlayerBar } from '../view/PlayerBar';
 import Setting from "../view/Setting"
+import Follow from '../view/Follow';
 
 /**
  * Main page
@@ -80,16 +81,14 @@ struct MainPage {
           $r('app.media.ic_public_mine_select'), $r('app.media.ic_public_mine')))
 
         TabContent() {
-          Setting()
+          Follow()
         }
-        .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
         .tabBar(this.TabBuilder(CommonConstants.FOLLOW_TITLE, CommonConstants.FOLLOW_TAB_INDEX,
           $r('app.media.ic_public_highlight_select'), $r('app.media.ic_public_highlight')))
 
         TabContent() {
           Setting()
         }
-        .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
         .tabBar(this.TabBuilder(CommonConstants.SOCIAL_TITLE, CommonConstants.SOCIAL_TAB_INDEX,
           $r('app.media.ic_public_community_messages_select'), $r('app.media.ic_public_community_messages')))
       }
