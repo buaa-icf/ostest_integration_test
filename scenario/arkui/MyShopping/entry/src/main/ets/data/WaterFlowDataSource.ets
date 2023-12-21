@@ -15,7 +15,7 @@
 
 export class DataInfo {
   type!:string
-  src!:string
+  src!:string[]
 }
 
 // 实现IDataSource接口的对象，用于瀑布流组件加载数据
@@ -24,14 +24,18 @@ export class WaterFlowDataSource implements IDataSource {
 
   // 获取索引对应的数据
   public getData(index: number): DataInfo {
-    //let src="../../../../resources/rawfile/test_" + ("000" + index).substr(-4) + ".png"
-    //let src="../../../../resources/rawfile/autoimage" + index + ".png"
-    return {type:"type_" + index, src:"imgs/autoimage" + index + ".png"};
+    if (index === 0) {
+      return { type: "video", src: ["H264_AAC.mp4"] }
+    } else if (index === 10) {
+      return { type: "swiper", src: ["autoimage0.jpg", "autoimage1.jpg"] }
+    } else  {
+      return { type: "img", src: ["autoimage" + index + ".jpg"] }
+    }
   }
 
   // 获取数据总数
   public totalCount(): number {
-      return 1000
+      return 100
   }
 
   // 注册改变数据的控制器

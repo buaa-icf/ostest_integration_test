@@ -56,7 +56,10 @@ export struct Home {
             .height(30)
             .margin({ left: 9 })
             .objectFit(ImageFit.Contain)
-          TextInput({placeholder:'遥遥领先'}).backgroundColor(Color.White).width(135)
+          TextInput({placeholder:'遥遥领先'})
+            .backgroundColor(Color.White)
+            .width(135)
+            .defaultFocus(false)
           Blank()
           Column() {
             Text('搜索').fontColor(Color.White).fontSize(24)
@@ -291,18 +294,33 @@ export struct Home {
 
                 Row() {
                   WaterFlow({}) {
-                    LazyForEach(this.datasource, (item:DataInfo) => {
+                    LazyForEach(this.datasource, (item:DataInfo, idx:number) => {
                       FlowItem() {
                         Column() {
-                          Text("N" + item.type).fontSize(12).height('16')
-                          Image(item.src).objectFit(ImageFit.Fill)
-                          //以ets为根目录
-                          //Image('pages/components/myapp/res/autoimage0.png').objectFit(ImageFit.Fill)
-                        }
+                          Text(`${item.type}${idx}`).fontSize(12).height('16')
+                          if (item.type === "video") {
+                            Video({src:$rawfile(item.src[0])})
+                              .autoPlay(true)
+                              .height(100)
+                              .loop(true)
+                          } else if (item.type === "swiper") {
+                            Swiper(){
+                              ForEach(item.src, (img:string)=>{
+                                Image($rawfile(img)).objectFit(ImageFit.Fill).height(200)
+                              })
+                            }.autoPlay(true)
+                          } else if (idx % 4 == 0) {
+                            Image($rawfile(item.src[0])).objectFit(ImageFit.Fill).height(100)
+                          } else if (idx % 4 == 1) {
+                            Image($rawfile(item.src[0])).objectFit(ImageFit.Fill).height(200)
+                          } else if (idx % 4 == 2) {
+                            Image($rawfile(item.src[0])).objectFit(ImageFit.Fill).height(240)
+                          } else if (idx % 4 == 3) {
+                            Image($rawfile(item.src[0])).objectFit(ImageFit.Fill).height(280)
+                          }
+                        }.backgroundColor(idx % 2 == 0 ? $r('app.color.background_green') : $r('app.color.font_color_red'))
                       }
                       .width('100%')
-                      .height(200)
-                      //.backgroundColor(this.colors[item % 5])
                     })
                   }
                   .alignSelf(ItemAlign.Center)
@@ -312,7 +330,6 @@ export struct Home {
                   .rowsGap(12)
                   .height('100%')
                   .width('100%')
-                  .borderRadius(24)
                   .padding({ left: 12, right: 12, top: 12, bottom: 12 })
                   .backgroundColor(Color.White)
                   .nestedScroll({scrollForward:NestedScrollMode.PARENT_FIRST, scrollBackward:NestedScrollMode.SELF_FIRST})
