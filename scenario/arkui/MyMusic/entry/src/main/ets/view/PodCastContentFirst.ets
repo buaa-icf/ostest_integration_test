@@ -171,12 +171,9 @@ export default struct PodCastContentFirst {
         .rowsTemplate('1fr 1fr')
         .columnsGap($r('app.float.home_grid_columnsGap'))
         .rowsGap($r('app.float.home_grid_rowGap'))
-        //.padding({ top: $r('app.float.home_grid_padding'), bottom: $r('app.float.home_grid_padding') })
         .height('340vp')
         .width('90%')
 
-        //.backgroundColor(Color.Red)
-        //.borderRadius($r('app.float.home_grid_borderRadius'))
         Text('下滑加载更多......')
           .width(CommonConstants.FULL_PARENT)
           .height($r('app.float.bottom_barHeight'))

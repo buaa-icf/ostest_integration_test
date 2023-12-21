@@ -21,6 +21,7 @@ import RadioItemData from './RadioItemData';
 import PodCastBigItemData from './PodCastBigItemData';
 import SelectFirstItemData from './SelectFirstItemData';
 import MineListItemData from './MineListItemData';
+import MineActivityItemData from './MineActivityItemData';
 
 
 /**
@@ -361,9 +362,9 @@ export class MainViewModel {
    *
    * @return {Array<PageResource>} settingListData.
    */
-  getMineListItemData(): Array<ItemData> {
+  getMineListItemData(): Array<MineListItemData> {
     let listData: MineListItemData[] = [
-      new MineListItemData('我喜欢的音乐', $r("app.media.fig1"), '0首·179次播放', Visibility.None, Visibility.Visible),
+      new MineListItemData('我喜欢的音乐', $r("app.media.fig1"), '0首·179次播放', Visibility.Hidden, Visibility.Visible),
       new MineListItemData('时空之力', $r("app.media.fig2"), '歌单·26首·闲潭春半', Visibility.None, Visibility.None),
       new MineListItemData('2023-1 漫天之尘', $r("app.media.fig3"), '歌单·19首·闲潭春半', Visibility.None, Visibility.None),
       new MineListItemData('2018-3 彷徨之伤', $r("app.media.fig4"), '歌单·42首·闲潭春半', Visibility.None, Visibility.None),
@@ -373,7 +374,48 @@ export class MainViewModel {
     ];
     return listData;
   }
-  getMineListItemDataCreate(): Array<ItemData> {
+
+  getMineActivityItemData(): Array<MineActivityItemData> {
+    let listData: MineActivityItemData[] = [
+      new MineActivityItemData('四年好短啊~', $r('app.media.fig21'),
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
+        0, 1, 1, ['#心语推歌墙'], new MineListItemData('想着你', $r('app.media.fig31'), '郭顶', Visibility.None, Visibility.None)),
+      new MineActivityItemData('也是有证的村民了', $r('app.media.found'),
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
+    ];
+    return listData;
+  }
+  getFollowActivityItemData(): Array<MineActivityItemData> {
+    let listData: MineActivityItemData[] = [
+      new MineActivityItemData('知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', $r('app.media.fig21'),
+        new MineListItemData('云音乐VIP', $r('app.media.brand'), '昨天12：03', Visibility.Visible, Visibility.Visible),
+        11, 667, 1996, ['#2023年度听歌报告']),
+      new MineActivityItemData('也是有证的村民了', $r('app.media.found'),
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
+    ];
+    return listData;
+  }
+  getRecommendActivityItemData(): Array<MineActivityItemData> {
+    let listData: MineActivityItemData[] = [
+      new MineActivityItemData('四年好短啊~', $r('app.media.fig21'),
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
+        0, 1, 1, ['#心语推歌墙'], new MineListItemData('想着你', $r('app.media.fig31'), '郭顶', Visibility.None, Visibility.None)),
+      new MineActivityItemData('也是有证的村民了', $r('app.media.found'),
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
+    new MineActivityItemData('2也是有证的村民了', $r('app.media.found'),
+      new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+      0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
+    new MineActivityItemData('3也是有证的村民了', $r('app.media.found'),
+      new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+      0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
+    ];
+    return listData;
+  }
+
+  getMineListItemDataCreate(): Array<MineListItemData> {
     let listData: MineListItemData[] = [
       new MineListItemData('日推01', $r("app.media.brand1"), '32首·0次播放', Visibility.Visible, Visibility.None),
       new MineListItemData('2023-1 漫天之尘', $r("app.media.fig3"), '歌单·19首·闲潭春半', Visibility.Visible, Visibility.None),
@@ -384,6 +426,37 @@ export class MainViewModel {
       new MineListItemData('新建歌单', $r("app.media.ic_public_add"), '', Visibility.None, Visibility.None)
     ];
     return listData;
+  }
+
+  getMinePodCastListItemData(): Array<MineListItemData> {
+    let listData: MineListItemData[] = [
+      new MineListItemData('最近更新', $r("app.media.fig1"), '今日更新：上大学1122 嘴角直抽抽的史密斯', Visibility.None, Visibility.None),
+      new MineListItemData('大明武夫|穿越历史|热血军事|多人有声剧集', $r("app.media.fig2"), '继续播放：大明武夫 第一集 开始', Visibility.None, Visibility.None),
+      new MineListItemData('科技：为了上大学，上交可控核聚变', $r("app.media.fig3"), '继续播放：科技：为了上大学，上交可控核聚变 001 变态的控分', Visibility.None, Visibility.None),
+      new MineListItemData('添加播客和有声书', $r("app.media.ic_public_add"), '', Visibility.None, Visibility.None)
+    ];
+    return listData;
+  }
+
+  getMinePodCastBookItemData(): Array<MineListItemData> {
+    let listData: MineListItemData[] = [
+      new MineListItemData('大明武夫|穿越历史|热血军事|多人有声剧集', $r("app.media.fig2"), '继续播放：大明武夫 第一集 开始', Visibility.None, Visibility.None),
+      new MineListItemData('科技：为了上大学，上交可控核聚变', $r("app.media.fig3"), '继续播放：科技：为了上大学，上交可控核聚变 001 变态的控分', Visibility.None, Visibility.None),
+      new MineListItemData('添加更多有声书', $r("app.media.ic_public_add"), '', Visibility.None, Visibility.None)
+    ];
+    return listData;
+  }
+
+  getMinePodCastGridData(): Array<MidItemData> {
+    let aGridData: MidItemData[] = [
+      new MidItemData('西海之声 Radio SayHi！', $r('app.media.top'), '1024万', ''),
+      new MidItemData('蕊希电台', $r('app.media.new'), '24万', ''),
+      new MidItemData('十大童年经典中文儿歌', $r('app.media.brand'), '47万', ''),
+      new MidItemData('广播剧《我就是想贿赂你》', $r('app.media.found'), '475万', ''),
+      new MidItemData('倾城天下|热播影视剧原著', $r('app.media.brand'), '47万', ''),
+      new MidItemData('一首歌一个故事', $r('app.media.found'), '1亿', '')
+    ];
+    return aGridData;
   }
 
   getSettingListData(): Array<ItemData> {
@@ -397,6 +470,19 @@ export class MainViewModel {
     ];
     return listData;
   }
+  getFollowers(): Array<ItemData> {
+    let listData: ItemData[] = [
+      new ItemData('get_a_life', $r("app.media.found"), '', ),
+      new ItemData('初玖宅柒', $r("app.media.fig3"), '',),
+      new ItemData('金陵靓仔', $r("app.media.fig4"), '',),
+      new ItemData('吹口哨的青蛙', $r("app.media.about"), '',),
+      new ItemData('sunny', $r("app.media.fig2"), '',),
+      new ItemData('我是周董', $r("app.media.privacy"), '',),
+      new ItemData('更惊奇', $r("app.media.fig1"), '',)
+    ];
+    return listData;
+  }
+
 }
 
 export default new MainViewModel();

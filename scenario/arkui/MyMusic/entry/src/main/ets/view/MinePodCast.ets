@@ -17,7 +17,9 @@ import CommonConstants from '../common/constants/CommonConstants';
 import { MineListItem } from './MineListItem';
 import MineListItemData from '../viewmodel/MineListItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
-
+import { ListHead } from './ListHead';
+import { MidItem } from './MidItem';
+import MidItemData from '../viewmodel/MidItemData';
 
 /**
  * Home tab content
@@ -52,12 +54,45 @@ export default struct MinePodCast {
     }) {
       TabContent() {
         List({ space: 10 }) {
-          ForEach(mainViewModel.getMineListItemData(), (item: MineListItemData) => {
-            ListItem() {
-              MineListItem({ item })
+          ListItem() {
+            Column() {
+              ForEach(mainViewModel.getMinePodCastListItemData(), (item: MineListItemData) => {
+                MineListItem({ item }).margin({bottom:'10vp'})
+              }, (item: MineListItemData) => JSON.stringify(item))
             }
-            .align(Alignment.Start)
-          }, (item: MineListItemData) => JSON.stringify(item))
+          }.align(Alignment.Start)
+
+          ListItem() {
+            Column() {
+              ListHead({
+                title: '根据你的收藏推荐',
+                subTitle: '',
+                imgRefresh: Visibility.None,
+                imgArrow: Visibility.None,
+                imgMore: Visibility.None,
+                isPlayer: Visibility.None
+              })
+                .width('90%')
+              Grid() {
+                ForEach(mainViewModel.getMinePodCastGridData(), (item: MidItemData) => {
+                  GridItem() {
+                    MidItem({ item })
+                  }
+                }, (item: MidItemData) => JSON.stringify(item))
+              }
+              .columnsTemplate('1fr 1fr 1fr')
+              .rowsTemplate('1fr 1fr')
+              .columnsGap($r('app.float.home_grid_columnsGap'))
+              .rowsGap($r('app.float.home_grid_rowGap'))
+              .height('340vp')
+              .width('90%')
+              Text('')
+                .width(CommonConstants.FULL_PARENT)
+                .height($r('app.float.bottom_barHeight'))
+                .align(Alignment.Top)
+                .textAlign(TextAlign.Center)
+            }
+          }.align(Alignment.Start)
         }.margin('12vp')
         .edgeEffect(EdgeEffect.Spring)
         .nestedScroll({
@@ -91,7 +126,7 @@ export default struct MinePodCast {
 
       TabContent() {
         List({ space: 10 }) {
-          ForEach(mainViewModel.getMineListItemDataCreate(), (item: MineListItemData) => {
+          ForEach(mainViewModel.getMinePodCastBookItemData(), (item: MineListItemData) => {
             ListItem() {
               MineListItem({ item })
             }

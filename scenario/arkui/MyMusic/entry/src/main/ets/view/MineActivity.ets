@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import CommonConstants from '../common/constants/CommonConstants';
-import { MineListItem } from './MineListItem';
-import MineListItemData from '../viewmodel/MineListItemData';
+import { MineActivityItem } from './MineActivityItem';
+import MineActivityItemData from '../viewmodel/MineActivityItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
 
 
@@ -26,12 +25,12 @@ import mainViewModel from '../viewmodel/MainViewModel';
 export default struct MineActivity {
   build() {
     List({ space: 10 }) {
-      ForEach(mainViewModel.getMineListItemData(), (item: MineListItemData) => {
+      ForEach(mainViewModel.getMineActivityItemData(), (item: MineActivityItemData) => {
         ListItem() {
-          MineListItem({ item })
+          MineActivityItem({ item })
         }
         .align(Alignment.Start)
-      }, (item: MineListItemData) => JSON.stringify(item))
+      }, (item: MineActivityItemData) => JSON.stringify(item))
     }.margin('12vp')
     .edgeEffect(EdgeEffect.Spring)
     .nestedScroll({
