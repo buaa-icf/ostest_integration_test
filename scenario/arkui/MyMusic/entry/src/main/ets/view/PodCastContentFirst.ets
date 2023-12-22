@@ -16,10 +16,10 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import ItemData from '../viewmodel/ItemData';
 import MidItemData from '../viewmodel/MidItemData';
-import { RadioItem } from './RadioItem'
+import RadioItem from './RadioItem'
 import mainViewModel from '../viewmodel/MainViewModel';
-import { ListHead } from './ListHead';
-import { MidItem } from './MidItem';
+import ListHead from './ListHead';
+import MidItem from './MidItem';
 
 /**
  * Setting tab content
@@ -42,7 +42,6 @@ export default struct PodCastContentFirst {
         .width('20%')
         .height('16vp')
     }
-    //.backgroundColor('#00ff00')
     .justifyContent(FlexAlign.SpaceBetween)
     .height('32vp')
     .onClick(() => {
@@ -72,8 +71,6 @@ export default struct PodCastContentFirst {
         .scrollable(ScrollDirection.Horizontal)
         .scrollBar(BarState.Off)
         .edgeEffect(EdgeEffect.Spring)
-
-        //.scrollSnap({snapAlign:ScrollSnapAlign.START, snapPagination:400, enableSnapToStart:true, enableSnapToEnd:true})
 
         Column() {
           Text(': : : : : : : : : : : : : : :  随身听FM  : : : : : : : : : : : : : : :')

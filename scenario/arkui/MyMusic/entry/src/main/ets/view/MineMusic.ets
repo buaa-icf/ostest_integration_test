@@ -14,7 +14,7 @@
  */
 
 import CommonConstants from '../common/constants/CommonConstants';
-import { MineListItem } from './MineListItem';
+import MineListItem from './MineListItem';
 import MineListItemData from '../viewmodel/MineListItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
 

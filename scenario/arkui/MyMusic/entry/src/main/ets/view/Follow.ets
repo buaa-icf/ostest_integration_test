@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { FollowHead } from './FollowHead';
+import FollowHead from './FollowHead';
 import mainViewModel from '../viewmodel/MainViewModel';
 import ItemData from '../viewmodel/ItemData';
-import { MineActivityItem } from './MineActivityItem';
+import MineActivityItem from './MineActivityItem';
 import MineActivityItemData from '../viewmodel/MineActivityItemData';
 import curves from '@ohos.curves'
 

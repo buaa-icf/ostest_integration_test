@@ -14,11 +14,8 @@
  */
 
 import CommonConstants from '../common/constants/CommonConstants';
-import { MineHead } from './MineHead';
-import { MineInfo } from './MineInfo';
-import { MineListItem } from './MineListItem';
-import MineListItemData from '../viewmodel/MineListItemData';
-import mainViewModel from '../viewmodel/MainViewModel';
+import MineHead from './MineHead';
+import MineInfo from './MineInfo';
 import MineMusic from './MineMusic';
 import MinePodCast from './MinePodCast';
 import MineActivity from './MineActivity';

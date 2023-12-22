@@ -25,7 +25,7 @@ export default class MineActivityItemData {
   /**
    * Image of list item.
    */
-  img: Resource;
+  imgs: Resource[];
   /**
    * Other resource of list item.
    */
@@ -36,9 +36,9 @@ export default class MineActivityItemData {
   thumbs: number;
   topics:string[]
 
-  constructor(title: string, img: Resource, userItem: MineListItemData, share: number, comments: number, thumbs: number,topics:string[], contentItem?: MineListItemData) {
+  constructor(title: string, imgs: Resource[], userItem: MineListItemData, share: number, comments: number, thumbs: number,topics:string[], contentItem?: MineListItemData) {
     this.title = title;
-    this.img = img;
+    this.imgs = imgs;
     this.userItem = userItem;
     this.contentItem = contentItem;
     this.share = share;

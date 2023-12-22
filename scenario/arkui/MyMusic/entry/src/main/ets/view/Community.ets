@@ -15,17 +15,16 @@
 
 import CommonConstants from '../common/constants/CommonConstants';
 import PodCastHead from './PodCastHead';
-import PodCastHeadRight from './PodCastHeadRight';
-import PodCastContentFirst from './PodCastContentFirst';
-import PodCastContentSecond from './PodCastContentSecond';
-import PodCastContentThird from './PodCastContentThird';
-import PodCastContentFourth from './PodCastContentFourth';
+import CommunitySquare from './CommunitySquare';
+import CommunityVideo from './CommunityVideo';
+import CommunityRoom from './CommunityRoom';
+import CommunityHeadRight from './CommunityHeadRight';
 
 /**
  * Home tab content
  */
 @Component
-export default struct PodCast {
+export default struct Community {
   @State subCurrentIndex: number = CommonConstants.HOME_TAB_INDEX;
   private tabsController: TabsController = new TabsController();
 
@@ -38,7 +37,6 @@ export default struct PodCast {
       Image(this.subCurrentIndex === index ? selectedImg : normalImg)
         .width($r('app.float.mainPage_baseTab_size'))
     }
-    //.justifyContent(FlexAlign.SpaceBetween)
     .height($r('app.float.mainPage_barHeight'))
     .margin({
       top: $r('app.float.mainPage_padding'),
@@ -58,31 +56,21 @@ export default struct PodCast {
         controller: this.tabsController
       }) {
         TabContent() {
-          PodCastContentFirst()
-            .margin({ top: ($r('app.float.mainPage_barHeight')) })
+          CommunitySquare();
         }
-        .tabBar(this.TabBuilder('推荐', 0,
+        .tabBar(this.TabBuilder('广场', 0,
           $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
 
         TabContent() {
-          PodCastContentSecond()
-            .margin({ top: ($r('app.float.mainPage_barHeight')) })
+          CommunityVideo();
         }
-        .tabBar(this.TabBuilder('有声书', 1,
+        .tabBar(this.TabBuilder('视频', 1,
           $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
 
         TabContent() {
-          PodCastContentThird()
-            .margin({ top: ($r('app.float.mainPage_barHeight')) })
+          CommunityRoom();
         }
-        .tabBar(this.TabBuilder('广播剧', 2,
-          $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
-
-        TabContent() {
-          PodCastContentFourth()
-            .margin({ top: ($r('app.float.mainPage_barHeight')) })
-        }
-        .tabBar(this.TabBuilder('听听', 3,
+        .tabBar(this.TabBuilder('歌房', 2,
           $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
       }
       .width(CommonConstants.FULL_PARENT)
@@ -95,18 +83,7 @@ export default struct PodCast {
       })
 
       PodCastHead().width('10%').position({x:'5%',y:0})
-      PodCastHeadRight().width('10%').position({x:'90%',y:0})
-      Search({
-        placeholder: '大家都在听 爵士的音乐解读'
-      })
-        .margin({ top: ($r('app.float.mainPage_barHeight')) })
-        .width('90%')//.height('32vp')
-        .border({ radius: $r('app.float.home_swiper_borderRadius') })
-        .placeholderFont({
-          size: $r('app.float.little_text_size'),
-          style: FontStyle.Normal
-        })
-        .textFont({ size: $r('app.float.little_text_size') })
+      CommunityHeadRight().width('10%').position({x:'90%',y:0})
     }
     .backgroundColor('#F9F9F9')
     .width('100%').height('100%')

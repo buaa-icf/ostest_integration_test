@@ -377,10 +377,10 @@ export class MainViewModel {
 
   getMineActivityItemData(): Array<MineActivityItemData> {
     let listData: MineActivityItemData[] = [
-      new MineActivityItemData('四年好短啊~', $r('app.media.fig21'),
+      new MineActivityItemData('四年好短啊~', [$r('app.media.fig21')],
         new MineListItemData('闲潭春半', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
         0, 1, 1, ['#心语推歌墙'], new MineListItemData('想着你', $r('app.media.fig31'), '郭顶', Visibility.None, Visibility.None)),
-      new MineActivityItemData('也是有证的村民了', $r('app.media.found'),
+      new MineActivityItemData('也是有证的村民了', [$r('app.media.found')],
         new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
         0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
     ];
@@ -388,10 +388,16 @@ export class MainViewModel {
   }
   getFollowActivityItemData(): Array<MineActivityItemData> {
     let listData: MineActivityItemData[] = [
-      new MineActivityItemData('知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', $r('app.media.fig21'),
+      new MineActivityItemData('1知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', [$r('app.media.fig1')],
         new MineListItemData('云音乐VIP', $r('app.media.brand'), '昨天12：03', Visibility.Visible, Visibility.Visible),
         11, 667, 1996, ['#2023年度听歌报告']),
-      new MineActivityItemData('也是有证的村民了', $r('app.media.found'),
+      new MineActivityItemData('2，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', [$r('app.media.fig1'),$r('app.media.fig2')],
+        new MineListItemData('云音乐VIP', $r('app.media.brand'), '昨天12：03', Visibility.Visible, Visibility.Visible),
+        11, 667, 1996, ['#2023年度听歌报告']),
+      new MineActivityItemData('3知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', [$r('app.media.fig1'),$r('app.media.fig2'),$r('app.media.fig3')],
+        new MineListItemData('云音乐VIP', $r('app.media.brand'), '昨天12：03', Visibility.Visible, Visibility.Visible),
+        11, 667, 1996, ['#2023年度听歌报告']),
+      new MineActivityItemData('也是有证的村民了', [$r('app.media.found')],
         new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
         0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
     ];
@@ -399,16 +405,16 @@ export class MainViewModel {
   }
   getRecommendActivityItemData(): Array<MineActivityItemData> {
     let listData: MineActivityItemData[] = [
-      new MineActivityItemData('四年好短啊~', $r('app.media.fig21'),
+      new MineActivityItemData('四年好短啊~', [$r('app.media.fig21'),$r('app.media.brand1'),$r('app.media.fig31'),$r('app.media.fig41'),$r('app.media.fig1'),$r('app.media.fig2'),$r('app.media.fig3')],
         new MineListItemData('闲潭春半', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
         0, 1, 1, ['#心语推歌墙'], new MineListItemData('想着你', $r('app.media.fig31'), '郭顶', Visibility.None, Visibility.None)),
-      new MineActivityItemData('也是有证的村民了', $r('app.media.found'),
+      new MineActivityItemData('也是有证的村民了', [$r('app.media.found')],
         new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
         0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
-    new MineActivityItemData('2也是有证的村民了', $r('app.media.found'),
+    new MineActivityItemData('2也是有证的村民了', [$r('app.media.found')],
       new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
       0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
-    new MineActivityItemData('3也是有证的村民了', $r('app.media.found'),
+    new MineActivityItemData('3也是有证的村民了', [$r('app.media.found')],
       new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
       0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
     ];

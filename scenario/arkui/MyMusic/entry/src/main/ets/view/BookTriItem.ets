@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 import ItemData from '../viewmodel/BookTriItemData';
-import hilog from '@ohos.hilog';
 import prompt from '@ohos.promptAction';
 
 /**
  * List item information component.
  */
 @Component
-export struct BookTriItem {
+export default struct BookTriItem {
   private items: ItemData[] = new Array<ItemData>();
   ;
   @Consume playingTitle: string;

@@ -17,7 +17,7 @@
  * List item information component.
  */
 @Component
-export struct PlayerBar {
+export default struct PlayerBar {
   @Consume playingTitle: string;
   @Consume playingArtist: string;
   @Consume playingImg: Resource;

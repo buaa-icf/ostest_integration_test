@@ -17,11 +17,11 @@
  * List item information component.
  */
 @Component
-export default struct PodCastHead {
+export default struct CommunityHeadRight {
   @State handlePopup: boolean = false
 
   build() {
-    Image($r('app.media.ic_public_drawer'))
+    Image($r('app.media.ic_public_add_norm_filled'))
       .objectFit(ImageFit.Contain)
       .width('24vp')
       .height('24vp')
@@ -29,7 +29,7 @@ export default struct PodCastHead {
         this.handlePopup = !this.handlePopup
       })
       .bindPopup(this.handlePopup, {
-        message: '这是个人菜单.',
+        message: '声音创作.',
       })
       .margin({ top: $r('app.float.mainPage_baseTab_margin')})
   }

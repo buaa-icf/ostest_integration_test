@@ -14,14 +14,13 @@
  */
 
 import ItemData from '../viewmodel/MineListItemData';
-import hilog from '@ohos.hilog';
 import prompt from '@ohos.promptAction';
 
 /**
  * List item information component.
  */
 @Component
-export struct MineListItem {
+export default struct MineListItem {
   private item: ItemData = new ItemData('', $r('app.media.fig21'), '', Visibility.None, Visibility.None);
   @Consume playingTitle: string;
   @Consume playingArtist: string;

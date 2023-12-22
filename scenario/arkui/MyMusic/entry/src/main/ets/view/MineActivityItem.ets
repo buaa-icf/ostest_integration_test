@@ -15,17 +15,36 @@
 
 import ItemData from '../viewmodel/MineActivityItemData';
 import MineListItemData from '../viewmodel/MineListItemData';
-import { MineListItem } from './MineListItem';
-import { MineUserItem } from './MineUserItem';
+import MineListItem from './MineListItem';
+import MineUserItem from './MineUserItem';
 
 /**
  * List item information component.
  */
 @Component
-export struct MineActivityItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig21'),
+export default struct MineActivityItem {
+  private item: ItemData = new ItemData('', [$r('app.media.fig21')],
     new MineListItemData('', $r('app.media.fig21'), '', Visibility.None, Visibility.None),
-    0, 0, 0,[],undefined);
+    0, 0, 0, [], undefined);
+  private layoutOptions: GridLayoutOptions = {
+    regularSize: [1, 1],
+    irregularIndexes: [0, 7], // 索引为0和7的GridItem占用的列数由onGetIrregularSizeByIndex指定
+    onGetIrregularSizeByIndex: (index: number) => {
+      if (index === 0) {
+        return [1, 5]
+      }
+      return [1, index % 6 + 1]
+    }
+  }
+  @State imgWidth: string = '90%'
+
+  aboutToAppear() {
+    if (this.item.imgs.length === 2) {
+      this.imgWidth = '45%'
+    } else if (this.item.imgs.length > 2) {
+      this.imgWidth = '30%'
+    }
+  }
 
   build() {
     Column() {
@@ -34,11 +53,26 @@ export struct MineActivityItem {
       Text(this.item.title)
         .margin({ top: '16vp' })
         .padding({ left: '64vp' })
-      Image(this.item.img)
-        .width('70%')
-        .borderRadius('12vp')
-        .margin({ top: '16vp', left: '64vp' })
-      if(this.item.contentItem !== undefined){
+      Grid() {
+        ForEach(this.item.imgs, (img: Resource) => {
+          GridItem() {
+            Image(img)
+              .width(this.imgWidth)
+              .borderRadius('12vp')
+          }
+        }, (img: Resource) => JSON.stringify(img))
+      }
+      .layoutDirection(GridDirection.Row)
+      .maxCount(3)
+      .minCount(1)
+      .columnsGap(10)
+      .rowsGap(10)
+      .scrollBar(BarState.Off)
+      .width('100%')
+      .margin({ top: '16vp' })
+      .padding({ left: '64vp' })
+
+      if (this.item.contentItem !== undefined) {
         MineListItem({ item: this.item.contentItem })
           .margin({ left: '64vp', top: '16vp' })
           .backgroundColor('#e9e9e9')
@@ -46,26 +80,27 @@ export struct MineActivityItem {
           .width('80%')
           .borderRadius('12vp')
       }
-      Row(){
-        ForEach(this.item.topics,(topic:string)=>{
+      Row() {
+        ForEach(this.item.topics, (topic: string) => {
           Text(topic)
             .fontSize('12vp')
             .fontColor('#a0a0a0')
             .padding('4vp')
             .backgroundColor('#f0f0f0')
             .borderRadius('8vp')
-            .margin({right:'4vp'})
+            .margin({ right: '4vp' })
         })
       }
       .margin({ left: '64vp', top: '16vp' })
+
       Row() {
         Row() {
           Image($r('app.media.ic_public_share'))
             .width('24vp')
             .height('24vp')
-          if(this.item.comments !== 0){
+          if (this.item.comments !== 0) {
             Text(this.item.share.toString()).margin({ left: '4vp' })
-          }else{
+          } else {
             Text('分享').margin({ left: '4vp' })
           }
         }.width('25%')
@@ -74,9 +109,9 @@ export struct MineActivityItem {
           Image($r('app.media.ic_public_comments'))
             .width('24vp')
             .height('24vp')
-          if(this.item.comments !== 0){
+          if (this.item.comments !== 0) {
             Text(this.item.comments.toString()).margin({ left: '4vp' })
-          }else{
+          } else {
             Text('评论').margin({ left: '4vp' })
           }
         }.width('25%')
@@ -85,9 +120,9 @@ export struct MineActivityItem {
           Image($r('app.media.ic_public_thumbsup'))
             .width('24vp')
             .height('24vp')
-          if(this.item.comments !== 0){
+          if (this.item.comments !== 0) {
             Text(this.item.comments.toString()).margin({ left: '4vp' })
-          }else{
+          } else {
             Text('赞').margin({ left: '4vp' })
           }
         }.width('25%')
@@ -100,7 +135,9 @@ export struct MineActivityItem {
       .padding({ left: '64vp' })
       .margin({ top: '16vp' })
       .justifyContent(FlexAlign.SpaceBetween)
-    }.alignItems(HorizontalAlign.Start)
-    .margin({bottom:'12vp'})
+    }
+
+    .alignItems(HorizontalAlign.Start)
+    .margin({ bottom: '12vp' })
   }
 }

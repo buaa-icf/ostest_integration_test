@@ -17,7 +17,7 @@
  * List item information component.
  */
 @Component
-export struct PodCastHeadRight {
+export default struct PodCastHeadRight {
   @State handlePopup: boolean = false
 
   build() {
