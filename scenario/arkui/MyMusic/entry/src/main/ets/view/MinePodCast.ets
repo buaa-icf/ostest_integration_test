@@ -14,11 +14,11 @@
  */
 
 import CommonConstants from '../common/constants/CommonConstants';
-import { MineListItem } from './MineListItem';
+import MineListItem from './MineListItem';
 import MineListItemData from '../viewmodel/MineListItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
-import { ListHead } from './ListHead';
-import { MidItem } from './MidItem';
+import ListHead from './ListHead';
+import MidItem from './MidItem';
 import MidItemData from '../viewmodel/MidItemData';
 
 /**

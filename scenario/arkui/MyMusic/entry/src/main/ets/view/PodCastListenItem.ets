@@ -14,14 +14,13 @@
  */
 
 import ItemData from '../viewmodel/PodCastBigItemData';
-import hilog from '@ohos.hilog';
 import prompt from '@ohos.promptAction';
 
 /**
  * List item information component.
  */
 @Component
-export struct PodCastListenItem {
+export default struct PodCastListenItem {
   private item: ItemData = new ItemData('', $r('app.media.fig1'), '', '', '', '', '');
   @Consume playingTitle: string;
   @Consume playingArtist: string;

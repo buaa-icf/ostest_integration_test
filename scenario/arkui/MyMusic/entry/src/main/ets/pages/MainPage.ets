@@ -17,8 +17,8 @@ import CommonConstants from '../common/constants/CommonConstants';
 import Home from "../view/Home"
 import PodCast from "../view/PodCast"
 import Mine from '../view/Mine'
-import { PlayerBar } from '../view/PlayerBar';
-import Setting from "../view/Setting"
+import PlayerBar from '../view/PlayerBar';
+import Community from "../view/Community"
 import Follow from '../view/Follow';
 
 /**
@@ -87,7 +87,7 @@ struct MainPage {
           $r('app.media.ic_public_highlight_select'), $r('app.media.ic_public_highlight')))
 
         TabContent() {
-          Setting()
+          Community()
         }
         .tabBar(this.TabBuilder(CommonConstants.SOCIAL_TITLE, CommonConstants.SOCIAL_TAB_INDEX,
           $r('app.media.ic_public_community_messages_select'), $r('app.media.ic_public_community_messages')))

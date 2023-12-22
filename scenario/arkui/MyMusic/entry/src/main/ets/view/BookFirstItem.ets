@@ -19,7 +19,7 @@ import prompt from '@ohos.promptAction';
  * List item information component.
  */
 @Component
-export struct BookFirstItem {
+export default struct BookFirstItem {
   private item: ItemData = new ItemData('', $r('app.media.fig1'), '', $r('app.media.fig1'));
   @Consume playingTitle: string;
   @Consume playingArtist: string;

@@ -17,7 +17,7 @@
  * List item information component.
  */
 @Component
-export struct ListHead {
+export default struct ListHead {
   /**
    * Image of list item.
    */

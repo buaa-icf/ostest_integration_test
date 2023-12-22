@@ -17,10 +17,10 @@ import CommonConstants from '../common/constants/CommonConstants';
 import ItemData from '../viewmodel/ItemData';
 import PodCastBigItemData from '../viewmodel/PodCastBigItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
-import { ListHead } from './ListHead';
-import { PodCastBigItem } from './PodCastBigItem';
+import ListHead from './ListHead';
+import PodCastBigItem from './PodCastBigItem';
 import BookTriItemData from '../viewmodel/BookTriItemData';
-import { BookTriItem } from './BookTriItem';
+import BookTriItem from './BookTriItem';
 
 /**
  * Setting tab content

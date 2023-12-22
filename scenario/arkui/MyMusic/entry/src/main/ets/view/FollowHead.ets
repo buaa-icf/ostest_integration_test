@@ -16,11 +16,9 @@
 /**
  * List item information component.
  */
-import curves from '@ohos.curves'
-import prompt from '@ohos.promptAction';
 
 @Component
-export struct FollowHead {
+export default struct FollowHead {
   @State handlePopup1: boolean = false
   @State handlePopup2: boolean = false
 

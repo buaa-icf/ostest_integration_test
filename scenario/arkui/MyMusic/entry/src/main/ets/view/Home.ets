@@ -18,11 +18,11 @@ import mainViewModel from '../viewmodel/MainViewModel';
 import ItemData from '../viewmodel/ItemData';
 import MidItemData from '../viewmodel/MidItemData';
 import TriItemData from '../viewmodel/TriItemData';
-import { FindHead } from './FindHead';
-import { SmallItem } from './SmallItem';
-import { ListHead } from './ListHead';
-import { MidItem } from './MidItem';
-import { TriItem } from './TriItem';
+import FindHead from './FindHead';
+import SmallItem from './SmallItem';
+import ListHead from './ListHead';
+import MidItem from './MidItem';
+import TriItem from './TriItem';
 
 
 /**

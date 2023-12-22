@@ -22,7 +22,7 @@ import mainViewModel from '../viewmodel/MainViewModel';
  * Home tab content
  */
 @Component
-export default struct MineActivity {
+export default struct CommunityRoom {
   build() {
     List({ space: 10 }) {
       ForEach(mainViewModel.getMineActivityItemData(), (item: MineActivityItemData) => {

@@ -17,7 +17,7 @@
  * List item information component.
  */
 @Component
-export struct MineInfo {
+export default struct MineInfo {
   @Consume addVisibility: Visibility
   @Consume nameVisibility: Visibility
 

@@ -14,14 +14,13 @@
  */
 
 import ItemData from '../viewmodel/TriItemData';
-import hilog from '@ohos.hilog';
 import prompt from '@ohos.promptAction';
 
 /**
  * List item information component.
  */
 @Component
-export struct TriItem {
+export default struct TriItem {
   private items: ItemData[] = new Array<ItemData>();
   @Consume playingTitle: string;
   @Consume playingArtist: string;

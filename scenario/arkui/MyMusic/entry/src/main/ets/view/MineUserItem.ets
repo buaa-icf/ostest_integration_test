@@ -19,7 +19,7 @@ import ItemData from '../viewmodel/MineListItemData';
  * List item information component.
  */
 @Component
-export struct MineUserItem {
+export default struct MineUserItem {
   private item: ItemData = new ItemData('', $r('app.media.fig21'), '', Visibility.None, Visibility.None);
 
   build() {

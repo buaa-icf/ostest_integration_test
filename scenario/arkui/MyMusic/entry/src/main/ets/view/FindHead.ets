@@ -18,7 +18,7 @@
  * List item information component.
  */
 @Component
-export struct FindHead {
+export default struct FindHead {
   private searchInfo: string = 'searching...';
   @State handlePopup1: boolean = false
   @State handlePopup2: boolean = false

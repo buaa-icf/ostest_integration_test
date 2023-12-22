@@ -20,7 +20,7 @@ import curves from '@ohos.curves'
 import prompt from '@ohos.promptAction';
 
 @Component
-export struct MineHead {
+export default struct MineHead {
   @State handlePopup1: boolean = false
   @State handlePopup2: boolean = false
   @Consume addVisibility: boolean

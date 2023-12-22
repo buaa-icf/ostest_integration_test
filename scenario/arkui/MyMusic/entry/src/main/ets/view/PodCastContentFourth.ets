@@ -16,11 +16,11 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import PodCastBigItemData from '../viewmodel/PodCastBigItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
-import { PodCastListenItem } from './PodCastListenItem';
+import PodCastListenItem from './PodCastListenItem';
 import SelectFirstItemData from '../viewmodel/SelectFirstItemData';
-import { SelectFirstItem } from './SelectFirstItem';
-import { ListHead } from './ListHead';
-import { MidItem } from './MidItem';
+import SelectFirstItem from './SelectFirstItem';
+import ListHead from './ListHead';
+import MidItem from './MidItem';
 import MidItemData from '../viewmodel/MidItemData';
 
 /**

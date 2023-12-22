@@ -15,15 +15,12 @@
 
 import CommonConstants from '../common/constants/CommonConstants';
 import ItemData from '../viewmodel/ItemData';
-import MidItemData from '../viewmodel/MidItemData';
-import { RadioItem } from './RadioItem'
 import mainViewModel from '../viewmodel/MainViewModel';
-import { ListHead } from './ListHead';
-import { MidItem } from './MidItem';
-import { BookFirstItem } from './BookFirstItem';
-import { BookSecondItem } from './BookSecondItem';
+import ListHead from './ListHead';
+import BookFirstItem from './BookFirstItem';
+import BookSecondItem from './BookSecondItem';
 import BookTriItemData from '../viewmodel/BookTriItemData';
-import { BookTriItem } from './BookTriItem';
+import BookTriItem from './BookTriItem';
 
 /**
  * Setting tab content
