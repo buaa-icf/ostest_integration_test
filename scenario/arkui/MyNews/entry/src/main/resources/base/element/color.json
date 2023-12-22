@@ -1,0 +1,36 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "primary",
+      "value": "#F54340"
+    },
+    {
+      "name": "primary_fg",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "light_bg",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "light_fg",
+      "value": "#222222"
+    },
+    {
+      "name": "light_fg_shallow",
+      "value": "#A4A4A4"
+    },
+    {
+      "name": "light_border",
+      "value": "#E8E8E8"
+    },
+    {
+      "name": "index_tab_bg",
+      "value": "#F8F8F8"
+    }
+  ]
+}
