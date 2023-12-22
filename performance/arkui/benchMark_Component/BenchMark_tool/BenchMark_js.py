@@ -1,3 +1,16 @@
+# Copyright (c) 2023 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import openpyxl
 from openpyxl.styles import Alignment
 import pandas as pd
@@ -10,10 +23,8 @@ file_path = 'D:/BenchMark_tool/BenchMark_js.txt'
 workbook = openpyxl.Workbook()  # 创建工作簿
 # worksheet = workbook.create_sheet(title='BenchMark')  # 创建工作表
 worksheet = workbook.active  # 选择默认的表单
-worksheet['A1'] = '组件名称'
-worksheet['B1'] = '时间'
-worksheet.column_dimensions['A'].width = 30
-worksheet.column_dimensions['B'].width = 30
+worksheet['A1'] = '页面名称'
+worksheet['B1'] = 'js创建时间（单位ms）'
 
 # 获取sample
 def find_samples(file_path):
@@ -60,3 +71,8 @@ data = data.dropna()
 # 保存修改后的Excel文件
 data.to_excel('BenchMark_js.xlsx', index=False)
 
+wb = openpyxl.load_workbook('BenchMark_js.xlsx')
+ws = wb.active  # 选择默认的表单
+ws.column_dimensions['A'].width = 30
+ws.column_dimensions['B'].width = 30
+wb.save(filename='BenchMark_js.xlsx')  # 保存工作簿 

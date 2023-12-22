@@ -54,7 +54,7 @@ export default function abilityTest() {
     /**
      * 拉起应用
      */
-    it(`Benchmark_StartAbility_001`, 0, async (done: Function) => {
+    it('Benchmark_StartAbility_001', 0, async (done: Function) => {
       hilog.info(0xF811, 'testTag', 'StartAbility_001 begin');
       try {
         await abilityDelegatorRegistry.startAbility({
@@ -69,7 +69,7 @@ export default function abilityTest() {
     })
 
     //点击首页Text
-    it(`TextBenchMarkTest`, 0, async () => {
+    it('TextBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Text');
       //创建Text组件
@@ -215,7 +215,7 @@ export default function abilityTest() {
     })
 
     //点击首页GridRow
-    it(`GridRowBenchMarkTest`, 0, async () => {
+    it('GridRowBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('GridRow');
 
@@ -257,7 +257,7 @@ export default function abilityTest() {
     })
 
     //点击首页GridCol
-    it(`GridColBenchMarkTest`, 0, async () => {
+    it('GridColBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('GridCol');
 
@@ -307,7 +307,7 @@ export default function abilityTest() {
     })
 
     //点击首页TextInput
-    it(`TextInputBenchMarkTest`, 0, async () => {
+    it('TextInputBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('TextInput');
       //创建TextInput组件
@@ -382,7 +382,7 @@ export default function abilityTest() {
     })
 
     //点击首页Image
-    it(`ImageBenchMarkTest`, 0, async () => {
+    it('ImageBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Image');
       await checkButtonAndClickWithID('ImageCreate');
@@ -429,7 +429,7 @@ export default function abilityTest() {
     })
 
     //点击首页Row
-    it(`RowBenchMarkTest`, 0, async () => {
+    it('RowBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Row');
       //创建Row组件
@@ -478,7 +478,7 @@ export default function abilityTest() {
     })
 
     //点击首页Column
-    it(`ColumnBenchMarkTest`, 0, async () => {
+    it('ColumnBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Column');
       //创建Column组件
@@ -527,7 +527,7 @@ export default function abilityTest() {
     })
 
     //点击首页List
-    it(`ListBenchMarkTest`, 0, async () => {
+    it('ListBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('List');
 
@@ -684,7 +684,7 @@ export default function abilityTest() {
     })
 
     //点击首页Scroll
-    it(`ScrollBenchMarkTest`, 0, async () => {
+    it('ScrollBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Scroll');
       //创建Scroll组件
@@ -763,7 +763,7 @@ export default function abilityTest() {
     })
 
     //点击首页Tab
-    it(`TabsBenchMarkTest`, 0, async () => {
+    it('TabsBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Tabs');
       //创建Tab组件
@@ -839,7 +839,7 @@ export default function abilityTest() {
     })
 
     //点击首页Swiper
-    it(`SwiperBenchMarkTest`, 0, async () => {
+    it('SwiperBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Swiper');
       await checkButtonAndClickWithID('SwiperCreateSample');
@@ -932,7 +932,7 @@ export default function abilityTest() {
     })
 
     //点击首页Navigation
-    it(`NavigationBenchMarkTest`, 0, async () => {
+    it('NavigationBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Navigation');
       await checkButtonAndClickWithID('NavigationCreateSample');
@@ -986,7 +986,7 @@ export default function abilityTest() {
     })
 
     //点击首页Grid
-    it(`GridBenchMarkTest`, 0, async () => {
+    it('GridBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Grid');
       await checkButtonAndClickWithID('GridCreateSample');
@@ -1069,7 +1069,7 @@ export default function abilityTest() {
     })
 
     //点击首页Video
-    it(`VideoBenchMarkTest`, 0, async () => {
+    it('VideoBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Video');
       await checkButtonAndClickWithID('VideoCreateSample');
@@ -1095,7 +1095,7 @@ export default function abilityTest() {
     })
 
     //点击首页Flex
-    it(`FlexBenchMarkTest`, 0, async () => {
+    it('FlexBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Flex');
       await checkButtonAndClickWithID('FlexCreateSample');
@@ -1151,7 +1151,7 @@ export default function abilityTest() {
     })
 
     //点击首页Button
-    it(`ButtonBenchMarkTest`, 0, async () => {
+    it('ButtonBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Button');
       await checkButtonAndClickWithID('ButtonCreateSample');
@@ -1182,7 +1182,7 @@ export default function abilityTest() {
     })
 
     //点击首页Select
-    it(`SelectBenchMarkTest`, 0, async () => {
+    it('SelectBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Select');
       //创建Select组件
@@ -1244,7 +1244,7 @@ export default function abilityTest() {
     })
 
     //点击首页CheckBox
-    it(`CheckboxBenchMarkTest`, 0, async () => {
+    it('CheckboxBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('CheckBox');
       //创建CheckBox组件
@@ -1290,7 +1290,7 @@ export default function abilityTest() {
     })
 
     //点击首页Span
-    it(`SpanBenchMarkTest`, 0, async () => {
+    it('SpanBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Span');
       //Text内创建Span组件
@@ -1340,7 +1340,7 @@ export default function abilityTest() {
     })
 
     //点击首页Slider
-    it(`SliderBenchMarkTest`, 0, async () => {
+    it('SliderBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Slider');
       //创建Slider组件
@@ -1409,7 +1409,7 @@ export default function abilityTest() {
     })
 
     //点击首页Divider
-    it(`DividerBenchMarkTest`, 0, async () => {
+    it('DividerBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Divider');
       //创建Divider组件
@@ -1458,7 +1458,7 @@ export default function abilityTest() {
     })
 
     //点击首页Toggle
-    it(`ToggleBenchMarkTest`, 0, async () => {
+    it('ToggleBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Toggle');
       await checkButtonAndClickWithID('ToggleCreateSample');
@@ -1498,7 +1498,7 @@ export default function abilityTest() {
     })
 
     //点击首页Refresh
-    it(`RefreshBenchMarkTest`, 0, async () => {
+    it('RefreshBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Refresh');
       await driver.delayMs(1000);
@@ -1561,7 +1561,7 @@ export default function abilityTest() {
     })
 
     //点击首页TextArea
-    it(`TextAreaBenchMarkTest`, 0, async () => {
+    it('TextAreaBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('TextArea');
       await checkButtonAndClickWithID('TextAreaCreateSample');
@@ -1596,7 +1596,7 @@ export default function abilityTest() {
     })
 
     //点击首页Search
-    it(`SearchBenchMarkTest`, 0, async () => {
+    it('SearchBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Search');
       await checkButtonAndClickWithID('SearchCreateSample');
@@ -1631,7 +1631,7 @@ export default function abilityTest() {
     })
 
     //点击首页Progress
-    it(`ProgressBenchMarkTest`, 0, async () => {
+    it('ProgressBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Progress');
       await checkButtonAndClickWithID('ProgressCreateSample');
@@ -1671,7 +1671,7 @@ export default function abilityTest() {
     })
 
     //点击首页Marquee
-    it(`MarqueeBenchMarkTest`, 0, async () => {
+    it('MarqueeBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Marquee');
       //创建Marquee组件
@@ -1709,7 +1709,7 @@ export default function abilityTest() {
     })
 
     //点击首页DataPanel
-    it(`DataPanelBenchMarkTest`, 0, async () => {
+    it('DataPanelBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('DataPanel');
       //创建DataPanel组件
@@ -1755,7 +1755,7 @@ export default function abilityTest() {
     })
 
     //点击首页Rating
-    it(`RatingBenchMarkTest`, 0, async () => {
+    it('RatingBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Rating');
       //创建Rating组件
@@ -1801,7 +1801,7 @@ export default function abilityTest() {
     })
 
     //点击首页TextClock
-    it(`TextClockBenchMarkTest`, 0, async () => {
+    it('TextClockBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('TextClock');
       await checkButtonAndClickWithID('TextClockCreateSample');
@@ -1825,7 +1825,7 @@ export default function abilityTest() {
     })
 
     //点击首页Hyperlink
-    it(`HyperlinkBenchMarkTest`, 0, async () => {
+    it('HyperlinkBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Hyperlink');
       await checkButtonAndClickWithID('HyperlinkCreateSample');
@@ -1846,7 +1846,7 @@ export default function abilityTest() {
     })
 
     //点击首页QRCode   单元测试失败
-    it(`QRCodeBenchMarkTest`, 0, async () => {
+    it('QRCodeBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('QRCode');
       await checkButtonAndClickWithID('QRCodeCreateSample');
@@ -1872,7 +1872,7 @@ export default function abilityTest() {
     })
 
     //点击首页Gauge
-    it(`GaugeBenchMarkTest`, 0, async () => {
+    it('GaugeBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Gauge');
       await checkButtonAndClickWithID('GaugeCreateSample');
@@ -1902,7 +1902,7 @@ export default function abilityTest() {
     })
 
     //点击首页Badge
-    it(`BadgeBenchMarkTest`, 0, async () => {
+    it('BadgeBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Badge');
       //创建Badge组件
@@ -1932,7 +1932,7 @@ export default function abilityTest() {
     })
 
     //点击首页AlphabetIndexer
-    it(`AlphabetIndexerBenchMarkTest`, 0, async () => {
+    it('AlphabetIndexerBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('AlphabetIndexer');
       //创建AlphabetIndexerCreate组件
@@ -1967,7 +1967,7 @@ export default function abilityTest() {
     })
 
     //点击首页Menu
-    it(`MenuBenchMarkTest`, 0, async () => {
+    it('MenuBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Menu');
       //创建Menu组件
@@ -2047,7 +2047,7 @@ export default function abilityTest() {
     })
 
     //点击首页TextPicker
-    it(`TextPickerBenchMarkTest`, 0, async () => {
+    it('TextPickerBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('TextPicker');
       //创建TextPicker组件
@@ -2107,7 +2107,7 @@ export default function abilityTest() {
     })
 
     //点击首页Counter
-    it(`CounterBenchMarkTest`, 0, async () => {
+    it('CounterBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Counter');
       //创建Counter组件
@@ -2142,7 +2142,7 @@ export default function abilityTest() {
     })
 
     //点击首页XComponent
-    it(`XComponentBenchMarkTest`, 0, async () => {
+    it('XComponentBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('XComponent');
       //创建XComponent组件
@@ -2153,7 +2153,7 @@ export default function abilityTest() {
     })
 
     //点击首页PatternLock
-    it(`PatternLockBenchMarkTest`, 0, async () => {
+    it('PatternLockBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('PatternLock');
       //创建PatternLock组件
@@ -2204,7 +2204,7 @@ export default function abilityTest() {
     })
 
     //点击首页Shape
-    it(`ShapeBenchMarkTest`, 0, async () => {
+    it('ShapeBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Shape');
       //创建Shape组件
@@ -2255,7 +2255,7 @@ export default function abilityTest() {
     })
 
     //点击首页Path
-    it(`PathBenchMarkTest`, 0, async () => {
+    it('PathBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Path');
       //创建Path组件
@@ -2306,7 +2306,7 @@ export default function abilityTest() {
     })
 
     //点击首页Line
-    it(`LineBenchMarkTest`, 0, async () => {
+    it('LineBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Line');
       //创建Line组件
@@ -2357,7 +2357,7 @@ export default function abilityTest() {
     })
 
     //点击首页Circle
-    it(`CircleBenchMarkTest`, 0, async () => {
+    it('CircleBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Circle');
       await checkButtonAndClickWithID('CircleCreateSample');
@@ -2396,7 +2396,7 @@ export default function abilityTest() {
     })
 
     //点击首页Polyline
-    it(`PolylineBenchMarkTest`, 0, async () => {
+    it('PolylineBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Polyline');
       await checkButtonAndClickWithID('PolylineCreateSample');
@@ -2435,7 +2435,7 @@ export default function abilityTest() {
     })
 
     //点击首页SideBarContainer
-    it(`SideBarContainerBenchMarkTest`, 0, async () => {
+    it('SideBarContainerBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('SideBarContainer');
       await checkButtonAndClickWithID('SideBarContainerCreateSample');
@@ -2495,7 +2495,7 @@ export default function abilityTest() {
     })
 
     //点击首页ImageAnimator
-    it(`ImageAnimatorBenchMarkTest`, 0, async () => {
+    it('ImageAnimatorBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('ImageAnimator');
       await checkButtonAndClickWithID('ImageAnimatorCreateSample');
@@ -2537,7 +2537,7 @@ export default function abilityTest() {
     })
 
     //点击首页LoadingProgress
-    it(`LoadingProgressBenchMarkTest`, 0, async () => {
+    it('LoadingProgressBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('LoadingProgress');
       await checkButtonAndClickWithID('LoadingProgressCreateSample');
@@ -2561,7 +2561,7 @@ export default function abilityTest() {
     })
 
     //点击首页TextTimer
-    it(`TextTimerBenchMarkTest`, 0, async () => {
+    it('TextTimerBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('TextTimer');
       await checkButtonAndClickWithID('TextTimerCreateSample');
@@ -2590,7 +2590,7 @@ export default function abilityTest() {
     })
 
     //点击首页Blank
-    it(`BlankBenchMarkTest`, 0, async () => {
+    it('BlankBenchMarkTest', 0, async () => {
       await driver.delayMs(1000);
       await checkButtonAndClickWithID('Blank');
       await checkButtonAndClickWithID('BlankCreateSample');
@@ -2614,7 +2614,7 @@ export default function abilityTest() {
     })
 
     //点击首页Radio
-    it(`RadioBenchMarkTest`, 0, async () => {
+    it('RadioBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('Radio');
       await checkButtonAndClickWithID('RadioCreateSample');
@@ -2635,7 +2635,7 @@ export default function abilityTest() {
     })
 
     //点击首页ScrollBar
-    it(`ScrollBarBenchMarkTest`, 0, async () => {
+    it('ScrollBarBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('ScrollBar');
       await checkButtonAndClickWithID('ScrollBarCreateSample');
@@ -2661,6 +2661,5 @@ export default function abilityTest() {
       await pressBack();
       await pressBack();
     })
-
   })
 }

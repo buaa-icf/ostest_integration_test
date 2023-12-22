@@ -5,7 +5,16 @@ ArkUI组件性能测试用例
 
 #### 目录结构
 ```
-├── BenchMark_tool	    //解析trace数据工具
+├── BenchMark_tool	 //解析trace数据工具
+│   └── 1.bat        //获取C++层创建耗时和布局耗时脚本
+│   └── 2.bat        //安装hap包、执行单元测试脚本
+│   └── 3.bat        //获取js层创建耗时脚本
+│   └── 4.bat        //对比基线数据脚本
+│   └── BenchMark.py        //解析C++层创建耗时和布局耗时数据
+│   └── BenchMark_file.py   //解析C++层创建耗时和布局耗时数据
+│   └── BenchMark_js.py     //解析js层创建耗时数据
+│   └── BenchMark_pass.py   //对比基线数据脚本
+│   └── trace.py            //抓取C++层trace数据
 ├── entry	           
 │   └── src	           
 |      └── main	       //测试用例代码 
@@ -27,7 +36,7 @@ ArkUI组件性能测试用例
 
    将生成的两个hap包复制到D://BenchMark_tool文件夹中
    ![2.png](preview/2.png)
- 
+
    修改bytrace执行时间，将D://BenchMark_tool/1.bat中hdc_std shell "bytrace -t 360 -b 204800 --overwrite ace  > /data/%filename%"命令中-t后边的360替换为当前单元测试的执行时间（单位秒）
 
    执行D://BenchMark_tool/1.bat脚本，紧接着执行2.bat脚本；等待脚本执行结束会在BenchMark_tool文件中生成BenchMark.xlsx
@@ -37,5 +46,5 @@ ArkUI组件性能测试用例
    在D://BenchMark_tool下新建BenchMark_js.txt文件，将DevEco Studio控制台打印的数据（如下图数据）复制到BenchMark_js.txt文件中并保存，执行3.bat，等待脚本执行结束会在BenchMark_tool文件中生成BenchMark_js.xlsx
    ![3.png](preview/3.png)
 
-   
-   
+6. 与基线数据对比 
+   执行4.bat
