@@ -10,3 +10,31 @@
 ![image](screenshots/home-recommendation.png)
 
 ![image](screenshots/home-following.png)
+
+## 工程目录
+
+```text
+./entry/src/main/
+├─ets
+│  ├─entryability
+│  │    EntryAbility.ets                // 入口
+│  ├─pages
+│  │    Index.ets
+│  ├─view                               // 子界面、自定义组件
+│  │    HomePage.ets
+│  │    HomePageFollowingTab.ets
+│  │    HomePageRecommendationTab.ets
+│  │    ProfilePage.ets
+│  │    PublishPage.ets
+│  │    TaskPage.ets
+│  │    VideoPage.ets
+│  └─viewmodel                          // 数据结构
+│       IndexBottomNavItem.ets
+│       RecommendedArticle.ets
+│       RecommendedVideo.ets
+│       UserInfo.ets
+└─mock                                  // 模拟后端提供数据
+   RecommendedArticleList.ets
+   RecommendedUserList.ets
+   RecommendedVideoList.ets
+```
