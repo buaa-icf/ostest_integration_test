@@ -15,9 +15,29 @@
 
 
 import router from '@ohos.router';
-import { HomePageTabItemList } from '../viewmodel/HomePageTabItem';
 import { FollowingTabContent } from './HomePageFollowingTab';
 import { RecommendationTabContent } from './HomePageRecommendationTab';
+
+
+/**
+ * All the items in the tab bar.
+ * 所有选项卡内容。
+ */
+const tabItemList: string[] = [
+  '关注',
+  '推荐',
+  '热榜',
+  '发现',
+  '视频',
+  '图片',
+  '娱乐',
+  '畅听',
+  '科技',
+  '懂车',
+  '财经',
+  '军事',
+  '体育'
+]
 
 
 /**
@@ -116,7 +136,7 @@ struct TabSelector {
         Scroll(this.scroller) {
           /* Scrollable tab selector. */
           Row() {
-            ForEach(HomePageTabItemList, (item: string, itemIndex: number) => {
+            ForEach(tabItemList, (item: string, itemIndex: number) => {
               Column({ space: 6 }) {
                 Text(item)
                   .fontSize(19)

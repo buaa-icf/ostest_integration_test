@@ -18,7 +18,31 @@ import { HomePage } from '../view/HomePage';
 import { ProfilePageBuilder } from '../view/profilePage';
 import { TaskPageBuilder } from '../view/TaskPage';
 import { VideoPageBuilder } from '../view/VideoPage';
-import { IndexBottomNavItem, indexBottomNavItemList } from '../viewmodel/IndexBottomNavItem';
+import { IndexBottomNavItem } from '../viewmodel/IndexBottomNavItem';
+
+
+/**
+ * All the items in the bottom navigation bar.
+ * 应用底部导航栏中导航项列表。
+ */
+const bottomNavItemList: IndexBottomNavItem[] = [{
+  title: '首页',
+  normalIcon: $r("app.media.ic_public_home"),
+  selectedIcon: $r("app.media.ic_public_home_filled")
+}, {
+  title: '视频',
+  normalIcon: $r("app.media.ic_public_video"),
+  selectedIcon: $r("app.media.ic_public_video_filled")
+}, {
+  title: '任务',
+  normalIcon: $r("app.media.ic_public_calendar"),
+  selectedIcon: $r("app.media.ic_public_calendar_filled")
+}, {
+  title: '个人',
+  normalIcon: $r("app.media.ic_public_contacts"),
+  selectedIcon: $r("app.media.ic_public_contacts_filled")
+}]
+
 
 @Entry
 @Component
@@ -28,7 +52,7 @@ struct Index {
 
   build() {
     Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
-      ForEach(indexBottomNavItemList, (item: IndexBottomNavItem, itemIndex: number) => {
+      ForEach(bottomNavItemList, (item: IndexBottomNavItem, itemIndex: number) => {
         TabContent() {
           /* Provide different content according to the tab index. */
           Column() {
