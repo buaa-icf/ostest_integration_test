@@ -22,10 +22,6 @@ import prompt from '@ohos.promptAction';
 @Component
 export default struct TriItem {
   private items: ItemData[] = new Array<ItemData>();
-  @Consume playingTitle: string;
-  @Consume playingArtist: string;
-  @Consume playingImg: Resource;
-  @Consume rotateAngle: number;
 
   build() {
     Column() {
@@ -53,15 +49,11 @@ export default struct TriItem {
         }
         .margin($r('app.float.home_homeCell_margin'))
         .onClick(() => {
-          this.playingTitle = item.title;
-          this.playingArtist = item.subTitle;
-          this.playingImg = item.img;
-          this.rotateAngle = 360;
           prompt.showToast({
             message: '进入歌单：' + item.title
           })
         })
-      }, (item: ItemData) => JSON.stringify(item))
+      })
     }
     .width('90%')
     .alignItems(HorizontalAlign.Start)

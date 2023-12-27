@@ -16,7 +16,7 @@
 /**
  * List item data entity.
  */
-export default class BookTriItemData {
+export default class TriItemData {
   /**
    * Text of list item.
    */

@@ -22,10 +22,6 @@ import prompt from '@ohos.promptAction';
 @Component
 export default struct MineListItem {
   private item: ItemData = new ItemData('', $r('app.media.fig21'), '', Visibility.None, Visibility.None);
-  @Consume playingTitle: string;
-  @Consume playingArtist: string;
-  @Consume playingImg: Resource;
-  @Consume rotateAngle: number;
 
   build() {
     Row() {
@@ -77,10 +73,6 @@ export default struct MineListItem {
     .alignItems(VerticalAlign.Center)
     .width('100%')
     .onClick(() => {
-      this.playingTitle = this.item.title;
-      this.playingArtist = this.item.subTitle;
-      this.playingImg = this.item.img;
-      this.rotateAngle = 360;
       prompt.showToast({
         message: '进入歌单：' + this.item.title
       })

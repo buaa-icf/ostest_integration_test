@@ -55,7 +55,7 @@ export default struct PodCastContentSecond {
           Row() {
             ForEach(mainViewModel.getPodCastSecond(), (item: ItemData) => {
               BookFirstItem({ item })
-            }, (item: ItemData) => JSON.stringify(item))
+            })
           }
         }
         .scrollable(ScrollDirection.Horizontal)
@@ -78,7 +78,7 @@ export default struct PodCastContentSecond {
             BookSecondItem({ item: mainViewModel.getPodCastSecondVip(), imgWidth: '128vp' })
             ForEach(mainViewModel.getPodCastSecond2(), (item: ItemData) => {
               BookSecondItem({ item: item, imgWidth: '64vp' })
-            }, (item: ItemData) => JSON.stringify(item))
+            })
           }
           .alignItems(VerticalAlign.Top)
         }
@@ -95,7 +95,7 @@ export default struct PodCastContentSecond {
               Row() {
                 ForEach(mainViewModel.getBookTriData1(), (items: BookTriItemData[]) => {
                   BookTriItem({ items })
-                }, (items: BookTriItemData[]) => JSON.stringify(items))
+                })
               }
               .margin($r('app.float.home_secondGrid_margin'))
               .alignItems(VerticalAlign.Top)
@@ -111,7 +111,7 @@ export default struct PodCastContentSecond {
               Row() {
                 ForEach(mainViewModel.getBookTriData1(), (items: BookTriItemData[]) => {
                   BookTriItem({ items })
-                }, (items: BookTriItemData[]) => JSON.stringify(items))
+                })
               }
               .margin($r('app.float.home_secondGrid_margin'))
               .alignItems(VerticalAlign.Top)
@@ -128,7 +128,7 @@ export default struct PodCastContentSecond {
               Row() {
                 ForEach(mainViewModel.getBookTriData1(), (items: BookTriItemData[]) => {
                   BookTriItem({ items })
-                }, (items: BookTriItemData[]) => JSON.stringify(items))
+                })
               }
               .margin($r('app.float.home_secondGrid_margin'))
               .alignItems(VerticalAlign.Top)

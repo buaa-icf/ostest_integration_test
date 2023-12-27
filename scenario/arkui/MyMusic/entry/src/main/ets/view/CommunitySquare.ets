@@ -16,6 +16,11 @@
 import MineActivityItem from './MineActivityItem';
 import MineActivityItemData from '../viewmodel/MineActivityItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
+import ListHead from './ListHead';
+import TriItem from './TriItem';
+import TriItemData from '../viewmodel/TriItemData';
+import SquareTriItem from './SquareTriItem';
+import SquareTriItemData from '../viewmodel/SquareTriItemData';
 
 
 /**
@@ -23,19 +28,72 @@ import mainViewModel from '../viewmodel/MainViewModel';
  */
 @Component
 export default struct CommunitySquare {
+  @State isAd: boolean = true;
+
   build() {
-    List({ space: 10 }) {
-      ForEach(mainViewModel.getMineActivityItemData(), (item: MineActivityItemData) => {
-        ListItem() {
-          MineActivityItem({ item })
+    Scroll() {
+      Column() {
+        if (this.isAd) {
+          Stack() {
+            Image($r('app.media.green2023'))
+              .height('100%')
+              .width('100%')
+              .objectFit(ImageFit.Fill)
+              .borderRadius('12vp')
+            Image($r('app.media.ic_public_close_wh'))
+              .height('32vp')
+              .width('32vp')
+              .margin('4vp')
+              .onClick(() => {
+                this.isAd = false;
+              })
+          }
+          .height('100vp')
+          .width('90%')
+          .alignContent(Alignment.TopEnd)
         }
-        .align(Alignment.Start)
-      }, (item: MineActivityItemData) => JSON.stringify(item))
-    }.margin('12vp')
-    .edgeEffect(EdgeEffect.Spring)
-    .nestedScroll({
-      scrollForward: NestedScrollMode.PARENT_FIRST,
-      scrollBackward: NestedScrollMode.SELF_FIRST
-    })
+        List({ space: 10 }) {
+          ForEach(mainViewModel.getMineActivityItemData(), (item: MineActivityItemData) => {
+            ListItem() {
+              MineActivityItem({ item })
+            }
+            .align(Alignment.Start)
+          })
+          ListItem() {
+            Column(){
+              ListHead({
+                imgRefresh: Visibility.None,
+                imgArrow: Visibility.None,
+                imgMore: Visibility.None,
+                isPlayer: Visibility.None,
+                title: '大家都在聊'
+              })
+              Scroll() {
+                Row() {
+                  ForEach(mainViewModel.getSquareThirdGridData(), (items: SquareTriItemData[]) => {
+                    SquareTriItem({ items })
+                  })
+                }
+                .margin($r('app.float.home_secondGrid_margin'))
+                .alignItems(VerticalAlign.Top)
+              }
+              .scrollable(ScrollDirection.Horizontal)
+              .scrollBar(BarState.Off)
+            }
+          }
+          ForEach(mainViewModel.getMineActivityItemData1(), (item: MineActivityItemData) => {
+            ListItem() {
+              MineActivityItem({ item })
+            }
+            .align(Alignment.Start)
+          })
+        }.margin('12vp')
+        .edgeEffect(EdgeEffect.Spring)
+        .nestedScroll({
+          scrollForward: NestedScrollMode.PARENT_FIRST,
+          scrollBackward: NestedScrollMode.SELF_FIRST
+        })
+      }
+    }
   }
 }

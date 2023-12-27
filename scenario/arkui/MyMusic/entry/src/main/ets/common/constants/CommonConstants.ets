@@ -89,5 +89,6 @@ export default class CommonConstants {
    * Mine tab index
    */
   static readonly SOCIAL_TAB_INDEX = 4;
+
 }
 

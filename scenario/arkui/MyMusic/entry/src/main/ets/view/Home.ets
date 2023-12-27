@@ -41,7 +41,7 @@ export default struct Home {
           Swiper(this.swiperController) {
             ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
               Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
-            }, (img: Resource) => JSON.stringify(img.id))
+            })
           }
           .margin({ top: $r('app.float.home_swiper_margin') })
           .autoPlay(true)
@@ -50,7 +50,7 @@ export default struct Home {
             Row() {
               ForEach(mainViewModel.getFirstGridData(), (item: ItemData) => {
                 SmallItem({ item })
-              }, (item: ItemData) => JSON.stringify(item))
+              })
             }.margin($r('app.float.home_secondGrid_margin'))
           }
           .scrollable(ScrollDirection.Horizontal)
@@ -68,7 +68,7 @@ export default struct Home {
             Row() {
               ForEach(mainViewModel.getSecondGridData(), (item: MidItemData) => {
                 MidItem({ item })
-              }, (item: MidItemData) => JSON.stringify(item))
+              })
             }
             .margin($r('app.float.home_secondGrid_margin'))
             .alignItems(VerticalAlign.Top)
@@ -89,7 +89,7 @@ export default struct Home {
             Row() {
               ForEach(mainViewModel.getThirdGridData(), (items: TriItemData[]) => {
                 TriItem({ items })
-              }, (items: TriItemData[]) => JSON.stringify(items))
+              })
             }
             .margin($r('app.float.home_secondGrid_margin'))
             .alignItems(VerticalAlign.Top)

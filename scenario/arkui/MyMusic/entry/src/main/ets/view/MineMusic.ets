@@ -58,7 +58,7 @@ export default struct MineMusic {
               MineListItem({ item })
             }
             .align(Alignment.Start)
-          }, (item: MineListItemData) => JSON.stringify(item))
+          })
         }.margin('12vp')
         .edgeEffect(EdgeEffect.Spring)
         .nestedScroll({
@@ -75,7 +75,7 @@ export default struct MineMusic {
               MineListItem({ item })
             }
             .align(Alignment.Start)
-          }, (item: MineListItemData) => JSON.stringify(item))
+          })
         }.margin('12vp')
         .edgeEffect(EdgeEffect.Spring)
         .nestedScroll({

@@ -22,10 +22,6 @@ import prompt from '@ohos.promptAction';
 export default struct BookSecondItem {
   private item: ItemData = new ItemData('', $r('app.media.fig1'), '', $r('app.media.fig1'));
   private imgWidth: string = '';
-  @Consume playingTitle: string;
-  @Consume playingArtist: string;
-  @Consume playingImg: Resource;
-  @Consume rotateAngle: number;
 
   build() {
     Column() {
@@ -40,11 +36,7 @@ export default struct BookSecondItem {
         .maxLines(2)
     }
     .margin('8vp')
-    .onClick(() => {
-      this.playingTitle = this.item.title;
-      this.playingArtist = this.item.subTitle;
-      this.playingImg = this.item.img;
-      this.rotateAngle = 360;
+    .onClick(() => {;
       prompt.showToast({
         message: '进入歌单：' + this.item.title
       })

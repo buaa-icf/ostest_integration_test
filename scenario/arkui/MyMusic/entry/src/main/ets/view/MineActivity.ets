@@ -30,7 +30,7 @@ export default struct MineActivity {
           MineActivityItem({ item })
         }
         .align(Alignment.Start)
-      }, (item: MineActivityItemData) => JSON.stringify(item))
+      })
     }.margin('12vp')
     .edgeEffect(EdgeEffect.Spring)
     .nestedScroll({

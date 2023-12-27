@@ -58,7 +58,7 @@ export default struct MinePodCast {
             Column() {
               ForEach(mainViewModel.getMinePodCastListItemData(), (item: MineListItemData) => {
                 MineListItem({ item }).margin({bottom:'10vp'})
-              }, (item: MineListItemData) => JSON.stringify(item))
+              })
             }
           }.align(Alignment.Start)
 
@@ -78,7 +78,7 @@ export default struct MinePodCast {
                   GridItem() {
                     MidItem({ item })
                   }
-                }, (item: MidItemData) => JSON.stringify(item))
+                })
               }
               .columnsTemplate('1fr 1fr 1fr')
               .rowsTemplate('1fr 1fr')
@@ -131,7 +131,7 @@ export default struct MinePodCast {
               MineListItem({ item })
             }
             .align(Alignment.Start)
-          }, (item: MineListItemData) => JSON.stringify(item))
+          })
         }.margin('12vp')
         .edgeEffect(EdgeEffect.Spring)
         .nestedScroll({
