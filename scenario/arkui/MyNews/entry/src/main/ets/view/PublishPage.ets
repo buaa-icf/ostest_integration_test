@@ -21,28 +21,32 @@ import router from '@ohos.router';
  * All the items in the bottom tab bar.
  * 页面底部所有选项卡。
  */
-const BottomTabItemList: string[] = [
+const bottomTabItemList: string[] = [
   '灵感',
   '文章',
-  '微头条',
   '模板',
   '视频',
   '直播'
 ]
 
+
+/**
+ * Content in `Publish` page.
+ * `发布` 页面内容。
+ */
 @Entry
 @Component
 struct PublishPage {
-  @State currentIndex: number = 2
+  @State currentIndex: number = 1
   private tabsController: TabsController = new TabsController()
 
   build() {
     Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
-      ForEach(BottomTabItemList, (item: string, itemIndex: number) => {
+      ForEach(bottomTabItemList, (item: string, itemIndex: number) => {
         TabContent() {
           /* Provide different content according to the tab index. */
           Column() {
-            MicroToutiaoTab()
+            Article()
           }
           .width('100%')
           .height('100%')
@@ -90,7 +94,7 @@ struct PublishPage {
 
 
 @Component
-struct MicroToutiaoTab {
+struct Article {
   build() {
     Column() {
       /* Tool bar. */
