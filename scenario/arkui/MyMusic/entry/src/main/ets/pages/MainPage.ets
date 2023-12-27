@@ -20,6 +20,7 @@ import Mine from '../view/Mine'
 import PlayerBar from '../view/PlayerBar';
 import Community from "../view/Community"
 import Follow from '../view/Follow';
+import PlayerManager from '../manager/PlayerManager'
 
 /**
  * Main page
@@ -29,10 +30,14 @@ import Follow from '../view/Follow';
 struct MainPage {
   @State currentIndex: number = CommonConstants.HOME_TAB_INDEX;
   private tabsController: TabsController = new TabsController();
-  @Provide playingTitle: string = '红色的河'
-  @Provide playingArtist: string = '旅行团乐队/吴青峰'
-  @Provide playingImg: Resource = $r('app.media.ic_gallery_frame_overlay_soundphoto')
-  @Provide rotateAngle: number = 0;
+  @State playerManager: PlayerManager = new PlayerManager();
+
+  aboutToAppear() {
+    AppStorage.setOrCreate('playerManager', this.playerManager);
+  }
+
+  aboutToDisappear() {
+  }
 
   @Builder
   TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {

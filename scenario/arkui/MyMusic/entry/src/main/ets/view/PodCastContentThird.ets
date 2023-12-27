@@ -41,7 +41,7 @@ export default struct PodCastContentThird {
               .borderRadius($r('app.float.podcast_text_border_Radius'))
               .border({ width: 1, color: 0xE0E0E0, radius: 8, style: BorderStyle.Solid })
               .textAlign(TextAlign.Center)
-          }, (item: ItemData) => JSON.stringify(item))
+          })
         }
 
         ListHead({
@@ -57,7 +57,7 @@ export default struct PodCastContentThird {
           Row() {
             ForEach(mainViewModel.getBookTriData2(), (items: BookTriItemData[]) => {
               BookTriItem({ items })
-            }, (items: BookTriItemData[]) => JSON.stringify(items))
+            })
           }
           .margin($r('app.float.home_secondGrid_margin'))
           .alignItems(VerticalAlign.Top)
@@ -76,7 +76,7 @@ export default struct PodCastContentThird {
         Column() {
           ForEach(mainViewModel.getBookTriBigData(), (item: PodCastBigItemData) => {
             PodCastBigItem({ item })
-          }, (items: PodCastBigItemData[]) => JSON.stringify(items))
+          })
         }
 
         Text('下滑加载更多......')

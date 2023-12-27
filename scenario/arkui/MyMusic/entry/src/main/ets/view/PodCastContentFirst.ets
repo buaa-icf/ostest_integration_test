@@ -65,7 +65,7 @@ export default struct PodCastContentFirst {
                 .borderRadius($r('app.float.podcast_text_border_Radius'))
                 .border({ width: 1, color: 0xE0E0E0, radius: 8, style: BorderStyle.Solid })
                 .textAlign(TextAlign.Center)
-            }, (item: ItemData) => JSON.stringify(item))
+            })
           }
         }
         .scrollable(ScrollDirection.Horizontal)
@@ -162,7 +162,7 @@ export default struct PodCastContentFirst {
             GridItem() {
               MidItem({ item })
             }
-          }, (item: MidItemData) => JSON.stringify(item))
+          })
         }
         .columnsTemplate('1fr 1fr 1fr')
         .rowsTemplate('1fr 1fr')

@@ -22,6 +22,8 @@ import PodCastBigItemData from './PodCastBigItemData';
 import SelectFirstItemData from './SelectFirstItemData';
 import MineListItemData from './MineListItemData';
 import MineActivityItemData from './MineActivityItemData';
+import SquareTriItemData from './SquareTriItemData';
+import AudioItem from '../manager/AudioItem';
 
 
 /**
@@ -70,12 +72,30 @@ export class MainViewModel {
    */
   getSecondGridData(): Array<MidItemData> {
     let secondGridData: MidItemData[] = [
-      new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万', '最近常听'),
-      new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万', ''),
-      new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万', ''),
-      new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万', '收藏过万'),
-      new MidItemData('555超适合放松的歌单', $r('app.media.found'), '475万', '收藏过万'),
-      new MidItemData('666回家时超适合放松的歌单', $r('app.media.found'), '475万', '收藏过万')
+      new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '最近常听'),
+      new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万',
+        [new AudioItem('唯一', $r('app.media.quareblue8'), '告五人', 161),
+          new AudioItem('日落大道', $r('app.media.quarered7'), '梁博', 223),
+          new AudioItem('Gravity', $r('app.media.quaregreen5'), 'Klaas', 112)],''),
+      new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万'),
+      new MidItemData('555超适合放松的歌单', $r('app.media.found'), '475万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万'),
+      new MidItemData('666回家时超适合放松的歌单', $r('app.media.found'), '475万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万')
     ];
     return secondGridData;
   }
@@ -106,6 +126,35 @@ export class MainViewModel {
     thirdGridDatas.push(thirdGridData2);
     thirdGridDatas.push(thirdGridData3);
     thirdGridDatas.push(thirdGridData4);
+    return thirdGridDatas;
+  }
+
+  getSquareThirdGridData(): Array<SquareTriItemData[]> {
+    let thirdGridDatas = Array<SquareTriItemData[]>();
+    let thirdGridData1: SquareTriItemData[] = [
+      new SquareTriItemData('有关圣诞的仪式感🎄', '热'),
+      new SquareTriItemData('🔥村庄年度生活观察', '新'),
+      new SquareTriItemData('海外艺人新年彩蛋待领取', '热'),
+      new SquareTriItemData('考研加油！', '新'),
+      new SquareTriItemData('泰勒电影乐迷团专场🎦', '热'),
+    ];
+    let thirdGridData2: SquareTriItemData[] = [
+      new SquareTriItemData('法老官宣', '新'),
+      new SquareTriItemData('圣诞emo歌', '新'),
+      new SquareTriItemData('适合寒冷冬夜听的歌', '新'),
+      new SquareTriItemData('爱人？仇人！', '新'),
+      new SquareTriItemData('我知道我爱你', '新'),
+    ];
+    let thirdGridData3: SquareTriItemData[] = [
+      new SquareTriItemData('甘肃地震愿平安', ''),
+      new SquareTriItemData('被这句歌词击穿♥了 ', ''),
+      new SquareTriItemData('电影《三大队》', ''),
+      new SquareTriItemData('无法自拔不能代替那种爱', '新'),
+      new SquareTriItemData('人生像过山车', '新'),
+    ];
+    thirdGridDatas.push(thirdGridData1);
+    thirdGridDatas.push(thirdGridData2);
+    thirdGridDatas.push(thirdGridData3);
     return thirdGridDatas;
   }
 
@@ -229,12 +278,30 @@ export class MainViewModel {
    */
   getPodCastGridData(): Array<MidItemData> {
     let aGridData: MidItemData[] = [
-      new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万', '最近常听'),
-      new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万', ''),
-      new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万', ''),
-      new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万', '收藏过万'),
-      new MidItemData('节奏控系列【抖腿-ing】11', $r('app.media.brand'), '47万', ''),
-      new MidItemData('下班回家时超适合放松的歌单11', $r('app.media.found'), '475万', '收藏过万')
+      new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'最近常听'),
+      new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万'),
+      new MidItemData('节奏控系列【抖腿-ing】11', $r('app.media.brand'), '47万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('下班回家时超适合放松的歌单11', $r('app.media.found'), '475万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万')
     ];
     return aGridData;
   }
@@ -377,46 +444,74 @@ export class MainViewModel {
 
   getMineActivityItemData(): Array<MineActivityItemData> {
     let listData: MineActivityItemData[] = [
-      new MineActivityItemData('四年好短啊~', [$r('app.media.fig21')],
-        new MineListItemData('闲潭春半', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
-        0, 1, 1, ['#心语推歌墙'], new MineListItemData('想着你', $r('app.media.fig31'), '郭顶', Visibility.None, Visibility.None)),
+      new MineActivityItemData('这一年在村里，原来i人有这么美好的回忆。刚好自己喜欢看书和去旅行，下一年，求身体健康~',
+        [$r('app.media.quareblue1'), $r('app.media.quarered2'), $r('app.media.quarepink3'), $r('app.media.yellow4')],
+        new MineListItemData('橘生淮南yhy', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
+        6, 36, 1139, ['#2023村庄年度观察'], new MineListItemData('2023村庄年度生活观察', $r('app.media.fig5'), '一起回归过去的2023年', Visibility.None, Visibility.None)),
+      new MineActivityItemData('歌曲能倒带，那我们呢', [$r('app.media.found'), $r('app.media.quarered8'), $r('app.media.brand1')],
+        new MineListItemData('Ar1a_5', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 20, 405, ['#晒晒我的村民证件', '#集合啦村民们'], new MineListItemData('白兰鸽巡游记', $r('app.media.fig31'), '丢火车', Visibility.None, Visibility.None)),
+    ];
+    return listData;
+  }
+
+  getMineActivityItemData1(): Array<MineActivityItemData> {
+    let listData: MineActivityItemData[] = [
+      new MineActivityItemData('OpenhHarmony 回归本源设计，从浩瀚宇宙中抽象出动态语言，模拟真实世界中的物理动力学，将万有引力融入到动效设计中。\n引入轻拟物美学风格，以真实生活中的质感，为用户带来全新交互体验。\n跨设备的超级终端一拖即连，万能卡片轻轻一滑即可获取所需信息，带来全场景智慧生活新体验', [],
+        new MineListItemData('阿荣_J5', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 360, 1220, [], new MineListItemData('太聪明 Beat', $r('app.media.fig41'), 'Zy', Visibility.None, Visibility.None)),
       new MineActivityItemData('也是有证的村民了', [$r('app.media.found')],
         new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
         0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
     ];
     return listData;
   }
+
   getFollowActivityItemData(): Array<MineActivityItemData> {
     let listData: MineActivityItemData[] = [
-      new MineActivityItemData('1知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', [$r('app.media.fig1')],
+      new MineActivityItemData('九宫格：知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！',
+        [$r('app.media.quarered0'), $r('app.media.quaregreen0'), $r('app.media.quarepink0'), $r('app.media.quareblue0'), $r('app.media.quaregreen0'),
+          $r('app.media.quarered0'), $r('app.media.quaregreen0'), $r('app.media.quarepink0'), $r('app.media.quareblue0')],
         new MineListItemData('云音乐VIP', $r('app.media.brand'), '昨天12：03', Visibility.Visible, Visibility.Visible),
         11, 667, 1996, ['#2023年度听歌报告']),
-      new MineActivityItemData('2，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', [$r('app.media.fig1'),$r('app.media.fig2')],
+      new MineActivityItemData('四幅图：年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！',
+        [$r('app.media.quarered1'), $r('app.media.quaregreen2'), $r('app.media.quarepink3'), $r('app.media.quareblue4')],
         new MineListItemData('云音乐VIP', $r('app.media.brand'), '昨天12：03', Visibility.Visible, Visibility.Visible),
         11, 667, 1996, ['#2023年度听歌报告']),
-      new MineActivityItemData('3知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！', [$r('app.media.fig1'),$r('app.media.fig2'),$r('app.media.fig3')],
+      new MineActivityItemData('五幅图：知道你们很着急，年末惊喜来袭~\n2023云音乐年度听歌报告正式上线啦！\n一键开启你的年度听过报告，回归你的2023！',
+        [$r('app.media.quarered1'), $r('app.media.quaregreen2'), $r('app.media.quarepink3'), $r('app.media.quareblue4'), $r('app.media.quaregreen5')],
         new MineListItemData('云音乐VIP', $r('app.media.brand'), '昨天12：03', Visibility.Visible, Visibility.Visible),
         11, 667, 1996, ['#2023年度听歌报告']),
-      new MineActivityItemData('也是有证的村民了', [$r('app.media.found')],
-        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
-        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
-    ];
-    return listData;
-  }
-  getRecommendActivityItemData(): Array<MineActivityItemData> {
-    let listData: MineActivityItemData[] = [
-      new MineActivityItemData('四年好短啊~', [$r('app.media.fig21'),$r('app.media.brand1'),$r('app.media.fig31'),$r('app.media.fig41'),$r('app.media.fig1'),$r('app.media.fig2'),$r('app.media.fig3')],
-        new MineListItemData('闲潭春半', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
-        0, 1, 1, ['#心语推歌墙'], new MineListItemData('想着你', $r('app.media.fig31'), '郭顶', Visibility.None, Visibility.None)),
-      new MineActivityItemData('也是有证的村民了', [$r('app.media.found')],
+      new MineActivityItemData('一幅图', [$r('app.media.found')],
         new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
         0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
-    new MineActivityItemData('2也是有证的村民了', [$r('app.media.found')],
-      new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
-      0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
-    new MineActivityItemData('3也是有证的村民了', [$r('app.media.found')],
-      new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
-      0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
+      new MineActivityItemData('两幅图', [$r('app.media.quaregreen2'), $r('app.media.quarepink3')],
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
+    ]
+    ;
+    return listData;
+  }
+
+  getRecommendActivityItemData(): Array<MineActivityItemData> {
+    let listData: MineActivityItemData[] = [
+      new MineActivityItemData('七幅图：四年好短啊~',
+        [$r('app.media.brand1'), $r('app.media.brand1'), $r('app.media.fig31'), $r('app.media.fig41'), $r('app.media.fig1'), $r('app.media.fig2'), $r('app.media.fig3')],
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '8月23日', Visibility.Visible, Visibility.Visible),
+        0, 1, 1, ['#心语推歌墙'], new MineListItemData('想着你', $r('app.media.fig31'), '郭顶', Visibility.None, Visibility.None)),
+      new MineActivityItemData('六幅图：也是有证的村民了',
+        [$r('app.media.quarepink3'), $r('app.media.yellow1'), $r('app.media.yellow2'), $r('app.media.yellow3'), $r('app.media.quarepink3'), $r('app.media.yellow4')],
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
+      new MineActivityItemData('三幅图：也是有证的村民了',
+        [$r('app.media.yellow4'), $r('app.media.quarepink3'), $r('app.media.yellow4')],
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们']),
+      new MineActivityItemData('八幅图：也是有证的村民了',
+        [$r('app.media.yellow0'), $r('app.media.quarepink3'), $r('app.media.yellow2'), $r('app.media.yellow3'), $r('app.media.yellow4'),
+          $r('app.media.quarepink3'), $r('app.media.yellow4'), $r('app.media.yellow4')],
+        new MineListItemData('闲潭春半', $r('app.media.brand'), '2021年9月22日', Visibility.None, Visibility.None),
+        0, 0, 0, ['#晒晒我的村民证件', '#集合啦村民们'])
     ];
     return listData;
   }
@@ -455,12 +550,30 @@ export class MainViewModel {
 
   getMinePodCastGridData(): Array<MidItemData> {
     let aGridData: MidItemData[] = [
-      new MidItemData('西海之声 Radio SayHi！', $r('app.media.top'), '1024万', ''),
-      new MidItemData('蕊希电台', $r('app.media.new'), '24万', ''),
-      new MidItemData('十大童年经典中文儿歌', $r('app.media.brand'), '47万', ''),
-      new MidItemData('广播剧《我就是想贿赂你》', $r('app.media.found'), '475万', ''),
-      new MidItemData('倾城天下|热播影视剧原著', $r('app.media.brand'), '47万', ''),
-      new MidItemData('一首歌一个故事', $r('app.media.found'), '1亿', '')
+      new MidItemData('西海之声 Radio SayHi！', $r('app.media.top'), '1024万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('蕊希电台', $r('app.media.new'), '24万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('十大童年经典中文儿歌', $r('app.media.brand'), '47万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('广播剧《我就是想贿赂你》', $r('app.media.found'), '475万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('倾城天下|热播影视剧原著', $r('app.media.brand'), '47万',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+      new MidItemData('一首歌一个故事', $r('app.media.found'), '1亿',
+        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
+          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'')
     ];
     return aGridData;
   }
@@ -476,9 +589,10 @@ export class MainViewModel {
     ];
     return listData;
   }
+
   getFollowers(): Array<ItemData> {
     let listData: ItemData[] = [
-      new ItemData('get_a_life', $r("app.media.found"), '', ),
+      new ItemData('get_a_life', $r("app.media.found"), '',),
       new ItemData('初玖宅柒', $r("app.media.fig3"), '',),
       new ItemData('金陵靓仔', $r("app.media.fig4"), '',),
       new ItemData('吹口哨的青蛙', $r("app.media.about"), '',),
@@ -488,7 +602,6 @@ export class MainViewModel {
     ];
     return listData;
   }
-
 }
 
 export default new MainViewModel();

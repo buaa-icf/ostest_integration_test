@@ -26,23 +26,16 @@ export default struct MineActivityItem {
   private item: ItemData = new ItemData('', [$r('app.media.fig21')],
     new MineListItemData('', $r('app.media.fig21'), '', Visibility.None, Visibility.None),
     0, 0, 0, [], undefined);
-  private layoutOptions: GridLayoutOptions = {
-    regularSize: [1, 1],
-    irregularIndexes: [0, 7], // 索引为0和7的GridItem占用的列数由onGetIrregularSizeByIndex指定
-    onGetIrregularSizeByIndex: (index: number) => {
-      if (index === 0) {
-        return [1, 5]
-      }
-      return [1, index % 6 + 1]
-    }
-  }
-  @State imgWidth: string = '90%'
+
+  @State imgWidth: string = '90%';
 
   aboutToAppear() {
-    if (this.item.imgs.length === 2) {
-      this.imgWidth = '45%'
-    } else if (this.item.imgs.length > 2) {
-      this.imgWidth = '30%'
+    if (this.item.imgs.length === 1) {
+      this.imgWidth = '90%';
+    } else if (this.item.imgs.length === 2 || this.item.imgs.length === 4) {
+      this.imgWidth = '45%';
+    } else {
+      this.imgWidth = '30%';
     }
   }
 
@@ -60,7 +53,7 @@ export default struct MineActivityItem {
               .width(this.imgWidth)
               .borderRadius('12vp')
           }
-        }, (img: Resource) => JSON.stringify(img))
+        })
       }
       .layoutDirection(GridDirection.Row)
       .maxCount(3)

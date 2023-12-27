@@ -63,11 +63,11 @@ export default struct PodCastContentFourth {
               }
               .alignItems(VerticalAlign.Top)
               .justifyContent(FlexAlign.SpaceBetween)
-            }, (items: PodCastBigItemData[]) => JSON.stringify(items))
+            })
             Swiper(this.swiperController) {
               ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
                 Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
-              }, (img: Resource) => JSON.stringify(img.id))
+              })
             }
             .margin({ top: $r('app.float.home_swiper_margin') })
             .height('120vp')
@@ -81,7 +81,7 @@ export default struct PodCastContentFourth {
               }
               .alignItems(VerticalAlign.Top)
               .justifyContent(FlexAlign.SpaceBetween)
-            }, (items: PodCastBigItemData[]) => JSON.stringify(items))
+            })
             Text('下滑加载更多......')
               .width(CommonConstants.FULL_PARENT)
               .height($r('app.float.bottom_barHeight'))
@@ -100,7 +100,7 @@ export default struct PodCastContentFourth {
               Row() {
                 ForEach(mainViewModel.getSelectFirst(), (item: SelectFirstItemData) => {
                   SelectFirstItem({ item })
-                }, (item: SelectFirstItemData) => JSON.stringify(item))
+                })
               }
             }
             .scrollable(ScrollDirection.Horizontal)
@@ -176,7 +176,7 @@ export default struct PodCastContentFourth {
                 }.justifyContent(FlexAlign.SpaceBetween)
                 .width('100%')
                 .margin('8vp')
-              }, (item: SelectFirstItemData) => JSON.stringify(item))
+              })
             }
             .padding('8vp')
             .borderRadius('12vp')
@@ -198,7 +198,7 @@ export default struct PodCastContentFourth {
               Row() {
                 ForEach(mainViewModel.getSecondGridData(), (item: MidItemData) => {
                   MidItem({ item })
-                }, (item: MidItemData) => JSON.stringify(item))
+                })
               }
               .margin($r('app.float.home_secondGrid_margin'))
               .alignItems(VerticalAlign.Top)
@@ -218,7 +218,7 @@ export default struct PodCastContentFourth {
             Swiper(this.swiperController) {
               ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
                 Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
-              }, (img: Resource) => JSON.stringify(img.id))
+              })
             }
             .margin({ top: $r('app.float.home_swiper_margin') })
             .height('120vp')
@@ -232,7 +232,7 @@ export default struct PodCastContentFourth {
               }
               .alignItems(VerticalAlign.Top)
               .justifyContent(FlexAlign.SpaceBetween)
-            }, (items: PodCastBigItemData[]) => JSON.stringify(items))
+            })
             Text('下滑加载更多......')
               .width(CommonConstants.FULL_PARENT)
               .height($r('app.float.bottom_barHeight'))
@@ -250,7 +250,7 @@ export default struct PodCastContentFourth {
             Swiper(this.swiperController) {
               ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
                 Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
-              }, (img: Resource) => JSON.stringify(img.id))
+              })
             }
             .margin({ top: $r('app.float.home_swiper_margin') })
             .height('120vp')
@@ -264,7 +264,7 @@ export default struct PodCastContentFourth {
               }
               .alignItems(VerticalAlign.Top)
               .justifyContent(FlexAlign.SpaceBetween)
-            }, (items: PodCastBigItemData[]) => JSON.stringify(items))
+            })
             Text('下滑加载更多......')
               .width(CommonConstants.FULL_PARENT)
               .height($r('app.float.bottom_barHeight'))
@@ -287,7 +287,7 @@ export default struct PodCastContentFourth {
               }
               .alignItems(VerticalAlign.Top)
               .justifyContent(FlexAlign.SpaceBetween)
-            }, (items: PodCastBigItemData[]) => JSON.stringify(items))
+            })
           }
         }
         .scrollBar(BarState.Off)
@@ -326,7 +326,7 @@ export default struct PodCastContentFourth {
               }
               .alignItems(VerticalAlign.Top)
               .justifyContent(FlexAlign.SpaceBetween)
-            }, (items: PodCastBigItemData[]) => JSON.stringify(items))
+            })
           }
         }
         .scrollBar(BarState.Off)

@@ -16,17 +16,15 @@
 import ItemData from '../viewmodel/MidItemData';
 import hilog from '@ohos.hilog';
 import prompt from '@ohos.promptAction';
+import PlayerManager  from '../manager/PlayerManager';
 
 /**
  * List item information component.
  */
 @Component
 export default struct MidItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '', '');
-  @Consume playingTitle: string;
-  @Consume playingArtist: string;
-  @Consume playingImg: Resource;
-  @Consume rotateAngle: number;
+  private item: ItemData = new ItemData('', $r('app.media.fig1'), '',[], '');
+  private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   aboutToAppear() {
     let space: number = 0;
@@ -101,12 +99,9 @@ export default struct MidItem {
   }
 
   enterList() {
-    this.playingTitle = this.item.title.replace(' ', '');
-    this.playingArtist = 'None';
-    this.playingImg = this.item.img;
-    this.rotateAngle = 360;
     prompt.showToast({
       message: '进入歌单：' + this.item.title.replace(' ', '')
     })
+    this.playerManager.playList(this.item.list,0)
   }
 }

@@ -61,7 +61,7 @@ export default struct Follow {
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
                   }.width('64vp')
                   .margin({ right: '16vp' })
-                }, (item: ItemData) => JSON.stringify(item))
+                })
               }
             }
             .scrollable(ScrollDirection.Horizontal)
@@ -95,7 +95,7 @@ export default struct Follow {
                 MineActivityItem({ item })
               }
               .align(Alignment.Start)
-            }, (item: MineActivityItemData) => JSON.stringify(item))
+            })
           }.margin('12vp')
           .edgeEffect(EdgeEffect.Spring)
           .divider({ strokeWidth: 1, color: 0xF0F0F0 })
@@ -135,7 +135,7 @@ export default struct Follow {
                 MineActivityItem({ item })
               }
               .align(Alignment.Start)
-            }, (item: MineActivityItemData) => JSON.stringify(item))
+            })
           }
           .margin('12vp')
           .edgeEffect(EdgeEffect.Spring)

@@ -90,7 +90,7 @@ export default struct Setting {
               this.settingCell(item)
             }
             .height($r('app.float.setting_list_height'))
-          }, (item: ItemData) => JSON.stringify(item))
+          })
         }
         .backgroundColor(Color.White)
         .divider({

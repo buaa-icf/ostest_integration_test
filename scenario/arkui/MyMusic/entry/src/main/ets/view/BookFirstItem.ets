@@ -14,6 +14,9 @@
  */
 import ItemData from '../viewmodel/ItemData';
 import prompt from '@ohos.promptAction';
+import hilog from '@ohos.hilog';
+import AudioItem from '../manager/AudioItem';
+import PlayerManager  from '../manager/PlayerManager';
 
 /**
  * List item information component.
@@ -21,10 +24,7 @@ import prompt from '@ohos.promptAction';
 @Component
 export default struct BookFirstItem {
   private item: ItemData = new ItemData('', $r('app.media.fig1'), '', $r('app.media.fig1'));
-  @Consume playingTitle: string;
-  @Consume playingArtist: string;
-  @Consume playingImg: Resource;
-  @Consume rotateAngle: number;
+  private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   build() {
     Column() {
@@ -44,13 +44,11 @@ export default struct BookFirstItem {
     .margin('8vp')
     .borderRadius($r('app.float.podcast_text_border_Radius'))
     .onClick(() => {
-      this.playingTitle = this.item.title;
-      this.playingArtist = this.item.subTitle;
-      this.playingImg = this.item.img;
-      this.rotateAngle = 360;
       prompt.showToast({
         message: '进入歌单：' + this.item.title
       })
+      let list  = [new AudioItem(this.item.title,this.item.img,this.item.subTitle,120)]
+      this.playerManager.playList(list,0)
     })
   }
 }

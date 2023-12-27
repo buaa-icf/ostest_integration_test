@@ -22,10 +22,6 @@ import prompt from '@ohos.promptAction';
 @Component
 export default struct RadioItem {
   private items: ItemData[] = new Array<ItemData>();
-  @Consume playingTitle: string;
-  @Consume playingArtist: string;
-  @Consume playingImg: Resource;
-  @Consume rotateAngle: number;
 
   build() {
     Scroll() {
@@ -75,15 +71,11 @@ export default struct RadioItem {
           .borderRadius($r('app.float.home_backgroundImage_borderRadius'))
           .alignItems(VerticalAlign.Center)
           .onClick(() => {
-            this.playingTitle = item.title;
-            this.playingArtist = item.subTitle;
-            this.playingImg = item.img;
-            this.rotateAngle = 360;
             prompt.showToast({
               message: '进入歌单：' + item.title
             })
           })
-        }, (item: ItemData) => JSON.stringify(item))
+        })
       }
     }
     .scrollable(ScrollDirection.Horizontal)

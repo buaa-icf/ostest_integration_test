@@ -22,10 +22,6 @@ import prompt from '@ohos.promptAction';
 @Component
 export default struct SmallItem {
   private item: ItemData = new ItemData('', $r('app.media.fig1'), '', $r('app.media.fig1'));
-  @Consume playingTitle: string;
-  @Consume playingArtist: string;
-  @Consume playingImg: Resource;
-  @Consume rotateAngle: number;
 
   build() {
     Column() {
@@ -37,10 +33,6 @@ export default struct SmallItem {
         .margin({ top: $r('app.float.home_homeCell_margin') })
     }.width('20%')
     .onClick(() => {
-      this.playingTitle = this.item.title;
-      this.playingArtist = this.item.subTitle;
-      this.playingImg = this.item.img;
-      this.rotateAngle = 360;
       prompt.showToast({
         message: '进入歌单：' + this.item.title
       })

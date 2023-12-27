@@ -32,7 +32,7 @@ export default struct Community {
   TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
     Column() {
       Text(title)
-        .fontSize($r('app.float.normal_text_size'))
+        .fontSize('20fp')
         .fontColor(this.subCurrentIndex === index ? $r('app.color.mainPage_selected') : $r('app.color.mainPage_normal'))
       Image(this.subCurrentIndex === index ? selectedImg : normalImg)
         .width($r('app.float.mainPage_baseTab_size'))

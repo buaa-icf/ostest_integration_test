@@ -52,7 +52,7 @@ export default struct ListHead {
         .visibility(this.imgRefresh)
         .margin($r('app.float.head_name_margin'))
       Text(this.title)
-        .fontSize($r('app.float.normal_text_size'))
+        .fontSize('20fp')
         .fontWeight(FontWeight.Medium)
       Image($r('app.media.ic_public_arrow_right'))
         .objectFit(ImageFit.Contain)
