@@ -12,37 +12,88 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import VideoMVItemData from '../viewmodel/VideoMVItemData'
+import VideoMVDataSource from './VideoMVDataSource'
 
-import MineActivityItem from './MineActivityItem';
-import MineActivityItemData from '../viewmodel/MineActivityItemData';
-import mainViewModel from '../viewmodel/MainViewModel';
-import ListHead from './ListHead';
-import TriItem from './TriItem';
-import TriItemData from '../viewmodel/TriItemData';
-import SquareTriItem from './SquareTriItem';
-import SquareTriItemData from '../viewmodel/SquareTriItemData';
-
-
-/**
- * Home tab content
- */
 @Component
 export default struct VideoMV {
-  @State isAd: boolean = true;
+  private dataSource: VideoMVDataSource = new VideoMVDataSource()
+
+  aboutToAppear() {
+  }
 
   build() {
-    List({ space: 10 }) {
-      ForEach(mainViewModel.getMineActivityItemData(), (item: MineActivityItemData) => {
-        ListItem() {
-          MineActivityItem({ item })
-        }
-        .align(Alignment.Start)
-      })
-    }.margin('12vp')
-    .edgeEffect(EdgeEffect.Spring)
-    .nestedScroll({
-      scrollForward: NestedScrollMode.PARENT_FIRST,
-      scrollBackward: NestedScrollMode.SELF_FIRST
-    })
+    Column({ space: 2 }) {
+      WaterFlow() {
+        LazyForEach(this.dataSource, (item: VideoMVItemData) => {
+          FlowItem() {
+            Column() {
+              Stack() {
+                Image(item.img)
+                  .objectFit(ImageFit.Fill)
+                  .width('100%')
+                  .height('100%')
+                  .borderRadius({ topLeft: '12vp', topRight: '12vp' })
+                Image($r('app.media.ic_public_play_white'))
+                  .borderRadius('20vp')
+                  .backgroundColor('#55303030')
+                  .padding('6vp')
+                  .width('32vp')
+                  .height('32vp')
+                  .margin('12vp')
+              }
+              .borderRadius({ topLeft: '12vp', topRight: '12vp' })
+              .alignContent(Alignment.TopEnd)
+              .width('100%')
+              .height('140vp')
+
+              Text(item.title)
+                .fontSize(18)
+                .maxLines(2)
+                .textOverflow({ overflow: TextOverflow.Ellipsis })
+                .width('90%')
+                .margin('12vp')
+              Row() {
+                Image(item.logo)
+                  .width('24vp')
+                  .height('24vp')
+                  .borderRadius('18vp')
+                Text(item.subTitle)
+                  .fontSize(14)
+                  .fontColor('#909090')
+                  .maxLines(1)
+                  .textOverflow({ overflow: TextOverflow.Ellipsis })
+                Blank()
+                Image($r('app.media.ic_public_thumbsup'))
+                  .width('20vp')
+                  .height('20vp')
+                  .margin('8vp')
+                Text(item.thumbs)
+                  .fontSize(14)
+                  .fontColor('#909090')
+              }.width('90%')
+              .alignItems(VerticalAlign.Center)
+              .justifyContent(FlexAlign.SpaceBetween)
+            }.alignItems(HorizontalAlign.Center)
+          }
+          .onAppear(() => {
+            // 即将触底时提前增加数据
+            if (item.index + 20 == this.dataSource.totalCount()) {
+              for (let i = 0; i < 50; i++) {
+                this.dataSource.addLastItem()
+              }
+            }
+          })
+          .width('100%')
+          .backgroundColor(Color.White)
+          .borderRadius('12vp')
+        }, (item: string) => item)
+      }
+      .columnsTemplate("1fr 1fr")
+      .columnsGap(10)
+      .rowsGap(5)
+      .width('90%')
+      .height('100%')
+    }
   }
 }

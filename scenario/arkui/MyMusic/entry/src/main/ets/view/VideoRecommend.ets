@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import MineActivityItemData from '../viewmodel/MineActivityItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
 import VideoRecommendItem from './VideoRecommendItem';
+import VideoRecommendItemData from '../viewmodel/VideoRecommendItemData';
 
 
 /**
@@ -25,13 +25,13 @@ import VideoRecommendItem from './VideoRecommendItem';
 export default struct VideoRecommend {
   build() {
     List({ space: 10 }) {
-      ForEach(mainViewModel.getMineActivityItemData(), (item: MineActivityItemData) => {
+      ForEach(mainViewModel.getVideoRecommendItemData(), (item: VideoRecommendItemData) => {
         ListItem() {
           VideoRecommendItem({ item })
         }
         .align(Alignment.Start)
       })
-    }.margin('12vp')
+    }.width('90%')
     .edgeEffect(EdgeEffect.Spring)
     .nestedScroll({
       scrollForward: NestedScrollMode.PARENT_FIRST,

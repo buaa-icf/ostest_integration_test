@@ -24,6 +24,7 @@ import MineListItemData from './MineListItemData';
 import MineActivityItemData from './MineActivityItemData';
 import SquareTriItemData from './SquareTriItemData';
 import AudioItem from '../manager/AudioItem';
+import VideoRecommendItemData from './VideoRecommendItemData';
 
 
 /**
@@ -79,23 +80,23 @@ export class MainViewModel {
       new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万',
         [new AudioItem('唯一', $r('app.media.quareblue8'), '告五人', 161),
           new AudioItem('日落大道', $r('app.media.quarered7'), '梁博', 223),
-          new AudioItem('Gravity', $r('app.media.quaregreen5'), 'Klaas', 112)],''),
+          new AudioItem('Gravity', $r('app.media.quaregreen5'), 'Klaas', 112)], ''),
       new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万'),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万'),
       new MidItemData('555超适合放松的歌单', $r('app.media.found'), '475万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万'),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万'),
       new MidItemData('666回家时超适合放松的歌单', $r('app.media.found'), '475万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万')
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万')
     ];
     return secondGridData;
   }
@@ -281,27 +282,27 @@ export class MainViewModel {
       new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'最近常听'),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '最近常听'),
       new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万'),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万'),
       new MidItemData('节奏控系列【抖腿-ing】11', $r('app.media.brand'), '47万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('下班回家时超适合放松的歌单11', $r('app.media.found'), '475万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'收藏过万')
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万')
     ];
     return aGridData;
   }
@@ -553,27 +554,27 @@ export class MainViewModel {
       new MidItemData('西海之声 Radio SayHi！', $r('app.media.top'), '1024万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('蕊希电台', $r('app.media.new'), '24万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('十大童年经典中文儿歌', $r('app.media.brand'), '47万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('广播剧《我就是想贿赂你》', $r('app.media.found'), '475万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('倾城天下|热播影视剧原著', $r('app.media.brand'), '47万',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],''),
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
       new MidItemData('一首歌一个故事', $r('app.media.found'), '1亿',
         [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
           new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)],'')
+          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '')
     ];
     return aGridData;
   }
@@ -586,6 +587,17 @@ export class MainViewModel {
       new ItemData('关于', $r("app.media.about"), '',),
       new ItemData('清除缓存', $r("app.media.storage"), '',),
       new ItemData('隐私协议', $r("app.media.privacy"), '',)
+    ];
+    return listData;
+  }
+
+  getVideoRecommendItemData(): Array<VideoRecommendItemData> {
+    let listData: VideoRecommendItemData[] = [
+      new VideoRecommendItemData('Kaihong街舞工作室', $r("app.media.quarered6"), $rawfile('video1.mp4'), $r("app.media.found"),'Goo老师编舞——****INAP****','43'),
+      new VideoRecommendItemData('风中流转', $r("app.media.quareblue5"), $rawfile('video2.mp4'), $r("app.media.found"),'【明星】Interview（2023舞台）','143'),
+      new VideoRecommendItemData('兔子亚洲', $r("app.media.quarepink1"), $rawfile('test1.mp4'), $r("app.media.found"),'很乱的走线，谁来整理一下？我愿平凡地陪伴子麦芽糖身边','1243'),
+      new VideoRecommendItemData('麦芽糖', $r("app.media.yellow2"), $rawfile('test2.mp4'), $r("app.media.found"),'麦芽糖的键盘很差','4323'),
+      new VideoRecommendItemData('小a的宝藏', $r("app.media.fig21"), $rawfile('video1.mp4'), $r("app.media.found"),'千篇一律的绿化毫无趣味','6573'),
     ];
     return listData;
   }
