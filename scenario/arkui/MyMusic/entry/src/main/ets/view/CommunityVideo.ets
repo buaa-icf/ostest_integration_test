@@ -13,9 +13,6 @@
  * limitations under the License.
  */
 
-import MineActivityItem from './MineActivityItem';
-import MineActivityItemData from '../viewmodel/MineActivityItemData';
-import mainViewModel from '../viewmodel/MainViewModel';
 import VideoRecommend from './VideoRecommend';
 import VideoMV from './VideoMV';
 
@@ -40,12 +37,7 @@ export default struct CommunityVideo {
         .textAlign(TextAlign.Center)
         .backgroundColor(this.subCurrentIndex === index ?'#E02020':'#00ffffff')
     }
-    .height($r('app.float.mainPage_barHeight'))
-    .margin({
-      top: $r('app.float.mainPage_padding'),
-      left: $r('app.float.mainPage_padding'),
-      right: $r('app.float.mainPage_padding')
-    })
+    .height('36vp')
     .onClick(() => {
       this.subCurrentIndex = index;
       this.tabsController.changeIndex(this.subCurrentIndex);
@@ -69,7 +61,7 @@ export default struct CommunityVideo {
         $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
     }
     .width('100%')
-    .barHeight($r('app.float.mainPage_barHeight'))
+    .barHeight('36vp')
     .barWidth('70%')
     .barMode(BarMode.Scrollable)
     .barPosition(BarPosition.Start)

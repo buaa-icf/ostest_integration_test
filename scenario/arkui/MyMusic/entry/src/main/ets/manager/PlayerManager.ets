@@ -65,7 +65,7 @@ export default class PlayerManager {
       if (this.currentTime > this.item.time) {
         this.next();
       } else {
-        Logger.error(this.tag, 'Play:' + this.item.title + ':' + this.currentTime.toString());
+        Logger.info(this.tag, 'Play:' + this.item.title + ':' + this.currentTime.toString());
         let eventData: emitter.EventData = {
           data: {
             "state": this.state,
@@ -76,7 +76,7 @@ export default class PlayerManager {
         this.currentTime = this.currentTime + 1;
       }
     }, 1000);
-    Logger.error(this.tag, 'Start interval id:' + this.intervalID.toString());
+    Logger.info(this.tag, 'Start interval id:' + this.intervalID.toString());
   }
 
   /**
@@ -89,10 +89,10 @@ export default class PlayerManager {
     }
     this.state = 2;
     if (this.intervalID !== -1) {
-      Logger.error(this.tag, 'Pause release interval id:' + this.intervalID.toString());
+      Logger.info(this.tag, 'Pause release interval id:' + this.intervalID.toString());
       clearInterval(this.intervalID)
     }
-    Logger.error(this.tag, 'Pause:' + this.item.title);
+    Logger.info(this.tag, 'Pause:' + this.item.title);
     let eventData: emitter.EventData = {
       data: {
         "state": this.state,
@@ -111,12 +111,12 @@ export default class PlayerManager {
       return;
     }
     if (this.intervalID !== -1) {
-      Logger.error(this.tag, 'Stop release interval id:' + this.intervalID.toString());
+      Logger.info(this.tag, 'Stop release interval id:' + this.intervalID.toString());
       clearInterval(this.intervalID)
     }
     this.state = 0;
     this.currentTime = 0;
-    Logger.error(this.tag, 'Stop:' + this.item.title);
+    Logger.info(this.tag, 'Stop:' + this.item.title);
     let eventData: emitter.EventData = {
       data: {
         "state": this.state,
@@ -134,13 +134,13 @@ export default class PlayerManager {
       return;
     }
     this.stop();
-    Logger.error(this.tag, 'Play finish:' + this.listPosition.toString());
+    Logger.info(this.tag, 'Play finish:' + this.listPosition.toString());
     if (this.listPosition + 1 === this.list.length) {
       this.listPosition = 0;
     } else {
       this.listPosition = this.listPosition + 1;
     }
-    Logger.error(this.tag, 'Play next:' + this.listPosition.toString());
+    Logger.info(this.tag, 'Play next:' + this.listPosition.toString());
     this.item = this.list[this.listPosition]
     this.play();
   }

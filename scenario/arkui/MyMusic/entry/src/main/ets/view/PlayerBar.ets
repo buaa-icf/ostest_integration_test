@@ -40,8 +40,8 @@ export default struct PlayerBar {
   aboutToAppear() {
     emitter.on(this.innerEvent, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
-        Logger.error(this.tag, 'state:' + eventData.data.state);
-        Logger.error(this.tag, 'currentTime:' + eventData.data.currentTime);
+        Logger.info(this.tag, 'state:' + eventData.data.state);
+        Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
         this.currentTime = eventData.data.currentTime;
         if (this.state !== 1 && eventData.data.state === 1) {
           this.playingTitle = this.playerManager.getItem().title;
