@@ -21,6 +21,10 @@ import PlayerBar from '../view/PlayerBar';
 import Community from "../view/Community"
 import Follow from '../view/Follow';
 import PlayerManager from '../manager/PlayerManager'
+import Logger from '../common/utils/Logger';
+import curves from '@ohos.curves';
+import PodCastHead from '../view/PodCastHead';
+import Setting from '../view/Setting';
 
 /**
  * Main page
@@ -31,6 +35,12 @@ struct MainPage {
   @State currentIndex: number = CommonConstants.HOME_TAB_INDEX;
   private tabsController: TabsController = new TabsController();
   @State playerManager: PlayerManager = new PlayerManager();
+  normalIcon: Resource = $r("app.media.icon")
+  selectedIcon: Resource = $r("app.media.icon")
+  @State arr: number[] = [1, 2, 3]
+  @State current: number = 1
+  @State isShowSidebar: boolean = false;
+  @State maskOpacity: number = 0.5;
 
   aboutToAppear() {
     AppStorage.setOrCreate('playerManager', this.playerManager);
@@ -43,11 +53,11 @@ struct MainPage {
   TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
     Column() {
       Image(this.currentIndex === index ? selectedImg : normalImg)
-        .width($r('app.float.mainPage_baseTab_size'))
-        .height($r('app.float.mainPage_baseTab_size'))
+        .width($r('app.float.head_icon_size'))
+        .height($r('app.float.head_icon_size'))
       Text(title)
         .margin({ top: $r('app.float.mainPage_baseTab_top') })
-        .fontSize($r('app.float.main_tab_fontSize'))
+        .fontSize('14fp')
         .fontColor(this.currentIndex === index ? $r('app.color.mainPage_selected') : $r('app.color.mainPage_normal'))
     }
     .justifyContent(FlexAlign.Center)
@@ -60,55 +70,92 @@ struct MainPage {
   }
 
   build() {
-    Stack({ alignContent: Alignment.Bottom }) {
-      Tabs({
-        barPosition: BarPosition.End,
-        controller: this.tabsController
-      }) {
-        TabContent() {
-          Home()
-        }
-        .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
-        .tabBar(this.TabBuilder(CommonConstants.HOME_TITLE, CommonConstants.HOME_TAB_INDEX,
-          $r('app.media.ic_public_home_select'), $r('app.media.ic_public_home')))
-
-        TabContent() {
-          PodCast()
-        }
-        //.padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
-        .tabBar(this.TabBuilder(CommonConstants.PODCAST_TITLE, CommonConstants.PODCAST_TAB_INDEX,
-          $r('app.media.ic_statusbar_cast_select'), $r('app.media.ic_statusbar_cast')))
-
-        TabContent() {
-          Mine()
-        }
-        .tabBar(this.TabBuilder(CommonConstants.MINE_TITLE, CommonConstants.MINE_TAB_INDEX,
-          $r('app.media.ic_public_mine_select'), $r('app.media.ic_public_mine')))
-
-        TabContent() {
-          Follow()
-        }
-        .tabBar(this.TabBuilder(CommonConstants.FOLLOW_TITLE, CommonConstants.FOLLOW_TAB_INDEX,
-          $r('app.media.ic_public_highlight_select'), $r('app.media.ic_public_highlight')))
-
-        TabContent() {
-          Community()
-        }
-        .tabBar(this.TabBuilder(CommonConstants.SOCIAL_TITLE, CommonConstants.SOCIAL_TAB_INDEX,
-          $r('app.media.ic_public_community_messages_select'), $r('app.media.ic_public_community_messages')))
-      }
-      .width(CommonConstants.FULL_PARENT)
-      .backgroundColor(Color.White)
-      .barHeight($r('app.float.mainPage_barHeight'))
-      .barMode(BarMode.Fixed)
-      .onChange((index: number) => {
-        this.currentIndex = index;
+    SideBarContainer(SideBarContainerType.Overlay) {
+      Column() {
+        Setting()
+      }.width('100%')
+      .justifyContent(FlexAlign.SpaceEvenly)
+      .backgroundColor($r('app.color.background'))
+      /*
+      .onAreaChange((oldValue: Area, newValue: Area) => {
+        this.maskOpacity = (newValue.width as number) / 500;
+        Logger.error('color', this.maskOpacity.toString())
+        Logger.error('color', newValue.width.toString())
       })
+      */
 
-      PlayerBar()
-        .margin({ bottom: $r('app.float.mainPage_barHeight') })
+      Stack({ alignContent: Alignment.Bottom }) {
+        Tabs({
+          barPosition: BarPosition.End,
+          controller: this.tabsController
+        }) {
+          TabContent() {
+            Home({ isShowSidebar: $isShowSidebar })
+          }
+          .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
+          .tabBar(this.TabBuilder(CommonConstants.HOME_TITLE, CommonConstants.HOME_TAB_INDEX,
+            $r('app.media.ic_public_home_select'), $r('app.media.ic_public_home')))
+
+          TabContent() {
+            PodCast({ isShowSidebar: $isShowSidebar })
+          }
+          //.padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
+          .tabBar(this.TabBuilder(CommonConstants.PODCAST_TITLE, CommonConstants.PODCAST_TAB_INDEX,
+            $r('app.media.ic_statusbar_cast_select'), $r('app.media.ic_statusbar_cast')))
+
+          TabContent() {
+            Mine({ isShowSidebar: $isShowSidebar })
+          }
+          .tabBar(this.TabBuilder(CommonConstants.MINE_TITLE, CommonConstants.MINE_TAB_INDEX,
+            $r('app.media.ic_public_mine_select'), $r('app.media.ic_public_mine')))
+
+          TabContent() {
+            Follow({ isShowSidebar: $isShowSidebar })
+          }
+          .tabBar(this.TabBuilder(CommonConstants.FOLLOW_TITLE, CommonConstants.FOLLOW_TAB_INDEX,
+            $r('app.media.ic_public_highlight_select'), $r('app.media.ic_public_highlight')))
+
+          TabContent() {
+            Community({ isShowSidebar: $isShowSidebar })
+          }
+          .tabBar(this.TabBuilder(CommonConstants.SOCIAL_TITLE, CommonConstants.SOCIAL_TAB_INDEX,
+            $r('app.media.ic_public_community_messages_select'), $r('app.media.ic_public_community_messages')))
+        }
+        .width(CommonConstants.FULL_PARENT)
         .backgroundColor(Color.White)
-        .width('100%')
-    }.width('100%').height('100%')
+        .barHeight($r('app.float.mainPage_barHeight'))
+        .barMode(BarMode.Fixed)
+        .onChange((index: number) => {
+          this.currentIndex = index;
+        })
+
+        PlayerBar()
+          .margin({ bottom: $r('app.float.mainPage_barHeight') })
+          .backgroundColor(Color.White)
+          .width('100%')
+        if (this.isShowSidebar) {
+          Rect()
+            .width('100%')
+            .height('100%')
+            .fill('#e0e0e0')
+            .fillOpacity(this.maskOpacity)
+            .onClick(() => {
+              animateTo({ duration: 350 }, () => {
+                this.isShowSidebar = false;
+              })
+            })
+            .transition(TransitionEffect.OPACITY)
+        }
+      }.width('100%').height('100%')
+    }
+    .showControlButton(false)
+    .showSideBar(this.isShowSidebar)
+    .sideBarWidth('80%')
+    .minSideBarWidth('80%')
+    .maxSideBarWidth('80%')
+    .minContentWidth(0)
+    .onChange((value: boolean) => {
+      this.isShowSidebar = value;
+    })
   }
 }

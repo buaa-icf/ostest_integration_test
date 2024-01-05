@@ -31,10 +31,10 @@ import TriItem from './TriItem';
 @Component
 export default struct Home {
   private swiperController: SwiperController = new SwiperController();
-
+  @Link isShowSidebar: boolean;
   build() {
     Column() {
-      FindHead()
+      FindHead({isShowSidebar: $isShowSidebar})
       Scroll() {
         Column({ space: CommonConstants.COMMON_SPACE }) {
 

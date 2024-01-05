@@ -23,8 +23,8 @@ export default struct PodCastHeadRight {
   build() {
     Image($r('app.media.ic_public_add_norm_filled'))
       .objectFit(ImageFit.Contain)
-      .width('24vp')
-      .height('24vp')
+      .width($r('app.float.head_icon_size'))
+      .height($r('app.float.head_icon_size'))
       .onClick(() => {
         this.handlePopup = !this.handlePopup
       })

@@ -27,6 +27,7 @@ import CommunityHeadRight from './CommunityHeadRight';
 export default struct Community {
   @State subCurrentIndex: number = CommonConstants.HOME_TAB_INDEX;
   private tabsController: TabsController = new TabsController();
+  @Link isShowSidebar: boolean;
 
   @Builder
   TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
@@ -82,10 +83,10 @@ export default struct Community {
         this.subCurrentIndex = index;
       })
 
-      PodCastHead().width('10%').position({x:'5%',y:0})
+      PodCastHead({ isShowSidebar: $isShowSidebar }).width('10%').position({x:'5%',y:0})
       CommunityHeadRight().width('10%').position({x:'90%',y:0})
     }
-    .backgroundColor('#F9F9F9')
+    .backgroundColor($r('app.color.background'))
     .width('100%').height('100%')
   }
 }

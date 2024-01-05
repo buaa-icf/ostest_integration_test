@@ -22,24 +22,23 @@ export default struct FindHead {
   private searchInfo: string = 'searching...';
   @State handlePopup1: boolean = false
   @State handlePopup2: boolean = false
+  @Link isShowSidebar: boolean;
 
   build() {
     Row() {
       Image($r('app.media.ic_public_drawer'))
-        .objectFit(ImageFit.Contain)
-        .width($r('app.float.home_homeCell_size'))
-        .height($r('app.float.home_homeCell_size'))
+        .width($r('app.float.head_icon_size'))
+        .height($r('app.float.head_icon_size'))
         .onClick(() => {
-          this.handlePopup1 = !this.handlePopup1
-        })
-        .bindPopup(this.handlePopup1, {
-          message: '这是个人菜单.',
+          animateTo({ duration: 350 }, () => {
+            this.isShowSidebar = true;
+          })
         })
       Search({
         placeholder: this.searchInfo
       })
         .width('70%')
-        .height($r('app.float.home_homeCell_size'))
+        .height($r('app.float.head_icon_size'))
         .border({ radius: $r('app.float.home_swiper_borderRadius') })
         .enableKeyboardOnFocus(false)
         .placeholderFont({
@@ -48,14 +47,12 @@ export default struct FindHead {
         })
         .textFont({ size: $r('app.float.little_text_size') })
       Image($r('app.media.ic_public_input_scan'))
-        .objectFit(ImageFit.Contain)
-        .width($r('app.float.home_homeCell_size'))
-        .height($r('app.float.home_homeCell_size'))
+        .width($r('app.float.head_icon_size'))
+        .height($r('app.float.head_icon_size'))
         .margin({ left: $r('app.float.mainPage_tabTitles_margin'), right: $r('app.float.mainPage_tabTitles_margin') })
       Image($r('app.media.ic_message_continue'))
-        .objectFit(ImageFit.Contain)
-        .width($r('app.float.home_homeCell_size'))
-        .height($r('app.float.home_homeCell_size'))
+        .width($r('app.float.head_icon_size'))
+        .height($r('app.float.head_icon_size'))
         .onClick(() => {
           this.handlePopup2 = !this.handlePopup2
         })

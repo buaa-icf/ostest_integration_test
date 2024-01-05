@@ -579,18 +579,36 @@ export class MainViewModel {
     return aGridData;
   }
 
-  getSettingListData(): Array<ItemData> {
+  getSettingListData1(): Array<ItemData> {
     let listData: ItemData[] = [
-      new ItemData('推送通知', $r("app.media.news"), '', $r("app.string.setting_toggle")),
-      new ItemData('数据管理', $r("app.media.data"), '',),
-      new ItemData('菜单设置', $r("app.media.menu"), '',),
-      new ItemData('关于', $r("app.media.about"), '',),
-      new ItemData('清除缓存', $r("app.media.storage"), '',),
-      new ItemData('隐私协议', $r("app.media.privacy"), '',)
+      new ItemData('消息中心', $r("app.media.news"), '',undefined),
+      new ItemData('贝壳中心', $r("app.media.data"), '',undefined),
+      new ItemData('创作者中心', $r("app.media.menu"), '',undefined)
     ];
     return listData;
   }
-
+  getSettingListData2(): Array<ItemData> {
+    let listData: ItemData[] = [
+      new ItemData('趣味', $r("app.media.news"),'点击查看今日运势', undefined),
+      new ItemData('有票', $r("app.media.data"), '',undefined),
+      new ItemData('商城', $r("app.media.menu"), '',undefined),
+      new ItemData('歌房', $r("app.media.menu"), '',undefined),
+      new ItemData('音乐收藏家庭', $r("app.media.menu"),'与音乐人共享收益', undefined),
+      new ItemData('视频彩铃', $r("app.media.menu"),'pick你的音乐彩铃', undefined)
+    ];
+    return listData;
+  }
+  getSettingListData3(): Array<ItemData> {
+    let listData: ItemData[] = [
+      new ItemData('设置', $r("app.media.news"),'', undefined),
+      new ItemData('深色模式', $r("app.media.data"), '',$r('app.media.home_normal')),
+      new ItemData('定时关闭', $r("app.media.menu"), '',undefined),
+      new ItemData('个性装扮', $r("app.media.menu"), '',undefined),
+      new ItemData('边听边存', $r("app.media.menu"),'未开启', undefined),
+      new ItemData('青少年模式', $r("app.media.menu"),'未开启', undefined)
+    ];
+    return listData;
+  }
   getVideoRecommendItemData(): Array<VideoRecommendItemData> {
     let listData: VideoRecommendItemData[] = [
       new VideoRecommendItemData('Kaihong街舞工作室', $r("app.media.quarered6"), $rawfile('video1.mp4'), $r("app.media.found"),'Goo老师编舞——****INAP****','43'),
