@@ -18,18 +18,16 @@
  */
 @Component
 export default struct PodCastHead {
-  @State handlePopup: boolean = false
+  @Link isShowSidebar: boolean;
 
   build() {
     Image($r('app.media.ic_public_drawer'))
-      .objectFit(ImageFit.Contain)
-      .width('24vp')
-      .height('24vp')
+      .width($r('app.float.head_icon_size'))
+      .height($r('app.float.head_icon_size'))
       .onClick(() => {
-        this.handlePopup = !this.handlePopup
-      })
-      .bindPopup(this.handlePopup, {
-        message: '这是个人菜单.',
+        animateTo({ duration: 350 }, () => {
+          this.isShowSidebar = true;
+        })
       })
       .margin({ top: $r('app.float.mainPage_baseTab_margin')})
   }

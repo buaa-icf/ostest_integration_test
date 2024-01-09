@@ -27,6 +27,7 @@ import PodCastContentFourth from './PodCastContentFourth';
 @Component
 export default struct PodCast {
   @State subCurrentIndex: number = CommonConstants.HOME_TAB_INDEX;
+  @Link isShowSidebar: boolean;
   private tabsController: TabsController = new TabsController();
 
   @Builder
@@ -94,7 +95,7 @@ export default struct PodCast {
         this.subCurrentIndex = index;
       })
 
-      PodCastHead().width('10%').position({x:'5%',y:0})
+      PodCastHead({ isShowSidebar: $isShowSidebar }).width('10%').position({x:'5%',y:0})
       PodCastHeadRight().width('10%').position({x:'90%',y:0})
       Search({
         placeholder: '大家都在听 爵士的音乐解读'
@@ -108,7 +109,7 @@ export default struct PodCast {
         })
         .textFont({ size: $r('app.float.little_text_size') })
     }
-    .backgroundColor('#F9F9F9')
+    .backgroundColor($r('app.color.background'))
     .width('100%').height('100%')
   }
 }

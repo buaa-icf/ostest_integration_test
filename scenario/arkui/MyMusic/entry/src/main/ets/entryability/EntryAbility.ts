@@ -37,7 +37,10 @@ export default class entryAbility extends Ability {
     // Main window is created, set main page for this ability
     hilog.isLoggable(0x0000, 'testTag', hilog.LogLevel.INFO);
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-
+    windowStage.getMainWindow().then((win: Window.Window): void => {
+      //win.setWindowLayoutFullScreen(true);
+      //win.setWindowSystemBarEnable([]);
+    });
     windowStage.loadContent('pages/MainPage', (err, data) => {
       if (err.code) {
         hilog.isLoggable(0x0000, 'testTag', hilog.LogLevel.ERROR);

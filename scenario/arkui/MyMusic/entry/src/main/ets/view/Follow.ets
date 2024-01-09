@@ -26,10 +26,11 @@ import curves from '@ohos.curves'
 @Component
 export default struct Follow {
   @State showTip: boolean = false;
+  @Link isShowSidebar: boolean;
 
   build() {
     Column() {
-      FollowHead()
+      FollowHead({ isShowSidebar: $isShowSidebar })
       Scroll() {
         Column() {
           Row() {

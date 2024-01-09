@@ -19,19 +19,18 @@
 
 @Component
 export default struct FollowHead {
-  @State handlePopup1: boolean = false
   @State handlePopup2: boolean = false
+  @Link isShowSidebar: boolean;
 
   build() {
     Row() {
       Image($r('app.media.ic_public_drawer'))
-        .width($r('app.float.home_homeCell_size'))
-        .height($r('app.float.home_homeCell_size'))
+        .width($r('app.float.head_icon_size'))
+        .height($r('app.float.head_icon_size'))
         .onClick(() => {
-          this.handlePopup1 = !this.handlePopup1
-        })
-        .bindPopup(this.handlePopup1, {
-          message: '这是个人菜单.',
+          animateTo({ duration: 350 }, () => {
+            this.isShowSidebar = true;
+          })
         })
       Text('动态')
         .margin({ left: '4vp' })
@@ -39,8 +38,8 @@ export default struct FollowHead {
 
       Row() {
         Image($r('app.media.ic_public_add_norm_filled'))
-          .width($r('app.float.home_homeCell_size'))
-          .height($r('app.float.home_homeCell_size'))
+          .width($r('app.float.head_icon_size'))
+          .height($r('app.float.head_icon_size'))
       }
     }
     .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })

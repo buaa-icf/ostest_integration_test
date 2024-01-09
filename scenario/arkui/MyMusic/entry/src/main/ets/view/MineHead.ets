@@ -21,21 +21,20 @@ import prompt from '@ohos.promptAction';
 
 @Component
 export default struct MineHead {
-  @State handlePopup1: boolean = false
   @State handlePopup2: boolean = false
   @Consume addVisibility: boolean
   @Consume nameVisibility: boolean
+  @Link isShowSidebar: boolean;
 
   build() {
     Row() {
       Image($r('app.media.ic_public_drawer'))
-        .width($r('app.float.home_homeCell_size'))
-        .height($r('app.float.home_homeCell_size'))
+        .width($r('app.float.head_icon_size'))
+        .height($r('app.float.head_icon_size'))
         .onClick(() => {
-          this.handlePopup1 = !this.handlePopup1
-        })
-        .bindPopup(this.handlePopup1, {
-          message: '这是个人菜单.',
+          animateTo({ duration: 350 }, () => {
+            this.isShowSidebar = true;
+          })
         })
       if (this.addVisibility) {
         Row() {
@@ -44,6 +43,7 @@ export default struct MineHead {
             .height('20vp')
             .borderRadius('16vp')
           Text('添加状态')
+            .fontSize('20fp')
             .margin({ left: '4vp' })
         }
         .alignItems(VerticalAlign.Center)
@@ -59,8 +59,8 @@ export default struct MineHead {
       if (this.nameVisibility) {
         Row() {
           Image($r('app.media.brand'))
-            .width('28vp')
-            .height('28vp')
+            .width($r('app.float.head_icon_size'))
+            .height($r('app.float.head_icon_size'))
             .borderRadius('16vp')
           Text('闲潭春半')
             .fontSize('20fp')
@@ -74,12 +74,12 @@ export default struct MineHead {
 
       Row() {
         Image($r('app.media.search'))
-          .width($r('app.float.home_homeCell_size'))
-          .height($r('app.float.home_homeCell_size'))
+          .width($r('app.float.head_icon_size'))
+          .height($r('app.float.head_icon_size'))
         Image($r('app.media.ic_public_more_list'))
           .margin({ left: '4vp' })
-          .width($r('app.float.home_homeCell_size'))
-          .height($r('app.float.home_homeCell_size'))
+          .width($r('app.float.head_icon_size'))
+          .height($r('app.float.head_icon_size'))
       }
     }
     .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })

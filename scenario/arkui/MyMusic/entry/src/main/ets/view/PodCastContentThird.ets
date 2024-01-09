@@ -86,7 +86,7 @@ export default struct PodCastContentThird {
           .textAlign(TextAlign.Center)
       }
 
-      //.backgroundColor('#F9F9F9')
+      //.backgroundColor('$r('app.color.background')')
       //.height(CommonConstants.FULL_PARENT)
     }
     .scrollBarWidth(0)

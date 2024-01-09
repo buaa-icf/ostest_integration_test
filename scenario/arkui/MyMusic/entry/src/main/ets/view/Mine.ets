@@ -33,6 +33,7 @@ export default struct Mine {
   @Provide nameVisibility: boolean = false
   private tabsController: TabsController = new TabsController();
   private scroller: Scroller = new Scroller()
+  @Link isShowSidebar: boolean;
 
   @Builder
   TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
@@ -102,7 +103,7 @@ export default struct Mine {
             .barMode(BarMode.Fixed)
             .barPosition(BarPosition.Start)
             .borderRadius('12vp')
-            .backgroundColor('#F9F9F9')
+            .backgroundColor($r('app.color.background'))
             .onChange((index: number) => {
               this.subCurrentIndex = index;
             })
@@ -143,12 +144,12 @@ export default struct Mine {
       Shape()
         .height($r('app.float.head_height'))
         .width('100%')
-        .backgroundColor('#F9F9F9')
+        .backgroundColor($r('app.color.background'))
         .opacity(this.headBackground)
 
-      MineHead()
+      MineHead({ isShowSidebar: $isShowSidebar })
     }
-    .backgroundColor('#F9F9F9')
+    .backgroundColor($r('app.color.background'))
     .width('100%').height('100%')
   }
 }

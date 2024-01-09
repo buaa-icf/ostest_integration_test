@@ -18,7 +18,7 @@ import VideoMVItemData from '../viewmodel/VideoMVItemData'
 export default class VideoMVDataSource implements IDataSource {
   private dataArray: VideoMVItemData[] = []
   private listeners: DataChangeListener[] = []
-  private namebase:string[]=['忘星辰','今后我与自己流浪','喜欢曾经的你','emo']
+  private nameBase:string[]=['忘星辰','今后我与自己流浪','喜欢曾经的你','emo']
 
   constructor() {
     for (let i = 0; i < 100; i++) {
@@ -28,9 +28,9 @@ export default class VideoMVDataSource implements IDataSource {
 
   getRandomName():string{
     let ret:number = Math.floor(Math.random() * 4);
-    let name: string = this.namebase[ret];
+    let name: string = this.nameBase[ret];
     for (let index = 0; index < ret+1; index++) {
-      name = name + this.namebase[index];
+      name = name + this.nameBase[index];
     }
     return name;
   }
@@ -53,7 +53,6 @@ export default class VideoMVDataSource implements IDataSource {
         break;
     }
     let resource: string = name + ret.toString()+'.png';
-    Logger.error('111',resource)
     return $rawfile(resource)
   }
 

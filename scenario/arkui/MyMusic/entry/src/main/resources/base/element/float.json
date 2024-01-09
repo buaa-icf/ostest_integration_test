@@ -77,6 +77,10 @@
       "value": "15vp"
     },
     {
+      "name": "head_icon_size",
+      "value": "28vp"
+    },
+    {
       "name": "login_progress_size",
       "value": "30vp"
     },
@@ -118,7 +122,7 @@
     },
     {
       "name": "mainPage_barHeight",
-      "value": "56vp"
+      "value": "60vp"
     },
     {
       "name": "bottom_barHeight",
