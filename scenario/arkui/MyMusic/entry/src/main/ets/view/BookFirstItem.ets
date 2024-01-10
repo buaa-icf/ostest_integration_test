@@ -14,16 +14,14 @@
  */
 import ItemData from '../viewmodel/ItemData';
 import prompt from '@ohos.promptAction';
-import hilog from '@ohos.hilog';
-import AudioItem from '../manager/AudioItem';
-import PlayerManager  from '../manager/PlayerManager';
+import PlayerManager from '../manager/PlayerManager';
 
 /**
  * List item information component.
  */
 @Component
 export default struct BookFirstItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '', $r('app.media.fig1'));
+  private item: ItemData = new ItemData('', $r('app.media.fig1'), '',[], $r('app.media.fig1'));
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   build() {
@@ -45,10 +43,9 @@ export default struct BookFirstItem {
     .borderRadius($r('app.float.podcast_text_border_Radius'))
     .onClick(() => {
       prompt.showToast({
-        message: '进入歌单：' + this.item.title
+        message: '播放歌单：' + this.item.title
       })
-      let list  = [new AudioItem(this.item.title,this.item.img,this.item.subTitle,120)]
-      this.playerManager.playList(list,0)
+      this.playerManager.playList(this.item.list, 0);
     })
   }
 }

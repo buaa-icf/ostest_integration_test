@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import AudioItem from '../manager/AudioItem';
 
 /**
  * List item data entity.
@@ -29,12 +30,13 @@ export default class BookTriItemData {
    * Other resource of list item.
    */
   others?: string;
-  subTitle: string
-  rank: string
-  score: string
-  playNum: string
+  subTitle: string;
+  rank: string;
+  score: string;
+  playNum: string;
+  list:AudioItem[];
 
-  constructor(title: string, img: Resource, subTitle: string, rank: string, score: string, playNum: string, others?: string) {
+  constructor(title: string, img: Resource, subTitle: string, rank: string, score: string, playNum: string,list:AudioItem[], others?: string) {
     this.title = title;
     this.img = img;
     this.others = others;
@@ -42,5 +44,6 @@ export default class BookTriItemData {
     this.rank = rank;
     this.score = score;
     this.playNum = playNum;
+    this.list = list;
   }
 }

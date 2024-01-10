@@ -12,37 +12,49 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import ItemData from '../viewmodel/ItemData';
+
+import ItemData from '../viewmodel/ListHistoryItemData';
+import PlayerManager  from '../manager/PlayerManager';
 import prompt from '@ohos.promptAction';
-import PlayerManager from '../manager/PlayerManager';
 
 /**
  * List item information component.
  */
 @Component
-export default struct BookSecondItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '', [],$r('app.media.fig1'));
-  private imgWidth: string = '';
+export default struct ListHistoryItem {
+  private item: ItemData = new ItemData('', $r('app.media.fig1'), '',[]);
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   build() {
-    Column() {
+    Row() {
       Image(this.item.img)
-        .width(this.imgWidth)
-        .height('84vp')
-        .borderRadius($r('app.float.podcast_text_border_Radius'))
+        .height('36vp')
+        .width('36vp')
+        .borderRadius('8vp')
       Text(this.item.title)
-        .width(this.imgWidth)
-        .fontSize($r('app.float.little_text_size'))
-        .margin({ top: $r('app.float.home_homeCell_margin') })
-        .maxLines(2)
+        .fontSize('16fp')
+        .margin('12vp')
+        .maxLines(1)
+      Blank()
+      Image($r('app.media.ic_public_arrow_right_grey'))
+        .width('12vp')
+        .height('24vp')
+        .margin({right:'12vp'})
     }
-    .margin('8vp')
-    .onClick(() => {;
-      prompt.showToast({
-        message: '播放歌单：' + this.item.title
-      })
-      this.playerManager.playList(this.item.list, 0);
+    .justifyContent(FlexAlign.SpaceBetween)
+    .backgroundColor('#f6f6f6')
+    .borderRadius('8vp')
+    .width('200vp')
+    .margin({right:'20vp'})
+    .onClick(() => {
+      this.enterList();
     })
+  }
+
+  enterList() {
+    prompt.showToast({
+      message: '播放歌单：' + this.item.title.replace(' ', '')
+    })
+    this.playerManager.playList(this.item.list,0)
   }
 }

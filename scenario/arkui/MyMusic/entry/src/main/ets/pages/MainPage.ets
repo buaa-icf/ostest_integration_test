@@ -25,6 +25,7 @@ import Logger from '../common/utils/Logger';
 import curves from '@ohos.curves';
 import PodCastHead from '../view/PodCastHead';
 import Setting from '../view/Setting';
+import PlayList from '../view/PlayList';
 
 /**
  * Main page
@@ -40,6 +41,7 @@ struct MainPage {
   @State arr: number[] = [1, 2, 3]
   @State current: number = 1
   @State isShowSidebar: boolean = false;
+  @State isShowPlayList: boolean = false;
   @State maskOpacity: number = 0.5;
 
   aboutToAppear() {
@@ -47,6 +49,19 @@ struct MainPage {
   }
 
   aboutToDisappear() {
+  }
+
+  onBackPress() {
+    if (this.isShowPlayList || this.isShowSidebar) {
+      animateTo({ duration: 350 }, () => {
+        this.isShowSidebar = false;
+        this.isShowPlayList = false;
+      }
+      )
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @Builder
@@ -76,6 +91,7 @@ struct MainPage {
       }.width('100%')
       .justifyContent(FlexAlign.SpaceEvenly)
       .backgroundColor($r('app.color.background'))
+
       /*
       .onAreaChange((oldValue: Area, newValue: Area) => {
         this.maskOpacity = (newValue.width as number) / 500;
@@ -129,11 +145,11 @@ struct MainPage {
           this.currentIndex = index;
         })
 
-        PlayerBar()
+        PlayerBar({ isShowPlayList: $isShowPlayList })
           .margin({ bottom: $r('app.float.mainPage_barHeight') })
           .backgroundColor(Color.White)
           .width('100%')
-        if (this.isShowSidebar) {
+        if (this.isShowSidebar || this.isShowPlayList) {
           Rect()
             .width('100%')
             .height('100%')
@@ -142,9 +158,18 @@ struct MainPage {
             .onClick(() => {
               animateTo({ duration: 350 }, () => {
                 this.isShowSidebar = false;
+                this.isShowPlayList = false;
               })
             })
             .transition(TransitionEffect.OPACITY)
+        }
+        if (this.isShowPlayList) {
+          PlayList()
+            .width('100%')
+            .height('80%')
+            .transition(TransitionEffect.OPACITY
+              .animation({ curve: curves.springMotion() })
+              .combine(TransitionEffect.move(TransitionEdge.BOTTOM)))
         }
       }.width('100%').height('100%')
     }

@@ -25,12 +25,37 @@ import MineActivityItemData from './MineActivityItemData';
 import SquareTriItemData from './SquareTriItemData';
 import AudioItem from '../manager/AudioItem';
 import VideoRecommendItemData from './VideoRecommendItemData';
-
+import SettingItemData from './SettingItemData';
+import FollowerItemData from './FollowerItemData';
+import ListHistoryItemData from './ListHistoryItemData';
 
 /**
  * Binds data to components and provides interfaces.
  */
 export class MainViewModel {
+  private audios: AudioItem[] = [
+    new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61, true),
+    new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
+    new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312),
+    new AudioItem('唯一', $r('app.media.quareblue8'), '告五人', 161, true),
+    new AudioItem('日落大道', $r('app.media.quarered7'), '梁博', 223),
+    new AudioItem('Gravity', $r('app.media.quaregreen5'), 'Klaas', 112),
+    new AudioItem('凄美地', $r('app.media.top'), '郭顶', 121, true),
+    new AudioItem('十一种孤独', $r('app.media.brand'), '宿宇阳', 23),
+    new AudioItem('The Sprinter', $r('app.media.found'), '中川砂仁', 212),
+    new AudioItem('匆匆那年', $r('app.media.quareblue8'), '叶锐文', 161),
+    new AudioItem('Time Travel', $r('app.media.quarered7'), '岸部真明', 123),
+    new AudioItem('Rylynn', $r('app.media.quaregreen5'), 'Andy McKee', 212)
+  ]
+
+  generateList(num: number): AudioItem[] {
+    if (num > this.audios.length) {
+      num = this.audios.length;
+    }
+    let shuffled = this.audios.sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, num);
+  }
+
   /**
    * Get swiper image data.
    *
@@ -53,14 +78,14 @@ export class MainViewModel {
    */
   getFirstGridData(): Array<ItemData> {
     let firstGridData: ItemData[] = [
-      new ItemData('每日推荐', $r('app.media.love'), '',),
-      new ItemData('私人漫游', $r('app.media.record'), '',),
-      new ItemData('歌单', $r('app.media.message'), '',),
-      new ItemData('排行榜', $r('app.media.shopping'), '',),
-      new ItemData('有声书', $r('app.media.target'), '',),
-      new ItemData('数字专辑', $r('app.media.circle'), '',),
-      new ItemData('直播', $r('app.media.favorite'), '',),
-      new ItemData('关注新歌', $r('app.media.recycle'), '',)
+      new ItemData('每日推荐', $r('app.media.love'), '', this.generateList(3)),
+      new ItemData('私人漫游', $r('app.media.record'), '', this.generateList(4)),
+      new ItemData('歌单', $r('app.media.message'), '', this.generateList(5)),
+      new ItemData('排行榜', $r('app.media.shopping'), '', this.generateList(6)),
+      new ItemData('有声书', $r('app.media.target'), '', this.generateList(7)),
+      new ItemData('数字专辑', $r('app.media.circle'), '', this.generateList(8)),
+      new ItemData('直播', $r('app.media.favorite'), '', this.generateList(9)),
+      new ItemData('关注新歌', $r('app.media.recycle'), '', this.generateList(13))
     ];
     return firstGridData;
   }
@@ -74,29 +99,17 @@ export class MainViewModel {
   getSecondGridData(): Array<MidItemData> {
     let secondGridData: MidItemData[] = [
       new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '最近常听'),
+        this.generateList(8), '最近常听'),
       new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万',
-        [new AudioItem('唯一', $r('app.media.quareblue8'), '告五人', 161),
-          new AudioItem('日落大道', $r('app.media.quarered7'), '梁博', 223),
-          new AudioItem('Gravity', $r('app.media.quaregreen5'), 'Klaas', 112)], ''),
+        this.generateList(7), ''),
       new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
+        this.generateList(6), ''),
       new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万'),
+        this.generateList(5), '收藏过万'),
       new MidItemData('555超适合放松的歌单', $r('app.media.found'), '475万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万'),
+        this.generateList(4), '收藏过万'),
       new MidItemData('666回家时超适合放松的歌单', $r('app.media.found'), '475万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万')
+        this.generateList(3), '收藏过万')
     ];
     return secondGridData;
   }
@@ -104,24 +117,24 @@ export class MainViewModel {
   getThirdGridData(): Array<TriItemData[]> {
     let thirdGridDatas = Array<TriItemData[]>();
     let thirdGridData1: TriItemData[] = [
-      new TriItemData('弱水三千', $r('app.media.top'), '满目山河', '南京古风榜第11名'),
-      new TriItemData('挪威天才', $r('app.media.new'), '赤月', ''),
-      new TriItemData('节奏控系列', $r('app.media.brand'), '扣扣', '最最最最最最'),
+      new TriItemData('弱水三千', $r('app.media.top'), '满目山河', this.generateList(6), '南京古风榜第11名'),
+      new TriItemData('挪威天才', $r('app.media.new'), '赤月', this.generateList(14), ''),
+      new TriItemData('节奏控系列', $r('app.media.brand'), '扣扣', this.generateList(34), '最最最最最最'),
     ];
     let thirdGridData2: TriItemData[] = [
-      new TriItemData('2222 | 1111', $r('app.media.top'), '池子', '最近常听'),
-      new TriItemData('2222 | 2222', $r('app.media.new'), '周深', ''),
-      new TriItemData('3333 | 3333', $r('app.media.brand'), '许巍', '最最最最最最'),
+      new TriItemData('2222 | 1111', $r('app.media.top'), '池子', this.generateList(4), '最近常听'),
+      new TriItemData('2222 | 2222', $r('app.media.new'), '周深', this.generateList(4), ''),
+      new TriItemData('3333 | 3333', $r('app.media.brand'), '许巍', this.generateList(4), '最最最最最最'),
     ];
     let thirdGridData3: TriItemData[] = [
-      new TriItemData('3333 | 1111', $r('app.media.top'), '万能青年旅店', '最近常听'),
-      new TriItemData('3333 | 2222 ', $r('app.media.new'), '摇滚', '超过76%人播放'),
-      new TriItemData('3333 | 4444', $r('app.media.brand'), '指弹', ''),
+      new TriItemData('3333 | 1111', $r('app.media.top'), '万能青年旅店', this.generateList(4), '最近常听'),
+      new TriItemData('3333 | 2222 ', $r('app.media.new'), '摇滚', this.generateList(4), '超过76%人播放'),
+      new TriItemData('3333 | 4444', $r('app.media.brand'), '指弹', this.generateList(4), ''),
     ];
     let thirdGridData4: TriItemData[] = [
-      new TriItemData('4444 | 1111', $r('app.media.top'), '民谣', '最近常听'),
-      new TriItemData('4444 | 2222 ', $r('app.media.new'), '催眠神曲', '超过76%人播放'),
-      new TriItemData('4444 | 3333', $r('app.media.brand'), 'ACG', '最最最最最最'),
+      new TriItemData('4444 | 1111', $r('app.media.top'), '民谣', this.generateList(4), '最近常听'),
+      new TriItemData('4444 | 2222 ', $r('app.media.new'), '催眠神曲', this.generateList(4), '超过76%人播放'),
+      new TriItemData('4444 | 3333', $r('app.media.brand'), 'ACG', this.generateList(4), '最最最最最最'),
     ];
     thirdGridDatas.push(thirdGridData1);
     thirdGridDatas.push(thirdGridData2);
@@ -162,24 +175,24 @@ export class MainViewModel {
   getBookTriData1(): Array<BookTriItemData[]> {
     let thirdGridDatas = Array<BookTriItemData[]>();
     let thirdGridData1: BookTriItemData[] = [
-      new BookTriItemData('科技：为了上大学，上交可控核聚变', $r('app.media.top'), '推动长三角一体化发展取得新的重大突破', '1', '9.9分', '2290万', '脑洞二次元'),
-      new BookTriItemData('无敌从满级属性开始 | 爆笑', $r('app.media.new'), '冬季呼吸道疾病防治九问九答', '2', '9.8分', '2230万', '现代言情'),
-      new BookTriItemData('别在门口放脚垫了，真脏！', $r('app.media.brand'), '和我在上海过科技感满满的一天', '3', '9.7分', '2190万', '成长励志'),
+      new BookTriItemData('科技：为了上大学，上交可控核聚变', $r('app.media.top'), '推动长三角一体化发展取得新的重大突破', '1', '9.9分', '2290万', this.generateList(13), '脑洞二次元'),
+      new BookTriItemData('无敌从满级属性开始 | 爆笑', $r('app.media.new'), '冬季呼吸道疾病防治九问九答', '2', '9.8分', '2230万', this.generateList(23), '现代言情'),
+      new BookTriItemData('别在门口放脚垫了，真脏！', $r('app.media.brand'), '和我在上海过科技感满满的一天', '3', '9.7分', '2190万', this.generateList(33), '成长励志'),
     ];
     let thirdGridData2: BookTriItemData[] = [
-      new BookTriItemData('家里再有钱，电视机旁尽量不要放这几样东西', $r('app.media.top'), '95后硕士小伙开包子店：日均三千元', '4', '9.7分', '1893万', '成长励志'),
-      new BookTriItemData('全国哪的羊肉最好吃？经过评比，这6个地方比较出名', $r('app.media.new'), '印度成“美国人的缅北”？全球90%诈骗电话从印度打出', '5', '9.6分', '1790万', '现代言情'),
-      new BookTriItemData('你在哪一刻体验到了真正的贫富差距？', $r('app.media.brand'), '在三国中谁才是第一猛将？吕布也仅排第三', '6', '9.6分', '1690万', '畅销书'),
+      new BookTriItemData('家里再有钱，电视机旁尽量不要放这几样东西', $r('app.media.top'), '95后硕士小伙开包子店：日均三千元', '4', '9.7分', '1893万', this.generateList(3), '成长励志'),
+      new BookTriItemData('全国哪的羊肉最好吃？经过评比，这6个地方比较出名', $r('app.media.new'), '印度成“美国人的缅北”？全球90%诈骗电话从印度打出', '5', '9.6分', '1790万', this.generateList(3), '现代言情'),
+      new BookTriItemData('你在哪一刻体验到了真正的贫富差距？', $r('app.media.brand'), '在三国中谁才是第一猛将？吕布也仅排第三', '6', '9.6分', '1690万', this.generateList(3), '畅销书'),
     ];
     let thirdGridData3: BookTriItemData[] = [
-      new BookTriItemData('古代深夜为什么要打更，不会打扰到人睡觉吗？', $r('app.media.top'), '关羽被杀后，诸葛亮冷冷地说了11个字', '7', '9.4分', '1292万', '经典文学'),
-      new BookTriItemData('大清灭亡后，溥仪的7个妹妹都嫁给了谁？ ', $r('app.media.new'), '大奸臣杀了杨广，又睡了杨广的皇后', '8', '9.3分', '1120万', '儿童故事'),
-      new BookTriItemData('10年后重温《康熙王朝》，才懂容妃获罪', $r('app.media.brand'), '溥任：奶奶是慈禧，溥仪是他哥', '9', '9.1分', '1040万', '现代言情'),
+      new BookTriItemData('古代深夜为什么要打更，不会打扰到人睡觉吗？', $r('app.media.top'), '关羽被杀后，诸葛亮冷冷地说了11个字', '7', '9.4分', '1292万', this.generateList(3), '经典文学'),
+      new BookTriItemData('大清灭亡后，溥仪的7个妹妹都嫁给了谁？ ', $r('app.media.new'), '大奸臣杀了杨广，又睡了杨广的皇后', '8', '9.3分', '1120万', this.generateList(3), '儿童故事'),
+      new BookTriItemData('10年后重温《康熙王朝》，才懂容妃获罪', $r('app.media.brand'), '溥任：奶奶是慈禧，溥仪是他哥', '9', '9.1分', '1040万', this.generateList(3), '现代言情'),
     ];
     let thirdGridData4: BookTriItemData[] = [
-      new BookTriItemData('司马懿一眼识破空城计，为何选择退兵？', $r('app.media.top'), '李隆基称帝后，为何立马除掉上官婉儿？', '10', '9.1分', '990万', '武侠仙侠'),
-      new BookTriItemData('贾元春为何在孕中被赐死，她犯了啥忌讳，惹得皇帝非杀她不可呢？ ', $r('app.media.new'), '明朝十六位皇帝一览表', '11', '9.0分', '760万', '经典文学'),
-      new BookTriItemData('六十年代比你想象中还要艰苦，但你绝对不敢想象', $r('app.media.brand'), '刘备不愧为一代枭雄，一生不重用赵云', '12', '9.0分', '230万', '儿童故事'),
+      new BookTriItemData('司马懿一眼识破空城计，为何选择退兵？', $r('app.media.top'), '李隆基称帝后，为何立马除掉上官婉儿？', '10', '9.1分', '990万', this.generateList(3), '武侠仙侠'),
+      new BookTriItemData('贾元春为何在孕中被赐死，她犯了啥忌讳，惹得皇帝非杀她不可呢？ ', $r('app.media.new'), '明朝十六位皇帝一览表', '11', '9.0分', '760万', this.generateList(3), '经典文学'),
+      new BookTriItemData('六十年代比你想象中还要艰苦，但你绝对不敢想象', $r('app.media.brand'), '刘备不愧为一代枭雄，一生不重用赵云', '12', '9.0分', '230万', this.generateList(3), '儿童故事'),
     ];
     thirdGridDatas.push(thirdGridData1);
     thirdGridDatas.push(thirdGridData2);
@@ -191,24 +204,24 @@ export class MainViewModel {
   getBookTriData2(): Array<BookTriItemData[]> {
     let thirdGridDatas = Array<BookTriItemData[]>();
     let thirdGridData1: BookTriItemData[] = [
-      new BookTriItemData('广播剧《你最好是》', $r('app.media.top'), '撩系直男x钓系美女，你确定你是直男？', '1', '9.9分', '2290万', '青春校园'),
-      new BookTriItemData('[你听起来很好睡]广播剧', $r('app.media.new'), '冬季呼吸道疾病防治九问九答', '2', '9.8分', '2230万', '真甜剧场'),
-      new BookTriItemData('【广播剧】这个Alpha为何那样', $r('app.media.brand'), '别人穿越都难，为何我穿越怎么', '3', '9.7分', '2190万', '狗血虐恋'),
+      new BookTriItemData('广播剧《你最好是》', $r('app.media.top'), '撩系直男x钓系美女，你确定你是直男？', '1', '9.9分', '2290万', this.generateList(3), '青春校园'),
+      new BookTriItemData('[你听起来很好睡]广播剧', $r('app.media.new'), '冬季呼吸道疾病防治九问九答', '2', '9.8分', '2230万', this.generateList(3), '真甜剧场'),
+      new BookTriItemData('【广播剧】这个Alpha为何那样', $r('app.media.brand'), '别人穿越都难，为何我穿越怎么', '3', '9.7分', '2190万', this.generateList(3), '狗血虐恋'),
     ];
     let thirdGridData2: BookTriItemData[] = [
-      new BookTriItemData('【广播剧】家里再有钱，电视机旁尽量不要放这几样东西', $r('app.media.top'), '95后硕士小伙开包子店：日均三千元', '4', '9.7分', '1893万', '成长励志'),
-      new BookTriItemData('【广播剧】全国哪的羊肉最好吃？经过评比，这6个地方比较出名', $r('app.media.new'), '印度成“美国人的缅北”？全球90%诈骗电话从印度打出', '5', '9.6分', '1790万', '现代言情'),
-      new BookTriItemData('【广播剧】你在哪一刻体验到了真正的贫富差距？', $r('app.media.brand'), '在三国中谁才是第一猛将？吕布也仅排第三', '6', '9.6分', '1690万', '畅销书'),
+      new BookTriItemData('【广播剧】家里再有钱，电视机旁尽量不要放这几样东西', $r('app.media.top'), '95后硕士小伙开包子店：日均三千元', '4', '9.7分', '1893万', this.generateList(3), '成长励志'),
+      new BookTriItemData('【广播剧】全国哪的羊肉最好吃？经过评比，这6个地方比较出名', $r('app.media.new'), '印度成“美国人的缅北”？全球90%诈骗电话从印度打出', '5', '9.6分', '1790万', this.generateList(3), '现代言情'),
+      new BookTriItemData('【广播剧】你在哪一刻体验到了真正的贫富差距？', $r('app.media.brand'), '在三国中谁才是第一猛将？吕布也仅排第三', '6', '9.6分', '1690万', this.generateList(3), '畅销书'),
     ];
     let thirdGridData3: BookTriItemData[] = [
-      new BookTriItemData('【广播剧】古代深夜为什么要打更，不会打扰到人睡觉吗？', $r('app.media.top'), '关羽被杀后，诸葛亮冷冷地说了11个字', '7', '9.4分', '1292万', '经典文学'),
-      new BookTriItemData('【广播剧】大清灭亡后，溥仪的7个妹妹都嫁给了谁？ ', $r('app.media.new'), '大奸臣杀了杨广，又睡了杨广的皇后', '8', '9.3分', '1120万', '儿童故事'),
-      new BookTriItemData('【广播剧】10年后重温《康熙王朝》，才懂容妃获罪', $r('app.media.brand'), '溥任：奶奶是慈禧，溥仪是他哥', '9', '9.1分', '1040万', '现代言情'),
+      new BookTriItemData('【广播剧】古代深夜为什么要打更，不会打扰到人睡觉吗？', $r('app.media.top'), '关羽被杀后，诸葛亮冷冷地说了11个字', '7', '9.4分', '1292万', this.generateList(3), '经典文学'),
+      new BookTriItemData('【广播剧】大清灭亡后，溥仪的7个妹妹都嫁给了谁？ ', $r('app.media.new'), '大奸臣杀了杨广，又睡了杨广的皇后', '8', '9.3分', '1120万', this.generateList(3), '儿童故事'),
+      new BookTriItemData('【广播剧】10年后重温《康熙王朝》，才懂容妃获罪', $r('app.media.brand'), '溥任：奶奶是慈禧，溥仪是他哥', '9', '9.1分', '1040万', this.generateList(3), '现代言情'),
     ];
     let thirdGridData4: BookTriItemData[] = [
-      new BookTriItemData('【广播剧】司马懿一眼识破空城计，为何选择退兵？', $r('app.media.top'), '李隆基称帝后，为何立马除掉上官婉儿？', '10', '9.1分', '990万', '武侠仙侠'),
-      new BookTriItemData('【广播剧】贾元春为何在孕中被赐死，她犯了啥忌讳，惹得皇帝非杀她不可呢？ ', $r('app.media.new'), '明朝十六位皇帝一览表', '11', '9.0分', '760万', '经典文学'),
-      new BookTriItemData('【广播剧】六十年代比你想象中还要艰苦，但你绝对不敢想象', $r('app.media.brand'), '刘备不愧为一代枭雄，一生不重用赵云', '12', '9.0分', '230万', '儿童故事'),
+      new BookTriItemData('【广播剧】司马懿一眼识破空城计，为何选择退兵？', $r('app.media.top'), '李隆基称帝后，为何立马除掉上官婉儿？', '10', '9.1分', '990万', this.generateList(3), '武侠仙侠'),
+      new BookTriItemData('【广播剧】贾元春为何在孕中被赐死，她犯了啥忌讳，惹得皇帝非杀她不可呢？ ', $r('app.media.new'), '明朝十六位皇帝一览表', '11', '9.0分', '760万', this.generateList(3), '经典文学'),
+      new BookTriItemData('【广播剧】六十年代比你想象中还要艰苦，但你绝对不敢想象', $r('app.media.brand'), '刘备不愧为一代枭雄，一生不重用赵云', '12', '9.0分', '230万', this.generateList(3), '儿童故事'),
     ];
     thirdGridDatas.push(thirdGridData1);
     thirdGridDatas.push(thirdGridData2);
@@ -227,14 +240,14 @@ export class MainViewModel {
 
   getPodCastSecond(): Array<ItemData> {
     let firstGridData: ItemData[] = [
-      new ItemData('排行榜', $r('app.media.top'), '',),
-      new ItemData('全部分类', $r('app.media.new'), '',),
-      new ItemData('男生小说', $r('app.media.brand'), '',),
-      new ItemData('女生小说', $r('app.media.found'), '',),
-      new ItemData('言情', $r('app.media.brand'), '',),
-      new ItemData('免费', $r('app.media.new'), '',),
-      new ItemData('纯爱', $r('app.media.top'), '',),
-      new ItemData('全年龄', $r('app.media.found'), '',)
+      new ItemData('排行榜', $r('app.media.top'), '', this.generateList(3)),
+      new ItemData('全部分类', $r('app.media.new'), '', this.generateList(3)),
+      new ItemData('男生小说', $r('app.media.brand'), '', this.generateList(3)),
+      new ItemData('女生小说', $r('app.media.found'), '', this.generateList(3)),
+      new ItemData('言情', $r('app.media.brand'), '', this.generateList(3)),
+      new ItemData('免费', $r('app.media.new'), '', this.generateList(3)),
+      new ItemData('纯爱', $r('app.media.top'), '', this.generateList(3)),
+      new ItemData('全年龄', $r('app.media.found'), '', this.generateList(3))
     ];
     return firstGridData;
   }
@@ -258,16 +271,16 @@ export class MainViewModel {
   }
 
   getPodCastSecondVip(): ItemData {
-    return new ItemData('听书VIP新课特惠 首月仅6元', $r('app.media.top'), '',)
+    return new ItemData('听书VIP新课特惠 首月仅6元', $r('app.media.top'), '', this.generateList(3))
   }
 
   getPodCastSecond2(): Array<ItemData> {
     let firstGridData: ItemData[] = [
-      new ItemData('三体速读-艾谁谁FM', $r('app.media.top'), '',),
-      new ItemData('大明武夫 | 穿越历史', $r('app.media.new'), '',),
-      new ItemData('科技：为了上大学', $r('app.media.brand'), '',),
-      new ItemData('大凯故事会：奇闻怪谈', $r('app.media.found'), '',),
-      new ItemData('大凯故事会：奇闻怪谈', $r('app.media.brand'), '',),
+      new ItemData('三体速读-艾谁谁FM', $r('app.media.top'), '', this.generateList(3)),
+      new ItemData('大明武夫 | 穿越历史', $r('app.media.new'), '', this.generateList(3)),
+      new ItemData('科技：为了上大学', $r('app.media.brand'), '', this.generateList(3)),
+      new ItemData('大凯故事会：奇闻怪谈', $r('app.media.found'), '', this.generateList(3)),
+      new ItemData('大凯故事会：奇闻怪谈', $r('app.media.brand'), '', this.generateList(3)),
     ];
     return firstGridData;
   }
@@ -579,59 +592,73 @@ export class MainViewModel {
     return aGridData;
   }
 
-  getSettingListData1(): Array<ItemData> {
-    let listData: ItemData[] = [
-      new ItemData('消息中心', $r("app.media.news"), '',undefined),
-      new ItemData('贝壳中心', $r("app.media.data"), '',undefined),
-      new ItemData('创作者中心', $r("app.media.menu"), '',undefined)
-    ];
-    return listData;
-  }
-  getSettingListData2(): Array<ItemData> {
-    let listData: ItemData[] = [
-      new ItemData('趣味', $r("app.media.news"),'点击查看今日运势', undefined),
-      new ItemData('有票', $r("app.media.data"), '',undefined),
-      new ItemData('商城', $r("app.media.menu"), '',undefined),
-      new ItemData('歌房', $r("app.media.menu"), '',undefined),
-      new ItemData('音乐收藏家庭', $r("app.media.menu"),'与音乐人共享收益', undefined),
-      new ItemData('视频彩铃', $r("app.media.menu"),'pick你的音乐彩铃', undefined)
-    ];
-    return listData;
-  }
-  getSettingListData3(): Array<ItemData> {
-    let listData: ItemData[] = [
-      new ItemData('设置', $r("app.media.news"),'', undefined),
-      new ItemData('深色模式', $r("app.media.data"), '',$r('app.media.home_normal')),
-      new ItemData('定时关闭', $r("app.media.menu"), '',undefined),
-      new ItemData('个性装扮', $r("app.media.menu"), '',undefined),
-      new ItemData('边听边存', $r("app.media.menu"),'未开启', undefined),
-      new ItemData('青少年模式', $r("app.media.menu"),'未开启', undefined)
-    ];
-    return listData;
-  }
-  getVideoRecommendItemData(): Array<VideoRecommendItemData> {
-    let listData: VideoRecommendItemData[] = [
-      new VideoRecommendItemData('Kaihong街舞工作室', $r("app.media.quarered6"), $rawfile('video1.mp4'), $r("app.media.found"),'Goo老师编舞——****INAP****','43'),
-      new VideoRecommendItemData('风中流转', $r("app.media.quareblue5"), $rawfile('video2.mp4'), $r("app.media.found"),'【明星】Interview（2023舞台）','143'),
-      new VideoRecommendItemData('兔子亚洲', $r("app.media.quarepink1"), $rawfile('test1.mp4'), $r("app.media.found"),'很乱的走线，谁来整理一下？我愿平凡地陪伴子麦芽糖身边','1243'),
-      new VideoRecommendItemData('麦芽糖', $r("app.media.yellow2"), $rawfile('test2.mp4'), $r("app.media.found"),'麦芽糖的键盘很差','4323'),
-      new VideoRecommendItemData('小a的宝藏', $r("app.media.fig21"), $rawfile('video1.mp4'), $r("app.media.found"),'千篇一律的绿化毫无趣味','6573'),
+  getSettingListData1(): Array<SettingItemData> {
+    let listData: SettingItemData[] = [
+      new SettingItemData('消息中心', $r("app.media.news"), '', undefined),
+      new SettingItemData('贝壳中心', $r("app.media.data"), '', undefined),
+      new SettingItemData('创作者中心', $r("app.media.menu"), '', undefined)
     ];
     return listData;
   }
 
-  getFollowers(): Array<ItemData> {
-    let listData: ItemData[] = [
-      new ItemData('get_a_life', $r("app.media.found"), '',),
-      new ItemData('初玖宅柒', $r("app.media.fig3"), '',),
-      new ItemData('金陵靓仔', $r("app.media.fig4"), '',),
-      new ItemData('吹口哨的青蛙', $r("app.media.about"), '',),
-      new ItemData('sunny', $r("app.media.fig2"), '',),
-      new ItemData('我是周董', $r("app.media.privacy"), '',),
-      new ItemData('更惊奇', $r("app.media.fig1"), '',)
+  getSettingListData2(): Array<SettingItemData> {
+    let listData: SettingItemData[] = [
+      new SettingItemData('趣味', $r("app.media.news"), '点击查看今日运势', undefined),
+      new SettingItemData('有票', $r("app.media.data"), '', undefined),
+      new SettingItemData('商城', $r("app.media.menu"), '', undefined),
+      new SettingItemData('歌房', $r("app.media.menu"), '', undefined),
+      new SettingItemData('音乐收藏家庭', $r("app.media.menu"), '与音乐人共享收益', undefined),
+      new SettingItemData('视频彩铃', $r("app.media.menu"), 'pick你的音乐彩铃', undefined)
     ];
     return listData;
   }
+
+  getSettingListData3(): Array<SettingItemData> {
+    let listData: SettingItemData[] = [
+      new SettingItemData('设置', $r("app.media.news"), '', undefined),
+      new SettingItemData('深色模式', $r("app.media.data"), '', $r('app.media.home_normal')),
+      new SettingItemData('定时关闭', $r("app.media.menu"), '', undefined),
+      new SettingItemData('个性装扮', $r("app.media.menu"), '', undefined),
+      new SettingItemData('边听边存', $r("app.media.menu"), '未开启', undefined),
+      new SettingItemData('青少年模式', $r("app.media.menu"), '未开启', undefined)
+    ];
+    return listData;
+  }
+
+  getVideoRecommendItemData(): Array<VideoRecommendItemData> {
+    let listData: VideoRecommendItemData[] = [
+      new VideoRecommendItemData('Kaihong街舞工作室', $r("app.media.quarered6"), $rawfile('video1.mp4'), $r("app.media.found"), 'Goo老师编舞——****INAP****', '43'),
+      new VideoRecommendItemData('风中流转', $r("app.media.quareblue5"), $rawfile('video2.mp4'), $r("app.media.found"), '【明星】Interview（2023舞台）', '143'),
+      new VideoRecommendItemData('兔子亚洲', $r("app.media.quarepink1"), $rawfile('test1.mp4'), $r("app.media.found"), '很乱的走线，谁来整理一下？我愿平凡地陪伴子麦芽糖身边', '1243'),
+      new VideoRecommendItemData('麦芽糖', $r("app.media.yellow2"), $rawfile('test2.mp4'), $r("app.media.found"), '麦芽糖的键盘很差', '4323'),
+      new VideoRecommendItemData('小a的宝藏', $r("app.media.fig21"), $rawfile('video1.mp4'), $r("app.media.found"), '千篇一律的绿化毫无趣味', '6573'),
+    ];
+    return listData;
+  }
+
+  getFollowers(): Array<FollowerItemData> {
+    let listData: FollowerItemData[] = [
+      new FollowerItemData('get_a_life', $r("app.media.found"), ''),
+      new FollowerItemData('初玖宅柒', $r("app.media.fig3"), ''),
+      new FollowerItemData('金陵靓仔', $r("app.media.fig4"), ''),
+      new FollowerItemData('吹口哨的青蛙', $r("app.media.about"), ''),
+      new FollowerItemData('sunny', $r("app.media.fig2"), ''),
+      new FollowerItemData('我是周董', $r("app.media.privacy"), ''),
+      new FollowerItemData('更惊奇', $r("app.media.fig1"), '')
+    ];
+    return listData;
+  }
+  getListHistoryData(): Array<ListHistoryItemData> {
+    let list: ListHistoryItemData[] = [
+      new ListHistoryItemData('歌单：时空之力', $r('app.media.top'), '', this.generateList(4)),
+      new ListHistoryItemData('每日推荐', $r('app.media.new'), '', this.generateList(3)),
+      new ListHistoryItemData('私人漫游', $r('app.media.brand'), '', this.generateList(6)),
+      new ListHistoryItemData('歌单：2021-10', $r('app.media.found'), '', this.generateList(8)),
+      new ListHistoryItemData('每日推荐', $r('app.media.brand'), '', this.generateList(31))
+    ];
+    return list;
+  }
+
 }
 
 export default new MainViewModel();

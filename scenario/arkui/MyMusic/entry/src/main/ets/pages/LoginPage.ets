@@ -42,6 +42,9 @@ function blueTextStyle() {
   .fontWeight(FontWeight.Medium)
 }
 
+const ANIMATION_TIME: number = 1000
+const ANIMATION_PROGRESS: number = -600
+
 /**
  * Login page
  */
@@ -52,6 +55,14 @@ struct LoginPage {
   @State password: string = '';
   @State isShowProgress: boolean = false;
   private timeOutId: number = -1;
+  @State topY: number = 0
+  @State zoom: number = 0
+  @State angle: number = 1
+  @State leftX: number = 0
+  @State rightX: number = 0
+  @State bottomY: number = 0
+  @State progress: number = 0
+  @State transitionType: SlideEffect = SlideEffect.Left
 
   @Builder
   imageButton(src: Resource) {
@@ -80,9 +91,40 @@ struct LoginPage {
     }
   }
 
+  aboutToAppear() {
+    let params = router.getParams() as Record<string, string | number | SlideEffect>;
+    this.transitionType = params.type as SlideEffect;
+    this.angle = params.angle as number;
+    this.zoom = params.zoom as number;
+  }
+
   aboutToDisappear() {
     clearTimeout(this.timeOutId);
     this.timeOutId = -1;
+  }
+
+  pageTransition() {
+    // Entry animation
+    PageTransitionEnter({ duration: ANIMATION_TIME, curve: Curve.Linear })
+      .slide(this.transitionType)
+      .onEnter((type: RouteType, progress: number) => {
+        this.topY = (-progress + 1) * this.topY
+        this.bottomY = (-progress + 1) * this.bottomY
+        this.leftX = (-progress + 1) * this.leftX
+        this.rightX = (-progress + 1) * this.rightX
+        this.progress = progress
+      })
+
+    // Exit animation
+    PageTransitionExit({ duration: ANIMATION_TIME, curve: Curve.Ease })
+      .slide(this.transitionType)
+      .onExit((type: RouteType, progress: number) => {
+        this.topY = -ANIMATION_PROGRESS * progress
+        this.bottomY = ANIMATION_PROGRESS * progress
+        this.leftX = -ANIMATION_PROGRESS * progress
+        this.rightX = ANIMATION_PROGRESS * progress
+        this.progress = progress
+      })
   }
 
   build() {
@@ -162,7 +204,7 @@ struct LoginPage {
       }
     }
     .backgroundColor($r('app.color.background'))
-    .height(CommonConstants.FULL_PARENT)
+    .height('80%')
     .width(CommonConstants.FULL_PARENT)
     .padding({
       left: $r('app.float.page_padding_hor'),

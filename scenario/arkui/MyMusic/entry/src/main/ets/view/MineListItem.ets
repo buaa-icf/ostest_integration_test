@@ -15,6 +15,7 @@
 
 import ItemData from '../viewmodel/MineListItemData';
 import prompt from '@ohos.promptAction';
+import PlayerManager  from '../manager/PlayerManager';
 
 /**
  * List item information component.
@@ -22,6 +23,7 @@ import prompt from '@ohos.promptAction';
 @Component
 export default struct MineListItem {
   private item: ItemData = new ItemData('', $r('app.media.fig21'), '', Visibility.None, Visibility.None);
+  private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   build() {
     Row() {
@@ -74,7 +76,7 @@ export default struct MineListItem {
     .width('100%')
     .onClick(() => {
       prompt.showToast({
-        message: '进入歌单：' + this.item.title
+        message: '播放歌单：' + this.item.title
       })
     })
   }

@@ -100,7 +100,7 @@ export default struct MidItem {
 
   enterList() {
     prompt.showToast({
-      message: '进入歌单：' + this.item.title.replace(' ', '')
+      message: '播放歌单：' + this.item.title.replace(' ', '')
     })
     this.playerManager.playList(this.item.list,0)
   }

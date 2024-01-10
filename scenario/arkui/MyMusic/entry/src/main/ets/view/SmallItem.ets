@@ -21,7 +21,7 @@ import prompt from '@ohos.promptAction';
  */
 @Component
 export default struct SmallItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '', $r('app.media.fig1'));
+  private item: ItemData = new ItemData('', $r('app.media.fig1'), '', [],$r('app.media.fig1'));
 
   build() {
     Column() {
@@ -34,7 +34,7 @@ export default struct SmallItem {
     }.width('20%')
     .onClick(() => {
       prompt.showToast({
-        message: '进入歌单：' + this.item.title
+        message: '播放歌单：' + this.item.title
       })
     })
   }
