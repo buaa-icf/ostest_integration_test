@@ -12,11 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import AudioItem from '../manager/AudioItem';
 
 /**
  * List item data entity.
  */
-export default class PageResource {
+export default class ItemData {
   /**
    * Text of list item.
    */
@@ -29,12 +30,14 @@ export default class PageResource {
    * Other resource of list item.
    */
   others?: Resource;
-  subTitle: string
+  subTitle: string;
+  list:AudioItem[];
 
-  constructor(title: string, img: Resource, subTitle: string, others?: Resource) {
+  constructor(title: string, img: Resource, subTitle: string,list:AudioItem[], others?: Resource) {
     this.title = title;
     this.img = img;
     this.others = others;
+    this.list = list;
     this.subTitle = subTitle;
   }
 }

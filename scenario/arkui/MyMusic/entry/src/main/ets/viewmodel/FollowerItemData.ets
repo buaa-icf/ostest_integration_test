@@ -12,11 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import AudioItem from '../manager/AudioItem';
 
 /**
  * List item data entity.
  */
-export default class AudioItem {
+export default class FollowerItemData {
   /**
    * Text of list item.
    */
@@ -28,16 +29,13 @@ export default class AudioItem {
   /**
    * Other resource of list item.
    */
-  time: number;
-  artist: string;
-  isPlaying: boolean = false;
-  isVip?:boolean = false;
+  others?: Resource;
+  subTitle: string;
 
-  constructor(title: string, img: Resource, artist: string, time: number,isVip?:boolean) {
+  constructor(title: string, img: Resource, subTitle: string, others?: Resource) {
     this.title = title;
     this.img = img;
-    this.time = time;
-    this.artist = artist;
-    this.isVip = isVip;
+    this.others = others;
+    this.subTitle = subTitle;
   }
 }

@@ -14,6 +14,7 @@
  */
 import ItemData from '../viewmodel/BookTriItemData';
 import prompt from '@ohos.promptAction';
+import PlayerManager from '../manager/PlayerManager';
 
 /**
  * List item information component.
@@ -21,7 +22,7 @@ import prompt from '@ohos.promptAction';
 @Component
 export default struct BookTriItem {
   private items: ItemData[] = new Array<ItemData>();
-  ;
+  private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   build() {
     Column() {
@@ -75,8 +76,9 @@ export default struct BookTriItem {
         .margin($r('app.float.home_homeCell_margin'))
         .onClick(() => {
           prompt.showToast({
-            message: '进入歌单：' + item.title
+            message: '播放歌单：' + item.title
           })
+          this.playerManager.playList(item.list, 0);
         })
       })
     }

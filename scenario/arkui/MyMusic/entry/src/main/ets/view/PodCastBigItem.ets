@@ -114,7 +114,7 @@ export default struct PodCastBigItem {
     .height('320vp')
     .onClick(() => {
       prompt.showToast({
-        message: '进入歌单：' + this.item.title
+        message: '播放歌单：' + this.item.title
       })
     })
   }

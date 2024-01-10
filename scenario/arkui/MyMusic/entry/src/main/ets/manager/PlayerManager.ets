@@ -21,7 +21,7 @@ export default class PlayerManager {
   private state: number = -1;
   // 播放状态，未初始化-1，停止0，播放1，暂停2
   private currentTime: number = 0;
-  private item: AudioItem = new AudioItem('',$r('app.media.ic_gallery_frame_overlay_soundphoto'),'',0);
+  private item: AudioItem = new AudioItem('', $r('app.media.ic_gallery_frame_overlay_soundphoto'), '', 0);
   private list: AudioItem[] = [];
   private listPosition: number = 0;
   private intervalID: number = -1;
@@ -29,7 +29,10 @@ export default class PlayerManager {
     eventId: 1,
     priority: emitter.EventPriority.HIGH
   };
-
+  private innerEvent2: emitter.InnerEvent = {
+    eventId: 2,
+    priority: emitter.EventPriority.HIGH
+  };
   /**
    * 初始化
    */
@@ -52,6 +55,10 @@ export default class PlayerManager {
     this.play();
   }
 
+  getCurrentPlayList(): AudioItem[] {
+    return this.list;
+  }
+
   /**
    * 播放
    */
@@ -61,6 +68,13 @@ export default class PlayerManager {
       return;
     }
     this.state = 1
+    this.list[this.listPosition].isPlaying = true
+    let eventData: emitter.EventData = {
+      data: {
+        "state": this.state,
+      }
+    };
+    emitter.emit(this.innerEvent2, eventData);
     this.intervalID = setInterval(() => {
       if (this.currentTime > this.item.time) {
         this.next();
@@ -77,6 +91,23 @@ export default class PlayerManager {
       }
     }, 1000);
     Logger.info(this.tag, 'Start interval id:' + this.intervalID.toString());
+  }
+
+  /**
+   * 播放
+   */
+  playItem(item: AudioItem): void {
+    this.stop();
+    Logger.info(this.tag, 'Play finish:' + this.listPosition.toString());
+    let index = this.list.indexOf(item)
+    if (-1 === index) {
+      this.listPosition = 0;
+    } else {
+      this.listPosition = index;
+    }
+    Logger.info(this.tag, 'Play :' + this.listPosition.toString());
+    this.item = this.list[this.listPosition]
+    this.play();
   }
 
   /**
@@ -117,6 +148,7 @@ export default class PlayerManager {
     this.state = 0;
     this.currentTime = 0;
     Logger.info(this.tag, 'Stop:' + this.item.title);
+    this.list[this.listPosition].isPlaying = false
     let eventData: emitter.EventData = {
       data: {
         "state": this.state,

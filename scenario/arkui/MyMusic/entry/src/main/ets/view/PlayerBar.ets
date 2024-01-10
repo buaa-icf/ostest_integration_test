@@ -19,7 +19,6 @@
 import emitter from '@ohos.events.emitter';
 import Logger from '../common/utils/Logger';
 import PlayerManager from '../manager/PlayerManager'
-import AudioItem from '../manager/AudioItem';
 
 @Component
 export default struct PlayerBar {
@@ -31,6 +30,7 @@ export default struct PlayerBar {
   @State durationTime: number = 100; // 总时长
   @State currentTime: number = 0; // 当前时间
   @State state: number = 0; // 播放状态
+  @Link isShowPlayList: boolean;
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
   private innerEvent: emitter.InnerEvent = {
     eventId: 1,
@@ -131,9 +131,14 @@ export default struct PlayerBar {
 
         Image($r('app.media.ic_public_view_list'))
           .objectFit(ImageFit.Contain)
-          .width($r('app.float.home_homeCell_size'))
-          .height($r('app.float.home_homeCell_size'))
-          .margin({ right: $r('app.float.home_text_margin') })
+          .width('32vp')
+          .height('32vp')
+          .margin({ right: $r('app.float.home_text_margin'),left:'8vp' })
+          .onClick(() => {
+            animateTo({ duration: 350 }, () => {
+              this.isShowPlayList = true;
+            })
+          })
       }
       .width('100%')
       .margin({ top: $r('app.float.home_list_margin') })

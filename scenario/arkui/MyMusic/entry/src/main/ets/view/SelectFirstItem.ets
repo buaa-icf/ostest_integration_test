@@ -50,7 +50,7 @@ export default struct SelectFirstItem {
     .borderRadius($r('app.float.podcast_text_border_Radius'))
     .onClick(() => {
       prompt.showToast({
-        message: '进入歌单：' + this.item.title
+        message: '播放歌单：' + this.item.title
       })
     })
   }

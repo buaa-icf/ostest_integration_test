@@ -17,8 +17,6 @@ import MineActivityItem from './MineActivityItem';
 import MineActivityItemData from '../viewmodel/MineActivityItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
 import ListHead from './ListHead';
-import TriItem from './TriItem';
-import TriItemData from '../viewmodel/TriItemData';
 import SquareTriItem from './SquareTriItem';
 import SquareTriItemData from '../viewmodel/SquareTriItemData';
 

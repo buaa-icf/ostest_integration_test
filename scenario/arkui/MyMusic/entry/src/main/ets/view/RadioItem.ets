@@ -72,7 +72,7 @@ export default struct RadioItem {
           .alignItems(VerticalAlign.Center)
           .onClick(() => {
             prompt.showToast({
-              message: '进入歌单：' + item.title
+              message: '播放歌单：' + item.title
             })
           })
         })
