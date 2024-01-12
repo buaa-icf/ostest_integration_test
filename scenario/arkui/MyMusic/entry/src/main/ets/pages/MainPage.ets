@@ -26,6 +26,7 @@ import curves from '@ohos.curves';
 import PodCastHead from '../view/PodCastHead';
 import Setting from '../view/Setting';
 import PlayList from '../view/PlayList';
+import PlayerDetail from '../view/PlayerDetail';
 
 /**
  * Main page
@@ -42,6 +43,7 @@ struct MainPage {
   @State current: number = 1
   @State isShowSidebar: boolean = false;
   @State isShowPlayList: boolean = false;
+  @State isShowPlayerDetail: boolean = false;
   @State maskOpacity: number = 0.5;
 
   aboutToAppear() {
@@ -52,12 +54,20 @@ struct MainPage {
   }
 
   onBackPress() {
-    if (this.isShowPlayList || this.isShowSidebar) {
+    if (this.isShowPlayList ) {
+      animateTo({ duration: 350 }, () => {
+        this.isShowPlayList = false;
+      })
+      return true;
+    } else if(this.isShowPlayerDetail) {
+      animateTo({ duration: 350 }, () => {
+        this.isShowPlayerDetail = false;
+      })
+      return true;
+    } else if(this.isShowSidebar) {
       animateTo({ duration: 350 }, () => {
         this.isShowSidebar = false;
-        this.isShowPlayList = false;
-      }
-      )
+      })
       return true;
     } else {
       return false;
@@ -145,10 +155,18 @@ struct MainPage {
           this.currentIndex = index;
         })
 
-        PlayerBar({ isShowPlayList: $isShowPlayList })
+        PlayerBar({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
           .margin({ bottom: $r('app.float.mainPage_barHeight') })
           .backgroundColor(Color.White)
           .width('100%')
+        if (this.isShowPlayerDetail) {
+          PlayerDetail({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
+            .width('100%')
+            .height('100%')
+            .transition(TransitionEffect.OPACITY
+              .animation({ curve: curves.springMotion() })
+              .combine(TransitionEffect.move(TransitionEdge.BOTTOM)))
+        }
         if (this.isShowSidebar || this.isShowPlayList) {
           Rect()
             .width('100%')

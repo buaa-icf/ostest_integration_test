@@ -31,6 +31,7 @@ export default struct PlayerBar {
   @State currentTime: number = 0; // 当前时间
   @State state: number = 0; // 播放状态
   @Link isShowPlayList: boolean;
+  @Link isShowPlayerDetail: boolean;
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
   private innerEvent: emitter.InnerEvent = {
     eventId: 1,
@@ -133,7 +134,7 @@ export default struct PlayerBar {
           .objectFit(ImageFit.Contain)
           .width('32vp')
           .height('32vp')
-          .margin({ right: $r('app.float.home_text_margin'),left:'8vp' })
+          .margin({ right: $r('app.float.home_text_margin'), left: '8vp' })
           .onClick(() => {
             animateTo({ duration: 350 }, () => {
               this.isShowPlayList = true;
@@ -142,6 +143,11 @@ export default struct PlayerBar {
       }
       .width('100%')
       .margin({ top: $r('app.float.home_list_margin') })
+      .onClick(() => {
+        animateTo({ duration: 350 }, () => {
+          this.isShowPlayerDetail = true;
+        })
+      })
 
       Divider().strokeWidth(1).color($r('app.color.divider_gray'))
 
