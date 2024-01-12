@@ -48,6 +48,15 @@ export class MainViewModel {
     new AudioItem('Rylynn', $r('app.media.quaregreen5'), 'Andy McKee', 212)
   ]
 
+  formatTime(time: number): string {
+    let min = Math.floor(time / 60).toString();
+    let sec = (time % 60).toString()
+    if (sec.length === 1) {
+      sec = '0' + sec;
+    }
+    return min + ':' + sec;
+  }
+
   generateList(num: number): AudioItem[] {
     if (num > this.audios.length) {
       num = this.audios.length;
@@ -648,6 +657,7 @@ export class MainViewModel {
     ];
     return listData;
   }
+
   getListHistoryData(): Array<ListHistoryItemData> {
     let list: ListHistoryItemData[] = [
       new ListHistoryItemData('歌单：时空之力', $r('app.media.top'), '', this.generateList(4)),
@@ -658,7 +668,6 @@ export class MainViewModel {
     ];
     return list;
   }
-
 }
 
 export default new MainViewModel();

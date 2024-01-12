@@ -118,7 +118,6 @@ export default struct VideoRecommendItem {
         Logger.error('onVisibleAreaChange:', this.item.name + 'stop')
         this.controller.stop();
       }
-
     })
   }
 }
