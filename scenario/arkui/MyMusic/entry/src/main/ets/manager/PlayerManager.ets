@@ -23,6 +23,7 @@ export default class PlayerManager {
   private currentTime: number = 0;
   private item: AudioItem = new AudioItem('', $r('app.media.ic_gallery_frame_overlay_soundphoto'), '', 0);
   private list: AudioItem[] = [];
+  private listTitle: string = '';
   private listPosition: number = 0;
   private intervalID: number = -1;
   private innerEvent: emitter.InnerEvent = {
@@ -36,7 +37,7 @@ export default class PlayerManager {
   /**
    * 初始化
    */
-  playList(list: AudioItem[], pos: number): void {
+  playList(listTitle:string, list: AudioItem[], pos: number): void {
     this.stop();
     if (list.length <= 0) {
       Logger.error(this.tag, 'PlayList:' + 'list length <= 0');
@@ -52,6 +53,7 @@ export default class PlayerManager {
     this.currentTime = 0;
     this.item = list[this.listPosition];
     this.state = 0;
+    this.listTitle = listTitle;
     this.play();
   }
 
@@ -189,5 +191,9 @@ export default class PlayerManager {
 
   getItem(): AudioItem {
     return this.item;
+  }
+
+  getListTitle():string{
+    return this.listTitle;
   }
 }
