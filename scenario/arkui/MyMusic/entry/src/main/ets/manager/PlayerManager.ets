@@ -181,7 +181,19 @@ export default class PlayerManager {
 
   //上一首
   previous() {
-
+    if (this.state === -1) {
+      return;
+    }
+    this.stop();
+    Logger.info(this.tag, 'Play finish:' + this.listPosition.toString());
+    if (this.listPosition  === 0) {
+      this.listPosition = 0;
+    } else {
+      this.listPosition = this.listPosition - 1;
+    }
+    Logger.info(this.tag, 'Play previous:' + this.listPosition.toString());
+    this.item = this.list[this.listPosition]
+    this.play();
   }
 
   //播放顺序

@@ -79,6 +79,7 @@ export default struct PlayerDetail {
           this.durationTime = this.playerManager.getItem().time;
           this.playingArtist = this.playerManager.getItem().artist;
           this.playingImg = this.playerManager.getItem().img;
+          this.listTitle = this.playerManager.getListTitle();
           if (this.rotateAngle === 0) {
             this.rotateAngle = 360;
           }
@@ -99,8 +100,9 @@ export default struct PlayerDetail {
     Column() {
       Row() {
         Image($r('app.media.ic_public_arrow_down_0'))
-          .height('32vp')
-          .width('32vp')
+          .height('48vp')
+          .width('48vp')
+          .padding('8vp')
           .onClick(() => {
             animateTo({ duration: 350 }, () => {
               this.isShowPlayerDetail = false;
@@ -129,7 +131,7 @@ export default struct PlayerDetail {
           }
         }
         .justifyContent(FlexAlign.Center)
-        .height('80vp')
+        .height('60vp')
         .width('70%')
 
         Image($r('app.media.ic_public_share'))
@@ -139,7 +141,7 @@ export default struct PlayerDetail {
       .width('100%')
       .justifyContent(FlexAlign.SpaceEvenly)
 
-      Stack() {
+      Column() {
         if (this.contentSwitch) {
           Column() {
             Image(this.playingImg)
@@ -173,24 +175,28 @@ export default struct PlayerDetail {
               Blank()
               Stack() {
                 Image($r('app.media.ic_public_favor'))
-                  .width('48vp')
-                  .height('48vp')
+                  .width('36vp')
+                  .height('36vp')
                 Text('100w+').fontSize('10fp')
                   .backgroundColor('#ffffff')
-              }.alignContent(Alignment.TopEnd)
+                  .margin({ left: '24vp' })
+              }.alignContent(Alignment.Top)
+              .margin({ right: '8vp' })
 
               Stack() {
                 Image($r('app.media.ic_public_comments'))
-                  .width('48vp')
-                  .height('48vp')
+                  .width('36vp')
+                  .height('36vp')
                 Text('10w+').fontSize('10fp')
-                  .margin({ left: '32vp' })
-              }
+                  .backgroundColor('#ffffff')
+                  .margin({ left: '24vp' })
+              }.alignContent(Alignment.Top)
             }
-            .width('90%')
+            .width('80%')
             .justifyContent(FlexAlign.SpaceBetween)
           }.width('100%')
           .height('100%')
+          .justifyContent(FlexAlign.SpaceAround)
           .onClick(() => {
             this.contentSwitch = false;
           })
