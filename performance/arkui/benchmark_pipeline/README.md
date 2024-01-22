@@ -39,21 +39,21 @@
 
 ### 设置真机签名证书，见下图
 
-![图片1](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image1.png)
+![图片1](https://gitee.com/openharmony-sig/ostest_integration_test/raw/master/performance/arkui/benchmark_pipeline/screenshot/image1.png)
 
-![图片2](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image2.png)
+![图片2](https://gitee.com/openharmony-sig/ostest_integration_test/raw/master/performance/arkui/benchmark_pipeline/screenshot/image2.png)
 
 ### 运行测试用例获取hap包 ，见下图
 
-![图片3](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image3.png)
+![图片3](https://gitee.com/openharmony-sig/ostest_integration_test/raw/master/performance/arkui/benchmark_pipeline/screenshot/image3.png)
 
-![图片4](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image4.png)
+![图片4](https://gitee.com/openharmony-sig/ostest_integration_test/raw/master/performance/arkui/benchmark_pipeline/screenshot/image4.png)
 
 # 运行工具
 
 ### 运行【startBuild.bat】，选择Benchmark场景用例运行模式，见下图
 
-![图片5](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image5.png)
+![图片5](https://gitee.com/openharmony-sig/ostest_integration_test/raw/master/performance/arkui/benchmark_pipeline/screenshot/image5.png)
 
 > 说明：
 > 
@@ -65,6 +65,6 @@
 > 
 > 4、工具会自动比对，耗时时间小于基线时间或者不大于基线时间10%均为Pass，否则Fail
 > 
-> 5、在运行用例时，禁止打开【渲染管线报告.xls】，否则耗时时间无法写入。
+> 5、在运行用例时，禁止打开【benchmark_pipeline_report.xls】，否则耗时时间无法写入。
 > 
-> ![图片6](https://gitee.com/kunge-hub/ostest_integration_test/raw/benchmark_pipeline/performance/arkui/benchmark_pipeline/screenshot/image6.png)
+> ![图片6](https://gitee.com/openharmony-sig/ostest_integration_test/raw/master/performance/arkui/benchmark_pipeline/screenshot/image6.png)
