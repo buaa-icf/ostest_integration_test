@@ -78,7 +78,7 @@ export default struct BookTriItem {
           prompt.showToast({
             message: '播放歌单：' + item.title
           })
-          this.playerManager.playList(item.list, 0);
+          this.playerManager.playList(item.title, item.list, 0);
         })
       })
     }

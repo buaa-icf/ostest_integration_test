@@ -26,9 +26,10 @@ import Logger from '../common/utils/Logger';
 export default struct PlayerDetail {
   private tag: string = 'PlayerDetail';
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
-  @State playingTitle: string = this.playerManager.getItem().title
-  @State playingArtist: string = this.playerManager.getItem().artist
-  @State playingImg: Resource = this.playerManager.getItem().img
+  @State playingTitle: string = this.playerManager.getItem().title;
+  @State listTitle: string = this.playerManager.getListTitle();
+  @State playingArtist: string = this.playerManager.getItem().artist;
+  @State playingImg: Resource = this.playerManager.getItem().img;
   @State durationTime: number = this.playerManager.getItem().time; // 总时长
   @State currentTime: number = 0; // 当前时间
   @State state: number = 0; // 播放状态
@@ -78,6 +79,7 @@ export default struct PlayerDetail {
           this.durationTime = this.playerManager.getItem().time;
           this.playingArtist = this.playerManager.getItem().artist;
           this.playingImg = this.playerManager.getItem().img;
+          this.listTitle = this.playerManager.getListTitle();
           if (this.rotateAngle === 0) {
             this.rotateAngle = 360;
           }
@@ -98,29 +100,38 @@ export default struct PlayerDetail {
     Column() {
       Row() {
         Image($r('app.media.ic_public_arrow_down_0'))
-          .height('32vp')
-          .width('32vp')
+          .height('48vp')
+          .width('48vp')
+          .padding('8vp')
           .onClick(() => {
             animateTo({ duration: 350 }, () => {
               this.isShowPlayerDetail = false;
             })
           })
         Column() {
-          Text(this.playingTitle).fontSize('18fp')
-          Row() {
-            Text(this.playingArtist).fontSize('14fp')
-              .fontColor('#a0a0a0')
-            Text('关注')
-              .fontSize('14fp')
-              .borderRadius('8vp')
-              .backgroundColor('#22a0a0a0')
-              .margin('4vp')
-              .padding({ right: '4vp', left: '4vp' })
-            Image($r('app.media.ic_public_arrow_right_grey'))
-              .width('8vp')
-              .height('16vp')
+          if (this.contentSwitch) {
+            Text(this.listTitle).fontSize('18fp')
+              .maxLines(2)
+          } else {
+            Text(this.playingTitle).fontSize('18fp')
+              .maxLines(1)
+            Row() {
+              Text(this.playingArtist).fontSize('14fp')
+                .fontColor('#a0a0a0')
+              Text('关注')
+                .fontSize('14fp')
+                .borderRadius('8vp')
+                .backgroundColor('#22a0a0a0')
+                .margin('4vp')
+                .padding({ right: '4vp', left: '4vp' })
+              Image($r('app.media.ic_public_arrow_right_grey'))
+                .width('8vp')
+                .height('16vp')
+            }
           }
         }
+        .justifyContent(FlexAlign.Center)
+        .height('60vp')
         .width('70%')
 
         Image($r('app.media.ic_public_share'))
@@ -130,7 +141,7 @@ export default struct PlayerDetail {
       .width('100%')
       .justifyContent(FlexAlign.SpaceEvenly)
 
-      Stack() {
+      Column() {
         if (this.contentSwitch) {
           Column() {
             Image(this.playingImg)
@@ -146,8 +157,46 @@ export default struct PlayerDetail {
                 iterations: -1, // 设置-1表示动画无限循环
                 playMode: PlayMode.Normal
               })
+            Row() {
+              Column() {
+                Text(this.playingTitle).fontSize('18fp')
+                Row() {
+                  Text(this.playingArtist).fontSize('16fp')
+                    .fontColor('#303030')
+                  Text('关注')
+                    .fontSize('14fp')
+                    .fontColor('#303030')
+                    .backgroundColor('#f0f0f0')
+                    .borderRadius('6vp')
+                    .padding({ left: '4vp', right: '4vp' })
+                }
+              }.alignItems(HorizontalAlign.Start)
+
+              Blank()
+              Stack() {
+                Image($r('app.media.ic_public_favor'))
+                  .width('36vp')
+                  .height('36vp')
+                Text('100w+').fontSize('10fp')
+                  .backgroundColor('#ffffff')
+                  .margin({ left: '24vp' })
+              }.alignContent(Alignment.Top)
+              .margin({ right: '8vp' })
+
+              Stack() {
+                Image($r('app.media.ic_public_comments'))
+                  .width('36vp')
+                  .height('36vp')
+                Text('10w+').fontSize('10fp')
+                  .backgroundColor('#ffffff')
+                  .margin({ left: '24vp' })
+              }.alignContent(Alignment.Top)
+            }
+            .width('80%')
+            .justifyContent(FlexAlign.SpaceBetween)
           }.width('100%')
           .height('100%')
+          .justifyContent(FlexAlign.SpaceAround)
           .onClick(() => {
             this.contentSwitch = false;
           })
@@ -197,7 +246,7 @@ export default struct PlayerDetail {
             this.contentSwitch = true;
             if (this.state === 1) {
               this.rotateAngle = 0;
-              animateTo({ duration: 3600 }, ()=>{
+              animateTo({ duration: 3600 }, () => {
                 this.rotateAngle = 360;
               })
             }
