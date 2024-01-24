@@ -53,7 +53,7 @@ export default struct ListHistoryItem {
 
   enterList() {
     prompt.showToast({
-      message: '播放歌单：' + this.item.title.replace(' ', '')
+      message: '播放歌单：' + this.item.title
     })
     this.playerManager.playList(this.item.title, this.item.list,0)
   }

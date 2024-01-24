@@ -17,12 +17,12 @@ import CommonConstants from '../common/constants/CommonConstants';
 import mainViewModel from '../viewmodel/MainViewModel';
 import ItemData from '../viewmodel/ItemData';
 import MidItemData from '../viewmodel/MidItemData';
-import TriItemData from '../viewmodel/TriItemData';
 import FindHead from './FindHead';
 import SmallItem from './SmallItem';
 import ListHead from './ListHead';
 import MidItem from './MidItem';
-import TriItem from './TriItem';
+import TriTitleItemData from '../viewmodel/TriTitleItemData';
+import TriTitleItem from './TriTitleItem';
 
 
 /**
@@ -31,78 +31,106 @@ import TriItem from './TriItem';
 @Component
 export default struct Home {
   private swiperController: SwiperController = new SwiperController();
+  @State triTitleItems: TriTitleItemData[] = [new TriTitleItemData('走进你的心', mainViewModel.getThirdGridData())];
+  @State secondItems:Array<MidItemData> = mainViewModel.getSecondGridData()
   @Link isShowSidebar: boolean;
+  @State isRefreshing: boolean = false
+  @State mOffset: number = 0
+  @State mFriction: number = 48
+
+  @Builder
+  refreshBuilder() {
+    Column() {
+      Text('刷新中......')
+        .fontSize(16)
+    }
+    .alignItems(HorizontalAlign.Center)
+    .justifyContent(FlexAlign.Center)
+    .padding(24)
+    .borderRadius(12)
+  }
+
   build() {
     Column() {
-      FindHead({isShowSidebar: $isShowSidebar})
-      Scroll() {
-        Column({ space: CommonConstants.COMMON_SPACE }) {
+      FindHead({ isShowSidebar: $isShowSidebar })
+      Refresh({
+        refreshing: $$this.isRefreshing,
+        offset: this.mOffset,
+        friction: this.mFriction,
+        builder: this.refreshBuilder
+      }) {
+        Scroll() {
+          Column({ space: CommonConstants.COMMON_SPACE }) {
+            Swiper(this.swiperController) {
+              ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
+                Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
+              })
+            }
+            .margin({ top: $r('app.float.home_swiper_margin') })
+            .autoPlay(true)
 
-          Swiper(this.swiperController) {
-            ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
-              Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
+            Scroll() {
+              Row() {
+                ForEach(mainViewModel.getFirstGridData(), (item: ItemData) => {
+                  SmallItem({ item })
+                })
+              }.margin($r('app.float.home_secondGrid_margin'))
+            }
+            .scrollable(ScrollDirection.Horizontal)
+            .scrollBarColor(Color.Red) // 滚动条颜色
+            .scrollBarWidth(1) // 滚动条宽度
+
+            ListHead({
+              imgRefresh: Visibility.None,
+              imgArrow: Visibility.Visible,
+              imgMore: Visibility.Visible,
+              isPlayer: Visibility.None,
+              title: '推荐歌单'
             })
-          }
-          .margin({ top: $r('app.float.home_swiper_margin') })
-          .autoPlay(true)
-
-          Scroll() {
-            Row() {
-              ForEach(mainViewModel.getFirstGridData(), (item: ItemData) => {
-                SmallItem({ item })
-              })
-            }.margin($r('app.float.home_secondGrid_margin'))
-          }
-          .scrollable(ScrollDirection.Horizontal)
-          .scrollBarColor(Color.Red) // 滚动条颜色
-          .scrollBarWidth(1) // 滚动条宽度
-
-          ListHead({
-            imgRefresh: Visibility.None,
-            imgArrow: Visibility.Visible,
-            imgMore: Visibility.Visible,
-            isPlayer: Visibility.None,
-            title: '推荐歌单'
-          })
-          Scroll() {
-            Row() {
-              ForEach(mainViewModel.getSecondGridData(), (item: MidItemData) => {
-                MidItem({ item })
-              })
+            Scroll() {
+              Row() {
+                ForEach(this.secondItems, (item: MidItemData) => {
+                  MidItem({ item })
+                })
+              }
+              .margin($r('app.float.home_secondGrid_margin'))
+              .alignItems(VerticalAlign.Top)
             }
-            .margin($r('app.float.home_secondGrid_margin'))
-            .alignItems(VerticalAlign.Top)
-          }
-          .scrollable(ScrollDirection.Horizontal)
-          .scrollBar(BarState.Off)
+            .scrollable(ScrollDirection.Horizontal)
+            .scrollBar(BarState.Off)
 
-          Divider().strokeWidth(1).color($r('app.color.divider_gray'))
-
-          ListHead({
-            imgRefresh: Visibility.Visible,
-            imgArrow: Visibility.None,
-            imgMore: Visibility.Visible,
-            isPlayer: Visibility.Visible,
-            title: '走进你的心'
-          })
-          Scroll() {
-            Row() {
-              ForEach(mainViewModel.getThirdGridData(), (items: TriItemData[]) => {
-                TriItem({ items })
+            Divider().strokeWidth(1).color($r('app.color.divider_gray'))
+            List() {
+              ForEach(this.triTitleItems, (item: TriTitleItemData) => {
+                ListItem() {
+                  TriTitleItem({ item })
+                }
               })
-            }
-            .margin($r('app.float.home_secondGrid_margin'))
-            .alignItems(VerticalAlign.Top)
-          }
-          .scrollable(ScrollDirection.Horizontal)
-          .scrollBar(BarState.Off)
+            }.divider({ strokeWidth: 1, color: 0xF0F0F0 })
 
-          Text('上滑加载更多......')
+            Text('上滑加载更多......')
+              .onVisibleAreaChange([0.0, 1.0], (isVisible: boolean, currentRatio: number) => {
+                console.info('Test Text isVisible: ' + isVisible + ', currentRatio:' + currentRatio)
+                if (isVisible && currentRatio >= 0.5) {
+                  mainViewModel.getRandomThiTitleData().then((item: TriTitleItemData) => {
+                    this.triTitleItems.push(item)
+                  })
+                }
+              })
+          }
         }
-      }
-      .scrollBarWidth(0)
-      .height(CommonConstants.FULL_PARENT)
-      .margin({ bottom: $r('app.float.bottom_barHeight') })
+        .scrollBarWidth(0)
+        .height(CommonConstants.FULL_PARENT)
+        .margin({ bottom: $r('app.float.bottom_barHeight') })
+      }.onRefreshing(() => {
+        setTimeout(() => {
+          mainViewModel.getRandomThiTitleData().then((item: TriTitleItemData) => {
+            this.triTitleItems.splice(0, this.triTitleItems.length, item)
+            this.secondItems = mainViewModel.getSecondGridData()
+          })
+          this.isRefreshing = false
+        }, 500)
+      })
     }
     .width(CommonConstants.FULL_PARENT)
     .height(CommonConstants.FULL_PARENT)
