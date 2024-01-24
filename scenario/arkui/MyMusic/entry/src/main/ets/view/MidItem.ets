@@ -25,22 +25,16 @@ import PlayerManager  from '../manager/PlayerManager';
 export default struct MidItem {
   private item: ItemData = new ItemData('', $r('app.media.fig1'), '',[], '');
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
+  private spaceString = '';
 
   aboutToAppear() {
     let space: number = 0;
     if (this.item.others !== undefined) {
-      space = this.item.others.length * 3;
+      space = this.item.others.length;
     }
-    let spaceString = '';
-    for (let i = 0; i < space; i++) {
-      spaceString = spaceString + ' ';
+    for (let i = 0; i < space*3; i++) {
+      this.spaceString = this.spaceString + ' ';
     }
-    hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}d', space);
-    hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', '[' + spaceString + ']');
-    if (space > 0) {
-      this.item.title = spaceString + ' ' + this.item.title;
-    }
-    hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', this.item.title);
   }
 
   build() {
@@ -85,7 +79,7 @@ export default struct MidItem {
           .borderRadius($r('app.float.home_backgroundImage_borderRadius'))
           .margin('1vp')
 
-        Text(this.item.title)
+        Text(this.spaceString + this.item.title)
           .fontSize($r('app.float.small_text_size'))
           .width($r('app.float.home_secondGrid_height'))
           .maxLines(2)
@@ -100,7 +94,7 @@ export default struct MidItem {
 
   enterList() {
     prompt.showToast({
-      message: '播放歌单：' + this.item.title.replace(' ', '')
+      message: '播放歌单：' + this.item.title
     })
     this.playerManager.playList(this.item.title, this.item.list,0)
   }

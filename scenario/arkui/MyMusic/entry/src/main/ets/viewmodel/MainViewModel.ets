@@ -28,6 +28,9 @@ import VideoRecommendItemData from './VideoRecommendItemData';
 import SettingItemData from './SettingItemData';
 import FollowerItemData from './FollowerItemData';
 import ListHistoryItemData from './ListHistoryItemData';
+import Logger from '../common/utils/Logger';
+import TriTitleItemData from './TriTitleItemData';
+import systemDateTime from '@ohos.systemDateTime';
 
 /**
  * Binds data to components and provides interfaces.
@@ -47,6 +50,46 @@ export class MainViewModel {
     new AudioItem('Time Travel', $r('app.media.quarered7'), '岸部真明', 123),
     new AudioItem('Rylynn', $r('app.media.quaregreen5'), 'Andy McKee', 212)
   ]
+  private triItems: TriItemData[] = [
+    new TriItemData('弱水三千', $r('app.media.top'), '满目山河', this.generateList(1), '南京古风榜第11名'),
+    new TriItemData('挪威天才', $r('app.media.new'), '赤月', this.generateList(2), ''),
+    new TriItemData('节奏控系列', $r('app.media.brand'), '扣扣', this.generateList(3), '最最最最最最'),
+    new TriItemData('某年某月某天', $r('app.media.top'), '池子', this.generateList(4), '最近常听'),
+    new TriItemData('浮夸', $r('app.media.new'), '周深', this.generateList(5), ''),
+    new TriItemData('Where Did U Go', $r('app.media.brand'), '许巍', this.generateList(6), '最最最最最最'),
+    new TriItemData('忘了你忘了我', $r('app.media.top'), '万能青年旅店', this.generateList(7), '最近常听'),
+    new TriItemData('一生何求 ', $r('app.media.new'), '摇滚', this.generateList(8), '超过76%人播放'),
+    new TriItemData('LastDance', $r('app.media.brand'), '伍佰', this.generateList(9), ''),
+    new TriItemData('海底', $r('app.media.top'), '民谣', this.generateList(10), '最近常听'),
+    new TriItemData('我不是你的宋东野 ', $r('app.media.new'), '催眠神曲', this.generateList(11), '超过76%人播放'),
+    new TriItemData('遥不可及的你', $r('app.media.brand'), 'ACG', this.generateList(12), '最最最最最最'),
+  ]
+  private secondGridDatas: MidItemData[] = [
+    new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.quaregreen2'), '1024万',
+      this.generateList(12), '最近常听'),
+    new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.yellow6'), '24万',
+      this.generateList(11), ''),
+    new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '147万',
+      this.generateList(10), ''),
+    new MidItemData('下班回家时超适合放松的歌单', $r('app.media.quarered5'), '424万',
+      this.generateList(9), '收藏过万'),
+    new MidItemData('ACG爱好者', $r('app.media.quarepink8'), '2475万',
+      this.generateList(8), '同频率'),
+    new MidItemData('超能电磁炮', $r('app.media.quareblue3'), '432万',
+      this.generateList(7), '神曲合集'),
+    new MidItemData('西海之声 Radio SayHi！', $r('app.media.top'), '1024万',
+      this.generateList(6), ''),
+    new MidItemData('蕊希电台', $r('app.media.new'), '24万',
+      this.generateList(5), ''),
+    new MidItemData('十大童年经典中文儿歌', $r('app.media.brand'), '67万',
+      this.generateList(4), ''),
+    new MidItemData('广播剧《我就是想贿赂你》', $r('app.media.found'), '975万',
+      this.generateList(3), ''),
+    new MidItemData('倾城天下|热播影视剧原著', $r('app.media.brand'), '27万',
+      this.generateList(2), ''),
+    new MidItemData('一首歌一个故事', $r('app.media.found'), '1亿',
+      this.generateList(1), '')
+  ];
 
   formatTime(time: number): string {
     let min = Math.floor(time / 60).toString();
@@ -62,6 +105,18 @@ export class MainViewModel {
       num = this.audios.length;
     }
     let shuffled = this.audios.sort(() => Math.random() - 0.5);
+    //let shuffled2 = this.audios.sort((a:AudioItem,b:AudioItem) => a.time - b.time);
+    //for (let index = 0; index < shuffled.length; index++) {
+    //  Logger.error('sort',shuffled[index].title);
+    //}
+    return shuffled.slice(0, num);
+  }
+
+  generateTriItems(num: number): TriItemData[] {
+    if (num > this.triItems.length) {
+      num = this.triItems.length;
+    }
+    let shuffled = this.triItems.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, num);
   }
 
@@ -106,45 +161,24 @@ export class MainViewModel {
    * @return {Array<PageResource>} secondGridData.
    */
   getSecondGridData(): Array<MidItemData> {
-    let secondGridData: MidItemData[] = [
-      new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万',
-        this.generateList(8), '最近常听'),
-      new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万',
-        this.generateList(7), ''),
-      new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万',
-        this.generateList(6), ''),
-      new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万',
-        this.generateList(5), '收藏过万'),
-      new MidItemData('555超适合放松的歌单', $r('app.media.found'), '475万',
-        this.generateList(4), '收藏过万'),
-      new MidItemData('666回家时超适合放松的歌单', $r('app.media.found'), '475万',
-        this.generateList(3), '收藏过万')
-    ];
-    return secondGridData;
+    let shuffled = this.secondGridDatas.sort(() => Math.random() - 0.5);
+    return shuffled;
+  }
+
+  async getRandomThiTitleData(): Promise<TriTitleItemData> {
+    let title = ''
+    let time: number = await systemDateTime.getCurrentTime();
+    title = new Date().toLocaleString()
+    return new TriTitleItemData(title, this.getThirdGridData())
   }
 
   getThirdGridData(): Array<TriItemData[]> {
     let thirdGridDatas = Array<TriItemData[]>();
-    let thirdGridData1: TriItemData[] = [
-      new TriItemData('弱水三千', $r('app.media.top'), '满目山河', this.generateList(6), '南京古风榜第11名'),
-      new TriItemData('挪威天才', $r('app.media.new'), '赤月', this.generateList(14), ''),
-      new TriItemData('节奏控系列', $r('app.media.brand'), '扣扣', this.generateList(34), '最最最最最最'),
-    ];
-    let thirdGridData2: TriItemData[] = [
-      new TriItemData('2222 | 1111', $r('app.media.top'), '池子', this.generateList(4), '最近常听'),
-      new TriItemData('2222 | 2222', $r('app.media.new'), '周深', this.generateList(4), ''),
-      new TriItemData('3333 | 3333', $r('app.media.brand'), '许巍', this.generateList(4), '最最最最最最'),
-    ];
-    let thirdGridData3: TriItemData[] = [
-      new TriItemData('3333 | 1111', $r('app.media.top'), '万能青年旅店', this.generateList(4), '最近常听'),
-      new TriItemData('3333 | 2222 ', $r('app.media.new'), '摇滚', this.generateList(4), '超过76%人播放'),
-      new TriItemData('3333 | 4444', $r('app.media.brand'), '指弹', this.generateList(4), ''),
-    ];
-    let thirdGridData4: TriItemData[] = [
-      new TriItemData('4444 | 1111', $r('app.media.top'), '民谣', this.generateList(4), '最近常听'),
-      new TriItemData('4444 | 2222 ', $r('app.media.new'), '催眠神曲', this.generateList(4), '超过76%人播放'),
-      new TriItemData('4444 | 3333', $r('app.media.brand'), 'ACG', this.generateList(4), '最最最最最最'),
-    ];
+    let items = this.generateTriItems(12);
+    let thirdGridData1: TriItemData[] = items.slice(0, 3);
+    let thirdGridData2: TriItemData[] = items.slice(3, 6);
+    let thirdGridData3: TriItemData[] = items.slice(6, 9);
+    let thirdGridData4: TriItemData[] = items.slice(9, 12);
     thirdGridDatas.push(thirdGridData1);
     thirdGridDatas.push(thirdGridData2);
     thirdGridDatas.push(thirdGridData3);
@@ -300,33 +334,7 @@ export class MainViewModel {
    * @return {Array<PageResource>} secondGridData.
    */
   getPodCastGridData(): Array<MidItemData> {
-    let aGridData: MidItemData[] = [
-      new MidItemData('民谣 | 简单的喜欢最长远', $r('app.media.top'), '1024万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '最近常听'),
-      new MidItemData('挪威天才 AW Faded！ 神曲完美了上亿人的愿望', $r('app.media.new'), '24万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('节奏控系列【抖腿-ing】', $r('app.media.brand'), '47万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('下班回家时超适合放松的歌单', $r('app.media.found'), '475万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万'),
-      new MidItemData('节奏控系列【抖腿-ing】11', $r('app.media.brand'), '47万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('下班回家时超适合放松的歌单11', $r('app.media.found'), '475万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '收藏过万')
-    ];
-    return aGridData;
+    return this.getSecondGridData().slice(0,6);
   }
 
   getRadio1Data(): Array<RadioItemData> {
@@ -572,33 +580,7 @@ export class MainViewModel {
   }
 
   getMinePodCastGridData(): Array<MidItemData> {
-    let aGridData: MidItemData[] = [
-      new MidItemData('西海之声 Radio SayHi！', $r('app.media.top'), '1024万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('蕊希电台', $r('app.media.new'), '24万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('十大童年经典中文儿歌', $r('app.media.brand'), '47万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('广播剧《我就是想贿赂你》', $r('app.media.found'), '475万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('倾城天下|热播影视剧原著', $r('app.media.brand'), '47万',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], ''),
-      new MidItemData('一首歌一个故事', $r('app.media.found'), '1亿',
-        [new AudioItem('小船摇', $r('app.media.top'), '雷丘Racheal', 61),
-          new AudioItem('先走的人', $r('app.media.brand'), '胡海泉', 123),
-          new AudioItem('星光与潮汐', $r('app.media.found'), '张德彝陵', 312)], '')
-    ];
-    return aGridData;
+    return this.getSecondGridData().slice(0,6);
   }
 
   getSettingListData1(): Array<SettingItemData> {

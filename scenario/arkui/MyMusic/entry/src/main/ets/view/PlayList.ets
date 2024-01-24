@@ -20,6 +20,7 @@ import emitter from '@ohos.events.emitter';
 import ListHistoryItem from './ListHistoryItem';
 import ListHistoryItemData from '../viewmodel/ListHistoryItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
+
 /**
  * Setting tab content
  */
@@ -161,6 +162,7 @@ export default struct PlayList {
             }
             .scrollable(ScrollDirection.Horizontal)
             .scrollBar(BarState.Off)
+
             Row() {
               Text('全部歌曲' + this.playingList.length + '首')
                 .fontSize('16fp')
@@ -197,7 +199,10 @@ export default struct PlayList {
               }
             }
             .width('100%')
-          }.height('100%')
+            .margin({bottom:'20%'})
+          }
+          .height('100%')
+          .justifyContent(FlexAlign.Start)
         }
         .tabBar(this.TabBuilder('历史播放', 0,
           $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
@@ -253,7 +258,10 @@ export default struct PlayList {
               }
             }
             .width('100%')
-          }.height('100%')
+            .margin({bottom:'10%'})
+          }
+          .height('100%')
+          .justifyContent(FlexAlign.Start)
         }
         .tabBar(this.TabBuilder('当前播放', 1,
           $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
