@@ -2,7 +2,7 @@
 
 ### 介绍
 
-mix-case属于ts-swift workload用例的一部分,实现如下了TS和Swift用例
+将业界JetStream2中收集的典型用例用ts和swift重写，用arkts编译器编译后执行，纵向对比编译器优化前后的测试数据，横向对比swift的测试数据。
 ```
 .
 ├── out                                 // 结果输出目录
