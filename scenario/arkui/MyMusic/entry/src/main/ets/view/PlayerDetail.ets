@@ -18,6 +18,7 @@ import PlayerManager from '../manager/PlayerManager';
 import emitter from '@ohos.events.emitter';
 import mainViewModel from '../viewmodel/MainViewModel';
 import Logger from '../common/utils/Logger';
+import LrcLine from '../viewmodel/LrcLine';
 
 /**
  * Setting tab content
@@ -35,9 +36,12 @@ export default struct PlayerDetail {
   @State state: number = 0; // 播放状态
   @State rotateAngle: number = 0;
   @State subCurrentIndex: number = 0;
+  @State lrcIndex: number = 0
+  @State lrc: LrcLine[]= [];
   @State contentSwitch: boolean = true;
   @Link isShowPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
+  private scroller: Scroller = new Scroller()
   private tabsController: TabsController = new TabsController();
   private innerEvent: emitter.InnerEvent = {
     eventId: 1,
@@ -74,12 +78,19 @@ export default struct PlayerDetail {
         Logger.info(this.tag, 'state:' + eventData.data.state);
         Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
         this.currentTime = eventData.data.currentTime;
+        let newLrcIndex = Math.floor(this.currentTime * this.lrc.length / this.durationTime);
+        if (newLrcIndex !== this.lrcIndex){
+          this.lrcIndex = newLrcIndex;
+          this.scroller.scrollToIndex(this.lrcIndex-5, true)
+        }
         if (this.state !== 1 && eventData.data.state === 1) {
           this.playingTitle = this.playerManager.getItem().title;
           this.durationTime = this.playerManager.getItem().time;
           this.playingArtist = this.playerManager.getItem().artist;
           this.playingImg = this.playerManager.getItem().img;
           this.listTitle = this.playerManager.getListTitle();
+          this.lrc = mainViewModel.getLrc(this.playingTitle);
+          this.scroller.scrollToIndex(0, true)
           if (this.rotateAngle === 0) {
             this.rotateAngle = 360;
           }
@@ -209,9 +220,24 @@ export default struct PlayerDetail {
             }) {
               TabContent() {
                 Column() {
-                  Scroll() {
-                    Column({ space: CommonConstants.COMMON_SPACE }) {
-                    }
+                  List({ space: 10, scroller: this.scroller }) {
+                    ForEach(this.lrc, (item: LrcLine, index: number) => {
+                      ListItem() {
+                        if (index === this.lrcIndex) {
+                          Text(item.title)
+                            .width('100%')
+                            .textAlign(TextAlign.Center)
+                            .fontSize('24fp')
+                            .fontColor(Color.Black)
+                        } else {
+                          Text(item.title)
+                            .width('100%')
+                            .textAlign(TextAlign.Center)
+                            .fontSize('18fp')
+                            .fontColor(Color.Gray)
+                        }
+                      }
+                    })
                   }
                   .width('100%')
                 }.height('100%')
