@@ -30,6 +30,7 @@ export default class AudioItem {
    */
   time: number;
   artist: string;
+  id: string = '000000000000'
   isPlaying: boolean = false;
   isVip?:boolean = false;
 

@@ -9,7 +9,3 @@
 /.clang-format
 /.clang-tidy
 **/.test
-/package-lock.json
-**/.preview
-**/package-lock.json
-**/oh_modules
