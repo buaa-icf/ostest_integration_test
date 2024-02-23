@@ -5,9 +5,9 @@
         "name": "default",
         "material": {
           "certpath": "C:\\Users\\Administrator\\.ohos\\config\\openharmony\\auto_ohos_default_MyMusic_com.example.mymusic.cer",
-          "storePassword": "0000001B4B39AE3D0CFF6D7F0A103CF9885C322435F8AD51A8491DFE088F04CF0C27881BEC80E99EDF22B5",
+          "storePassword": "0000001BF9000CCC9BDE010EC66578D2569CCBAF4A177BF136705E4FDAC5D35ADC05344C902B8FD355929F",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B915F67F54064D9ED06E52DA07815674A0949508E1633659C8A8204813DFABB0F8E761BAEDFB3A1",
+          "keyPassword": "0000001B9BBD920E49F936FEE2D21B4EF8B6763A20CF36773576A49C8B1CB8FC54D36F16F778BD08314DEA",
           "profile": "C:\\Users\\Administrator\\.ohos\\config\\openharmony\\auto_ohos_default_MyMusic_com.example.mymusic.p7b",
           "signAlg": "SHA256withECDSA",
           "storeFile": "C:\\Users\\Administrator\\.ohos\\config\\openharmony\\auto_ohos_default_MyMusic_com.example.mymusic.p12"
@@ -19,12 +19,13 @@
         "name": "default",
         "signingConfig": "default",
         "compileSdkVersion": 10,
-        "compatibleSdkVersion": 10
+        "compatibleSdkVersion": 10,
+        "runtimeOS": "OpenHarmony",
       }
     ],
     "buildModeSet": [
       {
-        "name": "debug"
+        "name": "debug",
       },
       {
         "name": "release"
