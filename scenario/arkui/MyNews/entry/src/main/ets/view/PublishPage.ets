@@ -90,6 +90,11 @@ struct PublishPage {
       this.currentIndex = itemIndex
     })
   }
+
+  pageTransition() {
+    PageTransitionEnter({ type: RouteType.None, duration: 200 }).slide(SlideEffect.Bottom)
+    PageTransitionExit({ type: RouteType.None, duration: 200 }).slide(SlideEffect.Bottom)
+  }
 }
 
 

@@ -17,23 +17,25 @@
 import router from '@ohos.router';
 import { FollowingTabContent } from './HomePageFollowingTab';
 import { RecommendationTabContent } from './HomePageRecommendationTab';
+import { trendingSearchList } from '../../mock/SearchContent'
 
 
 /**
- * All the items in the tab bar.
- * 所有选项卡内容。
+ * 上部选项卡内容
  */
 const tabItemList: string[] = [
   '关注',
   '推荐',
+  '直播',
   '热榜',
   '发现',
+  '本地', // TODO: 通过位置获取
   '视频',
+  '畅听',
   '图片',
   '娱乐',
-  '畅听',
   '科技',
-  '懂车',
+  '懂车帝',
   '财经',
   '军事',
   '体育'
@@ -41,8 +43,7 @@ const tabItemList: string[] = [
 
 
 /**
- * Content in the `HomePage`.
- * `首页` 整个页面的内容。
+ * `首页` 页面内容
  */
 @Component
 export struct HomePage {
@@ -50,11 +51,11 @@ export struct HomePage {
 
   build() {
     Column() {
-      /* Search box + publish button. */
+      /* 顶栏：搜索框+按钮 */
       TopBar()
 
       /* Scrollable tabs + filter button */
-      TabSelector({ currentIndex: this.currentTabIndex })
+      TabSelector({ curIdx: this.currentTabIndex })
       Divider().color($r('app.color.light_border'))
 
       /* Provide different content according to the tab index. */
@@ -81,39 +82,75 @@ export struct HomePage {
 
 
 /**
- * Top bar in the `HomePage`, with a search box and a publish button.
- * `首页` 中的顶栏，包含一个搜索框和一个发布按钮。
+ * 顶栏（搜索框+按钮）
  */
 @Component
 struct TopBar {
-  build() {
-    Row({ space: 12 }) {
-      /* Search box */
-      Search()
-        .width(0)
-        .height('100%')
-        .margin(0)
-        .flexGrow(1)
-        .borderRadius(22)
-        .backgroundColor($r('app.color.primary_fg'))
+  @State handleLeftBtnClk: boolean = false
+  @State curSearchTermIdx: number = 0
 
-      /* Publish button */
-      Column() {
-        Image($r("app.media.ic_public_add_norm_filled"))
-          .size({ width: 28, height: 28 })
-          .fillColor($r("app.color.primary_fg"))
-        Text('发布').fontSize(12).fontColor($r("app.color.primary_fg"))
+  build() {
+    Row({ space: 8 }) {
+      /* 左侧按钮 */
+      Stack() {
+        Image($r('app.media.ic_public_appstore_filled'))
+          .padding(5)
+          .size({ width: 34, height: 34 })
+          .fillColor($r('app.color.primary'))
+          .backgroundColor($r('app.color.primary_fg'))
+          .borderRadius(17)
+        Text('阅读赚金币')
+          .padding({ left: 2, right: 2, top: 1, bottom: 1 })
+          .fontSize(7)
+          .fontColor($r('app.color.light_fg'))
+          .backgroundColor('#ffcc00')
+          .borderRadius(5)
       }
       .height('100%')
+      .align(Alignment.Bottom)
+      .onClick(() => {
+        // TODO: 按钮点击事件处理
+        this.handleLeftBtnClk = !this.handleLeftBtnClk
+      })
+      .bindPopup(this.handleLeftBtnClk, {
+        message: 'TODO: 按钮点击事件处理',
+      })
+
+      /* 搜索框 */
+      Row() {
+        Image($r('app.media.ic_public_input_search'))
+          .margin({ left: 10 })
+          .size({ width: 16, height: 16 })
+          .fillColor($r('app.color.light_fg_shallow'))
+        Text()
+      }
+      .width(0)
+      .height('100%')
+      .flexGrow(1)
+      .borderRadius(22)
+      .backgroundColor($r('app.color.primary_fg'))
+      .onClick(() => {
+        // 将搜索页压入页面栈
+        router.pushUrl({ url: 'view/SearchPage' })
+      })
+
+      /* 右侧发布按钮 */
+      Column() {
+        Image($r("app.media.ic_public_add_norm_filled"))
+          .size({ width: 20, height: 20 })
+          .fillColor($r("app.color.primary_fg"))
+        Text('发布').fontSize(9).fontColor($r("app.color.primary_fg"))
+      }
+      .height('90%')
       .justifyContent(FlexAlign.SpaceBetween)
       .onClick(() => {
-        /* Push the `PublishPage` into the page stack. */
+        // 将发布页压入页面栈
         router.pushUrl({ url: 'view/PublishPage' })
       })
     }
     .width('100%')
-    .height(84)
-    .padding({ top: 33, bottom: 6, left: 17, right: 17 })
+    .height(60)
+    .padding({ top: 18, bottom: 6, left: 17, right: 17 })
     .alignItems(VerticalAlign.Bottom)
     .justifyContent(FlexAlign.SpaceBetween)
     .backgroundColor($r("app.color.primary"))
@@ -122,12 +159,11 @@ struct TopBar {
 
 
 /**
- * Tab selector in `HomePage`, for switching between tabs.
- * `首页` 中的选项卡栏，用于切换当前 tab 内容。
+ * 选项卡栏，用于切换当前 tab 内容
  */
 @Component
 struct TabSelector {
-  @Link currentIndex: number
+  @Link curIdx: number
   private scroller: Scroller = new Scroller()
 
   build() {
@@ -136,18 +172,18 @@ struct TabSelector {
         Scroll(this.scroller) {
           /* Scrollable tab selector. */
           Row() {
-            ForEach(tabItemList, (item: string, itemIndex: number) => {
+            ForEach(tabItemList, (item: string, itemIdx: number) => {
               Column({ space: 6 }) {
                 Text(item)
                   .fontSize(19)
-                  .fontWeight(this.currentIndex === itemIndex ? FontWeight.Bold : FontWeight.Normal)
-                  .fontColor(this.currentIndex === itemIndex ? $r('app.color.primary') : $r('app.color.light_fg'))
+                  .fontWeight(this.curIdx === itemIdx ? FontWeight.Bold : FontWeight.Normal)
+                  .fontColor(this.curIdx === itemIdx ? $r('app.color.primary') : $r('app.color.light_fg'))
 
                 /* The line under the selected tab. */
                 Line()
                   .startPoint([0, 0])
                   .endPoint([20, 0])
-                  .stroke(this.currentIndex === itemIndex ? $r('app.color.primary') : Color.Transparent)
+                  .stroke(this.curIdx === itemIdx ? $r('app.color.primary') : Color.Transparent)
                   .strokeLineCap(LineCapStyle.Round)
                   .strokeWidth(3)
               }
@@ -156,7 +192,7 @@ struct TabSelector {
               .padding({ bottom: 1 })
               .justifyContent(FlexAlign.End)
               .onClick(() => {
-                this.currentIndex = itemIndex
+                this.curIdx = itemIdx
               })
             })
           }
