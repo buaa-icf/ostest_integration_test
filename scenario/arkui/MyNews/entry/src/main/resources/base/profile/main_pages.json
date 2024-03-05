@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/Index",
-    "view/PublishPage"
+    "view/PublishPage",
+    "view/SearchPage"
   ]
 }

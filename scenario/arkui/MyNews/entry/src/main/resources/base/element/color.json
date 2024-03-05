@@ -9,6 +9,10 @@
       "value": "#F54340"
     },
     {
+      "name": "primary_shallow",
+      "value": "#F6D6D8"
+    },
+    {
       "name": "primary_fg",
       "value": "#FFFFFF"
     },
