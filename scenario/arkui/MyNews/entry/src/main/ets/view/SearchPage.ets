@@ -15,6 +15,8 @@
 
 
 import router from '@ohos.router';
+import { HotBoardClass, HotBoardItem } from '../viewmodel/HotBoard';
+import { HotBoardItemList } from '../../mock/HotBoardData';
 
 
 /**
@@ -33,33 +35,35 @@ const tabItemList: string[] = [
 @Entry
 @Component
 export struct SearchPage {
+  @State isPrivacyModeOn: boolean = false
+  private scroller: Scroller = new Scroller()
+
   build() {
     Column() {
-      Column() {
+      Column({ space: 12 }) {
         /* 顶栏：搜索框+按钮 */
         TopBar()
+        /* 顶栏下方的推荐词条 */
+        Recommendation()
+        Divider().strokeWidth(1).color($r('app.color.light_border'))
 
-        /* 搜索榜、搜索历史等 */
-        HistoryAndTrending() // TODO: 拆分
+        if (this.isPrivacyModeOn) {
+          /* 无痕模式提示信息 */
+          PrivacyModeHint().padding({ top: 12, bottom: 12 })
+          Divider().strokeWidth(1).color($r('app.color.light_border'))
+          /* 热榜 */
+          HotBoard()
+        }
+        else {
+          /* 搜索榜、搜索历史等 */
+          HistoryAndTrending()
+        }
       }
       .width('100%')
       .padding({ left: 14, right: 14 })
 
-      Column() {
-        Divider().strokeWidth(1)
-        Row() {
-          Text('无痕搜索模式').fontSize(12)
-          // FIXME: 切换按钮的阴影范围超出边框
-          Toggle({ type: ToggleType.Switch, isOn: false })
-            .selectedColor($r('app.color.primary'))
-        }
-        .width('100%')
-        .height('100%')
-        .justifyContent(FlexAlign.SpaceBetween)
-        .padding({ left: 14, right: 14 })
-      }
-      .width('100%')
-      .height(40)
+      /* 无痕搜索模式开关栏 */
+      PrivacyModeToggleBar({ isPrivacyModeOn: this.isPrivacyModeOn })
     }
     .width('100%')
     .height('100%')
@@ -79,20 +83,23 @@ export struct SearchPage {
 @Component
 struct TopBar {
   build() {
-    Row({ space: 10 }) {
+    Row({ space: 4 }) {
       Image($r('app.media.ic_public_cancel'))
         .size({ width: 20, height: 20 })
         .fillColor($r('app.color.light_fg'))
         .onClick(() => {
           router.back()
         })
+
       Search({ placeholder: '示例热搜词条' })
         .width(0)
         .height('100%')
         .flexGrow(1)
         .borderRadius(22)
         .backgroundColor($r('app.color.index_tab_bg'))
+
       Text('搜索')
+        .margin({ left: 10 })
         .fontSize(14)
         .fontColor($r('app.color.primary'))
         .onClick(() => {
@@ -100,8 +107,103 @@ struct TopBar {
         })
     }
     .width('100%')
-    .height(72)
-    .padding({ top: 18, bottom: 18 })
+    .height(60)
+    .padding({ top: 18, bottom: 10 })
+  }
+}
+
+
+/**
+ * 顶栏下方的推荐词条
+ */
+@Component
+struct Recommendation {
+  build() {
+    // TODO: 改为从列表中随机读取
+    Row() {
+      Text('示例热搜词条1，示例热搜词条1')
+        .width('45%')
+        .fontSize(14)
+        .textOverflow({ overflow: TextOverflow.Ellipsis })
+        .maxLines(1)
+      Divider()
+        .width('10%')
+        .height(14)
+        .vertical(true)
+        .color($r('app.color.light_border'))
+        .strokeWidth(1)
+      Text('示例热搜词条2')
+        .width('45%')
+        .fontSize(14)
+        .textOverflow({ overflow: TextOverflow.Ellipsis })
+        .maxLines(1)
+    }
+    .width('100%')
+  }
+}
+
+
+/* 无痕模式提示信息 */
+@Component
+struct PrivacyModeHint {
+  build() {
+    Column({ space: 8 }) {
+      Row({ space: 3 }) {
+        Image($r('app.media.ic_gallery_privacy_statement'))
+          .size({ width: 16, height: 16 })
+        Text('你已进入无痕浏览模式')
+          .fontSize(15)
+      }
+      .width('100%')
+      .justifyContent(FlexAlign.Center)
+
+      Text('在无痕模式下，搜索及浏览历史不会被记录，推荐词不涉及信息收集')
+        .width('84%')
+        .textAlign(TextAlign.Center)
+        .fontSize(10)
+        .fontColor($r('app.color.light_fg_shallow'))
+    }
+    .width('100%')
+  }
+}
+
+
+/* 热榜 */
+@Component
+struct HotBoard {
+  hotBoard: HotBoardClass = new HotBoardClass(HotBoardItemList)
+
+  build() {
+    Column({ space: 18 }) {
+      /* 标题 */
+      Row() {
+        Text('头条热榜')
+          .fontSize(14)
+          .fontWeight(FontWeight.Medium)
+        Image($r('app.media.ic_controlcenter_eyeconfort_filled'))
+          .size({ width: 14, height: 14 })
+          .fillColor($r('app.color.light_fg_shallow'))
+          .onClick(() => {
+            // TODO: 点击隐藏该列表
+          })
+      }
+      .width('100%')
+      .justifyContent(FlexAlign.SpaceBetween)
+
+      /* 内容 */
+      ForEach(this.hotBoard.sortItemList(), (item: HotBoardItem, index: number) => {
+        Row() {
+          Text(String(index + 1))
+            .width(20)
+            .fontSize(14)
+            .fontColor(index < 3 ? $r('app.color.primary') : $r('app.color.light_fg_shallow'))
+          Text(item.title)
+            .fontSize(14)
+        }
+        .width('100%')
+      })
+    }
+    .width('100%')
   }
 }
 
@@ -115,29 +217,6 @@ struct HistoryAndTrending {
 
   build() {
     Column({ space: 12 }) {
-      /* 热搜（仅展示两条） */
-      // TODO: 改为从列表中随机读取
-      Row() {
-        Text('示例热搜词条1，示例热搜词条1')
-          .width('45%')
-          .fontSize(14)
-          .textOverflow({ overflow: TextOverflow.Ellipsis })
-          .maxLines(1)
-        Divider()
-          .width('10%')
-          .height(14)
-          .vertical(true)
-          .strokeWidth(1)
-        Text('示例热搜词条2')
-          .width('45%')
-          .fontSize(14)
-          .textOverflow({ overflow: TextOverflow.Ellipsis })
-          .maxLines(1)
-      }
-      .width('100%')
-
-      Divider()
-
       /* 搜索历史 */
       Row() {
         Text('搜索历史')
@@ -163,6 +242,7 @@ struct HistoryAndTrending {
           .width('10%')
           .height(14)
           .vertical(true)
+          .color($r('app.color.light_border'))
           .strokeWidth(1)
         Text('示例搜索历史2，示例搜索历史2')
           .width('45%')
@@ -182,11 +262,12 @@ struct HistoryAndTrending {
           .width('10%')
           .height(14)
           .vertical(true)
+          .color($r('app.color.light_border'))
           .strokeWidth(1)
       }
       .width('100%')
 
-      Divider()
+      Divider().strokeWidth(1).color($r('app.color.light_border'))
 
       /* 其他 */
       Row() {
@@ -239,6 +320,7 @@ struct HistoryAndTrending {
           .width('10%')
           .height(14)
           .vertical(true)
+          .color($r('app.color.light_border'))
           .strokeWidth(1)
         Text('示例词条2，示例词条2，示例词条2')
           .width('45%')
@@ -258,6 +340,7 @@ struct HistoryAndTrending {
           .width('10%')
           .height(14)
           .vertical(true)
+          .color($r('app.color.light_border'))
           .strokeWidth(1)
         Text('示例词条4')
           .width('45%')
@@ -278,6 +361,7 @@ struct HistoryAndTrending {
           .width('10%')
           .height(14)
           .vertical(true)
+          .color($r('app.color.light_border'))
           .strokeWidth(1)
         Text('示例词条6，示例词条6，示例词条6')
           .width('45%')
@@ -287,5 +371,32 @@ struct HistoryAndTrending {
       }
       .width('100%')
     }
+  }
+}
+
+
+/**
+ * 无痕搜索模式开关栏
+ */
+@Component
+struct PrivacyModeToggleBar {
+  @Link isPrivacyModeOn: boolean
+
+  build() {
+    Column() {
+      Divider().strokeWidth(1).color($r('app.color.light_border'))
+      Row() {
+        Text('无痕搜索模式').fontSize(12)
+        // FIXME: 切换按钮的阴影范围超出边框
+        Toggle({ type: ToggleType.Switch, isOn: $$this.isPrivacyModeOn })
+          .selectedColor($r('app.color.primary'))
+      }
+      .width('100%')
+      .height('100%')
+      .justifyContent(FlexAlign.SpaceBetween)
+      .padding({ left: 14, right: 14 })
+    }
+    .width('100%')
+    .height(40)
   }
 }
