@@ -20,8 +20,7 @@ import { RecommendedArticle, RecommendedArticleOverview } from '../viewmodel/Rec
 import { RecommendedVideo, RecommendedVideoOverview } from '../viewmodel/RecommendedVideo'
 
 /**
- * Content in `HomePage - RecommendationTab`.
- * `首页-推荐` 中的所有内容。
+ * `首页-推荐` 页面内容
  */
 @Component
 export struct RecommendationTabContent {
@@ -73,34 +72,33 @@ export struct RecommendationTabContent {
 
 
 /**
- * Article overview in `HomePage - RecommendationTab`.
- * `首页-推荐` 中的文章概览。
+ * 文章概览（无图、仅标题）
  */
 @Builder
 function ArticleOverview($$: RecommendedArticleOverview) {
   Column() {
-    /* Article title. */
+    /* 文章标题 */
     Text($$.title)
-      .fontSize(18)
+      .fontSize(14)
       .fontColor($r('app.color.light_fg'))
 
     Row({ space: 5 }) {
-      /* Display '置顶' if the article is pinned. */
+      /* 按需显示置顶字样 */
       if ($$.isPinned) {
         Text('置顶')
-          .fontSize(12)
+          .fontSize(10)
           .fontColor($r('app.color.primary'))
       }
 
-      /* Article author. */
+      /* 文章作者 */
       Text($$.author)
-        .fontSize(12)
+        .fontSize(10)
         .fontColor($r('app.color.light_fg_shallow'))
 
-      /* Article comment count. */
+      /* 按需显示文章评论数 */
       if ($$.cmtCnt > 0) {
         Text(`${$$.cmtCnt}评论`)
-          .fontSize(12)
+          .fontSize(10)
           .fontColor($r('app.color.light_fg_shallow'))
       }
     }.width('100%')
@@ -111,36 +109,36 @@ function ArticleOverview($$: RecommendedArticleOverview) {
 
 
 /**
- * Video overview in `HomePage - RecommendationTab`.
- * `首页-推荐` 中的视频概览。
+ * 视频概览（标题+视频封面）
  */
 @Builder
 function VideoOverview($$: RecommendedVideoOverview) {
-
   Column() {
     Column({ space: 5 }) {
-      /* Video title. */
-      Text($$.title).fontSize(18)
+      /* 视频标题 */
+      Text($$.title)
+        .fontSize(14)
+        .fontColor($r('app.color.light_fg'))
 
-      /* Video cover. */
+      /* 视频封面 */
       Stack() {
         Image($$.cover)
           .width('100%')
           .objectFit(ImageFit.Contain)
           .borderRadius(5)
         Image($r("app.media.ic_public_play"))
-          .size({ width: 45, height: 45 })
+          .size({ width: 35, height: 35 })
           .fillColor($r('app.color.primary_fg'))
           .opacity(0.7)
       }.alignContent(Alignment.Center)
 
       Row({ space: 5 }) {
-        /* Video author. */
+        /* 视频作者 */
         Text($$.author)
           .fontSize(12)
           .fontColor($r('app.color.light_fg_shallow'))
 
-        /* Video comment count. */
+        /* 按需显示视频评论 */
         if ($$.cmtCnt > 0) {
           Text(`${$$.cmtCnt}评论`)
             .fontSize(12)

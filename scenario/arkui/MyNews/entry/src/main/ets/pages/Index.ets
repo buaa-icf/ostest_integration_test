@@ -56,6 +56,9 @@ struct Index {
   private tabsController: TabsController = new TabsController()
 
   build() {
+    if(1)
+    SearchPage()
+    else
     Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
       ForEach(bottomNavItemList, (item: IndexBottomNavItem, itemIndex: number) => {
         TabContent() {

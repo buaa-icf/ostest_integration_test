@@ -17,7 +17,6 @@
 import router from '@ohos.router';
 import { FollowingTabContent } from './HomePageFollowingTab';
 import { RecommendationTabContent } from './HomePageRecommendationTab';
-import { trendingSearchList } from '../../mock/SearchContent'
 
 
 /**
@@ -54,19 +53,20 @@ export struct HomePage {
       /* 顶栏：搜索框+按钮 */
       TopBar()
 
-      /* Scrollable tabs + filter button */
+      /* 可左右滑动的选项卡+按钮 */
       TabSelector({ curIdx: this.currentTabIndex })
-      Divider().color($r('app.color.light_border'))
 
-      /* Provide different content according to the tab index. */
+      Divider().strokeWidth(1).color($r('app.color.light_border'))
+
+      /* 下方页面内容 */
       Column() {
-        // TODO: add other tab contents.
         if (this.currentTabIndex === 0) {
-          FollowingTabContent()
+          FollowingTabContent() // 默认显示推荐页
         }
         else if (this.currentTabIndex === 1) {
           RecommendationTabContent()
         }
+        // TODO: 添加其他选项卡对应的页面
         else {
           Text(this.currentTabIndex.toString())
         }
@@ -90,7 +90,7 @@ struct TopBar {
   @State curSearchTermIdx: number = 0
 
   build() {
-    Row({ space: 8 }) {
+    Row({ space: 4 }) {
       /* 左侧按钮 */
       Stack() {
         Image($r('app.media.ic_public_appstore_filled'))
@@ -98,13 +98,13 @@ struct TopBar {
           .size({ width: 34, height: 34 })
           .fillColor($r('app.color.primary'))
           .backgroundColor($r('app.color.primary_fg'))
-          .borderRadius(17)
+          .borderRadius(999)
         Text('阅读赚金币')
           .padding({ left: 2, right: 2, top: 1, bottom: 1 })
           .fontSize(7)
           .fontColor($r('app.color.light_fg'))
           .backgroundColor('#ffcc00')
-          .borderRadius(5)
+          .borderRadius(999)
       }
       .height('100%')
       .align(Alignment.Bottom)
@@ -122,12 +122,12 @@ struct TopBar {
           .margin({ left: 10 })
           .size({ width: 16, height: 16 })
           .fillColor($r('app.color.light_fg_shallow'))
-        Text()
+        Text() // TODO: 添加滚动热搜词条
       }
       .width(0)
       .height('100%')
       .flexGrow(1)
-      .borderRadius(22)
+      .borderRadius(999)
       .backgroundColor($r('app.color.primary_fg'))
       .onClick(() => {
         // 将搜索页压入页面栈
@@ -142,6 +142,7 @@ struct TopBar {
         Text('发布').fontSize(9).fontColor($r("app.color.primary_fg"))
       }
       .height('90%')
+      .margin({ left: 4, right: 4 })
       .justifyContent(FlexAlign.SpaceBetween)
       .onClick(() => {
         // 将发布页压入页面栈
@@ -149,8 +150,8 @@ struct TopBar {
       })
     }
     .width('100%')
-    .height(60)
-    .padding({ top: 18, bottom: 6, left: 17, right: 17 })
+    .height(57)
+    .padding({ top: 18, bottom: 6, left: 10, right: 10 })
     .alignItems(VerticalAlign.Bottom)
     .justifyContent(FlexAlign.SpaceBetween)
     .backgroundColor($r("app.color.primary"))
@@ -170,26 +171,25 @@ struct TabSelector {
     Row() {
       Stack() {
         Scroll(this.scroller) {
-          /* Scrollable tab selector. */
-          Row() {
+          /* 可左右滑动的选项卡栏 */
+          Row({ space: 3 }) {
             ForEach(tabItemList, (item: string, itemIdx: number) => {
-              Column({ space: 6 }) {
+              Column({ space: 4 }) {
                 Text(item)
-                  .fontSize(19)
+                  .fontSize(14)
                   .fontWeight(this.curIdx === itemIdx ? FontWeight.Bold : FontWeight.Normal)
                   .fontColor(this.curIdx === itemIdx ? $r('app.color.primary') : $r('app.color.light_fg'))
 
-                /* The line under the selected tab. */
+                /* 文字下方线条 */
                 Line()
                   .startPoint([0, 0])
-                  .endPoint([20, 0])
+                  .endPoint([16, 0])
                   .stroke(this.curIdx === itemIdx ? $r('app.color.primary') : Color.Transparent)
                   .strokeLineCap(LineCapStyle.Round)
-                  .strokeWidth(3)
+                  .strokeWidth(2)
               }
-              .width(58)
               .height('100%')
-              .padding({ bottom: 1 })
+              .padding({ left: 14, bottom: 1 })
               .justifyContent(FlexAlign.End)
               .onClick(() => {
                 this.curIdx = itemIdx
@@ -200,11 +200,10 @@ struct TabSelector {
         }
         .width('100%')
         .height('100%')
-        .padding(10)
         .scrollable(ScrollDirection.Horizontal)
         .scrollBar(BarState.Off)
 
-        /* Text fade-out effect. */
+        /* 文字的渐隐效果 */
         Row()
           .width(30)
           .height('100%')
@@ -219,10 +218,10 @@ struct TabSelector {
       .alignContent(Alignment.End)
 
 
-      /* Buttons on the right side. */
+      /* 右侧的按钮 */
       Row({ space: 8 }) {
         Image($r("app.media.ic_public_view_list"))
-          .size({ width: 22, height: 22 })
+          .size({ width: 14, height: 14 })
           .fillColor($r('app.color.light_fg'))
 
         Divider()
@@ -232,13 +231,13 @@ struct TabSelector {
           .color($r('app.color.light_border'))
 
         Image($r("app.media.ic_device_earphone"))
-          .size({ width: 22, height: 22 })
+          .size({ width: 14, height: 14 })
           .fillColor($r('app.color.light_fg'))
       }
       .height('100%')
-      .padding({ left: 4, right: 18 })
+      .padding({ left: 4, right: 14 })
     }
     .width('100%')
-    .height(42)
+    .height(30)
   }
 }
