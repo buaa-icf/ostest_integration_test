@@ -60,15 +60,15 @@ export struct HomePage {
 
       /* 下方页面内容 */
       Column() {
-        // TODO: 添加其他选项卡对应的页面
         if (this.currentTabIndex === 0) {
-          FollowingTabContent()
+          FollowingTabContent() // 默认显示推荐页
         }
         else if (this.currentTabIndex === 1) {
           RecommendationTabContent()
         }
+        // TODO: 添加其他选项卡对应的页面
         else {
-          Text(this.currentTabIndex.toString()) // 默认显示推荐页
+          Text(this.currentTabIndex.toString())
         }
       }
       .width('100%')
@@ -98,13 +98,13 @@ struct TopBar {
           .size({ width: 34, height: 34 })
           .fillColor($r('app.color.primary'))
           .backgroundColor($r('app.color.primary_fg'))
-          .borderRadius(17)
+          .borderRadius(999)
         Text('阅读赚金币')
           .padding({ left: 2, right: 2, top: 1, bottom: 1 })
           .fontSize(7)
           .fontColor($r('app.color.light_fg'))
           .backgroundColor('#ffcc00')
-          .borderRadius(5)
+          .borderRadius(999)
       }
       .height('100%')
       .align(Alignment.Bottom)
@@ -127,7 +127,7 @@ struct TopBar {
       .width(0)
       .height('100%')
       .flexGrow(1)
-      .borderRadius(22)
+      .borderRadius(999)
       .backgroundColor($r('app.color.primary_fg'))
       .onClick(() => {
         // 将搜索页压入页面栈

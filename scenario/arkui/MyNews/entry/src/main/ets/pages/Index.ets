@@ -20,7 +20,7 @@ import { ProfilePageBuilder } from '../view/ProfilePage';
 import { TaskPageBuilder } from '../view/TaskPage';
 import { VideoPageBuilder } from '../view/VideoPage';
 import { IndexBottomNavItem } from '../viewmodel/IndexBottomNavItem';
-// import { SearchPage } from '../view/SearchPage'
+import { SearchPage } from '../view/SearchPage'
 
 
 /**
@@ -56,6 +56,9 @@ struct Index {
   private tabsController: TabsController = new TabsController()
 
   build() {
+    if(1)
+    SearchPage()
+    else
     Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
       ForEach(bottomNavItemList, (item: IndexBottomNavItem, itemIndex: number) => {
         TabContent() {

@@ -40,26 +40,66 @@ export struct SearchPage {
 
   build() {
     Column() {
-      Column({ space: 12 }) {
-        /* 顶栏：搜索框+按钮 */
-        TopBar()
-        /* 顶栏下方的推荐词条 */
-        Recommendation()
-        Divider().strokeWidth(1).color($r('app.color.light_border'))
+      /* 顶栏：搜索框+按钮 */
+      TopBar()
 
-        if (this.isPrivacyModeOn) {
-          /* 无痕模式提示信息 */
-          PrivacyModeHint().padding({ top: 12, bottom: 12 })
-          Divider().strokeWidth(1).color($r('app.color.light_border'))
-          /* 热榜 */
-          HotBoard()
+      /* 除顶栏和底部无痕开关栏外，其他组件需添加左右padding */
+      Column() {
+        Scroll() {
+          Column({ space: 14 }) {
+            /* 顶栏下方的推荐词条 */
+            TrendingNews()
+            Divider()
+              .strokeWidth(1)
+              .color($r('app.color.light_border'))
+
+            if (this.isPrivacyModeOn) {
+              /* 无痕模式提示信息 */
+              PrivacyModeHint()
+              Divider()
+                .strokeWidth(1)
+                .color($r('app.color.light_border'))
+              /* 热榜 */
+              HotBoard()
+            }
+            else {
+              /* 搜索历史 */
+              History()
+              Divider()
+                .strokeWidth(1)
+                .color($r('app.color.light_border'))
+              /* 其他推荐内容 */
+              Recommendation()
+            }
+
+            /* 反馈按钮 */
+            Button({ type: ButtonType.Capsule, stateEffect: false }) {
+              Row({ space: 5 }) {
+                Image($r('app.media.ic_public_fail'))
+                  .size({ width: 10, height: 10 })
+                Text('反馈')
+                  .fontSize(10)
+              }
+              .padding({ left: 8, right: 8, top: 4, bottom: 4 })
+            }
+            .margin({ top: 20, bottom: 20 })
+            .backgroundColor(Color.Transparent)
+            .borderWidth(1)
+            .borderColor($r('app.color.light_border'))
+          }
+          .width('100%')
         }
-        else {
-          /* 搜索榜、搜索历史等 */
-          HistoryAndTrending()
-        }
+        .width('100%')
+        .height(0)
+        .flexGrow(1)
+        .padding({ top: 14 })
+        .align(Alignment.Top)
+        .scrollBar(BarState.Off)
+        .edgeEffect(this.isPrivacyModeOn ? EdgeEffect.Spring : EdgeEffect.None)
       }
       .width('100%')
+      .height(0)
+      .flexGrow(1)
       .padding({ left: 14, right: 14 })
 
       /* 无痕搜索模式开关栏 */
@@ -83,21 +123,24 @@ export struct SearchPage {
 @Component
 struct TopBar {
   build() {
-    Row({ space: 4 }) {
-      Image($r('app.media.ic_public_cancel'))
-        .size({ width: 20, height: 20 })
+    Row() {
+      /* 返回按钮 */
+      Image($r('app.media.ic_public_arrow_left'))
+        .size({ width: 30, height: 30 })
         .fillColor($r('app.color.light_fg'))
         .onClick(() => {
           router.back()
         })
-
+      /* 搜索框 */
       Search({ placeholder: '示例热搜词条' })
         .width(0)
         .height('100%')
         .flexGrow(1)
-        .borderRadius(22)
+        .textFont({ size: 13 })
+        .placeholderFont({ size: 13 })
+        .borderRadius(999)
         .backgroundColor($r('app.color.index_tab_bg'))
-
+      /* 搜索按钮 */
       Text('搜索')
         .margin({ left: 10 })
         .fontSize(14)
@@ -108,16 +151,16 @@ struct TopBar {
     }
     .width('100%')
     .height(60)
-    .padding({ top: 18, bottom: 10 })
+    .padding({ left: 6, right: 14, top: 18, bottom: 10 })
   }
 }
 
 
 /**
- * 顶栏下方的推荐词条
+ * 顶栏下方的热搜词条
  */
 @Component
-struct Recommendation {
+struct TrendingNews {
   build() {
     // TODO: 改为从列表中随机读取
     Row() {
@@ -202,22 +245,31 @@ struct HotBoard {
         }
         .width('100%')
       })
+      /* 查看更多按钮 */
+      Row({ space: 2 }) {
+        Text('查看更多')
+          .fontSize(12)
+          .fontWeight(FontWeight.Medium)
+        Image($r('app.media.ic_public_arrow_right_filled'))
+          .size({ width: 12, height: 12 })
+      }
+      .width('100%')
+      .height(38)
+      .justifyContent(FlexAlign.Center)
+      .backgroundColor($r('app.color.light_border'))
+      .borderRadius(5)
     }
     .width('100%')
   }
 }
 
 
-/**
- * 搜索历史、热搜榜等
- */
+/* 搜索历史 */
 @Component
-struct HistoryAndTrending {
-  @State curIdx: number = 0
-
+struct History {
   build() {
     Column({ space: 12 }) {
-      /* 搜索历史 */
+      /* 标题 */
       Row() {
         Text('搜索历史')
           .fontSize(12)
@@ -232,6 +284,7 @@ struct HistoryAndTrending {
       .width('100%')
       .justifyContent(FlexAlign.SpaceBetween)
 
+      /* 内容 */
       Row() {
         Text('示例搜索历史1')
           .width('45%')
@@ -266,10 +319,20 @@ struct HistoryAndTrending {
           .strokeWidth(1)
       }
       .width('100%')
+    }
+    .width('100%')
+  }
+}
 
-      Divider().strokeWidth(1).color($r('app.color.light_border'))
+/**
+ * 其他推荐内容
+ */
+@Component
+struct Recommendation {
+  @State curIdx: number = 0
 
-      /* 其他 */
+  build() {
+    Column({ space: 12 }) {
       Row() {
         Row({ space: 14 }) {
           ForEach(tabItemList, (item: string, itemIdx: number) => {
