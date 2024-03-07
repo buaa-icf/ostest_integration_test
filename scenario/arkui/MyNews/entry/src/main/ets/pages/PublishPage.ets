@@ -17,6 +17,16 @@
 import router from '@ohos.router';
 
 
+/* 定义通用无底色、无按压效果按钮样式 */
+@Extend(Button)
+function commonBtnStyle(handler?: (event: ClickEvent) => void) {
+  .type(ButtonType.Normal)
+  .stateEffect(false)
+  .backgroundColor(Color.Transparent)
+  .onClick(handler)
+}
+
+
 /**
  * All the items in the bottom tab bar.
  * 页面底部所有选项卡。
@@ -58,6 +68,7 @@ struct PublishPage {
         .tabBar(this.TabBuilder(item, itemIndex))
       })
     }
+    .id('publishPage')
     .width('100%')
     .height('100%')
     .barHeight(64)
@@ -104,13 +115,17 @@ struct Article {
     Column() {
       /* Tool bar. */
       Row() {
-        Text('取消')
-          .margin({ left: 20 })
-          .fontSize(18)
-          .fontColor($r('app.color.light_fg'))
-          .onClick(() => {
-            router.back()
-          })
+        Button() {
+          Text('取消')
+            .margin({ left: 20 })
+            .fontSize(18)
+            .fontColor($r('app.color.light_fg'))
+        }
+        .id('publishPageReturnBtn')
+        .commonBtnStyle(() => {
+          router.back()
+        })
+
         Row({ space: 20 }) {
           Text('预览')
             .fontSize(18)

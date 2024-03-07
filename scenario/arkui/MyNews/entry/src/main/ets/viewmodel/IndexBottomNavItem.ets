@@ -15,14 +15,15 @@
 
 
 /**
- * Type definition for the items in the bottom navigation bar.
- * 应用底部导航栏中项的类型定义。
+ * 应用底部导航栏中项的类型定义
  */
 export interface IndexBottomNavItem {
-  /* Text under the icon. */
+  /* 图标下方文字 */
   title: string
-  /* Display outlined icons when not clicked. */
+  /* 未被选中时显示为轮廓型图标 */
   normalIcon: Resource
-  /* Display filled icons after clicked. */
+  /* 被选中时替换为填充型图标 */
   selectedIcon: Resource
+  /* 对应的按钮id（测试用例中使用） */
+  btnId: string
 }

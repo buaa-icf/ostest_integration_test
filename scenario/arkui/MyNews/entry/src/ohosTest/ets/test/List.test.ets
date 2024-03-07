@@ -1,3 +1,4 @@
+import HomePageTest from './HomePage.test'
 /*
  * Copyright (c) 2023 Southeast University.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,8 +15,10 @@
  */
 
 
-import abilityTest from './Ability.test';
+import indexTest from './Index.test'
+
 
 export default function testsuite() {
-  abilityTest();
+  indexTest()
+  HomePageTest()
 }

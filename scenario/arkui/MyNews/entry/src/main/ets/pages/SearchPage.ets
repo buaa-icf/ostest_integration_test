@@ -19,6 +19,16 @@ import { HotBoardClass, HotBoardItem } from '../viewmodel/HotBoard';
 import { HotBoardItemList } from '../../mock/HotBoardData';
 
 
+/* 定义通用无底色、无按压效果按钮样式 */
+@Extend(Button)
+function commonBtnStyle(handler?: (event: ClickEvent) => void) {
+  .type(ButtonType.Normal)
+  .stateEffect(false)
+  .backgroundColor(Color.Transparent)
+  .onClick(handler)
+}
+
+
 /**
  * 中部选项卡内容
  */
@@ -29,6 +39,7 @@ const tabItemList: string[] = [
   '品牌榜'
 ]
 
+
 /**
  * `搜索` 页面内容。
  */
@@ -36,7 +47,6 @@ const tabItemList: string[] = [
 @Component
 export struct SearchPage {
   @State isPrivacyModeOn: boolean = false
-  private scroller: Scroller = new Scroller()
 
   build() {
     Column() {
@@ -105,6 +115,7 @@ export struct SearchPage {
       /* 无痕搜索模式开关栏 */
       PrivacyModeToggleBar({ isPrivacyModeOn: this.isPrivacyModeOn })
     }
+    .id('searchPage')
     .width('100%')
     .height('100%')
     .justifyContent(FlexAlign.SpaceBetween)
@@ -125,12 +136,16 @@ struct TopBar {
   build() {
     Row() {
       /* 返回按钮 */
-      Image($r('app.media.ic_public_arrow_left'))
-        .size({ width: 30, height: 30 })
-        .fillColor($r('app.color.light_fg'))
-        .onClick(() => {
-          router.back()
-        })
+      Button() {
+        Image($r('app.media.ic_public_arrow_left'))
+          .size({ width: 30, height: 30 })
+          .fillColor($r('app.color.light_fg'))
+      }
+      .id('searchPageReturnBtn')
+      .commonBtnStyle(() => {
+        router.back()
+      })
+
       /* 搜索框 */
       Search({ placeholder: '示例热搜词条' })
         .width(0)
@@ -140,14 +155,18 @@ struct TopBar {
         .placeholderFont({ size: 13 })
         .borderRadius(999)
         .backgroundColor($r('app.color.index_tab_bg'))
+
       /* 搜索按钮 */
-      Text('搜索')
-        .margin({ left: 10 })
-        .fontSize(14)
-        .fontColor($r('app.color.primary'))
-        .onClick(() => {
-          // TODO: 用户输入内容->搜索该内容 or 无输入->搜索当前词条
-        })
+      Button() {
+        Text('搜索')
+          .margin({ left: 10 })
+          .fontSize(14)
+          .fontColor($r('app.color.primary'))
+      }
+      .id('searchPageSearchBtn')
+      .commonBtnStyle(() => {
+        // TODO: 用户输入内容->搜索该内容 or 无输入->搜索当前词条
+      })
     }
     .width('100%')
     .height(60)

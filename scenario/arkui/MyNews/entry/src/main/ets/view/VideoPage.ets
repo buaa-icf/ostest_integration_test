@@ -20,4 +20,5 @@ export function VideoPageBuilder() {
   Column() {
     Text('视频页面内容')
   }
+  .id('videoPage')
 }

@@ -20,4 +20,5 @@ export function MallPageBuilder() {
   Column() {
     Text('商城页面内容')
   }
+  .id('mallPage')
 }
