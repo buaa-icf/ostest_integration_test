@@ -51,12 +51,14 @@ const bottomNavItemList: IndexBottomNavItem[] = [{
   title: '任务',
   normalIcon: $r('app.media.ic_public_calendar'),
   selectedIcon: $r('app.media.ic_public_calendar_filled'),
-  btnId: 'indexTaskPageBtn'
+  btnId: 'indexTaskPageBtn',
+  label: '开宝箱'
 }, {
   title: '商城',
   normalIcon: $r('app.media.ic_public_appstore'),
   selectedIcon: $r('app.media.ic_public_appstore_filled'),
-  btnId: 'indexMallPageBtn'
+  btnId: 'indexMallPageBtn',
+  label: ''
 }, {
   title: '个人',
   normalIcon: $r('app.media.ic_public_contacts'),
@@ -103,7 +105,7 @@ struct Index {
         .width('100%')
         .height('100%')
         .align(Alignment.Top)
-        .tabBar(this.TabBuilder(item.title, itemIndex, item.normalIcon, item.selectedIcon, item.btnId))
+        .tabBar(this.TabBuilder(item.title, itemIndex, item.normalIcon, item.selectedIcon, item.btnId, item.label))
       })
     }
     .width('100%')
@@ -118,20 +120,32 @@ struct Index {
    * 底部导航栏中自定义按钮样式（图标+文字）
    */
   @Builder
-  TabBuilder(title: string, targetIndex: number, normalIcon: Resource, selectedIcon: Resource, btnId: string) {
+  TabBuilder(title: string, targetIndex: number, normalIcon: Resource, selectedIcon: Resource, btnId: string, label: string) {
     Button() {
-      Column() {
-        // 当被选中时变色，图标变为填充型
-        Image(this.curNavIdx === targetIndex ? selectedIcon : normalIcon)
-          .size({ width: 20, height: 20 })
-          .fillColor(this.curNavIdx === targetIndex ? $r('app.color.primary') : $r('app.color.light_fg'))
-        Text(title)
-          .fontSize(8)
-          .fontColor(this.curNavIdx === targetIndex ? $r('app.color.primary') : $r('app.color.light_fg'))
+      Stack({alignContent: Alignment.TopEnd}) {
+        Column() {
+          // 当被选中时变色，图标变为填充型
+          Image(this.curNavIdx === targetIndex ? selectedIcon : normalIcon)
+            .size({ width: 20, height: 20 })
+            .fillColor(this.curNavIdx === targetIndex ? $r('app.color.primary') : $r('app.color.light_fg'))
+          Text(title)
+            .fontSize(8)
+            .fontColor(this.curNavIdx === targetIndex ? $r('app.color.primary') : $r('app.color.light_fg'))
+        }
+        .width('100%')
+        .height('100%')
+        .justifyContent(FlexAlign.Center)
+        if(label) {
+          Text(label)
+            .borderRadius(999)
+            .backgroundColor('red')
+            .fontColor('white')
+            .fontSize(8)
+            .padding(2)
+            .margin({top: 2})
+        }
+
       }
-      .width('100%')
-      .height('100%')
-      .justifyContent(FlexAlign.Center)
     }
     .id(btnId)
     .commonBtnStyle(() => {

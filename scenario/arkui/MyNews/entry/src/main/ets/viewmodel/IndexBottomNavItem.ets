@@ -25,5 +25,7 @@ export interface IndexBottomNavItem {
   /* 被选中时替换为填充型图标 */
   selectedIcon: Resource
   /* 对应的按钮id（测试用例中使用） */
-  btnId: string
+  btnId: string,
+  /* 右上角标签 */
+  label?: string
 }
