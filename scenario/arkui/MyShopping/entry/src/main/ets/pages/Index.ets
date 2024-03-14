@@ -15,43 +15,40 @@
 
 import { Home } from './components/myapp/Home';
 import matrix4 from '@ohos.matrix4'
+
 @Entry
 @Component
 struct Index {
   @State tabsIndex: number = 0
+  private homeTab: Array<Array<Resource>> = [
+    [$r('app.media.ic_tabbar_home'), $r('app.media.ic_tabbar_home'), $r('app.string.tabbar_home')],
+    [$r('app.media.ic_web'), $r('app.media.ic_web'), $r('app.string.tabbar_guang')],
+    [$r('app.media.ic_select_component'), $r('app.media.ic_select_component'), $r('app.string.tabbar_new')],
+    [$r('app.media.ic_select_universal'), $r('app.media.ic_select_universal'), $r('app.string.tabbar_cart')],
+    [$r('app.media.ic_user'), $r('app.media.ic_user'), $r('app.string.tabbar_mine')]
+  ]
 
   build() {
-    Tabs({ barPosition: BarPosition.End }) {
-      TabContent() {
-        Home({ title: $r('app.string.tabbar_home') })
-      }.tabBar(this.TabBarBuilder(0, $r('app.media.ic_tabbar_home'), $r('app.media.ic_tabbar_home'), $r('app.string.tabbar_home')))
-
-      TabContent() {
-        Home({ title: $r('app.string.tabbar_home') })
-      }.tabBar(this.TabBarBuilder(1, $r('app.media.ic_web'), $r('app.media.ic_web'), $r('app.string.tabbar_guang')))
-
-      TabContent() {
-        Home({ title: $r('app.string.tabbar_home') })
-      }.tabBar(this.TabBarBuilder(2, $r('app.media.ic_select_component'), $r('app.media.ic_select_component'), $r('app.string.tabbar_new')))
-
-      TabContent() {
-        Home({ title: $r('app.string.tabbar_home') })
-      }.tabBar(this.TabBarBuilder(3, $r('app.media.ic_select_universal'), $r('app.media.ic_select_universal'), $r('app.string.tabbar_cart')))
-
-      TabContent() {
-        Home({ title: $r('app.string.tabbar_home') })
-      }.tabBar(this.TabBarBuilder(4, $r('app.media.ic_user'), $r('app.media.ic_user'), $r('app.string.tabbar_mine')))
+    Column() {
+      Tabs({ barPosition: BarPosition.End }) {
+        ForEach(this.homeTab, (item: Array<Resource>, index: number) => {
+          TabContent() {
+            Home({ title: $r('app.string.tabbar_home') })
+          }.tabBar(this.TabBarBuilder(index, item[0], item[1], item[2]))
+        }, (item: string) => item)
+      }
+      .barHeight(56)
+      .barWidth('100%')
+      .vertical(false)
+      .backgroundColor($r('app.color.background_shallow_grey'))
+      .onChange((index: number) => {
+        this.tabsIndex = index
+      })
     }
-    .barHeight(56)
-    .barWidth('100%')
-    .vertical(false)
-    .backgroundColor($r('app.color.background_shallow_grey'))
-    .onChange((index: number) => {
-      this.tabsIndex = index
-    })
   }
 
-  @Builder TabBarBuilder(index: number, selectedImage: Resource, unselectedImage: Resource, tabBarName: Resource) {
+  @Builder
+  TabBarBuilder(index: number, selectedImage: Resource, unselectedImage: Resource, tabBarName: Resource) {
     Column() {
       if (this.tabsIndex === index) {
         Image(selectedImage)
