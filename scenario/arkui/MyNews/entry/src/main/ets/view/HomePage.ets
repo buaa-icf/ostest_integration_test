@@ -12,14 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 import router from '@ohos.router';
 import { FollowingTabContent } from './HomePageFollowingTab';
 import { RecommendationTabContent } from './HomePageRecommendationTab';
 
-
-/* 定义通用无底色、无按压效果按钮样式 */
+/**
+ * Common invisible button style
+ */
 @Extend(Button)
 function commonBtnStyle(handler?: (event: ClickEvent) => void) {
   .type(ButtonType.Normal)
@@ -28,31 +27,45 @@ function commonBtnStyle(handler?: (event: ClickEvent) => void) {
   .onClick(handler)
 }
 
-
 /**
- * 上部选项卡内容
+ * Items in the tab selector
  */
-const tabItemList: string[] = [
-  '关注',
-  '推荐',
-  '直播',
-  '热榜',
-  '发现',
-  '本地', // TODO: 通过位置获取
-  '视频',
-  '畅听',
-  '图片',
-  '娱乐',
-  '科技',
-  '懂车帝',
-  '财经',
-  '军事',
-  '体育'
-]
+interface tabItem {
+  title: Resource
+  no: string
+}
 
+const tabItemList: tabItem[] = [{
+  title: $r('app.string.home_tab_following'),
+  no: '01'
+}, {
+  title: $r('app.string.home_tab_recommendation'),
+  no: '02'
+}, {
+  title: $r('app.string.home_tab_live'),
+  no: '03'
+}, {
+  title: $r('app.string.home_tab_trending'),
+  no: '04'
+}, {
+  title: $r('app.string.home_tab_discovery'),
+  no: '05'
+}, {
+  title: $r('app.string.home_tab_locality'),
+  no: '06'
+}, {
+  title: $r('app.string.home_tab_video'),
+  no: '07'
+}, {
+  title: $r('app.string.home_tab_music'),
+  no: '08'
+}, {
+  title: $r('app.string.home_tab_image'),
+  no: '09'
+}]
 
 /**
- * `首页` 页面内容
+ * Content of `Home` page
  */
 @Component
 export struct HomePage {
@@ -60,23 +73,19 @@ export struct HomePage {
 
   build() {
     Column() {
-      /* 顶栏：搜索框+按钮 */
       TopBar()
-
-      /* 可左右滑动的选项卡+按钮 */
-      TabSelector({ curIdx: this.curTabIdx })
-
+      TabBar({ curIdx: this.curTabIdx })
       Divider().strokeWidth(1).color($r('app.color.light_border'))
 
-      /* 下方页面内容 */
+      /* Tab content */
       Column() {
         if (this.curTabIdx === 0) {
-          FollowingTabContent() // 默认显示推荐页
+          FollowingTabContent()
         }
         else if (this.curTabIdx === 1) {
-          RecommendationTabContent()
+          RecommendationTabContent() // Default
         }
-        // TODO: 添加其他选项卡对应的页面
+        // TODO: Add other tab contents
         else {
           Text(this.curTabIdx.toString())
         }
@@ -85,15 +94,13 @@ export struct HomePage {
       .height(0)
       .flexGrow(1)
     }
-    .id('homePage')
     .width('100%')
     .height('100%')
   }
 }
 
-
 /**
- * 顶栏（搜索框+按钮）
+ * Top bar with a search box and buttons
  */
 @Component
 struct TopBar {
@@ -101,7 +108,7 @@ struct TopBar {
 
   build() {
     Row({ space: 4 }) {
-      /* 左侧奖励按钮 */
+      /* Left button: rewards */
       Button() {
         Stack() {
           Image($r('app.media.ic_public_appstore_filled'))
@@ -120,9 +127,8 @@ struct TopBar {
         .height('100%')
         .align(Alignment.Bottom)
       }
-      .id('homePageTopBarRewardBtn')
+      .id('home_topBar_button_01')
       .commonBtnStyle(() => {
-        // TODO: 按钮点击事件处理
         this.handleLeftBtnClk = false
         this.handleLeftBtnClk = true
       })
@@ -130,43 +136,45 @@ struct TopBar {
         message: 'TODO: 按钮点击事件处理',
       })
 
-      /* 搜索框 */
+      /* Search box */
       Button() {
         Row() {
           Image($r('app.media.ic_public_input_search'))
             .margin({ left: 10 })
             .size({ width: 16, height: 16 })
             .fillColor($r('app.color.light_fg_shallow'))
-          Text() // TODO: 添加滚动热搜词条
+          Text()
         }
         .width('100%')
         .height('100%')
         .borderRadius(999)
         .backgroundColor($r('app.color.primary_fg'))
       }
-      .id('homePageTopBarSearchBox')
+      .id('home_topBar_searchBox_01')
       .width(0)
       .flexGrow(1)
       .commonBtnStyle(() => {
-        // 将搜索页压入页面栈
         router.pushUrl({ url: 'pages/SearchPage' })
       })
 
-      /* 右侧发布按钮 */
+      /* Right button: publish */
       Button() {
         Column() {
           Image($r('app.media.ic_public_add_norm_filled'))
+            .id('home_topBar_button_image_02')
             .size({ width: 20, height: 20 })
             .fillColor($r('app.color.primary_fg'))
-          Text('发布').fontSize(9).fontColor($r('app.color.primary_fg'))
+          Text('发布')
+            .id('home_topBar_button_text_02')
+            .fontSize(9)
+            .fontColor($r('app.color.primary_fg'))
         }
         .height('90%')
         .margin({ left: 4, right: 4 })
         .justifyContent(FlexAlign.SpaceBetween)
       }
-      .id('homePageTopBarPublishBtn')
+      .id('home_topBar_button_02')
       .commonBtnStyle(() => {
-        // 将发布页压入页面栈
         router.pushUrl({ url: 'pages/PublishPage' })
       })
     }
@@ -179,12 +187,11 @@ struct TopBar {
   }
 }
 
-
 /**
- * 选项卡栏，用于切换当前 tab 内容
+ * Tab bar beneath the top bar
  */
 @Component
-struct TabSelector {
+struct TabBar {
   @State handleFilterBtnClk: boolean = false
   @State handleEarphoneBtnClk: boolean = false
   @Link curIdx: number
@@ -194,18 +201,19 @@ struct TabSelector {
     Row() {
       Stack() {
         Scroll(this.scroller) {
-          /* 可左右滑动的选项卡栏 */
+          /* Horizontally scrollable tab bar */
           Row({ space: 3 }) {
-            ForEach(tabItemList, (item: string, itemIdx: number) => {
+            ForEach(tabItemList, (item: tabItem, itemIdx: number) => {
+              /* Each tab item: text + line */
               Button() {
                 Column({ space: 4 }) {
-                  /* 选项卡文字 */
-                  Text(item)
+                  Text(item.title)
+                    .id(`home_tabs_button_text_${item.no}`)
                     .fontSize(14)
                     .fontWeight(this.curIdx === itemIdx ? FontWeight.Bold : FontWeight.Normal)
                     .fontColor(this.curIdx === itemIdx ? $r('app.color.primary') : $r('app.color.light_fg'))
-                  /* 文字下方线条 */
                   Line()
+                    .id(`home_tabs_button_line_${item.no}`)
                     .startPoint([0, 0])
                     .endPoint([16, 0])
                     .stroke(this.curIdx === itemIdx ? $r('app.color.primary') : Color.Transparent)
@@ -216,6 +224,7 @@ struct TabSelector {
                 .padding({ left: 14, bottom: 1 })
                 .justifyContent(FlexAlign.End)
               }
+              .id(`home_tabs_button_${item.no}`)
               .commonBtnStyle(() => {
                 this.curIdx = itemIdx
               })
@@ -223,13 +232,13 @@ struct TabSelector {
           }
           .height('100%')
         }
-        .id('homePageTabSelector')
+        .id('home_tabs_scroll_01')
         .width('100%')
         .height('100%')
         .scrollable(ScrollDirection.Horizontal)
         .scrollBar(BarState.Off)
 
-        /* 文字的渐隐效果 */
+        /* Fade-out effect */
         Row()
           .width(30)
           .height('100%')
@@ -243,13 +252,15 @@ struct TabSelector {
       .flexGrow(1)
       .alignContent(Alignment.End)
 
-      /* 右侧的按钮 */
+      /* Buttons on the right side */
       Row({ space: 8 }) {
         Button() {
           Image($r('app.media.ic_public_view_list'))
+            .id('home_tabs_button_image_10')
             .size({ width: 14, height: 14 })
             .fillColor($r('app.color.light_fg'))
         }
+        .id('home_tabs_button_10')
         .commonBtnStyle(() => {
           this.handleFilterBtnClk = false
           this.handleFilterBtnClk = true
@@ -263,12 +274,13 @@ struct TabSelector {
           .height(14)
           .vertical(true)
           .color($r('app.color.light_border'))
-
         Button() {
           Image($r('app.media.ic_device_earphone'))
+            .id('home_tabs_button_image_11')
             .size({ width: 14, height: 14 })
             .fillColor($r('app.color.light_fg'))
         }
+        .id('home_tabs_button_11')
         .commonBtnStyle(() => {
           this.handleEarphoneBtnClk = false
           this.handleEarphoneBtnClk = true

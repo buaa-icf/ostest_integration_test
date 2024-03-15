@@ -12,20 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
-/**
- * 应用底部导航栏中项的类型定义
- */
-export interface IndexBottomNavItem {
-  /* 图标下方文字 */
-  title: string
-  /* 未被选中时显示为轮廓型图标 */
-  normalIcon: Resource
-  /* 被选中时替换为填充型图标 */
-  selectedIcon: Resource
-  /* 对应的按钮id（测试用例中使用） */
-  btnId: string,
-  /* 右上角标签 */
-  label?: string
+export interface MainPageParams {
+  isLoggedIn?: boolean // LoginPage -> MainPage
 }

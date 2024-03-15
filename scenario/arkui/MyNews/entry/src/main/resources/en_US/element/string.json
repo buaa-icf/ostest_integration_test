@@ -11,6 +11,134 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "main_nav_home",
+      "value": "Home"
+    },
+    {
+      "name": "main_nav_video",
+      "value": "Video"
+    },
+    {
+      "name": "main_nav_task",
+      "value": "Task"
+    },
+    {
+      "name": "main_nav_mall",
+      "value": "Mall"
+    },
+    {
+      "name": "main_nav_profile_loggedIn",
+      "value": "Profile"
+    },
+    {
+      "name": "main_nav_profile_notLoggedIn",
+      "value": "Login"
+    },
+    {
+      "name": "home_tab_following",
+      "value": "Following"
+    },
+    {
+      "name": "home_tab_recommendation",
+      "value": "Recommendation"
+    },
+    {
+      "name": "home_tab_live",
+      "value": "Live"
+    },
+    {
+      "name": "home_tab_trending",
+      "value": "Trending"
+    },
+    {
+      "name": "home_tab_discovery",
+      "value": "Discovery"
+    },
+    {
+      "name": "home_tab_locality",
+      "value": "Locality"
+    },
+    {
+      "name": "home_tab_video",
+      "value": "Video"
+    },
+    {
+      "name": "home_tab_music",
+      "value": "Music"
+    },
+    {
+      "name": "home_tab_image",
+      "value": "Image"
+    },
+    {
+      "name": "profile_menu_publish",
+      "value": "Publish"
+    },
+    {
+      "name": "profile_userInfo_following",
+      "value": "Following"
+    },
+    {
+      "name": "profile_userInfo_follower",
+      "value": "Followers"
+    },
+    {
+      "name": "profile_userInfo_likes",
+      "value": "Likes"
+    },
+    {
+      "name": "profile_userInfo_defaultDescription",
+      "value": "Click here to add your brief description"
+    },
+    {
+      "name": "profile_userInfo_more",
+      "value": "More"
+    },
+    {
+      "name": "profile_userInfo_addLabels",
+      "value": "Add age, school labels"
+    },
+    {
+      "name": "profile_userInfo_auth",
+      "value": "Authentication"
+    },
+    {
+      "name": "profile_userInfo_editProfile",
+      "value": "Edit Profile"
+    },
+    {
+      "name": "profile_funcArea_msg",
+      "value": "Messages"
+    },
+    {
+      "name": "profile_funcArea_history",
+      "value": "History"
+    },
+    {
+      "name": "profile_funcArea_likes",
+      "value": "Likes"
+    },
+    {
+      "name": "profile_funcArea_downloads",
+      "value": "Downloads"
+    },
+    {
+      "name": "profile_funcArea_orders",
+      "value": "Orders"
+    },
+    {
+      "name": "profile_funcArea_wallet",
+      "value": "Wallet"
+    },
+    {
+      "name": "profile_funcArea_tasks",
+      "value": "Tasks"
+    },
+    {
+      "name": "profile_funcArea_all",
+      "value": "All"
     }
   ]
 }

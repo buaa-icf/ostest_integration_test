@@ -11,6 +11,134 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "main_nav_home",
+      "value": "首页"
+    },
+    {
+      "name": "main_nav_video",
+      "value": "视频"
+    },
+    {
+      "name": "main_nav_task",
+      "value": "任务"
+    },
+    {
+      "name": "main_nav_mall",
+      "value": "商城"
+    },
+    {
+      "name": "main_nav_profile_loggedIn",
+      "value": "个人"
+    },
+    {
+      "name": "main_nav_profile_notLoggedIn",
+      "value": "未登录"
+    },
+    {
+      "name": "home_tab_following",
+      "value": "关注"
+    },
+    {
+      "name": "home_tab_recommendation",
+      "value": "推荐"
+    },
+    {
+      "name": "home_tab_live",
+      "value": "直播"
+    },
+    {
+      "name": "home_tab_trending",
+      "value": "热榜"
+    },
+    {
+      "name": "home_tab_discovery",
+      "value": "发现"
+    },
+    {
+      "name": "home_tab_locality",
+      "value": "本地"
+    },
+    {
+      "name": "home_tab_video",
+      "value": "视频"
+    },
+    {
+      "name": "home_tab_music",
+      "value": "畅听"
+    },
+    {
+      "name": "home_tab_image",
+      "value": "图片"
+    },
+    {
+      "name": "profile_menu_publish",
+      "value": "发布"
+    },
+    {
+      "name": "profile_userInfo_following",
+      "value": "关注"
+    },
+    {
+      "name": "profile_userInfo_follower",
+      "value": "粉丝"
+    },
+    {
+      "name": "profile_userInfo_likes",
+      "value": "获赞"
+    },
+    {
+      "name": "profile_userInfo_defaultDescription",
+      "value": "填写简介更容易获得大家的关注，点击添加"
+    },
+    {
+      "name": "profile_userInfo_more",
+      "value": "更多信息"
+    },
+    {
+      "name": "profile_userInfo_addLabels",
+      "value": "添加年龄、学校标签"
+    },
+    {
+      "name": "profile_userInfo_auth",
+      "value": "申请认证"
+    },
+    {
+      "name": "profile_userInfo_editProfile",
+      "value": "编辑资料"
+    },
+    {
+      "name": "profile_funcArea_msg",
+      "value": "消息私信"
+    },
+    {
+      "name": "profile_funcArea_history",
+      "value": "浏览历史"
+    },
+    {
+      "name": "profile_funcArea_likes",
+      "value": "点赞"
+    },
+    {
+      "name": "profile_funcArea_downloads",
+      "value": "下载管理"
+    },
+    {
+      "name": "profile_funcArea_orders",
+      "value": "我的订单"
+    },
+    {
+      "name": "profile_funcArea_wallet",
+      "value": "钱包"
+    },
+    {
+      "name": "profile_funcArea_tasks",
+      "value": "任务"
+    },
+    {
+      "name": "profile_funcArea_all",
+      "value": "全部"
     }
   ]
 }
