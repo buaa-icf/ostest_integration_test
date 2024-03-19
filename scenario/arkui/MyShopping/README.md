@@ -7,7 +7,7 @@
 
 ## 效果预览
 
-![img.png](img/img.png)
+![img.png](resourceImg/img.png)
 
 ## 工程目录
 
