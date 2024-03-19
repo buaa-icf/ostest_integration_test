@@ -49,9 +49,9 @@ export struct Home {
         // 顶部 用户头像 消息图标
         Row() {
           Image($r('app.media.flower'))
+            .id("home_image_01")
             .height(30)
             .objectFit(ImageFit.Contain)
-            .id('backBtn')
             .onClick(() => {
               promptAction.showToast({
                 message: 'click on banner',
@@ -62,6 +62,7 @@ export struct Home {
           Image($r('app.media.ic_public_community_messages'))
             .height(30)
             .margin({ right: 6 })
+            .id("home_image_02")
         }
         .height(56)
         .width('95%')
@@ -72,6 +73,7 @@ export struct Home {
             .height(30)
             .margin({ left: 9 })
             .objectFit(ImageFit.Contain)
+            .id("home_image_03")
           Divider()
             .margin({ left: 9 })
             .vertical(true)
@@ -82,6 +84,7 @@ export struct Home {
             .height(30)
             .margin({ left: 9 })
             .objectFit(ImageFit.Contain)
+            .id("home_image_04")
           TextInput({ placeholder: '遥遥领先' })
             .backgroundColor(Color.White)
             .width(135)
@@ -121,7 +124,13 @@ export struct Home {
               }.tabBar(this.tabBuilder(0, '推荐'))
 
               TabContent() {
-                Column().width('100%').height('100%').backgroundColor('#007DFF')
+                Column() {
+                  // 推荐商品滚动banner
+                  Banner()
+
+                  // 功能栏 （领红包、汪汪乐园、签到提现、1分抽奖、充值中心）
+                  Content()
+                }
               }.tabBar(this.tabBuilder(1, '酒水饮料'))
 
               TabContent() {

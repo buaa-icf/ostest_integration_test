@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Home } from './components/myapp/Home';
+import { Home } from './components/homeTab/Home';
 import matrix4 from '@ohos.matrix4'
 
 @Entry

@@ -31,6 +31,46 @@
     {
       "name": "tabbar_mine",
       "value": "我的"
+    },
+    {
+      "name": "app_market",
+      "value": "超市"
+    },
+    {
+      "name": "app_medicine",
+      "value": "买药"
+    },
+    {
+      "name": "app_secKill",
+      "value": "秒杀"
+    },
+    {
+      "name": "app_voucher",
+      "value": "领券"
+    },
+    {
+      "name": "app_home",
+      "value": "到家"
+    },
+    {
+      "name": "app_dress_and_make_up",
+      "value": "服饰美妆"
+    },
+    {
+      "name": "app_domestic_appliance",
+      "value": "家电家居"
+    },
+    {
+      "name": "app_charge_center",
+      "value": "充值中心"
+    },
+    {
+      "name": "app_borrow_money",
+      "value": "借钱"
+    },
+    {
+      "name": "app_electric_appliance",
+      "value": "电器"
     }
   ]
 }

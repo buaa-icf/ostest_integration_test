@@ -18,51 +18,64 @@ import { WaterFlowDataSource, DataInfo } from '../../../data/WaterFlowDataSource
 @Component
 export struct Content {
   datasource: WaterFlowDataSource = new WaterFlowDataSource()
+  private verbTab: Array<Array<Resource>> = [
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_market')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_medicine')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_secKill')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_voucher')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_home')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_dress_and_make_up')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_domestic_appliance')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_charge_center')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_borrow_money')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_electric_appliance')],
+  ]
+  private verbTabId:Array<string> = [
+    'content_image_001',
+    'content_image_002',
+    'content_image_003',
+    'content_image_004',
+    'content_image_005',
+    'content_image_006',
+    'content_image_007',
+    'content_image_008',
+    'content_image_009',
+    'content_image_010',
+  ]
+
   build() {
     // 功能栏 （领红包、汪汪乐园、签到提现、1分抽奖、充值中心）
     Column() {
       Column() {
-        Row() {
-          Column() {
-            Image($r('app.media.ic_event_area_change'))
-              .height(40)//.margin({ left: 9 })
-              .objectFit(ImageFit.Contain)
-            Text('领红包 ').fontSize(12)
-          }.margin({ left: 10 })
-
-          Column() {
-            Image($r('app.media.ic_event_drag'))
-              .height(40)//.margin({ left: 9 })
-              .objectFit(ImageFit.Contain)
-
-            Text('汪汪乐园').fontSize(12)
-          }
-
-          Column() {
-            Image($r('app.media.ic_event_focus'))
-              .height(40)//.margin({ left: 9 })
-              .objectFit(ImageFit.Contain)
-
-            Text('签到提现').fontSize(12)
-          }
-
-          Column() {
-            Image($r('app.media.ic_event_load_and_hide'))
-              .height(40)//.margin({ left: 9 })
-              .objectFit(ImageFit.Contain)
-
-            Text('1分抽奖').fontSize(12)
-          }
-
-          Column() {
-            Image($r('app.media.ic_event_mouse'))
-              .height(40)//.margin({ left: 9 })
-              .objectFit(ImageFit.Contain)
-
-            Text('充值中心').fontSize(12)
-          }.margin({ right: 10 })
+        Row({space:20}) {
+          ForEach(this.verbTab.slice(0,5), (item: Array<Resource>, index: number) => {
+            Column() {
+              Image(item[0])
+                .height(40)//.margin({ left: 9 })
+                .objectFit(ImageFit.Contain)
+                .id(this.verbTabId[index])
+              Text(item[1]).fontSize(12)
+            }.margin({ left: 10 })
+          }, (item: string) => item)
         }
         .margin({ top: 5 })
+        .width('100%')
+        .height('60')
+        .backgroundColor(Color.White)
+        .borderRadius(10)
+        .justifyContent(FlexAlign.SpaceEvenly)
+
+        Row({space:20}) {
+          ForEach(this.verbTab.slice(5,this.verbTab.length), (item: Array<Resource>, index: number) => {
+            Column() {
+              Image(item[0])
+                .height(40)//.margin({ left: 9 })
+                .objectFit(ImageFit.Contain)
+                .id(this.verbTabId[index])
+              Text(item[1]).fontSize(12)
+            }.margin({ left: 10 })
+          }, (item: string) => item)
+        }
         .width('100%')
         .height('60')
         .backgroundColor(Color.White)
