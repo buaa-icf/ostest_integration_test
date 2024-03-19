@@ -15,6 +15,7 @@
 
 import hiTraceMeter from '@ohos.hiTraceMeter';
 import { ArrEntity } from '../entity/ArrEntity';
+import { StateModel } from '../pages/stateManagement/StateModel';
 
 export class TimeHelper {
   testCaseName: string = ''
@@ -28,6 +29,19 @@ export class TimeHelper {
   printTime(isStart: boolean, count: number = ArrEntity.arr.length): boolean {
     let name: string = `testCaseName : ${this.testCaseName}`;
     isStart ? console.time(name) : console.timeEnd(name);
+    isStart ? hiTraceMeter.startTrace(name, 1024) : hiTraceMeter.finishTrace(name, 1024);
+    return true;
+  }
+
+  printAttributeTime(isStart: boolean, count: number = ArrEntity.arr.length): boolean {
+    let name: string = `testAttributeCaseName : ${this.testCaseName}`;
+    isStart ? console.time(name) : console.timeEnd(name);
+    isStart ? hiTraceMeter.startTrace(name, 1024) : hiTraceMeter.finishTrace(name, 1024);
+    return true;
+  }
+
+  printStateTime(isStart: boolean, count: number = ArrEntity.arr.length, stateModel: StateModel): boolean {
+    let name: string = `testStateCaseName : ${this.testCaseName} & isBindUI: ${stateModel.isBindUI} & stateType: ${stateModel.getStateType}`;
     isStart ? hiTraceMeter.startTrace(name, 1024) : hiTraceMeter.finishTrace(name, 1024);
     return true;
   }

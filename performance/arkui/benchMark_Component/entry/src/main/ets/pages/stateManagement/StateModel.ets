@@ -13,10 +13,35 @@
  * limitations under the License.
  */
 
-import abilityTest from './Ability.test'
-import stateTest from './State.test'
+export enum StateConstants {
+  CREATE_STATE = 0,
+  READ_STATE = 1,
+  WRITE_STATE = 2,
+  UI_CHANGE = 3
+}
 
-export default function testsuite() {
-  abilityTest()
-  stateTest()
+export class StateModel {
+  private _stateType: number = 0
+  private _isBindUI: Boolean = false
+
+  constructor(stateType: number, isBindUI: Boolean) {
+    this._stateType = stateType
+    this._isBindUI = isBindUI
+  }
+
+  public set setStateType(value: number) {
+    this._stateType = value
+  }
+
+  public get getStateType(): number {
+    return this._stateType
+  }
+
+  public set isBindUI(value: Boolean) {
+    this._isBindUI = value
+  }
+
+  public get isBindUI(): Boolean {
+    return this._isBindUI
+  }
 }

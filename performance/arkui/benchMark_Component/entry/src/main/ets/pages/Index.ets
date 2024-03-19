@@ -85,6 +85,15 @@ struct Index {
         CommonButton({ buttonName: 'Radio', buttonUrl: 'pages/base/radio/RadioHome' });
         CommonButton({ buttonName: 'ScrollBar', buttonUrl: 'pages/base/scrollBar/ScrollBarHome' });
 
+        CommonButton({ buttonName: '@LocalStorageLink', buttonUrl: 'pages/stateManagement/localStorageLink/LocalStorageLinkHome' });
+        CommonButton({ buttonName: '@StorageLink', buttonUrl: 'pages/stateManagement/storageLink/StorageLinkHome' });
+        CommonButton({ buttonName: '@LocalStorageProp', buttonUrl: 'pages/stateManagement/localStorageProp/LocalStoragePropHome' });
+        CommonButton({ buttonName: '@StorageProp', buttonUrl: 'pages/stateManagement/storageProp/StoragePropHome' });
+        CommonButton({ buttonName: '@Consume', buttonUrl: 'pages/stateManagement/consume/ConsumeHome' });
+        CommonButton({ buttonName: '@Provide', buttonUrl: 'pages/stateManagement/provide/ProvideHome' });
+        CommonButton({ buttonName: '@Observed', buttonUrl: 'pages/stateManagement/observed/ObservedHome' });
+        CommonButton({ buttonName: '@ObjectLink', buttonUrl: 'pages/stateManagement/objectLink/ObjectLinkHome' });
+        CommonButton({ buttonName: '@Watch', buttonUrl: 'pages/stateManagement/watch/WatchHome' });
       }
       .padding('20vp')
       .width('100%')
