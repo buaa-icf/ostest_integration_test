@@ -7,8 +7,8 @@
 
 ## 效果预览
 
-![img.png](screenshots/shoppingApp.png)
-![img.png](screenshots/home-recommendation.png)
+![img.png](screenshots/shoppingApp.jpg)
+
 ## 工程目录
 
 ```text
