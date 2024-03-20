@@ -21,5 +21,5 @@ export interface MerchandiseList {
   type:string
   img:Resource
   title:string
-  price:number
+  price:string
 }

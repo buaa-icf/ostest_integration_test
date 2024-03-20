@@ -14,7 +14,7 @@
  */
 
 import promptAction from '@ohos.promptAction'
-import { WaterFlowDataSource, DataInfo } from '../../../data/WaterFlowDataSource'
+import { WaterFlowDataSource } from '../../../data/WaterFlowDataSource'
 import { Banner } from '../contentPlate/banner'
 import { Content } from '../contentPlate/content'
 import { Classification } from '../Classification/classification'

@@ -7,7 +7,7 @@
 
 ## 效果预览
 
-![img.png](resourceImg/myShopping.png)
+![img.png](resourceImg/shoppingApp.png)
 
 ## 工程目录
 

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { WaterFlowDataSource, DataInfo } from '../../../data/WaterFlowDataSource'
-import { merchandise } from '../../../data/merchandise'
+import { WaterFlowDataSource } from '../../../data/WaterFlowDataSource'
+import { MerchandiseList } from '../../../dataModel/merchandise'
 
 @Component
 export struct Content {
@@ -198,35 +198,18 @@ export struct Content {
 
         Column({ space: 2 }) {
           WaterFlow({}) {
-            LazyForEach(this.datasource, (item: DataInfo, idx: number) => {
+            LazyForEach(this.datasource, (item: MerchandiseList, idx: number) => {
               FlowItem() {
                 Column() {
-                  Text(`商品${idx}`).fontSize(12).height('16')
-                  if (item.type === "video") {
-                    Video({ src: $rawfile(item.src[0]) })
-                      .autoPlay(true)
-                      .height(100)
-                      .loop(true)
-                  } else if (item.type === "swiper") {
-                    Swiper() {
-                      ForEach(item.src, (img: string) => {
-                        Image($rawfile(img)).objectFit(ImageFit.Fill).width('100%')
-                          .layoutWeight(1)
-                      })
-                    }.autoPlay(true)
-                  } else if (idx % 4 == 0) {
-                    Image($rawfile(item.src[1])).objectFit(ImageFit.Fill).height(100).width('100%')
-                  } else if (idx % 4 == 1) {
-                    Image($rawfile(item.src[0])).objectFit(ImageFit.Fill).height(200).width('100%')
-                  } else if (idx % 4 == 2) {
-                    Image($rawfile(item.src[0])).objectFit(ImageFit.Fill).height(240).width('100%')
-                  } else if (idx % 4 == 3) {
-                    Image($rawfile(item.src[0])).objectFit(ImageFit.Fill).height(280).width('100%')
-                  }
+                  Image(item.img).objectFit(ImageFit.Fill).height(100).width('100%')
+                  Row(){
+                    Text(item.title).fontSize(12).height('16')
+                    Text(item.price).fontSize(12).height('16')
+                  }.justifyContent(FlexAlign.SpaceBetween)
                 }
-                .backgroundColor(idx % 2 == 0 ? $r('app.color.background_green') : $r('app.color.font_color_red'))
               }
               .width('100%')
+              .border({width:1})
             })
           }
           .alignSelf(ItemAlign.Center)

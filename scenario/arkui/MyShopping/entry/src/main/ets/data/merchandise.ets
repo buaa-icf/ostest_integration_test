@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Copyright (c) '￥20'23-'￥20'24 Shenzhen Kaihong Digital Industry Development Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,30 +20,91 @@ export const merchandise:MerchandiseList[] = [
     type:'image',
     img:$r('app.media.flower'),
     title:"电视机",
-    price:20
+    price:'￥20'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
     title:"电视机",
-    price:20
+    price:'￥20'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
     title:"电视机",
-    price:20
+    price:'￥20'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
     title:"电视机",
-    price:20
+    price:'￥20'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
     title:"电视机",
-    price:20
+    price:'￥20'
   },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"电视机",
+    price:'￥20'
+  },
+
 ]
