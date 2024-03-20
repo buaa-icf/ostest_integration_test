@@ -106,7 +106,6 @@ export struct Home {
         .borderRadius(24)
         .padding({ right: 4 })
 
-
         // 内容板块
         Column() {
           Stack() {
@@ -116,7 +115,6 @@ export struct Home {
                   Column() {
                     // 推荐商品滚动banner
                     Banner()
-
                     // 功能栏 （领红包、汪汪乐园、签到提现、1分抽奖、充值中心）
                     Content()
                   }
@@ -127,7 +125,6 @@ export struct Home {
                 Column() {
                   // 推荐商品滚动banner
                   Banner()
-
                   // 功能栏 （领红包、汪汪乐园、签到提现、1分抽奖、充值中心）
                   Content()
                 }
@@ -181,6 +178,7 @@ export struct Home {
             .zIndex(1)
 
             Classification()
+
           }.width('100%')
         }.width('98%')
       }

@@ -14,6 +14,7 @@
  */
 
 import { WaterFlowDataSource, DataInfo } from '../../../data/WaterFlowDataSource'
+import { merchandise } from '../../../data/merchandise'
 
 @Component
 export struct Content {
@@ -51,7 +52,7 @@ export struct Content {
           ForEach(this.verbTab.slice(0,5), (item: Array<Resource>, index: number) => {
             Column() {
               Image(item[0])
-                .height(40)//.margin({ left: 9 })
+                .height(40)
                 .objectFit(ImageFit.Contain)
                 .id(this.verbTabId[index])
               Text(item[1]).fontSize(12)
@@ -69,7 +70,7 @@ export struct Content {
           ForEach(this.verbTab.slice(5,this.verbTab.length), (item: Array<Resource>, index: number) => {
             Column() {
               Image(item[0])
-                .height(40)//.margin({ left: 9 })
+                .height(40)
                 .objectFit(ImageFit.Contain)
                 .id(this.verbTabId[index])
               Text(item[1]).fontSize(12)
@@ -85,7 +86,7 @@ export struct Content {
         // 中部banner 活动跳转banner
         Row() {
           Image($r('app.media.banner'))
-            .width('100%')//.margin({ left: 9 })
+            .width('100%')
             .objectFit(ImageFit.Contain)
         }.margin({ top: 5 })
 
@@ -94,7 +95,7 @@ export struct Content {
           // 9.9包邮活动页入口
           Column() {
             Image($r('app.media.ic_99baoyou'))
-              .height(80)//.margin({ left: 9 })
+              .height(80)
               .objectFit(ImageFit.Contain)
             Row() {
               Text('去抢购').fontSize(14).margin({ left: 5 })
@@ -109,29 +110,28 @@ export struct Content {
           Column() {
             Row() {
               Column() {
-                Image($r('app.media.ic_99_notebook'))//.width('25%')
-                  //.margin({ left: 9 })
+                Image($r('app.media.ic_99_notebook'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥1337').fontSize(20).fontColor(Color.Red).margin({ bottom: 5 })
               }.width('25%')
 
               Column() {
-                Image($r('app.media.ic_99_paper'))//.margin({ left: 9 })
+                Image($r('app.media.ic_99_paper'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥1').fontSize(20).fontColor(Color.Red).margin({ bottom: 5 })
               }.width('25%')
 
               Column() {
-                Image($r('app.media.ic_99_toy'))//.margin({ left: 9 })
+                Image($r('app.media.ic_99_toy'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥24.6').fontSize(20).fontColor(Color.Red).margin({ bottom: 5 })
               }.width('25%')
 
               Column() {
-                Image($r('app.media.ic_99_water'))//.margin({ left: 9 })
+                Image($r('app.media.ic_99_water'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥9').fontSize(20).fontColor(Color.Red).margin({ bottom: 5 })
@@ -155,7 +155,7 @@ export struct Content {
 
             Row() {
               Column() {
-                Image($r('app.media.ic_butie1'))//.margin({ left: 9 })
+                Image($r('app.media.ic_butie1'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥1').fontSize(20).fontColor(Color.Red).margin({ bottom: 3 })
@@ -163,7 +163,7 @@ export struct Content {
 
               Blank()
               Column() {
-                Image($r('app.media.ic_butie2'))//.margin({ left: 9 })
+                Image($r('app.media.ic_butie2'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥1').fontSize(20).fontColor(Color.Red).margin({ bottom: 3 })
@@ -179,7 +179,7 @@ export struct Content {
 
             Row() {
               Column() {
-                Image($r('app.media.ic_miaosha1'))//.margin({ left: 9 })
+                Image($r('app.media.ic_miaosha1'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥1').fontSize(20).fontColor(Color.Red).margin({ bottom: 3 })
@@ -187,7 +187,7 @@ export struct Content {
 
               Blank()
               Column() {
-                Image($r('app.media.ic_miaosha2'))//.margin({ left: 9 })
+                Image($r('app.media.ic_miaosha2'))
                   .objectFit(ImageFit.Contain)
 
                 Text('¥1').fontSize(20).fontColor(Color.Red).margin({ bottom: 3 })

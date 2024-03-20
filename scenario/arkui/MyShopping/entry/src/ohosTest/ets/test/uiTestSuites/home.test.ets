@@ -49,6 +49,7 @@ export default function homePageTest() {
       try {
         //判断是否存在以下组件
         await driver.assertComponentExist(ON.id('home_image_01'))
+
         done()
       } catch (err) {
         console.log(`${tag}startAbility_001 catch err,err is: ${err.message}`)
