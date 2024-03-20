@@ -13,10 +13,16 @@
  * limitations under the License.
  */
 
-import abilityTest from './Ability.test'
-import stateTest from './State.test'
+import { TimeHelper } from '../../util/TimeHelper';
+import { StateConstants, StateModel } from './StateModel';
 
-export default function testsuite() {
-  abilityTest()
-  stateTest()
+export class StateUtils {
+  static isType(type: boolean, timeHelper: TimeHelper) {
+    if (type) {
+      return true
+    } else {
+      timeHelper.printStateTime(false, 1, new StateModel(StateConstants.UI_CHANGE, true))
+      return false
+    }
+  }
 }
