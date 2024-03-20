@@ -12,25 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-export class DataInfo {
-  type!:string
-  src!:string[]
-}
+import { merchandise } from '../data/merchandise'
+import { MerchandiseList } from '../dataModel/merchandise'
 
 // 实现IDataSource接口的对象，用于瀑布流组件加载数据
 export class WaterFlowDataSource implements IDataSource {
   private listeners: DataChangeListener[] = []
 
   // 获取索引对应的数据
-  public getData(index: number): DataInfo {
-    if (index === 0) {
-      return { type: "video", src: ["H264_AAC.mp4"] }
-    } else if (index === 10) {
-      return { type: "swiper", src: ["autoimage0.jpg", "autoimage1.jpg"] }
-    } else  {
-      return { type: "img", src: ["autoimage" + index + ".jpg"] }
-    }
+  public getData(index: number): MerchandiseList {
+    return merchandise[index]
   }
 
   // 获取数据总数

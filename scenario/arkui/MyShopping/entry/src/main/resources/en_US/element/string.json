@@ -39,6 +39,46 @@
     {
       "name": "tabbar_mine",
       "value": "Mine"
+    },
+    {
+      "name": "app_market",
+      "value": "market"
+    },
+    {
+      "name": "app_medicine",
+      "value": "medicine"
+    },
+    {
+      "name": "app_secKill",
+      "value": "secKill"
+    },
+    {
+      "name": "app_voucher",
+      "value": "voucher"
+    },
+    {
+      "name": "app_home",
+      "value": "home"
+    },
+    {
+      "name": "app_dress_and_make_up",
+      "value": "dress_and_make_up"
+    },
+    {
+      "name": "app_domestic_appliance",
+      "value": "domestic_appliance"
+    },
+    {
+      "name": "app_charge_center",
+      "value": "charge_center"
+    },
+    {
+      "name": "app_borrow_money",
+      "value": "borrow_money"
+    },
+    {
+      "name": "app_electric_appliance",
+      "value": "electric_appliance"
     }
   ]
 }
