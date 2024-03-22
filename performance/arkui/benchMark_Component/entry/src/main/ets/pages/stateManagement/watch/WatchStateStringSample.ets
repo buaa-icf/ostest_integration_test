@@ -24,25 +24,36 @@ import { StateUtils } from '../StateUtils';
 struct WatchStateStringSample {
   timeHelper: TimeHelper = new TimeHelper('WatchStateStringSample');
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @State @Watch('watchTest') title: string = "this is WatchStateStringSample";
+  @State @Watch('watchData') title: string = "this is WatchStateStringSample";
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
+  stateLoop : boolean = false
+  uiWrite : boolean = false
+  buttonWrite : boolean = false
 
-  watchTest(): void {
+  watchData(propName: string): void {
+    if(this.stateLoop){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+      this.stateLoop = false
+    }
+    if(this.uiWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.UI_CHANGE, true))
+      this.uiWrite = false
+    }
+    if(this.buttonWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+      this.buttonWrite = false
+    }
   }
 
   aboutToAppear(): void {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+      if(index === ArrEntity.STATE_LOOP - 1){
+        this.stateLoop = true;
+      }
       this.title = index.toString()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let title = this.title
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
@@ -52,28 +63,19 @@ struct WatchStateStringSample {
           .fontSize('25')
           .textAlign(TextAlign.Center)
           .margin({ bottom: 50, top: 50 })
-        Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.title}` : `child value: ${this.title}`)
+        Text(`child value: ${this.title}`)
           .id('changeUITimeTaken')
           .onClick(() => {
-            this.isType = false
-            this.title = 'hello world'
+            this.uiWrite = true
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-          })
-        Button('@Watch监听的读@State的耗时')
-          .id('getStateTimeTaken')
-          .onClick(() => {
-            this.isType = true
-            this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-            this.title = '1'
-            this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
+            this.title = 'hello world'
           })
         Button('@Watch监听的写@State的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
-            this.isType = true
+            this.buttonWrite = true
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            this.title = '1'
-            this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+            this.title = '你好世界'
           })
       }
       .width('100%')

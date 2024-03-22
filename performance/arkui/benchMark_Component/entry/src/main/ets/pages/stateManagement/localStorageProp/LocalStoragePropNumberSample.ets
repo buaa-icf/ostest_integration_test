@@ -14,29 +14,24 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
-import { TimeHelper } from '../../../util/TimeHelper'
+
+import { TimeHelper } from '../../../util/TimeHelper';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface PropTypeOptions {
-  PropA: number
-}
-
-let abc: PropTypeOptions = {
-  PropA: 0
-};
-
-let storage = new LocalStorage(abc);
+let testData: Record<string, number> = { 'PropA': 0 };
+let storage = new LocalStorage(testData);
 
 @Component
 struct ChildLocalStoragePropNumberSample {
-  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropNumberSample');
+  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropNumberSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @LocalStorageProp('PropA') childNumberProp: number = -1;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
       this.childNumberProp = index
@@ -44,17 +39,13 @@ struct ChildLocalStoragePropNumberSample {
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childNumberProp
+      let tmp = this.childNumberProp
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildLocalStoragePropNumberSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
       Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childNumberProp.toString()}` :
         `child value: ${this.childNumberProp.toString()}`)
         .id('changeUITimeTaken')
@@ -63,19 +54,21 @@ struct ChildLocalStoragePropNumberSample {
           this.childNumberProp += 1
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@LocalStorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@LocalStorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childNumberProp
+          let tmp = this.childNumberProp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@LocalStorageProp的耗时')
+      Button('child Prop: 写@LocalStorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = this.childNumberProp - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childNumberProp -= 1
+          this.childNumberProp = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

@@ -38,7 +38,7 @@ struct ChildStorageLinkObjectSample {
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childObjectLink
+      let tmp = this.childObjectLink
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -58,7 +58,7 @@ struct ChildStorageLinkObjectSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childObjectLink
+          let tmp = this.childObjectLink
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@StorageLink的耗时')

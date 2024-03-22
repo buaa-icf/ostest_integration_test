@@ -19,6 +19,8 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
+const timeHelper: TimeHelper = new TimeHelper('ObservedInheritDateSample');
+let isType: boolean = true
 
 @Observed
 class ClassA extends Date {
@@ -39,9 +41,9 @@ struct ChildObservedInheritDateSample {
 
   build() {
     Column({space: 15}) {
-      Text(`child value: ${this.testData.toTimeString()}`)
+      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.testData.toTimeString()}` : `child value: ${this.testData.toTimeString()}`)
       Button('child click')
-        .id('parentSetStateTimeTaken')
+        .id('childSetStateTimeTaken')
         .onClick(() => {
           this.testData.setTime(this.testData.getTime() + 100 * 60 * 60 * 1000)
         })
@@ -52,24 +54,22 @@ struct ChildObservedInheritDateSample {
 @Entry
 @Component
 struct ObservedInheritDateSample {
-  timeHelper: TimeHelper = new TimeHelper('ObservedInheritDateSample');
-  a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  test: ClassB = new ClassB(new ClassA())
-  b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @State testData: ClassB = this.test
-  isType: boolean = true
+  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @State testData: ClassB = new ClassB(new ClassA())
+  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 
   aboutToAppear(): void {
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
+    let arr: number[] =  [this.testData.b.getTime() - 60 * 60 * 1000, this.testData.b.getTime() - 20 * 60 * 1000]
+    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData.b.setTime(this.testData.b.getTime() - 60 * 60 * 1000)
+      this.testData.b.setTime(arr[index % 2])
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
+    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData.b
+      let value = this.testData.b.getTime()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
+    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
@@ -78,27 +78,28 @@ struct ObservedInheritDateSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({bottom: 50, top: 50})
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `parent value: ${this.testData.b.toTimeString()}` : `parent value: ${this.testData.b.toTimeString()}`)
+      Text(`parent value: ${this.testData.b.toTimeString()}`)
         .id('changeUITimeTaken')
         .onClick(()=>{
-          this.isType = false
+          isType = false
           this.testData.b.setTime(this.testData.b.getTime() + 3 * 60 * 60 * 1000)
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
       Button('parent clink: 读@Observed的耗时')
         .id('getStateTimeTaken')
         .onClick(()=>{
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.testData.b
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
+          let value = this.testData.b
+          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent clink: 写@Observed的耗时')
         .id('setStateTimeTaken')
         .onClick(()=>{
-          this.isType = true
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.b.setTime(this.testData.b.getTime() + 10 * 60 * 60 * 1000)
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+          isType = true
+          let time: number = this.testData.b.getTime() + 10 * 60 * 60 * 1000
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
+          this.testData.b.setTime(time)
+          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
       ChildObservedInheritDateSample({testData: this.testData.b})
     }

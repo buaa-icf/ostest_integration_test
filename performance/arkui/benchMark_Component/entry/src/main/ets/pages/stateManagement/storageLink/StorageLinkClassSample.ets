@@ -20,26 +20,27 @@ import { classModel, ClassModel, classModel1, classModel2, classModel3 } from '.
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-AppStorage.setOrCreate('link', classModel.value);
+AppStorage.setOrCreate('link', classModel);
 
 @Component
 struct ChildStorageLinkClassSample {
   timeHelper: TimeHelper = new TimeHelper('StorageLinkClassSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @StorageLink('link') childClassLink: ClassModel = classModel;
+  @StorageLink('link') childClassLink: ClassModel = classModel3;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: ClassModel[] = [classModel, classModel1]
 
   aboutToAppear(): void {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassLink = classModel
+      this.childClassLink = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassLink
+      let tmp = this.childClassLink.value
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -59,7 +60,7 @@ struct ChildStorageLinkClassSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childClassLink
+          let tmp = this.childClassLink.value
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@StorageLink的耗时')

@@ -34,12 +34,12 @@ struct ChildStorageLinkStringArrSample {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringArrLink.push(index.toString())
+      this.childStringArrLink[index] = index.toString()
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringArrLink
+      let tmp = this.childStringArrLink[index]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -60,15 +60,16 @@ struct ChildStorageLinkStringArrSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childStringArrLink
+          let tmp = this.childStringArrLink[0]
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@StorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let index = this.childStringArrLink.length - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childStringArrLink.push('child: setStateTimeTaken')
+          this.childStringArrLink[index] = 'child: setStateTimeTaken'
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

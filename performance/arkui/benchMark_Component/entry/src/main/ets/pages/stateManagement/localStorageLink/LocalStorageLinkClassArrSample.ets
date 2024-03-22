@@ -20,11 +20,7 @@ import { classModel, ClassModel, classModel1, classModel2, classModel3 } from '.
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface localStorageLinkInterface {
-  link: ClassModel[]
-}
-
-const testData: localStorageLinkInterface = { link: [classModel, classModel, classModel1, classModel2,
+let testData: Record<string, ClassModel[]> = { 'link': [classModel, classModel, classModel1, classModel2,
   classModel3, classModel, classModel, classModel, classModel, classModel] };
 let storage = new LocalStorage(testData);
 
@@ -35,17 +31,18 @@ struct ChildLocalStorageLinkClassArrSample {
   @LocalStorageLink('link') childClassArrLink: ClassModel[] = [];
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: ClassModel[] = [classModel, classModel1]
 
   aboutToAppear(): void {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassArrLink.push(classModel)
+      this.childClassArrLink[index] = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassArrLink
+      let tmp = this.childClassArrLink[index].value
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -66,15 +63,16 @@ struct ChildLocalStorageLinkClassArrSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childClassArrLink
+          let tmp = this.childClassArrLink[0].value
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@LocalStorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let index = this.childClassArrLink.length - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childClassArrLink.push(classModel3)
+          this.childClassArrLink[index] = classModel3
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

@@ -24,53 +24,57 @@ import { StateUtils } from '../StateUtils';
 struct ChildWatchConsumeStringSample {
   timeHelper: TimeHelper = new TimeHelper('WatchConsumeStringSample');
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Consume @Watch('watchTest') testData: string
+  @Consume  @Watch('watchData') testData: string
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
+  stateLoop : boolean = false
+  uiWrite : boolean = false
+  buttonWrite : boolean = false
 
-  watchTest(): void {
+  watchData(propName: string): void {
+    if(this.stateLoop){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+      this.stateLoop = false
+    }
+    if(this.uiWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.UI_CHANGE, true))
+      this.uiWrite = false
+    }
+    if(this.buttonWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+      this.buttonWrite = false
+    }
   }
 
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+      if(index === ArrEntity.STATE_LOOP - 1){
+        this.stateLoop = true;
+      }
       this.testData = index.toString()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
-    Column({ space: 15 }) {
-      Text('ConsumeStringSample')
+    Column({space: 15}) {
+      Text('WatchConsumeStringSample')
         .fontSize('25')
         .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.testData}` : `child value: ${this.testData}`)
+        .margin({bottom: 50, top: 50})
+      Text(`child value: ${this.testData}`)
         .id('changeUITimeTaken')
-        .onClick(() => {
-          this.isType = false
-          this.testData = '你好世界'
+        .onClick(()=>{
+          this.uiWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
+          this.testData = '你好世界'
         })
-      Button('@Watch监听的读@Consume的耗时')
-        .id('getStateTimeTaken')
-        .onClick(() => {
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.testData
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
+      // 父组件的数据源的修改会同步给子组件
       Button('@Watch监听的写@Consume的耗时')
         .id('setStateTimeTaken')
-        .onClick(() => {
-          this.isType = true
+        .onClick(()=>{
+          this.buttonWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
           this.testData = '世界你好'
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }
@@ -80,9 +84,8 @@ struct ChildWatchConsumeStringSample {
 @Component
 struct WatchConsumeStringSample {
   @Provide testData: string = 'hello, world';
-
   build() {
-    Column({ space: 15 }) {
+    Column({space: 15}) {
       ChildWatchConsumeStringSample()
       Text(`parent value: ${this.testData}`)
     }

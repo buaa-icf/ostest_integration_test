@@ -21,62 +21,27 @@ struct StoragePropHome {
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        Text('StoragePropBenchmark')
-          .padding('10vp')
+        Text('StoragePropHome')
+          .padding('15vp')
           .width('100%')
           .fontSize('25fp')
           .textAlign(TextAlign.Center)
 
-        CommonButton({
-          buttonName: 'StoragePropBooleanArrSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropBooleanArrSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropBooleanSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropBooleanSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropClassArrSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropClassArrSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropClassSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropClassSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropEnumArrSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropEnumArrSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropEnumSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropEnumSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropNumberArrSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropNumberArrSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropNumberSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropNumberSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropObjectArrSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropObjectArrSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropObjectSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropObjectSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropStringArrSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropStringArrSample'
-        });
-        CommonButton({
-          buttonName: 'StoragePropStringSample',
-          buttonUrl: 'pages/stateManagement/storageProp/StoragePropStringSample'
-        });
+        CommonButton({buttonName:'StoragePropBooleanArrSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropBooleanArrSample'});
+        CommonButton({buttonName:'StoragePropBooleanSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropBooleanSample'});
+        CommonButton({buttonName:'StoragePropClassArrSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropClassArrSample'});
+        CommonButton({buttonName:'StoragePropClassSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropClassSample'});
+        CommonButton({buttonName:'StoragePropEnumArrSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropEnumArrSample'});
+        CommonButton({buttonName:'StoragePropEnumSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropEnumSample'});
+        CommonButton({buttonName:'StoragePropNumberArrSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropNumberArrSample'});
+        CommonButton({buttonName:'StoragePropNumberSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropNumberSample'});
+        CommonButton({buttonName:'StoragePropObjectArrSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropObjectArrSample'});
+        CommonButton({buttonName:'StoragePropObjectSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropObjectSample'});
+        CommonButton({buttonName:'StoragePropStringArrSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropStringArrSample'});
+        CommonButton({buttonName:'StoragePropStringSample',buttonUrl:'pages/stateManagement/storageProp/StoragePropStringSample'});
+
       }
-      .padding('10vp')
+      .padding('5vp')
       .width('100%')
     }.margin({ bottom: 60 })
     .width('100%')

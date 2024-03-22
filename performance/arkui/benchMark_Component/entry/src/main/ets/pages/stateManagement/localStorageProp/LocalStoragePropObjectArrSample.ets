@@ -14,19 +14,13 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
+
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface PropTypeOptions {
-  PropA: Object[]
-}
-
-let abc: PropTypeOptions = {
-  PropA: ['吴辉', '予升', 3, '晟松', 1, '晓卿', '万葵', 5, '轩宇', '少辰']
-};
-
-let storage = new LocalStorage(abc);
+let testData: Record<string, Object[]> = { 'PropA': ['吴辉', '予升', 3, '晟松', 1, '晓卿', '万葵', 5, '轩宇', '少辰'] };
+let storage = new LocalStorage(testData);
 
 @Component
 struct ChildLocalStoragePropObjectArrSample {
@@ -37,45 +31,45 @@ struct ChildLocalStoragePropObjectArrSample {
   isType: boolean = true
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childObjectArrProp.push(index)
+      this.childObjectArrProp[index] = index
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childObjectArrProp
+      let tmp = this.childObjectArrProp[index]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildLocalStoragePropObjectArrSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childObjectArrProp[this.childObjectArrProp.length - 1].toString()}` :
+      Text(StateUtils.isType(this.isType, this.timeHelper) ?
+        `child value: ${this.childObjectArrProp[this.childObjectArrProp.length - 1].toString()}` :
         `child value: ${this.childObjectArrProp[this.childObjectArrProp.length - 1].toString()}`)
         .id('changeUITimeTaken')
         .onClick(() => {
+          let index = this.childObjectArrProp.length - 1
           this.isType = false
-          this.childObjectArrProp.push['chlid changeUITimeTaken']
+          this.childObjectArrProp[index] = 'child: changeUITimeTaken'
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@LocalStorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@LocalStorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childObjectArrProp
+          let tmp = this.childObjectArrProp[0]
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@LocalStorageProp的耗时')
+      Button('child Prop: 写@LocalStorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childObjectArrProp.push('child: setStateTimeTaken')
+          this.childObjectArrProp[0] = 'child: setStateTimeTaken'
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -95,7 +89,7 @@ struct LocalStoragePropObjectArrSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentObjectArrProp[this.parentObjectArrProp.length - 1].toString()}`)
-      // 父组件的数据源的修改会同步给子组件
+      // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {

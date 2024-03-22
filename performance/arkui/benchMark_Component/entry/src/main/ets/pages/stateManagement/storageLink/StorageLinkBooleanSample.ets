@@ -28,17 +28,18 @@ struct ChildStorageLinkBooleanSample {
   @StorageLink('link') childBooleanLink: boolean = false;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: boolean[] = [false, true]
 
   aboutToAppear(): void {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanLink = !this.childBooleanLink
+      this.childBooleanLink = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanLink
+      let tmp = this.childBooleanLink
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -59,15 +60,16 @@ struct ChildStorageLinkBooleanSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childBooleanLink
+          let tmp = this.childBooleanLink
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@StorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = !this.childBooleanLink
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childBooleanLink = !this.childBooleanLink
+          this.childBooleanLink = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

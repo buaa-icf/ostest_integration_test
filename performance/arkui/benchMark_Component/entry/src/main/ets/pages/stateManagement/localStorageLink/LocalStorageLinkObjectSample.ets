@@ -19,11 +19,7 @@ import { TimeHelper } from '../../../util/TimeHelper';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface localStorageLinkInterface {
-  link: Object
-}
-
-const testData: localStorageLinkInterface = { link: 'default' };
+let testData: Record<string, Object> = { 'link': 'default' };
 let storage = new LocalStorage(testData);
 
 @Component
@@ -43,7 +39,7 @@ struct ChildLocalStorageLinkObjectSample {
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childObjectLink
+      let tmp = this.childObjectLink
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -63,7 +59,7 @@ struct ChildLocalStorageLinkObjectSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childObjectLink
+          let tmp = this.childObjectLink
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@LocalStorageLink的耗时')

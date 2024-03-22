@@ -16,61 +16,63 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 
 import { TimeHelper } from '../../../util/TimeHelper'
+import { classModel, ClassModel, classModel1, classModel2, classModel3 } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
-import { ClassModel, classModel, classModel1, classModel2, classModel3 } from '../ClassModel';
 
-AppStorage.setOrCreate('PropA', [classModel, classModel, classModel1, classModel2, classModel3, classModel,
-  classModel, classModel, classModel, classModel]);
+const testData: ClassModel[] = [classModel, classModel, classModel1, classModel2, classModel3, classModel,
+  classModel, classModel, classModel, classModel]
+AppStorage.setOrCreate('PropA', testData);
 
 @Component
 struct ChildStoragePropClassArrSample {
-  timeHelper: TimeHelper = new TimeHelper('StoragePropClassArrSample');
+  timeHelper: TimeHelper = new TimeHelper('StoragePropClassArrSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @StorageProp('PropA') childClassArr: ClassModel[] = [];
+  @StorageProp('PropA') childClassArrProp: ClassModel[] = [];
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: ClassModel[] = [classModel, classModel1]
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassArr.push(classModel1)
+      this.childClassArrProp[index] = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassArr
+      let tmp = this.childClassArrProp[index].value
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildStoragePropClassArrSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childClassArr[this.childClassArr.length - 1].value}` :
-        `child value: ${this.childClassArr[this.childClassArr.length - 1].value}`)
+      Text(StateUtils.isType(this.isType, this.timeHelper) ?
+        `child value: ${this.childClassArrProp[this.childClassArrProp.length - 1].value}` :
+        `child value: ${this.childClassArrProp[this.childClassArrProp.length - 1].value}`)
         .id('changeUITimeTaken')
         .onClick(() => {
+          let index = this.childClassArrProp.length - 1
           this.isType = false
-          this.childClassArr.push(classModel2)
+          this.childClassArrProp[index] = classModel2
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@StorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@StorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childClassArr
+          let tmp = this.childClassArrProp[0].value
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@StorageProp的耗时')
+      Button('child Prop: 写@StorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childClassArr.push(classModel3)
+          this.childClassArrProp[0] = classModel3
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -81,7 +83,7 @@ struct ChildStoragePropClassArrSample {
 @Entry
 @Component
 struct StoragePropClassArrSample {
-  @StorageProp('PropA') parentClassArr: ClassModel[] = [];
+  @StorageProp('PropA') parentClassArrProp: ClassModel[] = [];
 
   build() {
     Column({ space: 15 }) {
@@ -89,13 +91,14 @@ struct StoragePropClassArrSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.parentClassArr[this.parentClassArr.length - 1].value}`)
+      Text(`parent value: ${this.parentClassArrProp[this.parentClassArrProp.length - 1].value}`)
       // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {
-          this.parentClassArr.push(classModel1)
+          this.parentClassArrProp.push(classModel1)
         })
+
       ChildStoragePropClassArrSample()
     }
   }

@@ -19,11 +19,7 @@ import { TimeHelper } from '../../../util/TimeHelper';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface localStorageLinkInterface {
-  link: number
-}
-
-const testData: localStorageLinkInterface = { link: 0 };
+let testData: Record<string, number> = { 'link': 0 };
 let storage = new LocalStorage(testData);
 
 @Component
@@ -38,12 +34,12 @@ struct ChildLocalStorageLinkNumberSample {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childNumberLink += index
+      this.childNumberLink = index
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childNumberLink
+      let tmp = this.childNumberLink
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -63,15 +59,16 @@ struct ChildLocalStorageLinkNumberSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childNumberLink
+          let tmp = this.childNumberLink
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@LocalStorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = this.childNumberLink - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childNumberLink -= 1
+          this.childNumberLink = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

@@ -23,63 +23,64 @@ AppStorage.setOrCreate('PropA', true);
 
 @Component
 struct ChildStoragePropBooleanSample {
-  timeHelper: TimeHelper = new TimeHelper('StoragePropBooleanSample');
+  timeHelper: TimeHelper = new TimeHelper('StoragePropBooleanSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @StorageProp('PropA') childBoolean: boolean = false;
+  @StorageProp('PropA') childBooleanProp: boolean = false;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: boolean[] = [false, true]
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBoolean = !this.childBoolean
+      this.childBooleanProp = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBoolean
+      let tmp = this.childBooleanProp
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildStoragePropBooleanSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(`child value: ${this.childBoolean.toString()}`)
-        .fontColor(StateUtils.isType(this.isType, this.timeHelper) ? this.childBoolean ? Color.Red : Color.Blue :
-          this.childBoolean ? Color.Black : Color.Green)
+      Text(`child value: ${this.childBooleanProp}`)
         .id('changeUITimeTaken')
+        .fontColor(StateUtils.isType(this.isType, this.timeHelper) ? this.childBooleanProp ? Color.Red : Color.Blue :
+          this.childBooleanProp ? Color.Black : Color.Green)
         .onClick(() => {
           this.isType = false
-          this.childBoolean = !this.childBoolean
+          this.childBooleanProp = !this.childBooleanProp
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@StorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@StorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childBoolean
+          let tmp = this.childBooleanProp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@StorageProp的耗时')
+      Button('child Prop: 写@StorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = !this.childBooleanProp
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childBoolean = !this.childBoolean
+          this.childBooleanProp = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }
 }
 
+
 @Entry
 @Component
 struct StoragePropBooleanSample {
-  @StorageProp('PropA') parentBoolean: boolean = false;
+  @StorageProp('PropA') parentBooleanProp: boolean = true;
 
   build() {
     Column({ space: 15 }) {
@@ -88,13 +89,14 @@ struct StoragePropBooleanSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`hello, world`)
-        .visibility(this.parentBoolean ? Visibility.Visible : Visibility.Hidden)
+        .visibility(this.parentBooleanProp ? Visibility.Visible : Visibility.Hidden)
       // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {
-          this.parentBoolean = !this.parentBoolean
+          this.parentBooleanProp = !this.parentBooleanProp
         })
+
       ChildStoragePropBooleanSample()
     }
   }

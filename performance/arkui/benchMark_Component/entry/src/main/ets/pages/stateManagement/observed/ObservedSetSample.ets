@@ -14,68 +14,38 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
+
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-const timeHelper: TimeHelper = new TimeHelper('ObjectLinkOrdinarySample');
+const timeHelper: TimeHelper = new TimeHelper('ObservedSetSample');
 let isType: boolean = true
 
 @Observed
-class ClassA {
-  public a: number;
-
-  constructor(a: number) {
-    this.a = a;
-  }
+export class ClassA<T> extends Set<T> {
 }
 
 @Observed
 class ClassB {
-  public b: ClassA;
+  public b: ClassA<number>;
 
-  constructor(b: ClassA) {
+  constructor(b: ClassA<number>) {
     this.b = b;
   }
 }
 
 @Component
-struct ChildObjectLinkOrdinarySample {
-  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @ObjectLink test: ClassA;
-  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-
-  aboutToAppear(): void {
-    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.test.a = index
-    }
-    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.test.a
-    }
-    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
-  }
+struct ChildObservedSetSample {
+  @ObjectLink testData: ClassA<number>
 
   build() {
-    Column({space: 15}) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.test.a}` : `child value: ${this.test.a}`)
-      Button('child clink: 读@ObjectLink的耗时')
-        .id('getStateTimeTaken')
-        .onClick(()=>{
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.test.a
-          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
-      Button('child clink: 写@ObjectLink的耗时')
-        .id('setStateTimeTaken')
-        .onClick(()=>{
-          isType = true
-          let value = this.test.a - 1
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.test.a = value
-          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+    Column({ space: 15 }) {
+      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${Array.from(this.testData.values()).toString()}` :
+        `child value: ${Array.from(this.testData.values()).toString()}`)
+      Button('child click')
+        .onClick(() => {
+          this.testData.add(1000)
         })
     }
   }
@@ -83,24 +53,55 @@ struct ChildObjectLinkOrdinarySample {
 
 @Entry
 @Component
-struct ObjectLinkOrdinarySample {
-  @State testData: ClassB = new ClassB(new ClassA(5))
+struct ObservedSetSample {
+  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @State testData: ClassB = new ClassB(new ClassA())
+  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+
+  aboutToAppear(): void {
+    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
+    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+      this.testData.b.add(index)
+    }
+    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+    this.testData.b.clear()
+    this.testData.b.add(500)
+    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
+    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+      let value = this.testData.b.values()
+    }
+    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
+  }
 
   build() {
-    Column({space: 15}) {
-      Text('ObjectLinkOrdinarySample')
+    Column({ space: 15 }) {
+      Text('ObservedSetSample')
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.testData.b.a}`)
-      Button('parent click')
+      Text(`parent value: ${Array.from(this.testData.b.values()).toString()}`)
         .id('changeUITimeTaken')
-        .onClick(()=>{
+        .onClick(() => {
           isType = false
-          this.testData.b.a += 1
+          this.testData.b.add(10000)
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      ChildObjectLinkOrdinarySample({test : this.testData.b})
+      Button('parent click: 读@Observed的耗时')
+        .id('getStateTimeTaken')
+        .onClick(() => {
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
+          let value = this.testData.b.values()
+          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
+        })
+      Button('parent click: 写@Observed的耗时')
+        .id('setStateTimeTaken')
+        .onClick(() => {
+          isType = true
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
+          this.testData.b.add(-1)
+          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+        })
+      ChildObservedSetSample({ testData: this.testData.b })
     }
   }
 }

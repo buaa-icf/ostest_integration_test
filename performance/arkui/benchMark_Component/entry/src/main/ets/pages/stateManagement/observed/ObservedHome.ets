@@ -27,9 +27,10 @@ struct ObservedHome {
           .fontSize('25fp')
           .textAlign(TextAlign.Center)
 
-        CommonButton({buttonName:'ObservedOrdinarySample',buttonUrl:'pages/stateManagement/observed/ObservedOrdinarySample'});
         CommonButton({buttonName:'ObservedInheritDateSample',buttonUrl:'pages/stateManagement/observed/ObservedInheritDateSample'});
         CommonButton({buttonName:'ObservedInheritArraySample',buttonUrl:'pages/stateManagement/observed/ObservedInheritArraySample'});
+        CommonButton({buttonName:'ObservedSetSample',buttonUrl:'pages/stateManagement/observed/ObservedSetSample'});
+        CommonButton({buttonName:'ObservedExtendsMapSample',buttonUrl:'pages/stateManagement/observed/ObservedExtendsMapSample'});
 
       }
       .padding('5vp')

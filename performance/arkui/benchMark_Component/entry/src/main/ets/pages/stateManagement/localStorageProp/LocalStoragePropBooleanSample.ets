@@ -14,79 +14,74 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
+
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface PropTypeOptions {
-  PropA: boolean
-}
-
-let abc: PropTypeOptions = {
-  PropA: false
-};
-
-let storage = new LocalStorage(abc);
+let testData: Record<string, boolean> = { 'PropA': true };
+let storage = new LocalStorage(testData)
 
 @Component
 struct ChildLocalStoragePropBooleanSample {
-  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropBooleanSample');
+  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropBooleanSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @LocalStorageProp('PropA') childBooleanProp: boolean = false;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: boolean[] = [false, true]
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanProp = !this.childBooleanProp
+      this.childBooleanProp = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanProp
+      let tmp = this.childBooleanProp
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildLocalStoragePropBooleanSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(`child value: ${this.childBooleanProp.toString()}`)
+      Text(`child value: ${this.childBooleanProp}`)
+        .id('changeUITimeTaken')
         .fontColor(StateUtils.isType(this.isType, this.timeHelper) ? this.childBooleanProp ? Color.Red : Color.Blue :
           this.childBooleanProp ? Color.Black : Color.Green)
-        .id('changeUITimeTaken')
         .onClick(() => {
           this.isType = false
           this.childBooleanProp = !this.childBooleanProp
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@LocalStorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@LocalStorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childBooleanProp
+          let tmp = this.childBooleanProp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@LocalStorageProp的耗时')
+      Button('child Prop: 写@LocalStorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = !this.childBooleanProp
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childBooleanProp = !this.childBooleanProp
+          this.childBooleanProp = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }
 }
 
+
 @Entry(storage)
 @Component
 struct LocalStoragePropBooleanSample {
-  @LocalStorageProp('PropA') parentBooleanProp: boolean = false;
+  @LocalStorageProp('PropA') parentBooleanProp: boolean = true;
 
   build() {
     Column({ space: 15 }) {
@@ -102,6 +97,7 @@ struct LocalStoragePropBooleanSample {
         .onClick(() => {
           this.parentBooleanProp = !this.parentBooleanProp
         })
+
       ChildLocalStoragePropBooleanSample()
     }
   }

@@ -19,11 +19,7 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface localStorageLinkInterface {
-  link: number[]
-}
-
-const testData: localStorageLinkInterface = { link: [14, 15, 16, 17, 18, 19, 20, 21, 22, 23] };
+let testData: Record<string, number[]> = { 'link': [14, 15, 16, 17, 18, 19, 20, 21, 22, 23] };
 let storage = new LocalStorage(testData);
 
 @Component
@@ -38,12 +34,12 @@ struct ChildLocalStorageLinkNumberArrSample {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childNumberArrLink.push(index)
+      this.childNumberArrLink[index] = index
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childNumberArrLink
+      let tmp = this.childNumberArrLink[index]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -64,15 +60,16 @@ struct ChildLocalStorageLinkNumberArrSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childNumberArrLink
+          let tmp = this.childNumberArrLink[0]
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@LocalStorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let index = this.childNumberArrLink.length - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childNumberArrLink.push(120000)
+          this.childNumberArrLink[index] = 120000
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
