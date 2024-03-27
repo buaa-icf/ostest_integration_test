@@ -13,15 +13,33 @@
  * limitations under the License.
  */
 
-import PublishTabs from '../view/Publish/PublishTabs'
-
-@Entry
+/**
+ * Trending topics
+ */
 @Component
-struct PublishPage {
+export default struct TrendingTopics {
+  @Prop trendingTopicList: string[]
+
   build() {
-    Column() {
-      /* Tabs and tab contents */
-      PublishTabs()
-    }
+    Row() {
+      Text(this.trendingTopicList[0])
+        .width('45%')
+        .fontSize(14)
+        .textOverflow({ overflow: TextOverflow.Ellipsis })
+        .maxLines(1)
+
+      Divider()
+        .width('10%')
+        .height(14)
+        .vertical(true)
+        .color($r('app.color.light_border'))
+        .strokeWidth(1)
+
+      Text(this.trendingTopicList[1])
+        .width('45%')
+        .fontSize(14)
+        .textOverflow({ overflow: TextOverflow.Ellipsis })
+        .maxLines(1)
+    }.width('100%')
   }
 }

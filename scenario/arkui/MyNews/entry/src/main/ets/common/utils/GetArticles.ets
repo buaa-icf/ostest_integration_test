@@ -13,12 +13,21 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
-}
+import { getRandomShortStr } from './RandomResource'
+import { PureTextNews } from '../../../ets/viewmodel/Article'
 
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
+export const getPureTextNewsList = async (): Promise<Array<PureTextNews>> => {
+  let pureTextNewsList: PureTextNews[] = []
+  for (let i = 0; i < 5; ++i) {
+    const pureTextNews = new PureTextNews(
+      getRandomShortStr(),
+      getRandomShortStr(),
+      Date.now(),
+      Math.floor(Math.random() * 1000),
+      Math.floor(Math.random() * 1000),
+      Math.floor(Math.random() * 1000)
+    )
+    pureTextNewsList.push(pureTextNews)
+  }
+  return pureTextNewsList
 }

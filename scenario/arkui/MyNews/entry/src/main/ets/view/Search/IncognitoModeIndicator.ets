@@ -13,15 +13,28 @@
  * limitations under the License.
  */
 
-import PublishTabs from '../view/Publish/PublishTabs'
-
-@Entry
+/**
+ * incognito mode indicator
+ */
 @Component
-struct PublishPage {
+export default struct IncognitoModeIndicator {
   build() {
-    Column() {
-      /* Tabs and tab contents */
-      PublishTabs()
+    Column({ space: 8 }) {
+      Row({ space: 3 }) {
+        Image($r('app.media.ic_gallery_privacy_statement'))
+          .size({ width: 16, height: 16 })
+        Text($r('app.string.search_incognitoModeIndicator_title'))
+          .fontSize(15)
+      }
+      .width('100%')
+      .justifyContent(FlexAlign.Center)
+
+      Text($r('app.string.search_incognitoModeIndicator_text'))
+        .width('84%')
+        .textAlign(TextAlign.Center)
+        .fontSize(10)
+        .fontColor($r('app.color.light_fg_shallow'))
     }
+    .width('100%')
   }
 }

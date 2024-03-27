@@ -13,12 +13,15 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
+export interface UserAccountClass {
+  account: string
+  pwd: string
 }
 
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
-}
+export const USER_ACCOUNT_DATA: UserAccountClass[] = [{
+  account: '12345678910',
+  pwd: 'Password'
+}, {
+  account: '1',
+  pwd: '1'
+}]

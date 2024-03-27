@@ -13,12 +13,22 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
-}
+export class PureTextNews {
+  title: string
+  // TODO: id: string
+  author: string // TODO: author: User (username, id, avatar, ...)
+  date: number // UTC timestamp
+  // TODO: corresponding user lists
+  likedCnt: number
+  cmtCnt: number
+  fwdCnt: number
 
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
+  constructor(title: string, author: string, date: number, likedCnt: number, cmtCnt: number, fwdCnt: number) {
+    this.title = title;
+    this.author = author;
+    this.date = date;
+    this.likedCnt = likedCnt;
+    this.cmtCnt = cmtCnt;
+    this.fwdCnt = fwdCnt;
+  }
 }

@@ -13,12 +13,25 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
-}
-
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
-}
+export const IMG_POOL: Resource[] = [
+  $r('app.media.fig_1'),
+  $r('app.media.fig_2'),
+  $r('app.media.fig_3'),
+  $r('app.media.fig_4'),
+  $r('app.media.fig_5'),
+  $r('app.media.fig_6'),
+  $r('app.media.fig_7'),
+  $r('app.media.fig_8'),
+  $r('app.media.fig_9'),
+  $r('app.media.fig_10'),
+  $r('app.media.fig_11'),
+  $r('app.media.fig_12'),
+  $r('app.media.fig_13'),
+  $r('app.media.fig_14'),
+  $r('app.media.fig_15'),
+  $r('app.media.fig_16'),
+  $r('app.media.fig_17'),
+  $r('app.media.fig_18'),
+  $r('app.media.fig_19'),
+  $r('app.media.fig_20')
+]

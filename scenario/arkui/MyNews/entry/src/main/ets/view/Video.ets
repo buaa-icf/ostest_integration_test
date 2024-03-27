@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
-}
-
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
+@Component
+export struct VideoTabContent {
+  build() {
+    Column() {
+      Text('视频页面内容')
+    }
+  }
 }

@@ -13,12 +13,23 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
-}
+import UserInfoArea from './UserInfoArea'
+import FuncArea from './FuncArea'
+import AdsSwiper from './AdsSwiper'
 
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
+@Component
+export struct ProfileTabContent {
+  build() {
+    Column({ space: 10 }) {
+      /* Top user info area */
+      UserInfoArea()
+
+      /* Functional buttons */
+      FuncArea()
+
+      /* Ads */
+      AdsSwiper()
+    }
+    .height('100%')
+  }
 }

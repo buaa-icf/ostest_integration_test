@@ -13,12 +13,21 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
+import { IMG_POOL } from '../../../data/ImgPool'
+import { SHORT_TEXT_POOL } from '../../../data/TextPool'
+
+/**
+ * Return a random image from the pool
+ */
+export const getRandomImg = (): Resource => {
+  const idx = Math.floor(Math.random() * IMG_POOL.length)
+  return IMG_POOL[idx]
 }
 
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
+/**
+ * Return a random string from the pool
+ */
+export const getRandomShortStr = (): string => {
+  const idx = Math.floor(Math.random() * SHORT_TEXT_POOL.length)
+  return SHORT_TEXT_POOL[idx]
 }

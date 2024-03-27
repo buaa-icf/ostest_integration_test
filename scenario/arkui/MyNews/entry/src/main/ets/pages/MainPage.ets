@@ -12,13 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { HomePage } from '../view/HomePage';
-import { MallPageBuilder } from '../view/MallPage';
-import { ProfilePage } from '../view/ProfilePage';
-import { TaskPageBuilder } from '../view/TaskPage';
-import { VideoPageBuilder } from '../view/VideoPage';
-import router from '@ohos.router';
-import { MainPageParams } from '../viewmodel/RouterParams';
+
+import router from '@ohos.router'
+import HomeTabContent from '../view/Home/Home'
+import MallTabContent from '../view/Mall/Mall'
+import { ProfileTabContent } from '../view/Profile/Profile'
+import { TaskTabContent } from '../view/Task'
+import { VideoTabContent } from '../view/Video'
+import { MainPageParams } from '../viewmodel/RouterParams'
 
 /**
  * Common invisible button style
@@ -31,51 +32,10 @@ function commonBtnStyle(handler?: (event: ClickEvent) => void) {
   .onClick(handler)
 }
 
-/**
- * Button list in the bottom navigation bar
- */
-interface NavItem {
-  title: Resource
-  normalIcon: Resource // Not selected: outline icons
-  selectedIcon: Resource // Selected: filled icons
-  no: string
-  label?: string // Labels on the top right corner
-}
-
-const navItemList: NavItem[] = [{
-  title: $r('app.string.main_nav_home'),
-  normalIcon: $r('app.media.ic_public_home'),
-  selectedIcon: $r('app.media.ic_public_home_filled'),
-  no: '01'
-}, {
-  title: $r('app.string.main_nav_video'),
-  normalIcon: $r('app.media.ic_public_video'),
-  selectedIcon: $r('app.media.ic_public_video_filled'),
-  no: '02'
-}, {
-  title: $r('app.string.main_nav_task'),
-  normalIcon: $r('app.media.ic_public_calendar'),
-  selectedIcon: $r('app.media.ic_public_calendar_filled'),
-  no: '03',
-  label: '开宝箱'
-}, {
-  title: $r('app.string.main_nav_mall'),
-  normalIcon: $r('app.media.ic_public_appstore'),
-  selectedIcon: $r('app.media.ic_public_appstore_filled'),
-  no: '04'
-}, {
-  title: (AppStorage.get('isLoggedIn')
-    ? $r('app.string.main_nav_profile_loggedIn')
-    : $r('app.string.main_nav_profile_notLoggedIn')),
-  normalIcon: $r('app.media.ic_public_contacts'),
-  selectedIcon: $r('app.media.ic_public_contacts_filled'),
-  no: '05'
-}]
-
 @Entry
 @Component
 struct MainPage {
-  @State curNavIdx: number = 0
+  @State curNavIdx: number = 0 // Default: Home
   private tabsController: TabsController = new TabsController()
 
   aboutToAppear() {
@@ -88,36 +48,58 @@ struct MainPage {
   }
 
   build() {
-    Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
-      ForEach(navItemList, (item: NavItem, itemIdx: number) => {
-        TabContent() {
-          if (itemIdx === 1) {
-            VideoPageBuilder()
-          }
-          else if (itemIdx === 2) {
-            TaskPageBuilder()
-          }
-          else if (itemIdx === 3) {
-            MallPageBuilder()
-          }
-          else if (itemIdx === 4) {
-            ProfilePage()
-          }
-          else {
-            HomePage() // Default
-          }
-        }
-        .id('main_tabs_tabContent_01')
-        .width('100%')
-        .height('100%')
-        .align(Alignment.Top)
-        .backgroundColor($r('app.color.light_bg'))
-        .tabBar(this.tabBuilder(item.title, itemIdx, item.normalIcon, item.selectedIcon, item.no, item.label))
-      })
+    Tabs({ index: this.curNavIdx, barPosition: BarPosition.End, controller: this.tabsController }) {
+      /* Home */
+      TabContent() {
+        HomeTabContent()
+      }.tabBar(this.tabBuilder(
+        0,
+        $r('app.string.main_nav_home'),
+        $r('app.media.ic_public_home'),
+        $r('app.media.ic_public_home_filled')
+      ))
+
+      /* Video */
+      TabContent() {
+        VideoTabContent()
+      }.tabBar(this.tabBuilder(
+        1,
+        $r('app.string.main_nav_video'),
+        $r('app.media.ic_public_video'),
+        $r('app.media.ic_public_video_filled')
+      ))
+
+      /* Task */
+      TabContent() {
+        TaskTabContent()
+      }.tabBar(this.tabBuilder(
+        2,
+        $r('app.string.main_nav_task'),
+        $r('app.media.ic_public_calendar'),
+        $r('app.media.ic_public_calendar_filled')
+      ))
+
+      /* Mall */
+      TabContent() {
+        MallTabContent()
+      }.tabBar(this.tabBuilder(
+        3,
+        $r('app.string.main_nav_mall'),
+        $r('app.media.ic_public_appstore'),
+        $r('app.media.ic_public_appstore_filled')
+      ))
+
+      /* Profile */
+      TabContent() {
+        ProfileTabContent()
+      }.tabBar(this.tabBuilder(
+        4,
+        (AppStorage.get('isLoggedIn') ? $r('app.string.main_nav_profile_loggedIn') : $r('app.string.main_nav_profile_notLoggedIn')),
+        $r('app.media.ic_public_contacts'),
+        $r('app.media.ic_public_contacts_filled'),
+        (AppStorage.get('isLoggedIn') ? undefined : $r('app.string.main_nav_profile_label_login'))
+      ))
     }
-    .id('main_tabs_01')
-    .width('100%')
-    .height('100%')
     .barHeight(40)
     .scrollable(false)
     .animationDuration(0)
@@ -128,21 +110,18 @@ struct MainPage {
    * Buttons in the bottom navigation bar (icon + title)
    */
   @Builder
-  tabBuilder(title: Resource, targetIdx: number, normalIcon: Resource, selectedIcon: Resource, no: string, label: string) {
+  tabBuilder(targetIdx: number, text: Resource, normalIcon: Resource, selectedIcon: Resource, label?: Resource | string) {
     Button() {
-      Stack({ alignContent: Alignment.TopEnd }) {
+      Stack({ alignContent: Alignment.Top }) {
         Column() {
           Image(this.curNavIdx === targetIdx ? selectedIcon : normalIcon)
-            .id(`main_tabs_button_image_${no}`)
             .size({ width: 20, height: 20 })
             .fillColor(this.curNavIdx === targetIdx ? $r('app.color.primary') : $r('app.color.light_fg'))
-          Text(title)
-            .id(`main_tabs_button_text_${no}`)
+          Text(text)
             .fontSize(8)
             .fontColor(this.curNavIdx === targetIdx ? $r('app.color.primary') : $r('app.color.light_fg'))
         }
         .width('100%')
-        .height('100%')
         .justifyContent(FlexAlign.Center)
 
         /* The label on the top right corner */
@@ -152,15 +131,14 @@ struct MainPage {
             .backgroundColor($r('app.color.primary'))
             .fontColor($r('app.color.primary_fg'))
             .fontSize(8)
-            .padding(2)
-            .margin({ top: 2 })
+            .padding({ left: 4, right: 4, top: 2, bottom: 2 })
+            .margin({ left: 30 })
         }
       }
     }
-    .id(`main_tabs_button_${no}`)
     .commonBtnStyle(() => {
-      /* Profile */
-      if (targetIdx === 4 && !AppStorage.get('isLoggedIn')) {
+      /* Task, Mall and Profile */
+      if ((targetIdx === 2 || targetIdx === 3 || targetIdx === 4) && !AppStorage.get('isLoggedIn')) {
         router.pushUrl({ url: 'pages/LoginPage' })
       }
       /* Others */

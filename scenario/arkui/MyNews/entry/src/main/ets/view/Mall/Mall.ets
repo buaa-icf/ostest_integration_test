@@ -13,12 +13,24 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
-}
+import GoodsList from './GoodsList'
+import TopBar from './TopBar'
 
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
+/**
+ * Content of `MallTab`
+ */
+@Component
+export default struct MallTabContent {
+  build() {
+    Column() {
+      /* Top bar */
+      TopBar()
+
+      /* Goods list */
+      GoodsList()
+    }
+    .height('100%')
+    .padding({ left: 8, right: 8 })
+    .backgroundColor($r('app.color.light_border'))
+  }
 }

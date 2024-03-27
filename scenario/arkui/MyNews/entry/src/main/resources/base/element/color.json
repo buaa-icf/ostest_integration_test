@@ -35,6 +35,10 @@
     {
       "name": "main_tab_bg",
       "value": "#F8F8F8"
+    },
+    {
+      "name": "publish_tab_bg",
+      "value": "#000000"
     }
   ]
 }

@@ -37,6 +37,158 @@
       "value": "未登录"
     },
     {
+      "name": "main_nav_profile_label_login",
+      "value": "登录"
+    },
+    {
+      "name": "login_title",
+      "value": "登录后，头条更懂你内容更有趣"
+    },
+    {
+      "name": "login_account_placeholder",
+      "value": "手机号/邮箱"
+    },
+    {
+      "name": "login_pwd_placeholder",
+      "value": "密码"
+    },
+    {
+      "name": "login_pwd_forgot",
+      "value": "找回密码"
+    },
+    {
+      "name": "login_btn",
+      "value": "登录"
+    },
+    {
+      "name": "login_agreement_reminder",
+      "value": "请先勾选，同意后登录"
+    },
+    {
+      "name": "login_agreement_part1",
+      "value": "已阅读并同意 "
+    },
+    {
+      "name": "login_agreement_part2",
+      "value": "用户协议 "
+    },
+    {
+      "name": "login_agreement_part3",
+      "value": "和 "
+    },
+    {
+      "name": "login_agreement_part4",
+      "value": "账号信息处理规则"
+    },
+    {
+      "name": "login_bottomArea_otherMethods",
+      "value": "其他登录方式"
+    },
+    {
+      "name": "login_bottomArea_problems",
+      "value": "遇到问题"
+    },
+    {
+      "name": "login_otherMethods_phone",
+      "value": "手机登录"
+    },
+    {
+      "name": "login_otherMethods_WeChat",
+      "value": "微信登录"
+    },
+    {
+      "name": "login_otherMethods_QQ",
+      "value": "QQ 登录"
+    },
+    {
+      "name": "login_otherMethods_pwd",
+      "value": "密码登录"
+    },
+    {
+      "name": "login_otherMethods_cancel",
+      "value": "取消"
+    },
+    {
+      "name": "login_failure",
+      "value": "账号和密码不匹配，请重新输入"
+    },
+    {
+      "name": "login_failure_viaVerificationCode",
+      "value": "验证码登录"
+    },
+    {
+      "name": "login_failure_retry",
+      "value": "重新输入"
+    },
+    {
+      "name": "publish_tab_inspiration",
+      "value": "灵感"
+    },
+    {
+      "name": "publish_tab_article",
+      "value": "文章"
+    },
+    {
+      "name": "publish_tab_microNews",
+      "value": "微头条"
+    },
+    {
+      "name": "publish_tab_template",
+      "value": "模板"
+    },
+    {
+      "name": "publish_tab_video",
+      "value": "视频"
+    },
+    {
+      "name": "publish_tab_live",
+      "value": "直播"
+    },
+    {
+      "name": "publish_topBtns_cancel",
+      "value": "取消"
+    },
+    {
+      "name": "publish_topBtns_preview",
+      "value": "预览"
+    },
+    {
+      "name": "publish_topBtns_publish",
+      "value": "发布"
+    },
+    {
+      "name": "publish_input_placeholder",
+      "value": "说点什么"
+    },
+    {
+      "name": "search_topBar_search",
+      "value": "搜索"
+    },
+    {
+      "name": "search_bottomBar_incognitoMode",
+      "value": "无痕搜索模式"
+    },
+    {
+      "name": "search_bottomBar_incognitoModeOnMsg",
+      "value": "已开启无痕搜索模式"
+    },
+    {
+      "name": "search_bottomBar_incognitoModeOffMsg",
+      "value": "已关闭无痕搜索模式"
+    },
+    {
+      "name": "search_incognitoModeIndicator_title",
+      "value": "你已进入无痕浏览模式"
+    },
+    {
+      "name": "search_incognitoModeIndicator_text",
+      "value": "在无痕模式下，搜索及浏览历史不会被记录，推荐词不涉及信息收集"
+    },
+    {
+      "name": "home_topBar_publish",
+      "value": "发布"
+    },
+    {
       "name": "home_tab_following",
       "value": "关注"
     },
@@ -45,11 +197,7 @@
       "value": "推荐"
     },
     {
-      "name": "home_tab_live",
-      "value": "直播"
-    },
-    {
-      "name": "home_tab_trending",
+      "name": "home_tab_hotBoard",
       "value": "热榜"
     },
     {
@@ -71,6 +219,22 @@
     {
       "name": "home_tab_image",
       "value": "图片"
+    },
+    {
+      "name": "home_tab_entertainment",
+      "value": "娱乐"
+    },
+    {
+      "name": "home_tab_technology",
+      "value": "科技"
+    },
+    {
+      "name": "home_tab_car",
+      "value": "汽车"
+    },
+    {
+      "name": "mall_tab_search",
+      "value": "搜索"
     },
     {
       "name": "profile_menu_publish",
@@ -139,6 +303,10 @@
     {
       "name": "profile_funcArea_all",
       "value": "全部"
+    },
+    {
+      "name": "article_cmtCnt",
+      "value": "评论"
     }
   ]
 }

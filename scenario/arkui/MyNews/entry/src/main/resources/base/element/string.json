@@ -37,6 +37,158 @@
       "value": "Login"
     },
     {
+      "name": "main_nav_profile_label_login",
+      "value": "Login"
+    },
+    {
+      "name": "login_title",
+      "value": "Login for more personalized content"
+    },
+    {
+      "name": "login_account_placeholder",
+      "value": "Phone number/email"
+    },
+    {
+      "name": "login_pwd_placeholder",
+      "value": "Password"
+    },
+    {
+      "name": "login_pwd_forgot",
+      "value": "Forgot"
+    },
+    {
+      "name": "login_btn",
+      "value": "Login"
+    },
+    {
+      "name": "login_agreement_reminder",
+      "value": "Please check the terms of the agreement first"
+    },
+    {
+      "name": "login_agreement_part1",
+      "value": "I have read and agree to "
+    },
+    {
+      "name": "login_agreement_part2",
+      "value": "The User Agreement "
+    },
+    {
+      "name": "login_agreement_part3",
+      "value": "and "
+    },
+    {
+      "name": "login_agreement_part4",
+      "value": "The Account Information Processing Rules"
+    },
+    {
+      "name": "login_bottomArea_otherMethods",
+      "value": "Other login methods"
+    },
+    {
+      "name": "login_bottomArea_problems",
+      "value": "Problems"
+    },
+    {
+      "name": "login_otherMethods_phone",
+      "value": "Via phone number"
+    },
+    {
+      "name": "login_otherMethods_WeChat",
+      "value": "Via WeChat"
+    },
+    {
+      "name": "login_otherMethods_QQ",
+      "value": "Via QQ"
+    },
+    {
+      "name": "login_otherMethods_pwd",
+      "value": "Via password"
+    },
+    {
+      "name": "login_otherMethods_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "login_failure",
+      "value": "Incorrect account or password, please try again"
+    },
+    {
+      "name": "login_failure_viaVerificationCode",
+      "value": "Via verification code"
+    },
+    {
+      "name": "login_failure_retry",
+      "value": "Retry"
+    },
+    {
+      "name": "publish_tab_inspiration",
+      "value": "Inspiration"
+    },
+    {
+      "name": "publish_tab_article",
+      "value": "Article"
+    },
+    {
+      "name": "publish_tab_microNews",
+      "value": "Micro News"
+    },
+    {
+      "name": "publish_tab_template",
+      "value": "Template"
+    },
+    {
+      "name": "publish_tab_video",
+      "value": "Video"
+    },
+    {
+      "name": "publish_tab_live",
+      "value": "Live"
+    },
+    {
+      "name": "publish_topBtns_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "publish_topBtns_preview",
+      "value": "Preview"
+    },
+    {
+      "name": "publish_topBtns_publish",
+      "value": "Publish"
+    },
+    {
+      "name": "publish_input_placeholder",
+      "value": "Write something"
+    },
+    {
+      "name": "search_topBar_search",
+      "value": "Search"
+    },
+    {
+      "name": "search_bottomBar_incognitoMode",
+      "value": "Incognito mode"
+    },
+    {
+      "name": "search_bottomBar_incognitoModeOnMsg",
+      "value": "incognito mode is on"
+    },
+    {
+      "name": "search_bottomBar_incognitoModeOffMsg",
+      "value": "Incognito mode is off"
+    },
+    {
+      "name": "search_incognitoModeIndicator_title",
+      "value": "You have entered incognito mode"
+    },
+    {
+      "name": "search_incognitoModeIndicator_text",
+      "value": "In incognito mode, search and browsing history will not be recorded, and recommended terms do not involve information collection"
+    },
+    {
+      "name": "home_topBar_publish",
+      "value": "Publish"
+    },
+    {
       "name": "home_tab_following",
       "value": "Following"
     },
@@ -45,12 +197,8 @@
       "value": "Recommendation"
     },
     {
-      "name": "home_tab_live",
-      "value": "Live"
-    },
-    {
-      "name": "home_tab_trending",
-      "value": "Trending"
+      "name": "home_tab_hotBoard",
+      "value": "Hot Board"
     },
     {
       "name": "home_tab_discovery",
@@ -71,6 +219,22 @@
     {
       "name": "home_tab_image",
       "value": "Image"
+    },
+    {
+      "name": "home_tab_entertainment",
+      "value": "Entertainment"
+    },
+    {
+      "name": "home_tab_technology",
+      "value": "Technology"
+    },
+    {
+      "name": "home_tab_car",
+      "value": "Car"
+    },
+    {
+      "name": "mall_tab_search",
+      "value": "Search"
     },
     {
       "name": "profile_menu_publish",
@@ -139,6 +303,10 @@
     {
       "name": "profile_funcArea_all",
       "value": "All"
+    },
+    {
+      "name": "article_cmtCnt",
+      "value": "Comments"
     }
   ]
 }

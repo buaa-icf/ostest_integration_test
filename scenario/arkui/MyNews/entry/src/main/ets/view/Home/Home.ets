@@ -13,12 +13,23 @@
  * limitations under the License.
  */
 
-/* LoginPage -> MainPage: If the login process is not finished, the tab in MainPage won't be switched */
-export interface MainPageParams {
-  isLoggedIn?: boolean
-}
+import TopBar from './TopBar'
+import HomeTabs from './HomeTabs'
 
-/* MainPage -> SearchPage: The trending topics in SearchPage should be consistent with those in the MainPage search box */
-export interface SearchPageParams {
-  curTrendingTopicList?: string[]
+/**
+ * Content of `Home` page
+ */
+@Component
+export default struct HomeTabContent {
+  @State curTabIdx: number = 1
+
+  build() {
+    Column() {
+      /* Top bar */
+      TopBar()
+
+      /* Tabs and tab contents */
+      HomeTabs()
+    }
+  }
 }
