@@ -19,58 +19,54 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-AppStorage.setOrCreate('PropA', 'create app storage');
-
-
+AppStorage.setOrCreate('PropA', 'default');
 
 @Component
 struct ChildStoragePropObjectSample {
   timeHelper: TimeHelper = new TimeHelper('StoragePropObjectSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @StorageProp('PropA') childObject: Object = 'hello childObject';
+  @StorageProp('PropA') childObjectProp: Object = "child Prop";
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childObject = index
+      this.childObjectProp = index
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childObject
+      let tmp = this.childObjectProp
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildStoragePropObjectSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childObject.toString()}` :
-        `child value: ${this.childObject.toString()}`)
+      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childObjectProp.toString()}` :
+        `child value: ${this.childObjectProp.toString()}`)
         .id('changeUITimeTaken')
         .onClick(() => {
           this.isType = false
-          this.childObject = 'child: changeUITimeTaken'
+          this.childObjectProp = 'child: changeUITimeTaken'
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@StorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@StorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childObject
+          let tmp = this.childObjectProp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@StorageProp的耗时')
+      Button('child Prop: 写@StorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childObject = 'child: setStateTimeTaken'
+          this.childObjectProp = 'child: setStateTimeTaken'
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -81,7 +77,7 @@ struct ChildStoragePropObjectSample {
 @Entry
 @Component
 struct StoragePropObjectSample {
-  @StorageProp('PropA') parentObject: Object = 'set parentObject StorageProp';
+  @StorageProp('PropA') parentObjectProp: Object = 'hello, world';
 
   build() {
     Column({ space: 15 }) {
@@ -89,12 +85,12 @@ struct StoragePropObjectSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.parentObject.toString()}`)
+      Text(`parent value: ${this.parentObjectProp.toString()}`)
       // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {
-          this.parentObject = 'parent: parentSetStateTimeTaken'
+          this.parentObjectProp = 'parent: parentSetStateTimeTaken'
         })
 
       ChildStoragePropObjectSample()

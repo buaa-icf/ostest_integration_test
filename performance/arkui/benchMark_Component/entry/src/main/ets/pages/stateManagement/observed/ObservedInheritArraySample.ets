@@ -19,37 +19,24 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
+const timeHelper: TimeHelper = new TimeHelper('ObservedInheritArraySample');
+let isType: boolean = true
 
 @Observed
-class ClassA<T> extends Array<T> {
-  public a: T;
-
-  constructor(a: T) {
-    super()
-    this.a = a;
-  }
-}
-
-@Observed
-class ClassB {
-  public b: ClassA<number>;
-
-  constructor(b: ClassA<number>) {
-    this.b = b;
-  }
+class StringArray<T> extends Array<T> {
 }
 
 @Component
 struct ChildObservedInheritArraySample {
-  @ObjectLink test: ClassA<number>
+  @ObjectLink test: StringArray<string>
 
   build() {
     Column({space: 15}) {
-      Text(`child value: ${this.test.a}`)
+      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.test[0]}` : `child value: ${this.test[0]}`)
       Button('child click')
-        .id('parentSetStateTimeTaken')
+        .id('childSetStateTimeTaken')
         .onClick(() => {
-          this.test.a += 1
+          this.test[0] = 'hi'
         })
     }
   }
@@ -58,24 +45,21 @@ struct ChildObservedInheritArraySample {
 @Entry
 @Component
 struct ObservedInheritArraySample {
-  timeHelper: TimeHelper = new TimeHelper('ObservedInheritArraySample');
-  a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  test = new ClassB(new ClassA(1))
-  b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @State testData: ClassB = this.test
-  isType: boolean = true
+  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @State testData: Array<StringArray<string>> = [new StringArray(), new StringArray(), new StringArray()];
+  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 
   aboutToAppear(): void {
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
+    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData.b.a = index
+      this.testData[0][index] = index.toString()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
+    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+    timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData.b.a
+      let value = this.testData[0][index]
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
+    timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
@@ -84,29 +68,29 @@ struct ObservedInheritArraySample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({bottom: 50, top: 50})
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `parent value: ${this.testData.b.a}` : `parent value: ${this.testData.b.a}`)
+      Text(`parent value: ${this.testData[0][this.testData.length - 1]}`)
         .id('changeUITimeTaken')
         .onClick(()=>{
-          this.isType = false
-          this.testData.b.a +=1
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
+          isType = false
+          this.testData[0][0] = '你好世界'
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
       Button('parent clink: 读@Observed的耗时')
         .id('getStateTimeTaken')
         .onClick(()=>{
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.testData
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
+          let value = this.testData[0][0]
+          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent clink: 写@Observed的耗时')
         .id('setStateTimeTaken')
         .onClick(()=>{
-          this.isType = true
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.b.a -=1
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+          isType = true
+          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
+          this.testData[0][0] = '世界你好'
+          timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
-      ChildObservedInheritArraySample({test : this.testData.b})
+      ChildObservedInheritArraySample({test : this.testData[0]})
     }
   }
 }

@@ -19,11 +19,7 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface localStorageLinkInterface {
-  link: string[]
-}
-
-const testData: localStorageLinkInterface = { link: ['吴辉', '予升', '3', '晟松', '1', '晓卿', '万葵', '5', '轩宇', '少辰'] };
+let testData: Record<string, string[]> = { 'link': ['吴辉', '予升', '3', '晟松', '1', '晓卿', '万葵', '5', '轩宇', '少辰'] };
 let storage = new LocalStorage(testData);
 
 @Component
@@ -38,12 +34,12 @@ struct ChildLocalStorageLinkStringArrSample {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringArrLink.push(index.toString())
+      this.childStringArrLink[index] = index.toString()
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringArrLink
+      let tmp = this.childStringArrLink[index]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -64,15 +60,16 @@ struct ChildLocalStorageLinkStringArrSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childStringArrLink
+          let tmp = this.childStringArrLink[0]
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@LocalStorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let index = this.childStringArrLink.length - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childStringArrLink.push('child: setStateTimeTaken')
+          this.childStringArrLink[index] = 'child: setStateTimeTaken'
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

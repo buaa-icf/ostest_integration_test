@@ -19,77 +19,71 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface PropTypeOptions {
-  PropA: string
-}
-
-let abc: PropTypeOptions = {
-  PropA: 'hello world'
-}
-
-let storage = new LocalStorage(abc);
+let testData: Record<string, string> = { 'PropA': 'default' };
+let storage = new LocalStorage(testData);
 
 @Component
 struct ChildWatchLocalStoragePropStringSample {
-  timeHelper: TimeHelper = new TimeHelper('ChildWatchLocalStoragePropStringSample')
+  timeHelper: TimeHelper = new TimeHelper('WatchLocalStoragePropStringSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @LocalStorageProp('PropA') @Watch('watchTest') childStringProp: string = 'hello childString';
+  @LocalStorageProp('PropA') @Watch('watchData') childStringProp: string = "child Prop";
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
+  stateLoop : boolean = false
+  uiWrite : boolean = false
+  buttonWrite : boolean = false
 
-  watchTest(): void {
+  watchData(propName: string): void {
+    if(this.stateLoop){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+      this.stateLoop = false
+    }
+    if(this.uiWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.UI_CHANGE, true))
+      this.uiWrite = false
+    }
+    if(this.buttonWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+      this.buttonWrite = false
+    }
   }
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringProp = 'loop ' + (index + 1)
+      if(index === ArrEntity.STATE_LOOP - 1){
+        this.stateLoop = true;
+      }
+      this.childStringProp = index.toString()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringProp
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildWatchLocalStoragePropStringSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childStringProp}` :
-        `child value: ${this.childStringProp}`)
+      Text(`child value: ${this.childStringProp}`)
         .id('changeUITimeTaken')
         .onClick(() => {
-          this.isType = false
-          this.childStringProp = 'child changeUITimeTaken'
+          this.uiWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
+          this.childStringProp = 'child: changeUITimeTaken'
         })
-      Button('@Watch监听的读@LocalStorageProp的耗时')
-        .id('getStateTimeTaken')
-        .onClick(() => {
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childStringProp
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
-      Button('@Watch监听的写@LocalStorageProp的耗时')
+      // 更改不同步
+      Button('child Prop: @Watch监听的写@LocalStorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          this.isType = true
+          this.buttonWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
           this.childStringProp = 'child: setStateTimeTaken'
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }
 }
 
+
 @Entry(storage)
 @Component
 struct WatchLocalStoragePropStringSample {
-  @LocalStorageProp('PropA') parentStringProp: string = 'set parentString WatchLocalStorageProp';
+  @LocalStorageProp('PropA') parentStringProp: string = 'hello, world';
 
   build() {
     Column({ space: 15 }) {
@@ -98,7 +92,7 @@ struct WatchLocalStoragePropStringSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentStringProp}`)
-      // 父组件的数据源的修改会同步给子组件
+      // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {

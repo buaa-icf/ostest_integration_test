@@ -24,50 +24,53 @@ import { StateUtils } from '../StateUtils';
 struct ChildWatchPropStringSample {
   timeHelper: TimeHelper = new TimeHelper('WatchPropStringSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Prop @Watch('watchTest') value: string = 'this is ChildWatchPropStringSample';
+  @Prop @Watch('watchData') value: string = 'this is ChildWatchPropStringSample';
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
+  stateLoop : boolean = false
+  uiWrite : boolean = false
+  buttonWrite : boolean = false
 
-  watchTest(): void {
+  watchData(propName: string): void {
+    if(this.stateLoop){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+      this.stateLoop = false
+    }
+    if(this.uiWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.UI_CHANGE, true))
+      this.uiWrite = false
+    }
+    if(this.buttonWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+      this.buttonWrite = false
+    }
   }
 
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+      if(index === ArrEntity.STATE_LOOP - 1){
+        this.stateLoop = true;
+      }
       this.value = index.toString()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.value
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.value}` : `child value: ${this.value}`)
+      Text(`child value: ${this.value}`)
         .id('changeUITimeTaken')
         .onClick(() => {
-          this.isType = false
-          this.value = '子类点击Text'
+          this.uiWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
+          this.value = '子类点击Text'
         })
       // @Prop装饰的变量会同步给父组件
-      Button(`child click:@Watch监听读@Prop修饰string的耗时`)
-        .id('getStateTimeTaken')
-        .onClick(() => {
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.value
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
       Button(`child click:@Watch监听写@Prop修饰string的耗时`)
         .id('setStateTimeTaken')
         .onClick(() => {
-          this.isType = true
+          this.buttonWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
           this.value = '子类点击Button'
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }

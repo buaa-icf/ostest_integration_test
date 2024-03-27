@@ -14,71 +14,65 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
+
 import { TimeHelper } from '../../../util/TimeHelper'
+import { classModel, ClassModel, classModel1, classModel2, classModel3 } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
-import { ClassModel, classModel, classModel1, classModel2, classModel3 } from '../ClassModel';
 
-
-interface PropTypeOptions {
-  PropA: ClassModel[]
-}
-
-let abc: PropTypeOptions = {
-  PropA: [classModel, classModel, classModel1, classModel2,
-    classModel3, classModel, classModel, classModel, classModel, classModel]
-};
-
-let storage = new LocalStorage(abc);
+let testData: Record<string, ClassModel[]> = { 'PropA': [classModel, classModel, classModel1, classModel2,
+  classModel3, classModel, classModel, classModel, classModel, classModel] };
+let storage = new LocalStorage(testData);
 
 @Component
 struct ChildLocalStoragePropClassArrSample {
-  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropClassArrSample');
+  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropClassArrSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @LocalStorageProp('PropA') childClassArrProp: ClassModel[] = [];
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: ClassModel[] = [classModel, classModel1]
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassArrProp.push(classModel1)
+      this.childClassArrProp[index] = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childClassArrProp
+      let tmp = this.childClassArrProp[index].value
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildLocalStoragePropClassArrSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childClassArrProp[this.childClassArrProp.length - 1].value}` :
+      Text(StateUtils.isType(this.isType, this.timeHelper) ?
+        `child value: ${this.childClassArrProp[this.childClassArrProp.length - 1].value}` :
         `child value: ${this.childClassArrProp[this.childClassArrProp.length - 1].value}`)
         .id('changeUITimeTaken')
         .onClick(() => {
+          let index = this.childClassArrProp.length - 1
           this.isType = false
-          this.childClassArrProp.push(classModel2)
+          this.childClassArrProp[index] = classModel2
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@LocalStorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@LocalStorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childClassArrProp
+          let tmp = this.childClassArrProp[0].value
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@LocalStorageProp的耗时')
+      Button('child Prop: 写@LocalStorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childClassArrProp.push(classModel3)
+          this.childClassArrProp[0] = classModel3
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -104,6 +98,7 @@ struct LocalStoragePropClassArrSample {
         .onClick(() => {
           this.parentClassArrProp.push(classModel1)
         })
+
       ChildLocalStoragePropClassArrSample()
     }
   }

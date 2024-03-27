@@ -20,11 +20,7 @@ import { LanguageEnum } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface localStorageLinkInterface {
-  link: LanguageEnum[]
-}
-
-const testData: localStorageLinkInterface = { link: [LanguageEnum.English, LanguageEnum.Chinese, LanguageEnum.English,
+let testData: Record<string, LanguageEnum[]> = { 'link': [LanguageEnum.English, LanguageEnum.Chinese, LanguageEnum.English,
   LanguageEnum.Chinese, LanguageEnum.English, LanguageEnum.Chinese, LanguageEnum.English, LanguageEnum.Chinese,
   LanguageEnum.English, LanguageEnum.Chinese] };
 let storage = new LocalStorage(testData);
@@ -36,17 +32,18 @@ struct ChildLocalStorageLinkEnumArrSample {
   @LocalStorageLink('link') childEnumArrLink: LanguageEnum[] = [];
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: LanguageEnum[] = [LanguageEnum.English, LanguageEnum.Chinese]
 
   aboutToAppear(): void {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childEnumArrLink.push(LanguageEnum.Chinese)
+      this.childEnumArrLink[index] = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childEnumArrLink
+      let tmp = this.childEnumArrLink[index]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -67,15 +64,16 @@ struct ChildLocalStorageLinkEnumArrSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childEnumArrLink
+          let tmp = this.childEnumArrLink[0]
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写@LocalStorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let index = this.childEnumArrLink.length - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childEnumArrLink.push(LanguageEnum.Russian)
+          this.childEnumArrLink[index] = LanguageEnum.Russian
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

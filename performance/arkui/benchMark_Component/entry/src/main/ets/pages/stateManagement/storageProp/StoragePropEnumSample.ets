@@ -16,71 +16,70 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 
 import { TimeHelper } from '../../../util/TimeHelper'
+import { LanguageEnum } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
-import { LanguageEnum } from '../ClassModel'
 
 AppStorage.setOrCreate('PropA', LanguageEnum.English);
 
-
 @Component
 struct ChildStoragePropEnumSample {
-  timeHelper: TimeHelper = new TimeHelper('StoragePropEnumSample');
+  timeHelper: TimeHelper = new TimeHelper('StoragePropEnumSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @StorageProp('PropA') childEnum: LanguageEnum = LanguageEnum.Chinese;
+  @StorageProp('PropA') childEnumProp: LanguageEnum = LanguageEnum.English;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: LanguageEnum[] = [LanguageEnum.English, LanguageEnum.Chinese]
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childEnum = LanguageEnum.Chinese
+      this.childEnumProp = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childEnum
+      let tmp = this.childEnumProp
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildStoragePropEnumSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childEnum}` :
-        `child value: ${this.childEnum}`)
+      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childEnumProp}` :
+        `child value: ${this.childEnumProp}`)
         .id('changeUITimeTaken')
         .onClick(() => {
           this.isType = false
-          this.childEnum = LanguageEnum.Japanese
+          this.childEnumProp = LanguageEnum.Japanese
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@StorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@StorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childEnum
+          let tmp = this.childEnumProp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@StorageProp的耗时')
+      Button('child Prop: 写@StorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childEnum = LanguageEnum.Russian
+          this.childEnumProp = LanguageEnum.Russian
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }
 }
 
+
 @Entry
 @Component
 struct StoragePropEnumSample {
-  @StorageProp('PropA') parentEnum: LanguageEnum = LanguageEnum.English;
+  @StorageProp('PropA') parentEnumProp: LanguageEnum = LanguageEnum.English;
 
   build() {
     Column({ space: 15 }) {
@@ -88,12 +87,12 @@ struct StoragePropEnumSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.parentEnum}`)
+      Text(`parent value: ${this.parentEnumProp}`)
       // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {
-          this.parentEnum = LanguageEnum.Korea
+          this.parentEnumProp = LanguageEnum.Korea
         })
 
       ChildStoragePropEnumSample()

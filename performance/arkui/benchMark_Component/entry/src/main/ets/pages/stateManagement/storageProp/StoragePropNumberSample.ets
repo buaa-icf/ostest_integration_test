@@ -19,56 +19,55 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-AppStorage.setOrCreate('PropA', 1000);
+AppStorage.setOrCreate('PropA', 0);
 
 @Component
 struct ChildStoragePropNumberSample {
-  timeHelper: TimeHelper = new TimeHelper('StoragePropNumberSample');
+  timeHelper: TimeHelper = new TimeHelper('StoragePropNumberSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @StorageProp('PropA') childNumber: number = 1;
+  @StorageProp('PropA') childNumberProp: number = -1;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childNumber = index
+      this.childNumberProp = index
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childNumber
+      let tmp = this.childNumberProp
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildStoragePropNumberSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childNumber.toString()}` :
-        `child value: ${this.childNumber.toString()}`)
+      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childNumberProp.toString()}` :
+        `child value: ${this.childNumberProp.toString()}`)
         .id('changeUITimeTaken')
         .onClick(() => {
           this.isType = false
-          this.childNumber += 1
+          this.childNumberProp += 1
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@StorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@StorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childNumber
+          let tmp = this.childNumberProp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@StorageProp的耗时')
+      Button('child Prop: 写@StorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = this.childNumberProp - 1
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childNumber -= 1
+          this.childNumberProp = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -79,7 +78,7 @@ struct ChildStoragePropNumberSample {
 @Entry
 @Component
 struct StoragePropNumberSample {
-  @StorageProp('PropA') parentNumber: number = 20;
+  @StorageProp('PropA') parentNumberProp: number = 1;
 
   build() {
     Column({ space: 15 }) {
@@ -87,12 +86,12 @@ struct StoragePropNumberSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.parentNumber.toString()}`)
+      Text(`parent value: ${this.parentNumberProp.toString()}`)
       // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {
-          this.parentNumber += 1
+          this.parentNumberProp += 1
         })
 
       ChildStoragePropNumberSample()

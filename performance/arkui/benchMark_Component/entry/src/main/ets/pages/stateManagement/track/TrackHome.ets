@@ -17,21 +17,22 @@ import { CommonButton } from '../../../util/CommonButton';
 
 @Entry
 @Component
-struct ObjectLinkHome {
+struct TrackHome {
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        Text('ObjectLinkHome')
+        Text('TrackHome')
           .padding('15vp')
           .width('100%')
           .fontSize('25fp')
           .textAlign(TextAlign.Center)
 
-        CommonButton({buttonName:'ObjectLinkOrdinarySample',buttonUrl:'pages/stateManagement/objectLink/ObjectLinkOrdinarySample'});
-        CommonButton({buttonName:'ObjectLinkInheritDateSample',buttonUrl:'pages/stateManagement/objectLink/ObjectLinkInheritDateSample'});
-        CommonButton({buttonName:'ObjectLinkInheritArraySample',buttonUrl:'pages/stateManagement/objectLink/ObjectLinkInheritArraySample'});
-        CommonButton({buttonName:'ObjectLinkSetSample',buttonUrl:'pages/stateManagement/objectLink/ObjectLinkSetSample'});
-        CommonButton({buttonName:'ObjectLinkExtendsMapSample',buttonUrl:'pages/stateManagement/objectLink/ObjectLinkExtendsMapSample'});
+        CommonButton({buttonName:'TrackStringSample',buttonUrl:'pages/stateManagement/track/TrackStringSample'});
+        CommonButton({buttonName:'TrackStringArrSample',buttonUrl:'pages/stateManagement/track/TrackStringArrSample'});
+        CommonButton({buttonName:'TrackNumberSample',buttonUrl:'pages/stateManagement/track/TrackNumberSample'});
+        CommonButton({buttonName:'TrackNumberArrSample',buttonUrl:'pages/stateManagement/track/TrackNumberArrSample'});
+        CommonButton({buttonName:'TrackBooleanSample',buttonUrl:'pages/stateManagement/track/TrackBooleanSample'});
+        CommonButton({buttonName:'TrackBooleanArrSample',buttonUrl:'pages/stateManagement/track/TrackBooleanArrSample'});
 
       }
       .padding('5vp')

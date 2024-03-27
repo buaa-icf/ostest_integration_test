@@ -23,49 +23,52 @@ import { StateUtils } from '../StateUtils';
 struct ChildWatchLinkStringSample {
   timeHelper: TimeHelper = new TimeHelper('WatchLinkStringSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Link @Watch('watchTest') childStringStr: string;
+  @Link @Watch('watchData') childStringStr: string;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
+  stateLoop : boolean = false
+  uiWrite : boolean = false
+  buttonWrite : boolean = false
 
-  watchTest(): void {
+  watchData(propName: string): void {
+    if(this.stateLoop){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+      this.stateLoop = false
+    }
+    if(this.uiWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.UI_CHANGE, true))
+      this.uiWrite = false
+    }
+    if(this.buttonWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+      this.buttonWrite = false
+    }
   }
 
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringStr = 'not bind UI: 世界，你好' + (index + 1)
+      if(index === ArrEntity.STATE_LOOP - 1){
+        this.stateLoop = true;
+      }
+      this.childStringStr = index.toString()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.childStringStr
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(this.isType, this.timeHelper) ?  `child value: ${this.childStringStr}` : `child value: ${this.childStringStr}`)
+      Text(`child value: ${this.childStringStr}`)
         .id('changeUITimeTaken')
         .onClick(() => {
-          this.isType = false
-          this.childStringStr = 'child: changeUITimeTaken'
+          this.uiWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      Button(`child click: @Watch监听的读@Link的耗时`)
-        .id('getStateTimeTaken')
-        .onClick(() => {
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.childStringStr
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
+          this.childStringStr = 'child: changeUITimeTaken'
         })
       Button(`child click: @Watch监听的写@Link的耗时`)
         .id('setStateTimeTaken')
         .onClick(() => {
-          this.isType = true
+          this.buttonWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
           this.childStringStr = 'child: setStateTimeTaken'
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }

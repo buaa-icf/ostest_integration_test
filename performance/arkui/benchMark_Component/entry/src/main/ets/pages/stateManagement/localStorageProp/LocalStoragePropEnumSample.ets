@@ -14,48 +14,40 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
+
 import { TimeHelper } from '../../../util/TimeHelper'
+import { LanguageEnum } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
-import { LanguageEnum } from '../ClassModel'
 
-interface PropTypeOptions {
-  PropA: LanguageEnum
-}
-
-let abc: PropTypeOptions = {
-  PropA: LanguageEnum.Korea
-};
-
-let storage = new LocalStorage(abc);
+let testData: Record<string, LanguageEnum> = { 'PropA': LanguageEnum.English };
+let storage = new LocalStorage(testData);
 
 @Component
 struct ChildLocalStoragePropEnumSample {
-  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropEnumSample');
+  timeHelper: TimeHelper = new TimeHelper('LocalStoragePropEnumSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @LocalStorageProp('PropA') childEnumProp: LanguageEnum = LanguageEnum.Chinese;
+  @LocalStorageProp('PropA') childEnumProp: LanguageEnum = LanguageEnum.English;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: LanguageEnum[] = [LanguageEnum.English, LanguageEnum.Chinese]
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childEnumProp = LanguageEnum.Chinese
+      this.childEnumProp = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childEnumProp
+      let tmp = this.childEnumProp
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildLocalStoragePropEnumSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
       Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childEnumProp}` :
         `child value: ${this.childEnumProp}`)
         .id('changeUITimeTaken')
@@ -64,14 +56,15 @@ struct ChildLocalStoragePropEnumSample {
           this.childEnumProp = LanguageEnum.Japanese
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@LocalStorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@LocalStorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childEnumProp
+          let tmp = this.childEnumProp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@LocalStorageProp的耗时')
+      Button('child Prop: 写@LocalStorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           this.isType = true
@@ -82,6 +75,7 @@ struct ChildLocalStoragePropEnumSample {
     }
   }
 }
+
 
 @Entry(storage)
 @Component

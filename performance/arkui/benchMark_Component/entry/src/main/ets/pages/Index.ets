@@ -89,11 +89,10 @@ struct Index {
         CommonButton({ buttonName: '@StorageLink', buttonUrl: 'pages/stateManagement/storageLink/StorageLinkHome' });
         CommonButton({ buttonName: '@LocalStorageProp', buttonUrl: 'pages/stateManagement/localStorageProp/LocalStoragePropHome' });
         CommonButton({ buttonName: '@StorageProp', buttonUrl: 'pages/stateManagement/storageProp/StoragePropHome' });
-        CommonButton({ buttonName: '@Consume', buttonUrl: 'pages/stateManagement/consume/ConsumeHome' });
-        CommonButton({ buttonName: '@Provide', buttonUrl: 'pages/stateManagement/provide/ProvideHome' });
         CommonButton({ buttonName: '@Observed', buttonUrl: 'pages/stateManagement/observed/ObservedHome' });
         CommonButton({ buttonName: '@ObjectLink', buttonUrl: 'pages/stateManagement/objectLink/ObjectLinkHome' });
         CommonButton({ buttonName: '@Watch', buttonUrl: 'pages/stateManagement/watch/WatchHome' });
+        CommonButton({ buttonName: '@Track', buttonUrl: 'pages/stateManagement/track/TrackHome' });
       }
       .padding('20vp')
       .width('100%')

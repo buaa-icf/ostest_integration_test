@@ -14,67 +14,64 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
+
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-const timeHelper: TimeHelper = new TimeHelper('ObjectLinkOrdinarySample');
-let isType: boolean = true
+let isType:boolean = true
+const timeHelper : TimeHelper= new TimeHelper('ObjectLinkExtendsMapSample');
 
 @Observed
-class ClassA {
-  public a: number;
+class ClassA
+{
+  public a:MyMap<number,string>;
 
-  constructor(a: number) {
-    this.a = a;
+  constructor(a:MyMap<number,string>) {
+    this.a = a
   }
 }
 
 @Observed
-class ClassB {
-  public b: ClassA;
-
-  constructor(b: ClassA) {
-    this.b = b;
-  }
+export class MyMap<K, V> extends Map<K, V> {
 }
 
 @Component
-struct ChildObjectLinkOrdinarySample {
+struct ChildObjectLinkExtendsMapSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @ObjectLink test: ClassA;
+  @ObjectLink message: MyMap<number,string>
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.test.a = index
+      this.message.set(index,index.toString())
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.test.a
+      let value = this.message.get(index)
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({space: 15}) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.test.a}` : `child value: ${this.test.a}`)
-      Button('child clink: 读@ObjectLink的耗时')
+      Text(StateUtils.isType(isType, timeHelper) ? `parent value: ${this.message.get(3)}` :
+        `parent value: ${this.message.get(3)}`)
+      Button('parent clink读@Obseved的耗时')
         .id('getStateTimeTaken')
         .onClick(()=>{
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.test.a
+          let value = this.message.get(0)
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('child clink: 写@ObjectLink的耗时')
+      Button('parent clink:写@Observed的耗时')
         .id('setStateTimeTaken')
         .onClick(()=>{
           isType = true
-          let value = this.test.a - 1
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.test.a = value
+          this.message.set(3,'world')
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -83,24 +80,24 @@ struct ChildObjectLinkOrdinarySample {
 
 @Entry
 @Component
-struct ObjectLinkOrdinarySample {
-  @State testData: ClassB = new ClassB(new ClassA(5))
+struct ObjectLinkExtendsMapSample {
+  @State message: ClassA = new ClassA(new MyMap([[0, "a"], [1, "b"], [3, "c"]]));
 
   build() {
     Column({space: 15}) {
-      Text('ObjectLinkOrdinarySample')
+      Text('ObjectLinkExtendsMapSample')
         .fontSize('25')
         .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.testData.b.a}`)
-      Button('parent click')
+        .margin({bottom: 50, top: 50})
+      Text(`child value: ${this.message.a.get(0)}`)
+      Button('child click')
         .id('changeUITimeTaken')
         .onClick(()=>{
           isType = false
-          this.testData.b.a += 1
+          this.message.a.set(3,'bye')
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      ChildObjectLinkOrdinarySample({test : this.testData.b})
+      ChildObjectLinkExtendsMapSample({message: this.message.a})
     }
   }
 }

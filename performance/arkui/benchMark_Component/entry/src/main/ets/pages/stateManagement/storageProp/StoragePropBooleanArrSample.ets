@@ -19,68 +19,69 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-AppStorage.setOrCreate('PropA', [true, false, true, false, true, false, true, false, true, false]);
-
+const testData: boolean[] = [true, false, true, false, true, false, true, false, true, false]
+AppStorage.setOrCreate('PropA', testData);
 
 @Component
 struct ChildStoragePropBooleanArrSample {
-  timeHelper: TimeHelper = new TimeHelper('StoragePropBooleanArrSample');
+  timeHelper: TimeHelper = new TimeHelper('StoragePropBooleanArrSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @StorageProp('PropA') childBooleanArr: boolean[] = [];
+  @StorageProp('PropA') childBooleanProp: boolean[] = [];
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: boolean[] = [false, true]
 
   aboutToAppear(): void {
+    // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanArr[0] = !this.childBooleanArr[0]
+      this.childBooleanProp[0] = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanArr
+      let tmp = this.childBooleanProp[index]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text('ChildStoragePropBooleanArrSample')
-        .fontSize('25')
-        .textAlign(TextAlign.Center)
-        .margin({ bottom: 50, top: 50 })
-      Text(`child value: ${this.childBooleanArr[0].toString()}`)
-        .fontColor(StateUtils.isType(this.isType, this.timeHelper) ? this.childBooleanArr[0] ? Color.Red : Color.Blue :
-          this.childBooleanArr[0] ? Color.Black : Color.Green)
+      Text(`child value: ${this.childBooleanProp[0]}`)
         .id('changeUITimeTaken')
+        .fontColor(StateUtils.isType(this.isType, this.timeHelper) ? this.childBooleanProp[0] ? Color.Red : Color.Blue :
+          this.childBooleanProp[0] ? Color.Black : Color.Green)
         .onClick(() => {
           this.isType = false
-          this.childBooleanArr[0] = !this.childBooleanArr[0]
+          this.childBooleanProp[0] = !this.childBooleanProp[0]
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
-      Button('读@StorageProp的耗时')
+      // 更改不同步
+      Button('child click: 读@StorageProp的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childBooleanArr
+          let tmp = this.childBooleanProp[0]
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
-      Button('写@StorageProp的耗时')
+      Button('child Prop: 写@StorageProp的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = !this.childBooleanProp[0]
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childBooleanArr[0] = !this.childBooleanArr[0]
+          this.childBooleanProp[0] = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }
 }
 
+
 @Entry
 @Component
 struct StoragePropBooleanArrSample {
-  @StorageProp('PropA') parentBooleanArr: boolean[] = [];
+  @StorageProp('PropA') parentBooleanProp: boolean[] = [];
 
   build() {
     Column({ space: 15 }) {
@@ -89,13 +90,14 @@ struct StoragePropBooleanArrSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`hello, world`)
-        .visibility(this.parentBooleanArr[0] ? Visibility.Visible : Visibility.Hidden)
+        .visibility(this.parentBooleanProp[0] ? Visibility.Visible : Visibility.Hidden)
       // 父组件的数据源的修改不会同步给子组件
       Button('parent click')
         .id('parentSetStateTimeTaken')
         .onClick(() => {
-          this.parentBooleanArr[0] = !this.parentBooleanArr[0]
+          this.parentBooleanProp[0] = !this.parentBooleanProp[0]
         })
+
       ChildStoragePropBooleanArrSample()
     }
   }

@@ -20,11 +20,7 @@ import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 import hilog from '@ohos.hilog';
 
-interface localStorageLinkInterface {
-  link: boolean[]
-}
-
-const testData: localStorageLinkInterface = { link: [true, false, true, false, true, false, true, false, true, false] };
+let testData: Record<string, boolean[]> = { 'link': [true, false, true, false, true, false, true, false, true, false] };
 let storage = new LocalStorage(testData);
 
 @Component
@@ -34,17 +30,18 @@ struct ChildLocalStorageLinkBooleanArrSample {
   @LocalStorageLink('link') childBooleanLink: boolean[] = [];
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  tmpArr: boolean[] = [false, true]
 
   aboutToAppear(): void {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanLink[0] = !this.childBooleanLink[0]
+      this.childBooleanLink[index] = this.tmpArr[index % 2]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childBooleanLink
+      let tmp = this.childBooleanLink[index]
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -65,15 +62,16 @@ struct ChildLocalStorageLinkBooleanArrSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childBooleanLink
+          let tmp = this.childBooleanLink[0]
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child link: 写Local@StorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
+          let tmp = !this.childBooleanLink[0]
           this.isType = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.childBooleanLink[0] = !this.childBooleanLink[0]
+          this.childBooleanLink[0] = tmp
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

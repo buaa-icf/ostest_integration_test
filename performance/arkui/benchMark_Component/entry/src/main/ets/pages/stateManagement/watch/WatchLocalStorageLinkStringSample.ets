@@ -19,62 +19,61 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-interface localStorageLinkInterface {
-  link: string
-}
-
-const testData: localStorageLinkInterface = { link: 'default' };
+let testData: Record<string, string> = { 'link': 'default' };
 let storage = new LocalStorage(testData);
 
 @Component
 struct ChildWatchLocalStorageLinkStringSample {
   timeHelper: TimeHelper = new TimeHelper('WatchLocalStorageLinkStringSample')
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @LocalStorageLink('link') @Watch('watchTest') childStringLink: string = "child link";
+  @LocalStorageLink('link') @Watch('watchData') childStringLink: string = "child link";
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
+  stateLoop : boolean = false
+  uiWrite : boolean = false
+  buttonWrite : boolean = false
 
-  watchTest(): void {
+  watchData(propName: string): void {
+    if(this.stateLoop){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
+      this.stateLoop = false
+    }
+    if(this.uiWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.UI_CHANGE, true))
+      this.uiWrite = false
+    }
+    if(this.buttonWrite){
+      this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
+      this.buttonWrite = false
+    }
   }
 
   aboutToAppear(): void {
     // 不绑定UI的状态性能测试
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringLink = `not bind UI:世界，你好` + (index + 1)
+      if(index === ArrEntity.STATE_LOOP - 1){
+        this.stateLoop = true;
+      }
+      this.childStringLink = index.toString()
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.childStringLink
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `child value: ${this.childStringLink}` :
-        `child value: ${this.childStringLink}`)
+      Text(`child value: ${this.childStringLink}`)
         .id('changeUITimeTaken')
         .onClick(() => {
-          this.isType = false
-          this.childStringLink = 'child: changeUITimeTaken'
+          this.uiWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
+          this.childStringLink = 'child: changeUITimeTaken'
         })
-      Button('child click: @Watch监听的读@LocalStorageLink的耗时')
-        .id('getStateTimeTaken')
-        .onClick(() => {
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          this.childStringLink
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
+      // 更改将同步至LocalStorage中的'link'以及Parent.parentStringLink
       Button('child link: @Watch监听的写@LocalStorageLink的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          this.isType = true
+          this.buttonWrite = true
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
           this.childStringLink = 'child: setStateTimeTaken'
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }
@@ -99,6 +98,7 @@ struct WatchLocalStorageLinkStringSample {
         .onClick(() => {
           this.parentStringLink = 'parent: parentSetStateTimeTaken'
         })
+
       ChildWatchLocalStorageLinkStringSample()
     }
   }
