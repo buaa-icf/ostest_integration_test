@@ -13,16 +13,32 @@
  * limitations under the License.
  */
 
-import { getRandomShortStr } from './RandomResource'
-import { PureTextNews } from '../../../ets/viewmodel/Article'
+import { getRandomImg, getRandomShortStr } from './RandomResource'
+import { News, NewsType } from '../../../ets/viewmodel/Article'
 
-export const getPureTextNewsList = async (): Promise<Array<PureTextNews>> => {
-  let pureTextNewsList: PureTextNews[] = []
+export const getRecommendationNewsList = async (): Promise<Array<News>> => {
+  let newsList: News[] = []
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      newsList = newsList.concat(getPureTextNewsList())
+      newsList = newsList.concat(getImgNewsList())
+      resolve(newsList)
+    }, 1000)
+  })
+}
+
+/**
+ * Generate news list (pure text)
+ */
+const getPureTextNewsList = (): News[] => {
+  let pureTextNewsList: News[] = []
   for (let i = 0; i < 5; ++i) {
-    const pureTextNews = new PureTextNews(
+    const pureTextNews = new News(
       getRandomShortStr(),
       getRandomShortStr(),
       Date.now(),
+      NewsType.PURE_TEXT,
+      [],
       Math.floor(Math.random() * 1000),
       Math.floor(Math.random() * 1000),
       Math.floor(Math.random() * 1000)
@@ -30,4 +46,30 @@ export const getPureTextNewsList = async (): Promise<Array<PureTextNews>> => {
     pureTextNewsList.push(pureTextNews)
   }
   return pureTextNewsList
+}
+
+/**
+ * Generate news list (with images)
+ */
+const getImgNewsList = (): News[] => {
+  let imgNewsList: News[] = []
+  for (let i = 0; i < 5; ++i) {
+    // Image list
+    let imgList: Resource[] = []
+    for (let j = 0; j < 3; ++j) {
+      imgList.push(getRandomImg())
+    }
+    const imgNews = new News(
+      getRandomShortStr(),
+      getRandomShortStr(),
+      Date.now(),
+      NewsType.WITH_IMG,
+      imgList,
+      Math.floor(Math.random() * 1000),
+      Math.floor(Math.random() * 1000),
+      Math.floor(Math.random() * 1000)
+    )
+    imgNewsList.push(imgNews)
+  }
+  return imgNewsList
 }

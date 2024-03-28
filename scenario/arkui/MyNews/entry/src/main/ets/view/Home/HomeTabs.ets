@@ -88,6 +88,8 @@ export default struct HomeTabs {
         // TODO
       }.tabBar(this.tabBuilder(7, $r('app.string.home_tab_car')))
     }
+    .height(0)
+    .flexGrow(1)
     .barHeight(30)
     .scrollable(false)
     .barMode(BarMode.Scrollable, { margin: 10 })

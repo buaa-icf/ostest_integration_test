@@ -31,5 +31,6 @@ export default struct HomeTabContent {
       /* Tabs and tab contents */
       HomeTabs()
     }
+    .height('100%')
   }
 }

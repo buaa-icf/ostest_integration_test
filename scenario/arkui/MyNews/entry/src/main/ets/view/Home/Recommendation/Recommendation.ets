@@ -13,62 +13,72 @@
  * limitations under the License.
  */
 
-import { getPureTextNewsList } from '../../../common/utils/GetArticles'
-import { PureTextNews } from '../../../viewmodel/Article'
+import { getRecommendationNewsList } from '../../../common/utils/GetArticles'
+import { News, NewsType } from '../../../viewmodel/Article'
+import PureTextNewsOverview from './PureTextNewsOverview'
+import ImgNewsOverview from './ImgNewsOverview'
 
 @Component
 export default struct RecommendationTabContent {
-  @State pureTextNewsList: PureTextNews[] = []
+  @State isRefreshing: boolean = false
+  @State newsList: News[] = []
 
   aboutToAppear() {
     // Get news
-    getPureTextNewsList().then((pureTextNewsList: PureTextNews[]) => {
-      this.pureTextNewsList = pureTextNewsList
-    })
+    this.refresh()
+  }
+
+  /* Get new content */
+  async refresh() {
+    this.newsList = await getRecommendationNewsList()
   }
 
   build() {
-    Column({ space: 6 }) {
-      ForEach(this.pureTextNewsList, (item: PureTextNews, itemIdx: number) => {
-        ArticleOverview({ title: item.title, author: item.author, cmtCnt: item.cmtCnt })
-      }) // TODO: keyGenerator
-    }
-    .height('100%')
-    .padding({ top: 10, left: 10, right: 10 })
-  }
-}
+    Refresh({ refreshing: $$this.isRefreshing }) {
+      Column() {
+        Scroll() {
+          Column({ space: 12 }) {
+            /* Pure text news */
+            Column({ space: 6 }) {
+              ForEach(this.newsList.filter((item: News) => item.type === NewsType.PURE_TEXT),
+                (item: News, itemIdx: number) => {
+                  PureTextNewsOverview({
+                    title: item.title,
+                    author: item.author,
+                    cmtCnt: item.cmtCnt })
+                }) // TODO: keyGenerator
+            }
 
-@Component
-export struct ArticleOverview {
-  @Prop title: string
-  @Prop author: string
-  @Prop cmtCnt: number
+            Divider()
+              .borderColor($r('app.color.light_border'))
 
-  build() {
-    Column({ space: 3 }) {
-      /* Title */
-      Text(this.title)
-        .fontSize(14)
-        .fontColor($r('app.color.light_fg'))
-
-      Row({ space: 5 }) {
-        /* Author */
-        Text(this.author)
-          .fontSize(8)
-          .fontColor($r('app.color.light_fg_shallow'))
-
-        /* Comment count */
-        if (this.cmtCnt > 0) {
-          Text() {
-            Span(this.cmtCnt.toString())
-            Span($r('app.string.article_cmtCnt'))
+            /* Image contained news */
+            Column({ space: 30 }) {
+              ForEach(this.newsList.filter((item: News) => item.type === NewsType.WITH_IMG),
+                (item: News, itemIdx: number) => {
+                  ImgNewsOverview({
+                    title: item.title,
+                    author: item.author,
+                    imgList: item.imgList,
+                    cmtCnt: item.cmtCnt
+                  })
+                }) // TODO: keyGenerator
+            }
           }
-          .fontSize(8)
-          .fontColor($r('app.color.light_fg_shallow'))
         }
+        .padding({ top: 10, left: 15, right: 15 })
+        .edgeEffect(EdgeEffect.Spring)
+        .onScrollEdge((side: Edge) => {
+          // TODO: Load new content
+        })
       }
     }
-    .width('100%')
-    .alignItems(HorizontalAlign.Start)
+    .height('100%')
+    .onRefreshing(() => {
+      this.isRefreshing = true
+      this.refresh().then(() => {
+        this.isRefreshing = false
+      })
+    })
   }
 }
