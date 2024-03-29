@@ -52,6 +52,7 @@ struct MainPage {
       /* Home */
       TabContent() {
         HomeTabContent()
+          .id('main_tabContent_01')
       }.tabBar(this.tabBuilder(
         0,
         $r('app.string.main_nav_home'),
@@ -62,6 +63,7 @@ struct MainPage {
       /* Video */
       TabContent() {
         VideoTabContent()
+          .id('main_tabContent_02')
       }.tabBar(this.tabBuilder(
         1,
         $r('app.string.main_nav_video'),
@@ -72,6 +74,7 @@ struct MainPage {
       /* Task */
       TabContent() {
         TaskTabContent()
+          .id('main_tabContent_03')
       }.tabBar(this.tabBuilder(
         2,
         $r('app.string.main_nav_task'),
@@ -82,6 +85,7 @@ struct MainPage {
       /* Mall */
       TabContent() {
         MallTabContent()
+          .id('main_tabContent_04')
       }.tabBar(this.tabBuilder(
         3,
         $r('app.string.main_nav_mall'),
@@ -92,6 +96,7 @@ struct MainPage {
       /* Profile */
       TabContent() {
         ProfileTabContent()
+          .id('main_tabContent_05')
       }.tabBar(this.tabBuilder(
         4,
         (AppStorage.get('isLoggedIn') ? $r('app.string.main_nav_profile_loggedIn') : $r('app.string.main_nav_profile_notLoggedIn')),
@@ -100,6 +105,7 @@ struct MainPage {
         (AppStorage.get('isLoggedIn') ? undefined : $r('app.string.main_nav_profile_label_login'))
       ))
     }
+    .id('main_tabs_01')
     .barHeight(40)
     .scrollable(false)
     .animationDuration(0)
@@ -136,6 +142,7 @@ struct MainPage {
         }
       }
     }
+    .id('main_tabBar_button_' + String(targetIdx + 1).padStart(2, '0'))
     .commonBtnStyle(() => {
       /* Task, Mall and Profile */
       if ((targetIdx === 2 || targetIdx === 3 || targetIdx === 4) && !AppStorage.get('isLoggedIn')) {

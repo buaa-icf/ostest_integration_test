@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 import hilog from '@ohos.hilog';
 import TestRunner from '@ohos.application.testRunner';
 import AbilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';

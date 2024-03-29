@@ -28,7 +28,7 @@ function commonBtnStyle(handler?: (event: ClickEvent) => void) {
  * Login failure dialog
  */
 @CustomDialog
-export default struct LoginFailureDialog {
+export default struct FailureDialog {
   private controller: CustomDialogController
   @Link pwd: string
   @Link isAgreementChecked: boolean
@@ -36,6 +36,7 @@ export default struct LoginFailureDialog {
   build() {
     Column({ space: 20 }) {
       Text($r('app.string.login_failure'))
+        .id('login_failureDialog_text_01')
         .width('100%')
         .textAlign(TextAlign.Start)
         .fontSize(16)
@@ -48,6 +49,7 @@ export default struct LoginFailureDialog {
             .fontSize(16)
             .fontColor($r('app.color.primary'))
         }
+        .id('login_failureDialog_button_01')
         .commonBtnStyle()
 
         Divider()
@@ -62,6 +64,7 @@ export default struct LoginFailureDialog {
             .fontSize(16)
             .fontColor($r('app.color.primary'))
         }
+        .id('login_failureDialog_button_02')
         .commonBtnStyle(() => {
           this.controller.close()
           // Clear input

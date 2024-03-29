@@ -13,24 +13,8 @@
  * limitations under the License.
  */
 
-import TopBar from './TopBar'
-import HomeTabs from './HomeTabs'
+import abilityTest from './Login.test'
 
-/**
- * Content of `Home` page
- */
-@Component
-export default struct HomeTabContent {
-  @State curTabIdx: number = 1
-
-  build() {
-    Column() {
-      /* Top bar */
-      TopBar()
-
-      /* Tabs and tab contents */
-      HomeTabs()
-    }
-    .height('100%')
-  }
+export default function testsuite() {
+  abilityTest()
 }

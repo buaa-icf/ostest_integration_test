@@ -13,22 +13,41 @@
  * limitations under the License.
  */
 
-export class PureTextNews {
+export enum NewsType {
+  PURE_TEXT,
+  WITH_IMG,
+  WITH_VIDEO
+}
+
+export class News {
   title: string
   // TODO: id: string
   author: string // TODO: author: User (username, id, avatar, ...)
   date: number // UTC timestamp
+  type: NewsType
+  imgList: Resource[]
   // TODO: corresponding user lists
   likedCnt: number
   cmtCnt: number
   fwdCnt: number
 
-  constructor(title: string, author: string, date: number, likedCnt: number, cmtCnt: number, fwdCnt: number) {
-    this.title = title;
-    this.author = author;
-    this.date = date;
-    this.likedCnt = likedCnt;
-    this.cmtCnt = cmtCnt;
-    this.fwdCnt = fwdCnt;
+  constructor(
+    title: string,
+    author: string,
+    date: number,
+    type: NewsType,
+    imgList: Resource[],
+    likedCnt: number,
+    cmtCnt: number,
+    fwdCnt: number
+  ) {
+    this.title = title
+    this.author = author
+    this.date = date
+    this.type = type
+    this.imgList = imgList
+    this.likedCnt = likedCnt
+    this.cmtCnt = cmtCnt
+    this.fwdCnt = fwdCnt
   }
 }
