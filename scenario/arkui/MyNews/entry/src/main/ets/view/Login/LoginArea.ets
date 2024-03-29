@@ -16,7 +16,7 @@
 import router from '@ohos.router'
 import { MainPageParams } from '../../viewmodel/RouterParams'
 import { loginViaPwd } from '../../common/utils/Login'
-import LoginFailureDialog from './LoginFailureDialog'
+import FailureDialog from './FailureDialog'
 
 /**
  * Common invisible button style
@@ -39,7 +39,7 @@ export default struct LoginArea {
   @State isAgreementReminderShown: boolean = false
   @State isAgreementChecked: boolean = false
   private loginFailureDialogController: CustomDialogController = new CustomDialogController({
-    builder: LoginFailureDialog({
+    builder: FailureDialog({
       pwd: $pwd,
       isAgreementChecked: $isAgreementChecked
     }),
@@ -49,6 +49,7 @@ export default struct LoginArea {
     Column({ space: 20 }) {
       /* Title */
       Text($r('app.string.login_title'))
+        .id('login_loginArea_text_01')
         .textAlign(TextAlign.Center)
         .fontSize(17)
         .fontColor($r('app.color.light_fg'))
@@ -85,11 +86,13 @@ export default struct LoginArea {
               .size({ width: 14, height: 14 })
           }
         }
+        .id('login_loginArea_button_01')
         .commonBtnStyle(() => {
         })
 
         /* Account input area */
         TextInput({ placeholder: $r('app.string.login_account_placeholder'), text: $$this.account })
+          .id('login_loginArea_textInput_01')
           .type(InputType.PhoneNumber)
           .backgroundColor(Color.Transparent)
           .placeholderFont({ size: 19 })
@@ -111,17 +114,21 @@ export default struct LoginArea {
       Row() {
         /* Password input area */
         TextInput({ placeholder: $r('app.string.login_pwd_placeholder'), text: $$this.pwd })
+          .id('login_loginArea_textInput_02')
           .flexShrink(1)
           .type(InputType.Password)
           .backgroundColor(Color.Transparent)
           .placeholderFont({ size: 19 })
           .placeholderColor($r('app.color.light_fg_shallow'))
+
+        /* Forgot password */
         Button() {
           Text($r('app.string.login_pwd_forgot'))
             .fontSize(12)
             .fontWeight(FontWeight.Medium)
             .fontColor($r('app.color.light_fg'))
         }
+        .id('login_loginArea_button_02')
         .commonBtnStyle()
       }
       .width('100%')
@@ -138,6 +145,7 @@ export default struct LoginArea {
   @Builder
   loginBtn() {
     Button($r('app.string.login_btn'))
+      .id('login_loginArea_button_03')
       .width(290)
       .height(40)
       .type(ButtonType.Normal)
@@ -178,6 +186,7 @@ export default struct LoginArea {
   agreementCheckbox() {
     Row() {
       Checkbox()
+        .id('login_loginArea_checkbox_01')
         .size({ width: 12, height: 12 })
         .select($$this.isAgreementChecked)
         .selectedColor($r('app.color.primary'))

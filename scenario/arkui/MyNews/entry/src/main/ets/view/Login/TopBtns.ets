@@ -40,6 +40,7 @@ export default struct TopBtns {
           .size({ width: 30, height: 30 })
           .fillColor($r('app.color.light_fg'))
       }
+      .id('login_top_button_01')
       .commonBtnStyle(() => {
         router.back({
           url: 'pages/MainPage',
@@ -55,6 +56,7 @@ export default struct TopBtns {
           .size({ width: 20, height: 20 })
           .fillColor($r('app.color.light_fg'))
       }
+      .id('login_top_button_02')
       .commonBtnStyle(() => {
       })
     }

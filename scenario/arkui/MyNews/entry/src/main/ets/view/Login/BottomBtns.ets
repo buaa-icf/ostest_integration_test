@@ -37,11 +37,13 @@ export default struct BottomsBtns {
 
   build() {
     Row({ space: 11 }) {
+      /* Other login methods */
       Button() {
         Text($r('app.string.login_bottomArea_otherMethods'))
           .fontSize(12)
           .fontColor($r('app.color.light_fg'))
       }
+      .id('login_bottom_button_01')
       .commonBtnStyle(() => {
         this.otherLoginMethodsDialogController.open()
       })
@@ -52,11 +54,13 @@ export default struct BottomsBtns {
         .strokeWidth(1)
         .color($r('app.color.light_border'))
 
+      /* Problems */
       Button() {
         Text($r('app.string.login_bottomArea_problems'))
           .fontSize(12)
           .fontColor($r('app.color.light_fg'))
       }
+      .id('login_bottom_button_02')
       .commonBtnStyle()
     }
   }
