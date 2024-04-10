@@ -25,86 +25,86 @@ export const merchandise:MerchandiseList[] = [
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
+    title:"牙刷",
+    price:'￥10'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"毛巾",
     price:'￥20'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
+    title:"口红",
+    price:'￥200'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"手机",
+    price:'￥1999'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"猫粮",
+    price:'400'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"风衣",
+    price:'￥200'
+  },
+  {
+    type:'image',
+    img:$r('app.media.flower'),
+    title:"钢笔",
     price:'￥20'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
+    title:"显卡",
+    price:'￥14999'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
+    title:"蓝牙耳机",
+    price:'￥599'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
+    title:"维C泡腾片",
+    price:'￥9.9'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
+    title:"洗衣机",
+    price:'￥1200'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
+    title:"4K显示器",
+    price:'￥899'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
+    title:"汾酒",
+    price:'￥40'
   },
   {
     type:'image',
     img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
-  },
-  {
-    type:'image',
-    img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
-  },
-  {
-    type:'image',
-    img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
-  },
-  {
-    type:'image',
-    img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
-  },
-  {
-    type:'image',
-    img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
-  },
-  {
-    type:'image',
-    img:$r('app.media.flower'),
-    title:"电视机",
-    price:'￥20'
+    title:"保温杯",
+    price:'￥79'
   },
 
 ]
