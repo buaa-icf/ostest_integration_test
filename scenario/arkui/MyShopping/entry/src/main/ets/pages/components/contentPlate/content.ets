@@ -1,3 +1,4 @@
+// ts-noCheck
 /*
  * Copyright (c) 2023-2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,11 +16,13 @@
 
 import { WaterFlowDataSource } from '../../../data/WaterFlowDataSource'
 import { MerchandiseList } from '../../../dataModel/merchandise'
+import { contentMenu } from './contentMenu'
 
 @Component
 export struct Content {
+  private controller: TabsController = new TabsController()
   datasource: WaterFlowDataSource = new WaterFlowDataSource()
-  private verbTab: Array<Array<Resource>> = [
+  private verbTab1: Array<Array<Resource>> = [
     [$r('app.media.ic_event_area_change'), $r('app.string.app_market')],
     [$r('app.media.ic_event_area_change'), $r('app.string.app_medicine')],
     [$r('app.media.ic_event_area_change'), $r('app.string.app_secKill')],
@@ -31,6 +34,20 @@ export struct Content {
     [$r('app.media.ic_event_area_change'), $r('app.string.app_borrow_money')],
     [$r('app.media.ic_event_area_change'), $r('app.string.app_electric_appliance')],
   ]
+
+  private verbTab2: Array<Array<Resource>> = [
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_secKill')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_auction')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_men_clothing')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_wal_mart')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_car')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_travel')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_used')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_voucher')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_life')],
+    [$r('app.media.ic_event_area_change'), $r('app.string.app_more')],
+  ]
+
   private verbTabId:Array<string> = [
     'content_image_001',
     'content_image_002',
@@ -43,45 +60,45 @@ export struct Content {
     'content_image_009',
     'content_image_010',
   ]
+  @State currentIndex: number = 0
+
+  @Builder
+  tabBuilder(index: number) {
+    Column() {
+      Rect({ width: this.currentIndex === index ? 15 : 7, height: 7 })
+        .radiusHeight(20)
+        .radiusWidth(this.currentIndex === index ? 40 : 20)
+        .fill(this.currentIndex === index ? Color.Red : Color.Gray)
+    }.height(7)
+    .margin({left:8})
+  }
 
   build() {
     // 功能栏 （领红包、汪汪乐园、签到提现、1分抽奖、充值中心）
     Column() {
       Column() {
-        Row({space:20}) {
-          ForEach(this.verbTab.slice(0,5), (item: Array<Resource>, index: number) => {
-            Column() {
-              Image(item[0])
-                .height(40)
-                .objectFit(ImageFit.Contain)
-                .id(this.verbTabId[index])
-              Text(item[1]).fontSize(12)
-            }.margin({ left: 10 })
-          }, (item: string) => item)
-        }
-        .margin({ top: 5 })
-        .width('100%')
-        .height('60')
-        .backgroundColor(Color.White)
-        .borderRadius(10)
-        .justifyContent(FlexAlign.SpaceEvenly)
+        Tabs({ barPosition: BarPosition.End, index: this.currentIndex, controller: this.controller }) {
+          TabContent() {
+            contentMenu({verbTab:this.verbTab1, verbTabId:this.verbTabId })
+          }.tabBar(this.tabBuilder(0))
+          .height(120)
 
-        Row({space:20}) {
-          ForEach(this.verbTab.slice(5,this.verbTab.length), (item: Array<Resource>, index: number) => {
-            Column() {
-              Image(item[0])
-                .height(40)
-                .objectFit(ImageFit.Contain)
-                .id(this.verbTabId[index])
-              Text(item[1]).fontSize(12)
-            }.margin({ left: 10 })
-          }, (item: string) => item)
-        }
-        .width('100%')
-        .height('60')
+          TabContent() {
+            contentMenu({verbTab:this.verbTab2,verbTabId:this.verbTabId })
+          }.tabBar(this.tabBuilder(1))
+          .height(120)
+        }.scrollable(true)
         .backgroundColor(Color.White)
         .borderRadius(10)
-        .justifyContent(FlexAlign.SpaceEvenly)
+        .vertical(false)
+        .height(150)
+        .barHeight(20)
+        .width('100%')
+        .barMode(BarMode.Scrollable)
+        .animationDuration(400)
+        .onChange((index: number) => {
+          this.currentIndex = index
+        })
 
         // 中部banner 活动跳转banner
         Row() {

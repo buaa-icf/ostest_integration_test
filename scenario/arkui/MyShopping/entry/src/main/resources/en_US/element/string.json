@@ -13,14 +13,6 @@
       "value": "MyShopping"
     },
     {
-      "name": "navigator_third_page_back",
-      "value": "Go back to the first page"
-    },
-    {
-      "name": "navigator_return_message",
-      "value": "hello! This is a param form the first page"
-    },
-    {
       "name": "tabbar_home",
       "value": "Home"
     },
@@ -79,6 +71,38 @@
     {
       "name": "app_electric_appliance",
       "value": "electric_appliance"
+    },
+    {
+      "name": "app_auction",
+      "value": "auction"
+    },
+    {
+      "name": "app_men_clothing",
+      "value": "men_clothing"
+    },
+    {
+      "name": "app_wal_mart",
+      "value": "wal_mart"
+    },
+    {
+      "name": "app_car",
+      "value": "car"
+    },
+    {
+      "name": "app_travel",
+      "value": "travel"
+    },
+    {
+      "name": "app_used",
+      "value": "used"
+    },
+    {
+      "name": "app_life",
+      "value": "car"
+    },
+    {
+      "name": "app_more",
+      "value": "more"
     }
   ]
 }

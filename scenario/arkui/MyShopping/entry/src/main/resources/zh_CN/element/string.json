@@ -71,6 +71,38 @@
     {
       "name": "app_electric_appliance",
       "value": "电器"
+    },
+    {
+      "name": "app_auction",
+      "value": "拍卖"
+    },
+    {
+      "name": "app_men_clothing",
+      "value": "男装"
+    },
+    {
+      "name": "app_wal_mart",
+      "value": "沃尔玛"
+    },
+    {
+      "name": "app_car",
+      "value": "买车养车"
+    },
+    {
+      "name": "app_travel",
+      "value": "旅行"
+    },
+    {
+      "name": "app_used",
+      "value": "二手"
+    },
+    {
+      "name": "app_life",
+      "value": "生活"
+    },
+    {
+      "name": "app_more",
+      "value": "更多频道"
     }
   ]
 }
