@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.example.mymusic",
+    "bundleName": "com.example.myMusic",
     "vendor": "example",
     "versionCode": 1000000,
     "versionName": "1.0.0",

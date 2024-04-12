@@ -21,9 +21,7 @@ import PlayerBar from '../view/PlayerBar';
 import Community from "../view/Community"
 import Follow from '../view/Follow';
 import PlayerManager from '../manager/PlayerManager'
-import Logger from '../common/utils/Logger';
 import curves from '@ohos.curves';
-import PodCastHead from '../view/PodCastHead';
 import Setting from '../view/Setting';
 import PlayList from '../view/PlayList';
 import PlayerDetail from '../view/PlayerDetail';
