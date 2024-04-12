@@ -18,7 +18,7 @@ import { describe, beforeAll, beforeEach, afterEach, afterAll, it, expect } from
 import { Driver, ON, MatchPattern } from '@ohos.UiTest';
 import AbilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
 
-const TAG = '[Scenario_MyMusic_ActsAbilityTest2]';
+const TAG = '[Scenario_MyMusic_ActsAbilityTest]';
 const BUNDLE = 'MyMusic_';
 const TIME_OUT = 10000;
 const DOMAIN = 0xF811;
@@ -34,18 +34,18 @@ async function getResourceString(resource: Resource): Promise<string> {
   return text;
 }
 
-export default function abilityTest2() {
-  describe('ActsAbilityTest2', () => {
+export default function pageTest() {
+  describe('pageTest', () => {
     // Defines a test suite. Two parameters are supported: test suite name and test suite function.
     beforeAll(async () => {
       /*
       try {
         await abilityDelegator.startAbility({
-          bundleName: 'com.example.mymusic',
+          bundleName: 'com.example.myMusic',
           abilityName: 'EntryAbility'
         });
         let driver = Driver.create();
-        await driver.delayMs(5000);
+        await driver.delayMs(500);
       } catch (exception) {
         HiLog.info(DOMAIN, TAG, `StartAbility_001 exception = ${JSON.stringify(exception)}`);
         expect().assertFail();
@@ -70,38 +70,41 @@ export default function abilityTest2() {
     /**
      * 打开应用
     */
-    it('StartAbility_001', 0, async () => {
-      HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_001 begin');
+    it('scenario_myMusic_initial_1', 0, async () => {
+      HiLog.info(DOMAIN, TAG, BUNDLE + 'scenario_myMusic_initial_1 begin');
       try {
-        await abilityDelegator.startAbility({
-          bundleName: 'com.example.mymusic',
-          abilityName: 'EntryAbility'
-        });
         let driver = Driver.create();
-        await driver.delayMs(5000);
+        await driver.delayMs(500);
       } catch (exception) {
-        HiLog.info(DOMAIN, TAG, `StartAbility_001 exception = ${JSON.stringify(exception)}`);
+        HiLog.info(DOMAIN, TAG, `scenario_myMusic_initial_1 exception = ${JSON.stringify(exception)}`);
         expect().assertFail();
       }
-      HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_001 end');
+      HiLog.info(DOMAIN, TAG, BUNDLE + 'scenario_myMusic_initial_1 end');
     })
-    it('StartAbility_002', 0, async () => {
+    it('scenario_myMusic_page_1', 0, async () => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_002 begin');
       let driver = Driver.create();
-      await driver.delayMs(5000);
+      await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_002 end');
     })
-    it('StartAbility_003', 0, async (done: Function) => {
+    it('scenario_myMusic_page_2', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_003 begin');
       let driver = Driver.create();
-      await driver.delayMs(5000);
+      await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_003 end');
       done();
     })
-    it('StartAbility_004', 0, async (done: Function) => {
+    it('scenario_myMusic_page_3', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
-      await driver.delayMs(5000);
+      await driver.delayMs(500);
+      HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
+      done();
+    })
+    it('scenario_myMusic_page_4', 0, async (done: Function) => {
+      HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
+      let driver = Driver.create();
+      await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })

@@ -13,10 +13,12 @@
  * limitations under the License.
  */
 
-import abilityTest from './Ability.test';
-import abilityTest2 from './Ability2.test';
+import pageTest from './Page.test';
+import playlistTest from './Playlist.test';
+import playbackTest from './Playback.test';
 
 export default function testsuite() {
-  abilityTest();
-  abilityTest2();
+  pageTest();
+  playlistTest();
+  playbackTest();
 }
