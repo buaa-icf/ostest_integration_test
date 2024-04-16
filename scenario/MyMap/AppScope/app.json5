@@ -1,0 +1,10 @@
+{
+  "app": {
+    "bundleName": "ohos.samples.mymap",
+    "vendor": "example",
+    "versionCode": 1000000,
+    "versionName": "1.0.0",
+    "icon": "$media:icon_fMyMap",
+    "label": "$string:app_name"
+  }
+}

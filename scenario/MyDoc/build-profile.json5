@@ -1,0 +1,49 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:\\Users\\15850\\.ohos\\config\\openharmony\\auto_ohos_default_MyWps_com.example.mywps.cer",
+          "storePassword": "0000001B4289C18772F96228FD1E4A07BAC6106C86D6E520A219CE921C8E30BC4852A81D030915E8929E1E",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BB388ED5DDE7574C54028C65990894B634E6FD18ADD6886E50FB9F77B4778C4D38F74FA35FA8236",
+          "profile": "C:\\Users\\15850\\.ohos\\config\\openharmony\\auto_ohos_default_MyWps_com.example.mywps.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\15850\\.ohos\\config\\openharmony\\auto_ohos_default_MyWps_com.example.mywps.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": 10,
+        "compatibleSdkVersion": 10,
+        "runtimeOS": "OpenHarmony",
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
