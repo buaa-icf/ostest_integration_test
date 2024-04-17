@@ -218,14 +218,14 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
 ```
 
 4. 执行用例
-   
-        run -l 包名
 
+    脚本参考[run.bat](docs/run.bat)
+
+        run -l 包名
+    不同环境下，可以自行修改自动化执行的脚本。
 5. 查看报告
 
     查看report输出的报告。
-
-
 
 其他细节参考各测试应用使用说明。
 
