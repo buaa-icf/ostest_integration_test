@@ -2,7 +2,27 @@
 
 ### 介绍
 
-将业界JetStream2中收集的典型benchmark用例用ts重写，测试OpenHarmony ArkTS语言运行的性能。
+测试Wi-Fi基本功能：
+
+| 用例     | 
+|--------|
+| 打开Wi-Fi |
+| 发现SSID | 
+| 连接（无密码） | 
+| 断开 | 
+| 重新连接（无密码） | 
+| 重新连接（WEP） | 
+| 连接（WPA/WPA2） | 
+| 重新连接（WPA/WPA2） | 
+| 连接（WPA-PSK） | 
+| 重新连接（WPA-PSK） | 
+| 访问网站 |
+| 下载文件 | 
+| 自动连接 | 
+| 取消自动连接 | 
+| 删除记录后重新连接（有密码） | 
+| 连接不广播SSID | 
+| 关闭Wi-Fi |
 
 ### 效果预览
 
@@ -18,18 +38,11 @@
 └── pages
     ├── Index.ets                        //测试入口页面   
 └── cases
-    ├── BenchmarkMeasure.ts             // ts测试套
-    ├── Octane
-    │   ├── box2d.ts                    // 用例
-    │   ├── deltablue.ts
-    │   ├── navier-stoke.ts
-    │   ├── raytrace.ts
-    │   └── richards.ts
-    └── SunSpider
-        ├── base64.ts                   // 用例
-        ├── crypto-aes.ts
-        ├── crypto-md5.ts
-        └── crypto-sha1.ts
+    ├── enable.ets                   // 用例
+    ├── disable.ets
+    ├── scan.ets
+    └── connect.ets
+    └── transmit.ets
 ```
 ### 相关权限
 无
@@ -47,7 +60,7 @@
 ```
 git init
 git config core.sparsecheckout true
-echo performance/arkts/benchmark_arkts_compiler > .git/info/sparse-checkout
+echo function/communiction_wifi/ > .git/info/sparse-checkout
 git remote add origin https://gitee.com/openharmony-sig/ostest_integration_test.git
 git pull origin master
 ```
