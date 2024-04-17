@@ -11,49 +11,233 @@
 
 ![test_content](figures/test_content.png)
 
-已开发的内容：
-1. 通过模拟用户使用场景开发测试的应用，例如：音乐、购物、办公等测试应用；
-2. ArkUI组件一致性测试Benchmark；
-3. ArkTS编译器性能测试Benchmark；
-
-
 #### 目录结构
 ```
-├── figures		            //readme 图片资源
+├── function                //功能测试目录
+│       └── communication	         //子系统
+│           └── wifi	                //Wi-Fi模块功能测试应用
+│           └── bluetooth	            //蓝牙模块功能测试应用
+│       └── multimedia               //子系统
+│               └── audio	            //音频模块功能测试应用
 ├── performance	            //性能测试目录
-│       └── arkts	           //模块
-|               └── benchmark	 //编译器Benchmark用例 
-│       └── arkui	           //模块
-|               └── benchMark	 //组件BenchMark用例
-├── scenario               //用户场景测试应用
-│       └── arkui	           //模块
-│               └── MyMap	   //地图测试hap
-│               └── MyMusic	   //音乐测试hap
-│               └── MyNews	   //新闻测试hap
-│               └── MyShopping     //购物测试hap
-│               └── MyWps	   //办公测试hap
-└── ...  		           //其他测试类型
-└── release  		           //测试用例版本发布
+│       └── arkts	                 //子系统
+│               └── benchmark_arkts_compiler	 //编译器语言Benchmark用例 
+│       └── arkui	                 //子系统
+│               └── benchmark_component	         //组件性能BenchMark用例
+│               └── benchmark_pipeline	         //组件性能BenchMark工具
+│       └── communication	         //子系统
+│               └── wifi_perf	                //Wi-Fi模块性能测试应用
+│               └── bluetooth_perf	            //蓝牙模块性能测试应用
+│       └── multimedia               //子系统
+│               └── audio_perf	            //音频模块性能测试应用
+├── scenario               //场景测试应用
+│       └── MyMap	        //地图测试hap
+│       └── MyMusic	        //音乐测试hap
+│       └── MyNews	        //新闻测试hap
+│       └── MyShopping      //购物测试hap
+│       └── MyDoc	        //办公测试hap
+│       └── MyChat	        //社交测试hap
+│       └── MyGame	        //游戏测试hap
+└── figures		           //readme 图片资源
 └── readme                 //说明文档
 ```
 
-#### 编码规范
+#### 测试应用示例
 
-1.  代码规范
-2.  工程结构规范
-3.  README编写规范
-4.  用例设计规范
+ | Wi-Fi功能测试                       | Wi-Fi性能测试                      | 音乐场景测试应用                                        | 新闻场景测试应用    |
+|----------------------|--------------------------------|-----------------------------|-----------------------|
+ | ![image](function/communication/wifi/screenshots/home.png) | ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
+
+#### 测试范围和目标介绍
+
+1. 测试范围
+
+测试规范参考：[OpenHarmony应用质量要求](https://www.openharmony.cn/certification/moreStandard)
+
+集成测试仓规划的测试内容如下：
+
+功能测试
+
+| 子系统  | 测试模块  |
+|------|-------|
+| 设备管理 | 系统信息  |
+| 多模输入 | 触摸/手势 |
+| 通信   | Wi-Fi |
+| 通信   | 蓝牙    |
+| 通信   | 网络传输  |
+| 媒体   | 音频    |
+| 媒体   | 视频    |
+| 媒体   | 图片    |
+| 文件   | 文件读写  |
+
+场景测试
+
+| 编号  | 场景   |
+|-----|------|
+| 1   | 音乐播放 |
+| 2   | 社交软件 |
+| 3   | 办公软件 |
+| 4   | 电商购物 |
+| 5   | 新闻资讯 |
+
+
+性能测试
+
+
+| 编号 | 测试项      |
+|----|----------|
+| 1  | 应用启动、切换  |
+| 2  | 文件IO性能   |
+| 3  | 网络传输性能   |
+| 4  | 图形显示性能   |
+| 5  | 音视频编解码性能 |
+| 6  | 游戏性能     |
+| 7  | 功耗       |
+
+2. 测试目标
+
+Release版本发布前需要通过功能测试和场景测试
+
+Release版本建议基于官方硬件平台进行性能测试
+
+测试项细节参考各用例模块说明
 
 #### 使用说明
 
-参考各子模块使用说明
+用例测试使用步骤：
+1. 下载代码
+
+从代码仓同步代码
+
+2. 编译构建
+
+使用DevEco编译测试hap
+
+手动测试直接在DevEco中运行test工程测试用例即可。
+
+自动化测试环境搭建继续按后续步骤操作：
+
+3. 环境准备
+
+测试环境创建四个目录和一个执行脚本：
+
+    config//json配置文件
+    
+    tools//执行所需的工具
+    
+    testcases//测试应用hap
+    
+    report//报告输出目录
+    
+    run.bat//执行脚本
+
+将编译好的hap文件拷贝到testcases目录。
+
+配置文件预置模板:
+
+myShopping.json
+
+```
+{
+  "description": "Configuration for myshopping Tests",
+  "driver": {
+      "type": "OHJSUnitTest",
+      "test-timeout": "180000",
+      "bundle-name": "ohos.samples.myShopping",
+      "module-name": "entry_test",
+      "shell-timeout": "60000",
+      "testcase-timeout": 30000
+  },
+  "kits": [
+  {
+      "test-file-name": [
+          "myShopping.hap"
+      ],
+      "type": "AppInstallKit",
+      "cleanup-apps": true
+  }, {
+      "type": "ShellKit",
+      "run-command": [
+          "power-shell wakeup",
+          "power-shell setmode 602"
+      ]
+  }]
+}
+```
+
+参展这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改
+
+例如:myMusic.json
+
+修改:
+
+```
+template_data['driver']['bundle-name'] = f'ohos.samples.{文件名}'
+template_data['driver']['bundle-name'] = 'entry_test'
+template_data['kits']['test-file-name'] = 'myShopping.hap'
+```
+
+```
+{
+  "description": "Configuration for myshopping Tests",
+  "driver": {
+      "type": "OHJSUnitTest",
+      "test-timeout": "180000",
+      "bundle-name": "ohos.samples.myMusic",
+      "module-name": "entry_test",
+      "shell-timeout": "60000",
+      "testcase-timeout": 30000
+  },
+  "kits": [
+  {
+      "test-file-name": [
+          "myShopping.hap"
+      ],
+      "type": "AppInstallKit",
+      "cleanup-apps": true
+  }, {
+      "type": "ShellKit",
+      "run-command": [
+          "power-shell wakeup",
+          "power-shell setmode 602"
+      ]
+  }]
+}
+```
+
+4. 执行用例
+   
+        run -l 包名
+
+5. 查看报告
+
+    查看report输出的报告。
+
+
+
+其他细节参考各测试应用使用说明
+
+#### 编码规范
+应用代码规范参考Sample仓要求:
+1.  代码规范
+
+    查看[代码规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)
+2.  工程结构规范
+
+    查看[工程结构规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)
+3.  README编写规范
+
+    查看[README编写规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)
+4.  用例设计规范
+
+    查看[用例设计规范](docs/CaseRule.md)
 
 #### 参与贡献
 
-可以参与共建的方向：
-1.  黑盒功能测试:WIFI、蓝牙、音频、视频等;
-2.  行业场景测试：金融、PC、车机等;
-3.  专项工具：应用安全性、应用性能等;
+上述规划中的测试内容，包括不限于：
+1.  功能测试:Wi-Fi、蓝牙、音频、视频等;
+2.  场景测试：办公、媒体、游戏等;
+3.  专项工具：应用性能、安全性、稳定性等;
 
 有任何关于本仓的想法和问题请联系管理员或者提issue问题单。
 

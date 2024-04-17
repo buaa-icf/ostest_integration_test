@@ -2,7 +2,19 @@
 
 ### 介绍
 
-将业界JetStream2中收集的典型benchmark用例用ts重写，测试OpenHarmony ArkTS语言运行的性能。
+测试Wi-Fi基本功能：
+
+| 用例     | 
+|--------|
+| 启动时间（平均耗时） |
+| 发现SSID（最短时间） | 
+| 发现SSID（1秒内最大数量） | 
+| 连接（无密码平均耗时） | 
+| 断开（平均耗时） | 
+| 重新连接（无密码平均耗时） | 
+| 最大带宽（大文件）| 
+| 延时（本地服务器平均） | 
+
 
 ### 效果预览
 
@@ -18,18 +30,11 @@
 └── pages
     ├── Index.ets                        //测试入口页面   
 └── cases
-    ├── BenchmarkMeasure.ts             // ts测试套
-    ├── Octane
-    │   ├── box2d.ts                    // 用例
-    │   ├── deltablue.ts
-    │   ├── navier-stoke.ts
-    │   ├── raytrace.ts
-    │   └── richards.ts
-    └── SunSpider
-        ├── base64.ts                   // 用例
-        ├── crypto-aes.ts
-        ├── crypto-md5.ts
-        └── crypto-sha1.ts
+    ├── enable.ets                   // 用例
+    ├── disable.ets
+    ├── scan.ets
+    └── connect.ets
+    └── transmit.ets
 ```
 ### 相关权限
 无
@@ -47,7 +52,7 @@
 ```
 git init
 git config core.sparsecheckout true
-echo performance/arkts/benchmark_arkts_compiler > .git/info/sparse-checkout
+echo performance/communiction_wifi_perf/ > .git/info/sparse-checkout
 git remote add origin https://gitee.com/openharmony-sig/ostest_integration_test.git
 git pull origin master
 ```
