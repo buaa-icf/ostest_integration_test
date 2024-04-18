@@ -130,20 +130,23 @@
 
 #### 使用说明
 
-用例测试使用步骤：
+测试执行步骤：
+
 1. 下载代码
 
 从代码仓同步代码。
 
 2. 编译构建
 
-* 使用DevEco编译测试hap
+【手动测试】在DevEco中运行test工程测试用例即可。
+* 使用DevEco编译、运行测试：
+![image](performance/arkui/benchmark_component/preview/1.png)
+* 查看测试结果：
+![image](performance/arkui/benchmark_component/preview/3.png)
 
-手动测试直接在DevEco中运行test工程测试用例即可。
+【自动化测试】使用xDevice框架，环境搭建执行按后续步骤 3~5 操作：
 
-* 使用XTS的gn编译方式（后续将替换成hivigor）
-
-自动化测试使用xDevice框架，环境搭建执行按后续步骤操作：
+* 通过脚本，使用XTS的gn编译方式（后续将替换成hivigor）
 
 3. 环境准备
 
@@ -226,7 +229,7 @@
 }
 ```
 
-1. 执行用例
+4. 执行用例
 
     脚本参考：[run.bat](docs/run.bat)
 
@@ -235,7 +238,7 @@
     ```
 
     不同环境下，可以自行修改自动化执行的脚本。
-2. 查看报告
+5. 查看报告
 
     查看report输出的报告。
     ![image](figures/report.png)
