@@ -1,4 +1,4 @@
-# ostest_integration_test
+# 集成测试仓 ostest_integration_test
 
 #### 介绍
 集成测试仓用于统一规划、开发、管理操作系统产品化的场景、功能、性能、稳定性、安全性等测试用例。
@@ -19,6 +19,7 @@
 │               └── bluetooth	            //蓝牙模块功能测试应用
 │       └── multimedia               //子系统
 │               └── audio	            //音频模块功能测试应用
+│               └── camera	            //相机功能测试应用
 ├── performance	            //性能测试目录
 │       └── arkts	                 //子系统
 │               └── benchmark_arkts_compiler	 //编译器语言Benchmark用例 
@@ -30,6 +31,7 @@
 │               └── bluetooth_perf	            //蓝牙模块性能测试应用
 │       └── multimedia               //子系统
 │               └── audio_perf	            //音频模块性能测试应用
+│               └── camera_perf	            //相机性能测试应用
 ├── scenario               //场景测试应用
 │       └── MyMap	        //地图测试hap
 │       └── MyMusic	        //音乐测试hap
@@ -39,14 +41,27 @@
 │       └── MyChat	        //社交测试hap
 │       └── MyGame	        //游戏测试hap
 └── figures		           //readme 图片资源
+└── docs		           //readme 二级文档
 └── readme                 //说明文档
 ```
 
 #### 测试应用示例
 
- | Wi-Fi功能测试                       | Wi-Fi性能测试                      | 音乐场景测试应用                                        | 新闻场景测试应用    |
-|----------------------|--------------------------------|-----------------------------|-----------------------|
- | ![image](function/communication/wifi/screenshots/home.png) | ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
+ | Wi-Fi功能测试                       | 音频功能测试                                                   | 相机功能测试                                                    |
+|----------------------|----------------------------------------------------------|-----------------------------------------------------------|
+ | ![image](function/communication/wifi/screenshots/home.png) | ![image](function/multimedia/audio/screenshots/home.png) | ![image](function/multimedia/camera/screenshots/home.png) | 
+
+
+
+| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                                                            |
+|--------------------------------|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | 
+
+
+
+| 音乐场景测试应用                                        | 新闻场景测试应用    |
+|-----------------------------|-----------------------|
+| ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
 
 #### 测试范围和目标介绍
 
@@ -66,37 +81,40 @@
 | 通信   | 蓝牙    |
 | 通信   | 网络传输  |
 | 媒体   | 音频    |
+| 媒体   | 相机    |
 | 媒体   | 视频    |
 | 媒体   | 图片    |
 | 文件   | 文件读写  |
+| 分布式  | 分布式设备 |
 
 * 场景测试
 
-| 编号  | 场景   |
-|-----|------|
+| 编号  | 场景 |
+|-----|--|
 | 1   | 音乐播放 |
 | 2   | 社交软件 |
 | 3   | 办公软件 |
 | 4   | 电商购物 |
 | 5   | 新闻资讯 |
-| 6   | 游戏   |
+| 6   | 游戏 |
 | 7   | 视频直播 |
-
+| 7   | 智能家居 |
 
 * 性能测试
 
-
-| 编号  | 测试项              |
-|-----|------------------|
-| 1   | 应用启动、切换          |
-| 2   | 文件IO性能           |
-| 3   | 网络传输性能           |
-| 4   | 图形显示性能           |
-| 5   | 音视频编解码性能         |
-| 6   | 游戏性能             |
-| 7   | 功耗               |
-| 8   | ArkUI组件benchmark    |
-| 9   | ArkTS语言benchmark |
+| 编号  | 测试项            |
+|-----|----------------|
+| 1   | 应用启动、切换        |
+| 2   | 文件IO性能         |
+| 3   | 网络传输性能         |
+| 4   | 图形显示性能         |
+| 5   | 音频性能           |
+| 6   | 相机性能           |
+| 7   | 游戏性能           |
+| 8   | 功耗             |
+| 9   | ArkUI组件benchmark |
+| 10  | ArkTS语言benchmark |
+| 11  | 视频性能           |
 
 测试项细节参考各用例模块说明
 
@@ -104,9 +122,9 @@
 
 * 通过功能和场景测试，保障OpenHarmony作为操作系统底座，基本功能可用，流程完善，并且可以覆盖主流的应用场景。
 
-* 通过性能测试，为基于OpenHarmony的产品研发提供参考。
+* 通过性能测试，标定系统基本性能指标，支持能力范围，为基于OpenHarmony的产品研发提供参考。
 
-* 为基于OpenHarmony的产品研发提供基础测试方法、框架、用例，本测试仓的测试可以直接应用于二次开发的产品。
+* 为基于OpenHarmony的产品研发提供基础测试方法、框架、用例，本测试仓的测试内容可以直接应用于二次开发的产品。
 
 建议：
 * Release版本发布前需要通过功能测试和场景测试

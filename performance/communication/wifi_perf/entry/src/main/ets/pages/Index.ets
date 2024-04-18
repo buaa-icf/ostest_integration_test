@@ -1,7 +1,7 @@
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Communication Wi-Fi Performance Test';
+  @State message: string = 'Wi-Fi性能测试';
   private cases: string[] = ['启动时间（平均耗时）','发现SSID（最短时间）','发现SSID（1秒内最大数量）','连接（无密码平均耗时）', '断开（平均耗时）', '重新连接（无密码平均耗时）', '连接（WEP平均耗时）','重新连接（WEP平均耗时）',
     '连接（WPA/WPA2平均耗时）', '重新连接（WPA/WPA2平均耗时）','连接（WPA-PSK平均耗时）','重新连接（WPA-PSK平均耗时）',
     '最大带宽（大文件）','延时（本地服务器平均）','自动连接（平均耗时）']
