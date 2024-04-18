@@ -157,7 +157,7 @@
 
     - config//json配置文件
 
-    - tools//执行所需的工具
+    - tools//执行所需的工具：xdevice安装包
 
     - testcases//测试应用hap
 
@@ -199,7 +199,7 @@
 }
 ```
 
-参展这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改。
+参考这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改。
 
 例如，修改后的myMusic.json如下：
 
