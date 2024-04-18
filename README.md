@@ -140,15 +140,17 @@
 
 【手动测试】在DevEco中运行test工程测试用例即可。
 * 使用DevEco编译、运行测试：
+  
 ![image](performance/arkui/benchmark_component/preview/1.png)
 * 查看测试结果：
+  
 ![image](performance/arkui/benchmark_component/preview/3.png)
 
 【自动化测试】使用xDevice框架，环境搭建执行按后续步骤 3~5 操作：
 
 * 通过脚本，使用XTS的gn编译方式（后续将替换成hivigor）
 
-3. 环境准备
+1. 环境准备
 
 * 测试环境创建四个目录和一个执行脚本：
 
