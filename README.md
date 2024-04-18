@@ -46,22 +46,23 @@
 ```
 
 #### 测试应用示例
+* 功能测试
 
  | Wi-Fi功能测试                       | 音频功能测试                                                   | 相机功能测试                                                    |
 |----------------------|----------------------------------------------------------|-----------------------------------------------------------|
  | ![image](function/communication/wifi/screenshots/home.png) | ![image](function/multimedia/audio/screenshots/home.png) | ![image](function/multimedia/camera/screenshots/home.png) | 
 
-
-
-| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                                                            |
-|--------------------------------|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | 
-
-
+* 场景测试
 
 | 音乐场景测试应用                                        | 新闻场景测试应用    |
 |-----------------------------|-----------------------|
 | ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
+
+* 性能测试
+
+| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                  | ArkTS benchmark测试                |
+|--------------------------------|------------------------------------------------------------------|--------------------------------------------|--------------------------------------------|
+| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | ![image](performance/arkts/benchmark_arkts_compiler/screenshots/home.png) |
 
 #### 测试内容和目标
 
