@@ -11,7 +11,19 @@
 
 ![test_content](figures/test_content.png)
 
-#### 目录结构
+#### 测试目标
+* 通过功能和场景测试，保障OpenHarmony作为操作系统底座，基本功能可用，流程完善，并且可以覆盖主流的应用场景。
+
+* 通过性能测试，标定系统基本性能指标，支持能力范围，为基于OpenHarmony的产品研发提供参考。
+
+* 为基于OpenHarmony的产品研发提供基础测试方法、框架、用例，本测试仓的测试内容可以直接应用于二次开发的产品。
+
+测试建议：
+* Release版本发布前需要通过功能测试和场景测试。
+
+* Release版本建议基于硬件平台进行性能测试。
+
+#### 用例目录结构
 ```
 ├── function                //功能测试目录
 │       └── communication	         //子系统
@@ -45,30 +57,7 @@
 └── readme.md              //说明文档
 ```
 
-#### 测试应用示例
-* 功能测试
-
- | Wi-Fi功能测试                       | 音频功能测试                                                   | 相机功能测试                                                    |
-|----------------------|----------------------------------------------------------|-----------------------------------------------------------|
- | ![image](function/communication/wifi/screenshots/home.png) | ![image](function/multimedia/audio/screenshots/home.png) | ![image](function/multimedia/camera/screenshots/home.png) | 
-
-* 场景测试
-
-| 音乐场景测试应用                                        | 新闻场景测试应用    |
-|-----------------------------|-----------------------|
-| ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
-
-* 性能测试
-
-| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                  | ArkTS benchmark测试                |
-|--------------------------------|------------------------------------------------------------------|--------------------------------------------|--------------------------------------------|
-| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | ![image](performance/arkts/benchmark_arkts_compiler/screenshots/home.png) |
-
-#### 测试内容和目标
-
-1. 测试内容
-
-测试规范参考：[OpenHarmony应用质量要求](https://www.openharmony.cn/certification/moreStandard)
+#### 测试内容
 
 集成测试仓规划的测试内容如下（持续更新）：
 
@@ -118,21 +107,26 @@
 | 11  | ArkTS  | ArkTS语言benchmark |
 
 
-测试项细节参考各用例模块说明
+详细测试项参考各模块说明。
 
-2. 测试目标
+#### 测试应用示例
+* 功能测试
 
-* 通过功能和场景测试，保障OpenHarmony作为操作系统底座，基本功能可用，流程完善，并且可以覆盖主流的应用场景。
+ | Wi-Fi功能测试                       | 音频功能测试                                                   | 相机功能测试                                                    |
+|----------------------|----------------------------------------------------------|-----------------------------------------------------------|
+ | ![image](function/communication/wifi/screenshots/home.png) | ![image](function/multimedia/audio/screenshots/home.png) | ![image](function/multimedia/camera/screenshots/home.png) | 
 
-* 通过性能测试，标定系统基本性能指标，支持能力范围，为基于OpenHarmony的产品研发提供参考。
+* 场景测试
 
-* 为基于OpenHarmony的产品研发提供基础测试方法、框架、用例，本测试仓的测试内容可以直接应用于二次开发的产品。
+| 音乐场景测试应用                                        | 新闻场景测试应用    |
+|-----------------------------|-----------------------|
+| ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
 
-测试建议：
-* Release版本发布前需要通过功能测试和场景测试。
+* 性能测试
 
-* Release版本建议基于硬件平台进行性能测试。
-
+| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                  | ArkTS benchmark测试                |
+|--------------------------------|------------------------------------------------------------------|--------------------------------------------|--------------------------------------------|
+| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | ![image](performance/arkts/benchmark_arkts_compiler/screenshots/home.png) |
 
 #### 使用说明
 
@@ -248,8 +242,8 @@
 
 其他细节参考各测试应用使用说明。
 
-#### 编码规范
-应用代码规范参考Sample仓要求:
+#### 规范
+
 1.  代码规范
 
     查看[代码规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)。
@@ -262,6 +256,9 @@
 4.  用例设计规范
 
     查看[用例设计规范](docs/CaseRule.md)。
+
+5. 应用质量规范
+   查看[OpenHarmony应用质量要求](https://www.openharmony.cn/certification/moreStandard)。
 
 #### 参与贡献
 
