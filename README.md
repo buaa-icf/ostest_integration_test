@@ -1,4 +1,4 @@
-# ostest_integration_test
+# 集成测试仓 ostest_integration_test
 
 #### 介绍
 集成测试仓用于统一规划、开发、管理操作系统产品化的场景、功能、性能、稳定性、安全性等测试用例。
@@ -15,92 +15,124 @@
 ```
 ├── function                //功能测试目录
 │       └── communication	         //子系统
-│           └── wifi	                //Wi-Fi模块功能测试应用
-│           └── bluetooth	            //蓝牙模块功能测试应用
+│               └── wifi	                //Wi-Fi模块功能测试
+│               └── bluetooth	            //蓝牙模块功能测试
 │       └── multimedia               //子系统
-│               └── audio	            //音频模块功能测试应用
+│               └── audio	                //音频模块功能测试
+│               └── camera	                //相机功能测试
 ├── performance	            //性能测试目录
 │       └── arkts	                 //子系统
 │               └── benchmark_arkts_compiler	 //编译器语言Benchmark用例 
 │       └── arkui	                 //子系统
-│               └── benchmark_component	         //组件性能BenchMark用例
-│               └── benchmark_pipeline	         //组件性能BenchMark工具
+│               └── benchmark_component	         //组件创建、布局 BenchMark测试
+│               └── benchmark_pipeline	         //组件管线 BenchMark测试
 │       └── communication	         //子系统
-│               └── wifi_perf	                //Wi-Fi模块性能测试应用
-│               └── bluetooth_perf	            //蓝牙模块性能测试应用
+│               └── wifi_perf	                //Wi-Fi模块性能测试
+│               └── bluetooth_perf	            //蓝牙模块性能测试
 │       └── multimedia               //子系统
-│               └── audio_perf	            //音频模块性能测试应用
+│               └── audio_perf	            //音频模块性能测试
+│               └── camera_perf	            //相机性能测试
 ├── scenario               //场景测试应用
-│       └── MyMap	        //地图测试hap
-│       └── MyMusic	        //音乐测试hap
-│       └── MyNews	        //新闻测试hap
-│       └── MyShopping      //购物测试hap
-│       └── MyDoc	        //办公测试hap
-│       └── MyChat	        //社交测试hap
-│       └── MyGame	        //游戏测试hap
+│       └── MyMap	            //地图场景测试
+│       └── MyMusic	            //音乐场景测试
+│       └── MyNews	            //新闻场景测试
+│       └── MyShopping          //购物场景测试
+│       └── MyDoc	            //办公场景测试
+│       └── MyChat	            //社交场景测试
+│       └── MyGame	            //游戏场景测试
 └── figures		           //readme 图片资源
-└── readme                 //说明文档
+└── docs		           //readme 二级文档
+└── readme.md              //说明文档
 ```
 
 #### 测试应用示例
+* 功能测试
 
- | Wi-Fi功能测试                       | Wi-Fi性能测试                      | 音乐场景测试应用                                        | 新闻场景测试应用    |
-|----------------------|--------------------------------|-----------------------------|-----------------------|
- | ![image](function/communication/wifi/screenshots/home.png) | ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
+ | Wi-Fi功能测试                       | 音频功能测试                                                   | 相机功能测试                                                    |
+|----------------------|----------------------------------------------------------|-----------------------------------------------------------|
+ | ![image](function/communication/wifi/screenshots/home.png) | ![image](function/multimedia/audio/screenshots/home.png) | ![image](function/multimedia/camera/screenshots/home.png) | 
 
-#### 测试范围和目标介绍
+* 场景测试
 
-1. 测试范围
+| 音乐场景测试应用                                        | 新闻场景测试应用    |
+|-----------------------------|-----------------------|
+| ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
+
+* 性能测试
+
+| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                  | ArkTS benchmark测试                |
+|--------------------------------|------------------------------------------------------------------|--------------------------------------------|--------------------------------------------|
+| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | ![image](performance/arkts/benchmark_arkts_compiler/screenshots/home.png) |
+
+#### 测试内容和目标
+
+1. 测试内容
 
 测试规范参考：[OpenHarmony应用质量要求](https://www.openharmony.cn/certification/moreStandard)
 
-集成测试仓规划的测试内容如下：
+集成测试仓规划的测试内容如下（持续更新）：
 
-功能测试
+* 功能测试
 
-| 子系统  | 测试模块  |
-|------|-------|
-| 设备管理 | 系统信息  |
-| 多模输入 | 触摸/手势 |
-| 通信   | Wi-Fi |
-| 通信   | 蓝牙    |
-| 通信   | 网络传输  |
-| 媒体   | 音频    |
-| 媒体   | 视频    |
-| 媒体   | 图片    |
-| 文件   | 文件读写  |
+| 编号  | 子系统  | 测试模块  |
+|-----|------|-------|
+| 1   | 设备管理 | 系统信息  |
+| 2   | 多模输入 | 触摸/手势 |
+| 3   | 通信   | Wi-Fi |
+| 4   | 通信   | 蓝牙    |
+| 5   | 通信   | 网络传输  |
+| 6   | 媒体   | 音频    |
+| 7   | 媒体   | 相机    |
+| 8   | 媒体   | 视频    |
+| 9   | 媒体   | 图片    |
+| 10  | 文件   | 文件读写  |
+| 11  | 分布式  | 分布式设备 |
 
-场景测试
+* 场景测试
 
-| 编号  | 场景   |
-|-----|------|
-| 1   | 音乐播放 |
-| 2   | 社交软件 |
-| 3   | 办公软件 |
-| 4   | 电商购物 |
-| 5   | 新闻资讯 |
+| 编号  | 场景    |
+|-----|-------|
+| 1   | 音乐播放  |
+| 2   | 社交软件  |
+| 3   | 办公软件  |
+| 4   | 电商购物  |
+| 5   | 新闻资讯  |
+| 6   | 游戏    |
+| 7   | 视频直播  |
+| 8   | 智能家居  |
+
+* 性能测试
+
+| 编号  | 子系统    | 测试项              |
+|-----|--------|------------------|
+| 1   | 应用程序框架 | 应用启动、切换          |
+| 2   | 文件     | 文件IO性能           |
+| 3   | 通信     | 网络传输性能（Wi-Fi）    |
+| 4   | 图形     | 图形显示性能           |
+| 5   | 多媒体    | 音频性能             |
+| 6   | 多媒体    | 视频性能             |
+| 7   | 多媒体    | 相机性能             |
+| 8   | 多媒体    | 游戏性能             |
+| 9   | 电源管理   | 功耗               |
+| 10  | ArkUI  | ArkUI组件benchmark |
+| 11  | ArkTS  | ArkTS语言benchmark |
 
 
-性能测试
-
-
-| 编号 | 测试项      |
-|----|----------|
-| 1  | 应用启动、切换  |
-| 2  | 文件IO性能   |
-| 3  | 网络传输性能   |
-| 4  | 图形显示性能   |
-| 5  | 音视频编解码性能 |
-| 6  | 游戏性能     |
-| 7  | 功耗       |
+测试项细节参考各用例模块说明
 
 2. 测试目标
 
-Release版本发布前需要通过功能测试和场景测试
+* 通过功能和场景测试，保障OpenHarmony作为操作系统底座，基本功能可用，流程完善，并且可以覆盖主流的应用场景。
 
-Release版本建议基于官方硬件平台进行性能测试
+* 通过性能测试，标定系统基本性能指标，支持能力范围，为基于OpenHarmony的产品研发提供参考。
 
-测试项细节参考各用例模块说明
+* 为基于OpenHarmony的产品研发提供基础测试方法、框架、用例，本测试仓的测试内容可以直接应用于二次开发的产品。
+
+测试建议：
+* Release版本发布前需要通过功能测试和场景测试
+
+* Release版本建议基于硬件平台进行性能测试
+
 
 #### 使用说明
 
@@ -111,31 +143,33 @@ Release版本建议基于官方硬件平台进行性能测试
 
 2. 编译构建
 
-使用DevEco编译测试hap
+* 使用DevEco编译测试hap
 
 手动测试直接在DevEco中运行test工程测试用例即可。
 
-自动化测试环境搭建继续按后续步骤操作：
+* 使用XTS的gn编译方式（后续将替换成hivigor）
+
+自动化测试使用xDevice框架，环境搭建执行按后续步骤操作：
 
 3. 环境准备
 
-测试环境创建四个目录和一个执行脚本：
+* 测试环境创建四个目录和一个执行脚本：
 
-    config//json配置文件
-    
-    tools//执行所需的工具
-    
-    testcases//测试应用hap
-    
-    report//报告输出目录
-    
-    run.bat//执行脚本
+    - config//json配置文件
 
-将编译好的hap文件拷贝到testcases目录。
+    - tools//执行所需的工具
 
-配置文件预置模板:
+    - testcases//测试应用hap
 
-myShopping.json
+    - report//报告输出目录
+
+    - run.bat//执行脚本
+
+* 将编译好的hap文件拷贝到testcases目录。
+
+* 配置文件预置模板:
+
+  - myShopping.json
 
 ```
 {
@@ -165,9 +199,9 @@ myShopping.json
 }
 ```
 
-参展这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改
+参展这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改。
 
-例如:myMusic.json
+例如：myMusic.json
 
 修改:
 
@@ -206,31 +240,31 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
 ```
 
 4. 执行用例
-   
-        run -l 包名
 
+    脚本参考[run.bat](docs/run.bat)
+
+        run -l 包名
+    不同环境下，可以自行修改自动化执行的脚本。
 5. 查看报告
 
     查看report输出的报告。
 
-
-
-其他细节参考各测试应用使用说明
+其他细节参考各测试应用使用说明。
 
 #### 编码规范
 应用代码规范参考Sample仓要求:
 1.  代码规范
 
-    查看[代码规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)
+    查看[代码规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)。
 2.  工程结构规范
 
-    查看[工程结构规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)
+    查看[工程结构规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)。
 3.  README编写规范
 
-    查看[README编写规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)
+    查看[README编写规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)。
 4.  用例设计规范
 
-    查看[用例设计规范](docs/CaseRule.md)
+    查看[用例设计规范](docs/CaseRule.md)。
 
 #### 参与贡献
 

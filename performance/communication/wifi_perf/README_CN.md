@@ -1,8 +1,8 @@
-# ArkCompiler ts-swift workload mix-case
+# Wi-Fi性能测试
 
 ### 介绍
 
-测试Wi-Fi基本功能：
+测试Wi-Fi性能测试：
 
 | 用例     | 
 |--------|
@@ -52,7 +52,7 @@
 ```
 git init
 git config core.sparsecheckout true
-echo performance/communiction_wifi_perf/ > .git/info/sparse-checkout
+echo performance/communiction/wifi_perf/ > .git/info/sparse-checkout
 git remote add origin https://gitee.com/openharmony-sig/ostest_integration_test.git
 git pull origin master
 ```

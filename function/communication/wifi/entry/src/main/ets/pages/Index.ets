@@ -1,7 +1,7 @@
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Communication Wi-Fi Function Test';
+  @State message: string = 'Wi-Fi 功能测试';
   private cases: string[] = ['打开Wi-Fi','发现SSID','关闭Wi-Fi','连接（无密码）', '断开', '重新连接（无密码）', '连接（WEP）','重新连接（WEP）',
     '连接（WPA/WPA2）', '重新连接（WPA/WPA2）','连接（WPA-PSK）','重新连接（WPA-PSK）',
     '访问网站', '下载文件','自动连接','取消自动连接','删除记录后重新连接（有密码）','连接不广播SSID']
