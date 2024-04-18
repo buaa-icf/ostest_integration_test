@@ -201,19 +201,12 @@
 
 参展这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改。
 
-例如：myMusic.json
+例如，修改后的myMusic.json如下：
 
-修改:
-
-```
-template_data['driver']['bundle-name'] = f'ohos.samples.{文件名}'
-template_data['driver']['bundle-name'] = 'entry_test'
-template_data['kits']['test-file-name'] = 'myShopping.hap'
-```
 
 ```
 {
-  "description": "Configuration for myshopping Tests",
+  "description": "Configuration for myMusic Tests",
   "driver": {
       "type": "OHJSUnitTest",
       "test-timeout": "180000",
@@ -225,7 +218,7 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
   "kits": [
   {
       "test-file-name": [
-          "myShopping.hap"
+          "myMusic.hap"
       ],
       "type": "AppInstallKit",
       "cleanup-apps": true
@@ -239,7 +232,7 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
 }
 ```
 
-4. 执行用例
+1. 执行用例
 
     脚本参考：[run.bat](docs/run.bat)
 
@@ -248,7 +241,7 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
     ```
 
     不同环境下，可以自行修改自动化执行的脚本。
-5. 查看报告
+2. 查看报告
 
     查看report输出的报告。
     ![image](figures/report.png)
