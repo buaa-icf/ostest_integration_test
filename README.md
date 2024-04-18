@@ -15,34 +15,34 @@
 ```
 ├── function                //功能测试目录
 │       └── communication	         //子系统
-│               └── wifi	                //Wi-Fi模块功能测试应用
-│               └── bluetooth	            //蓝牙模块功能测试应用
+│               └── wifi	                //Wi-Fi模块功能测试
+│               └── bluetooth	            //蓝牙模块功能测试
 │       └── multimedia               //子系统
-│               └── audio	            //音频模块功能测试应用
-│               └── camera	            //相机功能测试应用
+│               └── audio	                //音频模块功能测试
+│               └── camera	                //相机功能测试
 ├── performance	            //性能测试目录
 │       └── arkts	                 //子系统
 │               └── benchmark_arkts_compiler	 //编译器语言Benchmark用例 
 │       └── arkui	                 //子系统
-│               └── benchmark_component	         //组件性能BenchMark用例
-│               └── benchmark_pipeline	         //组件性能BenchMark工具
+│               └── benchmark_component	         //组件创建、布局 BenchMark测试
+│               └── benchmark_pipeline	         //组件管线 BenchMark测试
 │       └── communication	         //子系统
-│               └── wifi_perf	                //Wi-Fi模块性能测试应用
-│               └── bluetooth_perf	            //蓝牙模块性能测试应用
+│               └── wifi_perf	                //Wi-Fi模块性能测试
+│               └── bluetooth_perf	            //蓝牙模块性能测试
 │       └── multimedia               //子系统
-│               └── audio_perf	            //音频模块性能测试应用
-│               └── camera_perf	            //相机性能测试应用
+│               └── audio_perf	            //音频模块性能测试
+│               └── camera_perf	            //相机性能测试
 ├── scenario               //场景测试应用
-│       └── MyMap	        //地图测试hap
-│       └── MyMusic	        //音乐测试hap
-│       └── MyNews	        //新闻测试hap
-│       └── MyShopping      //购物测试hap
-│       └── MyDoc	        //办公测试hap
-│       └── MyChat	        //社交测试hap
-│       └── MyGame	        //游戏测试hap
+│       └── MyMap	            //地图场景测试
+│       └── MyMusic	            //音乐场景测试
+│       └── MyNews	            //新闻场景测试
+│       └── MyShopping          //购物场景测试
+│       └── MyDoc	            //办公场景测试
+│       └── MyChat	            //社交场景测试
+│       └── MyGame	            //游戏场景测试
 └── figures		           //readme 图片资源
 └── docs		           //readme 二级文档
-└── readme                 //说明文档
+└── readme.md              //说明文档
 ```
 
 #### 测试应用示例
