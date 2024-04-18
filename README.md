@@ -248,6 +248,7 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
 5. 查看报告
 
     查看report输出的报告。
+    ![image](figures/report.png)
 
 其他细节参考各测试应用使用说明。
 
