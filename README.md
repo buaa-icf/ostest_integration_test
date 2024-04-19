@@ -11,7 +11,20 @@
 
 ![test_content](figures/test_content.png)
 
-#### 目录结构
+#### 测试目标
+* 通过功能和场景测试，保障OpenHarmony作为操作系统底座，基本功能可用，流程完善，并且可以覆盖主流的应用场景。
+
+* 通过性能测试，标定系统基本性能指标，支持能力范围，为基于OpenHarmony的产品研发提供参考。
+
+* 为基于OpenHarmony的产品研发提供基础测试方法、框架、用例，本测试仓的测试内容可以直接应用于二次开发的产品。
+
+#### 测试策略建议
+* 子系统/模块进行新增、修改、重构，开发完成后，建议进行相关功能和场景测试。
+* 对外发布的各个Beta版本、Release版本建议进行功能测试和场景测试。
+* 主干或重要分支建议定期（周/月）进行全量功能和场景测试。
+* Release版本建议结合硬件平台进行性能测试。
+
+#### 用例目录结构
 ```
 ├── function                //功能测试目录
 │       └── communication	         //子系统
@@ -45,30 +58,7 @@
 └── readme.md              //说明文档
 ```
 
-#### 测试应用示例
-* 功能测试
-
- | Wi-Fi功能测试                       | 音频功能测试                                                   | 相机功能测试                                                    |
-|----------------------|----------------------------------------------------------|-----------------------------------------------------------|
- | ![image](function/communication/wifi/screenshots/home.png) | ![image](function/multimedia/audio/screenshots/home.png) | ![image](function/multimedia/camera/screenshots/home.png) | 
-
-* 场景测试
-
-| 音乐场景测试应用                                        | 新闻场景测试应用    |
-|-----------------------------|-----------------------|
-| ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
-
-* 性能测试
-
-| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                  | ArkTS benchmark测试                |
-|--------------------------------|------------------------------------------------------------------|--------------------------------------------|--------------------------------------------|
-| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | ![image](performance/arkts/benchmark_arkts_compiler/screenshots/home.png) |
-
-#### 测试内容和目标
-
-1. 测试内容
-
-测试规范参考：[OpenHarmony应用质量要求](https://www.openharmony.cn/certification/moreStandard)
+#### 测试内容
 
 集成测试仓规划的测试内容如下（持续更新）：
 
@@ -118,46 +108,56 @@
 | 11  | ArkTS  | ArkTS语言benchmark |
 
 
-测试项细节参考各用例模块说明
+详细测试项参考各模块说明。
 
-2. 测试目标
+#### 测试应用示例
+* 功能测试
 
-* 通过功能和场景测试，保障OpenHarmony作为操作系统底座，基本功能可用，流程完善，并且可以覆盖主流的应用场景。
+ | Wi-Fi功能测试                       | 音频功能测试                                                   | 相机功能测试                                                    |
+|----------------------|----------------------------------------------------------|-----------------------------------------------------------|
+ | ![image](function/communication/wifi/screenshots/home.png) | ![image](function/multimedia/audio/screenshots/home.png) | ![image](function/multimedia/camera/screenshots/home.png) | 
 
-* 通过性能测试，标定系统基本性能指标，支持能力范围，为基于OpenHarmony的产品研发提供参考。
+* 场景测试
 
-* 为基于OpenHarmony的产品研发提供基础测试方法、框架、用例，本测试仓的测试内容可以直接应用于二次开发的产品。
+| 音乐场景测试应用                                        | 新闻场景测试应用    |
+|-----------------------------|-----------------------|
+| ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
 
-测试建议：
-* Release版本发布前需要通过功能测试和场景测试
+* 性能测试
 
-* Release版本建议基于硬件平台进行性能测试
-
+| Wi-Fi性能测试                      | 音频性能测试                                                           | 相机性能测试                  | ArkTS benchmark测试                |
+|--------------------------------|------------------------------------------------------------------|--------------------------------------------|--------------------------------------------|
+| ![image](performance/communication/wifi_perf/screenshots/home.png) | ![image](performance/multimedia/audio_perf/screenshots/home.png) | ![image](performance/multimedia/camera_perf/screenshots/home.png) | ![image](performance/arkts/benchmark_arkts_compiler/screenshots/home.png) |
 
 #### 使用说明
 
-用例测试使用步骤：
+测试执行步骤：
+
 1. 下载代码
 
-从代码仓同步代码
+从代码仓同步代码。
 
 2. 编译构建
 
-* 使用DevEco编译测试hap
+【手动测试】在DevEco中运行test工程测试用例即可。
+* 使用DevEco编译、运行测试：
+  
+![image](performance/arkui/benchmark_component/preview/1.png)
+* 查看测试结果：
+  
+![image](performance/arkui/benchmark_component/preview/3.png)
 
-手动测试直接在DevEco中运行test工程测试用例即可。
+【自动化测试】使用xDevice框架，环境搭建执行按后续步骤 3~5 操作：
 
-* 使用XTS的gn编译方式（后续将替换成hivigor）
+* 通过脚本，使用XTS的gn编译方式（后续将替换成hivigor）
 
-自动化测试使用xDevice框架，环境搭建执行按后续步骤操作：
-
-3. 环境准备
+1. 环境准备
 
 * 测试环境创建四个目录和一个执行脚本：
 
     - config//json配置文件
 
-    - tools//执行所需的工具
+    - tools//执行所需的工具：xdevice安装包
 
     - testcases//测试应用hap
 
@@ -199,21 +199,14 @@
 }
 ```
 
-参展这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改。
+参考这个模板,给其他应用的测试hap创建json文件,创建后修改bundle-name，module-name，test-file-name ,这里注意应用的bundle-name的这个名称最好和hap的文件名一致,方便检索修改。
 
-例如：myMusic.json
+例如，修改后的myMusic.json如下：
 
-修改:
-
-```
-template_data['driver']['bundle-name'] = f'ohos.samples.{文件名}'
-template_data['driver']['bundle-name'] = 'entry_test'
-template_data['kits']['test-file-name'] = 'myShopping.hap'
-```
 
 ```
 {
-  "description": "Configuration for myshopping Tests",
+  "description": "Configuration for myMusic Tests",
   "driver": {
       "type": "OHJSUnitTest",
       "test-timeout": "180000",
@@ -225,7 +218,7 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
   "kits": [
   {
       "test-file-name": [
-          "myShopping.hap"
+          "myMusic.hap"
       ],
       "type": "AppInstallKit",
       "cleanup-apps": true
@@ -241,18 +234,22 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
 
 4. 执行用例
 
-    脚本参考[run.bat](docs/run.bat)
+    脚本参考：[run.bat](docs/run.bat)
 
-        run -l 包名
+    ```
+    run -l 包名
+    ```
+
     不同环境下，可以自行修改自动化执行的脚本。
 5. 查看报告
 
     查看report输出的报告。
+    ![image](figures/report.png)
 
 其他细节参考各测试应用使用说明。
 
-#### 编码规范
-应用代码规范参考Sample仓要求:
+#### 规范
+
 1.  代码规范
 
     查看[代码规范](https://gitee.com/openharmony/applications_app_samples/blob/master/CodeCommitChecklist.md)。
@@ -265,6 +262,9 @@ template_data['kits']['test-file-name'] = 'myShopping.hap'
 4.  用例设计规范
 
     查看[用例设计规范](docs/CaseRule.md)。
+
+5. 应用质量规范
+   查看[OpenHarmony应用质量要求](https://www.openharmony.cn/certification/moreStandard)。
 
 #### 参与贡献
 
