@@ -149,7 +149,7 @@
 
 【自动化测试】使用xDevice框架，环境搭建执行按后续步骤 3~5 操作：
 
-* 通过脚本，使用XTS的gn编译方式（后续将替换成hivigor）
+* 当前使用DevEco手工构建，批量构建可以通过脚本，使用类似XTS的gn方式（后续将替换成hivigor）
 
 1. 环境准备
 
@@ -264,6 +264,7 @@
     查看[用例设计规范](docs/CaseRule.md)。
 
 5. 应用质量规范
+
    查看[OpenHarmony应用质量要求](https://www.openharmony.cn/certification/moreStandard)。
 
 #### 参与贡献
