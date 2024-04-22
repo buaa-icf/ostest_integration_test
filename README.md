@@ -30,9 +30,16 @@
 │       └── communication	         //子系统
 │               └── wifi	                //Wi-Fi模块功能测试
 │               └── bluetooth	            //蓝牙模块功能测试
+│               └── connectivity	        //网络连接功能测试
 │       └── multimedia               //子系统
 │               └── audio	                //音频模块功能测试
 │               └── camera	                //相机功能测试
+│               └── video	                //视频功能测试
+│               └── image	                //图片功能测试
+│       └── device_manager           //子系统
+│               └── device_manager	        //设备管理功能测试
+│       └── file_manager             //子系统
+│               └── file_io	                //文件读写功能测试
 ├── performance	            //性能测试目录
 │       └── arkts	                 //子系统
 │               └── benchmark_arkts_compiler	 //编译器语言Benchmark用例 
@@ -45,6 +52,7 @@
 │       └── multimedia               //子系统
 │               └── audio_perf	            //音频模块性能测试
 │               └── camera_perf	            //相机性能测试
+│               └── video_perf	            //视频性能测试
 ├── scenario               //场景测试应用
 │       └── MyMap	            //地图场景测试
 │       └── MyMusic	            //音乐场景测试
