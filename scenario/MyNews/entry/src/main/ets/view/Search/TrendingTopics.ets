@@ -19,6 +19,7 @@
 @Component
 export default struct TrendingTopics {
   @Prop trendingTopicList: string[]
+  @Link searchInput: string
 
   build() {
     Row() {
@@ -27,6 +28,10 @@ export default struct TrendingTopics {
         .fontSize(14)
         .textOverflow({ overflow: TextOverflow.Ellipsis })
         .maxLines(1)
+        .onClick(()=>{
+          this.searchInput = this.trendingTopicList[0]
+          // TODO(ljj): search result content
+        })
 
       Divider()
         .width('10%')
@@ -40,6 +45,10 @@ export default struct TrendingTopics {
         .fontSize(14)
         .textOverflow({ overflow: TextOverflow.Ellipsis })
         .maxLines(1)
+        .onClick(()=>{
+          this.searchInput = this.trendingTopicList[1]
+          // TODO(ljj): search result content
+        })
     }.width('100%')
   }
 }
