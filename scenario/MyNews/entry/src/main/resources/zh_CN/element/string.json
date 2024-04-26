@@ -307,6 +307,30 @@
     {
       "name": "article_cmtCnt",
       "value": "评论"
+    },
+    {
+      "name": "search_searchHistory",
+      "value": "搜索历史"
+    },
+    {
+      "name": "search_deleteAll",
+      "value": "全部删除"
+    },
+    {
+      "name": "search_deleteAll_finish",
+      "value": "完成"
+    },
+    {
+      "name": "search_deleteAll_dialogPrompt",
+      "value": "是否清空搜索历史"
+    },
+    {
+      "name": "search_deleteAll_dialogCancel",
+      "value": "取消"
+    },
+    {
+      "name": "search_deleteAll_dialogConfirm",
+      "value": "确认"
     }
   ]
 }

@@ -307,6 +307,30 @@
     {
       "name": "article_cmtCnt",
       "value": "Comments"
+    },
+    {
+      "name": "search_searchHistory",
+      "value": "Search History"
+    },
+    {
+      "name": "search_deleteAll",
+      "value": "Delete All"
+    },
+    {
+      "name": "search_deleteAll_finish",
+      "value": "Finish"
+    },
+    {
+      "name": "search_deleteAll_dialogPrompt",
+      "value": "Whether to delete all history"
+    },
+    {
+      "name": "search_deleteAll_dialogCancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "search_deleteAll_dialogConfirm",
+      "value": "Confirm"
     }
   ]
 }

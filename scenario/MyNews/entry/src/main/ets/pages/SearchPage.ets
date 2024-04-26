@@ -20,12 +20,18 @@ import TopBar from '../view/Search/TopBar';
 import BottomBar from '../view/Search/BottomBar';
 import TrendingTopics from '../view/Search/TrendingTopics';
 import IncognitoModeIndicator from '../view/Search/IncognitoModeIndicator';
+import SearchHistory from '../view/Search/SearchHistory'
 
-@Entry
+let para: Record<string, string[]> = { 'search_history': [] };
+let storage: LocalStorage = new LocalStorage(para);
+
+@Entry(storage)
 @Component
 struct SearchPage {
   @State isIncognitoModeOn: boolean = false
+  @State searchInput: string = ''
   @State trendingTopicList: string[] = []
+  @LocalStorageLink('search_history') searchHistoryList: string[] = []
 
   aboutToAppear() {
     const params: SearchPageParams = router.getParams() as SearchPageParams
@@ -42,11 +48,11 @@ struct SearchPage {
   build() {
     Column({ space: 15 }) {
       /* Top bar: back button + search box + search button */
-      TopBar({ trendingTopic: this.trendingTopicList[0] })
+      TopBar({ trendingTopic: this.trendingTopicList[0], searchInput: this.searchInput, searchHistoryList: this.searchHistoryList })
 
       Column({ space: 15 }) {
         /* Trending topics */
-        TrendingTopics({ trendingTopicList: this.trendingTopicList })
+        TrendingTopics({ trendingTopicList: this.trendingTopicList, searchInput: this.searchInput })
 
         Divider()
           .strokeWidth(1)
@@ -57,7 +63,11 @@ struct SearchPage {
           IncognitoModeIndicator()
         }
 
-        /* TODO: History */
+        if (this.searchHistoryList.length) {
+          SearchHistory({searchHistoryList: this.searchHistoryList, trendingTopicList: this.trendingTopicList, searchInput: this.searchInput})
+        }
+
+        // TODO(ljj): search result content
       }
       .width('100%')
       .height(0)

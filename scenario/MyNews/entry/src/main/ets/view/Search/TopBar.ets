@@ -32,6 +32,8 @@ function commonBtnStyle(handler?: (event: ClickEvent) => void) {
 @Component
 export default struct TopBar {
   @Prop trendingTopic: string
+  @Link searchHistoryList: string[]
+  @Link searchInput: string
 
   build() {
     Row({ space: 5 }) {
@@ -46,7 +48,7 @@ export default struct TopBar {
       })
 
       /* Search box */
-      Search({ placeholder: this.trendingTopic })
+      Search({ value: $$this.searchInput, placeholder: this.trendingTopic })
         .width(0)
         .height('100%')
         .flexGrow(1)
@@ -64,6 +66,15 @@ export default struct TopBar {
           .fontColor($r('app.color.primary'))
       }
       .commonBtnStyle(() => {
+        if (this.searchInput === '') {
+          this.searchInput = this.trendingTopic
+        }
+        this.searchInput = this.searchInput.trim()
+        if (this.searchInput.length) {
+          this.searchHistoryList.unshift(this.searchInput)
+          this.searchHistoryList = Array.from(new Set(this.searchHistoryList))
+          // TODO(ljj): search result content
+        }
       })
     }
     .width('100%')
