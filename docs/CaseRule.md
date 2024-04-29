@@ -30,7 +30,7 @@
 
 类别_模块/应用_功能集/页面
 
-scenario_myMusic_Playback
+scenario_myMusic_playback
 
 
 ## 用例名称规范：
@@ -38,11 +38,11 @@ scenario_myMusic_Playback
 
 级别_分类_模块/应用_功能点_编号
 
-lv3_scenario_myMusic_Player_001
+lv3_scenario_myMusic_player_001
 
 ## 测试用例分类：
 
-### Ui测试
+### UI测试
 
 聚焦用户常用的应用操作，不做基础的组件属性样式等测试（兼容性已覆盖）
 
