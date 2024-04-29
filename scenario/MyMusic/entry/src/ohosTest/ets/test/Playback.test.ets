@@ -38,7 +38,6 @@ export default function playbackTest() {
   describe('playbackTest', () => {
     // Defines a test suite. Two parameters are supported: test suite name and test suite function.
     beforeAll(async () => {
-      /*
       try {
         await abilityDelegator.startAbility({
           bundleName: 'com.example.myMusic',
@@ -49,7 +48,7 @@ export default function playbackTest() {
       } catch (exception) {
         HiLog.info(DOMAIN, TAG, `StartAbility_001 exception = ${JSON.stringify(exception)}`);
         expect().assertFail();
-      }*/
+      }
       // Presets an action, which is performed only once before all test cases of the test suite start.
       // This API supports only one parameter: preset action function.
     })
@@ -70,82 +69,82 @@ export default function playbackTest() {
     /**
      * 打开应用
     */
-    it('scenario_myMusic_Player_001', 0, async () => {
+    it('lv3_scenario_myMusic_player_001', 0, async () => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_001 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_001 end');
     })
-    it('scenario_myMusic_Player_002', 0, async () => {
+    it('lv3_scenario_myMusic_player_002', 0, async () => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_002 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_002 end');
     })
-    it('scenario_myMusic_Player_003', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_003', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_003 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_003 end');
       done();
     })
-    it('scenario_myMusic_Player_004', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_004', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_005', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_005', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_006', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_006', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_007', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_007', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_008', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_008', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_009', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_009', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_010', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_010', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_011', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_011', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 end');
       done();
     })
-    it('scenario_myMusic_Player_012', 0, async (done: Function) => {
+    it('lv3_scenario_myMusic_player_012', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, BUNDLE + 'StartAbility_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);

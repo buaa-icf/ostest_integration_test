@@ -182,6 +182,17 @@
 ```
 {
   "description": "Configuration for myshopping Tests",
+  "level": ["0","1","2"],
+  "type": "function",
+  "component": "player_framework",
+  "syscap": [
+        "SystemCapability.Multimedia.Media.AudioPlayer",
+        "SystemCapability.Multimedia.Media.VideoPlayer",
+        "SystemCapability.Multimedia.Media.AudioRecorder",
+        "SystemCapability.Multimedia.Media.VideoRecorder",
+        "SystemCapability.Multimedia.Media.AVPlayer",
+        "SystemCapability.Multimedia.Media.AVRecorder"
+      ],
   "driver": {
       "type": "OHJSUnitTest",
       "test-timeout": "180000",
