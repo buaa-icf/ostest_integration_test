@@ -93,6 +93,15 @@ struct Index {
         CommonButton({ buttonName: '@ObjectLink', buttonUrl: 'pages/stateManagement/objectLink/ObjectLinkHome' });
         CommonButton({ buttonName: '@Watch', buttonUrl: 'pages/stateManagement/watch/WatchHome' });
         CommonButton({ buttonName: '@Track', buttonUrl: 'pages/stateManagement/track/TrackHome' });
+        CommonButton({ buttonName: '@ObservedV2', buttonUrl: 'pages/stateManagement/observedV2/ObservedV2Home' });
+        CommonButton({ buttonName: '@Trace', buttonUrl: 'pages/stateManagement/trace/TraceHome' });
+        CommonButton({ buttonName: '@Monitor', buttonUrl: 'pages/stateManagement/monitor/MonitorHome' });
+        CommonButton({ buttonName: '@Local', buttonUrl: 'pages/stateManagement/local/LocalHome' });
+        CommonButton({ buttonName: '@Computed', buttonUrl: 'pages/stateManagement/computed/ComputedHome' });
+        CommonButton({ buttonName: '@Param', buttonUrl: 'pages/stateManagement/param/ParamHome' });
+        CommonButton({ buttonName: '@Event', buttonUrl: 'pages/stateManagement/event/EventHome' });
+        CommonButton({ buttonName: '@Consumer', buttonUrl: 'pages/stateManagement/consumer/ConsumerHome' });
+        CommonButton({ buttonName: '@Provider', buttonUrl: 'pages/stateManagement/provider/ProviderHome' });
       }
       .padding('20vp')
       .width('100%')
