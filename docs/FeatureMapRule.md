@@ -52,6 +52,9 @@ lv0_function_playerFramework_mediaAudioPlayer_001
 
 编写执行配置文件：testcases/xxx.json
 填写用例级别、分类、模块。
+
+syscap非必填。
+
 ```
 {
     "description": "Configuration for myshopping Tests",

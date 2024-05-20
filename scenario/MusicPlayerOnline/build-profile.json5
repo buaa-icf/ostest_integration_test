@@ -1,0 +1,49 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_FXYBOAf69SUjZDCrDt8Xwf1b9BjvpsV8G8MXGjUFiRw=.cer",
+          "storePassword": "0000001BDDA9B8D36C2A9429D4688C460B0ED52F4CFB3E952032497A3BDE2E6651EA0688193DE9CCB4B4CD",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B1EACADFF14787367B5F4314733915F814C676FE175A16E37C9CD5D77A08128141265D73FEDAD48",
+          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_FXYBOAf69SUjZDCrDt8Xwf1b9BjvpsV8G8MXGjUFiRw=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_FXYBOAf69SUjZDCrDt8Xwf1b9BjvpsV8G8MXGjUFiRw=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": 11,
+        "compatibleSdkVersion": 11,
+        "runtimeOS": "OpenHarmony"
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
