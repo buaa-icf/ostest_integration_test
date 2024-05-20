@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:\\Users\\Administrator\\.ohos\\config\\openharmony\\auto_ohos_default_MyMusic_com.example.myMusic.cer",
-          "storePassword": "0000001B089A7CB3265872A728E5F75B53883DE111A1CF89240C41BE5D6D363A4A03E0C91084D6F197AB4D",
+          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_MyMusic_lkCEl5hB6byCgDNwkkzI0Yqu7GQgF9mylAcmfpHqqu0=.cer",
+          "storePassword": "0000001BC50E6AA7A047A3C1FC572B2EFF4332B1C55C5AD224EC264CE0DF65ECCB6F1D9FF06CF0102B2CDC",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B3FBC7F761895EDA1F71D82305EE49F3CB8544831DA0043E85787C852514AF21C6F95DA0E6C1F6C",
-          "profile": "C:\\Users\\Administrator\\.ohos\\config\\openharmony\\auto_ohos_default_MyMusic_com.example.myMusic.p7b",
+          "keyPassword": "0000001B3CCD1B99F4356696F09FA8A524C9FDDF1976231F98F425B8528E5BFE5DDE22A0ACE2F394CD5F09",
+          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_MyMusic_lkCEl5hB6byCgDNwkkzI0Yqu7GQgF9mylAcmfpHqqu0=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\Administrator\\.ohos\\config\\openharmony\\auto_ohos_default_MyMusic_com.example.myMusic.p12"
+          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_MyMusic_lkCEl5hB6byCgDNwkkzI0Yqu7GQgF9mylAcmfpHqqu0=.p12"
         }
       }
     ],
