@@ -39,12 +39,62 @@ struct ChildProviderMapSample {
 struct ProviderMapSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Provider() testData: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData1: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData2: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData3: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData4: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData5: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData6: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData7: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData8: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData9: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData10: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData11: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData12: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData13: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData14: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData15: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData16: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData17: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData18: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData19: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData20: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData21: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData22: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData23: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData24: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData25: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData26: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData27: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData28: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData29: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData30: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData31: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData32: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData33: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData34: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData35: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData36: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData37: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData38: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData39: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData40: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData41: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData42: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData43: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData44: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData45: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData46: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData47: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData48: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider() testData49: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData.set(index,index.toString())
+      this.testData.set(index, index.toString())
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
@@ -64,22 +114,27 @@ struct ProviderMapSample {
         .id('changeUITimeTaken')
         .onClick(() => {
           isType = false
-          this.testData.set(3,'bye')
+          this.testData.set(3, 'bye')
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
         })
       Button('parent click: 读@Provider的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData.get(0)
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData.get(index)
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent click: 写@Provider的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.set(3,'world')
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData.set(index, index.toString())
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
       ChildProviderMapSample()

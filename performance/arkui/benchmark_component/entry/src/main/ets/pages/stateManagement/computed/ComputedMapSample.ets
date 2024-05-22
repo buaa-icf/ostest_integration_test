@@ -30,47 +30,29 @@ struct ComputedMapSample {
   }
 
   timeHelper: TimeHelper = new TimeHelper('ComputedMapSample');
-  a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  test = this.computedFun
-  b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 
   aboutToAppear(): void {
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
       this.testData.set(index,index.toString())
     }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let tmp =  this.testData.get(index)
+      let tmp =  this.computedFun.get(index)
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `value: ${this.computedFun.get(3)}` :
-        `value: ${this.computedFun.get(3)}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          this.isType = false
-          this.testData.set(3,'bye')
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
+      Text(`value: ${this.computedFun.get(0)}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let tmp = this.computedFun.get(0)
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let tmp =  this.computedFun.get(index)
+          }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
-      Button('写@Computed的耗时')
-        .id('setStateTimeTaken')
-        .onClick(() => {
-          this.isType = true
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.set(3,'world')
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }

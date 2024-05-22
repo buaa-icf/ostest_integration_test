@@ -26,7 +26,57 @@ let isType: boolean = true
 struct ChildConsumerSetSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Consumer() testData: Set<number> = new Set([0]);
+  @Consumer() testData1: Set<number> = new Set([0]);
+  @Consumer() testData2: Set<number> = new Set([0]);
+  @Consumer() testData3: Set<number> = new Set([0]);
+  @Consumer() testData4: Set<number> = new Set([0]);
+  @Consumer() testData5: Set<number> = new Set([0]);
+  @Consumer() testData6: Set<number> = new Set([0]);
+  @Consumer() testData7: Set<number> = new Set([0]);
+  @Consumer() testData8: Set<number> = new Set([0]);
+  @Consumer() testData9: Set<number> = new Set([0]);
+  @Consumer() testData10: Set<number> = new Set([0]);
+  @Consumer() testData11: Set<number> = new Set([0]);
+  @Consumer() testData12: Set<number> = new Set([0]);
+  @Consumer() testData13: Set<number> = new Set([0]);
+  @Consumer() testData14: Set<number> = new Set([0]);
+  @Consumer() testData15: Set<number> = new Set([0]);
+  @Consumer() testData16: Set<number> = new Set([0]);
+  @Consumer() testData17: Set<number> = new Set([0]);
+  @Consumer() testData18: Set<number> = new Set([0]);
+  @Consumer() testData19: Set<number> = new Set([0]);
+  @Consumer() testData20: Set<number> = new Set([0]);
+  @Consumer() testData21: Set<number> = new Set([0]);
+  @Consumer() testData22: Set<number> = new Set([0]);
+  @Consumer() testData23: Set<number> = new Set([0]);
+  @Consumer() testData24: Set<number> = new Set([0]);
+  @Consumer() testData25: Set<number> = new Set([0]);
+  @Consumer() testData26: Set<number> = new Set([0]);
+  @Consumer() testData27: Set<number> = new Set([0]);
+  @Consumer() testData28: Set<number> = new Set([0]);
+  @Consumer() testData29: Set<number> = new Set([0]);
+  @Consumer() testData30: Set<number> = new Set([0]);
+  @Consumer() testData31: Set<number> = new Set([0]);
+  @Consumer() testData32: Set<number> = new Set([0]);
+  @Consumer() testData33: Set<number> = new Set([0]);
+  @Consumer() testData34: Set<number> = new Set([0]);
+  @Consumer() testData35: Set<number> = new Set([0]);
+  @Consumer() testData36: Set<number> = new Set([0]);
+  @Consumer() testData37: Set<number> = new Set([0]);
+  @Consumer() testData38: Set<number> = new Set([0]);
+  @Consumer() testData39: Set<number> = new Set([0]);
+  @Consumer() testData40: Set<number> = new Set([0]);
+  @Consumer() testData41: Set<number> = new Set([0]);
+  @Consumer() testData42: Set<number> = new Set([0]);
+  @Consumer() testData43: Set<number> = new Set([0]);
+  @Consumer() testData44: Set<number> = new Set([0]);
+  @Consumer() testData45: Set<number> = new Set([0]);
+  @Consumer() testData46: Set<number> = new Set([0]);
+  @Consumer() testData47: Set<number> = new Set([0]);
+  @Consumer() testData48: Set<number> = new Set([0]);
+  @Consumer() testData49: Set<number> = new Set([0]);
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -61,15 +111,20 @@ struct ChildConsumerSetSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child clink: 写@Consumer的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.add(-1)
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData.add(index)
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

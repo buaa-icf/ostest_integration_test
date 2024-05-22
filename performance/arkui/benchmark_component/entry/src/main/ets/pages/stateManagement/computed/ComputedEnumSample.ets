@@ -22,7 +22,6 @@ import { LanguageEnum } from '../ClassModel';
 @Entry
 @ComponentV2
 struct ComputedEnumSample {
-  isType: boolean = true
   tmpArr: LanguageEnum[] = [LanguageEnum.English, LanguageEnum.Chinese]
   @Local testData: LanguageEnum = LanguageEnum.English;
 
@@ -32,47 +31,26 @@ struct ComputedEnumSample {
   }
 
   timeHelper: TimeHelper = new TimeHelper('ComputedEnumSample');
-  a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-   test = this.computedFun
-  b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 
   aboutToAppear(): void {
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData  = this.tmpArr[index % 2]
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let tmp =  this.testData
+      let tmp =  this.computedFun
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `value: ${this.computedFun}` :
-        `value: ${this.computedFun}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          this.isType = false
-          this.testData = LanguageEnum.Japanese
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
+      Text(`value: ${this.computedFun}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let tmp = this.computedFun
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let tmp =  this.computedFun
+          }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
-      Button('写@Computed的耗时')
-        .id('setStateTimeTaken')
-        .onClick(() => {
-          this.isType = true
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData = LanguageEnum.Russian
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }

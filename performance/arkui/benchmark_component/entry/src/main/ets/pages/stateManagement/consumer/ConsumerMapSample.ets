@@ -26,7 +26,57 @@ let isType: boolean = true
 struct ChildConsumerMapSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Consumer() testData: Map<number, string> = new Map([]);
+  @Consumer() testData1: Map<number, string> = new Map([]);
+  @Consumer() testData2: Map<number, string> = new Map([]);
+  @Consumer() testData3: Map<number, string> = new Map([]);
+  @Consumer() testData4: Map<number, string> = new Map([]);
+  @Consumer() testData5: Map<number, string> = new Map([]);
+  @Consumer() testData6: Map<number, string> = new Map([]);
+  @Consumer() testData7: Map<number, string> = new Map([]);
+  @Consumer() testData8: Map<number, string> = new Map([]);
+  @Consumer() testData9: Map<number, string> = new Map([]);
+  @Consumer() testData10: Map<number, string> = new Map([]);
+  @Consumer() testData11: Map<number, string> = new Map([]);
+  @Consumer() testData12: Map<number, string> = new Map([]);
+  @Consumer() testData13: Map<number, string> = new Map([]);
+  @Consumer() testData14: Map<number, string> = new Map([]);
+  @Consumer() testData15: Map<number, string> = new Map([]);
+  @Consumer() testData16: Map<number, string> = new Map([]);
+  @Consumer() testData17: Map<number, string> = new Map([]);
+  @Consumer() testData18: Map<number, string> = new Map([]);
+  @Consumer() testData19: Map<number, string> = new Map([]);
+  @Consumer() testData20: Map<number, string> = new Map([]);
+  @Consumer() testData21: Map<number, string> = new Map([]);
+  @Consumer() testData22: Map<number, string> = new Map([]);
+  @Consumer() testData23: Map<number, string> = new Map([]);
+  @Consumer() testData24: Map<number, string> = new Map([]);
+  @Consumer() testData25: Map<number, string> = new Map([]);
+  @Consumer() testData26: Map<number, string> = new Map([]);
+  @Consumer() testData27: Map<number, string> = new Map([]);
+  @Consumer() testData28: Map<number, string> = new Map([]);
+  @Consumer() testData29: Map<number, string> = new Map([]);
+  @Consumer() testData30: Map<number, string> = new Map([]);
+  @Consumer() testData31: Map<number, string> = new Map([]);
+  @Consumer() testData32: Map<number, string> = new Map([]);
+  @Consumer() testData33: Map<number, string> = new Map([]);
+  @Consumer() testData34: Map<number, string> = new Map([]);
+  @Consumer() testData35: Map<number, string> = new Map([]);
+  @Consumer() testData36: Map<number, string> = new Map([]);
+  @Consumer() testData37: Map<number, string> = new Map([]);
+  @Consumer() testData38: Map<number, string> = new Map([]);
+  @Consumer() testData39: Map<number, string> = new Map([]);
+  @Consumer() testData40: Map<number, string> = new Map([]);
+  @Consumer() testData41: Map<number, string> = new Map([]);
+  @Consumer() testData42: Map<number, string> = new Map([]);
+  @Consumer() testData43: Map<number, string> = new Map([]);
+  @Consumer() testData44: Map<number, string> = new Map([]);
+  @Consumer() testData45: Map<number, string> = new Map([]);
+  @Consumer() testData46: Map<number, string> = new Map([]);
+  @Consumer() testData47: Map<number, string> = new Map([]);
+  @Consumer() testData48: Map<number, string> = new Map([]);
+  @Consumer() testData49: Map<number, string> = new Map([]);
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -58,15 +108,20 @@ struct ChildConsumerMapSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child clink: 写@Consumer的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.set(3,'world')
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData.set(index,index.toString())
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

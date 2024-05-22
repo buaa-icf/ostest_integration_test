@@ -27,8 +27,58 @@ let isType: boolean = true
 struct ChildConsumerClassSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Consumer() testData: ClassModel = classModel
+  @Consumer() testData1: ClassModel = classModel
+  @Consumer() testData2: ClassModel = classModel
+  @Consumer() testData3: ClassModel = classModel
+  @Consumer() testData4: ClassModel = classModel
+  @Consumer() testData5: ClassModel = classModel
+  @Consumer() testData6: ClassModel = classModel
+  @Consumer() testData7: ClassModel = classModel
+  @Consumer() testData8: ClassModel = classModel
+  @Consumer() testData9: ClassModel = classModel
+  @Consumer() testData10: ClassModel = classModel
+  @Consumer() testData11: ClassModel = classModel
+  @Consumer() testData12: ClassModel = classModel
+  @Consumer() testData13: ClassModel = classModel
+  @Consumer() testData14: ClassModel = classModel
+  @Consumer() testData15: ClassModel = classModel
+  @Consumer() testData16: ClassModel = classModel
+  @Consumer() testData17: ClassModel = classModel
+  @Consumer() testData18: ClassModel = classModel
+  @Consumer() testData19: ClassModel = classModel
+  @Consumer() testData20: ClassModel = classModel
+  @Consumer() testData21: ClassModel = classModel
+  @Consumer() testData22: ClassModel = classModel
+  @Consumer() testData23: ClassModel = classModel
+  @Consumer() testData24: ClassModel = classModel
+  @Consumer() testData25: ClassModel = classModel
+  @Consumer() testData26: ClassModel = classModel
+  @Consumer() testData27: ClassModel = classModel
+  @Consumer() testData28: ClassModel = classModel
+  @Consumer() testData29: ClassModel = classModel
+  @Consumer() testData30: ClassModel = classModel
+  @Consumer() testData31: ClassModel = classModel
+  @Consumer() testData32: ClassModel = classModel
+  @Consumer() testData33: ClassModel = classModel
+  @Consumer() testData34: ClassModel = classModel
+  @Consumer() testData35: ClassModel = classModel
+  @Consumer() testData36: ClassModel = classModel
+  @Consumer() testData37: ClassModel = classModel
+  @Consumer() testData38: ClassModel = classModel
+  @Consumer() testData39: ClassModel = classModel
+  @Consumer() testData40: ClassModel = classModel
+  @Consumer() testData41: ClassModel = classModel
+  @Consumer() testData42: ClassModel = classModel
+  @Consumer() testData43: ClassModel = classModel
+  @Consumer() testData44: ClassModel = classModel
+  @Consumer() testData45: ClassModel = classModel
+  @Consumer() testData46: ClassModel = classModel
+  @Consumer() testData47: ClassModel = classModel
+  @Consumer() testData48: ClassModel = classModel
+  @Consumer() testData49: ClassModel = classModel
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   tmpArr: ClassModel[] = [classModel1,classModel2]
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -60,15 +110,20 @@ struct ChildConsumerClassSample {
         .id('getStateTimeTaken')
         .onClick(()=>{
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child clink: 写@Consumer的耗时')
         .id('setStateTimeTaken')
         .onClick(()=>{
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData = classModel1
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData = this.tmpArr[index % 2]
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

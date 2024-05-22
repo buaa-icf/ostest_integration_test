@@ -99,7 +99,7 @@ struct Index {
         CommonButton({ buttonName: '@Local', buttonUrl: 'pages/stateManagement/local/LocalHome' });
         CommonButton({ buttonName: '@Computed', buttonUrl: 'pages/stateManagement/computed/ComputedHome' });
         CommonButton({ buttonName: '@Param', buttonUrl: 'pages/stateManagement/param/ParamHome' });
-        CommonButton({ buttonName: '@Event', buttonUrl: 'pages/stateManagement/event/EventHome' });
+        CommonButton({ buttonName: '@Once', buttonUrl: 'pages/stateManagement/once/OnceHome' });
         CommonButton({ buttonName: '@Consumer', buttonUrl: 'pages/stateManagement/consumer/ConsumerHome' });
         CommonButton({ buttonName: '@Provider', buttonUrl: 'pages/stateManagement/provider/ProviderHome' });
       }

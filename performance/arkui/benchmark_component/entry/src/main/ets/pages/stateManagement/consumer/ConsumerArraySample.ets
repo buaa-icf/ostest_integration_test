@@ -26,7 +26,57 @@ let isType: boolean = true
 struct ChildConsumerArraySample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Consumer() testData: Array<string> = []
+  @Consumer() testData1: Array<string> = []
+  @Consumer() testData2: Array<string> = []
+  @Consumer() testData3: Array<string> = []
+  @Consumer() testData4: Array<string> = []
+  @Consumer() testData5: Array<string> = []
+  @Consumer() testData6: Array<string> = []
+  @Consumer() testData7: Array<string> = []
+  @Consumer() testData8: Array<string> = []
+  @Consumer() testData9: Array<string> = []
+  @Consumer() testData10: Array<string> = []
+  @Consumer() testData11: Array<string> = []
+  @Consumer() testData12: Array<string> = []
+  @Consumer() testData13: Array<string> = []
+  @Consumer() testData14: Array<string> = []
+  @Consumer() testData15: Array<string> = []
+  @Consumer() testData16: Array<string> = []
+  @Consumer() testData17: Array<string> = []
+  @Consumer() testData18: Array<string> = []
+  @Consumer() testData19: Array<string> = []
+  @Consumer() testData20: Array<string> = []
+  @Consumer() testData21: Array<string> = []
+  @Consumer() testData22: Array<string> = []
+  @Consumer() testData23: Array<string> = []
+  @Consumer() testData24: Array<string> = []
+  @Consumer() testData25: Array<string> = []
+  @Consumer() testData26: Array<string> = []
+  @Consumer() testData27: Array<string> = []
+  @Consumer() testData28: Array<string> = []
+  @Consumer() testData29: Array<string> = []
+  @Consumer() testData30: Array<string> = []
+  @Consumer() testData31: Array<string> = []
+  @Consumer() testData32: Array<string> = []
+  @Consumer() testData33: Array<string> = []
+  @Consumer() testData34: Array<string> = []
+  @Consumer() testData35: Array<string> = []
+  @Consumer() testData36: Array<string> = []
+  @Consumer() testData37: Array<string> = []
+  @Consumer() testData38: Array<string> = []
+  @Consumer() testData39: Array<string> = []
+  @Consumer() testData40: Array<string> = []
+  @Consumer() testData41: Array<string> = []
+  @Consumer() testData42: Array<string> = []
+  @Consumer() testData43: Array<string> = []
+  @Consumer() testData44: Array<string> = []
+  @Consumer() testData45: Array<string> = []
+  @Consumer() testData46: Array<string> = []
+  @Consumer() testData47: Array<string> = []
+  @Consumer() testData48: Array<string> = []
+  @Consumer() testData49: Array<string> = []
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -58,15 +108,20 @@ struct ChildConsumerArraySample {
         .id('getStateTimeTaken')
         .onClick(()=>{
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData[0]
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData[index]
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child clink: 写@Consumer的耗时')
         .id('setStateTimeTaken')
         .onClick(()=>{
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData[0] = '世界你好'
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData[index] = index.toString()
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

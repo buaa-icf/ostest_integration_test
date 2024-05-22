@@ -44,11 +44,62 @@ class Derived extends Base {
   }
 }
 
-@Component
+@ComponentV2
 struct ChildMonitorInheritSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   testData: Derived = new Derived("hello");
+  testData1: Derived = new Derived("hello");
+  testData2: Derived = new Derived("hello");
+  testData3: Derived = new Derived("hello");
+  testData4: Derived = new Derived("hello");
+  testData5: Derived = new Derived("hello");
+  testData6: Derived = new Derived("hello");
+  testData7: Derived = new Derived("hello");
+  testData8: Derived = new Derived("hello");
+  testData9: Derived = new Derived("hello");
+  testData10: Derived = new Derived("hello");
+  testData11: Derived = new Derived("hello");
+  testData12: Derived = new Derived("hello");
+  testData13: Derived = new Derived("hello");
+  testData14: Derived = new Derived("hello");
+  testData15: Derived = new Derived("hello");
+  testData16: Derived = new Derived("hello");
+  testData17: Derived = new Derived("hello");
+  testData18: Derived = new Derived("hello");
+  testData19: Derived = new Derived("hello");
+  testData20: Derived = new Derived("hello");
+  testData21: Derived = new Derived("hello");
+  testData22: Derived = new Derived("hello");
+  testData23: Derived = new Derived("hello");
+  testData24: Derived = new Derived("hello");
+  testData25: Derived = new Derived("hello");
+  testData26: Derived = new Derived("hello");
+  testData27: Derived = new Derived("hello");
+  testData28: Derived = new Derived("hello");
+  testData29: Derived = new Derived("hello");
+  testData30: Derived = new Derived("hello");
+  testData31: Derived = new Derived("hello");
+  testData32: Derived = new Derived("hello");
+  testData33: Derived = new Derived("hello");
+  testData34: Derived = new Derived("hello");
+  testData35: Derived = new Derived("hello");
+  testData36: Derived = new Derived("hello");
+  testData37: Derived = new Derived("hello");
+  testData38: Derived = new Derived("hello");
+  testData39: Derived = new Derived("hello");
+  testData40: Derived = new Derived("hello");
+  testData41: Derived = new Derived("hello");
+  testData42: Derived = new Derived("hello");
+  testData43: Derived = new Derived("hello");
+  testData44: Derived = new Derived("hello");
+  testData45: Derived = new Derived("hello");
+  testData46: Derived = new Derived("hello");
+  testData47: Derived = new Derived("hello");
+  testData48: Derived = new Derived("hello");
+  testData49: Derived = new Derived("hello");
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
+
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
@@ -69,15 +120,20 @@ struct ChildMonitorInheritSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData.name
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData.name
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写@Monitor的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.name = "Jack3"
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData.name = `not bind UI:世界，你好` + (index + 1)
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -85,7 +141,7 @@ struct ChildMonitorInheritSample {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct MonitorInheritSample {
   testData: Derived = new Derived("hi")
 

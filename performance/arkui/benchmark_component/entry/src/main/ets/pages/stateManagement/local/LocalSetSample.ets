@@ -24,8 +24,58 @@ struct LocalSetSample {
   timeHelper: TimeHelper = new TimeHelper('LocalSetSample');
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local testData: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData1: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData2: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData3: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData4: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData5: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData6: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData7: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData8: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData9: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData10: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData11: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData12: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData13: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData14: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData15: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData16: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData17: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData18: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData19: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData20: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData21: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData22: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData23: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData24: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData25: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData26: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData27: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData28: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData29: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData30: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData31: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData32: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData33: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData34: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData35: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData36: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData37: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData38: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData39: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData40: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData41: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData42: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData43: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData44: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData45: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData46: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData47: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData48: Set<number> = new Set([0, 1, 2, 3, 4]);
+  @Local testData49: Set<number> = new Set([0, 1, 2, 3, 4]);
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -57,15 +107,20 @@ struct LocalSetSample {
           .id('getStateTimeTaken')
           .onClick(() => {
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-            let tmp = this.testData.values()
+            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+              let tmp = this.testData.values()
+            }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
           })
         Button('parent click: 写@Local的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
             this.isType = true
+            this.isTypeState = !this.isTypeState
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            this.testData.add(-1)
+            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+              this.testData.add(index)
+            }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
           })
       }

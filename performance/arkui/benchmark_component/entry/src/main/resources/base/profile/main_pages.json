@@ -745,8 +745,6 @@
     "pages/stateManagement/param/ParamMapSample",
     "pages/stateManagement/param/ParamSetSample",
     "pages/stateManagement/param/ParamUnionSample",
-    "pages/stateManagement/event/EventHome",
-    "pages/stateManagement/event/EventEventSample",
     "pages/stateManagement/consumer/ConsumerHome",
     "pages/stateManagement/consumer/ConsumerNumberSample",
     "pages/stateManagement/consumer/ConsumerStringSample",
@@ -764,6 +762,18 @@
     "pages/stateManagement/provider/ProviderArraySample",
     "pages/stateManagement/provider/ProviderDateSample",
     "pages/stateManagement/provider/ProviderMapSample",
-    "pages/stateManagement/provider/ProviderSetSample"
+    "pages/stateManagement/provider/ProviderSetSample",
+    "pages/stateManagement/once/OnceHome",
+    "pages/stateManagement/once/OnceObjectSample",
+    "pages/stateManagement/once/OnceClassSample",
+    "pages/stateManagement/once/OnceStringSample",
+    "pages/stateManagement/once/OnceNumberSample",
+    "pages/stateManagement/once/OnceBooleanSample",
+    "pages/stateManagement/once/OnceEnumSample",
+    "pages/stateManagement/once/OnceArraySample",
+    "pages/stateManagement/once/OnceDateSample",
+    "pages/stateManagement/once/OnceMapSample",
+    "pages/stateManagement/once/OnceSetSample",
+    "pages/stateManagement/once/OnceUnionSample"
   ]
 }

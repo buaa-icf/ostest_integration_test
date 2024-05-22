@@ -25,9 +25,59 @@ struct LocalClassSample {
   timeHelper: TimeHelper = new TimeHelper('LocalClassSample');
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local testData: ClassModel = classModel1
+  @Local testData1: ClassModel = classModel1
+  @Local testData2: ClassModel = classModel1
+  @Local testData3: ClassModel = classModel1
+  @Local testData4: ClassModel = classModel1
+  @Local testData5: ClassModel = classModel1
+  @Local testData6: ClassModel = classModel1
+  @Local testData7: ClassModel = classModel1
+  @Local testData8: ClassModel = classModel1
+  @Local testData9: ClassModel = classModel1
+  @Local testData10: ClassModel = classModel1
+  @Local testData11: ClassModel = classModel1
+  @Local testData12: ClassModel = classModel1
+  @Local testData13: ClassModel = classModel1
+  @Local testData14: ClassModel = classModel1
+  @Local testData15: ClassModel = classModel1
+  @Local testData16: ClassModel = classModel1
+  @Local testData17: ClassModel = classModel1
+  @Local testData18: ClassModel = classModel1
+  @Local testData19: ClassModel = classModel1
+  @Local testData20: ClassModel = classModel1
+  @Local testData21: ClassModel = classModel1
+  @Local testData22: ClassModel = classModel1
+  @Local testData23: ClassModel = classModel1
+  @Local testData24: ClassModel = classModel1
+  @Local testData25: ClassModel = classModel1
+  @Local testData26: ClassModel = classModel1
+  @Local testData27: ClassModel = classModel1
+  @Local testData28: ClassModel = classModel1
+  @Local testData29: ClassModel = classModel1
+  @Local testData30: ClassModel = classModel1
+  @Local testData31: ClassModel = classModel1
+  @Local testData32: ClassModel = classModel1
+  @Local testData33: ClassModel = classModel1
+  @Local testData34: ClassModel = classModel1
+  @Local testData35: ClassModel = classModel1
+  @Local testData36: ClassModel = classModel1
+  @Local testData37: ClassModel = classModel1
+  @Local testData38: ClassModel = classModel1
+  @Local testData39: ClassModel = classModel1
+  @Local testData40: ClassModel = classModel1
+  @Local testData41: ClassModel = classModel1
+  @Local testData42: ClassModel = classModel1
+  @Local testData43: ClassModel = classModel1
+  @Local testData44: ClassModel = classModel1
+  @Local testData45: ClassModel = classModel1
+  @Local testData46: ClassModel = classModel1
+  @Local testData47: ClassModel = classModel1
+  @Local testData48: ClassModel = classModel1
+  @Local testData49: ClassModel = classModel1
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
   tmpArr: ClassModel[] = [classModel, classModel1]
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -57,15 +107,20 @@ struct LocalClassSample {
           .id('getStateTimeTaken')
           .onClick(() => {
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-            let tmp = this.testData
+            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+              let tmp = this.testData
+            }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
           })
         Button('parent click: 写@Local的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
             this.isType = true
+            this.isTypeState = !this.isTypeState
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            this.testData = classModel3
+            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+              this.testData = this.tmpArr[index % 2]
+            }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
           })
       }
