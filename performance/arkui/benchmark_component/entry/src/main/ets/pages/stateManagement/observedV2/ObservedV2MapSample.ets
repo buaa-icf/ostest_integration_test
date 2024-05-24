@@ -52,7 +52,57 @@ struct ChildObservedV2MapSample {
 struct ObservedV2MapSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   message: ClassA = new ClassA(new MyMap());
+  message1: ClassA = new ClassA(new MyMap());
+  message2: ClassA = new ClassA(new MyMap());
+  message3: ClassA = new ClassA(new MyMap());
+  message4: ClassA = new ClassA(new MyMap());
+  message5: ClassA = new ClassA(new MyMap());
+  message6: ClassA = new ClassA(new MyMap());
+  message7: ClassA = new ClassA(new MyMap());
+  message8: ClassA = new ClassA(new MyMap());
+  message9: ClassA = new ClassA(new MyMap());
+  message10: ClassA = new ClassA(new MyMap());
+  message11: ClassA = new ClassA(new MyMap());
+  message12: ClassA = new ClassA(new MyMap());
+  message13: ClassA = new ClassA(new MyMap());
+  message14: ClassA = new ClassA(new MyMap());
+  message15: ClassA = new ClassA(new MyMap());
+  message16: ClassA = new ClassA(new MyMap());
+  message17: ClassA = new ClassA(new MyMap());
+  message18: ClassA = new ClassA(new MyMap());
+  message19: ClassA = new ClassA(new MyMap());
+  message20: ClassA = new ClassA(new MyMap());
+  message21: ClassA = new ClassA(new MyMap());
+  message22: ClassA = new ClassA(new MyMap());
+  message23: ClassA = new ClassA(new MyMap());
+  message24: ClassA = new ClassA(new MyMap());
+  message25: ClassA = new ClassA(new MyMap());
+  message26: ClassA = new ClassA(new MyMap());
+  message27: ClassA = new ClassA(new MyMap());
+  message28: ClassA = new ClassA(new MyMap());
+  message29: ClassA = new ClassA(new MyMap());
+  message30: ClassA = new ClassA(new MyMap());
+  message31: ClassA = new ClassA(new MyMap());
+  message32: ClassA = new ClassA(new MyMap());
+  message33: ClassA = new ClassA(new MyMap());
+  message34: ClassA = new ClassA(new MyMap());
+  message35: ClassA = new ClassA(new MyMap());
+  message36: ClassA = new ClassA(new MyMap());
+  message37: ClassA = new ClassA(new MyMap());
+  message38: ClassA = new ClassA(new MyMap());
+  message39: ClassA = new ClassA(new MyMap());
+  message40: ClassA = new ClassA(new MyMap());
+  message41: ClassA = new ClassA(new MyMap());
+  message42: ClassA = new ClassA(new MyMap());
+  message43: ClassA = new ClassA(new MyMap());
+  message44: ClassA = new ClassA(new MyMap());
+  message45: ClassA = new ClassA(new MyMap());
+  message46: ClassA = new ClassA(new MyMap());
+  message47: ClassA = new ClassA(new MyMap());
+  message48: ClassA = new ClassA(new MyMap());
+  message49: ClassA = new ClassA(new MyMap());
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @State isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -84,15 +134,20 @@ struct ObservedV2MapSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.message.a.get(0)
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.message.a.get(index)
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent click: 写@ObservedV2的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.message.a.set(0,'g')
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.message.a.set(index,index.toString())
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
       ChildObservedV2MapSample({Info : this.message.a})

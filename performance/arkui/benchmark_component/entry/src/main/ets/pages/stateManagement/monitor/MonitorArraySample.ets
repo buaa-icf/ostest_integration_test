@@ -33,11 +33,62 @@ class ArrMonitor{
   }
 }
 
-@Component
+@ComponentV2
 struct ChildMonitorArraySample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   testData: number[][] = []
+  testData1: number[][] = []
+  testData2: number[][] = []
+  testData3: number[][] = []
+  testData4: number[][] = []
+  testData5: number[][] = []
+  testData6: number[][] = []
+  testData7: number[][] = []
+  testData8: number[][] = []
+  testData9: number[][] = []
+  testData10: number[][] = []
+  testData11: number[][] = []
+  testData12: number[][] = []
+  testData13: number[][] = []
+  testData14: number[][] = []
+  testData15: number[][] = []
+  testData16: number[][] = []
+  testData17: number[][] = []
+  testData18: number[][] = []
+  testData19: number[][] = []
+  testData20: number[][] = []
+  testData21: number[][] = []
+  testData22: number[][] = []
+  testData23: number[][] = []
+  testData24: number[][] = []
+  testData25: number[][] = []
+  testData26: number[][] = []
+  testData27: number[][] = []
+  testData28: number[][] = []
+  testData29: number[][] = []
+  testData30: number[][] = []
+  testData31: number[][] = []
+  testData32: number[][] = []
+  testData33: number[][] = []
+  testData34: number[][] = []
+  testData35: number[][] = []
+  testData36: number[][] = []
+  testData37: number[][] = []
+  testData38: number[][] = []
+  testData39: number[][] = []
+  testData40: number[][] = []
+  testData41: number[][] = []
+  testData42: number[][] = []
+  testData43: number[][] = []
+  testData44: number[][] = []
+  testData45: number[][] = []
+  testData46: number[][] = []
+  testData47: number[][] = []
+  testData48: number[][] = []
+  testData49: number[][] = []
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
+
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
@@ -58,15 +109,20 @@ struct ChildMonitorArraySample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写@Monitor的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData[0][0] = 10000
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData[0][0] = index
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
@@ -74,7 +130,7 @@ struct ChildMonitorArraySample {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct MonitorArraySample {
   testData: ArrMonitor = new ArrMonitor();
   build() {

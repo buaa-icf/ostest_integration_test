@@ -40,8 +40,58 @@ struct ChildProviderClassSample {
 struct ProviderClassSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Provider() testData: ClassModel = classModel;
+  @Provider() testData1: ClassModel = classModel
+  @Provider() testData2: ClassModel = classModel
+  @Provider() testData3: ClassModel = classModel
+  @Provider() testData4: ClassModel = classModel
+  @Provider() testData5: ClassModel = classModel
+  @Provider() testData6: ClassModel = classModel
+  @Provider() testData7: ClassModel = classModel
+  @Provider() testData8: ClassModel = classModel
+  @Provider() testData9: ClassModel = classModel
+  @Provider() testData10: ClassModel = classModel
+  @Provider() testData11: ClassModel = classModel
+  @Provider() testData12: ClassModel = classModel
+  @Provider() testData13: ClassModel = classModel
+  @Provider() testData14: ClassModel = classModel
+  @Provider() testData15: ClassModel = classModel
+  @Provider() testData16: ClassModel = classModel
+  @Provider() testData17: ClassModel = classModel
+  @Provider() testData18: ClassModel = classModel
+  @Provider() testData19: ClassModel = classModel
+  @Provider() testData20: ClassModel = classModel
+  @Provider() testData21: ClassModel = classModel
+  @Provider() testData22: ClassModel = classModel
+  @Provider() testData23: ClassModel = classModel
+  @Provider() testData24: ClassModel = classModel
+  @Provider() testData25: ClassModel = classModel
+  @Provider() testData26: ClassModel = classModel
+  @Provider() testData27: ClassModel = classModel
+  @Provider() testData28: ClassModel = classModel
+  @Provider() testData29: ClassModel = classModel
+  @Provider() testData30: ClassModel = classModel
+  @Provider() testData31: ClassModel = classModel
+  @Provider() testData32: ClassModel = classModel
+  @Provider() testData33: ClassModel = classModel
+  @Provider() testData34: ClassModel = classModel
+  @Provider() testData35: ClassModel = classModel
+  @Provider() testData36: ClassModel = classModel
+  @Provider() testData37: ClassModel = classModel
+  @Provider() testData38: ClassModel = classModel
+  @Provider() testData39: ClassModel = classModel
+  @Provider() testData40: ClassModel = classModel
+  @Provider() testData41: ClassModel = classModel
+  @Provider() testData42: ClassModel = classModel
+  @Provider() testData43: ClassModel = classModel
+  @Provider() testData44: ClassModel = classModel
+  @Provider() testData45: ClassModel = classModel
+  @Provider() testData46: ClassModel = classModel
+  @Provider() testData47: ClassModel = classModel
+  @Provider() testData48: ClassModel = classModel
+  @Provider() testData49: ClassModel = classModel
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   tmpArr: ClassModel[] = [classModel1, classModel2]
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -73,15 +123,20 @@ struct ProviderClassSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent click: 写@Provider的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData = classModel3
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData = this.tmpArr[index % 2]
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
       ChildProviderClassSample()

@@ -48,7 +48,57 @@ struct ChildObservedV2OrdinarySample {
 struct ObservedV2OrdinarySample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   testData: B = new B()
+  testData1: B = new B()
+  testData2: B = new B()
+  testData3: B = new B()
+  testData4: B = new B()
+  testData5: B = new B()
+  testData6: B = new B()
+  testData7: B = new B()
+  testData8: B = new B()
+  testData9: B = new B()
+  testData10: B = new B()
+  testData11: B = new B()
+  testData12: B = new B()
+  testData13: B = new B()
+  testData14: B = new B()
+  testData15: B = new B()
+  testData16: B = new B()
+  testData17: B = new B()
+  testData18: B = new B()
+  testData19: B = new B()
+  testData20: B = new B()
+  testData21: B = new B()
+  testData22: B = new B()
+  testData23: B = new B()
+  testData24: B = new B()
+  testData25: B = new B()
+  testData26: B = new B()
+  testData27: B = new B()
+  testData28: B = new B()
+  testData29: B = new B()
+  testData30: B = new B()
+  testData31: B = new B()
+  testData32: B = new B()
+  testData33: B = new B()
+  testData34: B = new B()
+  testData35: B = new B()
+  testData36: B = new B()
+  testData37: B = new B()
+  testData38: B = new B()
+  testData39: B = new B()
+  testData40: B = new B()
+  testData41: B = new B()
+  testData42: B = new B()
+  testData43: B = new B()
+  testData44: B = new B()
+  testData45: B = new B()
+  testData46: B = new B()
+  testData47: B = new B()
+  testData48: B = new B()
+  testData49: B = new B()
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @State isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -80,16 +130,20 @@ struct ObservedV2OrdinarySample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData.son.b
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData.son.b
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent click: 写@ObservedV2的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
-          let value = this.testData.son.b - 1
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.son.b = value
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData.son.b = index
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
       ChildObservedV2OrdinarySample({ Info : this.testData })

@@ -30,49 +30,26 @@ struct ComputedSetSample {
   }
 
   timeHelper: TimeHelper = new TimeHelper('ComputedSetSample');
-  a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  test = this.computedFun
-  b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 
   aboutToAppear(): void {
-    this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData.add(index)
-    }
-    this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
-    this.testData.clear()
-    this.testData.add(500)
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let tmp = this.testData.values()
+      let tmp = this.computedFun.values()
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(this.isType, this.timeHelper) ? `value: ${Array.from(this.computedFun.values()).toString()}` :
-        `value: ${Array.from(this.computedFun.values()).toString()}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          this.isType = false
-          this.testData.add(10000)
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
+      Text(`value: ${Array.from(this.computedFun.values()).toString()}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let tmp = this.computedFun.values()
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let tmp = this.computedFun.values()
+          }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
-        })
-      Button('写@Computed的耗时')
-        .id('setStateTimeTaken')
-        .onClick(() => {
-          this.isType = true
-          this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData.add(-1)
-          this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }
   }

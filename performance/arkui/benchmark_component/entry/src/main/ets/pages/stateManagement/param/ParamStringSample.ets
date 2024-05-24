@@ -26,7 +26,57 @@ struct ChildParamStringSample {
   @Event changeChildString:(x: number) => void = (x: number) => {};
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Param childString: string = 'childString';
+  @Param childString1: string = 'childString';
+  @Param childString2: string = 'childString';
+  @Param childString3: string = 'childString';
+  @Param childString4: string = 'childString';
+  @Param childString5: string = 'childString';
+  @Param childString6: string = 'childString';
+  @Param childString7: string = 'childString';
+  @Param childString8: string = 'childString';
+  @Param childString9: string = 'childString';
+  @Param childString10: string = 'childString';
+  @Param childString11: string = 'childString';
+  @Param childString12: string = 'childString';
+  @Param childString13: string = 'childString';
+  @Param childString14: string = 'childString';
+  @Param childString15: string = 'childString';
+  @Param childString16: string = 'childString';
+  @Param childString17: string = 'childString';
+  @Param childString18: string = 'childString';
+  @Param childString19: string = 'childString';
+  @Param childString20: string = 'childString';
+  @Param childString21: string = 'childString';
+  @Param childString22: string = 'childString';
+  @Param childString23: string = 'childString';
+  @Param childString24: string = 'childString';
+  @Param childString25: string = 'childString';
+  @Param childString26: string = 'childString';
+  @Param childString27: string = 'childString';
+  @Param childString28: string = 'childString';
+  @Param childString29: string = 'childString';
+  @Param childString30: string = 'childString';
+  @Param childString31: string = 'childString';
+  @Param childString32: string = 'childString';
+  @Param childString33: string = 'childString';
+  @Param childString34: string = 'childString';
+  @Param childString35: string = 'childString';
+  @Param childString36: string = 'childString';
+  @Param childString37: string = 'childString';
+  @Param childString38: string = 'childString';
+  @Param childString39: string = 'childString';
+  @Param childString40: string = 'childString';
+  @Param childString41: string = 'childString';
+  @Param childString42: string = 'childString';
+  @Param childString43: string = 'childString';
+  @Param childString44: string = 'childString';
+  @Param childString45: string = 'childString';
+  @Param childString46: string = 'childString';
+  @Param childString47: string = 'childString';
+  @Param childString48: string = 'childString';
+  @Param childString49: string = 'childString';
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -49,15 +99,20 @@ struct ChildParamStringSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.childString
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.childString
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.changeChildString(0)
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.changeChildString(index%2)
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

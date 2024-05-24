@@ -39,8 +39,58 @@ struct ChildProviderBooleanSample {
 struct ProviderBooleanSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Provider() testData: boolean = true;
+  @Provider() testData1: boolean = true
+  @Provider() testData2: boolean = true
+  @Provider() testData3: boolean = true
+  @Provider() testData4: boolean = true
+  @Provider() testData5: boolean = true
+  @Provider() testData6: boolean = true
+  @Provider() testData7: boolean = true
+  @Provider() testData8: boolean = true
+  @Provider() testData9: boolean = true
+  @Provider() testData10: boolean = true
+  @Provider() testData11: boolean = true
+  @Provider() testData12: boolean = true
+  @Provider() testData13: boolean = true
+  @Provider() testData14: boolean = true
+  @Provider() testData15: boolean = true
+  @Provider() testData16: boolean = true
+  @Provider() testData17: boolean = true
+  @Provider() testData18: boolean = true
+  @Provider() testData19: boolean = true
+  @Provider() testData20: boolean = true
+  @Provider() testData21: boolean = true
+  @Provider() testData22: boolean = true
+  @Provider() testData23: boolean = true
+  @Provider() testData24: boolean = true
+  @Provider() testData25: boolean = true
+  @Provider() testData26: boolean = true
+  @Provider() testData27: boolean = true
+  @Provider() testData28: boolean = true
+  @Provider() testData29: boolean = true
+  @Provider() testData30: boolean = true
+  @Provider() testData31: boolean = true
+  @Provider() testData32: boolean = true
+  @Provider() testData33: boolean = true
+  @Provider() testData34: boolean = true
+  @Provider() testData35: boolean = true
+  @Provider() testData36: boolean = true
+  @Provider() testData37: boolean = true
+  @Provider() testData38: boolean = true
+  @Provider() testData39: boolean = true
+  @Provider() testData40: boolean = true
+  @Provider() testData41: boolean = true
+  @Provider() testData42: boolean = true
+  @Provider() testData43: boolean = true
+  @Provider() testData44: boolean = true
+  @Provider() testData45: boolean = true
+  @Provider() testData46: boolean = true
+  @Provider() testData47: boolean = true
+  @Provider() testData48: boolean = true
+  @Provider() testData49: boolean = true
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   tmpArr: boolean[] = [false, true]
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -72,16 +122,20 @@ struct ProviderBooleanSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.testData
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.testData
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent click: 写@Provider的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
-          let a = !this.testData
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.testData = a
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.testData = this.tmpArr[index % 2]
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
       ChildProviderBooleanSample()

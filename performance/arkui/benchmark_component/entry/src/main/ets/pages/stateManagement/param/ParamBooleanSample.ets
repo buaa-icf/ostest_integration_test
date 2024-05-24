@@ -25,7 +25,57 @@ struct ChildParamBooleanSample {
   @Event changeChildBoolean : (x: number) => void = (x: number) => {};
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Param childBoolean: boolean = true;
+  @Param childBoolean1: boolean = true;
+  @Param childBoolean2: boolean = true;
+  @Param childBoolean3: boolean = true;
+  @Param childBoolean4: boolean = true;
+  @Param childBoolean5: boolean = true;
+  @Param childBoolean6: boolean = true;
+  @Param childBoolean7: boolean = true;
+  @Param childBoolean8: boolean = true;
+  @Param childBoolean9: boolean = true;
+  @Param childBoolean10: boolean = true;
+  @Param childBoolean11: boolean = true;
+  @Param childBoolean12: boolean = true;
+  @Param childBoolean13: boolean = true;
+  @Param childBoolean14: boolean = true;
+  @Param childBoolean15: boolean = true;
+  @Param childBoolean16: boolean = true;
+  @Param childBoolean17: boolean = true;
+  @Param childBoolean18: boolean = true;
+  @Param childBoolean19: boolean = true;
+  @Param childBoolean20: boolean = true;
+  @Param childBoolean21: boolean = true;
+  @Param childBoolean22: boolean = true;
+  @Param childBoolean23: boolean = true;
+  @Param childBoolean24: boolean = true;
+  @Param childBoolean25: boolean = true;
+  @Param childBoolean26: boolean = true;
+  @Param childBoolean27: boolean = true;
+  @Param childBoolean28: boolean = true;
+  @Param childBoolean29: boolean = true;
+  @Param childBoolean30: boolean = true;
+  @Param childBoolean31: boolean = true;
+  @Param childBoolean32: boolean = true;
+  @Param childBoolean33: boolean = true;
+  @Param childBoolean34: boolean = true;
+  @Param childBoolean35: boolean = true;
+  @Param childBoolean36: boolean = true;
+  @Param childBoolean37: boolean = true;
+  @Param childBoolean38: boolean = true;
+  @Param childBoolean39: boolean = true;
+  @Param childBoolean40: boolean = true;
+  @Param childBoolean41: boolean = true;
+  @Param childBoolean42: boolean = true;
+  @Param childBoolean43: boolean = true;
+  @Param childBoolean44: boolean = true;
+  @Param childBoolean45: boolean = true;
+  @Param childBoolean46: boolean = true;
+  @Param childBoolean47: boolean = true;
+  @Param childBoolean48: boolean = true;
+  @Param childBoolean49: boolean = true;
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -48,15 +98,20 @@ struct ChildParamBooleanSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.childBoolean
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.childBoolean
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.changeChildBoolean(1)
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.changeChildBoolean(index%2)
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

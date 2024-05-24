@@ -26,7 +26,57 @@ struct ChildParamEnumSample {
   @Event changeChildEnum:(x: number) => void = (x: number) => {};
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Param childEnum: LanguageEnum = LanguageEnum.English;
+  @Param childEnum1: LanguageEnum = LanguageEnum.English;
+  @Param childEnum2: LanguageEnum = LanguageEnum.English;
+  @Param childEnum3: LanguageEnum = LanguageEnum.English;
+  @Param childEnum4: LanguageEnum = LanguageEnum.English;
+  @Param childEnum5: LanguageEnum = LanguageEnum.English;
+  @Param childEnum6: LanguageEnum = LanguageEnum.English;
+  @Param childEnum7: LanguageEnum = LanguageEnum.English;
+  @Param childEnum8: LanguageEnum = LanguageEnum.English;
+  @Param childEnum9: LanguageEnum = LanguageEnum.English;
+  @Param childEnum10: LanguageEnum = LanguageEnum.English;
+  @Param childEnum11: LanguageEnum = LanguageEnum.English;
+  @Param childEnum12: LanguageEnum = LanguageEnum.English;
+  @Param childEnum13: LanguageEnum = LanguageEnum.English;
+  @Param childEnum14: LanguageEnum = LanguageEnum.English;
+  @Param childEnum15: LanguageEnum = LanguageEnum.English;
+  @Param childEnum16: LanguageEnum = LanguageEnum.English;
+  @Param childEnum17: LanguageEnum = LanguageEnum.English;
+  @Param childEnum18: LanguageEnum = LanguageEnum.English;
+  @Param childEnum19: LanguageEnum = LanguageEnum.English;
+  @Param childEnum20: LanguageEnum = LanguageEnum.English;
+  @Param childEnum21: LanguageEnum = LanguageEnum.English;
+  @Param childEnum22: LanguageEnum = LanguageEnum.English;
+  @Param childEnum23: LanguageEnum = LanguageEnum.English;
+  @Param childEnum24: LanguageEnum = LanguageEnum.English;
+  @Param childEnum25: LanguageEnum = LanguageEnum.English;
+  @Param childEnum26: LanguageEnum = LanguageEnum.English;
+  @Param childEnum27: LanguageEnum = LanguageEnum.English;
+  @Param childEnum28: LanguageEnum = LanguageEnum.English;
+  @Param childEnum29: LanguageEnum = LanguageEnum.English;
+  @Param childEnum30: LanguageEnum = LanguageEnum.English;
+  @Param childEnum31: LanguageEnum = LanguageEnum.English;
+  @Param childEnum32: LanguageEnum = LanguageEnum.English;
+  @Param childEnum33: LanguageEnum = LanguageEnum.English;
+  @Param childEnum34: LanguageEnum = LanguageEnum.English;
+  @Param childEnum35: LanguageEnum = LanguageEnum.English;
+  @Param childEnum36: LanguageEnum = LanguageEnum.English;
+  @Param childEnum37: LanguageEnum = LanguageEnum.English;
+  @Param childEnum38: LanguageEnum = LanguageEnum.English;
+  @Param childEnum39: LanguageEnum = LanguageEnum.English;
+  @Param childEnum40: LanguageEnum = LanguageEnum.English;
+  @Param childEnum41: LanguageEnum = LanguageEnum.English;
+  @Param childEnum42: LanguageEnum = LanguageEnum.English;
+  @Param childEnum43: LanguageEnum = LanguageEnum.English;
+  @Param childEnum44: LanguageEnum = LanguageEnum.English;
+  @Param childEnum45: LanguageEnum = LanguageEnum.English;
+  @Param childEnum46: LanguageEnum = LanguageEnum.English;
+  @Param childEnum47: LanguageEnum = LanguageEnum.English;
+  @Param childEnum48: LanguageEnum = LanguageEnum.English;
+  @Param childEnum49: LanguageEnum = LanguageEnum.English;
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -49,15 +99,20 @@ struct ChildParamEnumSample {
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let value = this.childEnum
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let value = this.childEnum
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
           isType = true
+          this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          this.changeChildEnum(1)
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            this.changeChildEnum(index%2)
+          }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
     }

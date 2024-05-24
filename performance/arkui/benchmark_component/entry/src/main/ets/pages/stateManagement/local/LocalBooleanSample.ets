@@ -24,9 +24,59 @@ struct LocalBooleanSample {
   timeHelper: TimeHelper = new TimeHelper('LocalBooleanSample');
   a = this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local testData: boolean = true;
+  @Local testData1: boolean = true;
+  @Local testData2: boolean = true;
+  @Local testData3: boolean = true;
+  @Local testData4: boolean = true;
+  @Local testData5: boolean = true;
+  @Local testData6: boolean = true;
+  @Local testData7: boolean = true;
+  @Local testData8: boolean = true;
+  @Local testData9: boolean = true;
+  @Local testData10: boolean = true;
+  @Local testData11: boolean = true;
+  @Local testData12: boolean = true;
+  @Local testData13: boolean = true;
+  @Local testData14: boolean = true;
+  @Local testData15: boolean = true;
+  @Local testData16: boolean = true;
+  @Local testData17: boolean = true;
+  @Local testData18: boolean = true;
+  @Local testData19: boolean = true;
+  @Local testData20: boolean = true;
+  @Local testData21: boolean = true;
+  @Local testData22: boolean = true;
+  @Local testData23: boolean = true;
+  @Local testData24: boolean = true;
+  @Local testData25: boolean = true;
+  @Local testData26: boolean = true;
+  @Local testData27: boolean = true;
+  @Local testData28: boolean = true;
+  @Local testData29: boolean = true;
+  @Local testData30: boolean = true;
+  @Local testData31: boolean = true;
+  @Local testData32: boolean = true;
+  @Local testData33: boolean = true;
+  @Local testData34: boolean = true;
+  @Local testData35: boolean = true;
+  @Local testData36: boolean = true;
+  @Local testData37: boolean = true;
+  @Local testData38: boolean = true;
+  @Local testData39: boolean = true;
+  @Local testData40: boolean = true;
+  @Local testData41: boolean = true;
+  @Local testData42: boolean = true;
+  @Local testData43: boolean = true;
+  @Local testData44: boolean = true;
+  @Local testData45: boolean = true;
+  @Local testData46: boolean = true;
+  @Local testData47: boolean = true;
+  @Local testData48: boolean = true;
+  @Local testData49: boolean = true;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   isType: boolean = true
   tmpArr: boolean[] = [false, true]
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -56,16 +106,20 @@ struct LocalBooleanSample {
           .id('getStateTimeTaken')
           .onClick(() => {
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-            let tmp = this.testData
+            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+              let tmp = this.testData
+            }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
           })
         Button('parent click: 写@Local的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
-            let tmp = !this.testData
             this.isType = true
+            this.isTypeState = !this.isTypeState
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            this.testData = tmp
+            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+              this.testData = this.tmpArr[index % 2]
+            }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
           })
       }

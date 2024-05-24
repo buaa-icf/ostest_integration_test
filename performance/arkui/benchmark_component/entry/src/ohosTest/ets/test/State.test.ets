@@ -714,59 +714,41 @@ export default function stateTest() {
     it('ComputedBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('@Computed')
-      //读写@Computed装饰的Array类型
+      //读@Computed装饰的Array类型
       await checkButtonAndClickWithID('ComputedArraySample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的Boolean类型
+      //读@Computed装饰的Boolean类型
       await checkButtonAndClickWithID('ComputedBooleanSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的Date类型
+      //读@Computed装饰的Date类型
       await checkButtonAndClickWithID('ComputedDateSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的Enum类型
+      //读@Computed装饰的Enum类型
       await checkButtonAndClickWithID('ComputedEnumSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的Map类型
+      //读@Computed装饰的Map类型
       await checkButtonAndClickWithID('ComputedMapSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的Number类型
+      //读@Computed装饰的Number类型
       await checkButtonAndClickWithID('ComputedNumberSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的Object类型
+      //读@Computed装饰的Object类型
       await checkButtonAndClickWithID('ComputedObjectSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的Set类型
+      //读@Computed装饰的Set类型
       await checkButtonAndClickWithID('ComputedSetSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
-      //读写@Computed装饰的String类型
+      //读@Computed装饰的String类型
       await checkButtonAndClickWithID('ComputedStringSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
       await pressBack();
       await pressBack(); //返回首页
     })
@@ -842,15 +824,53 @@ export default function stateTest() {
       await pressBack();
       await pressBack(); //返回首页
     })
-    // 点击首页@Event
-    it('EventBenchMarkTest', 0, async () => {
+    // 点击首页@Once
+    it('OnceBenchMarkTest', 0, async () => {
       await driver.delayMs(3000);
-      await checkButtonAndClickWithID('@Event')
-      //读写@Event装饰的event类型
-      await checkButtonAndClickWithID('EventEventSample');
-      await checkButtonAndClickWithID('changeUITimeTaken');
+      await checkButtonAndClickWithID('@Once')
+      //读@Once装饰的Array类型
+      await checkButtonAndClickWithID('OnceArraySample');
       await checkButtonAndClickWithID('getStateTimeTaken');
-      await checkButtonAndClickWithID('setStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的Boolean类型
+      await checkButtonAndClickWithID('OnceBooleanSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的Class类型
+      await checkButtonAndClickWithID('OnceClassSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的Date类型
+      await checkButtonAndClickWithID('OnceDateSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的Enum类型
+      await checkButtonAndClickWithID('OnceEnumSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的Map类型
+      await checkButtonAndClickWithID('OnceMapSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的number类型
+      await checkButtonAndClickWithID('OnceNumberSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的Object类型
+      await checkButtonAndClickWithID('OnceObjectSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的Set类型
+      await checkButtonAndClickWithID('OnceSetSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的string类型
+      await checkButtonAndClickWithID('OnceStringSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
+      await pressBack();
+      //读@Once装饰的union类型
+      await checkButtonAndClickWithID('OnceUnionSample');
+      await checkButtonAndClickWithID('getStateTimeTaken');
       await pressBack();
       await pressBack(); //返回首页
     })
