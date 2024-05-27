@@ -1,0 +1,77 @@
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "TuanjiePlayerAbility",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "metadata": [
+      {
+        "name": "ArkTSPartialUpdate",
+        "value": "true"
+      },
+      {
+        "name": "partialUpdateStrictCheck",
+        "value": "warn"
+      }
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "TuanjiePlayerAbility",
+        "srcEntrance": "./ets/ability/TuanjiePlayerAbility.ts",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "orientation": "landscape_inverted",
+        "visible": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ]
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
+        "usedScene": {
+          "abilities": [
+            "TuanjiePlayerAbility"
+          ],
+          "when": "always"
+        }
+      },
+      {
+        "name": "ohos.permission.VIBRATE",
+        "usedScene": {
+          "abilities": [
+            "TuanjiePlayerAbility"
+          ],
+          "when": "always"
+        }
+      },
+      {
+        "name": "ohos.permission.ACCELEROMETER",
+        "usedScene": {
+          "abilities": [
+            "TuanjiePlayerAbility"
+          ],
+          "when": "always"
+        }
+      }
+    ]
+  }
+}

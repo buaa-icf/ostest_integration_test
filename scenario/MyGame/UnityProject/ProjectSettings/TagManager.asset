@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - CrossRoad
+  - FadeImage
+  - AudioManager
+  - GameManager
+  - WorldManager
+  - ShopManager
+  - CameraLookAt
+  - SaveManager
+  - Obstacle
+  - TrafficSpawner01
+  - TrafficSpawner02
+  - TrafficOutVehicle
+  - NetworkManager
+  - SettingsManager
+  - TrafficSpawner03
+  - TrafficSpawner04
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
