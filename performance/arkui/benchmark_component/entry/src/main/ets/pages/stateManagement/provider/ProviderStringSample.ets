@@ -17,19 +17,16 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ProviderStringSample');
-let isType: boolean = true
 
 @ComponentV2
 struct ChildProviderStringSample {
-  @Consumer() testData: string = '0'
+  @Consumer('String') testData: string = '0'
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.testData}` :
-        `child value: ${this.testData}`)
+      Text(`child value: ${this.testData}`)
     }
   }
 }
@@ -38,56 +35,56 @@ struct ChildProviderStringSample {
 @ComponentV2
 struct ProviderStringSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Provider() testData: string = 'hello, world';
-  @Provider() testData1: string = '0'
-  @Provider() testData2: string = '0'
-  @Provider() testData3: string = '0'
-  @Provider() testData4: string = '0'
-  @Provider() testData5: string = '0'
-  @Provider() testData6: string = '0'
-  @Provider() testData7: string = '0'
-  @Provider() testData8: string = '0'
-  @Provider() testData9: string = '0'
-  @Provider() testData10: string = '0'
-  @Provider() testData11: string = '0'
-  @Provider() testData12: string = '0'
-  @Provider() testData13: string = '0'
-  @Provider() testData14: string = '0'
-  @Provider() testData15: string = '0'
-  @Provider() testData16: string = '0'
-  @Provider() testData17: string = '0'
-  @Provider() testData18: string = '0'
-  @Provider() testData19: string = '0'
-  @Provider() testData20: string = '0'
-  @Provider() testData21: string = '0'
-  @Provider() testData22: string = '0'
-  @Provider() testData23: string = '0'
-  @Provider() testData24: string = '0'
-  @Provider() testData25: string = '0'
-  @Provider() testData26: string = '0'
-  @Provider() testData27: string = '0'
-  @Provider() testData28: string = '0'
-  @Provider() testData29: string = '0'
-  @Provider() testData30: string = '0'
-  @Provider() testData31: string = '0'
-  @Provider() testData32: string = '0'
-  @Provider() testData33: string = '0'
-  @Provider() testData34: string = '0'
-  @Provider() testData35: string = '0'
-  @Provider() testData36: string = '0'
-  @Provider() testData37: string = '0'
-  @Provider() testData38: string = '0'
-  @Provider() testData39: string = '0'
-  @Provider() testData40: string = '0'
-  @Provider() testData41: string = '0'
-  @Provider() testData42: string = '0'
-  @Provider() testData43: string = '0'
-  @Provider() testData44: string = '0'
-  @Provider() testData45: string = '0'
-  @Provider() testData46: string = '0'
-  @Provider() testData47: string = '0'
-  @Provider() testData48: string = '0'
-  @Provider() testData49: string = '0'
+  @Provider('String') testData: string = 'hello, world';
+  @Provider('String1') testData1: string = '0'
+  @Provider('String2') testData2: string = '0'
+  @Provider('String3') testData3: string = '0'
+  @Provider('String4') testData4: string = '0'
+  @Provider('String5') testData5: string = '0'
+  @Provider('String6') testData6: string = '0'
+  @Provider('String7') testData7: string = '0'
+  @Provider('String8') testData8: string = '0'
+  @Provider('String9') testData9: string = '0'
+  @Provider('String10') testData10: string = '0'
+  @Provider('String11') testData11: string = '0'
+  @Provider('String12') testData12: string = '0'
+  @Provider('String13') testData13: string = '0'
+  @Provider('String14') testData14: string = '0'
+  @Provider('String15') testData15: string = '0'
+  @Provider('String16') testData16: string = '0'
+  @Provider('String17') testData17: string = '0'
+  @Provider('String18') testData18: string = '0'
+  @Provider('String19') testData19: string = '0'
+  @Provider('String20') testData20: string = '0'
+  @Provider('String21') testData21: string = '0'
+  @Provider('String22') testData22: string = '0'
+  @Provider('String23') testData23: string = '0'
+  @Provider('String24') testData24: string = '0'
+  @Provider('String25') testData25: string = '0'
+  @Provider('String26') testData26: string = '0'
+  @Provider('String27') testData27: string = '0'
+  @Provider('String28') testData28: string = '0'
+  @Provider('String29') testData29: string = '0'
+  @Provider('String30') testData30: string = '0'
+  @Provider('String31') testData31: string = '0'
+  @Provider('String32') testData32: string = '0'
+  @Provider('String33') testData33: string = '0'
+  @Provider('String34') testData34: string = '0'
+  @Provider('String35') testData35: string = '0'
+  @Provider('String36') testData36: string = '0'
+  @Provider('String37') testData37: string = '0'
+  @Provider('String38') testData38: string = '0'
+  @Provider('String39') testData39: string = '0'
+  @Provider('String40') testData40: string = '0'
+  @Provider('String41') testData41: string = '0'
+  @Provider('String42') testData42: string = '0'
+  @Provider('String43') testData43: string = '0'
+  @Provider('String44') testData44: string = '0'
+  @Provider('String45') testData45: string = '0'
+  @Provider('String46') testData46: string = '0'
+  @Provider('String47') testData47: string = '0'
+  @Provider('String48') testData48: string = '0'
+  @Provider('String49') testData49: string = '0'
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local isTypeState: boolean = true
 
@@ -111,12 +108,6 @@ struct ProviderStringSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.testData}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testData = '你好世界'
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
       Button('parent click: 读@Provider的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -129,10 +120,9 @@ struct ProviderStringSample {
       Button('parent click: 写@Provider的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
             this.testData = index.toString()
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))

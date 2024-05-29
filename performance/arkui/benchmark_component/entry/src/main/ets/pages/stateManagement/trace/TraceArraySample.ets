@@ -14,108 +14,106 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
-
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
+import { numberArr } from '../ClassModel';
 
 const timeHelper: TimeHelper = new TimeHelper('TraceArraySample');
-let isType: boolean = true
 
 @ObservedV2
 class Arr {
-  @Trace numberArr: number[] = [];
+  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Trace numberArr: number[] = numberArr;
+  @Trace numberArr1: number[] = numberArr;
+  @Trace numberArr2: number[] = numberArr;
+  @Trace numberArr3: number[] = numberArr;
+  @Trace numberArr4: number[] = numberArr;
+  @Trace numberArr5: number[] = numberArr;
+  @Trace numberArr6: number[] = numberArr;
+  @Trace numberArr7: number[] = numberArr;
+  @Trace numberArr8: number[] = numberArr;
+  @Trace numberArr9: number[] = numberArr;
+  @Trace numberArr10: number[] = numberArr;
+  @Trace numberArr11: number[] = numberArr;
+  @Trace numberArr12: number[] = numberArr;
+  @Trace numberArr13: number[] = numberArr;
+  @Trace numberArr14: number[] = numberArr;
+  @Trace numberArr15: number[] = numberArr;
+  @Trace numberArr16: number[] = numberArr;
+  @Trace numberArr17: number[] = numberArr;
+  @Trace numberArr18: number[] = numberArr;
+  @Trace numberArr19: number[] = numberArr;
+  @Trace numberArr20: number[] = numberArr;
+  @Trace numberArr21: number[] = numberArr;
+  @Trace numberArr22: number[] = numberArr;
+  @Trace numberArr23: number[] = numberArr;
+  @Trace numberArr24: number[] = numberArr;
+  @Trace numberArr25: number[] = numberArr;
+  @Trace numberArr26: number[] = numberArr;
+  @Trace numberArr27: number[] = numberArr;
+  @Trace numberArr28: number[] = numberArr;
+  @Trace numberArr29: number[] = numberArr;
+  @Trace numberArr30: number[] = numberArr;
+  @Trace numberArr31: number[] = numberArr;
+  @Trace numberArr32: number[] = numberArr;
+  @Trace numberArr33: number[] = numberArr;
+  @Trace numberArr34: number[] = numberArr;
+  @Trace numberArr35: number[] = numberArr;
+  @Trace numberArr36: number[] = numberArr;
+  @Trace numberArr37: number[] = numberArr;
+  @Trace numberArr38: number[] = numberArr;
+  @Trace numberArr39: number[] = numberArr;
+  @Trace numberArr40: number[] = numberArr;
+  @Trace numberArr41: number[] = numberArr;
+  @Trace numberArr42: number[] = numberArr;
+  @Trace numberArr43: number[] = numberArr;
+  @Trace numberArr44: number[] = numberArr;
+  @Trace numberArr45: number[] = numberArr;
+  @Trace numberArr46: number[] = numberArr;
+  @Trace numberArr47: number[] = numberArr;
+  @Trace numberArr48: number[] = numberArr;
+  @Trace numberArr49: number[] = numberArr;
+  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 }
 
-@Component
+let testData: Arr = new Arr();
+
+@ComponentV2
 struct ChildTraceArraySample {
-  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  test: Arr = new Arr()
-  test1: Arr = new Arr()
-  test2: Arr = new Arr()
-  test3: Arr = new Arr()
-  test4: Arr = new Arr()
-  test5: Arr = new Arr()
-  test6: Arr = new Arr()
-  test7: Arr = new Arr()
-  test8: Arr = new Arr()
-  test9: Arr = new Arr()
-  test10: Arr = new Arr()
-  test11: Arr = new Arr()
-  test12: Arr = new Arr()
-  test13: Arr = new Arr()
-  test14: Arr = new Arr()
-  test15: Arr = new Arr()
-  test16: Arr = new Arr()
-  test17: Arr = new Arr()
-  test18: Arr = new Arr()
-  test19: Arr = new Arr()
-  test20: Arr = new Arr()
-  test21: Arr = new Arr()
-  test22: Arr = new Arr()
-  test23: Arr = new Arr()
-  test24: Arr = new Arr()
-  test25: Arr = new Arr()
-  test26: Arr = new Arr()
-  test27: Arr = new Arr()
-  test28: Arr = new Arr()
-  test29: Arr = new Arr()
-  test30: Arr = new Arr()
-  test31: Arr = new Arr()
-  test32: Arr = new Arr()
-  test33: Arr = new Arr()
-  test34: Arr = new Arr()
-  test35: Arr = new Arr()
-  test36: Arr = new Arr()
-  test37: Arr = new Arr()
-  test38: Arr = new Arr()
-  test39: Arr = new Arr()
-  test40: Arr = new Arr()
-  test41: Arr = new Arr()
-  test42: Arr = new Arr()
-  test43: Arr = new Arr()
-  test44: Arr = new Arr()
-  test45: Arr = new Arr()
-  test46: Arr = new Arr()
-  test47: Arr = new Arr()
-  test48: Arr = new Arr()
-  test49: Arr = new Arr()
-  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @State isTypeState: boolean = true
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.test.numberArr[index] = index
+      testData.numberArr[0] = index
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.test.numberArr[index]
+      let value = testData.numberArr[0]
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.test.numberArr[0]}` : `child value: ${this.test.numberArr[0]}`)
+      Text(`child value: ${testData.numberArr[0]}`)
       Button('child clink: 读@Trace的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let value = this.test.numberArr[index]
+            let value = testData.numberArr[0]
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child clink:  写@Trace的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.test.numberArr[index] = index
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            testData.numberArr[0] = index
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
@@ -124,9 +122,8 @@ struct ChildTraceArraySample {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct TraceArraySample {
-  testData: Arr = new Arr();
 
   build() {
     Column({ space: 15 }) {
@@ -134,15 +131,8 @@ struct TraceArraySample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(this.testData.numberArr[0] ? `parent value: ${this.testData.numberArr[0]}` : `parent value:${this.testData.numberArr[0]}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testData.numberArr[0] = 1000
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildTraceArraySample({ test: this.testData })
+      Text(`parent value:${testData.numberArr[0]}`)
+      ChildTraceArraySample()
     }
   }
 }

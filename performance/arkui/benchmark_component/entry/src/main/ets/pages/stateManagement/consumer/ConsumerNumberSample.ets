@@ -17,64 +17,62 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ConsumerNumberSample');
-let isType: boolean = true
 
 @ComponentV2
 struct ChildConsumerNumberSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Consumer() testData: number = 0
-  @Consumer() testData1: number = 0
-  @Consumer() testData2: number = 0
-  @Consumer() testData3: number = 0
-  @Consumer() testData4: number = 0
-  @Consumer() testData5: number = 0
-  @Consumer() testData6: number = 0
-  @Consumer() testData7: number = 0
-  @Consumer() testData8: number = 0
-  @Consumer() testData9: number = 0
-  @Consumer() testData10: number = 0
-  @Consumer() testData11: number = 0
-  @Consumer() testData12: number = 0
-  @Consumer() testData13: number = 0
-  @Consumer() testData14: number = 0
-  @Consumer() testData15: number = 0
-  @Consumer() testData16: number = 0
-  @Consumer() testData17: number = 0
-  @Consumer() testData18: number = 0
-  @Consumer() testData19: number = 0
-  @Consumer() testData20: number = 0
-  @Consumer() testData21: number = 0
-  @Consumer() testData22: number = 0
-  @Consumer() testData23: number = 0
-  @Consumer() testData24: number = 0
-  @Consumer() testData25: number = 0
-  @Consumer() testData26: number = 0
-  @Consumer() testData27: number = 0
-  @Consumer() testData28: number = 0
-  @Consumer() testData29: number = 0
-  @Consumer() testData30: number = 0
-  @Consumer() testData31: number = 0
-  @Consumer() testData32: number = 0
-  @Consumer() testData33: number = 0
-  @Consumer() testData34: number = 0
-  @Consumer() testData35: number = 0
-  @Consumer() testData36: number = 0
-  @Consumer() testData37: number = 0
-  @Consumer() testData38: number = 0
-  @Consumer() testData39: number = 0
-  @Consumer() testData40: number = 0
-  @Consumer() testData41: number = 0
-  @Consumer() testData42: number = 0
-  @Consumer() testData43: number = 0
-  @Consumer() testData44: number = 0
-  @Consumer() testData45: number = 0
-  @Consumer() testData46: number = 0
-  @Consumer() testData47: number = 0
-  @Consumer() testData48: number = 0
-  @Consumer() testData49: number = 0
+  @Consumer('Number') testData: number = 0
+  @Consumer('Number1') testData1: number = 0
+  @Consumer('Number2') testData2: number = 0
+  @Consumer('Number3') testData3: number = 0
+  @Consumer('Number4') testData4: number = 0
+  @Consumer('Number5') testData5: number = 0
+  @Consumer('Number6') testData6: number = 0
+  @Consumer('Number7') testData7: number = 0
+  @Consumer('Number8') testData8: number = 0
+  @Consumer('Number9') testData9: number = 0
+  @Consumer('Number10') testData10: number = 0
+  @Consumer('Number11') testData11: number = 0
+  @Consumer('Number12') testData12: number = 0
+  @Consumer('Number13') testData13: number = 0
+  @Consumer('Number14') testData14: number = 0
+  @Consumer('Number15') testData15: number = 0
+  @Consumer('Number16') testData16: number = 0
+  @Consumer('Number17') testData17: number = 0
+  @Consumer('Number18') testData18: number = 0
+  @Consumer('Number19') testData19: number = 0
+  @Consumer('Number20') testData20: number = 0
+  @Consumer('Number21') testData21: number = 0
+  @Consumer('Number22') testData22: number = 0
+  @Consumer('Number23') testData23: number = 0
+  @Consumer('Number24') testData24: number = 0
+  @Consumer('Number25') testData25: number = 0
+  @Consumer('Number26') testData26: number = 0
+  @Consumer('Number27') testData27: number = 0
+  @Consumer('Number28') testData28: number = 0
+  @Consumer('Number29') testData29: number = 0
+  @Consumer('Number30') testData30: number = 0
+  @Consumer('Number31') testData31: number = 0
+  @Consumer('Number32') testData32: number = 0
+  @Consumer('Number33') testData33: number = 0
+  @Consumer('Number34') testData34: number = 0
+  @Consumer('Number35') testData35: number = 0
+  @Consumer('Number36') testData36: number = 0
+  @Consumer('Number37') testData37: number = 0
+  @Consumer('Number38') testData38: number = 0
+  @Consumer('Number39') testData39: number = 0
+  @Consumer('Number40') testData40: number = 0
+  @Consumer('Number41') testData41: number = 0
+  @Consumer('Number42') testData42: number = 0
+  @Consumer('Number43') testData43: number = 0
+  @Consumer('Number44') testData44: number = 0
+  @Consumer('Number45') testData45: number = 0
+  @Consumer('Number46') testData46: number = 0
+  @Consumer('Number47') testData47: number = 0
+  @Consumer('Number48') testData48: number = 0
+  @Consumer('Number49') testData49: number = 0
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local isTypeState: boolean = true
 
@@ -97,13 +95,7 @@ struct ChildConsumerNumberSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.testData}` : `child value: ${this.testData}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testData += 1
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
+      Text(`child value: ${this.testData}`)
       Button('child clink: 读@Consumer的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -116,10 +108,9 @@ struct ChildConsumerNumberSample {
       Button('child clink: 写@Consumer的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
             this.testData = index
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
@@ -131,7 +122,7 @@ struct ChildConsumerNumberSample {
 @Entry
 @ComponentV2
 struct ConsumerNumberSample {
-  @Provider() testData: number = 1;
+  @Provider('Number') testData: number = 1;
 
   build() {
     Column({ space: 15 }) {

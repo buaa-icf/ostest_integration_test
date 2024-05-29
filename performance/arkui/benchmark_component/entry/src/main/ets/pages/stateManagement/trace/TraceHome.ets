@@ -16,7 +16,7 @@
 import { CommonButton } from '../../../util/CommonButton';
 
 @Entry
-@Component
+@ComponentV2
 struct TraceHome {
   build() {
     Scroll() {
@@ -35,6 +35,8 @@ struct TraceHome {
         CommonButton({buttonName:'TraceSetSample',buttonUrl:'pages/stateManagement/trace/TraceSetSample'});
         CommonButton({buttonName:'TraceDateSample',buttonUrl:'pages/stateManagement/trace/TraceDateSample'});
         CommonButton({buttonName:'TraceArraySample',buttonUrl:'pages/stateManagement/trace/TraceArraySample'});
+        CommonButton({buttonName:'TraceObjectSample',buttonUrl:'pages/stateManagement/trace/TraceObjectSample'});
+        CommonButton({buttonName:'TraceEnumSample',buttonUrl:'pages/stateManagement/trace/TraceEnumSample'});
       }
       .padding('5vp')
       .width('100%')

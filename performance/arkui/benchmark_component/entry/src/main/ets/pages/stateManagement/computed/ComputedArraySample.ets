@@ -16,12 +16,12 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
+import { stringArr } from '../ClassModel';
 
 @Entry
 @ComponentV2
 struct ComputedArraySample {
-  @Local testData: string[] = ['吴辉', '予升', '3', '晟松', '1', '晓卿', '万葵', '5', '轩宇', '少辰']
+  @Local testData: string[] = stringArr
 
   @Computed
   get computedFun() {
@@ -29,26 +29,28 @@ struct ComputedArraySample {
   }
 
   timeHelper: TimeHelper = new TimeHelper('ComputedArraySample');
+
   aboutToAppear(): void {
-    for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData[index] = index.toString()
-    }
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let tmp = this.testData[index]
+      let tmp = this.computedFun
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(`value: ${this.computedFun[this.computedFun.length - 1]}`)
+      Text('ComputedArraySample')
+        .fontSize('25')
+        .textAlign(TextAlign.Center)
+        .margin({ bottom: 50, top: 50 })
+      Text(`value: ${this.computedFun}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let tmp = this.testData[index]
+            let tmp = this.computedFun
           }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })

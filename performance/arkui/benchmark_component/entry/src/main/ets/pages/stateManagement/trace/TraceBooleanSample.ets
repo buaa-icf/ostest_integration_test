@@ -16,106 +16,104 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('TraceBooleanSample');
-let isType: boolean = true
 
 @ObservedV2
 class Father {
-  @Trace a: boolean = true;
+  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
+  @Trace boolType: boolean = true;
+  @Trace boolType1: boolean = true;
+  @Trace boolType2: boolean = true;
+  @Trace boolType3: boolean = true;
+  @Trace boolType4: boolean = true;
+  @Trace boolType5: boolean = true;
+  @Trace boolType6: boolean = true;
+  @Trace boolType7: boolean = true;
+  @Trace boolType8: boolean = true;
+  @Trace boolType9: boolean = true;
+  @Trace boolType10: boolean = true;
+  @Trace boolType11: boolean = true;
+  @Trace boolType12: boolean = true;
+  @Trace boolType13: boolean = true;
+  @Trace boolType14: boolean = true;
+  @Trace boolType15: boolean = true;
+  @Trace boolType16: boolean = true;
+  @Trace boolType17: boolean = true;
+  @Trace boolType18: boolean = true;
+  @Trace boolType19: boolean = true;
+  @Trace boolType20: boolean = true;
+  @Trace boolType21: boolean = true;
+  @Trace boolType22: boolean = true;
+  @Trace boolType23: boolean = true;
+  @Trace boolType24: boolean = true;
+  @Trace boolType25: boolean = true;
+  @Trace boolType26: boolean = true;
+  @Trace boolType27: boolean = true;
+  @Trace boolType28: boolean = true;
+  @Trace boolType29: boolean = true;
+  @Trace boolType30: boolean = true;
+  @Trace boolType31: boolean = true;
+  @Trace boolType32: boolean = true;
+  @Trace boolType33: boolean = true;
+  @Trace boolType34: boolean = true;
+  @Trace boolType35: boolean = true;
+  @Trace boolType36: boolean = true;
+  @Trace boolType37: boolean = true;
+  @Trace boolType38: boolean = true;
+  @Trace boolType39: boolean = true;
+  @Trace boolType40: boolean = true;
+  @Trace boolType41: boolean = true;
+  @Trace boolType42: boolean = true;
+  @Trace boolType43: boolean = true;
+  @Trace boolType44: boolean = true;
+  @Trace boolType45: boolean = true;
+  @Trace boolType46: boolean = true;
+  @Trace boolType47: boolean = true;
+  @Trace boolType48: boolean = true;
+  @Trace boolType49: boolean = true;
+  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 }
 
-@Component
+let parentBoolean: Father = new Father();
+
+@ComponentV2
 struct ChildTraceBooleanSample {
-  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  Arr: Father = new Father()
-  Arr1: Father = new Father()
-  Arr2: Father = new Father()
-  Arr3: Father = new Father()
-  Arr4: Father = new Father()
-  Arr5: Father = new Father()
-  Arr6: Father = new Father()
-  Arr7: Father = new Father()
-  Arr8: Father = new Father()
-  Arr9: Father = new Father()
-  Arr10: Father = new Father()
-  Arr11: Father = new Father()
-  Arr12: Father = new Father()
-  Arr13: Father = new Father()
-  Arr14: Father = new Father()
-  Arr15: Father = new Father()
-  Arr16: Father = new Father()
-  Arr17: Father = new Father()
-  Arr18: Father = new Father()
-  Arr19: Father = new Father()
-  Arr20: Father = new Father()
-  Arr21: Father = new Father()
-  Arr22: Father = new Father()
-  Arr23: Father = new Father()
-  Arr24: Father = new Father()
-  Arr25: Father = new Father()
-  Arr26: Father = new Father()
-  Arr27: Father = new Father()
-  Arr28: Father = new Father()
-  Arr29: Father = new Father()
-  Arr30: Father = new Father()
-  Arr31: Father = new Father()
-  Arr32: Father = new Father()
-  Arr33: Father = new Father()
-  Arr34: Father = new Father()
-  Arr35: Father = new Father()
-  Arr36: Father = new Father()
-  Arr37: Father = new Father()
-  Arr38: Father = new Father()
-  Arr39: Father = new Father()
-  Arr40: Father = new Father()
-  Arr41: Father = new Father()
-  Arr42: Father = new Father()
-  Arr43: Father = new Father()
-  Arr44: Father = new Father()
-  Arr45: Father = new Father()
-  Arr46: Father = new Father()
-  Arr47: Father = new Father()
-  Arr48: Father = new Father()
-  Arr49: Father = new Father()
-  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   tmpArr: boolean[] = [false, true]
-  @State isTypeState: boolean = true
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.Arr.a = this.tmpArr[index % 2]
+      parentBoolean.boolType = this.tmpArr[index % 2]
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.Arr.a
+      let value = parentBoolean.boolType
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.Arr.a}` : `child value: ${this.Arr.a}`)
+      Text(`child value: ${parentBoolean.boolType}`)
       Button('child click: 读@Trace的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let value = this.Arr.a
+            let value = parentBoolean.boolType
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写@Trace的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.Arr.a = !this.Arr.a
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            parentBoolean.boolType = this.tmpArr[index % 2]
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
@@ -124,9 +122,8 @@ struct ChildTraceBooleanSample {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct TraceBooleanSample {
-  parentBoolean: Father = new Father();
 
   build() {
     Column({ space: 15 }) {
@@ -134,17 +131,8 @@ struct TraceBooleanSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(this.parentBoolean.a ? `parent value: ${this.parentBoolean.a}` : `parent value: ${this.parentBoolean.a}`)
-      // 父组件的数据源的修改会同步给子组件
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.parentBoolean.a = !this.parentBoolean.a
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-
-      ChildTraceBooleanSample({ Arr: this.parentBoolean })
+      Text(`parent value: ${parentBoolean.boolType}`)
+      ChildTraceBooleanSample()
     }
   }
 }

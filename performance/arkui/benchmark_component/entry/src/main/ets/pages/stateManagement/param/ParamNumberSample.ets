@@ -16,13 +16,13 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ParamNumberSample')
-let isType: boolean = true
+
 @ComponentV2
 struct ChildParamNumberSample {
-  @Event changeChildNumber:(x: number) => void = (x: number) => {};
+  @Event changeChildNumber: (x: number) => void = (x: number) => {
+  };
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Param childNumber: number = 10;
   @Param childNumber1: number = 10;
@@ -80,7 +80,7 @@ struct ChildParamNumberSample {
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.changeChildNumber(index%2)
+      this.changeChildNumber(0)
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
@@ -92,8 +92,7 @@ struct ChildParamNumberSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType,timeHelper) ? `child value: ${this.childNumber}` :
-        `child value: ${this.childNumber}`)
+      Text(`child value: ${this.childNumber}`)
       Button('child click: 读@Param的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -106,11 +105,10 @@ struct ChildParamNumberSample {
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.changeChildNumber(index%2)
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            this.changeChildNumber(0)
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
@@ -123,13 +121,12 @@ struct ChildParamNumberSample {
 @ComponentV2
 struct ParamNumberSample {
   @Local parentNumber: number = 10;
-  changeParentNumber:(type: number) => void = (type: number) => {
-    if(type==0){
-      this.parentNumber=99
-    }else if(type==1){
-      this.parentNumber=999
+  changeParentNumber: (type: number) => void = (type: number) => {
+    if (type == 0) {
+      this.parentNumber += 1
     }
   };
+
   build() {
     Column({ space: 15 }) {
       Text('ParamNumberSample')
@@ -137,14 +134,59 @@ struct ParamNumberSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentNumber}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.parentNumber+=1
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildParamNumberSample({childNumber:this.parentNumber,changeChildNumber:this.changeParentNumber.bind(this)})
+      ChildParamNumberSample({
+        childNumber: this.parentNumber,
+        childNumber1: this.parentNumber,
+        childNumber2: this.parentNumber,
+        childNumber3: this.parentNumber,
+        childNumber4: this.parentNumber,
+        childNumber5: this.parentNumber,
+        childNumber6: this.parentNumber,
+        childNumber7: this.parentNumber,
+        childNumber8: this.parentNumber,
+        childNumber9: this.parentNumber,
+        childNumber10: this.parentNumber,
+        childNumber11: this.parentNumber,
+        childNumber12: this.parentNumber,
+        childNumber13: this.parentNumber,
+        childNumber14: this.parentNumber,
+        childNumber15: this.parentNumber,
+        childNumber16: this.parentNumber,
+        childNumber17: this.parentNumber,
+        childNumber18: this.parentNumber,
+        childNumber19: this.parentNumber,
+        childNumber20: this.parentNumber,
+        childNumber21: this.parentNumber,
+        childNumber22: this.parentNumber,
+        childNumber23: this.parentNumber,
+        childNumber24: this.parentNumber,
+        childNumber25: this.parentNumber,
+        childNumber26: this.parentNumber,
+        childNumber27: this.parentNumber,
+        childNumber28: this.parentNumber,
+        childNumber29: this.parentNumber,
+        childNumber30: this.parentNumber,
+        childNumber31: this.parentNumber,
+        childNumber32: this.parentNumber,
+        childNumber33: this.parentNumber,
+        childNumber34: this.parentNumber,
+        childNumber35: this.parentNumber,
+        childNumber36: this.parentNumber,
+        childNumber37: this.parentNumber,
+        childNumber38: this.parentNumber,
+        childNumber39: this.parentNumber,
+        childNumber40: this.parentNumber,
+        childNumber41: this.parentNumber,
+        childNumber42: this.parentNumber,
+        childNumber43: this.parentNumber,
+        childNumber44: this.parentNumber,
+        childNumber45: this.parentNumber,
+        childNumber46: this.parentNumber,
+        childNumber47: this.parentNumber,
+        childNumber48: this.parentNumber,
+        childNumber49: this.parentNumber,
+        changeChildNumber: this.changeParentNumber.bind(this)
+      })
     }
   }
 }

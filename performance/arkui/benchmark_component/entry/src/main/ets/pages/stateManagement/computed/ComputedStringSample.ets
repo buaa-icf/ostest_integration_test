@@ -16,12 +16,10 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 @Entry
 @ComponentV2
 struct ComputedStringSample {
-  isType: boolean = true
   @Local testData: string = 'Hello';
 
   @Computed
@@ -41,12 +39,18 @@ struct ComputedStringSample {
 
   build() {
     Column({ space: 15 }) {
+      Text('ComputedStringSample')
+        .fontSize('25')
+        .textAlign(TextAlign.Center)
+        .margin({ bottom: 50, top: 50 })
       Text(`value: ${this.computedFun}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
-          let tmp = this.computedFun
+          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            let tmp = this.computedFun
+          }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
     }

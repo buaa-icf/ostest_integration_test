@@ -17,64 +17,62 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ConsumerMapSample');
-let isType: boolean = true
 
 @ComponentV2
 struct ChildConsumerMapSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Consumer() testData: Map<number, string> = new Map([]);
-  @Consumer() testData1: Map<number, string> = new Map([]);
-  @Consumer() testData2: Map<number, string> = new Map([]);
-  @Consumer() testData3: Map<number, string> = new Map([]);
-  @Consumer() testData4: Map<number, string> = new Map([]);
-  @Consumer() testData5: Map<number, string> = new Map([]);
-  @Consumer() testData6: Map<number, string> = new Map([]);
-  @Consumer() testData7: Map<number, string> = new Map([]);
-  @Consumer() testData8: Map<number, string> = new Map([]);
-  @Consumer() testData9: Map<number, string> = new Map([]);
-  @Consumer() testData10: Map<number, string> = new Map([]);
-  @Consumer() testData11: Map<number, string> = new Map([]);
-  @Consumer() testData12: Map<number, string> = new Map([]);
-  @Consumer() testData13: Map<number, string> = new Map([]);
-  @Consumer() testData14: Map<number, string> = new Map([]);
-  @Consumer() testData15: Map<number, string> = new Map([]);
-  @Consumer() testData16: Map<number, string> = new Map([]);
-  @Consumer() testData17: Map<number, string> = new Map([]);
-  @Consumer() testData18: Map<number, string> = new Map([]);
-  @Consumer() testData19: Map<number, string> = new Map([]);
-  @Consumer() testData20: Map<number, string> = new Map([]);
-  @Consumer() testData21: Map<number, string> = new Map([]);
-  @Consumer() testData22: Map<number, string> = new Map([]);
-  @Consumer() testData23: Map<number, string> = new Map([]);
-  @Consumer() testData24: Map<number, string> = new Map([]);
-  @Consumer() testData25: Map<number, string> = new Map([]);
-  @Consumer() testData26: Map<number, string> = new Map([]);
-  @Consumer() testData27: Map<number, string> = new Map([]);
-  @Consumer() testData28: Map<number, string> = new Map([]);
-  @Consumer() testData29: Map<number, string> = new Map([]);
-  @Consumer() testData30: Map<number, string> = new Map([]);
-  @Consumer() testData31: Map<number, string> = new Map([]);
-  @Consumer() testData32: Map<number, string> = new Map([]);
-  @Consumer() testData33: Map<number, string> = new Map([]);
-  @Consumer() testData34: Map<number, string> = new Map([]);
-  @Consumer() testData35: Map<number, string> = new Map([]);
-  @Consumer() testData36: Map<number, string> = new Map([]);
-  @Consumer() testData37: Map<number, string> = new Map([]);
-  @Consumer() testData38: Map<number, string> = new Map([]);
-  @Consumer() testData39: Map<number, string> = new Map([]);
-  @Consumer() testData40: Map<number, string> = new Map([]);
-  @Consumer() testData41: Map<number, string> = new Map([]);
-  @Consumer() testData42: Map<number, string> = new Map([]);
-  @Consumer() testData43: Map<number, string> = new Map([]);
-  @Consumer() testData44: Map<number, string> = new Map([]);
-  @Consumer() testData45: Map<number, string> = new Map([]);
-  @Consumer() testData46: Map<number, string> = new Map([]);
-  @Consumer() testData47: Map<number, string> = new Map([]);
-  @Consumer() testData48: Map<number, string> = new Map([]);
-  @Consumer() testData49: Map<number, string> = new Map([]);
+  @Consumer('Map') testData: Map<number, string> = new Map([]);
+  @Consumer('Map1') testData1: Map<number, string> = new Map([]);
+  @Consumer('Map2') testData2: Map<number, string> = new Map([]);
+  @Consumer('Map3') testData3: Map<number, string> = new Map([]);
+  @Consumer('Map4') testData4: Map<number, string> = new Map([]);
+  @Consumer('Map5') testData5: Map<number, string> = new Map([]);
+  @Consumer('Map6') testData6: Map<number, string> = new Map([]);
+  @Consumer('Map7') testData7: Map<number, string> = new Map([]);
+  @Consumer('Map8') testData8: Map<number, string> = new Map([]);
+  @Consumer('Map9') testData9: Map<number, string> = new Map([]);
+  @Consumer('Map10') testData10: Map<number, string> = new Map([]);
+  @Consumer('Map11') testData11: Map<number, string> = new Map([]);
+  @Consumer('Map12') testData12: Map<number, string> = new Map([]);
+  @Consumer('Map13') testData13: Map<number, string> = new Map([]);
+  @Consumer('Map14') testData14: Map<number, string> = new Map([]);
+  @Consumer('Map15') testData15: Map<number, string> = new Map([]);
+  @Consumer('Map16') testData16: Map<number, string> = new Map([]);
+  @Consumer('Map17') testData17: Map<number, string> = new Map([]);
+  @Consumer('Map18') testData18: Map<number, string> = new Map([]);
+  @Consumer('Map19') testData19: Map<number, string> = new Map([]);
+  @Consumer('Map20') testData20: Map<number, string> = new Map([]);
+  @Consumer('Map21') testData21: Map<number, string> = new Map([]);
+  @Consumer('Map22') testData22: Map<number, string> = new Map([]);
+  @Consumer('Map23') testData23: Map<number, string> = new Map([]);
+  @Consumer('Map24') testData24: Map<number, string> = new Map([]);
+  @Consumer('Map25') testData25: Map<number, string> = new Map([]);
+  @Consumer('Map26') testData26: Map<number, string> = new Map([]);
+  @Consumer('Map27') testData27: Map<number, string> = new Map([]);
+  @Consumer('Map28') testData28: Map<number, string> = new Map([]);
+  @Consumer('Map29') testData29: Map<number, string> = new Map([]);
+  @Consumer('Map30') testData30: Map<number, string> = new Map([]);
+  @Consumer('Map31') testData31: Map<number, string> = new Map([]);
+  @Consumer('Map32') testData32: Map<number, string> = new Map([]);
+  @Consumer('Map33') testData33: Map<number, string> = new Map([]);
+  @Consumer('Map34') testData34: Map<number, string> = new Map([]);
+  @Consumer('Map35') testData35: Map<number, string> = new Map([]);
+  @Consumer('Map36') testData36: Map<number, string> = new Map([]);
+  @Consumer('Map37') testData37: Map<number, string> = new Map([]);
+  @Consumer('Map38') testData38: Map<number, string> = new Map([]);
+  @Consumer('Map39') testData39: Map<number, string> = new Map([]);
+  @Consumer('Map40') testData40: Map<number, string> = new Map([]);
+  @Consumer('Map41') testData41: Map<number, string> = new Map([]);
+  @Consumer('Map42') testData42: Map<number, string> = new Map([]);
+  @Consumer('Map43') testData43: Map<number, string> = new Map([]);
+  @Consumer('Map44') testData44: Map<number, string> = new Map([]);
+  @Consumer('Map45') testData45: Map<number, string> = new Map([]);
+  @Consumer('Map46') testData46: Map<number, string> = new Map([]);
+  @Consumer('Map47') testData47: Map<number, string> = new Map([]);
+  @Consumer('Map48') testData48: Map<number, string> = new Map([]);
+  @Consumer('Map49') testData49: Map<number, string> = new Map([]);
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local isTypeState: boolean = true
 
@@ -97,13 +95,7 @@ struct ChildConsumerMapSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.testData.get(3)}` : `child value: ${this.testData.get(3)}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testData.set(3,'bye')
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
+      Text(`child value: ${this.testData.get(3)}`)
       Button('child clink: 读@Consumer的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -116,10 +108,9 @@ struct ChildConsumerMapSample {
       Button('child clink: 写@Consumer的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
             this.testData.set(index,index.toString())
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
@@ -131,7 +122,7 @@ struct ChildConsumerMapSample {
 @Entry
 @ComponentV2
 struct ConsumerMapSample {
-  @Provider() testData: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
+  @Provider('Map') testData: Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
 
   build() {
     Column({ space: 15 }) {

@@ -16,7 +16,7 @@
 import { CommonButton } from '../../../util/CommonButton';
 
 @Entry
-@Component
+@ComponentV2
 struct ParamHome{
   build() {
     Scroll() {

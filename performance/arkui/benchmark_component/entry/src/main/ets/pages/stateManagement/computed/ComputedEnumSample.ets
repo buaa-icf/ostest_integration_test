@@ -16,7 +16,6 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 import { LanguageEnum } from '../ClassModel';
 
 @Entry
@@ -42,6 +41,10 @@ struct ComputedEnumSample {
 
   build() {
     Column({ space: 15 }) {
+      Text('ComputedEnumSample')
+        .fontSize('25')
+        .textAlign(TextAlign.Center)
+        .margin({ bottom: 50, top: 50 })
       Text(`value: ${this.computedFun}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')

@@ -17,7 +17,7 @@ import { ArrEntity } from '../entity/ArrEntity';
 import { CommonButton } from '../util/CommonButton';
 
 @Entry
-@Component
+@ComponentV2
 struct Index {
   aboutToAppear() {
     ArrEntity.pushData(5);

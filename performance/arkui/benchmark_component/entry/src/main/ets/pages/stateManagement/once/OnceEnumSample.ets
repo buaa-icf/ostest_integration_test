@@ -17,13 +17,11 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { LanguageEnum } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('OnceEnumSample')
-let isType: boolean = true
+
 @ComponentV2
 struct ChildOnceEnumSample {
-  @Event changeChildEnum:(x: number) => void = (x: number) => {};
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Once @Param childEnum: LanguageEnum = LanguageEnum.English;
   @Once @Param childEnum1: LanguageEnum = LanguageEnum.English;
@@ -87,8 +85,7 @@ struct ChildOnceEnumSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType,timeHelper) ? `child value: ${this.childEnum}` :
-        `child value: ${this.childEnum}`)
+      Text(`child value: ${this.childEnum}`)
       Button('child click:读@Once的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -106,14 +103,8 @@ struct ChildOnceEnumSample {
 @Entry
 @ComponentV2
 struct OnceEnumSample {
-  @Local parentEnum: LanguageEnum = LanguageEnum.English;
-  changeParentEnum:(type: number) => void = (type: number) => {
-    if(type==0){
-      this.parentEnum=LanguageEnum.Chinese
-    }else if(type==1){
-      this.parentEnum=LanguageEnum.French
-    }
-  };
+  @Local parentEnum: LanguageEnum = LanguageEnum.Chinese;
+
   build() {
     Column({ space: 15 }) {
       Text('OnceEnumSample')
@@ -121,7 +112,58 @@ struct OnceEnumSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentEnum}`)
-      ChildOnceEnumSample({childEnum:this.parentEnum,changeChildEnum:this.changeParentEnum.bind(this)})
+      ChildOnceEnumSample({
+        childEnum: this.parentEnum,
+        childEnum1: this.parentEnum,
+        childEnum2: this.parentEnum,
+        childEnum3: this.parentEnum,
+        childEnum4: this.parentEnum,
+        childEnum5: this.parentEnum,
+        childEnum6: this.parentEnum,
+        childEnum7: this.parentEnum,
+        childEnum8: this.parentEnum,
+        childEnum9: this.parentEnum,
+        childEnum10: this.parentEnum,
+        childEnum11: this.parentEnum,
+        childEnum12: this.parentEnum,
+        childEnum13: this.parentEnum,
+        childEnum14: this.parentEnum,
+        childEnum15: this.parentEnum,
+        childEnum16: this.parentEnum,
+        childEnum17: this.parentEnum,
+        childEnum18: this.parentEnum,
+        childEnum19: this.parentEnum,
+        childEnum20: this.parentEnum,
+        childEnum21: this.parentEnum,
+        childEnum22: this.parentEnum,
+        childEnum23: this.parentEnum,
+        childEnum24: this.parentEnum,
+        childEnum25: this.parentEnum,
+        childEnum26: this.parentEnum,
+        childEnum27: this.parentEnum,
+        childEnum28: this.parentEnum,
+        childEnum29: this.parentEnum,
+        childEnum30: this.parentEnum,
+        childEnum31: this.parentEnum,
+        childEnum32: this.parentEnum,
+        childEnum33: this.parentEnum,
+        childEnum34: this.parentEnum,
+        childEnum35: this.parentEnum,
+        childEnum36: this.parentEnum,
+        childEnum37: this.parentEnum,
+        childEnum38: this.parentEnum,
+        childEnum39: this.parentEnum,
+        childEnum40: this.parentEnum,
+        childEnum41: this.parentEnum,
+        childEnum42: this.parentEnum,
+        childEnum43: this.parentEnum,
+        childEnum44: this.parentEnum,
+        childEnum45: this.parentEnum,
+        childEnum46: this.parentEnum,
+        childEnum47: this.parentEnum,
+        childEnum48: this.parentEnum,
+        childEnum49: this.parentEnum,
+      })
     }
   }
 }

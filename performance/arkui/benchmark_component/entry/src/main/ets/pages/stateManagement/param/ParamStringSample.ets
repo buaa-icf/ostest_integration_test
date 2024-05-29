@@ -16,14 +16,13 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ParamStringSample')
-let isType: boolean = true
 
 @ComponentV2
 struct ChildParamStringSample {
-  @Event changeChildString:(x: number) => void = (x: number) => {};
+  @Event changeChildString: (x: number) => void = (x: number) => {
+  };
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Param childString: string = 'childString';
   @Param childString1: string = 'childString';
@@ -81,7 +80,7 @@ struct ChildParamStringSample {
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.changeChildString(index%2)
+      this.changeChildString(index % 2)
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
@@ -93,8 +92,7 @@ struct ChildParamStringSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType,timeHelper) ? `child value: ${this.childString}` :
-        `child value: ${this.childString}`)
+      Text(`child value: ${this.childString}`)
       Button('child click: 读@Param的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -107,11 +105,10 @@ struct ChildParamStringSample {
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.changeChildString(index%2)
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            this.changeChildString(index % 2)
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
@@ -124,13 +121,14 @@ struct ChildParamStringSample {
 @ComponentV2
 struct ParamStringSample {
   @Local parentString: string = 'parentParam';
-  changeParentString:(type: number) => void = (type: number) => {
-    if(type==0){
-      this.parentString='你好, 世界'
-    }else if(type==1){
-      this.parentString='world hello'
+  changeParentString: (type: number) => void = (type: number) => {
+    if (type == 0) {
+      this.parentString = '你好, 世界'
+    } else if (type == 1) {
+      this.parentString = 'world hello'
     }
   };
+
   build() {
     Column({ space: 15 }) {
       Text('ParamStringSample')
@@ -138,14 +136,59 @@ struct ParamStringSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentString}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.parentString= 'parent: parentSetStateTimeTaken'
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildParamStringSample({childString: this.parentString,changeChildString:this.changeParentString.bind(this)})
+      ChildParamStringSample({
+        childString: this.parentString,
+        childString1: this.parentString,
+        childString2: this.parentString,
+        childString3: this.parentString,
+        childString4: this.parentString,
+        childString5: this.parentString,
+        childString6: this.parentString,
+        childString7: this.parentString,
+        childString8: this.parentString,
+        childString9: this.parentString,
+        childString10: this.parentString,
+        childString11: this.parentString,
+        childString12: this.parentString,
+        childString13: this.parentString,
+        childString14: this.parentString,
+        childString15: this.parentString,
+        childString16: this.parentString,
+        childString17: this.parentString,
+        childString18: this.parentString,
+        childString19: this.parentString,
+        childString20: this.parentString,
+        childString21: this.parentString,
+        childString22: this.parentString,
+        childString23: this.parentString,
+        childString24: this.parentString,
+        childString25: this.parentString,
+        childString26: this.parentString,
+        childString27: this.parentString,
+        childString28: this.parentString,
+        childString29: this.parentString,
+        childString30: this.parentString,
+        childString31: this.parentString,
+        childString32: this.parentString,
+        childString33: this.parentString,
+        childString34: this.parentString,
+        childString35: this.parentString,
+        childString36: this.parentString,
+        childString37: this.parentString,
+        childString38: this.parentString,
+        childString39: this.parentString,
+        childString40: this.parentString,
+        childString41: this.parentString,
+        childString42: this.parentString,
+        childString43: this.parentString,
+        childString44: this.parentString,
+        childString45: this.parentString,
+        childString46: this.parentString,
+        childString47: this.parentString,
+        childString48: this.parentString,
+        childString49: this.parentString,
+        changeChildString: this.changeParentString.bind(this)
+      })
     }
   }
 }

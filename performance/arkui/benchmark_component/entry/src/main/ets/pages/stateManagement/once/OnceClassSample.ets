@@ -15,73 +15,64 @@
 
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
-import {ClassModel, classModel, classModel1, classModel2, classModel3 } from '../ClassModel';
+import { ClassModel, classModel1, classModel2 } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('OnceClassSample')
-let isType: boolean = true
-@ObservedV2
-class Info{
-  @Trace value:string;
-  constructor(value:string) {
-    this.value=value;
-  }
-}
+
 @ComponentV2
 struct ChildOnceClassSample {
-  @Event changeChildClass:(x: number) => void = (x: number) => {};
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Once @Param childClass:Info=new Info("childClass")
-  @Once @Param childClass1:Info=new Info("childClass")
-  @Once @Param childClass2:Info=new Info("childClass")
-  @Once @Param childClass3:Info=new Info("childClass")
-  @Once @Param childClass4:Info=new Info("childClass")
-  @Once @Param childClass5:Info=new Info("childClass")
-  @Once @Param childClass6:Info=new Info("childClass")
-  @Once @Param childClass7:Info=new Info("childClass")
-  @Once @Param childClass8:Info=new Info("childClass")
-  @Once @Param childClass9:Info=new Info("childClass")
-  @Once @Param childClass10:Info=new Info("childClass")
-  @Once @Param childClass11:Info=new Info("childClass")
-  @Once @Param childClass12:Info=new Info("childClass")
-  @Once @Param childClass13:Info=new Info("childClass")
-  @Once @Param childClass14:Info=new Info("childClass")
-  @Once @Param childClass15:Info=new Info("childClass")
-  @Once @Param childClass16:Info=new Info("childClass")
-  @Once @Param childClass17:Info=new Info("childClass")
-  @Once @Param childClass18:Info=new Info("childClass")
-  @Once @Param childClass19:Info=new Info("childClass")
-  @Once @Param childClass20:Info=new Info("childClass")
-  @Once @Param childClass21:Info=new Info("childClass")
-  @Once @Param childClass22:Info=new Info("childClass")
-  @Once @Param childClass23:Info=new Info("childClass")
-  @Once @Param childClass24:Info=new Info("childClass")
-  @Once @Param childClass25:Info=new Info("childClass")
-  @Once @Param childClass26:Info=new Info("childClass")
-  @Once @Param childClass27:Info=new Info("childClass")
-  @Once @Param childClass28:Info=new Info("childClass")
-  @Once @Param childClass29:Info=new Info("childClass")
-  @Once @Param childClass30:Info=new Info("childClass")
-  @Once @Param childClass31:Info=new Info("childClass")
-  @Once @Param childClass32:Info=new Info("childClass")
-  @Once @Param childClass33:Info=new Info("childClass")
-  @Once @Param childClass34:Info=new Info("childClass")
-  @Once @Param childClass35:Info=new Info("childClass")
-  @Once @Param childClass36:Info=new Info("childClass")
-  @Once @Param childClass37:Info=new Info("childClass")
-  @Once @Param childClass38:Info=new Info("childClass")
-  @Once @Param childClass39:Info=new Info("childClass")
-  @Once @Param childClass40:Info=new Info("childClass")
-  @Once @Param childClass41:Info=new Info("childClass")
-  @Once @Param childClass42:Info=new Info("childClass")
-  @Once @Param childClass43:Info=new Info("childClass")
-  @Once @Param childClass44:Info=new Info("childClass")
-  @Once @Param childClass45:Info=new Info("childClass")
-  @Once @Param childClass46:Info=new Info("childClass")
-  @Once @Param childClass47:Info=new Info("childClass")
-  @Once @Param childClass48:Info=new Info("childClass")
-  @Once @Param childClass49:Info=new Info("childClass")
+  @Once @Param childClass: ClassModel = classModel1
+  @Once @Param childClass1: ClassModel = classModel1
+  @Once @Param childClass2: ClassModel = classModel1
+  @Once @Param childClass3: ClassModel = classModel1
+  @Once @Param childClass4: ClassModel = classModel1
+  @Once @Param childClass5: ClassModel = classModel1
+  @Once @Param childClass6: ClassModel = classModel1
+  @Once @Param childClass7: ClassModel = classModel1
+  @Once @Param childClass8: ClassModel = classModel1
+  @Once @Param childClass9: ClassModel = classModel1
+  @Once @Param childClass10: ClassModel = classModel1
+  @Once @Param childClass11: ClassModel = classModel1
+  @Once @Param childClass12: ClassModel = classModel1
+  @Once @Param childClass13: ClassModel = classModel1
+  @Once @Param childClass14: ClassModel = classModel1
+  @Once @Param childClass15: ClassModel = classModel1
+  @Once @Param childClass16: ClassModel = classModel1
+  @Once @Param childClass17: ClassModel = classModel1
+  @Once @Param childClass18: ClassModel = classModel1
+  @Once @Param childClass19: ClassModel = classModel1
+  @Once @Param childClass20: ClassModel = classModel1
+  @Once @Param childClass21: ClassModel = classModel1
+  @Once @Param childClass22: ClassModel = classModel1
+  @Once @Param childClass23: ClassModel = classModel1
+  @Once @Param childClass24: ClassModel = classModel1
+  @Once @Param childClass25: ClassModel = classModel1
+  @Once @Param childClass26: ClassModel = classModel1
+  @Once @Param childClass27: ClassModel = classModel1
+  @Once @Param childClass28: ClassModel = classModel1
+  @Once @Param childClass29: ClassModel = classModel1
+  @Once @Param childClass30: ClassModel = classModel1
+  @Once @Param childClass31: ClassModel = classModel1
+  @Once @Param childClass32: ClassModel = classModel1
+  @Once @Param childClass33: ClassModel = classModel1
+  @Once @Param childClass34: ClassModel = classModel1
+  @Once @Param childClass35: ClassModel = classModel1
+  @Once @Param childClass36: ClassModel = classModel1
+  @Once @Param childClass37: ClassModel = classModel1
+  @Once @Param childClass38: ClassModel = classModel1
+  @Once @Param childClass39: ClassModel = classModel1
+  @Once @Param childClass40: ClassModel = classModel1
+  @Once @Param childClass41: ClassModel = classModel1
+  @Once @Param childClass42: ClassModel = classModel1
+  @Once @Param childClass43: ClassModel = classModel1
+  @Once @Param childClass44: ClassModel = classModel1
+  @Once @Param childClass45: ClassModel = classModel1
+  @Once @Param childClass46: ClassModel = classModel1
+  @Once @Param childClass47: ClassModel = classModel1
+  @Once @Param childClass48: ClassModel = classModel1
+  @Once @Param childClass49: ClassModel = classModel1
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 
   aboutToAppear(): void {
@@ -94,8 +85,7 @@ struct ChildOnceClassSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType,timeHelper) ? `child value: ${this.childClass.value}` :
-        `child value: ${this.childClass.value}`)
+      Text(`child value: ${this.childClass.value}`)
       Button('child click: 读@Once的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -113,22 +103,67 @@ struct ChildOnceClassSample {
 @Entry
 @ComponentV2
 struct OnceClassSample {
-  @Local parentClass:Info=new Info("parentClass")
-  changeParentClass:(type: number) => void = (type: number) => {
-    if(type==0){
-      this.parentClass=new Info('Class000')
-    }else if(type==1){
-      this.parentClass=new Info('Class111')
-    }
-  };
+  @Local parentClass: ClassModel = classModel2
+
   build() {
     Column({ space: 15 }) {
       Text('OnceClassSample')
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.parentClass.value}` )
-      ChildOnceClassSample({childClass:this.parentClass,changeChildClass:this.changeParentClass.bind(this)})
+      Text(`parent value: ${this.parentClass.value}`)
+      ChildOnceClassSample({
+        childClass: this.parentClass,
+        childClass1: this.parentClass,
+        childClass2: this.parentClass,
+        childClass3: this.parentClass,
+        childClass4: this.parentClass,
+        childClass5: this.parentClass,
+        childClass6: this.parentClass,
+        childClass7: this.parentClass,
+        childClass8: this.parentClass,
+        childClass9: this.parentClass,
+        childClass10: this.parentClass,
+        childClass11: this.parentClass,
+        childClass12: this.parentClass,
+        childClass13: this.parentClass,
+        childClass14: this.parentClass,
+        childClass15: this.parentClass,
+        childClass16: this.parentClass,
+        childClass17: this.parentClass,
+        childClass18: this.parentClass,
+        childClass19: this.parentClass,
+        childClass20: this.parentClass,
+        childClass21: this.parentClass,
+        childClass22: this.parentClass,
+        childClass23: this.parentClass,
+        childClass24: this.parentClass,
+        childClass25: this.parentClass,
+        childClass26: this.parentClass,
+        childClass27: this.parentClass,
+        childClass28: this.parentClass,
+        childClass29: this.parentClass,
+        childClass30: this.parentClass,
+        childClass31: this.parentClass,
+        childClass32: this.parentClass,
+        childClass33: this.parentClass,
+        childClass34: this.parentClass,
+        childClass35: this.parentClass,
+        childClass36: this.parentClass,
+        childClass37: this.parentClass,
+        childClass38: this.parentClass,
+        childClass39: this.parentClass,
+        childClass40: this.parentClass,
+        childClass41: this.parentClass,
+        childClass42: this.parentClass,
+        childClass43: this.parentClass,
+        childClass44: this.parentClass,
+        childClass45: this.parentClass,
+        childClass46: this.parentClass,
+        childClass47: this.parentClass,
+        childClass48: this.parentClass,
+        childClass49: this.parentClass,
+      })
     }
   }
 }

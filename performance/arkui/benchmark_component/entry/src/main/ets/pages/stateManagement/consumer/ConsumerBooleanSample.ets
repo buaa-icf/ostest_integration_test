@@ -17,64 +17,62 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ConsumerBooleanSample');
-let isType: boolean = true
 
 @ComponentV2
 struct ChildConsumerBooleanSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Consumer() testData: boolean = true
-  @Consumer() testData1: boolean = true
-  @Consumer() testData2: boolean = true
-  @Consumer() testData3: boolean = true
-  @Consumer() testData4: boolean = true
-  @Consumer() testData5: boolean = true
-  @Consumer() testData6: boolean = true
-  @Consumer() testData7: boolean = true
-  @Consumer() testData8: boolean = true
-  @Consumer() testData9: boolean = true
-  @Consumer() testData10: boolean = true
-  @Consumer() testData11: boolean = true
-  @Consumer() testData12: boolean = true
-  @Consumer() testData13: boolean = true
-  @Consumer() testData14: boolean = true
-  @Consumer() testData15: boolean = true
-  @Consumer() testData16: boolean = true
-  @Consumer() testData17: boolean = true
-  @Consumer() testData18: boolean = true
-  @Consumer() testData19: boolean = true
-  @Consumer() testData20: boolean = true
-  @Consumer() testData21: boolean = true
-  @Consumer() testData22: boolean = true
-  @Consumer() testData23: boolean = true
-  @Consumer() testData24: boolean = true
-  @Consumer() testData25: boolean = true
-  @Consumer() testData26: boolean = true
-  @Consumer() testData27: boolean = true
-  @Consumer() testData28: boolean = true
-  @Consumer() testData29: boolean = true
-  @Consumer() testData30: boolean = true
-  @Consumer() testData31: boolean = true
-  @Consumer() testData32: boolean = true
-  @Consumer() testData33: boolean = true
-  @Consumer() testData34: boolean = true
-  @Consumer() testData35: boolean = true
-  @Consumer() testData36: boolean = true
-  @Consumer() testData37: boolean = true
-  @Consumer() testData38: boolean = true
-  @Consumer() testData39: boolean = true
-  @Consumer() testData40: boolean = true
-  @Consumer() testData41: boolean = true
-  @Consumer() testData42: boolean = true
-  @Consumer() testData43: boolean = true
-  @Consumer() testData44: boolean = true
-  @Consumer() testData45: boolean = true
-  @Consumer() testData46: boolean = true
-  @Consumer() testData47: boolean = true
-  @Consumer() testData48: boolean = true
-  @Consumer() testData49: boolean = true
+  @Consumer('Boolean') testData: boolean = true
+  @Consumer('Boolean1') testData1: boolean = true
+  @Consumer('Boolean2') testData2: boolean = true
+  @Consumer('Boolean3') testData3: boolean = true
+  @Consumer('Boolean4') testData4: boolean = true
+  @Consumer('Boolean5') testData5: boolean = true
+  @Consumer('Boolean6') testData6: boolean = true
+  @Consumer('Boolean7') testData7: boolean = true
+  @Consumer('Boolean8') testData8: boolean = true
+  @Consumer('Boolean9') testData9: boolean = true
+  @Consumer('Boolean10') testData10: boolean = true
+  @Consumer('Boolean11') testData11: boolean = true
+  @Consumer('Boolean12') testData12: boolean = true
+  @Consumer('Boolean13') testData13: boolean = true
+  @Consumer('Boolean14') testData14: boolean = true
+  @Consumer('Boolean15') testData15: boolean = true
+  @Consumer('Boolean16') testData16: boolean = true
+  @Consumer('Boolean17') testData17: boolean = true
+  @Consumer('Boolean18') testData18: boolean = true
+  @Consumer('Boolean19') testData19: boolean = true
+  @Consumer('Boolean20') testData20: boolean = true
+  @Consumer('Boolean21') testData21: boolean = true
+  @Consumer('Boolean22') testData22: boolean = true
+  @Consumer('Boolean23') testData23: boolean = true
+  @Consumer('Boolean24') testData24: boolean = true
+  @Consumer('Boolean25') testData25: boolean = true
+  @Consumer('Boolean26') testData26: boolean = true
+  @Consumer('Boolean27') testData27: boolean = true
+  @Consumer('Boolean28') testData28: boolean = true
+  @Consumer('Boolean29') testData29: boolean = true
+  @Consumer('Boolean30') testData30: boolean = true
+  @Consumer('Boolean31') testData31: boolean = true
+  @Consumer('Boolean32') testData32: boolean = true
+  @Consumer('Boolean33') testData33: boolean = true
+  @Consumer('Boolean34') testData34: boolean = true
+  @Consumer('Boolean35') testData35: boolean = true
+  @Consumer('Boolean36') testData36: boolean = true
+  @Consumer('Boolean37') testData37: boolean = true
+  @Consumer('Boolean38') testData38: boolean = true
+  @Consumer('Boolean39') testData39: boolean = true
+  @Consumer('Boolean40') testData40: boolean = true
+  @Consumer('Boolean41') testData41: boolean = true
+  @Consumer('Boolean42') testData42: boolean = true
+  @Consumer('Boolean43') testData43: boolean = true
+  @Consumer('Boolean44') testData44: boolean = true
+  @Consumer('Boolean45') testData45: boolean = true
+  @Consumer('Boolean46') testData46: boolean = true
+  @Consumer('Boolean47') testData47: boolean = true
+  @Consumer('Boolean48') testData48: boolean = true
+  @Consumer('Boolean49') testData49: boolean = true
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   tmpArr: boolean[] = [false, true]
   @Local isTypeState: boolean = true
@@ -98,13 +96,7 @@ struct ChildConsumerBooleanSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.testData.toString()}` : `child value: ${this.testData.toString()}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testData = !this.testData
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
+      Text(`child value: ${this.testData.toString()}`)
       Button('child clink: 读@Consumer的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -117,10 +109,9 @@ struct ChildConsumerBooleanSample {
       Button('child clink: 写@Consumer的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
             this.testData = this.tmpArr[index % 2]
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
@@ -132,7 +123,7 @@ struct ChildConsumerBooleanSample {
 @Entry
 @ComponentV2
 struct ConsumerBooleanSample {
-  @Provider() testData: boolean = true;
+  @Provider('Boolean') testData: boolean = true;
 
   build() {
     Column({ space: 15 }) {

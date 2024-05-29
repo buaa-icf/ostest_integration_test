@@ -16,105 +16,103 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('TraceStringSample');
-let isType: boolean = true
 
 @ObservedV2
 class Father {
+  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Trace name: string = "Tom";
+  @Trace name1: string = "Tom";
+  @Trace name2: string = "Tom";
+  @Trace name3: string = "Tom";
+  @Trace name4: string = "Tom";
+  @Trace name5: string = "Tom";
+  @Trace name6: string = "Tom";
+  @Trace name7: string = "Tom";
+  @Trace name8: string = "Tom";
+  @Trace name9: string = "Tom";
+  @Trace name10: string = "Tom";
+  @Trace name11: string = "Tom";
+  @Trace name12: string = "Tom";
+  @Trace name13: string = "Tom";
+  @Trace name14: string = "Tom";
+  @Trace name15: string = "Tom";
+  @Trace name16: string = "Tom";
+  @Trace name17: string = "Tom";
+  @Trace name18: string = "Tom";
+  @Trace name19: string = "Tom";
+  @Trace name20: string = "Tom";
+  @Trace name21: string = "Tom";
+  @Trace name22: string = "Tom";
+  @Trace name23: string = "Tom";
+  @Trace name24: string = "Tom";
+  @Trace name25: string = "Tom";
+  @Trace name26: string = "Tom";
+  @Trace name27: string = "Tom";
+  @Trace name28: string = "Tom";
+  @Trace name29: string = "Tom";
+  @Trace name30: string = "Tom";
+  @Trace name31: string = "Tom";
+  @Trace name32: string = "Tom";
+  @Trace name33: string = "Tom";
+  @Trace name34: string = "Tom";
+  @Trace name35: string = "Tom";
+  @Trace name36: string = "Tom";
+  @Trace name37: string = "Tom";
+  @Trace name38: string = "Tom";
+  @Trace name39: string = "Tom";
+  @Trace name40: string = "Tom";
+  @Trace name41: string = "Tom";
+  @Trace name42: string = "Tom";
+  @Trace name43: string = "Tom";
+  @Trace name44: string = "Tom";
+  @Trace name45: string = "Tom";
+  @Trace name46: string = "Tom";
+  @Trace name47: string = "Tom";
+  @Trace name48: string = "Tom";
+  @Trace name49: string = "Tom";
+  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 }
 
-@Component
+let testData: Father = new Father()
+
+@ComponentV2
 struct ChildTraceStringSample {
-  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  Arr: Father = new Father()
-  Arr1: Father = new Father()
-  Arr2: Father = new Father()
-  Arr3: Father = new Father()
-  Arr4: Father = new Father()
-  Arr5: Father = new Father()
-  Arr6: Father = new Father()
-  Arr7: Father = new Father()
-  Arr8: Father = new Father()
-  Arr9: Father = new Father()
-  Arr10: Father = new Father()
-  Arr11: Father = new Father()
-  Arr12: Father = new Father()
-  Arr13: Father = new Father()
-  Arr14: Father = new Father()
-  Arr15: Father = new Father()
-  Arr16: Father = new Father()
-  Arr17: Father = new Father()
-  Arr18: Father = new Father()
-  Arr19: Father = new Father()
-  Arr20: Father = new Father()
-  Arr21: Father = new Father()
-  Arr22: Father = new Father()
-  Arr23: Father = new Father()
-  Arr24: Father = new Father()
-  Arr25: Father = new Father()
-  Arr26: Father = new Father()
-  Arr27: Father = new Father()
-  Arr28: Father = new Father()
-  Arr29: Father = new Father()
-  Arr30: Father = new Father()
-  Arr31: Father = new Father()
-  Arr32: Father = new Father()
-  Arr33: Father = new Father()
-  Arr34: Father = new Father()
-  Arr35: Father = new Father()
-  Arr36: Father = new Father()
-  Arr37: Father = new Father()
-  Arr38: Father = new Father()
-  Arr39: Father = new Father()
-  Arr40: Father = new Father()
-  Arr41: Father = new Father()
-  Arr42: Father = new Father()
-  Arr43: Father = new Father()
-  Arr44: Father = new Father()
-  Arr45: Father = new Father()
-  Arr46: Father = new Father()
-  Arr47: Father = new Father()
-  Arr48: Father = new Father()
-  Arr49: Father = new Father()
-  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @State isTypeState: boolean = true
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.Arr.name = `not bind UI:世界，你好` + (index + 1)
+      testData.name = `not bind UI:世界，你好` + (index + 1)
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.Arr.name
+      let value = testData.name
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.Arr.name}` : `child value: ${this.Arr.name}`)
+      Text(`child value: ${testData.name}`)
       Button('child click: 读Trace的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let value = this.Arr.name
+            let value = testData.name
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写Trace的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.Arr.name = `child: setStateTimeTaken` + (index + 1)
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            testData.name = `child: setStateTimeTaken` + (index + 1)
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
@@ -123,9 +121,8 @@ struct ChildTraceStringSample {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct TraceStringSample {
-  parentString: Father = new Father();
 
   build() {
     Column({ space: 15 }) {
@@ -133,15 +130,8 @@ struct TraceStringSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(this.parentString.name ? `parent value: ${this.parentString.name}` : `parent value:  ${this.parentString.name}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.parentString.name = 'parent: parentSetStateTimeTaken'
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildTraceStringSample({ Arr: this.parentString })
+      Text(`parent value:  ${testData.name}`)
+      ChildTraceStringSample()
     }
   }
 }
