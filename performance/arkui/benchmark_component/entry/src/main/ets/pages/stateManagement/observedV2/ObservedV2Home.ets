@@ -16,7 +16,7 @@
 import { CommonButton } from '../../../util/CommonButton';
 
 @Entry
-@Component
+@ComponentV2
 struct ObservedV2Home {
   build() {
     Scroll() {
@@ -27,10 +27,6 @@ struct ObservedV2Home {
           .fontSize('25fp')
           .textAlign(TextAlign.Center)
 
-        CommonButton({buttonName:'ObservedV2OrdinarySample',buttonUrl:'pages/stateManagement/observedV2/ObservedV2OrdinarySample'});
-        CommonButton({buttonName:'ObservedV2SetSample',buttonUrl:'pages/stateManagement/observedV2/ObservedV2SetSample'});
-        CommonButton({buttonName:'ObservedV2MapSample',buttonUrl:'pages/stateManagement/observedV2/ObservedV2MapSample'});
-        CommonButton({buttonName:'ObservedV2DateSample',buttonUrl:'pages/stateManagement/observedV2/ObservedV2DateSample'});
         CommonButton({buttonName:'ObservedV2ArraySample',buttonUrl:'pages/stateManagement/observedV2/ObservedV2ArraySample'});
       }
       .padding('5vp')

@@ -14,109 +14,105 @@
  */
 
 import { ArrEntity } from '../../../entity/ArrEntity';
-
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('TraceMapSample');
-let isType: boolean = true
 
 @ObservedV2
 class Info {
+  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Trace memberMap: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap1: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap2: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap3: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap4: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap5: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap6: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap7: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap8: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap9: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap10: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap11: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap12: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap13: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap14: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap15: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap16: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap17: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap18: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap19: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap20: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap21: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap22: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap23: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap24: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap25: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap26: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap27: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap28: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap29: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap30: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap31: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap32: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap33: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap34: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap35: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap36: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap37: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap38: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap39: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap40: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap41: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap42: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap43: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap44: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap45: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap46: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap47: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap48: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Trace memberMap49: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
 }
 
-@Component
+let testDate: Info = new Info();
+
+@ComponentV2
 struct ChildTraceMapSample {
-  a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  mapType: Info = new Info()
-  mapType1: Info = new Info()
-  mapType2: Info = new Info()
-  mapType3: Info = new Info()
-  mapType4: Info = new Info()
-  mapType5: Info = new Info()
-  mapType6: Info = new Info()
-  mapType7: Info = new Info()
-  mapType8: Info = new Info()
-  mapType9: Info = new Info()
-  mapType10: Info = new Info()
-  mapType11: Info = new Info()
-  mapType12: Info = new Info()
-  mapType13: Info = new Info()
-  mapType14: Info = new Info()
-  mapType15: Info = new Info()
-  mapType16: Info = new Info()
-  mapType17: Info = new Info()
-  mapType18: Info = new Info()
-  mapType19: Info = new Info()
-  mapType20: Info = new Info()
-  mapType21: Info = new Info()
-  mapType22: Info = new Info()
-  mapType23: Info = new Info()
-  mapType24: Info = new Info()
-  mapType25: Info = new Info()
-  mapType26: Info = new Info()
-  mapType27: Info = new Info()
-  mapType28: Info = new Info()
-  mapType29: Info = new Info()
-  mapType30: Info = new Info()
-  mapType31: Info = new Info()
-  mapType32: Info = new Info()
-  mapType33: Info = new Info()
-  mapType34: Info = new Info()
-  mapType35: Info = new Info()
-  mapType36: Info = new Info()
-  mapType37: Info = new Info()
-  mapType38: Info = new Info()
-  mapType39: Info = new Info()
-  mapType40: Info = new Info()
-  mapType41: Info = new Info()
-  mapType42: Info = new Info()
-  mapType43: Info = new Info()
-  mapType44: Info = new Info()
-  mapType45: Info = new Info()
-  mapType46: Info = new Info()
-  mapType47: Info = new Info()
-  mapType48: Info = new Info()
-  mapType49: Info = new Info()
-  b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @State isTypeState: boolean = true
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.mapType.memberMap.set(index, index.toString())
+      testDate.memberMap.set(index, index.toString())
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.mapType.memberMap.get(index)
+      let value = testDate.memberMap.get(index)
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.mapType.memberMap.get(0)}` :
-        `child value: ${this.mapType.memberMap.get(0)}`)
+      Text(`child value: ${testDate.memberMap.get(0)}`)
       Button('child click: 读@Trace的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let value = this.mapType.memberMap.get(index)
+            let value = testDate.memberMap.get(index)
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('child click: 写@Trace的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.mapType.memberMap.set(index, index.toString())
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            testDate.memberMap.set(index, index.toString())
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
@@ -125,9 +121,8 @@ struct ChildTraceMapSample {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct TraceMapSample {
-  testDate: Info = new Info();
 
   build() {
     Column({ space: 15 }) {
@@ -135,15 +130,8 @@ struct TraceMapSample {
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`parent value: ${this.testDate.memberMap.get(0)}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testDate.memberMap = new Map([[0, 'apple'], [1, 'banana'], [3, 'cat']])
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildTraceMapSample({ mapType: this.testDate })
+      Text(`parent value: ${testDate.memberMap.get(0)}`)
+      ChildTraceMapSample()
     }
   }
 }

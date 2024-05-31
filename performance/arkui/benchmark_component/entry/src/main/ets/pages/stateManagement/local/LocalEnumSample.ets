@@ -16,7 +16,6 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 import { LanguageEnum } from '../ClassModel';
 
 @Entry
@@ -75,7 +74,6 @@ struct LocalEnumSample {
   @Local testData48: LanguageEnum = LanguageEnum.English;
   @Local testData49: LanguageEnum = LanguageEnum.English;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
   tmpArr: LanguageEnum[] = [LanguageEnum.English, LanguageEnum.Chinese]
   @Local isTypeState: boolean = true
 
@@ -95,14 +93,11 @@ struct LocalEnumSample {
   build() {
     Row() {
       Column({ space: 10 }) {
-        Text(StateUtils.isType(this.isType, this.timeHelper) ? `parent value: ${this.testData}` :
-          `parent value: ${this.testData}`)
-          .id('changeUITimeTaken')
-          .onClick(() => {
-            this.isType = false
-            this.testData = LanguageEnum.Japanese
-            this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-          })
+        Text('LocalEnumSample')
+          .fontSize('25')
+          .textAlign(TextAlign.Center)
+          .margin({ bottom: 50, top: 50 })
+        Text(`parent value: ${this.testData}`)
         Button('parent click: 读@Local的耗时')
           .id('getStateTimeTaken')
           .onClick(() => {
@@ -115,10 +110,9 @@ struct LocalEnumSample {
         Button('parent click: 写@Local的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
-            this.isType = true
             this.isTypeState = !this.isTypeState
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            for (let index = ArrEntity.STATE_LOOP; index > 0 ; index--) {
               this.testData  = this.tmpArr[index % 2]
             }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))

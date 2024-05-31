@@ -16,14 +16,11 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('OnceStringSample')
-let isType: boolean = true
 
 @ComponentV2
 struct ChildOnceStringSample {
-  @Event changeChildString:(x: number) => void = (x: number) => {};
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Once @Param childString: string = 'childString';
   @Once @Param childString1: string = 'childString';
@@ -87,8 +84,7 @@ struct ChildOnceStringSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType,timeHelper) ? `child value: ${this.childString}` :
-        `child value: ${this.childString}`)
+      Text(`child value: ${this.childString}`)
       Button('child click: 读@Once的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -107,13 +103,7 @@ struct ChildOnceStringSample {
 @ComponentV2
 struct OnceStringSample {
   @Local parentString: string = 'parentParam';
-  changeParentString:(type: number) => void = (type: number) => {
-    if(type==0){
-      this.parentString='你好, 世界'
-    }else if(type==1){
-      this.parentString='world hello'
-    }
-  };
+
   build() {
     Column({ space: 15 }) {
       Text('OnceStringSample')
@@ -121,7 +111,58 @@ struct OnceStringSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentString}`)
-      ChildOnceStringSample({childString: this.parentString,changeChildString:this.changeParentString.bind(this)})
+      ChildOnceStringSample({
+        childString: this.parentString,
+        childString1: this.parentString,
+        childString2: this.parentString,
+        childString3: this.parentString,
+        childString4: this.parentString,
+        childString5: this.parentString,
+        childString6: this.parentString,
+        childString7: this.parentString,
+        childString8: this.parentString,
+        childString9: this.parentString,
+        childString10: this.parentString,
+        childString11: this.parentString,
+        childString12: this.parentString,
+        childString13: this.parentString,
+        childString14: this.parentString,
+        childString15: this.parentString,
+        childString16: this.parentString,
+        childString17: this.parentString,
+        childString18: this.parentString,
+        childString19: this.parentString,
+        childString20: this.parentString,
+        childString21: this.parentString,
+        childString22: this.parentString,
+        childString23: this.parentString,
+        childString24: this.parentString,
+        childString25: this.parentString,
+        childString26: this.parentString,
+        childString27: this.parentString,
+        childString28: this.parentString,
+        childString29: this.parentString,
+        childString30: this.parentString,
+        childString31: this.parentString,
+        childString32: this.parentString,
+        childString33: this.parentString,
+        childString34: this.parentString,
+        childString35: this.parentString,
+        childString36: this.parentString,
+        childString37: this.parentString,
+        childString38: this.parentString,
+        childString39: this.parentString,
+        childString40: this.parentString,
+        childString41: this.parentString,
+        childString42: this.parentString,
+        childString43: this.parentString,
+        childString44: this.parentString,
+        childString45: this.parentString,
+        childString46: this.parentString,
+        childString47: this.parentString,
+        childString48: this.parentString,
+        childString49: this.parentString,
+      })
     }
   }
 }

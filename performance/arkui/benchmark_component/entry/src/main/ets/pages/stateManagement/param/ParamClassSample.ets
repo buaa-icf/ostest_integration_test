@@ -17,75 +17,64 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { ClassModel, classModel, classModel1, classModel2, classModel3 } from '../ClassModel';
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ParamClassSample')
-let isType: boolean = true
-
-@ObservedV2
-class Info {
-  @Trace value: string;
-
-  constructor(value: string) {
-    this.value = value;
-  }
-}
 
 @ComponentV2
 struct ChildParamClassSample {
   @Event changeChildClass: (x: number) => void = (x: number) => {
   };
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Param childClass: Info = new Info("childClass")
-  @Param childClass1: Info = new Info("childClass")
-  @Param childClass2: Info = new Info("childClass")
-  @Param childClass3: Info = new Info("childClass")
-  @Param childClass4: Info = new Info("childClass")
-  @Param childClass5: Info = new Info("childClass")
-  @Param childClass6: Info = new Info("childClass")
-  @Param childClass7: Info = new Info("childClass")
-  @Param childClass8: Info = new Info("childClass")
-  @Param childClass9: Info = new Info("childClass")
-  @Param childClass10: Info = new Info("childClass")
-  @Param childClass11: Info = new Info("childClass")
-  @Param childClass12: Info = new Info("childClass")
-  @Param childClass13: Info = new Info("childClass")
-  @Param childClass14: Info = new Info("childClass")
-  @Param childClass15: Info = new Info("childClass")
-  @Param childClass16: Info = new Info("childClass")
-  @Param childClass17: Info = new Info("childClass")
-  @Param childClass18: Info = new Info("childClass")
-  @Param childClass19: Info = new Info("childClass")
-  @Param childClass20: Info = new Info("childClass")
-  @Param childClass21: Info = new Info("childClass")
-  @Param childClass22: Info = new Info("childClass")
-  @Param childClass23: Info = new Info("childClass")
-  @Param childClass24: Info = new Info("childClass")
-  @Param childClass25: Info = new Info("childClass")
-  @Param childClass26: Info = new Info("childClass")
-  @Param childClass27: Info = new Info("childClass")
-  @Param childClass28: Info = new Info("childClass")
-  @Param childClass29: Info = new Info("childClass")
-  @Param childClass30: Info = new Info("childClass")
-  @Param childClass31: Info = new Info("childClass")
-  @Param childClass32: Info = new Info("childClass")
-  @Param childClass33: Info = new Info("childClass")
-  @Param childClass34: Info = new Info("childClass")
-  @Param childClass35: Info = new Info("childClass")
-  @Param childClass36: Info = new Info("childClass")
-  @Param childClass37: Info = new Info("childClass")
-  @Param childClass38: Info = new Info("childClass")
-  @Param childClass39: Info = new Info("childClass")
-  @Param childClass40: Info = new Info("childClass")
-  @Param childClass41: Info = new Info("childClass")
-  @Param childClass42: Info = new Info("childClass")
-  @Param childClass43: Info = new Info("childClass")
-  @Param childClass44: Info = new Info("childClass")
-  @Param childClass45: Info = new Info("childClass")
-  @Param childClass46: Info = new Info("childClass")
-  @Param childClass47: Info = new Info("childClass")
-  @Param childClass48: Info = new Info("childClass")
-  @Param childClass49: Info = new Info("childClass")
+  @Param childClass: ClassModel = classModel1
+  @Param childClass1: ClassModel = classModel1
+  @Param childClass2: ClassModel = classModel1
+  @Param childClass3: ClassModel = classModel1
+  @Param childClass4: ClassModel = classModel1
+  @Param childClass5: ClassModel = classModel1
+  @Param childClass6: ClassModel = classModel1
+  @Param childClass7: ClassModel = classModel1
+  @Param childClass8: ClassModel = classModel1
+  @Param childClass9: ClassModel = classModel1
+  @Param childClass10: ClassModel = classModel1
+  @Param childClass11: ClassModel = classModel1
+  @Param childClass12: ClassModel = classModel1
+  @Param childClass13: ClassModel = classModel1
+  @Param childClass14: ClassModel = classModel1
+  @Param childClass15: ClassModel = classModel1
+  @Param childClass16: ClassModel = classModel1
+  @Param childClass17: ClassModel = classModel1
+  @Param childClass18: ClassModel = classModel1
+  @Param childClass19: ClassModel = classModel1
+  @Param childClass20: ClassModel = classModel1
+  @Param childClass21: ClassModel = classModel1
+  @Param childClass22: ClassModel = classModel1
+  @Param childClass23: ClassModel = classModel1
+  @Param childClass24: ClassModel = classModel1
+  @Param childClass25: ClassModel = classModel1
+  @Param childClass26: ClassModel = classModel1
+  @Param childClass27: ClassModel = classModel1
+  @Param childClass28: ClassModel = classModel1
+  @Param childClass29: ClassModel = classModel1
+  @Param childClass30: ClassModel = classModel1
+  @Param childClass31: ClassModel = classModel1
+  @Param childClass32: ClassModel = classModel1
+  @Param childClass33: ClassModel = classModel1
+  @Param childClass34: ClassModel = classModel1
+  @Param childClass35: ClassModel = classModel1
+  @Param childClass36: ClassModel = classModel1
+  @Param childClass37: ClassModel = classModel1
+  @Param childClass38: ClassModel = classModel1
+  @Param childClass39: ClassModel = classModel1
+  @Param childClass40: ClassModel = classModel1
+  @Param childClass41: ClassModel = classModel1
+  @Param childClass42: ClassModel = classModel1
+  @Param childClass43: ClassModel = classModel1
+  @Param childClass44: ClassModel = classModel1
+  @Param childClass45: ClassModel = classModel1
+  @Param childClass46: ClassModel = classModel1
+  @Param childClass47: ClassModel = classModel1
+  @Param childClass48: ClassModel = classModel1
+  @Param childClass49: ClassModel = classModel1
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local isTypeState: boolean = true
 
@@ -104,8 +93,7 @@ struct ChildParamClassSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.childClass.value}` :
-        `child value: ${this.childClass.value}`)
+      Text(`child value: ${this.childClass.value}`)
       Button('child click: 读@Param的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -118,10 +106,9 @@ struct ChildParamClassSample {
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
             this.changeChildClass(index % 2)
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
@@ -134,12 +121,12 @@ struct ChildParamClassSample {
 @Entry
 @ComponentV2
 struct ParamClassSample {
-  @Local parentClass: Info = new Info("parentClass")
+  @Local parentClass: ClassModel = classModel
   changeParentClass: (type: number) => void = (type: number) => {
     if (type == 0) {
-      this.parentClass = new Info('Class000')
+      this.parentClass = classModel1
     } else if (type == 1) {
-      this.parentClass = new Info('Class111')
+      this.parentClass = classModel2
     }
   };
 
@@ -150,14 +137,59 @@ struct ParamClassSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentClass.value}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.parentClass.value = "parentClass1"
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildParamClassSample({ childClass: this.parentClass, changeChildClass: this.changeParentClass.bind(this) })
+      ChildParamClassSample({
+        childClass: this.parentClass,
+        childClass1: this.parentClass,
+        childClass2: this.parentClass,
+        childClass3: this.parentClass,
+        childClass4: this.parentClass,
+        childClass5: this.parentClass,
+        childClass6: this.parentClass,
+        childClass7: this.parentClass,
+        childClass8: this.parentClass,
+        childClass9: this.parentClass,
+        childClass10: this.parentClass,
+        childClass11: this.parentClass,
+        childClass12: this.parentClass,
+        childClass13: this.parentClass,
+        childClass14: this.parentClass,
+        childClass15: this.parentClass,
+        childClass16: this.parentClass,
+        childClass17: this.parentClass,
+        childClass18: this.parentClass,
+        childClass19: this.parentClass,
+        childClass20: this.parentClass,
+        childClass21: this.parentClass,
+        childClass22: this.parentClass,
+        childClass23: this.parentClass,
+        childClass24: this.parentClass,
+        childClass25: this.parentClass,
+        childClass26: this.parentClass,
+        childClass27: this.parentClass,
+        childClass28: this.parentClass,
+        childClass29: this.parentClass,
+        childClass30: this.parentClass,
+        childClass31: this.parentClass,
+        childClass32: this.parentClass,
+        childClass33: this.parentClass,
+        childClass34: this.parentClass,
+        childClass35: this.parentClass,
+        childClass36: this.parentClass,
+        childClass37: this.parentClass,
+        childClass38: this.parentClass,
+        childClass39: this.parentClass,
+        childClass40: this.parentClass,
+        childClass41: this.parentClass,
+        childClass42: this.parentClass,
+        childClass43: this.parentClass,
+        childClass44: this.parentClass,
+        childClass45: this.parentClass,
+        childClass46: this.parentClass,
+        childClass47: this.parentClass,
+        childClass48: this.parentClass,
+        childClass49: this.parentClass,
+        changeChildClass: this.changeParentClass.bind(this)
+      })
     }
   }
 }

@@ -16,7 +16,6 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 @Entry
 @ComponentV2
@@ -74,7 +73,6 @@ struct LocalBooleanSample {
   @Local testData48: boolean = true;
   @Local testData49: boolean = true;
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
   tmpArr: boolean[] = [false, true]
   @Local isTypeState: boolean = true
 
@@ -94,14 +92,11 @@ struct LocalBooleanSample {
   build() {
     Row() {
       Column({ space: 10 }) {
-        Text(StateUtils.isType(this.isType, this.timeHelper) ? `parent value: ${this.testData.toString()}` :
-          `parent value: ${this.testData.toString()}`)
-          .id('changeUITimeTaken')
-          .onClick(() => {
-            this.isType = false
-            this.testData = !this.testData
-            this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-          })
+        Text('LocalBooleanSample')
+          .fontSize('25')
+          .textAlign(TextAlign.Center)
+          .margin({ bottom: 50, top: 50 })
+        Text(`parent value: ${this.testData.toString()}`)
         Button('parent click: 读@Local的耗时')
           .id('getStateTimeTaken')
           .onClick(() => {
@@ -114,10 +109,9 @@ struct LocalBooleanSample {
         Button('parent click: 写@Local的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
-            this.isType = true
             this.isTypeState = !this.isTypeState
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            for (let index = ArrEntity.STATE_LOOP; index > 0 ; index--) {
               this.testData = this.tmpArr[index % 2]
             }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))

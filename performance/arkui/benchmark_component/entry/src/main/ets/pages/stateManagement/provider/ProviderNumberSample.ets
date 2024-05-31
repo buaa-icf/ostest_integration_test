@@ -17,19 +17,16 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ProviderNumberSample');
-let isType: boolean = true
 
 @ComponentV2
 struct ChildProviderNumberSample {
-  @Consumer() testData: number = 0
+  @Consumer('Number') testData: number = 0
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.testData}` :
-        `child value: ${this.testData}`)
+      Text(`child value: ${this.testData}`)
     }
   }
 }
@@ -38,56 +35,56 @@ struct ChildProviderNumberSample {
 @ComponentV2
 struct ProviderNumberSample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @Provider() testData: number = 1;
-  @Provider() testData1: number = 0
-  @Provider() testData2: number = 0
-  @Provider() testData3: number = 0
-  @Provider() testData4: number = 0
-  @Provider() testData5: number = 0
-  @Provider() testData6: number = 0
-  @Provider() testData7: number = 0
-  @Provider() testData8: number = 0
-  @Provider() testData9: number = 0
-  @Provider() testData10: number = 0
-  @Provider() testData11: number = 0
-  @Provider() testData12: number = 0
-  @Provider() testData13: number = 0
-  @Provider() testData14: number = 0
-  @Provider() testData15: number = 0
-  @Provider() testData16: number = 0
-  @Provider() testData17: number = 0
-  @Provider() testData18: number = 0
-  @Provider() testData19: number = 0
-  @Provider() testData20: number = 0
-  @Provider() testData21: number = 0
-  @Provider() testData22: number = 0
-  @Provider() testData23: number = 0
-  @Provider() testData24: number = 0
-  @Provider() testData25: number = 0
-  @Provider() testData26: number = 0
-  @Provider() testData27: number = 0
-  @Provider() testData28: number = 0
-  @Provider() testData29: number = 0
-  @Provider() testData30: number = 0
-  @Provider() testData31: number = 0
-  @Provider() testData32: number = 0
-  @Provider() testData33: number = 0
-  @Provider() testData34: number = 0
-  @Provider() testData35: number = 0
-  @Provider() testData36: number = 0
-  @Provider() testData37: number = 0
-  @Provider() testData38: number = 0
-  @Provider() testData39: number = 0
-  @Provider() testData40: number = 0
-  @Provider() testData41: number = 0
-  @Provider() testData42: number = 0
-  @Provider() testData43: number = 0
-  @Provider() testData44: number = 0
-  @Provider() testData45: number = 0
-  @Provider() testData46: number = 0
-  @Provider() testData47: number = 0
-  @Provider() testData48: number = 0
-  @Provider() testData49: number = 0
+  @Provider('Number') testData: number = 1;
+  @Provider('Number1') testData1: number = 0
+  @Provider('Number2') testData2: number = 0
+  @Provider('Number3') testData3: number = 0
+  @Provider('Number4') testData4: number = 0
+  @Provider('Number5') testData5: number = 0
+  @Provider('Number6') testData6: number = 0
+  @Provider('Number7') testData7: number = 0
+  @Provider('Number8') testData8: number = 0
+  @Provider('Number9') testData9: number = 0
+  @Provider('Number10') testData10: number = 0
+  @Provider('Number11') testData11: number = 0
+  @Provider('Number12') testData12: number = 0
+  @Provider('Number13') testData13: number = 0
+  @Provider('Number14') testData14: number = 0
+  @Provider('Number15') testData15: number = 0
+  @Provider('Number16') testData16: number = 0
+  @Provider('Number17') testData17: number = 0
+  @Provider('Number18') testData18: number = 0
+  @Provider('Number19') testData19: number = 0
+  @Provider('Number20') testData20: number = 0
+  @Provider('Number21') testData21: number = 0
+  @Provider('Number22') testData22: number = 0
+  @Provider('Number23') testData23: number = 0
+  @Provider('Number24') testData24: number = 0
+  @Provider('Number25') testData25: number = 0
+  @Provider('Number26') testData26: number = 0
+  @Provider('Number27') testData27: number = 0
+  @Provider('Number28') testData28: number = 0
+  @Provider('Number29') testData29: number = 0
+  @Provider('Number30') testData30: number = 0
+  @Provider('Number31') testData31: number = 0
+  @Provider('Number32') testData32: number = 0
+  @Provider('Number33') testData33: number = 0
+  @Provider('Number34') testData34: number = 0
+  @Provider('Number35') testData35: number = 0
+  @Provider('Number36') testData36: number = 0
+  @Provider('Number37') testData37: number = 0
+  @Provider('Number38') testData38: number = 0
+  @Provider('Number39') testData39: number = 0
+  @Provider('Number40') testData40: number = 0
+  @Provider('Number41') testData41: number = 0
+  @Provider('Number42') testData42: number = 0
+  @Provider('Number43') testData43: number = 0
+  @Provider('Number44') testData44: number = 0
+  @Provider('Number45') testData45: number = 0
+  @Provider('Number46') testData46: number = 0
+  @Provider('Number47') testData47: number = 0
+  @Provider('Number48') testData48: number = 0
+  @Provider('Number49') testData49: number = 0
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Local isTypeState: boolean = true
 
@@ -111,12 +108,6 @@ struct ProviderNumberSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.testData.toString()}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testData += 1
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
       Button('parent click: 读@Provider的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -129,10 +120,9 @@ struct ProviderNumberSample {
       Button('parent click: 写@Provider的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
             this.testData = index
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))

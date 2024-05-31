@@ -20,7 +20,7 @@ export class ArrEntity {
   public static textOneHundredHuLength: string = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
   //bgColors: Color[] = [Color.Red, Color.Orange, Color.Yellow, Color.Green, Color.Pink, Color.Grey, Color.Blue, Color.Brown];
   public static bgColors: Color[] = [Color.Red, Color.Orange, Color.Yellow];
-  public static STATE_LOOP: number = 500;
+  public static STATE_LOOP: number = 50;
 
   public static pushData(arrlength: number) {
     ArrEntity.arr = [];

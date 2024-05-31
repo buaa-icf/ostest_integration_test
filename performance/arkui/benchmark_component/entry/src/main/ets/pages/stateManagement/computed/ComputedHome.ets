@@ -16,7 +16,7 @@
 import { CommonButton } from '../../../util/CommonButton';
 
 @Entry
-@Component
+@ComponentV2
 struct ComputedHome {
   build() {
     Scroll() {
@@ -35,6 +35,7 @@ struct ComputedHome {
         CommonButton({buttonName:'ComputedObjectSample',buttonUrl:'pages/stateManagement/computed/ComputedObjectSample'});
         CommonButton({buttonName:'ComputedSetSample',buttonUrl:'pages/stateManagement/computed/ComputedSetSample'});
         CommonButton({buttonName:'ComputedStringSample',buttonUrl:'pages/stateManagement/computed/ComputedStringSample'});
+        CommonButton({buttonName:'ComputedClassSample',buttonUrl:'pages/stateManagement/computed/ComputedClassSample'});
       }
       .padding('5vp')
       .width('100%')

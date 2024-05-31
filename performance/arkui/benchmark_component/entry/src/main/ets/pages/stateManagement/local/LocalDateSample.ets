@@ -16,7 +16,6 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 @Entry
 @ComponentV2
@@ -75,7 +74,6 @@ struct LocalDateSample {
   @Local testData49: Date = new Date('2021-08-08');
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
   arr: number[] =  [this.testData.getTime() - 60 * 60 * 1000, this.testData.getTime() - 20 * 60 * 1000]
-  isType: boolean = true
   @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
@@ -94,14 +92,11 @@ struct LocalDateSample {
   build() {
     Row() {
       Column({ space: 10 }) {
-        Text(StateUtils.isType(this.isType, this.timeHelper) ? `parent value: ${this.testData.toTimeString()}` :
-          `parent value: ${this.testData.toTimeString()}`)
-          .id('changeUITimeTaken')
-          .onClick(() => {
-            this.isType = false
-            this.testData.setTime(this.testData.getTime() + 3 * 60 * 60 * 1000)
-            this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-          })
+        Text('LocalDateSample')
+          .fontSize('25')
+          .textAlign(TextAlign.Center)
+          .margin({ bottom: 50, top: 50 })
+        Text(`parent value: ${this.testData.toTimeString()}`)
         Button('parent click: 读@Local的耗时')
           .id('getStateTimeTaken')
           .onClick(() => {
@@ -114,10 +109,9 @@ struct LocalDateSample {
         Button('parent click: 写@Local的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
-            this.isType = true
             this.isTypeState = !this.isTypeState
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            for (let index = ArrEntity.STATE_LOOP; index > 0 ; index--) {
               this.testData.setTime(this.arr[index % 2])
             }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))

@@ -16,17 +16,20 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
+import { ClassModel, classModel } from '../ClassModel';
 
 @Entry
 @ComponentV2
-struct ComputedBooleanSample {
-  @Local testData: boolean = true
+struct ComputedClassSample {
+  @Local testData: ClassModel = classModel
+
   @Computed
   get computedFun() {
     return this.testData
   }
 
-  timeHelper: TimeHelper = new TimeHelper('ComputedBooleanSample');
+  timeHelper: TimeHelper = new TimeHelper('ComputedClassSample');
+
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
@@ -37,11 +40,11 @@ struct ComputedBooleanSample {
 
   build() {
     Column({ space: 15 }) {
-      Text('ComputedBooleanSample')
+      Text('ComputedClassSample')
         .fontSize('25')
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
-      Text(`value: ${this.computedFun}`)
+      Text(`value: ${this.computedFun.value}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -54,3 +57,4 @@ struct ComputedBooleanSample {
     }
   }
 }
+

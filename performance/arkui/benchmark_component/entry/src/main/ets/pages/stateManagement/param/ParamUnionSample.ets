@@ -16,10 +16,8 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ParamUnionSample')
-let isType: boolean = true
 
 @ComponentV2
 struct ChildParamUnionSample {
@@ -94,8 +92,7 @@ struct ChildParamUnionSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.childUnion}` :
-        `child value: ${this.childUnion}`)
+      Text(`child value: ${this.childUnion}`)
       Button('child click: 读@Param的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -108,10 +105,9 @@ struct ChildParamUnionSample {
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
             this.changeChildUnion(index % 2)
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
@@ -140,14 +136,59 @@ struct ParamUnionSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentUnion}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.parentUnion = undefined
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildParamUnionSample({ childUnion: this.parentUnion, changeChildUnion: this.changeParentUnion.bind(this) })
+      ChildParamUnionSample({
+        childUnion: this.parentUnion,
+        childUnion1: this.parentUnion,
+        childUnion2: this.parentUnion,
+        childUnion3: this.parentUnion,
+        childUnion4: this.parentUnion,
+        childUnion5: this.parentUnion,
+        childUnion6: this.parentUnion,
+        childUnion7: this.parentUnion,
+        childUnion8: this.parentUnion,
+        childUnion9: this.parentUnion,
+        childUnion10: this.parentUnion,
+        childUnion11: this.parentUnion,
+        childUnion12: this.parentUnion,
+        childUnion13: this.parentUnion,
+        childUnion14: this.parentUnion,
+        childUnion15: this.parentUnion,
+        childUnion16: this.parentUnion,
+        childUnion17: this.parentUnion,
+        childUnion18: this.parentUnion,
+        childUnion19: this.parentUnion,
+        childUnion20: this.parentUnion,
+        childUnion21: this.parentUnion,
+        childUnion22: this.parentUnion,
+        childUnion23: this.parentUnion,
+        childUnion24: this.parentUnion,
+        childUnion25: this.parentUnion,
+        childUnion26: this.parentUnion,
+        childUnion27: this.parentUnion,
+        childUnion28: this.parentUnion,
+        childUnion29: this.parentUnion,
+        childUnion30: this.parentUnion,
+        childUnion31: this.parentUnion,
+        childUnion32: this.parentUnion,
+        childUnion33: this.parentUnion,
+        childUnion34: this.parentUnion,
+        childUnion35: this.parentUnion,
+        childUnion36: this.parentUnion,
+        childUnion37: this.parentUnion,
+        childUnion38: this.parentUnion,
+        childUnion39: this.parentUnion,
+        childUnion40: this.parentUnion,
+        childUnion41: this.parentUnion,
+        childUnion42: this.parentUnion,
+        childUnion43: this.parentUnion,
+        childUnion44: this.parentUnion,
+        childUnion45: this.parentUnion,
+        childUnion46: this.parentUnion,
+        childUnion47: this.parentUnion,
+        childUnion48: this.parentUnion,
+        childUnion49: this.parentUnion,
+        changeChildUnion: this.changeParentUnion.bind(this)
+      })
     }
   }
 }

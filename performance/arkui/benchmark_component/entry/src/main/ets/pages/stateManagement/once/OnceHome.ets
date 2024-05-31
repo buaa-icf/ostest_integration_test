@@ -16,8 +16,8 @@
 import { CommonButton } from '../../../util/CommonButton';
 
 @Entry
-@Component
-struct OnceHome{
+@ComponentV2
+struct OnceHome {
   build() {
     Scroll() {
       Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
@@ -27,17 +27,17 @@ struct OnceHome{
           .fontSize('25fp')
           .textAlign(TextAlign.Center)
 
-        CommonButton({buttonName:'OnceObjectSample',buttonUrl:'pages/stateManagement/once/OnceObjectSample'});
-        CommonButton({buttonName:'OnceClassSample',buttonUrl:'pages/stateManagement/once/OnceClassSample'});
-        CommonButton({buttonName:'OnceStringSample',buttonUrl:'pages/stateManagement/once/OnceStringSample'});
-        CommonButton({buttonName:'OnceNumberSample',buttonUrl:'pages/stateManagement/once/OnceNumberSample'});
-        CommonButton({buttonName:'OnceBooleanSample',buttonUrl:'pages/stateManagement/once/OnceBooleanSample'});
-        CommonButton({buttonName:'OnceEnumSample',buttonUrl:'pages/stateManagement/once/OnceEnumSample'});
-        CommonButton({buttonName:'OnceArraySample',buttonUrl:'pages/stateManagement/once/OnceArraySample'});
-        CommonButton({buttonName:'OnceDateSample',buttonUrl:'pages/stateManagement/once/OnceDateSample'});
-        CommonButton({buttonName:'OnceMapSample',buttonUrl:'pages/stateManagement/once/OnceMapSample'});
-        CommonButton({buttonName:'OnceSetSample',buttonUrl:'pages/stateManagement/once/OnceSetSample'});
-        CommonButton({buttonName:'OnceUnionSample',buttonUrl:'pages/stateManagement/once/OnceUnionSample'});
+        CommonButton({ buttonName: 'OnceObjectSample', buttonUrl: 'pages/stateManagement/once/OnceObjectSample' });
+        CommonButton({ buttonName: 'OnceClassSample', buttonUrl: 'pages/stateManagement/once/OnceClassSample' });
+        CommonButton({ buttonName: 'OnceStringSample', buttonUrl: 'pages/stateManagement/once/OnceStringSample' });
+        CommonButton({ buttonName: 'OnceNumberSample', buttonUrl: 'pages/stateManagement/once/OnceNumberSample' });
+        CommonButton({ buttonName: 'OnceBooleanSample', buttonUrl: 'pages/stateManagement/once/OnceBooleanSample' });
+        CommonButton({ buttonName: 'OnceEnumSample', buttonUrl: 'pages/stateManagement/once/OnceEnumSample' });
+        CommonButton({ buttonName: 'OnceArraySample', buttonUrl: 'pages/stateManagement/once/OnceArraySample' });
+        CommonButton({ buttonName: 'OnceDateSample', buttonUrl: 'pages/stateManagement/once/OnceDateSample' });
+        CommonButton({ buttonName: 'OnceMapSample', buttonUrl: 'pages/stateManagement/once/OnceMapSample' });
+        CommonButton({ buttonName: 'OnceSetSample', buttonUrl: 'pages/stateManagement/once/OnceSetSample' });
+        CommonButton({ buttonName: 'OnceUnionSample', buttonUrl: 'pages/stateManagement/once/OnceUnionSample' });
 
       }
       .padding('5vp')

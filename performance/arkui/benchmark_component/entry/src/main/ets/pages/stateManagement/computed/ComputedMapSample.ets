@@ -16,12 +16,10 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 @Entry
 @ComponentV2
 struct ComputedMapSample {
-  isType: boolean = true
   @Local testData : Map<number, string> = new Map([[0, "a"], [1, "b"], [3, "c"]]);
 
   @Computed
@@ -37,20 +35,24 @@ struct ComputedMapSample {
     }
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let tmp =  this.computedFun.get(index)
+      let tmp =  this.computedFun
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
+      Text('ComputedMapSample')
+        .fontSize('25')
+        .textAlign(TextAlign.Center)
+        .margin({ bottom: 50, top: 50 })
       Text(`value: ${this.computedFun.get(0)}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let tmp =  this.computedFun.get(index)
+            let tmp =  this.computedFun
           }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })

@@ -16,13 +16,13 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ParamObjectSample')
-let isType: boolean = true
+
 @ComponentV2
 struct ChildParamObjectSample {
-  @Event changeChildObject:(x: number) => void = (x: number) => {};
+  @Event changeChildObject: (x: number) => void = (x: number) => {
+  };
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Param childObject: Object = "child Param"
   @Param childObject1: Object = "child Param"
@@ -80,7 +80,7 @@ struct ChildParamObjectSample {
   aboutToAppear(): void {
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.changeChildObject(index%2)
+      this.changeChildObject(index % 2)
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
@@ -92,8 +92,7 @@ struct ChildParamObjectSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType,timeHelper) ? `child value: ${this.childObject.toString()}` :
-        `child value: ${this.childObject.toString()}`)
+      Text(`child value: ${this.childObject.toString()}`)
       Button('child click: 读@Param的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -106,11 +105,10 @@ struct ChildParamObjectSample {
       Button('child click: 写@Param的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.changeChildObject(index%2)
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            this.changeChildObject(index % 2)
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })
@@ -123,13 +121,14 @@ struct ChildParamObjectSample {
 @ComponentV2
 struct ParamObjectSample {
   @Local parentObject: Object = 'hello, world';
-  changeParentObject:(type: number) => void = (type: number) => {
-    if(type==0){
-      this.parentObject='你好, 世界'
-    }else if(type==1){
-      this.parentObject='world hello'
+  changeParentObject: (type: number) => void = (type: number) => {
+    if (type == 0) {
+      this.parentObject = '你好, 世界'
+    } else if (type == 1) {
+      this.parentObject = 'world hello'
     }
   };
+
   build() {
     Column({ space: 15 }) {
       Text('ParamObjectSample')
@@ -137,14 +136,59 @@ struct ParamObjectSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentObject.toString()}`)
-      Button('parent click')
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.parentObject='parent: parentSetStateTimeTaken'
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
-      ChildParamObjectSample({childObject:this.parentObject,changeChildObject:this.changeParentObject.bind(this)})
+      ChildParamObjectSample({
+        childObject: this.parentObject,
+        childObject1: this.parentObject,
+        childObject2: this.parentObject,
+        childObject3: this.parentObject,
+        childObject4: this.parentObject,
+        childObject5: this.parentObject,
+        childObject6: this.parentObject,
+        childObject7: this.parentObject,
+        childObject8: this.parentObject,
+        childObject9: this.parentObject,
+        childObject10: this.parentObject,
+        childObject11: this.parentObject,
+        childObject12: this.parentObject,
+        childObject13: this.parentObject,
+        childObject14: this.parentObject,
+        childObject15: this.parentObject,
+        childObject16: this.parentObject,
+        childObject17: this.parentObject,
+        childObject18: this.parentObject,
+        childObject19: this.parentObject,
+        childObject20: this.parentObject,
+        childObject21: this.parentObject,
+        childObject22: this.parentObject,
+        childObject23: this.parentObject,
+        childObject24: this.parentObject,
+        childObject25: this.parentObject,
+        childObject26: this.parentObject,
+        childObject27: this.parentObject,
+        childObject28: this.parentObject,
+        childObject29: this.parentObject,
+        childObject30: this.parentObject,
+        childObject31: this.parentObject,
+        childObject32: this.parentObject,
+        childObject33: this.parentObject,
+        childObject34: this.parentObject,
+        childObject35: this.parentObject,
+        childObject36: this.parentObject,
+        childObject37: this.parentObject,
+        childObject38: this.parentObject,
+        childObject39: this.parentObject,
+        childObject40: this.parentObject,
+        childObject41: this.parentObject,
+        childObject42: this.parentObject,
+        childObject43: this.parentObject,
+        childObject44: this.parentObject,
+        childObject45: this.parentObject,
+        childObject46: this.parentObject,
+        childObject47: this.parentObject,
+        childObject48: this.parentObject,
+        childObject49: this.parentObject,
+        changeChildObject: this.changeParentObject.bind(this)
+      })
     }
   }
 }

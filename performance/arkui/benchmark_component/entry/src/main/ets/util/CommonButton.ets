@@ -15,11 +15,11 @@
 
 import router from '@ohos.router';
 
-@Component
+@ComponentV2
 export struct CommonButton {
-  @State buttonName: string = '';
-  @State buttonUrl: string = '';
-  @State data: string = '';
+  @Param buttonName: string = '';
+  @Param buttonUrl: string = '';
+  @Param data: string = '';
 
   build() {
     Text(this.buttonName)

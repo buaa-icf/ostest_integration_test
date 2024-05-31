@@ -16,10 +16,8 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('ObservedV2ArraySample');
-let isType: boolean = true
 
 class StringArray<T> extends Array<T>{
 }
@@ -34,8 +32,7 @@ struct ChildObservedV2ArraySample {
   Arr : StringArray<string> = new StringArray<string>()
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType, timeHelper) ? `child value: ${this.Arr[0]}` :
-        `child value: ${this.Arr[0]}`)
+      Text(`child value: ${this.Arr[0]}`)
     }
   }
 }
@@ -95,17 +92,18 @@ struct ObservedV2ArraySample {
   testData48: B = new B();
   testData49: B = new B();
   b = timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  @State isTypeState: boolean = true
+  @Local isTypeState: boolean = true
 
   aboutToAppear(): void {
+    this.testData.arr.push('10000')
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      this.testData.arr[index] = index.toString()
+      this.testData.arr[0] = index.toString()
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, false))
     timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let value = this.testData.arr[index]
+      let value = this.testData.arr[0]
     }
     timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
@@ -117,29 +115,22 @@ struct ObservedV2ArraySample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.testData.arr[0]}`)
-        .id('changeUITimeTaken')
-        .onClick(() => {
-          isType = false
-          this.testData.arr[0] = '你好世界'
-          timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-        })
       Button('parent click: 读@ObservedV2的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let value = this.testData.arr[index]
+            let value = this.testData.arr[0]
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })
       Button('parent click: 写@ObservedV2的耗时')
         .id('setStateTimeTaken')
         .onClick(() => {
-          isType = true
           this.isTypeState = !this.isTypeState
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-          for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            this.testData.arr[index] = index.toString()
+          for (let index = ArrEntity.STATE_LOOP; index > 0; index--) {
+            this.testData.arr[0] = index.toString()
           }
           timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))
         })

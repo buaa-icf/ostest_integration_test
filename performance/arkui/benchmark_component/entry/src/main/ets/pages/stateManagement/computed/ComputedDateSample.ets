@@ -16,7 +16,6 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 @Entry
 @ComponentV2
@@ -32,20 +31,24 @@ struct ComputedDateSample {
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let tmp = this.computedFun.getTime()
+      let tmp = this.computedFun
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
-      Text(`value: ${this.computedFun.toTimeString()}`)
+      Text('ComputedDateSample')
+        .fontSize('25')
+        .textAlign(TextAlign.Center)
+        .margin({ bottom: 50, top: 50 })
+      Text(`value: ${this.computedFun}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let tmp = this.computedFun.getTime()
+            let tmp = this.computedFun
           }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })

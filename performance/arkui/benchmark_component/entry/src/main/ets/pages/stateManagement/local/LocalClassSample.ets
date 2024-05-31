@@ -16,8 +16,7 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
-import { ClassModel, classModel, classModel1, classModel2, classModel3 } from '../ClassModel'
+import { ClassModel, classModel, classModel1 } from '../ClassModel'
 
 @Entry
 @ComponentV2
@@ -75,9 +74,8 @@ struct LocalClassSample {
   @Local testData48: ClassModel = classModel1
   @Local testData49: ClassModel = classModel1
   b = this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.CREATE_STATE, true))
-  isType: boolean = true
-  tmpArr: ClassModel[] = [classModel, classModel1]
   @Local isTypeState: boolean = true
+  tmpArr: ClassModel[] = [classModel, classModel1]
 
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, false))
@@ -95,14 +93,11 @@ struct LocalClassSample {
   build() {
     Row() {
       Column({ space: 10 }) {
-        Text(StateUtils.isType(this.isType, this.timeHelper) ? `parent value: ${this.testData.value}` :
-          `parent value: ${this.testData.value}`)
-          .id('changeUITimeTaken')
-          .onClick(() => {
-            this.isType = false
-            this.testData = classModel2
-            this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.UI_CHANGE, true))
-          })
+        Text('LocalClassSample')
+          .fontSize('25')
+          .textAlign(TextAlign.Center)
+          .margin({ bottom: 50, top: 50 })
+        Text(`parent value: ${this.testData.value}`)
         Button('parent click: 读@Local的耗时')
           .id('getStateTimeTaken')
           .onClick(() => {
@@ -115,10 +110,9 @@ struct LocalClassSample {
         Button('parent click: 写@Local的耗时')
           .id('setStateTimeTaken')
           .onClick(() => {
-            this.isType = true
             this.isTypeState = !this.isTypeState
             this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.WRITE_STATE, true))
-            for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
+            for (let index = ArrEntity.STATE_LOOP; index > 0 ; index--) {
               this.testData = this.tmpArr[index % 2]
             }
             this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.WRITE_STATE, true))

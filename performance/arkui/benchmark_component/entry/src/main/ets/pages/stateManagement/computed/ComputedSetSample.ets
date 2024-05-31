@@ -16,12 +16,10 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 @Entry
 @ComponentV2
 struct ComputedSetSample {
-  isType: boolean = true
   @Local testData: Set<number> = new Set([0, 1, 2, 3, 4]);
 
   @Computed
@@ -34,20 +32,24 @@ struct ComputedSetSample {
   aboutToAppear(): void {
     this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, false))
     for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-      let tmp = this.computedFun.values()
+      let tmp = this.computedFun
     }
     this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, false))
   }
 
   build() {
     Column({ space: 15 }) {
+      Text('ComputedSetSample')
+        .fontSize('25')
+        .textAlign(TextAlign.Center)
+        .margin({ bottom: 50, top: 50 })
       Text(`value: ${Array.from(this.computedFun.values()).toString()}`)
       Button('读@Computed的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {
-            let tmp = this.computedFun.values()
+            let tmp = this.computedFun
           }
           this.timeHelper.printStateTime(false, 1, new StateModel(StateConstants.READ_STATE, true))
         })

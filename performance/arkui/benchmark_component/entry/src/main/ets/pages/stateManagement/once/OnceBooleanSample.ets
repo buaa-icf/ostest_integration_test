@@ -16,13 +16,11 @@
 import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
-import { StateUtils } from '../StateUtils';
 
 const timeHelper: TimeHelper = new TimeHelper('OnceBooleanSample')
-let isType: boolean = true
+
 @ComponentV2
 struct ChildOnceBooleanSample {
-  @Event changeChildBoolean : (x: number) => void = (x: number) => {};
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   @Once @Param childBoolean: boolean = true;
   @Once @Param childBoolean1: boolean = true;
@@ -86,8 +84,7 @@ struct ChildOnceBooleanSample {
 
   build() {
     Column({ space: 15 }) {
-      Text(StateUtils.isType(isType,timeHelper) ? `child value: ${this.childBoolean}` :
-        `child value: ${this.childBoolean}`)
+      Text(`child value: ${this.childBoolean}`)
       Button('child click: 读@Once的耗时')
         .id('getStateTimeTaken')
         .onClick(() => {
@@ -106,13 +103,7 @@ struct ChildOnceBooleanSample {
 @ComponentV2
 struct OnceBooleanSample {
   @Local parentBoolean: boolean = true;
-  changeParentBoolean : (type: number) => void = (type: number) => {
-    if(type==0){
-      this.parentBoolean=true
-    }else if(type==1){
-      this.parentBoolean=false
-    }
-  };
+
   build() {
     Column({ space: 15 }) {
       Text('OnceBooleanSample')
@@ -120,7 +111,58 @@ struct OnceBooleanSample {
         .textAlign(TextAlign.Center)
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.parentBoolean}`)
-      ChildOnceBooleanSample({childBoolean:this.parentBoolean,changeChildBoolean: this.changeParentBoolean.bind(this)})
+      ChildOnceBooleanSample({
+        childBoolean: this.parentBoolean,
+        childBoolean1: this.parentBoolean,
+        childBoolean2: this.parentBoolean,
+        childBoolean3: this.parentBoolean,
+        childBoolean4: this.parentBoolean,
+        childBoolean5: this.parentBoolean,
+        childBoolean6: this.parentBoolean,
+        childBoolean7: this.parentBoolean,
+        childBoolean8: this.parentBoolean,
+        childBoolean9: this.parentBoolean,
+        childBoolean10: this.parentBoolean,
+        childBoolean11: this.parentBoolean,
+        childBoolean12: this.parentBoolean,
+        childBoolean13: this.parentBoolean,
+        childBoolean14: this.parentBoolean,
+        childBoolean15: this.parentBoolean,
+        childBoolean16: this.parentBoolean,
+        childBoolean17: this.parentBoolean,
+        childBoolean18: this.parentBoolean,
+        childBoolean19: this.parentBoolean,
+        childBoolean20: this.parentBoolean,
+        childBoolean21: this.parentBoolean,
+        childBoolean22: this.parentBoolean,
+        childBoolean23: this.parentBoolean,
+        childBoolean24: this.parentBoolean,
+        childBoolean25: this.parentBoolean,
+        childBoolean26: this.parentBoolean,
+        childBoolean27: this.parentBoolean,
+        childBoolean28: this.parentBoolean,
+        childBoolean29: this.parentBoolean,
+        childBoolean30: this.parentBoolean,
+        childBoolean31: this.parentBoolean,
+        childBoolean32: this.parentBoolean,
+        childBoolean33: this.parentBoolean,
+        childBoolean34: this.parentBoolean,
+        childBoolean35: this.parentBoolean,
+        childBoolean36: this.parentBoolean,
+        childBoolean37: this.parentBoolean,
+        childBoolean38: this.parentBoolean,
+        childBoolean39: this.parentBoolean,
+        childBoolean40: this.parentBoolean,
+        childBoolean41: this.parentBoolean,
+        childBoolean42: this.parentBoolean,
+        childBoolean43: this.parentBoolean,
+        childBoolean44: this.parentBoolean,
+        childBoolean45: this.parentBoolean,
+        childBoolean46: this.parentBoolean,
+        childBoolean47: this.parentBoolean,
+        childBoolean48: this.parentBoolean,
+        childBoolean49: this.parentBoolean,
+      })
     }
   }
 }

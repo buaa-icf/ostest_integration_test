@@ -16,7 +16,7 @@
 import { CommonButton } from '../../../util/CommonButton';
 
 @Entry
-@Component
+@ComponentV2
 struct ConsumerHome {
   build() {
     Scroll() {
@@ -35,7 +35,8 @@ struct ConsumerHome {
         CommonButton({buttonName:'ConsumerDateSample',buttonUrl:'pages/stateManagement/consumer/ConsumerDateSample'});
         CommonButton({buttonName:'ConsumerMapSample',buttonUrl:'pages/stateManagement/consumer/ConsumerMapSample'});
         CommonButton({buttonName:'ConsumerSetSample',buttonUrl:'pages/stateManagement/consumer/ConsumerSetSample'});
-
+        CommonButton({buttonName:'ConsumerEnumSample',buttonUrl:'pages/stateManagement/consumer/ConsumerEnumSample'});
+        CommonButton({buttonName:'ConsumerObjectSample',buttonUrl:'pages/stateManagement/consumer/ConsumerObjectSample'});
       }
       .padding('5vp')
       .width('100%')
