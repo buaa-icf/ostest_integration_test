@@ -27,13 +27,20 @@ import emitter from '@ohos.events.emitter';
 @Entry
 @Component
 struct Index {
-  @State playLists: PlayListData[] = [];
+  @State playLists: PlayListData[] = []
+  @State customPlayLists: PlayListData[] = []
   @State isShowPlayerDetail: boolean = false;
   @State isShowPlayList: boolean = false;
   @State isRefreshing: boolean = false
   @State mOffset: number = 0
   @State mFriction: number = 48
   @State maskOpacity: number = 0.5;
+  @State loginInfo: string = '未登录';
+  @State loginCookie: string[] = [];
+  private userName: string = 'test';
+  private password: string = 'kh123456'
+  private httpRequest = http.createHttp()
+  private csrfToken: string = ''
 
   @Builder
   refreshBuilder() {
@@ -49,6 +56,7 @@ struct Index {
 
   aboutToAppear(): void {
     this.getListFromServer();
+    //this.login();
   }
 
   aboutToDisappear(): void {
@@ -58,6 +66,20 @@ struct Index {
 
   build() {
     Column() {
+      Row() {
+        Button('登录')
+          .height(42)
+          .margin(8)
+          .fontSize(32)
+          .onClick(() => {
+            this.login()
+          })
+        Text(this.loginInfo)
+          .fontSize(32)
+      }
+      .height('10%')
+      .width('100%')
+
       Stack({ alignContent: Alignment.Bottom }) {
         Refresh({
           refreshing: $$this.isRefreshing,
@@ -83,6 +105,33 @@ struct Index {
 
               Grid() {
                 ForEach(this.playLists, (item: PlayListData) => {
+                  GridItem() {
+                    PlayListItem({ item })
+                  }
+                })
+              }
+              .margin(12)
+              .columnsTemplate('1fr 1fr 1fr')
+              .columnsGap(8)
+              .rowsGap(12)
+              .width('90%')
+
+              Row() {
+                Text('我的歌单')
+                  .fontSize('20fp')
+                  .fontWeight(FontWeight.Medium)
+                Image($r('app.media.ic_public_arrow_right'))
+                  .objectFit(ImageFit.Contain)
+                  .width(24)
+                  .height(24)
+              }
+              .height(36)
+              .justifyContent(FlexAlign.SpaceBetween)
+              .width('90%')
+              .margin(12)
+
+              Grid() {
+                ForEach(this.customPlayLists, (item: PlayListData) => {
                   GridItem() {
                     PlayListItem({ item })
                   }
@@ -138,7 +187,7 @@ struct Index {
         }
       }
       .width('100%')
-      .height('100%')
+      .height('90%')
     }
     .width('100%')
   }
@@ -162,12 +211,10 @@ struct Index {
   getListFromServer() {
     this.playLists = [];
     try {
-      let httpRequest = http.createHttp()
-      httpRequest.request(ServerConstants.ALL_SONGS_URL, (err: Error, data: http.HttpResponse) => {
+      this.httpRequest.request(ServerConstants.ALL_SONGS_URL, (err: Error, data: http.HttpResponse) => {
         if (!err) {
           console.info('HttpResponse Result:' + data.result);
           let aPlayingList: AudioItem[] = Array<AudioItem>();
-          // 解析 JSON 字符串为对象
           const jsonObject: object = JSON.parse(data.result as string);
           Object.keys(jsonObject).forEach((key) => {
             aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
@@ -177,7 +224,7 @@ struct Index {
           console.info('HttpResponse code:' + data.responseCode);
           console.info('HttpResponse type:' + JSON.stringify(data.resultType));
           console.info('HttpResponse header:' + JSON.stringify(data.header));
-          console.info('HttpResponse cookies:' + data.cookies); // 自API version 8开始支持cookie
+          console.info('HttpResponse cookies:' + data.cookies);
 
         } else {
           console.info('HttpResponse error:' + JSON.stringify(err));
@@ -187,12 +234,10 @@ struct Index {
       console.info('HttpRequest error:' + JSON.stringify(err));
     }
     try {
-      let httpRequest = http.createHttp()
-      httpRequest.request(ServerConstants.ENGLISH_SONGS_URL, (err: Error, data: http.HttpResponse) => {
+      this.httpRequest.request(ServerConstants.ENGLISH_SONGS_URL, (err: Error, data: http.HttpResponse) => {
         if (!err) {
           console.info('HttpResponse Result:' + data.result);
           let aPlayingList: AudioItem[] = Array<AudioItem>();
-          // 解析 JSON 字符串为对象
           const jsonObject: object = JSON.parse(data.result as string);
           Object.keys(jsonObject).forEach((key) => {
             aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
@@ -202,11 +247,105 @@ struct Index {
           console.info('HttpResponse code:' + data.responseCode);
           console.info('HttpResponse type:' + JSON.stringify(data.resultType));
           console.info('HttpResponse header:' + JSON.stringify(data.header));
-          console.info('HttpResponse cookies:' + data.cookies); // 自API version 8开始支持cookie
+          console.info('HttpResponse cookies:' + data.cookies);
         } else {
           console.info('HttpResponse error:' + JSON.stringify(err));
         }
       });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+    }
+  }
+
+  login() {
+    try {
+      this.httpRequest.request(ServerConstants.CSRF_URL,
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse Result:' + data.result);
+            const jsonObject: object = JSON.parse(data.result as string);
+            this.csrfToken = jsonObject['csrf_token'];
+            this.httpRequest.request(ServerConstants.LOGIN_URL,
+              {
+                method: http.RequestMethod.POST,
+                extraData: 'username=' + this.userName + '&password=' + this.password,
+                header: {
+                  'content-Type': 'application/x-www-form-urlencoded',
+                  'X-CSRFToken': this.csrfToken,
+                  'Cookie': 'csrftoken=' + this.csrfToken + ';'
+                },
+              },
+              (err: Error, data: http.HttpResponse) => {
+                if (!err) {
+                  console.info('HttpResponse Result:' + data.result);
+                  console.info('HttpResponse code:' + data.responseCode);
+                  if (200 === data.responseCode) {
+                    this.loginInfo = this.userName
+                    this.loginCookie = data.header['set-cookie'];
+                  }
+                  console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+                  console.info('HttpResponse header:' + JSON.stringify(data.header));
+
+                  this.getCustomListFromServer();
+                } else {
+                  console.info('HttpResponse error:' + JSON.stringify(err));
+                }
+              });
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+    }
+  }
+
+  getCustomListFromServer() {
+    this.customPlayLists = [];
+    try {
+      this.httpRequest.request(ServerConstants.CUSTOM_LIST_URL,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': this.loginCookie.map(cookie => {
+              const parts = cookie.split('=');
+              return `${parts[0]}=${parts[1]}`;
+            }).join('; ')
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse getCustomListFromServer Result:' + data.result);
+            interface PlaylistItem {
+              playlist_name: string;
+              song: number;
+              id: number;
+              name: string;
+              singer: string;
+              language: string;
+            }
+            let jsonObject: PlaylistItem[]  = JSON.parse(data.result as string);
+            let groupedByPlaylistName = jsonObject.reduce((accumulator, item) => {
+              if (!accumulator[item.playlist_name]) {
+                accumulator[item.playlist_name] = [];
+              }
+              accumulator[item.playlist_name].push(item);
+              return accumulator;
+            }, {} as  Record<string, PlaylistItem[]>);
+            const keys = Object.keys(groupedByPlaylistName);
+            keys.forEach((playlistName) => {
+              console.log(`Playlist: ${playlistName}`);
+              let aPlayingList: AudioItem[] = Array<AudioItem>();
+              groupedByPlaylistName[playlistName].forEach((song, index) => {
+                aPlayingList.push(new AudioItem(song.name, song.singer, song.id.toString()));
+              });
+              this.customPlayLists.push(new PlayListData(playlistName, $r('app.media.icon'), aPlayingList.length + '首',
+                aPlayingList, ''));
+            });
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+          }
+        });
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
     }

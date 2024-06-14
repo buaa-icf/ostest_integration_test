@@ -1,4 +1,4 @@
-# 我的音乐
+# 在线音乐
 
 ### 介绍
 
@@ -132,7 +132,8 @@
 ```
 
 ### 相关权限
-无
+ohos.permission.INTERNET
+ohos.permission.KEEP_BACKGROUND_RUNNING
 
 ### 约束与限制
 
