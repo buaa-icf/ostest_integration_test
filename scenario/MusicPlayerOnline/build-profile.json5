@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_FXYBOAf69SUjZDCrDt8Xwf1b9BjvpsV8G8MXGjUFiRw=.cer",
-          "storePassword": "0000001BDDA9B8D36C2A9429D4688C460B0ED52F4CFB3E952032497A3BDE2E6651EA0688193DE9CCB4B4CD",
+          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_hk2UHQE6-ErE070Ws-glQcy1fqzzWJa-YFhy3hlWKdg=.cer",
+          "storePassword": "0000001B47A0CD544DD3FE4807EE7AABC88546856191CA61FB1468E7DFA3ABB044F7CD4BD30513A7A5ED4B",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B1EACADFF14787367B5F4314733915F814C676FE175A16E37C9CD5D77A08128141265D73FEDAD48",
-          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_FXYBOAf69SUjZDCrDt8Xwf1b9BjvpsV8G8MXGjUFiRw=.p7b",
+          "keyPassword": "0000001BCD786FE55FE89AB7B5AAD66DD8C13DC21117E850C5B3ED310495A9D765A4883F0F773E8D3EDF80",
+          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_hk2UHQE6-ErE070Ws-glQcy1fqzzWJa-YFhy3hlWKdg=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_FXYBOAf69SUjZDCrDt8Xwf1b9BjvpsV8G8MXGjUFiRw=.p12"
+          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_hk2UHQE6-ErE070Ws-glQcy1fqzzWJa-YFhy3hlWKdg=.p12"
         }
       }
     ],
@@ -18,8 +18,8 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "compileSdkVersion": 11,
-        "compatibleSdkVersion": 11,
+        "compileSdkVersion": 12,
+        "compatibleSdkVersion": 12,
         "runtimeOS": "OpenHarmony"
       }
     ],

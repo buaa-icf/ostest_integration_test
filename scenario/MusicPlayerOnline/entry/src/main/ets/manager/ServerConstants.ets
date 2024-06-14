@@ -24,11 +24,15 @@ export default class ServerConstants {
   /**
    * All songs URL
    */
-  static readonly ALL_SONGS_URL = this.SERVER_HOST + 'all_songs1';
+  static readonly ALL_SONGS_URL = this.SERVER_HOST + 'all_songs1/';
+  /**
+   * custom list URL
+   */
+  static readonly CUSTOM_LIST_URL = this.SERVER_HOST + 'get_playlists/';
   /**
    * English songs URL
    */
-  static readonly ENGLISH_SONGS_URL = this.SERVER_HOST + 'english_songs';
+  static readonly ENGLISH_SONGS_URL = this.SERVER_HOST + 'english_songs/';
   /**
    * Song Image URL
    */
@@ -37,6 +41,15 @@ export default class ServerConstants {
    * Play songs URL
    */
   static readonly PLAY_SONG_URL = this.SERVER_HOST + 'play_song1/';
+  /**
+   * get playlist
+   */
+  static readonly PLAY_LIST = this.SERVER_HOST + 'play_song1/';
+  /**
+   * Login URL
+   */
+  static readonly LOGIN_URL = this.SERVER_HOST + 'authentication/login1/';
+  static readonly CSRF_URL = this.SERVER_HOST + 'authentication/get-csrf-token/';
 
   static readonly  PLAYER_STATE_IDLE = 'idle';
   static readonly  PLAYER_STATE_INITIALIZED = 'initialized'
