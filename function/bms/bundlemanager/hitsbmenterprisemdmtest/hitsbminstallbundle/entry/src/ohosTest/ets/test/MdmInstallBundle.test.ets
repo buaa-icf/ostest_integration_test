@@ -65,16 +65,18 @@ export default function mdmInstallBundleTest() {
               }
             } else {
               console.info('install mdm successfully.');
+              done()
             }
           });
         }).catch((error: BusinessError) => {
           console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+          done()
         });
       } catch (error) {
         expect().assertFail()
-        done()
         let message = (error as BusinessError).message;
         console.error('install mdm getBundleInstaller failed. Cause: ' + message);
+        done()
       }
     })
   })
