@@ -1,0 +1,40 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_uicompare_JATV3sai8Vu453IAuyPAlrcBCITyeH85AVd3jtrOqX8=.cer",
+          "storePassword": "0000001B5800C5862EC1C131F62392DCF0CF0C6ADA36F77E974C9AABB8F83303F7B9F2403B658750DE79B2",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BECE219BF83EBDBA9905E2D724889CD8A7609B551E92AE7521165E20E0E0AAE435E0577D72C5420",
+          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_uicompare_JATV3sai8Vu453IAuyPAlrcBCITyeH85AVd3jtrOqX8=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_uicompare_JATV3sai8Vu453IAuyPAlrcBCITyeH85AVd3jtrOqX8=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": 12,
+        "compatibleSdkVersion": 12
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
