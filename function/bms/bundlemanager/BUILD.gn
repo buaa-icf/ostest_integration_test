@@ -19,6 +19,8 @@ group("bundlemanager") {
     deps = [
       "hitsbmenterprisemdmtest:hitsbmenterprisemdmtest",
       "sceneProject/bmenterprisembm:Hits_bm_mdm",
+      "sceneProject/bmenterprisembmnormal:Hits_bm_mdm_normal",
+      "sceneProject/bmenterprisembmnormalenterprise:Hits_bm_mdm_normal_enterprise",
     ]
   }
 }
