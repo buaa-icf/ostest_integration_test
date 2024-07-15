@@ -47,14 +47,15 @@ export default function mdmUnInstallBundleTest() {
 
     /*
      * @tc.number: Sub_Bms_Framework_Enterprise_Mdm_0700
-     * @tc.name: Sub_Bms_Framework_Enterprise_Mdm_0700
+     * @tc.name: UseInstallBundlePermissionToUninstall
      * @tc.desc: Test the caller applied for the ohos.permission.INSTALL_BUNDLE permission to uninstall the  mdm application.
      * @tc.size MediumTest
      * @tc.type Function
      * @tc.level Level 3
      */
-    it('Sub_Bms_Framework_Enterprise_Mdm_0700', 0, (done: Function) => {
+    it('UseInstallBundlePermissionToUninstall', 0, (done: Function) => {
       try {
+        let bundleName = 'com.hits.mdm';
         installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
           data.install(['/data/storage/el2/base/files/HitsBmMdmTest.hap'], (err: BusinessError) => {
             if (err) {
@@ -65,7 +66,6 @@ export default function mdmUnInstallBundleTest() {
               }
             } else {
               console.info('install mdm successfully.');
-              let bundleName = 'com.hits.mdm';
               installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
                 data.uninstall(bundleName, (err: BusinessError) => {
                   if (err) {
@@ -80,12 +80,14 @@ export default function mdmUnInstallBundleTest() {
                 });
               }).catch((error: BusinessError) => {
                 console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+                expect().assertFail()
                 done()
               });
             }
           });
         }).catch((error: BusinessError) => {
           console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+          expect().assertFail()
           done()
         });
       } catch (error) {

@@ -17,7 +17,7 @@ ohos_js_app_suite("hits_bm_installenterprisemdmbundle") {
   test_hap = true
   testonly = true
   certificate_profile = "./signature/openharmony_sx.p7b"
-  hap_name = "HitsBmInstallEnterPriseMdmBundleTest"
+  hap_name = "HitsBmInstallEnterPriseBundleTest"
   part_name = "bundle_framework"
   subsystem_name = "bundlemanager"
 }

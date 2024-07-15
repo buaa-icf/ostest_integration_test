@@ -47,19 +47,19 @@ export default function installEnterPriseMdmBundleTest() {
 
     /*
      * @tc.number: Sub_Bms_Framework_Enterprise_Mdm_0300
-     * @tc.name: Sub_Bms_Framework_Enterprise_Mdm_0300
+     * @tc.name: InstallEnterpriseMdmHap
      * @tc.desc: Test the caller applied for the ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE permission to install the enterprise mdm application.
      * @tc.size MediumTest
      * @tc.type Function
      * @tc.level Level 3
      */
-    it('Sub_Bms_Framework_Enterprise_Mdm_0300', 0, (done:Function) => {
+    it('InstallEnterpriseMdmHap', 0, (done:Function) => {
       try {
         installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
           data.install(['/data/storage/el2/base/files/HitsBmMdmTest.hap'], (err: BusinessError) => {
             if (err) {
               console.error('install mdm failed:' + err.message);
-              expect(err.code).assertEqual(NO_PERMISSION_ERROR_CODE)
+              expect().assertFail();
               done()
             } else {
               console.info('install mdm successfully.');
@@ -69,6 +69,7 @@ export default function installEnterPriseMdmBundleTest() {
           });
         }).catch((error: BusinessError) => {
           console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+          expect().assertFail()
           done()
         });
       } catch (error) {
@@ -81,13 +82,13 @@ export default function installEnterPriseMdmBundleTest() {
 
     /*
      * @tc.number: Sub_Bms_Framework_Enterprise_Mdm_0500
-     * @tc.name: Sub_Bms_Framework_Enterprise_Mdm_0500
-     * @tc.desc: Test the caller applied for the ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE permission to install the enterprise mdmNormal application and failed.
+     * @tc.name: InstallEnterpriseNormalHap
+     * @tc.desc: Test the caller applied for the ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE permission to install the enterprise enterprise_normal application and failed.
      * @tc.size MediumTest
      * @tc.type Function
      * @tc.level Level 3
      */
-    it('Sub_Bms_Framework_Enterprise_Mdm_0500', 0, (done:Function) => {
+    it('InstallEnterpriseNormalHap', 0, (done:Function) => {
       try {
         installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
           data.install(['/data/storage/el2/base/files/HitsBmMdmNormalTest.hap'], (err: BusinessError) => {
@@ -103,6 +104,7 @@ export default function installEnterPriseMdmBundleTest() {
           });
         }).catch((error: BusinessError) => {
           console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+          expect().assertFail()
           done()
         });
       } catch (error) {
@@ -115,13 +117,13 @@ export default function installEnterPriseMdmBundleTest() {
 
     /*
      * @tc.number: Sub_Bms_Framework_Enterprise_Mdm_0600
-     * @tc.name: Sub_Bms_Framework_Enterprise_Mdm_0600
-     * @tc.desc: Test the caller applied for the ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE permission to install the enterprise mdmEnterPrise application and failed.
+     * @tc.name: InstallEnterpriseHap
+     * @tc.desc: Test the caller applied for the ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE permission to install the enterprise application and failed.
      * @tc.size MediumTest
      * @tc.type Function
      * @tc.level Level 3
      */
-    it('Sub_Bms_Framework_Enterprise_Mdm_0600', 0, (done:Function) => {
+    it('InstallEnterpriseHap', 0, (done:Function) => {
       try {
         installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
           data.install(['/data/storage/el2/base/files/HitsBmMdmEnterpriseTest.hap'], (err: BusinessError) => {
@@ -133,11 +135,13 @@ export default function installEnterPriseMdmBundleTest() {
               }
             } else {
               console.info('install mdm successfully.');
+              expect().assertFail()
               done()
             }
           });
         }).catch((error: BusinessError) => {
           console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+          expect().assertFail()
           done()
         });
       } catch (error) {

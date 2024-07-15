@@ -69,6 +69,7 @@ export default function installEnterPriseNormalBundleTest() {
           });
         }).catch((error: BusinessError) => {
           console.error('install Normal getBundleInstaller failed. Cause: ' + error.message);
+          expect().assertFail()
           done()
         });
       } catch (error) {

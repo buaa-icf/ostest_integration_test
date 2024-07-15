@@ -47,14 +47,15 @@ export default function mdmInstallBundleToUnInstall() {
 
     /*
      * @tc.number: Sub_Bms_Framework_Enterprise_Mdm_0800
-     * @tc.name: Sub_Bms_Framework_Enterprise_Mdm_0800
+     * @tc.name: UseUnInstallBundlePermissionToUninstall
      * @tc.desc: Test the caller applied for the ohos.permission.UNINSTALL_BUNDLE permission to uninstall the  mdm application.
      * @tc.size MediumTest
      * @tc.type Function
      * @tc.level Level 3
      */
-    it('Sub_Bms_Framework_Enterprise_Mdm_0800', 0, (done: Function) => {
+    it('UseUnInstallBundlePermissionToUninstall', 0, (done: Function) => {
       try {
+        let bundleName = 'com.hits.mdm';
         installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
           data.install(['/data/storage/el2/base/files/HitsBmMdmTest.hap'], (err: BusinessError) => {
             if (err) {
@@ -65,11 +66,10 @@ export default function mdmInstallBundleToUnInstall() {
               }
             } else {
               console.info('install mdm successfully.');
-              let bundleName = 'com.hits.mdm';
               installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
                 data.uninstall(bundleName, (err: BusinessError) => {
                   if (err) {
-                    expect(false).assertFail()
+                    expect().assertFail()
                     console.error('uninstall failed:' + err.message);
                     done()
                   } else {
@@ -80,12 +80,14 @@ export default function mdmInstallBundleToUnInstall() {
                 });
               }).catch((error: BusinessError) => {
                 console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+                expect().assertFail()
                 done()
               });
             }
           });
         }).catch((error: BusinessError) => {
           console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+          expect().assertFail()
           done()
         });
       } catch (error) {
