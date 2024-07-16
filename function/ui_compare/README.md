@@ -1,34 +1,38 @@
 # UI对比测试开发指南
 
-## 文本用例（需求）
+## 0、需求（文本用例）
 
+用例举例，开发如下用例：
 
 | 用例_名称  | 用例_编号  | 创建版本  |预置条件| 测试步骤|预期结果|自动化类型|
 |-----|------|-------|------|------|------|------|
 | 文本样式fontColor：Color类型   | SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0010 | OpenHarmony V400R001  |新建eTS页面|1、添加文本组件2、设置fontColor为Color.Blue  3、编译测试demo|3、编译通过，文本显示蓝色|UI对比|
 
-## 编写工程和代码
+## 1、编写工程和代码
 
-### 新建或导入已有工程，创建目录和页面
+### 1.1 新建或导入已有工程，创建目录和页面
+
+以从DevEco导入本目录下的uicompare工程为例：
+
 在testability目录下创建页面，命名规则，用例编号除数字外，相同的用例在pages下创建一个同名子目录，每个编号的用例创建一个ets文件，文件名采用大驼峰如下：
 
 ![image](figures/1.png)
 
-### 创建测试用例目录和文件
+### 1.2 创建测试用例目录和文件
 
 在test目录下创建用例目录，目录名称和2\.1中的页面相同并在后面加Test，用例文件和页面ets文件相同，后缀多了\.test，如下图：
 
 ![image](figures/2.png)
 
-### 编写页面
+### 1.3 编写页面
 
 按用例要求编写页面，创建文本组件，并设置颜色为Blue。
 
-结构名称和文件名相同，组件需要设置id的，使用本文件名\_001按递增使用，避免和别的文件中的id重名。
+结构名称和文件名相同，组件需要设置id的，使用本文件名加"_001"按递增使用，避免和别的文件中的id重名。
 
 ![image](figures/3.png)
 
-### 编写用例
+### 1.4 编写用例
 
 修改类名，注释，测试套名称，用例名称，和测试用例文件及用例文档中对应，修改调用的页面文件路由，和页面路径对应：
 
@@ -36,15 +40,19 @@
 
 ![image](figures/5.png)
 
-### 在List.test.ets中添加测试套和页面路由
+### 1.5 在List.test.ets中添加测试套和页面路由
 注意：这里的页面是写在ohosTest模块下，不要写到main模块里。
 
 ![image](figures/6.png)
 
 ![image](figures/7.png)
 
-## 执行
-### 编译
+## 2、编译运行
+### 2.1 编译
+
+因为工程使用了截屏接口，需要系统权限，在SDK的sdk\12\toolchains\lib\UnsgnedReleasedProfileTemplate.json文件中修改应用级别："apl":"system_core",
+"app-feature":"hos_system_app"。
+
 在IDE的file -> Project Structure 中自动签名：
 
 ![image](figures/8.png)
@@ -53,8 +61,8 @@ Build-> Rebuild 编译hap：
 
 ![image](figures/9.png)
 
-### 执行用例
-右键xxxxx.test.ets 文件执行用例：
+### 2.2 执行用例
+右键xxxxx.test.ets 文件执行用例，或右键test目录执行全部用例：
 
 ![image](figures/10.png)
 
@@ -66,7 +74,7 @@ Build-> Rebuild 编译hap：
 
 ![image](figures/12.png)
 
-### 检查截屏图片：
+### 2.3 检查截屏图片：
 
 ![image](figures/13.png)
 
@@ -80,19 +88,21 @@ Build-> Rebuild 编译hap：
 
 用例开发完成，且调试成功。
 
-## 对比图片
+## 3、对比UI图片
+
+使用uicompare_tools目录下的python对比工具脚本。
 
 使用对比脚本前需要安装python环境，安装依赖包：需安装三个包：openpyxl、numpy、pillow。
 
 hdc配置到系统环境变量。
 
-### 将编译的hap包拷贝到ui对比工具的hap目录下
+### 3.1 将编译的hap包拷贝到ui对比工具的hap目录下
 
 ![image](figures/16.png)
 
 ![image](figures/17.png)
 
-### 在excel表中添加测试用例
+### 3.2 在excel表中添加测试用例
 
 excel文件名和hap名必须相同，一个excel对应一个hap。
 
@@ -100,13 +110,13 @@ excel文件名和hap名必须相同，一个excel对应一个hap。
 
 ![image](figures/19.png)
 
-### 生成基线图片：
+### 3.3 生成基线图片：
 
 ![image](figures/20.png)
 
 ![image](figures/21.png)
 
-### 对此测试
+### 3.4 对此测试
 
 指定基线图片目录和上中路径一致：
 
@@ -116,7 +126,7 @@ excel文件名和hap名必须相同，一个excel对应一个hap。
 
 ![image](figures/23.png)
 
-### 测试报告
+### 3.5 测试报告
 
 ![image](figures/24.png)
 
