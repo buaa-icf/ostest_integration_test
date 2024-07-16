@@ -60,7 +60,7 @@ export default function mdmInstallBundleTest() {
             if (err) {
               console.error('install mdm failed:' + err.message);
               if (err.code === NO_PERMISSION_ERROR_CODE) {
-                expect(err.code === NO_PERMISSION_ERROR_CODE)
+                expect(err.code).assertEqual(NO_PERMISSION_ERROR_CODE)
                 done()
               }
             } else {

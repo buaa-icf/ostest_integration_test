@@ -16,6 +16,13 @@ import("//test/xts/tools/build/suite.gni")
 group("hitsbmenterprisemdmtest") {
   testonly = true
   if (is_standard_system) {
-    deps = [ "hitsbminstallbundle:hits_bm_installbundle" ]
+    deps = [
+      "hitsbminstallbundle:hits_bm_installbundle",
+      "hitsbminstallenterprisebundle:hits_bm_installenterprisebundle",
+      "hitsbminstallenterprisemdmbundle:hits_bm_installenterprisemdmbundle",
+      "hitsbminstallenterprisenormalbundle:hits_bm_installnormalmdmbundle",
+      "hitsbmuninstallbundle:hits_bm_uninstallbundle",
+      "hitsbmuseuninstallbundlepermissiontouninstall:hits_bm_uninstallbundle_uninstall",
+    ]
   }
 }
