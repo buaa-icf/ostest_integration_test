@@ -17,6 +17,9 @@ group("hitsbmenterprisemdmtest") {
   testonly = true
   if (is_standard_system) {
     deps = [
+      "hitsbmenterprisemdmpermissiontouninstall:hits_bm_enterprisemdm_bundle_uninstall",
+      "hitsbmenterprisenormalpermissiontouninstall:hits_bm_enterprise_normal_bundle_uninstall",
+      "hitsbmenterprisepermissiontouninstall:hits_bm_enterprise_uninstall",
       "hitsbminstallbundle:hits_bm_installbundle",
       "hitsbminstallenterprisebundle:hits_bm_installenterprisebundle",
       "hitsbminstallenterprisemdmbundle:hits_bm_installenterprisemdmbundle",
