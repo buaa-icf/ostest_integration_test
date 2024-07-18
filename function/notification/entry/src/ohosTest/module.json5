@@ -26,6 +26,16 @@
     "deliveryWithInstall": true,
     "installationFree": false,
     "pages": "$profile:test_pages",
+
+    "requestPermissions": [
+      {
+        "name":"ohos.permission.OHOS_PERMISSION_NOTIFICATION_AGENT_CONTROLLER"
+      },
+      {
+        "name":"ohos.permission.NOTIFICATION_CONTROLLER"
+      }
+    ],
+
     "abilities": [
       {
         "name": "TestAbility",

@@ -16,6 +16,18 @@
 {
   "app": {
     "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:/Users/kaihong/.ohos/config/openharmony/default_notification_9zBoHPC5AiAooBfN76F7SPi_7cjMcIX3TfXnzZODrYo=.cer",
+          "storePassword": "0000001A01BADE8666DD21D0480471DFEC1CF1A511C85F19FE8A7D2D36C64F036213F8DD5007AC5B7824",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001A820DCA5EC9BE8DD3CC71EE7B106E9FCBECC0F04B44F3718FBCB58E840302C3ED432192597107",
+          "profile": "C:/Users/kaihong/.ohos/config/openharmony/default_notification_9zBoHPC5AiAooBfN76F7SPi_7cjMcIX3TfXnzZODrYo=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/kaihong/.ohos/config/openharmony/default_notification_9zBoHPC5AiAooBfN76F7SPi_7cjMcIX3TfXnzZODrYo=.p12"
+        }
+      }
     ],
     "products": [
       {
