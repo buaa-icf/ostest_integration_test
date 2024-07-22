@@ -10,19 +10,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import("//test/xts/tools/build/suite.gni")
 
-group("bundlemanager") {
+ohos_hap_assist_suite("Hits_bm_normal_mdm_hap") {
+  hap_profile = "./src/main/config.json"
+  hap_name = "HitsBmMdmNormalHap"
   testonly = true
-  if (is_standard_system) {
-    deps = [
-      "hitsbmenterprisemdmtest:hitsbmenterprisemdmtest",
-      "hitsinstalloruninstallnormalhap:hitsinstalloruninstallnormalhap",
-      "sceneProject/bmenterprisembm:Hits_bm_mdm",
-      "sceneProject/bmenterprisembmnormal:Hits_bm_mdm_normal",
-      "sceneProject/bmenterprisembmnormalenterprise:Hits_bm_mdm_normal_enterprise",
-      "sceneProject/bmmdmnormalhap:Hits_bm_normal_mdm_hap",
-    ]
-  }
+  deps = [
+    ":hjs_demo_js_assets",
+    ":hjs_demo_resources",
+  ]
+  certificate_profile = "./signature/openharmony_sx.p7b"
+  subsystem_name = "bundlemanager"
+  part_name = "bundle_framework"
+}
+ohos_js_assets("hjs_demo_js_assets") {
+  source_dir = "./src/main/js/default"
+}
+ohos_resources("hjs_demo_resources") {
+  sources = [ "./src/main/js/resources" ]
+  hap_profile = "./src/main/config.json"
 }
