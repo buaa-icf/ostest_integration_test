@@ -15,8 +15,13 @@
 
 import demoTest from  './Demo.test'
 import UIAttributeFontInterface001 from  './UIAttributeFontInterfaceTest/UIAttributeFontInterface001.test'
-
+import UIAttributeFontInterfaceSize from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceSize.test'
+import UIAttributeFontInterfaceStyle from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceStyle.test'
+import UIAttributeFontInterfaceWeight from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceWeight.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
+  UIAttributeFontInterfaceSize();
+  UIAttributeFontInterfaceStyle();
+  UIAttributeFontInterfaceWeight();
 }
