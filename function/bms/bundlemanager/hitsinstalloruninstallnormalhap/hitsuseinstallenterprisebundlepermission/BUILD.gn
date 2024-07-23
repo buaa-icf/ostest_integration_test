@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Huawei Device Co., Ltd.
+# Copyright (c) 2024 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,16 +13,11 @@
 
 import("//test/xts/tools/build/suite.gni")
 
-group("bundlemanager") {
+ohos_js_app_suite("hits_mdm_normal_installenterprisebundle") {
+  test_hap = true
   testonly = true
-  if (is_standard_system) {
-    deps = [
-      "hitsbmenterprisemdmtest:hitsbmenterprisemdmtest",
-      "hitsinstalloruninstallnormalhap:hitsinstalloruninstallnormalhap",
-      "sceneProject/bmenterprisembm:Hits_bm_mdm",
-      "sceneProject/bmenterprisembmnormal:Hits_bm_mdm_normal",
-      "sceneProject/bmenterprisembmnormalenterprise:Hits_bm_mdm_normal_enterprise",
-      "sceneProject/bmmdmnormalhap:Hits_bm_normal_mdm_hap",
-    ]
-  }
+  certificate_profile = "./signature/openharmony_sx.p7b"
+  hap_name = "HitsUseInstallEnterPriseBundlePermissionTest"
+  part_name = "bundle_framework"
+  subsystem_name = "bundlemanager"
 }
