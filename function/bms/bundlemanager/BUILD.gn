@@ -18,7 +18,11 @@ group("bundlemanager") {
   if (is_standard_system) {
     deps = [
       "hitsbmenterprisemdmtest:hitsbmenterprisemdmtest",
+      "hitsinstalloruninstallnormalhap:hitsinstalloruninstallnormalhap",
       "sceneProject/bmenterprisembm:Hits_bm_mdm",
+      "sceneProject/bmenterprisembmnormal:Hits_bm_mdm_normal",
+      "sceneProject/bmenterprisembmnormalenterprise:Hits_bm_mdm_normal_enterprise",
+      "sceneProject/bmmdmnormalhap:Hits_bm_normal_mdm_hap",
     ]
   }
 }
