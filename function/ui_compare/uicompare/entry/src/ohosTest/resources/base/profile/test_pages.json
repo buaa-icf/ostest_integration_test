@@ -2,6 +2,28 @@
   "src": [
     "testability/pages/Index",
     "testability/pages/demo",
-    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface001"
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface001",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface009",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface010",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface012",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface013",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface014",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface015",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface016",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface017",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface018",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface019",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface020",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface021",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface022",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface023",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface024",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface025",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface026",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface027",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface028",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface029",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface030",
+    "testability/pages/UIAttributeFontInterface/UIAttributeFontInterface031"
   ]
 }
