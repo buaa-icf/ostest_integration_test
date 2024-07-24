@@ -35,7 +35,7 @@ class Settings {
   windowCreateType: string = "changeWindow";
   private static DEFAULT_WIDTH: number = 720;
   private static DEFAULT_HEIGHT: number = 1280;
-  private static DEFAULT_DPI: number = 290;
+  private static DEFAULT_DPI: number = 240;
   private static DEFAULT_OFFSET_X: number = 0;
   private static DEFAULT_OFFSET_Y: number = 60;
 
