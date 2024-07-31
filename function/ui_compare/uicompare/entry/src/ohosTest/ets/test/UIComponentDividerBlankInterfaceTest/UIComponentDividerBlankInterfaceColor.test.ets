@@ -42,13 +42,13 @@ export default function UIComponentDividerBlankInterfaceColor() {
      * @tc.name    SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0090
      * @tc.desc    don't set the color of blank
      */
-    it('SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090 start.`);
+    it('SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0090', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0090 start.`);
       Settings.createWindow("testability/pages/UIComponentDividerBlankInterface/UIComponentDividerBlankInterface009")
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
-      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090 finish.`);
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0090 finish.`);
       done()
     })
 

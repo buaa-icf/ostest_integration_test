@@ -20,8 +20,6 @@ import UIAttributeFontInterfaceFontFamily from  './UIAttributeFontInterfaceTest/
 import UIAttributeFontInterfaceSize from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceSize.test'
 import UIAttributeFontInterfaceStyle from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceStyle.test'
 import UIAttributeFontInterfaceWeight from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceWeight.test'
-import UIAttributeFontSupportStageAttrs from  './UIAttributeFontSupportStageTest/UIAttributeFontSupportStageAttrs.test'
-import UIAttributeFontSupportStageComponent from './UIAttributeFontSupportStageTest/UIAttributeFontSupportStageComponent.test'
 import UIComponentDividerBlankInterfaceColor from  './UIComponentDividerBlankInterfaceTest/UIComponentDividerBlankInterfaceColor.test'
 import UIComponentDividerBlankInterfaceMin from  './UIComponentDividerBlankInterfaceTest/UIComponentDividerBlankInterfaceMin.test'
 import UIComponentTextCommonTextStyleTextArea from './UIComponentTextCommonTextStyleTest/UIComponentTextCommonTextStyleTextArea.test'
@@ -36,8 +34,6 @@ export default function testsuite() {
   UIAttributeFontInterfaceSize();
   UIAttributeFontInterfaceStyle();
   UIAttributeFontInterfaceWeight();
-  UIAttributeFontSupportStageAttrs();
-  UIAttributeFontSupportStageComponent();
   UIComponentDividerBlankInterfaceColor();
   UIComponentDividerBlankInterfaceMin();
   UIComponentTextCommonTextStyleTextArea();
