@@ -15,15 +15,33 @@
 
 import demoTest from  './Demo.test'
 import UIAttributeFontInterface001 from  './UIAttributeFontInterfaceTest/UIAttributeFontInterface001.test'
+import UIAttributeFontInterfaceColor from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceColor.test'
+import UIAttributeFontInterfaceFontFamily from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceFontFamily.test'
 import UIAttributeFontInterfaceSize from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceSize.test'
 import UIAttributeFontInterfaceStyle from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceStyle.test'
 import UIAttributeFontInterfaceWeight from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceWeight.test'
+import UIAttributeFontSupportStageAttrs from  './UIAttributeFontSupportStageTest/UIAttributeFontSupportStageAttrs.test'
+import UIAttributeFontSupportStageComponent from './UIAttributeFontSupportStageTest/UIAttributeFontSupportStageComponent.test'
+import UIComponentDividerBlankInterfaceColor from  './UIComponentDividerBlankInterfaceTest/UIComponentDividerBlankInterfaceColor.test'
+import UIComponentDividerBlankInterfaceMin from  './UIComponentDividerBlankInterfaceTest/UIComponentDividerBlankInterfaceMin.test'
+import UIComponentTextCommonTextStyleTextArea from './UIComponentTextCommonTextStyleTest/UIComponentTextCommonTextStyleTextArea.test'
+import UIComponentTextCommonTextStyleText from './UIComponentTextCommonTextStyleTest/UIComponentTextCommonTextStyleText.test'
+import UIComponentTextCommonTextStyleSpan from './UIComponentTextCommonTextStyleTest/UIComponentTextCommonTextStyleSpan.test'
 import UIComponentLayoutColumnInterface from './UIComponentLayoutColumnInterfaceTest/UIComponentLayoutColumnInterface.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
+  UIAttributeFontInterfaceColor();
+  UIAttributeFontInterfaceFontFamily();
   UIAttributeFontInterfaceSize();
   UIAttributeFontInterfaceStyle();
   UIAttributeFontInterfaceWeight();
+  UIAttributeFontSupportStageAttrs();
+  UIAttributeFontSupportStageComponent();
+  UIComponentDividerBlankInterfaceColor();
+  UIComponentDividerBlankInterfaceMin();
+  UIComponentTextCommonTextStyleTextArea();
+  UIComponentTextCommonTextStyleText();
+  UIComponentTextCommonTextStyleSpan();
   UIComponentLayoutColumnInterface();
 }
