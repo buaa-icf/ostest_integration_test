@@ -36,6 +36,7 @@ export default function UIAttributeFontInterfaceSize() {
       await Utils.sleep(1000);
       done()
     })
+
     /*
      * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0090
      * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0090
@@ -63,6 +64,21 @@ export default function UIAttributeFontInterfaceSize() {
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0100 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0110
+     * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0110
+     * @tc.desc    set fontSize by resource
+     */
+    it('SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0011', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0011 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface/UIAttributeFontInterface011")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0010 finish.`);
       done()
     })
 
