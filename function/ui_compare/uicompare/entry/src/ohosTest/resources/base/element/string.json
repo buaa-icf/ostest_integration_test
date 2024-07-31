@@ -11,6 +11,22 @@
     {
       "name": "TestAbility_label",
       "value": "test label"
+    },
+    {
+      "name": "Font_size",
+      "value": "5vp"
+    },
+    {
+      "name": "Font_pristina",
+      "value": "pristina"
+    },
+    {
+      "name": "color_yellow",
+      "value": "#FFDDD52F"
+    },
+    {
+      "name": "size_30",
+      "value": "30vp"
     }
   ]
 }
