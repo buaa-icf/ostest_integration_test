@@ -7,6 +7,10 @@
     {
       "name": "Pink",
       "value": "#ffc0cb"
+    },
+    {
+      "name": "yellow",
+      "value": "#FFCFA613"
     }
   ]
 }
