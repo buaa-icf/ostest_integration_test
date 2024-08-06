@@ -26,6 +26,11 @@ import UIComponentTextCommonTextStyleTextArea from './UIComponentTextCommonTextS
 import UIComponentTextCommonTextStyleText from './UIComponentTextCommonTextStyleTest/UIComponentTextCommonTextStyleText.test'
 import UIComponentTextCommonTextStyleSpan from './UIComponentTextCommonTextStyleTest/UIComponentTextCommonTextStyleSpan.test'
 import UIComponentLayoutColumnInterface from './UIComponentLayoutColumnInterfaceTest/UIComponentLayoutColumnInterface.test'
+import UIVisibilityInterface001 from './UIAttributePositionVisibilityTest/UIAttributePositionVisibility001.test'
+import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
+import UiComponentTextTextareaInterface from './UiComponentTextTextareaInterfaceTest/UiComponentTextTextareaInterface.test'
+import UIAttributePositionSizeLayoutTest from './UIAttributePositionSizeLayoutTest/UIAttributePositionSizeLayoutTest.test'
+import UIAttributePositionInterfaceTest from './UIAttributePositionInterfaceTest/UIAttributePositionInterfaceTest.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -40,4 +45,9 @@ export default function testsuite() {
   UIComponentTextCommonTextStyleText();
   UIComponentTextCommonTextStyleSpan();
   UIComponentLayoutColumnInterface();
+  UIVisibilityInterface001();
+  UiComponentTextCommonTextstyle();
+  UiComponentTextTextareaInterface();
+  UIAttributePositionSizeLayoutTest();
+  UIAttributePositionInterfaceTest();
 }
