@@ -19,12 +19,15 @@ group("bundlemanager") {
     deps = [
       "hitsbmenterprisemdmtest:hitsbmenterprisemdmtest",
       "hitsbmsdefaultapptest:hits_bms_defaultapp_test",
+      "hitsinstallcrowdtest:HitsInstallCrowdTest",
       "hitsinstalloruninstallnormalhap:hitsinstalloruninstallnormalhap",
       "sceneProject/bmenterprisembm:Hits_bm_mdm",
       "sceneProject/bmenterprisembmnormal:Hits_bm_mdm_normal",
       "sceneProject/bmenterprisembmnormalenterprise:Hits_bm_mdm_normal_enterprise",
       "sceneProject/bmmdmnormalhap:Hits_bm_normal_mdm_hap",
       "sceneProject/bmsdefaultapp:hits_bms_default_app",
+      "sceneProject/bmsinstallcrowd0200:bmsInstallCrowd0200",
+      "sceneProject/bmsinstallcrowd02001:bmsInstallCrowd02001",
     ]
   }
 }
