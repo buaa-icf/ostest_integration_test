@@ -17,12 +17,12 @@
 @Entry
 @Component
 struct UiComponentTextCommonTextstyle023 {
-  @State text: string = `第一行\n第二行\n第三行\n第四行\n第五行`
+  @State text: string = '1aA_ @'
 
   build() {
     Row() {
       Column() {
-        TextInput({ placeholder: 'input your password...' })
+        TextInput({text:this.text, placeholder: 'input your password...' })
           .width('300')
           .height(40)
           .margin(20)

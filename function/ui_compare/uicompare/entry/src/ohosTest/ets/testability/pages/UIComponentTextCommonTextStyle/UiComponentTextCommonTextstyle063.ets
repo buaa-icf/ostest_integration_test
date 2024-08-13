@@ -17,10 +17,12 @@
 @Entry
 @Component
 struct UiComponentTextCommonTextstyle063 {
+  @State text: string = 'AZaz啊@123'
+
   build() {
     Row() {
       Column() {
-        TextInput({ placeholder: 'input your password...' })
+        TextInput({text:this.text,  placeholder: 'input your password...' })
           .inputFilter('[A-Z]', (value: string) => { console.info("testtest" + value) })
           .fontWeight(FontWeight.Normal)
           .width('300')

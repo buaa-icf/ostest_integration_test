@@ -44,9 +44,6 @@ struct UiComponentRowcolumnSidebarcontainerInterface021 {
       icons: {
         hidden: $r('app.media.icon'),
         shown: '2.png',
-        shown: '3.bmp',
-        shown: '4.svg',
-        shown: '5.gif',
       }
     })
     .showSideBar(this.value)

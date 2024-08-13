@@ -17,10 +17,12 @@
 @Entry
 @Component
 struct UiComponentTextCommonTextstyle027 {
+  @State text: string = '012+-*#123'
+
   build() {
     Row() {
       Column() {
-        TextInput({ placeholder: 'input your password...' })
+        TextInput({text:this.text,  placeholder: 'input your password...' })
           .width('300')
           .height(40)
           .margin(20)

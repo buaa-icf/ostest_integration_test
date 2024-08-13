@@ -36,7 +36,7 @@ struct UiComponentRowcolumnSidebarcontainerInterface088 {
       .justifyContent(FlexAlign.SpaceEvenly)
       .backgroundColor('#19000000')
       Column() {
-        Text($r('app.string.SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_INTERFACE_0880')).fontSize(25)
+        Text($r('app.string.size_30')).fontSize(25)
       }
       .margin({ top: 50, left: 20, right: 30 })
     }
@@ -49,7 +49,7 @@ struct UiComponentRowcolumnSidebarcontainerInterface088 {
     .showSideBar(this.value)
     .sideBarWidth(150)
     .divider({
-      strokeWidth: $r("app.string.SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_INTERFACE_0880")
+      strokeWidth: $r("app.string.size_30")
     })
     .key('UiComponentRowcolumnSidebarcontainerInterface088')
     .minSideBarWidth(50)
