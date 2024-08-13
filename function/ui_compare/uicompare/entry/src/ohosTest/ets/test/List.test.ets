@@ -37,6 +37,7 @@ import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolum
 import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
 
+import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -61,4 +62,5 @@ export default function testsuite() {
   UiComponentRowcolumnSidebarcontainerInterface();
   UiComponentTextCommonTextstyle();
   UiComponentTextModifier();
+  UIComponentCreateColor();
 }

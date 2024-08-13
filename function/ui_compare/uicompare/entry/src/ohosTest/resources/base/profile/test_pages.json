@@ -504,5 +504,8 @@
     "testability/pages/UiComponentTextModifier/UiComponentTextModifier094",
     "testability/pages/UiComponentTextModifier/UiComponentTextModifier095",
     "testability/pages/UiComponentTextModifier/UiComponentTextModifier096"
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor005",
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor010",
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor014"
   ]
 }
