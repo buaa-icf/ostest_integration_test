@@ -26,9 +26,6 @@ struct UiTextBrighten059 {
           .format(this.format)
           .fontColor(Color.Black)
           .fontSize(50)
-          .onTimer((utc: number, elapsedTime: number) => {
-            console.info('textTimer notCountDown utc is：' + utc + ', elapsedTime: ' + elapsedTime)
-          })
           .textShadow([{ radius: 0, color: Color.Red, offsetX: -10, offsetY: -10 },
             { radius: 3, color: Color.Blue, offsetX: 10, offsetY: 10 },
             { radius: 8, color: Color.Green, offsetX: -10, offsetY: 10 },
