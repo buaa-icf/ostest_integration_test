@@ -187,8 +187,6 @@ export default function ComponentLayoutCommonPixelTest001() {
      * @tc.name      LAYOUT_COMMON_PIXEL
      * @tc.desc      Add a SwinerItem subcomponent with floating-point width and height values at index=2 position, and check if there are pixel gaps in the layout
      * @tc.level     Level 3
-     * @tc.type
-     * @tc.size
      */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_COMMON_PIXEL_0830', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_COMMON_PIXEL_0830 start.`);
@@ -317,8 +315,6 @@ export default function ComponentLayoutCommonPixelTest001() {
      * @tc.name      LAYOUT_COMMON_PIXEL
      * @tc.desc      Add a FlowItem subcomponent with floating-point width and height values at index=2 position, and check if there are pixel gaps in the layout
      * @tc.level     Level 3
-     * @tc.type
-     * @tc.size
      */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_COMMON_PIXEL_1060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_COMMON_PIXEL_1060 start.`);
