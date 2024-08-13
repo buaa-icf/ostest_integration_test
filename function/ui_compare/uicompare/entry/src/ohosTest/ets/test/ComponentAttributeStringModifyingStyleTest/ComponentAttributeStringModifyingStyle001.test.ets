@@ -59,8 +59,6 @@ export default function ComponentAttributeStringModifyingStyle001() {
      * @tc.name      STRING_MODIFYING_STYLE
      * @tc.desc      Replace the specified range style to obtain the string style
      * @tc.level     Level 3
-     * @tc.type
-     * @tc.size
      */
     it('SUB_ACE_UI_COMPONENT_ATTRIBUTE_STRING_MODIFYING_STYLE_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ATTRIBUTE_STRING_MODIFYING_STYLE_0020 start.`);
