@@ -16,11 +16,10 @@
 @Entry
 @Component
 struct UIComponentCreateColor005 {
-  @State colorcount:number = 0
   @State booltext:boolean = false
-  @State boolred:boolean = false
-  @State boolblue:boolean = false
-  @State boolgreen:boolean = false
+  @State caretcolorIndex: number = 0;
+  @State caretcolor: Color[] = [Color.Red, Color.Green, Color.Blue]
+  @State caretcolorStr: string[] = ['Red', 'Green', 'Blue']
   controller:TextInputController = new TextInputController()
 
   build() {
@@ -39,22 +38,10 @@ struct UIComponentCreateColor005 {
         .margin(20)
         .id('caretColor')
         .onClick(()=>{
-          this.colorcount=this.colorcount+1
-          if(this.colorcount % 3===1){
-            this.boolred=true
-            this.boolgreen=false
-            this.boolblue=false
-          }
-          else if(this.colorcount % 3===2){
-            this.boolgreen=true
-            this.boolred=false
-            this.boolblue=false
-          }
-          else if(this.colorcount % 3===0){
-            this.boolblue=true
-            this.boolred=false
-            this.boolgreen=false
-          }
+            this.caretcolorIndex++
+            if (this.caretcolorIndex > (this.caretcolorStr.length - 1)) {
+              this.caretcolorIndex = 0
+            }
         })
       //setTextSelection
       if(this.booltext){
@@ -70,39 +57,15 @@ struct UIComponentCreateColor005 {
           })
           .id('rgb')
       }
-      //caretcolor=red
-      if(this.boolred){
-        TextInput({
-          text: 'red',
-          controller: this.controller
-        })
-          .caretColor(Color.Red)
-          .width(300)
-          .margin(20)
-          .id('red')
-      }
-      //caretcolor=blue
-      if(this.boolblue){
-        TextInput({
-          text: 'blue',
-          controller: this.controller
-        })
-          .caretColor(Color.Blue)
-          .width(300)
-          .margin(20)
-          .id('blue')
-      }
-      //caretcolor=green
-      if(this.boolgreen){
-        TextInput({
-          text: 'green',
-          controller: this.controller
-        })
-          .caretColor(Color.Green)
-          .width(300)
-          .margin(20)
-          .id('green')
-      }
+      //caretcolor
+      TextInput({
+        text: this.caretcolorStr[this.caretcolorIndex],
+        controller: this.controller
+      })
+        .caretColor(this.caretcolor[this.caretcolorIndex])
+        .width(300)
+        .margin(20)
+        .id('colorstr')
     }
     .width('100%')
     .height('100%')

@@ -19,11 +19,10 @@ import prompt from '@system.prompt';
 @Component
 
 struct UIComponentCreateColor014 {
-  @State colorcount:number = 0
   @State booltext:boolean = false
-  @State boolred:boolean = false
-  @State boolblue:boolean = false
-  @State boolgreen:boolean = false
+  @State caretcolorIndex: number = 0;
+  @State caretcolor: Color[] = [Color.Red, Color.Green, Color.Blue]
+  @State caretcolorStr: string[] = ['Red', 'Green', 'Blue']
   controller:SearchController = new SearchController()
 
   build() {
@@ -43,19 +42,9 @@ struct UIComponentCreateColor014 {
         .backgroundColor(Color.Orange)
         .id('caretColor')
         .onClick(()=>{
-          this.colorcount=this.colorcount+1
-          if(this.colorcount % 3===1){
-            this.boolred=true
-            this.boolgreen=false
-            this.boolblue=false
-          } else if(this.colorcount % 3===2){
-            this.boolgreen=true
-            this.boolred=false
-            this.boolblue=false
-          } else if(this.colorcount % 3===0){
-            this.boolblue=true
-            this.boolred=false
-            this.boolgreen=false
+          this.caretcolorIndex++
+          if (this.caretcolorIndex > (this.caretcolorStr.length - 1)) {
+            this.caretcolorIndex = 0
           }
         })
       //select(0,5)
@@ -72,36 +61,14 @@ struct UIComponentCreateColor014 {
           })
           .id('rgb')
       }
-      //caretcolor=red
-      if(this.boolred){
-        Search({
-          controller: this.controller
-        })
-          .caretStyle({color:Color.Red})
-          .width(300)
-          .margin(20)
-          .id('red')
-      }
-      //caretcolor=blue
-      if(this.boolblue){
-        Search({
-          controller: this.controller
-        })
-          .caretStyle({color:Color.Blue})
-          .width(300)
-          .margin(20)
-          .id('blue')
-      }
-      //caretcolor=green
-      if(this.boolgreen){
-        Search({
-          controller: this.controller
-        })
-          .caretStyle({color:Color.Green})
-          .width(300)
-          .margin(20)
-          .id('green')
-      }
+      //caretcolor
+      Search({
+        controller: this.controller
+      })
+        .caretStyle({color:this.caretcolor[this.caretcolorIndex]})
+        .width(300)
+        .margin(20)
+        .id('colorstr')
     }
     .width('100%')
     .height('100%')
