@@ -31,6 +31,12 @@ import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest
 import UiComponentTextTextareaInterface from './UiComponentTextTextareaInterfaceTest/UiComponentTextTextareaInterface.test'
 import UIAttributePositionSizeLayoutTest from './UIAttributePositionSizeLayoutTest/UIAttributePositionSizeLayoutTest.test'
 import UIAttributePositionInterfaceTest from './UIAttributePositionInterfaceTest/UIAttributePositionInterfaceTest.test'
+import UiComponentDividerStyle from './UiComponentDividerStyleTest/UiComponentDividerStyle.test'
+import UiComponentLayoutCommonPixel from './UiComponentLayoutCommonPixelTest/UiComponentLayoutCommonPixel.test'
+import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolumnSidebarcontainerInterfaceTest/UiComponentRowcolumnSidebarcontainerInterface.test'
+import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
+import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
+
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -50,4 +56,9 @@ export default function testsuite() {
   UiComponentTextTextareaInterface();
   UIAttributePositionSizeLayoutTest();
   UIAttributePositionInterfaceTest();
+  UiComponentDividerStyle();
+  UiComponentLayoutCommonPixel();
+  UiComponentRowcolumnSidebarcontainerInterface();
+  UiComponentTextCommonTextstyle();
+  UiComponentTextModifier();
 }
