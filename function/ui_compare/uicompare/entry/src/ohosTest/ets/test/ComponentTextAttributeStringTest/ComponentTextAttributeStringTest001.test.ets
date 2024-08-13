@@ -155,8 +155,6 @@ export default function ComponentTextAttributeStringTest001() {
      * @tc.name      STRING
      * @tc.desc      Attribute string setting font width, fontWeight (1000)
      * @tc.level     Level 3
-     * @tc.type
-     * @tc.size
      */
     it('SUB_ACE_UI_COMPONENT_TEXT_ATTRIBUTE_STRING_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_ATTRIBUTE_STRING_0080 start.`);
