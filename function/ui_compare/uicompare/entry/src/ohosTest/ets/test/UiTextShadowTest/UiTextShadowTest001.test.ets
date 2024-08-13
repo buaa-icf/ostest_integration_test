@@ -59,8 +59,6 @@ export default function UiTextShadowTest001() {
      * @tc.name      TEXT-SHADOW
      * @tc.desc      Text component, set multi-layer shadows
      * @tc.level     Level 3
-     * @tc.type
-     * @tc.size
      */
     it('SUB_ACE_UI_TEXTSHADOW_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_TEXTSHADOW_0020 start.`);
