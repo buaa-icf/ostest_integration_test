@@ -31,6 +31,7 @@ import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest
 import UiComponentTextTextareaInterface from './UiComponentTextTextareaInterfaceTest/UiComponentTextTextareaInterface.test'
 import UIAttributePositionSizeLayoutTest from './UIAttributePositionSizeLayoutTest/UIAttributePositionSizeLayoutTest.test'
 import UIAttributePositionInterfaceTest from './UIAttributePositionInterfaceTest/UIAttributePositionInterfaceTest.test'
+import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -50,4 +51,5 @@ export default function testsuite() {
   UiComponentTextTextareaInterface();
   UIAttributePositionSizeLayoutTest();
   UIAttributePositionInterfaceTest();
+  UIComponentCreateColor();
 }

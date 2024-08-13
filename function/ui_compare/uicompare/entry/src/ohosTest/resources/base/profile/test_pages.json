@@ -251,6 +251,9 @@
     "testability/pages/UIAttributePositionInterface/UIAttributePositionInterface003",
     "testability/pages/UIAttributePositionInterface/UIAttributePositionInterface004",
     "testability/pages/UIAttributePositionInterface/UIAttributePositionInterface005",
-    "testability/pages/UIAttributePositionInterface/UIAttributePositionInterface006"
+    "testability/pages/UIAttributePositionInterface/UIAttributePositionInterface006",
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor005",
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor010",
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor014"
   ]
 }
