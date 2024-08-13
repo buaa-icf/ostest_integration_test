@@ -139,8 +139,6 @@ export default function ComponentAttributeStringModifyingText001() {
      * @tc.name      STRING_MODIFYING_STYLE_TEXT
      * @tc.desc      Insert a string to obtain its length and content
      * @tc.level     Level 3
-     * @tc.type
-     * @tc.size
      */
     it('SUB_ACE_UI_COMPONENT_ATTRIBUTE_STRING_MODIFYING_TEXT_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ATTRIBUTE_STRING_MODIFYING_TEXT_0130 start.`);
