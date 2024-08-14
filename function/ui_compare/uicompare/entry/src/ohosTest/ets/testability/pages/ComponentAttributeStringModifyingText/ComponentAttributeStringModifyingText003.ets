@@ -18,6 +18,8 @@
 @Component
 struct ComponentAttributeStringModifyingText003 {
   @State message: string = '这是一段测试文字'
+  @State messageContent: string = "mutableStyledString1 content "
+  @State messageLength: string = "mutableStyledString1 length "
   @State TestSwitch: number = 450;
   mutableStyledString1: MutableStyledString = new MutableStyledString('这是一段测试文字',
     [{start:0, length:8, styledKey:StyledStringKey.FONT,  styledValue: new TextStyle({fontColor:Color.Blue})}]);
@@ -30,16 +32,21 @@ struct ComponentAttributeStringModifyingText003 {
         Text(undefined, { controller: this.controller1 })
           .onAreaChange(() => {
             if(this.TestSwitch == 450){
-              this.controller1.setStyledString(this.mutableStyledString1)
               this.mutableStyledString1.replaceString(0, 2, '已经替换')
+              this.controller1.setStyledString(this.mutableStyledString1)
               console.info("mutableStyledString1 content:", this.mutableStyledString1.getString());
               console.info("mutableStyledString1 length:", this.mutableStyledString1.length);
+              this.messageContent += this.mutableStyledString1.getString()
+              this.messageLength += this.mutableStyledString1.length
               this.TestSwitch = 500
             }
           })
           .fontSize(20)
           .fontColor(Color.Blue)
           .margin({ top: 20 })
+
+        Text(this.messageContent).fontSize(10)
+        Text(this.messageLength).fontSize(10)
       }
       .width('100%')
       .height('100%')
