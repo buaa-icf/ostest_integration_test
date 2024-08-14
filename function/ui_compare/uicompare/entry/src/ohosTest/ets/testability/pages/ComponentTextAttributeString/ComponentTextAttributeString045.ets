@@ -18,6 +18,7 @@ import { LengthMetrics, LengthUnit } from '@ohos.arkui.node';
 @Component
 struct ComponentTextAttributeString045 {
   @State message: string = '这是一段测试文字'
+  @State TestSwitch: number = 450;
   fontStyleAttr1: StyledStringValue = new TextStyle({ fontSize: new LengthMetrics(20), fontStyle: FontStyle.Italic, fontWeight:FontWeight.Bolder, fontColor: Color.Red ,});
   mutableStyledString1: MutableStyledString = new MutableStyledString("这是属性字符串文本",
     [{start:2, length:7,styledKey:StyledStringKey.FONT,styledValue: this.fontStyleAttr1},
@@ -36,8 +37,10 @@ struct ComponentTextAttributeString045 {
         Text(undefined, { controller: this.controller1 })
           .key('mutableStyledString8')
           .onAreaChange(() => {
-            this.controller1.setStyledString(this.mutableStyledString1)
-            console.info("mutableStyledString1 length" + this.mutableStyledString1.getStyles(0, this.mutableStyledString1.length))
+            if(this.TestSwitch == 450){
+              this.controller1.setStyledString(this.mutableStyledString1)
+              this.TestSwitch = 500
+            }
           })
           .fontSize(20)
           .margin({ top: 20 })
