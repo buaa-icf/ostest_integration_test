@@ -39,6 +39,7 @@ import ComponentTextAttributeStringConstructs001 from './ComponentTextAttributeS
 import ComponentLayoutCommonPixelTest001 from './ComponentLayoutCommonPixelTest/ComponentLayoutCommonPixelTest001.test'
 import UiTextBrightenTest001 from './UiTextBrightenTest/UiTextBrightenTest001.test'
 import UiTextShadowTest001 from './UiTextShadowTest/UiTextShadowTest001.test'
+import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -66,4 +67,5 @@ export default function testsuite() {
   ComponentLayoutCommonPixelTest001();
   UiTextBrightenTest001();
   UiTextShadowTest001();
+  UIComponentCreateColor();
 }

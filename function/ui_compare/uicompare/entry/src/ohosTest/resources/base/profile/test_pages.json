@@ -517,5 +517,8 @@
     "testability/pages/UiTextShadow/UiTextShadow020",
     "testability/pages/UiTextShadow/UiTextShadow021",
     "testability/pages/UiTextShadow/UiTextShadow022"
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor005",
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor010",
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor014"
   ]
 }
