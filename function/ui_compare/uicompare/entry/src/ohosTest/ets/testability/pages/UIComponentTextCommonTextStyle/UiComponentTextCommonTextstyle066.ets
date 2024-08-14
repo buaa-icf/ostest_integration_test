@@ -29,6 +29,7 @@ struct UiComponentTextCommonTextstyle066 {
           .height(40)
           .margin(20)
           .maxLength(10)
+          .id('Button')
       }
       .width('100%')
       .height('100%')

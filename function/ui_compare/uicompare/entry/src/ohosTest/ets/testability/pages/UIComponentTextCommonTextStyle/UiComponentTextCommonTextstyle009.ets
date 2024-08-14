@@ -32,6 +32,7 @@ struct UiComponentTextCommonTextstyle009 {
           .barState(BarState.Off)
           .selectionMenuHidden(false)
           .selectedBackgroundColor(0xffffff)
+          .id('Button')
       }
       .width('100%')
       .height('100%')

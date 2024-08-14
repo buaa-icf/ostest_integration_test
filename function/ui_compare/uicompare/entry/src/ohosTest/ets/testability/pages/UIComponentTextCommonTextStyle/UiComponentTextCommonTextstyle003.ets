@@ -31,6 +31,7 @@ struct UiComponentTextCommonTextstyle003 {
           .borderRadius(0)
           .style(TextInputStyle.Inline)
           .barState(BarState.On)
+          .id('Button')
       }
       .width('100%')
       .height('100%')

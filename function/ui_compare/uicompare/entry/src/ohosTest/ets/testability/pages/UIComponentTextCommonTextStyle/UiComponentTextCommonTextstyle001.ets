@@ -17,7 +17,7 @@
 @Entry
 @Component
 struct UiComponentTextCommonTextstyle001 {
-  @State text: string = `一\n二\n三\n四\n五`
+  @State text: string = `一\n二\n三\n四\n五\n六`
   controller: TextAreaController = new TextAreaController()
 
   build() {
@@ -30,6 +30,7 @@ struct UiComponentTextCommonTextstyle001 {
           .margin(20)
           .borderRadius(0)
           .style(TextInputStyle.Inline)
+          .id('Button')
       }
       .width('100%')
       .height('100%')

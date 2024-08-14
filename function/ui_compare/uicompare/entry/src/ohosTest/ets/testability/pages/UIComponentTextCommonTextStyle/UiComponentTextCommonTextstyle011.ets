@@ -28,13 +28,13 @@ struct UiComponentTextCommonTextstyle011 {
           .maxLines(5)
           .margin(20)
           .borderRadius(0)
-          .style(TextInputStyle.Inline)
           .barState(BarState.Off)
           .selectionMenuHidden(false)
           .caretStyle({
             width: '10px',
             color: '#9E2927'
           })
+          .id('Button')
       }
       .width('100%')
       .height('100%')

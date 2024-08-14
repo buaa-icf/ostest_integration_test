@@ -32,6 +32,7 @@ struct UiComponentTextCommonTextstyle005 {
           .style(TextInputStyle.Inline)
           .barState(BarState.Off)
           .selectionMenuHidden(true)
+          .id('Button')
       }
       .width('100%')
       .height('100%')

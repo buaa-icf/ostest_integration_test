@@ -39,6 +39,7 @@ struct UiComponentTextCommonTextstyle007 {
           .onClick(()=>{
             this.num =3
           })
+          .id('Button')
 
         Text(this.num.toString()).fontSize(20)
 

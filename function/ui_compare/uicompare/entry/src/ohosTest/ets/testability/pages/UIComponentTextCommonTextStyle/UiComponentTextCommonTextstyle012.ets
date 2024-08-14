@@ -28,7 +28,7 @@ struct UiComponentTextCommonTextstyle012 {
           .maxLines(5)
           .margin(20)
           .borderRadius(0)
-          .style(TextInputStyle.Inline)
+          .id('Button')
           .barState(BarState.Off)
           .selectionMenuHidden(false)
           .caretStyle({

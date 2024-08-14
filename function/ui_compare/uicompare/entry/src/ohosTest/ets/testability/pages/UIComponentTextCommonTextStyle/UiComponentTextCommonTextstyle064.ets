@@ -29,6 +29,8 @@ struct UiComponentTextCommonTextstyle064 {
           .height(40)
           .margin(20)
           .maxLength(10)
+          .style(TextInputStyle.Inline)
+          .id('Button')
       }
       .width('100%')
       .height('100%')

@@ -35,13 +35,17 @@ export default function UiComponentTextCommonTextstyle() {
       done()
     })
     /*
-    * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0010
-    * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0010
-    * @tc.desc      Set the maxLines value to 5
-   */
+      * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0010
+      * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0010
+      * @tc.desc      Set the maxLines value to 5
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0010 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle001")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -57,6 +61,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0020 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle002")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -72,6 +80,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0030 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle003")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -87,6 +99,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0040 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle004")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -102,6 +118,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0050 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle005")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -117,6 +137,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0060 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle006")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -132,6 +156,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0070 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle007")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -147,6 +175,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0080 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle008")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -162,6 +194,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0090 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle009")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -177,6 +213,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0100 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle010")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -192,6 +232,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0110 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle011")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -207,6 +251,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0120 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle012")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -222,6 +270,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0130 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle013")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -552,6 +604,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0420 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle042")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -567,6 +623,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0430 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle043")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -582,6 +642,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0440', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0440 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle044")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -597,6 +661,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0450', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0450 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle045")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -882,6 +950,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0640', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0640 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle064")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.longClick(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -897,6 +969,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0650', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0650 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle065")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.longClick(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -912,6 +988,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0660', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0660 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle066")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.longClick(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -927,6 +1007,10 @@ export default function UiComponentTextCommonTextstyle() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0670', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0670 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonTextstyle/UiComponentTextCommonTextstyle067")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.longClick(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1008,7 +1092,6 @@ export default function UiComponentTextCommonTextstyle() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0720 finish.`);
       done()
     })
-
     /*
            * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0910
            * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0910
