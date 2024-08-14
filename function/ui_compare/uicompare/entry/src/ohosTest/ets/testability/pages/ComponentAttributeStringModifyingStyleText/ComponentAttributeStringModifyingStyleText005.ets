@@ -18,6 +18,9 @@
 @Component
 struct ComponentAttributeStringModifyingStyleText005 {
   @State message: string = '这是一段测试文字'
+  @State messageContent: string = "mutableStyledString1 content "
+  @State messageLength: string = "mutableStyledString1 length "
+  @State messageStyledStringKey: string = "mutableStyledString1 StyledStringKey "
   @State TestSwitch: number = 450;
   mutableStyledString1: MutableStyledString = new MutableStyledString('这是一段测试文字',
     [{start:0, length:8, styledKey:StyledStringKey.FONT, styledValue: new TextStyle({fontColor:Color.Blue})}]);
@@ -34,15 +37,25 @@ struct ComponentAttributeStringModifyingStyleText005 {
               this.controller1.setStyledString(this.mutableStyledString1)
               this.mutableStyledString1.appendStyledString(new StyledString('文本输入',
                 [{styledKey:StyledStringKey.FONT, styledValue: new TextStyle({fontColor:Color.Green})}]))
-              console.info("mutableStyledString1 content", this.mutableStyledString1.getString())
-              console.info("mutableStyledString1 length", this.mutableStyledString1.length)
-              console.info("mutableStyledString1 StyledStringKey", this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT))
+              let attachment1 = this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[0].styledValue as TextStyle
+              let attachment2 = this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[1].styledValue as TextStyle
+              this.messageContent += this.mutableStyledString1.getString()
+              this.messageLength += this.mutableStyledString1.length
+              this.messageStyledStringKey = this.messageStyledStringKey + " start " + this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[0].start + "\n" +
+                "length " + this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[0].length  + "\n" + "styledKey " + this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[0].styledKey + "\n" +
+                "styledValue " + attachment1.fontColor + "\n" + this.messageStyledStringKey + " start " + this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[1].start + "\n" +
+                "length " + this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[1].length + "\n" + "styledKey " + this.mutableStyledString1.getStyles(0,12,StyledStringKey.FONT)[1].styledKey + "\n" +
+                "styledValue " + attachment2.fontColor
               this.TestSwitch = 500
             }
           })
           .fontSize(20)
           .fontColor(Color.Blue)
           .margin({ top: 20 })
+
+        Text(this.messageContent).fontSize(10)
+        Text(this.messageLength).fontSize(10)
+        Text(this.messageStyledStringKey).fontSize(10)
       }
       .width('100%')
       .height('100%')
