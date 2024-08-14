@@ -19,6 +19,7 @@
 struct ComponentAttributeStringModifyingStyleText004 {
   @State message: string = '这是一段测试文字'
   @State TestSwitch: number = 450;
+  @State messageContent: string = "mutableStyledString1 content "
   mutableStyledString1: MutableStyledString = new MutableStyledString('这是一段测试文字',
     [{start:0, length:8, styledKey:StyledStringKey.FONT, styledValue: new TextStyle({fontColor:Color.Blue})}]);
 
@@ -34,6 +35,7 @@ struct ComponentAttributeStringModifyingStyleText004 {
               this.mutableStyledString1.appendStyledString(new StyledString('文本输入',
                 [{styledKey:StyledStringKey.FONT, styledValue: new TextStyle({fontColor:Color.Green})}]))
               console.info("mutableStyledString1 content", this.mutableStyledString1.getString())
+              this.messageContent += this.mutableStyledString1.getString()
               this.controller1.setStyledString(this.mutableStyledString1)
               this.TestSwitch = 500
             }
@@ -41,6 +43,8 @@ struct ComponentAttributeStringModifyingStyleText004 {
           .fontSize(20)
           .fontColor(Color.Blue)
           .margin({ top: 20 })
+
+        Text(this.messageContent).fontSize(10)
       }
       .width('100%')
       .height('100%')
