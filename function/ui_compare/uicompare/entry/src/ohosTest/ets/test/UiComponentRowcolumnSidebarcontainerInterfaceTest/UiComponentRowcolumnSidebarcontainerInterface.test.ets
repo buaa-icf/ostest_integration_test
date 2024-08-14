@@ -103,7 +103,6 @@ export default function UiComponentRowcolumnSidebarcontainerInterface() {
     */
     it('SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_INTERFACE_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_INTERFACE_0220 start.`);
-      // 调用Settings的createWindow方法创建一个新窗口，加载指定的页面
       Settings.createWindow("testability/pages/UiComponentRowcolumnSidebarcontainerInterface/UiComponentRowcolumnSidebarcontainerInterface022")
       await Utils.sleep(1000)
       windowSnap.snapShot()

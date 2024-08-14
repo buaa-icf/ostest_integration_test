@@ -297,7 +297,6 @@ export default function UiComponentDividerStyle() {
       let strJson = getInspectorByKey('UiComponentDividerStyle017');
       Logger.info('TEST', "JSON.parse(strJson) is: " + JSON.stringify(JSON.parse(strJson)));
       Logger.info('TEST', "JSON.parse(strJson).$attrs.strokeWidth is: " + JSON.parse(strJson).$attrs.strokeWidth);
-      // expect(JSON.parse(strJson).$attrs.strokeWidth).assertEqual('1.00px');
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_STYLE_0170 finish.`);
       done()
     })
@@ -316,7 +315,6 @@ export default function UiComponentDividerStyle() {
       let strJson = getInspectorByKey('UiComponentDividerStyle018');
       Logger.info('TEST', "JSON.parse(strJson) is: " + JSON.stringify(JSON.parse(strJson)));
       Logger.info('TEST', "JSON.parse(strJson).$attrs.strokeWidth is: " + JSON.parse(strJson).$attrs.strokeWidth);
-      // expect(JSON.parse(strJson).$attrs.strokeWidth).assertEqual('1.00px');
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_STYLE_0180 finish.`);
       done()
     })
@@ -335,7 +333,6 @@ export default function UiComponentDividerStyle() {
       let strJson = getInspectorByKey('UiComponentDividerStyle019');
       Logger.info('TEST', "JSON.parse(strJson) is: " + JSON.stringify(JSON.parse(strJson)));
       Logger.info('TEST', "JSON.parse(strJson).$attrs.strokeWidth is: " + JSON.parse(strJson).$attrs.strokeWidth);
-      // expect(JSON.parse(strJson).$attrs.strokeWidth).assertEqual('1.00px');
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_STYLE_0190 finish.`);
       done()
     })
@@ -449,7 +446,6 @@ export default function UiComponentDividerStyle() {
       let strJson = getInspectorByKey('UiComponentDividerStyle025');
       Logger.info('TEST', "JSON.parse(strJson) is: " + JSON.stringify(JSON.parse(strJson)));
       Logger.info('TEST', "JSON.parse(strJson).$attrs.strokeWidth is: " + JSON.parse(strJson).$attrs.strokeWidth);
-      // expect(JSON.parse(strJson).$attrs.strokeWidth).assertEqual(5);
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_STYLE_0250 finish.`);
       done()
     })
@@ -468,7 +464,6 @@ export default function UiComponentDividerStyle() {
       let strJson = getInspectorByKey('UiComponentDividerStyle026');
       Logger.info('TEST', "JSON.parse(strJson) is: " + JSON.stringify(JSON.parse(strJson)));
       Logger.info('TEST', "JSON.parse(strJson).$attrs.strokeWidth is: " + JSON.parse(strJson).$attrs.strokeWidth);
-      // expect(JSON.parse(strJson).$attrs.strokeWidth).assertEqual(5);
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_STYLE_0260 finish.`);
       done()
     })
