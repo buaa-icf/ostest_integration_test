@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@Entry
+@Component
+struct ComponentTextAttributeStringConstructs028 {
+  @State text: string =
+    'The text component is used to display a piece of textual information.Support universal attributes and universal text attributes.'
+  @State fontStyleIndex: number = 0;
+  @State fontStyleMode: FontStyle[] = [FontStyle.Italic, FontStyle.Normal]
+  @State fontStyleModeStr: string[] = ['Italic', 'Normal']
+
+  @State fontWeightIndex: number = 0;
+  @State fontWeightMode: FontWeight[] = [FontWeight.Lighter, FontWeight.Normal, FontWeight.Bolder]
+  @State fontWeightModeStr: string[] = ['Lighter', 'Normal', 'Bolder']
+
+  @State fontSizeIndex: number = 0;
+  @State fontSizeMode: number[] = [10, 20, 30]
+  @State fontSizeModeStr: string[] = ['10', '20', '30']
+
+  controller1: TextController = new TextController();
+
+  build() {
+    Column({ space: 10 }) {
+      Text(this.text)
+        .width(300)
+        .margin({ left: 20, top: 20 })
+        .fontSize(this.fontSizeMode[this.fontSizeIndex])
+        .border({ width: 1 })
+        .lineHeight(20)
+        .maxLines(2)
+        .fontWeight(this.fontWeightMode[this.fontWeightIndex])
+        .fontStyle(this.fontStyleMode[this.fontStyleIndex])
+
+      Row() {
+        Button('更改fontSize：' + this.fontSizeMode[this.fontSizeIndex]).onClick(() => {
+          this.fontSizeIndex++
+          if (this.fontSizeIndex > (this.fontSizeModeStr.length - 1)) {
+            this.fontSizeIndex = 0
+          }
+        })
+      }
+
+      Row() {
+        Button('更改fontWeight：' + this.fontWeightModeStr[this.fontWeightIndex]).onClick(() => {
+          this.fontWeightIndex++
+          if (this.fontWeightIndex > (this.fontWeightModeStr.length - 1)) {
+            this.fontWeightIndex = 0
+          }
+        })
+      }
+
+      Row() {
+        Button('更改fontStyle：' + this.fontStyleModeStr[this.fontStyleIndex]).onClick(() => {
+          this.fontStyleIndex++
+          if (this.fontStyleIndex > (this.fontStyleModeStr.length - 1)) {
+            this.fontStyleIndex = 0
+          }
+        })
+      }
+    }
+  }
+}

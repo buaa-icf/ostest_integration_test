@@ -31,6 +31,14 @@ import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest
 import UiComponentTextTextareaInterface from './UiComponentTextTextareaInterfaceTest/UiComponentTextTextareaInterface.test'
 import UIAttributePositionSizeLayoutTest from './UIAttributePositionSizeLayoutTest/UIAttributePositionSizeLayoutTest.test'
 import UIAttributePositionInterfaceTest from './UIAttributePositionInterfaceTest/UIAttributePositionInterfaceTest.test'
+import ComponentAttributeStringModifyingStyle001 from './ComponentAttributeStringModifyingStyleTest/ComponentAttributeStringModifyingStyle001.test'
+import ComponentAttributeStringModifyingStyleText001 from './ComponentAttributeStringModifyingStyleTextTest/ComponentAttributeStringModifyingStyleText001.test'
+import ComponentAttributeStringModifyingText001 from './ComponentAttributeStringModifyingTextTest/ComponentAttributeStringModifyingText001.test'
+import ComponentTextAttributeString001 from './ComponentTextAttributeStringTest/ComponentTextAttributeStringTest001.test'
+import ComponentTextAttributeStringConstructs001 from './ComponentTextAttributeStringConstructsTest/ComponentTextAttributeStringConstructsTest001.test'
+import ComponentLayoutCommonPixelTest001 from './ComponentLayoutCommonPixelTest/ComponentLayoutCommonPixelTest001.test'
+import UiTextBrightenTest001 from './UiTextBrightenTest/UiTextBrightenTest001.test'
+import UiTextShadowTest001 from './UiTextShadowTest/UiTextShadowTest001.test'
 import UiComponentDividerStyle from './UiComponentDividerStyleTest/UiComponentDividerStyle.test'
 import UiComponentLayoutCommonPixel from './UiComponentLayoutCommonPixelTest/UiComponentLayoutCommonPixel.test'
 import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolumnSidebarcontainerInterfaceTest/UiComponentRowcolumnSidebarcontainerInterface.test'
@@ -57,6 +65,14 @@ export default function testsuite() {
   UiComponentTextTextareaInterface();
   UIAttributePositionSizeLayoutTest();
   UIAttributePositionInterfaceTest();
+  ComponentAttributeStringModifyingStyle001();
+  ComponentAttributeStringModifyingStyleText001();
+  ComponentAttributeStringModifyingText001();
+  ComponentTextAttributeString001();
+  ComponentTextAttributeStringConstructs001();
+  ComponentLayoutCommonPixelTest001();
+  UiTextBrightenTest001();
+  UiTextShadowTest001();
   UiComponentDividerStyle();
   UiComponentLayoutCommonPixel();
   UiComponentRowcolumnSidebarcontainerInterface();
