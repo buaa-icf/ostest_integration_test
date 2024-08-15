@@ -11,6 +11,10 @@
     {
       "name": "yellow",
       "value": "#FFCFA613"
+    },
+    {
+      "name": "blue",
+      "value": "#0000ff"
     }
   ]
 }

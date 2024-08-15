@@ -27,6 +27,10 @@
     {
       "name": "size_30",
       "value": "30vp"
+    },
+    {
+      "name": "boardSize_10",
+      "value": "0vp"
     }
   ]
 }

@@ -39,6 +39,12 @@ import ComponentTextAttributeStringConstructs001 from './ComponentTextAttributeS
 import ComponentLayoutCommonPixelTest001 from './ComponentLayoutCommonPixelTest/ComponentLayoutCommonPixelTest001.test'
 import UiTextBrightenTest001 from './UiTextBrightenTest/UiTextBrightenTest001.test'
 import UiTextShadowTest001 from './UiTextShadowTest/UiTextShadowTest001.test'
+import UiComponentDividerStyle from './UiComponentDividerStyleTest/UiComponentDividerStyle.test'
+import UiComponentLayoutCommonPixel from './UiComponentLayoutCommonPixelTest/UiComponentLayoutCommonPixel.test'
+import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolumnSidebarcontainerInterfaceTest/UiComponentRowcolumnSidebarcontainerInterface.test'
+import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
+import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
+
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 export default function testsuite() {
   demoTest();
@@ -67,5 +73,10 @@ export default function testsuite() {
   ComponentLayoutCommonPixelTest001();
   UiTextBrightenTest001();
   UiTextShadowTest001();
+  UiComponentDividerStyle();
+  UiComponentLayoutCommonPixel();
+  UiComponentRowcolumnSidebarcontainerInterface();
+  UiComponentTextCommonTextstyle();
+  UiComponentTextModifier();
   UIComponentCreateColor();
 }
