@@ -46,6 +46,8 @@ import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
 import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
+import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
+
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -80,4 +82,5 @@ export default function testsuite() {
   UiComponentTextModifier();
   UIComponentCreateColor();
   UIComponentTextCapi();
+  UIComponentTextTextinputInterface();
 }
