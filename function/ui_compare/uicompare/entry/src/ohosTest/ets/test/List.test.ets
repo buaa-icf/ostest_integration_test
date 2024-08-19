@@ -44,7 +44,7 @@ import UiComponentLayoutCommonPixel from './UiComponentLayoutCommonPixelTest/UiC
 import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolumnSidebarcontainerInterfaceTest/UiComponentRowcolumnSidebarcontainerInterface.test'
 import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
-
+import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 export default function testsuite() {
   demoTest();
@@ -79,4 +79,5 @@ export default function testsuite() {
   UiComponentTextCommonTextstyle();
   UiComponentTextModifier();
   UIComponentCreateColor();
+  UIComponentTextCapi();
 }
