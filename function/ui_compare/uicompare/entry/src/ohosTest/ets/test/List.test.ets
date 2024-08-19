@@ -47,7 +47,7 @@ import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTe
 import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
-
+import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolymorphicTest/UIComponentTextTextinputPolymorphic.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -83,4 +83,5 @@ export default function testsuite() {
   UIComponentCreateColor();
   UIComponentTextCapi();
   UIComponentTextTextinputInterface();
+  UIComponentTextTextinputPolymorphic();
 }

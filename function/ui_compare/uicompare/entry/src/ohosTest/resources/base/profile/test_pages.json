@@ -854,6 +854,14 @@
     "testability/pages/UIComponentTextTextinputInterface/UIComponentTextTextinputInterface061",
     "testability/pages/UIComponentTextTextinputInterface/UIComponentTextTextinputInterface062",
     "testability/pages/UIComponentTextTextinputInterface/UIComponentTextTextinputInterface063",
-    "testability/pages/UIComponentTextTextinputInterface/UIComponentTextTextinputInterface064"
+    "testability/pages/UIComponentTextTextinputInterface/UIComponentTextTextinputInterface064",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic001",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic002",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic003",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic004",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic005",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic006",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic007",
+    "testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic008"
   ]
 }
