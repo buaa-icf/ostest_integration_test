@@ -125,16 +125,20 @@ export default struct PlayerDetail {
               this.isShowPlayerDetail = false;
             })
           })
+          .id('detail_dismiss')
         Column() {
           if (this.contentSwitch) {
             Text(this.listTitle).fontSize('18fp')
               .maxLines(2)
+              .id('detail_title1')
           } else {
             Text(this.item.title).fontSize('18fp')
               .maxLines(1)
+              .id('detail_title2')
             Row() {
               Text(this.item.artist).fontSize('14fp')
                 .fontColor('#a0a0a0')
+                .id('detail_title3')
               Text('关注')
                 .fontSize('14fp')
                 .borderRadius('8vp')
@@ -174,12 +178,15 @@ export default struct PlayerDetail {
                 iterations: -1, // 设置-1表示动画无限循环
                 playMode: PlayMode.Normal
               })
+              .id('detail_songImg')
             Row() {
               Column() {
                 Text(this.item.title).fontSize('18fp')
+                  .id('detail_title4')
                 Row() {
                   Text(this.item.artist).fontSize('16fp')
                     .fontColor('#303030')
+                    .id('detail_title5')
                   Text('关注')
                     .fontSize('14fp')
                     .fontColor('#303030')
@@ -291,13 +298,16 @@ export default struct PlayerDetail {
         Progress({ value: this.currentTime, total: this.durationTime, type: ProgressType.Linear })
           .width('80%')
           .height(30)
+          .id('detail_progress')
       }.width('100%')
       .justifyContent(FlexAlign.Center)
 
       Row() {
         Text(CommonUtils.formatTime(this.currentTime/1000)).fontSize('12fp')
+          .id('detail_time_current')
         Text('无损').fontSize('12fp')
         Text(CommonUtils.formatTime(this.durationTime/1000)).fontSize('12fp')
+          .id('detail_time_duration')
       }.width('80%')
       .justifyContent(FlexAlign.SpaceBetween)
 
@@ -307,6 +317,7 @@ export default struct PlayerDetail {
           .width(42)
           .height(42)
           .margin({ right: 12, left: 8 })
+          .id('detail_mode')
         Image($r('app.media.ic_public_play_last'))
           .objectFit(ImageFit.Contain)
           .width(42)
@@ -315,6 +326,7 @@ export default struct PlayerDetail {
           .onClick(() => {
             this.PlayerManager.previous();
           })
+          .id('detail_previous')
         if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
           Image($r('app.media.ic_public_pause'))
             .objectFit(ImageFit.Contain)
@@ -324,6 +336,7 @@ export default struct PlayerDetail {
             .onClick(() => {
               this.PlayerManager.pause();
             })
+            .id('detail_paused')
         } else {
           Image($r('app.media.ic_public_play'))
             .objectFit(ImageFit.Contain)
@@ -333,6 +346,7 @@ export default struct PlayerDetail {
             .onClick(() => {
               this.PlayerManager.resume();
             })
+            .id('detail_playing')
         }
         Image($r('app.media.ic_public_play_next'))
           .objectFit(ImageFit.Contain)
@@ -342,6 +356,7 @@ export default struct PlayerDetail {
           .onClick(() => {
             this.PlayerManager.next();
           })
+          .id('detail_next')
         Image($r('app.media.ic_public_view_list'))
           .objectFit(ImageFit.Contain)
           .width(42)
@@ -352,6 +367,7 @@ export default struct PlayerDetail {
               this.isShowPlayList = true;
             })
           })
+          .id('detail_playlist')
       }.width('100%')
       .height(64)
       .justifyContent(FlexAlign.SpaceEvenly)
