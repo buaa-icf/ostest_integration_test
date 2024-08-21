@@ -13,12 +13,9 @@
  * limitations under the License.
  */
 
-import prompt from '@system.prompt';
-import measure from '@ohos.measure'
-
 @Entry
 @Component
-struct UiComponentWordbreak016 {
+struct UiComponentWordbreak022 {
   @State text: string =''
   //wordbreak
   @State wordBreakIndex: number = 0;

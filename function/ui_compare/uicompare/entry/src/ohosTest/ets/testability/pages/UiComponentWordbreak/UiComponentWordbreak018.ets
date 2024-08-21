@@ -13,9 +13,6 @@
  * limitations under the License.
  */
 
-import prompt from '@system.prompt';
-import measure from '@ohos.measure'
-
 @Entry
 @Component
 struct UiComponentWordbreak018 {
