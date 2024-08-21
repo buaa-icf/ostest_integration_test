@@ -146,19 +146,19 @@ class Settings {
 
     this.windowCreateType = "createWindow"
     if (X == undefined) {
-      X = 0;
+      X = 10;
     }
     if (Y == undefined) {
-      Y = 60;
+      Y = 200;
     }
     if (width == undefined) {
-      width = 720;
+      width = 1000;
     }
     if (height == undefined) {
-      height = 1220;
+      height = 1000;
     }
     if (dpi == undefined) {
-      dpi = 290;
+      dpi = 400;
     }
     Logger.info(TAG, `params,pageURI=${pageURI},X=${X},Y=${Y},width=${width},height=${height},dpi=${dpi}`)
     this.changeDpi(dpi)
@@ -213,6 +213,7 @@ class Settings {
       await sleep(200)
       this.setWindowSystemBarEnable(this.windowClass, []);
     });
+
   }
 
 }
