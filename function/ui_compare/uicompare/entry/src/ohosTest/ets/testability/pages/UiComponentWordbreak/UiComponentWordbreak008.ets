@@ -18,7 +18,6 @@ import measure from '@ohos.measure'
 
 @Entry
 @Component
-
 struct UiComponentWordbreak008 {
   @State text: string =''
   @State undefined: string =''

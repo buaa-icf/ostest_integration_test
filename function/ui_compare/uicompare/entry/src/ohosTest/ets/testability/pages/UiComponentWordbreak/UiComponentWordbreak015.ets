@@ -15,7 +15,6 @@
 
 @Entry
 @Component
-
 struct UiComponentWordbreak015 {
   @State text: string =''
   @State undefined: string =''

@@ -18,7 +18,6 @@ import measure from '@ohos.measure'
 
 @Entry
 @Component
-
 struct UiComponentWordbreak021 {
   @State text: string =''
   @State style: TextContentStyle = TextContentStyle.DEFAULT

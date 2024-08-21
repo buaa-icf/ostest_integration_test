@@ -15,7 +15,6 @@
 
 @Entry
 @Component
-
 struct UiComponentWordbreak005 {
   @State text: string =''
   @State style: TextInputStyle = TextInputStyle.Default

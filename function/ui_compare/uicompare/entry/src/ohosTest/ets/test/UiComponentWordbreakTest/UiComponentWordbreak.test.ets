@@ -27,6 +27,7 @@ let engwordinputtext:string = 'This is set wordBreak to WordBreak text Taumatawh
 let numstring:string = '1234858993928058120039302094290850823091231321489958298 1231321313133 121312314192848124891489148918418129489184 89958298'
 let emailstring:string = '123456789@abc.com 123453789@abc.com 123426789@abc.com 1234567489@abc.com'
 let phonestring:string = '13344345555 13344445445 13344425555 13344445855'
+
 export default function UiComponentWordbreak() {
   describe('UiComponentWordbreak', () => {
     afterEach(async (done: Function) => {
@@ -68,12 +69,10 @@ export default function UiComponentWordbreak() {
       let button2:Component = await driver.findComponent(ON.id('wordbreak1'));
       await driver.delayMs(100)
       await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
+      for(let i=1;i<=3;i++){
+        await button2.click()
+        await Utils.sleep(100)
+      }
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_WORDBREAK_0010 finish.`);
@@ -105,12 +104,10 @@ export default function UiComponentWordbreak() {
       let button2:Component = await driver.findComponent(ON.id('wordbreak2'));
       await driver.delayMs(100)
       await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
+      for(let i=1;i<=3;i++){
+        await button2.click()
+        await Utils.sleep(100)
+      }
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_WORDBREAK_0020 finish.`);
@@ -250,7 +247,6 @@ export default function UiComponentWordbreak() {
       await Utils.sleep(100)
       let button3:Component = await driver.findComponent(ON.id('changetextclip6'));
       await driver.delayMs(100)
-      await Utils.sleep(100)
       await button3.click()
       await Utils.sleep(100)
       await button3.click()
@@ -378,12 +374,10 @@ export default function UiComponentWordbreak() {
       await Utils.sleep(100)
       let button2:Component = await driver.findComponent(ON.id('wordbreak10'));
       await driver.delayMs(100)
-      await button2.click()
-      await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
-      await button2.click()
-      await Utils.sleep(100)
+      for(let i=1;i<=3;i++){
+        await button2.click()
+        await Utils.sleep(100)
+      }
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_WORDBREAK_0100 finish.`);
@@ -563,12 +557,10 @@ export default function UiComponentWordbreak() {
       await Utils.sleep(100)
       let buttonbreak:Component = await driver.findComponent(ON.id('wordbreak16'));
       await driver.delayMs(100)
-      await buttonbreak.click()
-      await Utils.sleep(100)
-      await buttonbreak.click()
-      await Utils.sleep(100)
-      await buttonbreak.click()
-      await Utils.sleep(100)
+      for(let i=1;i<=3;i++){
+        await buttonbreak.click()
+        await Utils.sleep(100)
+      }
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_WORDBREAK_0160 finish.`);
@@ -702,7 +694,7 @@ export default function UiComponentWordbreak() {
       Settings.createWindow("testability/pages/UiComponentWordbreak/UiComponentWordbreak021")
       await Utils.sleep(1000)
       let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
+      await driver.delayMs(100)
       await Utils.sleep(100)
       let buttonstyle7:Component = await driver.findComponent(ON.id('style21'));
       await buttonstyle7.click()
@@ -733,29 +725,21 @@ export default function UiComponentWordbreak() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_WORDBREAK_0220 start.`);
       Settings.createWindow("testability/pages/UiComponentWordbreak/UiComponentWordbreak022")
       let driver : Driver = Driver.create();
+      await driver.delayMs(100)
       let buttontype:Component = await driver.findComponent(ON.id('areatype22'));
-      await buttontype.click()
+      await driver.delayMs(100)
       let input = await driver.findComponent(ON.id('area22'));
-      await input.inputText(emailstring)
+      await driver.delayMs(100)
       let buttonbreak:Component = await driver.findComponent(ON.id('wordbreak22'));
-      await buttonbreak.click()
-      await buttonbreak.click()
-      await buttonbreak.click()
-      await buttontype.click()
-      await input.inputText(numstring)
-      await buttonbreak.click()
-      await buttonbreak.click()
-      await buttonbreak.click()
-      await buttontype.click()
-      await input.inputText(phonestring)
-      await buttonbreak.click()
-      await buttonbreak.click()
-      await buttonbreak.click()
-      await buttontype.click()
-      await input.inputText(enginputtext)
-      await buttonbreak.click()
-      await buttonbreak.click()
-      await buttonbreak.click()
+      await driver.delayMs(100)
+      let stringinput:string[]=[emailstring,numstring,phonestring,enginputtext]
+      for(let i=0;i<4;i++){
+        await buttontype.click()
+        await input.inputText(stringinput[i])
+        for(let j=1;j<4;j++){
+          await buttonbreak.click()
+        }
+      }
       windowSnap.snapShot()
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_WORDBREAK_0220 finish.`);
       done()
