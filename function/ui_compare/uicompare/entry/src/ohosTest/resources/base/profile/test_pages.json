@@ -771,6 +771,28 @@
     "testability/pages/UiComponentTextModifier/UiComponentTextModifier096"
     "testability/pages/UIComponentCreateColor/UIComponentCreateColor005",
     "testability/pages/UIComponentCreateColor/UIComponentCreateColor010",
-    "testability/pages/UIComponentCreateColor/UIComponentCreateColor014"
+    "testability/pages/UIComponentCreateColor/UIComponentCreateColor014",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak001",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak002",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak003",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak004",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak005",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak006",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak007",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak008",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak009",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak010",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak011",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak012",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak013",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak014",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak015",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak016",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak017",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak018",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak019",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak020",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak021",
+    "testability/pages/UiComponentWordbreak/UiComponentWordbreak022"
   ]
 }
