@@ -34,7 +34,7 @@ export default function TestCase() {
         }
         Logger.info('TEST', `Succeeded in destroy the window.`);
       })
-      await Utils.sleep(1000);
+      await Utils.sleep(100);
       done()
     })
 
@@ -46,17 +46,17 @@ export default function TestCase() {
     it('TestCase_0746f8c1bea94e85b7d2f2caa263de08', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_0746f8c1bea94e85b7d2f2caa263de08 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_0746f8c1bea94e85b7d2f2caa263de08")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await driver.delayMs(100)
+      await Utils.sleep(100)
       let button1:Component = await driver.findComponent(ON.id('change1'));
       await driver.delayMs(100)
       await Utils.sleep(100)
       await button1.click()
       await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_0746f8c1bea94e85b7d2f2caa263de08 finish.`);
       done()
     })
@@ -69,9 +69,9 @@ export default function TestCase() {
     it('TestCase_110a5004e14348b391fbe049427b064c', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_110a5004e14348b391fbe049427b064c start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_110a5004e14348b391fbe049427b064c")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_110a5004e14348b391fbe049427b064c finish.`);
       done()
     })
@@ -84,9 +84,9 @@ export default function TestCase() {
     it('TestCase_18e92c27dbe84086b654289959c2f93f', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_18e92c27dbe84086b654289959c2f93f start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_18e92c27dbe84086b654289959c2f93f")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_18e92c27dbe84086b654289959c2f93f finish.`);
       done()
     })
@@ -99,9 +99,9 @@ export default function TestCase() {
     it('TestCase_18e92c27dbe84086b654289959c2f93f_745', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_18e92c27dbe84086b654289959c2f93f_745 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_18e92c27dbe84086b654289959c2f93f_745")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_18e92c27dbe84086b654289959c2f93f_745 finish.`);
       done()
     })
@@ -114,9 +114,9 @@ export default function TestCase() {
     it('TestCase_18e92c27dbe84086b654289959c2f93f_770', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_18e92c27dbe84086b654289959c2f93f_770 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_18e92c27dbe84086b654289959c2f93f_770")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_18e92c27dbe84086b654289959c2f93f_770 finish.`);
       done()
     })
@@ -129,9 +129,9 @@ export default function TestCase() {
     it('TestCase_1ad7560366224fa09a86a1a2676865d6', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_1ad7560366224fa09a86a1a2676865d6 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_1ad7560366224fa09a86a1a2676865d6")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_1ad7560366224fa09a86a1a2676865d6 finish.`);
       done()
     })
@@ -144,9 +144,9 @@ export default function TestCase() {
     it('TestCase_1cf2666bda5c4fbb9a473d690e320cf1', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_1cf2666bda5c4fbb9a473d690e320cf1 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_1cf2666bda5c4fbb9a473d690e320cf1")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_1cf2666bda5c4fbb9a473d690e320cf1 finish.`);
       done()
     })
@@ -159,9 +159,9 @@ export default function TestCase() {
     it('TestCase_208d5e70daa34a82ba35e6907dfd7d90', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_208d5e70daa34a82ba35e6907dfd7d90 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_208d5e70daa34a82ba35e6907dfd7d90")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_208d5e70daa34a82ba35e6907dfd7d90 finish.`);
       done()
     })
@@ -174,9 +174,9 @@ export default function TestCase() {
     it('TestCase_2a3b20696ddb4c1aa986efdb2c2f1ba8', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_2a3b20696ddb4c1aa986efdb2c2f1ba8 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_2a3b20696ddb4c1aa986efdb2c2f1ba8")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_2a3b20696ddb4c1aa986efdb2c2f1ba8 finish.`);
       done()
     })
@@ -189,9 +189,9 @@ export default function TestCase() {
     it('TestCase_61edcc08543345c59bc72a2afa743da7', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_61edcc08543345c59bc72a2afa743da7 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_61edcc08543345c59bc72a2afa743da7")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_61edcc08543345c59bc72a2afa743da7 finish.`);
       done()
     })
@@ -204,9 +204,9 @@ export default function TestCase() {
     it('TestCase_62e38b74f513483fb634745dfd73869d', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_62e38b74f513483fb634745dfd73869d start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_62e38b74f513483fb634745dfd73869d")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_62e38b74f513483fb634745dfd73869d finish.`);
       done()
     })
@@ -219,9 +219,9 @@ export default function TestCase() {
     it('TestCase_6ccf902c7e5c4d9e9ce59bf55529abc6', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_6ccf902c7e5c4d9e9ce59bf55529abc6 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_6ccf902c7e5c4d9e9ce59bf55529abc6")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_6ccf902c7e5c4d9e9ce59bf55529abc6 finish.`);
       done()
     })
@@ -234,9 +234,9 @@ export default function TestCase() {
     it('TestCase_70b5f595996b480b90cfea69bc28e7a1', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_70b5f595996b480b90cfea69bc28e7a1 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_70b5f595996b480b90cfea69bc28e7a1")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_70b5f595996b480b90cfea69bc28e7a1 finish.`);
       done()
     })
@@ -249,9 +249,9 @@ export default function TestCase() {
     it('TestCase_7e7732bd8a0d44caa07b3d23b3a4145d', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_7e7732bd8a0d44caa07b3d23b3a4145d start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_7e7732bd8a0d44caa07b3d23b3a4145d")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_7e7732bd8a0d44caa07b3d23b3a4145d finish.`);
       done()
     })
@@ -264,9 +264,9 @@ export default function TestCase() {
     it('TestCase_84ea6cdf145f441f8d946e39706b3cb6', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_84ea6cdf145f441f8d946e39706b3cb6 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_84ea6cdf145f441f8d946e39706b3cb6")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_84ea6cdf145f441f8d946e39706b3cb6 finish.`);
       done()
     })
@@ -279,9 +279,9 @@ export default function TestCase() {
     it('TestCase_8bb276ea70364895b7ab605f4b9150c7', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_8bb276ea70364895b7ab605f4b9150c7 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_8bb276ea70364895b7ab605f4b9150c7")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_8bb276ea70364895b7ab605f4b9150c7 finish.`);
       done()
     })
@@ -294,9 +294,9 @@ export default function TestCase() {
     it('TestCase_8d4a8e90d50a4f60ba28a2227fd33eaa', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_8d4a8e90d50a4f60ba28a2227fd33eaa start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_8d4a8e90d50a4f60ba28a2227fd33eaa")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_8d4a8e90d50a4f60ba28a2227fd33eaa finish.`);
       done()
     })
@@ -309,9 +309,9 @@ export default function TestCase() {
     it('TestCase_8d618574b12c47a89b4799d038573754', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_8d618574b12c47a89b4799d038573754 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_8d618574b12c47a89b4799d038573754")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_8d618574b12c47a89b4799d038573754 finish.`);
       done()
     })
@@ -324,9 +324,9 @@ export default function TestCase() {
     it('TestCase_91b7338b58b14995bdaba8614362b332', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_91b7338b58b14995bdaba8614362b332 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_91b7338b58b14995bdaba8614362b332")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_91b7338b58b14995bdaba8614362b332 finish.`);
       done()
     })
@@ -339,9 +339,9 @@ export default function TestCase() {
     it('TestCase_91b7338b58b14995bdaba8614362b332_346', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_91b7338b58b14995bdaba8614362b332_346 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_91b7338b58b14995bdaba8614362b332_346")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_91b7338b58b14995bdaba8614362b332_346 finish.`);
       done()
     })
@@ -354,9 +354,9 @@ export default function TestCase() {
     it('TestCase_98b2d848602047b2b9d25c278a791f6b', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_98b2d848602047b2b9d25c278a791f6b start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_98b2d848602047b2b9d25c278a791f6b")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_98b2d848602047b2b9d25c278a791f6b finish.`);
       done()
     })
@@ -369,9 +369,9 @@ export default function TestCase() {
     it('TestCase_a984bf9d62ee4780a65856992545bdbb', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_a984bf9d62ee4780a65856992545bdbb start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_a984bf9d62ee4780a65856992545bdbb")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_a984bf9d62ee4780a65856992545bdbb finish.`);
       done()
     })
@@ -384,15 +384,15 @@ export default function TestCase() {
     it('TestCase_a99950e5f66b40c0a77ed875bead3001', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_a99950e5f66b40c0a77ed875bead3001 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_a99950e5f66b40c0a77ed875bead3001")
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await driver.delayMs(100)
+      await Utils.sleep(100)
       let copy:Component  = await driver.findComponent(ON.text('复制'));
       await copy.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_a99950e5f66b40c0a77ed875bead3001 finish.`);
       done()
     })
@@ -405,12 +405,9 @@ export default function TestCase() {
     it('TestCase_affd452e8e26418da5a7223c68ceca1d', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_affd452e8e26418da5a7223c68ceca1d start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_affd452e8e26418da5a7223c68ceca1d")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_affd452e8e26418da5a7223c68ceca1d finish.`);
       done()
     })
@@ -423,12 +420,9 @@ export default function TestCase() {
     it('TestCase_b975f58142b64e36868f884be0cc1a2e', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_b975f58142b64e36868f884be0cc1a2e start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_b975f58142b64e36868f884be0cc1a2e")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_b975f58142b64e36868f884be0cc1a2e finish.`);
       done()
     })
@@ -440,12 +434,9 @@ export default function TestCase() {
     it('TestCase_bbe25e085f1f4fe0892bdd70bccdf07a', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_bbe25e085f1f4fe0892bdd70bccdf07a start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_bbe25e085f1f4fe0892bdd70bccdf07a")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_bbe25e085f1f4fe0892bdd70bccdf07a finish.`);
       done()
     })
@@ -458,12 +449,9 @@ export default function TestCase() {
     it('TestCase_bfae2919c52447659bd78be216a4cbc4', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_bfae2919c52447659bd78be216a4cbc4 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_bfae2919c52447659bd78be216a4cbc4")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_bfae2919c52447659bd78be216a4cbc4 finish.`);
       done()
     })
@@ -475,12 +463,9 @@ export default function TestCase() {
     it('TestCase_c01fa72625e3462185fa5f30d2ddc3ab', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_c01fa72625e3462185fa5f30d2ddc3ab start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_c01fa72625e3462185fa5f30d2ddc3ab")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_c01fa72625e3462185fa5f30d2ddc3ab finish.`);
       done()
     })
@@ -492,12 +477,9 @@ export default function TestCase() {
     it('TestCase_c01fa72625e3462185fa5f30d2ddc3ab_513', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_c01fa72625e3462185fa5f30d2ddc3ab_513 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_c01fa72625e3462185fa5f30d2ddc3ab_513")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_c01fa72625e3462185fa5f30d2ddc3ab_513 finish.`);
       done()
     })
@@ -509,12 +491,9 @@ export default function TestCase() {
     it('TestCase_c3944ed220a74af2aae129d707b51638', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_c3944ed220a74af2aae129d707b51638 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_c3944ed220a74af2aae129d707b51638")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_c3944ed220a74af2aae129d707b51638 finish.`);
       done()
     })
@@ -526,12 +505,9 @@ export default function TestCase() {
     it('TestCase_d0ea1c02678a4aa7adfb57837592c396', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_d0ea1c02678a4aa7adfb57837592c396 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_d0ea1c02678a4aa7adfb57837592c396")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_d0ea1c02678a4aa7adfb57837592c396 finish.`);
       done()
     })
@@ -543,12 +519,9 @@ export default function TestCase() {
     it('TestCase_dde7579fbbc9459798a267997ae0cff7', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_dde7579fbbc9459798a267997ae0cff7 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_dde7579fbbc9459798a267997ae0cff7")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_dde7579fbbc9459798a267997ae0cff7 finish.`);
       done()
     })
@@ -560,12 +533,9 @@ export default function TestCase() {
     it('TestCase_e258911ff5a0411e9247357a22a2c128', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_e258911ff5a0411e9247357a22a2c128 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_e258911ff5a0411e9247357a22a2c128")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_e258911ff5a0411e9247357a22a2c128 finish.`);
       done()
     })
@@ -577,12 +547,9 @@ export default function TestCase() {
     it('TestCase_e819a4c2faab4092926606af04a2fe87', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_e819a4c2faab4092926606af04a2fe87 start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_e819a4c2faab4092926606af04a2fe87")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_e819a4c2faab4092926606af04a2fe87 finish.`);
       done()
     })
@@ -594,12 +561,9 @@ export default function TestCase() {
     it('TestCase_eeb912d7773848319cc46ef49f13b3fe', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_eeb912d7773848319cc46ef49f13b3fe start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_eeb912d7773848319cc46ef49f13b3fe")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_eeb912d7773848319cc46ef49f13b3fe finish.`);
       done()
     })
@@ -611,12 +575,9 @@ export default function TestCase() {
     it('TestCase_fcd2f3601c9a4ed9832c93022cd8d6cf', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_fcd2f3601c9a4ed9832c93022cd8d6cf start.`);
       Settings.createWindow("testability/pages/TestCase/TestCase_fcd2f3601c9a4ed9832c93022cd8d6cf")
-      await Utils.sleep(1000)
-      let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(100)
       Logger.info('TEST', `TestCase_fcd2f3601c9a4ed9832c93022cd8d6cf finish.`);
       done()
     })
