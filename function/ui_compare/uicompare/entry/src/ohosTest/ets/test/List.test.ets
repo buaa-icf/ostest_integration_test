@@ -45,7 +45,7 @@ import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolum
 import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
 import UiComponentWordbreak from './UiComponentWordbreakTest/UiComponentWordbreak.test'
-
+import TestCase from './TestCaseTest/TestCase.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 export default function testsuite() {
   demoTest();
@@ -81,4 +81,5 @@ export default function testsuite() {
   UiComponentTextModifier();
   UIComponentCreateColor();
   UiComponentWordbreak();
+  TestCase();
 }
