@@ -1,0 +1,37 @@
+{
+    "description": "Configuration for hjunit demo Tests",
+    "driver": {
+        "type": "OHJSUnitTest",
+        "test-timeout": "180000",
+        "shell-timeout": "180000",
+        "bundle-name": "com.hits.uninstall.useinstallenterprisemdmbundle",
+        "module-name": "entry_test"
+    },
+    "kits": [
+        {
+            "test-file-name": [
+                "HitsUnInstallUseInstallEnterPriseMdmBundleTest.hap"
+            ],
+            "type": "AppInstallKit",
+            "cleanup-apps": true
+        },{
+            "type": "ShellKit",
+            "run-command": [
+                "power-shell wakeup",
+                "power-shell setmode 602"
+            ]
+        },
+        {
+            "type": "PushKit",
+            "push": [
+                "HitsBmMdmNormalHap.hap->/data/app/el2/100/base/com.hits.uninstall.useinstallenterprisemdmbundle/files/"
+            ]
+        },
+        {
+            "type": "ShellKit",
+            "teardown-command": [
+                "bm uninstall -n com.hits.normal.mdm.hap"
+            ]
+        }
+    ]
+}

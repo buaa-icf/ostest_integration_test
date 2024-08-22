@@ -86,18 +86,6 @@ Note:If the text contains special characters, please escape them according to th
                 desc=""
                 name="projectPolicy">
                 <policyitem
-                    desc="Developed By Fujian Newland Auto-ID Tech.Co.,Ltd."
-                    filefilter="copyrightPolicyFilter"
-                    group="defaultGroup"
-                    name="Fujian Newland Auto-ID Tech.Co.,Ltd."
-                    path=".*"
-                    rule="may"
-                    type="copyright"/>
-            </policy>
-            <policy
-                desc=""
-                name="projectPolicy">
-                <policyitem
                     desc="Developed By Shenzhen Kaihong Digital Industry Development Co., Ltd."
                     filefilter="copyrightPolicyFilter"
                     group="defaultGroup"
@@ -106,49 +94,11 @@ Note:If the text contains special characters, please escape them according to th
                     rule="may"
                     type="copyright"/>
             </policy>
-			<policy name="projectPolicy" desc="">
-                <policyitem type="copyright" name="Shenzhen Kaihong Digital Industry Development Co., Ltd." path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed By shenzhen Kaihong Digital Industry Development Co., Ltd."/>
-            </policy>
         </policylist>
         <filefilterlist>
-            <filefilter name="licenseFileNamePolicyFilter" desc="Filters for LICENSE file policies">
-                <filteritem type="filepath" name="network/Bluetooth/entry/src/main/java/ohos/samples/bluetooth/adapter/" desc="Not contains 3rd code，license file is not required in this subdirectory."/>
-            </filefilter>
             <filefilter name="binaryFileTypePolicyFilter" desc="Filters for binary file policies" >
-                <filteritem type="filepath" name="ability/DistributedMusicPlayer/entry/src/main/resources/rawfile/Homey.mp3" desc="Provided by the UX team."/>
-                <filteritem type="filepath" name="ability/DistributedMusicPlayer/entry/src/main/resources/rawfile/Technology.mp3" desc="Provided by the UX team."/>
-                <filteritem type="filepath" name="UI/JsAnimation/entry/src/main/js/default/common/animator/show.mp4" desc="Provided by the UX team."/>
-                <filteritem type="filepath" name="UI/JsAnimation/entry/src/main/js/default/common/animator/butterfly.mp4" desc="Provided by the UX team."/>
-                <filteritem type="filepath" name="UI/JsShopping/entry/src/main/js/default/common/detailImg/swiperImg/swiper.mp4" desc="Provided by the UX team."/>
-                <filteritem type="filepath" name="ETSUI/OrangeShopping/libs/ohos-enter-animation-1.0.1.tgz" desc="Provided by ETSUI/TransitionAnimation"/>
-                <filteritem type="filepath" name="ETSUI/OrangeShopping/libs/ohos-http-1.0.0.tgz" desc="Provided by Network/Http"/>
-                <filteritem type="filepath" name="ETSUI/OrangeShopping/libs/ohos-notification-1.0.0.tgz" desc="Provided by Notification/CustomNotification"/>
-                <filteritem type="filepath" name="ETSUI/OrangeShopping/libs/ohos-feature-qr-code-scan-1.0.0.tgz" desc="Provided by media/QRCodeScan"/>
-                <filteritem type="filepath" name="ETSUI/OrangeShopping/libs/ohos-sharecomponent-1.0.1.tgz" desc="Provided by Share/Share"/>
-                <filteritem type="filepath" name="ETSUI/OrangeShopping/libs/ohos-updatedialog-1.0.0.tgz" desc="Provided by ETSUI/UpgradePopup"/>
-                <filteritem type="filepath" name="ETSUI/OrangeShopping/libs/ohos-video-component-1.0.4.tgz" desc="Provided by media/VideoShow"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-notification-1.0.0.tgz" desc="Provided by Notification/CustomEmitter"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-enter-animation-1.0.1.tgz" desc="Provided by ETSUI/TransitionAnimation"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-http-1.0.0.tgz" desc="Provided by Network/Http"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-notification-1.0.0.tgz" desc="Provided by Notification/CustomNotification"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-feature-qr-code-scan-1.0.0.tgz" desc="Provided by media/QRCodeScan"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-sharecomponent-1.0.1.tgz" desc="Provided by Share/Share"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-updatedialog-1.0.0.tgz" desc="Provided by ETSUI/UpgradePopup"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-video-component-1.0.5.tgz" desc="Provided by media/VideoShow"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-notification-1.0.0.tgz" desc="Provided by Notification/CustomEmitter"/>
-                <filteritem type="filepath" name="code/DataMock/QuickFix/entry-signed-release.hqf" desc="Provided by code/BasicFeature/TaskManagement/TransientTask"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/ASOrangeShopping/data/freeinstall/famanager.hap" desc="Provided by BMS"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/ASOrangeShopping/data/freeinstall/launcher.hap" desc="Provided by  code/SystemFeature/ApplicationModels/Launcher"/>
-                <filteritem type="filepath" name="code/DataMock/WorkScheduler/UpdateWorkScheduler.hap" desc="Provided by code/BasicFeature/TaskManagement/WorkScheduler"/>
-                <filteritem type="filepath" name="code/BasicFeature/TaskManagement/WorkScheduler/signTool/OpenHarmony.p12" desc="Provided by code/BasicFeature/TaskManagement/WorkScheduler"/>
-                <filteritem type="filepath" name="code/BasicFeature/TaskManagement/WorkScheduler/signTool/OpenHarmonyApplication.pem" desc="Provided by code/BasicFeature/TaskManagement/WorkScheduler"/>
-                <filteritem type="filepath" name="code/BasicFeature/TaskManagement/WorkScheduler/signTool/OpenHarmonyProfileRelease.pem" desc="Provided by code/BasicFeature/TaskManagement/WorkScheduler"/>
-                <filteritem type="filepath" name="code/BasicFeature/TaskManagement/WorkScheduler/signTool/app_packing_tool.jar" desc="Provided by code/BasicFeature/TaskManagement/WorkScheduler"/>
-                <filteritem type="filepath" name="code/BasicFeature/TaskManagement/WorkScheduler/signTool/hap-sign-tool.jar" desc="Provided by code/BasicFeature/TaskManagement/WorkScheduler"/>
-                <filteritem type="filepath" name="code/BasicFeature/Connectivity/UploadAndDownLoad/environment/hfs.exe" desc="Provided by hfs"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-qr-code-scan-1.0.1.har" desc="Provided by media/QRCodeScan"/>
-                <filteritem type="filepath" name="code/Solutions/Shopping/OrangeShopping/libs/ohos-sharecomponent-1.0.2.har" desc="Provided by code/BasicFeature/ApplicationModels/CustomShare"/>
-		<filteritem type="filepath" name="code/BasicFeature/Connectivity/StageSocket/certificate_file.zip" desc="Provided by code/BasicFeature/Connectivity/StageSocket"/>
+                <filteritem type="filename" name="*.png" desc="Provided by the UX team."/>
+                <filteritem type="filename" name="*.jpg" desc="Provided by the UX team."/>
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="License文件头校验策略的过滤条件" >
                 <filteritem type="filename" name="oh-package.json5" desc="OpenHarmony工程编译入口脚本，无需添加License头"/>
@@ -156,6 +106,7 @@ Note:If the text contains special characters, please escape them according to th
                 <filteritem type="filename" name="hvigorw.bat" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
                 <filteritem type="filename" name="hvigor-config.json5" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
                 <filteritem type="filename" name="hvigor-wrapper.js" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
+                <filteritem type="filename" name="hvigorfile.ts" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
             </filefilter>
             <filefilter name="copyrightPolicyFilter" desc="Copyright文件头校验策略的过滤条件" >
                 <filteritem type="filename" name="oh-package.json5" desc="OpenHarmony工程编译入口脚本，无需添加版权头"/>
@@ -163,6 +114,7 @@ Note:If the text contains special characters, please escape them according to th
                 <filteritem type="filename" name="hvigorw.bat" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
                 <filteritem type="filename" name="hvigor-config.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
                 <filteritem type="filename" name="hvigor-wrapper.js" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
+                <filteritem type="filename" name="build-profile.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
             </filefilter>
         </filefilterlist>
     </oatconfig>

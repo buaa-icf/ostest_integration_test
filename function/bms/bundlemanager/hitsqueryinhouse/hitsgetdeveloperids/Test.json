@@ -1,0 +1,47 @@
+{
+    "description": "Configuration for hjunit demo Tests",
+    "driver": {
+        "type": "OHJSUnitTest",
+        "test-timeout": "180000",
+        "shell-timeout": "180000",
+        "bundle-name": "com.hits.getdeveloperids",
+        "module-name": "entry_test"
+    },
+    "kits": [
+        {
+            "test-file-name": [
+                "HitsGetDeveloperIdsTest.hap"
+            ],
+            "type": "AppInstallKit",
+            "cleanup-apps": true
+        },{
+            "type": "ShellKit",
+            "run-command": [
+                "power-shell wakeup",
+                "power-shell setmode 602",
+                "param set const.bms.allowenterprisebundle true"
+            ]
+        },
+        {
+            "type": "PushKit",
+            "push": [
+                "HitsBmMdmTest.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/",
+                "HitsCrowdTestingTest.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/",
+                "HitsOsIntegrationTwoHap.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/",
+                "HitsOsIntegrationOneHap.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/",
+                "HitsGalleryTest.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/",
+                "HitsBmMdmNormalHap.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/",
+                "HitsBmNoneTest.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/",
+                "HitsBmEnterpriseTest.hap->/data/app/el2/100/base/com.hits.getdeveloperids/files/"
+            ]
+        },
+        {
+            "type": "ShellKit",
+            "teardown-command": [
+                "bm uninstall -n com.hits.mdm",
+                "bm uninstall -n com.hits.crowdtesting",
+                "bm uninstall -n com.hits.osintegrationone"
+            ]
+        }
+    ]
+}
