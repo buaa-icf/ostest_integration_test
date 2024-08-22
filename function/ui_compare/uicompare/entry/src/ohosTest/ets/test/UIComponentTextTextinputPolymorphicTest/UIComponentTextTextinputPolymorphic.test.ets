@@ -1,18 +1,17 @@
 /*
- * SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0010:设置文本颜色
+ * Copyright (c) 2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * Settings.createWindow(config.url)：
- *  创建窗口，更改窗口基本配置，更改方式详见model/Settings createWindow方法
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * windowSnap.snapShot(globalThis.context)：
- *  窗口截屏&图片文件保存，存储在设备端
- *  存储文件固定，单挑用例执行后覆盖，用于自动化UI对比
- *  支持调试更改文件名为时间戳格式，更改model/snapShot createAndGetFile方法 注释L35，放开L32，L33
- *
- * Logger日志使用方法：
- *  import Logger form './model/Logger'
- *  Logger.info(TAG,`config = ${config}, err = ${JSON.stringify(exception)}`)
- * */
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import { describe, beforeAll, beforeEach, afterEach, afterAll, it, expect } from '@ohos/hypium'
 import Settings from '../model/Settings'
 import windowSnap from '../model/snapShot'
