@@ -45,6 +45,8 @@ import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolum
 import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
 import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
+import UiComponentWordbreak from './UiComponentWordbreakTest/UiComponentWordbreak.test'
+
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
 import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolymorphicTest/UIComponentTextTextinputPolymorphic.test'
@@ -84,4 +86,5 @@ export default function testsuite() {
   UIComponentTextCapi();
   UIComponentTextTextinputInterface();
   UIComponentTextTextinputPolymorphic();
+  UiComponentWordbreak();
 }
