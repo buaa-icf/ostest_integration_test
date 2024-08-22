@@ -42,7 +42,6 @@ export default function UIComponentTextTextinputPolymorphic() {
    */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_POLYMORPHIC_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_POLYMORPHIC_0010 start.`);
-      // 创建 Driver 实例，指定页面路径
       Settings.createWindow("testability/pages/UIComponentTextTextinputPolymorphic/UIComponentTextTextinputPolymorphic001")
       await Utils.sleep(1000)
       windowSnap.snapShot()
@@ -155,9 +154,5 @@ export default function UIComponentTextTextinputPolymorphic() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_POLYMORPHIC_0080 finish.`);
       done()
     })
-
-
-
-
   })
 }

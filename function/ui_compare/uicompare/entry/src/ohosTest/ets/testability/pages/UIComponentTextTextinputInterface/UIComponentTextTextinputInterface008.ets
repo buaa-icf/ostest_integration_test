@@ -18,7 +18,6 @@ struct UIComponentTextTextinputInterface008 {
   @State message: string = '';
   build() {
     Column() {
-      // 文本框带图标
       TextInput({
         text: this.message,
         placeholder: '这里是提示文本'})

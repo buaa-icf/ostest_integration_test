@@ -26,11 +26,11 @@ struct UIComponentTextCapi002 {
       })
       {
         Text('hello world')
-          .id('text') // 设置 NODE_ID 为 'text'
+          .id('text')
           .fontSize('-10fp')
       }
-      .width('90%') // 可选：设置 XComponent 的宽度
-      .height('90%') // 可选：设置 XComponent 的高度
+      .width('90%')
+      .height('90%')
       .borderWidth(1)
     }
     .width(300)
