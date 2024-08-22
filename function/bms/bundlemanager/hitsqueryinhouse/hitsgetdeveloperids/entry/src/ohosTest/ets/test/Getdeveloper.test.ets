@@ -95,6 +95,95 @@ export default function getdeveloper() {
     })
 
     /*
+     * @tc.number: Sub_Bms_Framework_Query_InHouse_0500
+     * @tc.name: getDeveloperIdsOfEnterprise
+     * @tc.desc: getDeveloperIds gets the developerid of the ENTERPRISE type application.
+     * @tc.size MediumTest
+     * @tc.type Function
+     * @tc.level Level 3
+     */
+    it('getDeveloperIdsOfEnterprise', 0, (done: Function) => {
+      installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
+        data.install(['/data/storage/el2/base/files/HitsBmEnterpriseTest.hap'], (err: BusinessError) => {
+          if (err) {
+            console.error('install Enterprise failed:' + err.message);
+            if (err.code === 201) {
+              expect(false).assertTrue()
+              done()
+            }
+          } else {
+            expect(true).assertTrue()
+          }
+        });
+      }).catch((error: BusinessError) => {
+        console.error('install Enterprise getBundleInstaller failed. Cause: ' + error.message);
+        done()
+      });
+      try {
+        let appDistributionType = bundleManager.AppDistributionType.ENTERPRISE;
+        let data = bundleManager.getDeveloperIds(appDistributionType);
+        hilog.info(0x0000, 'testTag', 'getDeveloperIdsOfEnterprise successfully. Data: %{public}s', JSON.stringify(data));
+        if(data){
+          expect(true).assertTrue()
+          done()
+        }
+      } catch (err) {
+        let message = (err as BusinessError).message;
+        let code = (err as BusinessError).code;
+        hilog.error(0x0000, 'testTag', 'getDeveloperIdsOfEnterprisegetDeveloperIdsOfEnterprise failed: %{public}s', message);
+        expect(false).assertTrue()
+        done()
+      }
+    })
+
+    /*
+     * @tc.number: Sub_Bms_Framework_Query_InHouse_0600
+     * @tc.name: getDeveloperIdsOfNormal
+     * @tc.desc: getDeveloperIds gets the developerid of the ENTERPRISE_NORMAL type application.
+     * @tc.size MediumTest
+     * @tc.type Function
+     * @tc.level Level 2
+     */
+    it('getDeveloperIdsOfNormal', 0, (done: Function) => {
+      let appDistributionType = bundleManager.AppDistributionType.ENTERPRISE_NORMAL;
+      installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
+        data.install(['/data/storage/el2/base/files/HitsBmMdmNormalHap.hap'], (err: BusinessError) => {
+          if (err) {
+            console.error('install mdm failed:' + err.message);
+            if (err.code === NO_PERMISSION_ERROR_CODE) {
+              expect(false).assertTrue()
+              done()
+            }
+          } else {
+            expect(true).assertTrue()
+          }
+        });
+      }).catch((error: BusinessError) => {
+        console.error('install mdm getBundleInstaller failed. Cause: ' + error.message);
+        done()
+      });
+      try {
+        let data = bundleManager.getDeveloperIds(appDistributionType);
+        hilog.info(0x0000, 'testTag', 'getDeveloperIds successfully. Data: %{public}s', JSON.stringify(data));
+        if (data) {
+          expect(true).assertTrue()
+          done()
+        } else {
+          expect(false).assertTrue()
+          done()
+        }
+
+      } catch (err) {
+        let message = (err as BusinessError).message;
+        let code = (err as BusinessError).code;
+        hilog.error(0x0000, 'testTag', 'getDeveloperIds failed: %{public}s', message);
+        expect(false).assertTrue()
+        done()
+      }
+
+    })
+
+    /*
      * @tc.number: Sub_Bms_Framework_Query_InHouse_0700
      * @tc.name: getEnterpriseApplication
      * @tc.desc: getDeveloperIds gets the developerid of the ENTERPRISE_MDM type application.
@@ -142,6 +231,37 @@ export default function getdeveloper() {
     })
 
     /*
+     * @tc.number: Sub_Bms_Framework_Query_InHouse_0800
+     * @tc.name: getDeveloperIdsOfOsIntegration
+     * @tc.desc: getDeveloperIds gets the developerid of the OS_INTEGRATION type application.
+     * @tc.size MediumTest
+     * @tc.type Function
+     * @tc.level Level 2
+     */
+    it('getDeveloperIdsOfOsIntegration', 0, (done: Function) => {
+      let appDistributionType = bundleManager.AppDistributionType.OS_INTEGRATION;
+      try {
+        let data = bundleManager.getDeveloperIds(appDistributionType);
+        hilog.info(0x0000, 'testTag', 'getDeveloperIds successfully. Data: %{public}s', JSON.stringify(data));
+        if (data) {
+          expect(true).assertTrue()
+          done()
+        } else {
+          expect(false).assertTrue()
+          done()
+        }
+
+      } catch (err) {
+        let message = (err as BusinessError).message;
+        let code = (err as BusinessError).code;
+        hilog.error(0x0000, 'testTag', 'getDeveloperIds failed: %{public}s', message);
+        expect(false).assertTrue()
+        done()
+      }
+
+    })
+
+    /*
      * @tc.number: Sub_Bms_Framework_Query_InHouse_0900
      * @tc.name: getDeveloperIdsOfCrowdTesting
      * @tc.desc: getDeveloperIds gets the developerid of CROWDTESTING type application.
@@ -155,6 +275,53 @@ export default function getdeveloper() {
         data.install(['/data/storage/el2/base/files/HitsCrowdTestingTest.hap'], (err: BusinessError) => {
           if (err) {
             console.error('install HitsCrowdTestingTest failed:' + err.message);
+            if (err.code === NO_PERMISSION_ERROR_CODE) {
+              expect(false).assertTrue()
+              done()
+            }
+          } else {
+            expect(true).assertTrue()
+          }
+        });
+      }).catch((error: BusinessError) => {
+        console.error('install HitsCrowdTestingTest getBundleInstaller failed. Cause: ' + error.message);
+        done()
+      });
+      try {
+        Utils.sleep(1000);
+        let data = bundleManager.getDeveloperIds(appDistributionType);
+        hilog.info(0x0000, 'testTag', 'getDeveloperIds successfully. Data: %{public}s', JSON.stringify(data));
+        if (data) {
+          expect(true).assertTrue()
+          done()
+        } else {
+          expect(false).assertTrue()
+          done()
+        }
+
+      } catch (err) {
+        let message = (err as BusinessError).message;
+        let code = (err as BusinessError).code;
+        hilog.error(0x0000, 'testTag', 'getDeveloperIds failed: %{public}s', message);
+        expect(false).assertTrue()
+        done()
+      }
+    })
+
+    /*
+     * @tc.number: Sub_Bms_Framework_Query_InHouse_1000
+     * @tc.name: getDeveloperIdsOfNone
+     * @tc.desc: getDeveloperIds gets the developerid of NONE type application.
+     * @tc.size MediumTest
+     * @tc.type Function
+     * @tc.level Level 2
+     */
+    it('getDeveloperIdsOfNone', 0, (done: Function) => {
+      let appDistributionType = bundleManager.AppDistributionType.NONE;
+      installer.getBundleInstaller().then((data: installer.BundleInstaller) => {
+        data.install(['/data/storage/el2/base/files/HitsBmNoneTest.hap'], (err: BusinessError) => {
+          if (err) {
+            console.error('install getDeveloperIdsOfNone failed:' + err.message);
             if (err.code === NO_PERMISSION_ERROR_CODE) {
               expect(false).assertTrue()
               done()
@@ -322,27 +489,37 @@ export default function getdeveloper() {
       }
     })
 
+
     /*
-     * @tc.number: Sub_Bms_Framework_Query_InHouse_2600
-     * @tc.name: getNonExistentBundleInfo
-     * @tc.desc: getAllBundleInfoByDeveloperId Gets the bundleInfo of a non-existent developerId.
+     * @tc.number: Sub_Bms_Framework_Query_InHouse_2900
+     * @tc.name: getAllBundleInfoByDeveloperId
+     * @tc.desc: getAllBundleInfoByDeveloperId queries multiple applications.
      * @tc.size MediumTest
      * @tc.type Function
-     * @tc.level Level 2
+     * @tc.level Level 3
      */
-    it('getNonExistentBundleInfo', 0, (done: Function) => {
+    it('getAllBundleInfoByDeveloperIdMultiple', 0, async (done: Function) => {
       try {
-        let data = bundleManager.getAllBundleInfoByDeveloperId('sssss');
-        hilog.info(0x0000, 'testTag', 'getDeveloperIds successfully. Data: %{public}s', JSON.stringify(data));
-        if (data.length > 0) {
-          expect(false).assertTrue()
-          done()
+        Utils.sleep(1000);
+        try {
+          let data = await bundleManager.getAllBundleInfoByDeveloperId('OpenHarmony');
+          if (data.length > 0) {
+            expect(true).assertTrue()
+            done()
+          } else {
+            expect(false).assertTrue()
+            done()
+          }
+          hilog.info(0x0000, 'testTag', 'getAppProvisionInfoSync successfully. Data: %{public}s', JSON.stringify(data));
+        } catch (err) {
+          let message = (err as BusinessError).message;
+          hilog.error(0x0000, 'testTag', 'getAppProvisionInfoSync failed. Cause: %{public}s', message);
         }
       } catch (err) {
         let message = (err as BusinessError).message;
         let code = (err as BusinessError).code;
         hilog.error(0x0000, 'testTag', 'getDeveloperIds failed: %{public}s', message);
-        expect(code).assertEqual(17700059)
+        expect(false).assertTrue()
         done()
       }
     })

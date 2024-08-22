@@ -84,6 +84,7 @@ export default struct PlayerBar {
             iterations: -1,
             playMode: PlayMode.Normal
           })
+          .id('songImage')
         Text(this.item.title !== '' ? this.item.title + ' - ' + this.item.artist : '未播放')
           .fontSize('24fp')
           .fontWeight(FontWeight.Bold)
@@ -91,7 +92,7 @@ export default struct PlayerBar {
           .textOverflow({ overflow: TextOverflow.MARQUEE })
           .width('60%')
           .textAlign(TextAlign.Center)
-
+          .id('songName')
         Blank()
         Stack() {
           Row({ space: 40 }) {
@@ -101,6 +102,7 @@ export default struct PlayerBar {
               .width('100%')
               .height('100%')
               .style({ strokeWidth: '2vp' })
+              .id('progressBar')
           }
 
           if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
@@ -112,6 +114,7 @@ export default struct PlayerBar {
               .onClick(() => {
                 this.PlayerManager.pause();
               })
+              .id('paused')
           } else {
             Image($r('app.media.ic_public_play'))
               .objectFit(ImageFit.Contain)
@@ -121,6 +124,7 @@ export default struct PlayerBar {
               .onClick(() => {
                 this.PlayerManager.resume();
               })
+              .id('playing')
           }
         }.alignContent(Alignment.Center)
         .width(42)
@@ -137,6 +141,7 @@ export default struct PlayerBar {
               this.isShowPlayList = true;
             })
           })
+          .id('playlist')
       }
       .width('100%')
       .onClick(() => {

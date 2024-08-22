@@ -19,6 +19,7 @@ group("hits_ability_runtime") {
     deps = [
       "hitsamstest:hitsamstest",
       "stateinfo:hits_ability_runtime_stateinfo",
+      "uri_AuthorizationAndRevocation:hits_uri_AuthorizationAndRevocation",
     ]
   }
 }
