@@ -32,13 +32,7 @@ async function sleep(time: number): Promise<void> {
 
 class Settings {
   windowClass: window.Window | undefined = undefined
-  windowCreateType: string = "changeWindow";
-  private static DEFAULT_WIDTH: number = 720;
-  private static DEFAULT_HEIGHT: number = 1280;
-  private static DEFAULT_DPI: number = 240;
-  private static DEFAULT_OFFSET_X: number = 0;
-  private static DEFAULT_OFFSET_Y: number = 60;
-
+  windowCreateType: string = "changeWindow"
 
   changeWindowPosition(windowClass: window.Window, X: number | undefined, Y: number | undefined) {
     //为悬浮窗设置位置
@@ -152,19 +146,19 @@ class Settings {
 
     this.windowCreateType = "createWindow"
     if (X == undefined) {
-      X = Settings.DEFAULT_OFFSET_X;
+      X = 0;
     }
     if (Y == undefined) {
-      Y = Settings.DEFAULT_OFFSET_Y;
+      Y = 60;
     }
     if (width == undefined) {
-      width = Settings.DEFAULT_WIDTH;
+      width = 720;
     }
     if (height == undefined) {
-      height = Settings.DEFAULT_HEIGHT - Settings.DEFAULT_OFFSET_Y;
+      height = 1220;
     }
     if (dpi == undefined) {
-      dpi = Settings.DEFAULT_DPI;
+      dpi = 290;
     }
     Logger.info(TAG, `params,pageURI=${pageURI},X=${X},Y=${Y},width=${width},height=${height},dpi=${dpi}`)
     this.changeDpi(dpi)
@@ -192,13 +186,13 @@ class Settings {
 
     this.windowCreateType = "changeWindow"
     if (width == undefined) {
-      width = Settings.DEFAULT_WIDTH;
+      width = 1000;
     }
     if (height == undefined) {
-      height = Settings.DEFAULT_HEIGHT - Settings.DEFAULT_OFFSET_Y;
+      height = 1000;
     }
     if (dpi == undefined) {
-      dpi = Settings.DEFAULT_DPI;
+      dpi = 400;
     }
     Logger.info(TAG, `params,pageURI=${pageURI},width=${width},height=${height},dpi=${dpi}`)
     this.changeDpi(dpi)
