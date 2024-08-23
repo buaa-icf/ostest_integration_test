@@ -54,6 +54,7 @@
 │               └── camera_perf	            //相机性能测试
 │               └── video_perf	            //视频性能测试
 ├── scenario               //场景测试应用
+│       └── MusicPlayerOnline   //在线音乐场景
 │       └── MyMap	            //地图场景测试
 │       └── MyMusic	            //音乐场景测试
 │       └── MyNews	            //新闻场景测试
@@ -127,9 +128,9 @@
 
 * 场景测试
 
-| 音乐场景测试应用                                        | 新闻场景测试应用    |
-|-----------------------------|-----------------------|
-| ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
+| 在线音乐场景测试应用                                                                                               | 音乐UX场景测试应用                                      | 新闻UX场景测试应用                                     |
+|----------------------------------------------------------------------------------------------------------|-------------------------------------------------|------------------------------------------------|
+| <img src="scenario/MusicPlayerOnline/screenshots/home.png" alt="描述文字" style="width:384px;height:726px;"> | ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
 
 * 性能测试
 
