@@ -44,9 +44,12 @@ import UiComponentLayoutCommonPixel from './UiComponentLayoutCommonPixelTest/UiC
 import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolumnSidebarcontainerInterfaceTest/UiComponentRowcolumnSidebarcontainerInterface.test'
 import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
+import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
 import UiComponentWordbreak from './UiComponentWordbreakTest/UiComponentWordbreak.test'
 import TestCase from './TestCaseTest/TestCase.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
+import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
+import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolymorphicTest/UIComponentTextTextinputPolymorphic.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -80,6 +83,9 @@ export default function testsuite() {
   UiComponentTextCommonTextstyle();
   UiComponentTextModifier();
   UIComponentCreateColor();
+  UIComponentTextCapi();
+  UIComponentTextTextinputInterface();
+  UIComponentTextTextinputPolymorphic();
   UiComponentWordbreak();
   TestCase();
 }
