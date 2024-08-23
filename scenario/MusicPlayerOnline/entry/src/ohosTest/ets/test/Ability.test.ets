@@ -86,11 +86,11 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_002 begin');
       let driver = Driver.create();
       await driver.delayMs(1000);
-      let btn:Component = await  driver.findComponent(ON.text('登录'));
+      let btn: Component = await driver.findComponent(ON.text('登录'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(500);
-      await driver.assertComponentExist(ON.text('test'));
+      await driver.assertComponentExist(ON.text('登出'));
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.text('11'));
       await driver.delayMs(500);
@@ -110,7 +110,7 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_003 begin');
       let driver = Driver.create();
       await driver.delayMs(1000);
-      let btn:Component = await  driver.findComponent(ON.text('全部歌曲'));
+      let btn: Component = await driver.findComponent(ON.text('全部歌曲'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(1000);
@@ -120,7 +120,7 @@ export default function abilityTest() {
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.id('songImage'));
       await driver.delayMs(500);
-      let songName:Component = await driver.findComponent(ON.id('songName'));
+      let songName: Component = await driver.findComponent(ON.id('songName'));
       await driver.delayMs(500);
       let songNameText = await songName.getText();
       await driver.delayMs(500);
@@ -137,13 +137,13 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_004 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.id('paused'));
+      let btn: Component = await driver.findComponent(ON.id('paused'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.id('playing'));
       await driver.delayMs(500);
-      let btn1:Component = await  driver.findComponent(ON.id('playing'));
+      let btn1: Component = await driver.findComponent(ON.id('playing'));
       await driver.delayMs(500);
       await btn1.click();
       await driver.delayMs(500);
@@ -159,7 +159,7 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_005 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.id('songName'));
+      let btn: Component = await driver.findComponent(ON.id('songName'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(500);
@@ -199,24 +199,23 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_006 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.id('songName'));
+      let btn: Component = await driver.findComponent(ON.id('songName'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(500);
-      let listName:Component = await driver.findComponent(ON.id('detail_title1'));
+      let listName: Component = await driver.findComponent(ON.id('detail_title1'));
       await driver.delayMs(500);
       let listNameText = await listName.getText();
       await driver.delayMs(500);
       expect(listNameText).assertEqual('全部歌曲');
       await driver.delayMs(500);
-      let songName:Component = await driver.findComponent(ON.id('detail_title4'));
+      let songName: Component = await driver.findComponent(ON.id('detail_title4'));
       await driver.delayMs(500);
       let songNameText = await songName.getText();
       await driver.delayMs(500);
       expect(songNameText).assertEqual('Asal Mein');
       await driver.delayMs(500);
-      await driver.delayMs(500);
-      let singerName:Component = await driver.findComponent(ON.id('detail_title5'));
+      let singerName: Component = await driver.findComponent(ON.id('detail_title5'));
       await driver.delayMs(500);
       let singerNameText = await singerName.getText();
       await driver.delayMs(500);
@@ -231,7 +230,7 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_007 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let timeCurrent:Component = await driver.findComponent(ON.id('detail_time_current'));
+      let timeCurrent: Component = await driver.findComponent(ON.id('detail_time_current'));
       await driver.delayMs(500);
       let timeCurrentText1 = await timeCurrent.getText();
       HiLog.info(DOMAIN, TAG, 'timeCurrentText1 = ' + timeCurrentText1);
@@ -240,7 +239,7 @@ export default function abilityTest() {
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, 'timeCurrentText2 = ' + timeCurrentText2);
       expect(timeCurrentText1.toString() == timeCurrentText2.toString()).assertFalse();
-      let timeDuration:Component = await driver.findComponent(ON.id('detail_time_duration'));
+      let timeDuration: Component = await driver.findComponent(ON.id('detail_time_duration'));
       await driver.delayMs(500);
       let timeDurationText = await timeDuration.getText();
       await driver.delayMs(500);
@@ -257,13 +256,13 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_008 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.id('detail_next'));
+      let btn: Component = await driver.findComponent(ON.id('detail_next'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(5000);
       await driver.assertComponentExist(ON.text('Baarish'));
       await driver.delayMs(500);
-      let btn1:Component = await  driver.findComponent(ON.id('detail_previous'));
+      let btn1: Component = await driver.findComponent(ON.id('detail_previous'));
       await driver.delayMs(500);
       await btn1.click();
       await driver.delayMs(5000);
@@ -279,13 +278,13 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_009 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.id('detail_paused'));
+      let btn: Component = await driver.findComponent(ON.id('detail_paused'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(1000);
       await driver.assertComponentExist(ON.id('detail_playing'));
       await driver.delayMs(500);
-      let btn1:Component = await  driver.findComponent(ON.id('detail_playing'));
+      let btn1: Component = await driver.findComponent(ON.id('detail_playing'));
       await driver.delayMs(500);
       await btn1.click();
       await driver.delayMs(1000);
@@ -301,7 +300,7 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_010 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.id('detail_playlist'));
+      let btn: Component = await driver.findComponent(ON.id('detail_playlist'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(500);
@@ -324,16 +323,20 @@ export default function abilityTest() {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_011 begin');
       let driver = Driver.create();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.id('detail_playlist'));
+      let btn: Component = await driver.findComponent(ON.id('detail_playlist'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(500);
-      let btn1:Component = await  driver.findComponent(ON.text('Soch Na Sake'));
+      let btn1: Component = await driver.findComponent(ON.text('Soch Na Sake'));
       await btn1.click();
-      await driver.delayMs(2000);
+      await driver.delayMs(3000);
       await driver.pressBack();
       await driver.delayMs(500);
-      await driver.assertComponentExist(ON.text('Soch Na Sake'));
+      let songName: Component = await driver.findComponent(ON.id('songName'));
+      let songNameText = await songName.getText();
+      await driver.delayMs(500);
+      HiLog.info(DOMAIN, TAG, songNameText);
+      expect(songNameText).assertEqual('Soch Na Sake - Arijit Singh, Tulsi Kumar');
       await driver.delayMs(100);
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_011 end');
       done();
@@ -347,16 +350,16 @@ export default function abilityTest() {
       await driver.delayMs(500);
       await driver.pressBack();
       await driver.delayMs(500);
-      let btn:Component = await  driver.findComponent(ON.text('英文歌曲'));
+      let btn: Component = await driver.findComponent(ON.text('英文歌曲'));
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(2000);
-      let songName:Component = await  driver.findComponent(ON.id('songName'));
+      let songName: Component = await driver.findComponent(ON.id('songName'));
       let songNameText = await songName.getText();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, songNameText);
       expect(songNameText).assertEqual('Tie Me Down - Gryffin, Elle Duhe')
-      let btn1:Component = await  driver.findComponent(ON.id('playlist'));
+      let btn1: Component = await driver.findComponent(ON.id('playlist'));
       await btn1.click();
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.text('A Sky Full of Stars'));
@@ -381,13 +384,37 @@ export default function abilityTest() {
       await driver.delayMs(1000);
       await driver.assertComponentExist(ON.id('paused'));
       await driver.delayMs(100);
-      let songName:Component = await  driver.findComponent(ON.id('songName'));
+      let songName: Component = await driver.findComponent(ON.id('songName'));
       let songNameText = await songName.getText();
       await driver.delayMs(500);
       HiLog.info(DOMAIN, TAG, songNameText);
       expect(songNameText).assertEqual('Tie Me Down - Gryffin, Elle Duhe')
       await driver.delayMs(100);
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_013 end');
+      done();
+    })
+    /**
+     * 退出登录
+     */
+    it('MusicPlayerOnline_Home_014', 0, async (done: Function) => {
+      HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_014 begin');
+      let driver = Driver.create();
+      await driver.delayMs(500);
+      let list_pre: Component = await driver.findComponent(ON.id('my_list_item'));
+      await driver.delayMs(500);
+      HiLog.info(DOMAIN, TAG, 'list_pre = ' + list_pre);
+      await driver.delayMs(500);
+      let btn: Component = await driver.findComponent(ON.text('登出'));
+      await driver.delayMs(500);
+      await btn.click();
+      await driver.delayMs(1000);
+      await driver.assertComponentExist(ON.text('未登录'));
+      await driver.delayMs(500);
+      let list: Component = await driver.findComponent(ON.id('my_list_item'));
+      await driver.delayMs(500);
+      HiLog.info(DOMAIN, TAG, 'list = ' + list);
+      expect(list).assertNull();
+      HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_014 end');
       done();
     })
   })

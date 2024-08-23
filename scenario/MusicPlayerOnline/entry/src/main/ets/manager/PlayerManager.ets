@@ -22,6 +22,7 @@ import ServerConstants from '../manager/ServerConstants';
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
+import http from '@ohos.net.http'
 
 export default class PlayerManager {
   private tag: string = 'PlayerManager';
@@ -34,6 +35,7 @@ export default class PlayerManager {
   private listPosition: number = 0;
   private state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
   private listTitle: string = '';
+  private httpRequest = http.createHttp();
   private emitterOptions: emitter.Options = {
     priority: emitter.EventPriority.HIGH
   };
@@ -89,6 +91,7 @@ export default class PlayerManager {
         case ServerConstants.PLAYER_STATE_PLAYING: // play成功调用后触发该状态机上报
           console.info('PlayerManager state playing called.');
           this.list[this.listPosition].isPlaying = true;
+          this.record_recent();
           this.startContinuousTask();
           break;
         case ServerConstants.PLAYER_STATE_PAUSED: // pause成功调用后触发该状态机上报
@@ -252,6 +255,36 @@ export default class PlayerManager {
     }
     console.info('PlayerManager state url：' + url);
     this.avPlayer.url = url;
+  }
+
+  record_recent() {
+    let loginCookie: string | undefined = AppStorage.get('loginCookie');
+    if (loginCookie === '' || loginCookie === undefined) {
+      return;
+    }
+    try {
+      this.httpRequest.request(ServerConstants.RECORD_RECENT + this.item.id,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': loginCookie
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse Result:' + data.result);
+            console.info('HttpResponse code:' + data.responseCode);
+            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+            console.info('HttpResponse header:' + JSON.stringify(data.header));
+            console.info('HttpResponse cookies:' + data.cookies);
+
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+    }
   }
 
   startContinuousTask() {

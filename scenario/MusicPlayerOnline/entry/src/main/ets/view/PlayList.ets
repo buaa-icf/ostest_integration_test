@@ -67,6 +67,7 @@ export default struct PlayList {
       .margin({ bottom: 36 })
       .width('100%')
     }
+    .height('100%')
     .backgroundColor(Color.White)
     .borderRadius({ topLeft: '18vp', topRight: '18vp' })
   }

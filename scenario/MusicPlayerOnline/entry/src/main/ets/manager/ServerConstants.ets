@@ -34,6 +34,10 @@ export default class ServerConstants {
    */
   static readonly ENGLISH_SONGS_URL = this.SERVER_HOST + 'english_songs/';
   /**
+   * Recent songs URL
+   */
+  static readonly RECENT_SONGS_URL = this.SERVER_HOST + 'recent_songs/';
+  /**
    * Song Image URL
    */
   static readonly SONG_IMAGE_URL = this.SERVER_HOST + 'get_song_img/';
@@ -42,26 +46,48 @@ export default class ServerConstants {
    */
   static readonly PLAY_SONG_URL = this.SERVER_HOST + 'play_song1/';
   /**
-   * get playlist
+   * record recent
    */
-  static readonly PLAY_LIST = this.SERVER_HOST + 'play_song1/';
+  static readonly RECORD_RECENT = this.SERVER_HOST + 'record_recent/';
   /**
    * Login URL
    */
   static readonly LOGIN_URL = this.SERVER_HOST + 'authentication/login1/';
   static readonly CSRF_URL = this.SERVER_HOST + 'authentication/get-csrf-token/';
-
-  static readonly  PLAYER_STATE_IDLE = 'idle';
-  static readonly  PLAYER_STATE_INITIALIZED = 'initialized'
-  static readonly  PLAYER_STATE_PREPARED = 'prepared'
-  static readonly  PLAYER_STATE_PLAYING = 'playing'
-  static readonly  PLAYER_STATE_PAUSED = 'paused'
-  static readonly  PLAYER_STATE_COMPLETED = 'completed'
-  static readonly  PLAYER_STATE_STOPPED = 'stopped'
-  static readonly  PLAYER_STATE_RELEASED = 'released'
-  static readonly  PLAYER_STATE_UNKNOWN = 'unknown'
-
-  static readonly  UPDATE_TIME_EVENT_ID = '1'
-  static readonly  UPDATE_STATE_EVENT_ID = '2'
+  /**
+   * PLAYER STATE
+   */
+  static readonly PLAYER_STATE_IDLE = 'idle';
+  static readonly PLAYER_STATE_INITIALIZED = 'initialized'
+  static readonly PLAYER_STATE_PREPARED = 'prepared'
+  static readonly PLAYER_STATE_PLAYING = 'playing'
+  static readonly PLAYER_STATE_PAUSED = 'paused'
+  static readonly PLAYER_STATE_COMPLETED = 'completed'
+  static readonly PLAYER_STATE_STOPPED = 'stopped'
+  static readonly PLAYER_STATE_RELEASED = 'released'
+  static readonly PLAYER_STATE_UNKNOWN = 'unknown'
+  /**
+   * PLAYER UPDATE
+   */
+  static readonly UPDATE_TIME_EVENT_ID = '1'
+  static readonly UPDATE_STATE_EVENT_ID = '2'
+  /**
+   * PLAYER LIST
+   */
+  static readonly LIST_DEFAULT_ALL = '全部歌曲';
+  static readonly LIST_DEFAULT_ENG = '英文歌曲';
+  static readonly LIST_DEFAULT_RECENT = '最近播放';
+  static readonly LIST_SONG_COUNT = '首';
+  /**
+   * PLAYER LOGIN
+   */
+  static readonly LOGIN_BUTTON_IN = '登录';
+  static readonly LOGIN_BUTTON_OUT = '登出';
+  static readonly LOGIN_INFO_NO = '未登录';
+  static readonly LOGIN_INFO_ING = '正在登录...';
+  static readonly LOGIN_INFO_FAILED = '登录失败';
+  static readonly LOGIN_INFO_DONE = ' 你好！';
+  static readonly TEST_ACCOUNT_USER = 'test';
+  static readonly TEST_ACCOUNT_PWD = 'kh123456'
 }
 

@@ -23,6 +23,10 @@ import AudioItem from '../model/AudioItem';
 import PlayListData from '../model/PlayListData';
 import PlayerDetail from '../view/PlayerDetail';
 import emitter from '@ohos.events.emitter';
+import prompt from '@ohos.promptAction';
+
+PersistentStorage.persistProp('loginCookie', '');
+PersistentStorage.persistProp('loginName', ServerConstants.LOGIN_INFO_NO);
 
 @Entry
 @Component
@@ -35,17 +39,16 @@ struct Index {
   @State mOffset: number = 0
   @State mFriction: number = 48
   @State maskOpacity: number = 0.5;
-  @State loginInfo: string = '未登录';
-  @State loginCookie: string[] = [];
-  private userName: string = 'test';
-  private password: string = 'kh123456'
+  @State loginInfo: string = ServerConstants.LOGIN_INFO_NO;
+  @State loginButton: string = ServerConstants.LOGIN_BUTTON_IN;
+  @State loginButtonClickable: boolean = true;
   private httpRequest = http.createHttp()
   private csrfToken: string = ''
 
   @Builder
   refreshBuilder() {
     Column() {
-      Text('刷新中......')
+      Text($r('app.string.refreshing'))
         .fontSize(16)
     }
     .alignItems(HorizontalAlign.Center)
@@ -55,8 +58,15 @@ struct Index {
   }
 
   aboutToAppear(): void {
+    let loginName: string | undefined = AppStorage.get('loginName');
     this.getListFromServer();
-    //this.login();
+    if (loginName != ServerConstants.LOGIN_INFO_NO) {
+      this.loginInfo = loginName + ServerConstants.LOGIN_INFO_DONE;
+      this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
+      this.getCustomListFromServer();
+    } else {
+      this.customPlayLists = [];
+    }
   }
 
   aboutToDisappear(): void {
@@ -67,16 +77,44 @@ struct Index {
   build() {
     Column() {
       Row() {
-        Button('登录')
-          .height(42)
-          .margin(8)
-          .fontSize(32)
+        Image($r('app.media.ic_public_drawer'))
+          .objectFit(ImageFit.Contain)
+          .width(36)
+          .height(32)
+          .margin({ right: 8, left: 8 })
           .onClick(() => {
-            this.login()
+            animateTo({ duration: 350 }, () => {
+              //this.isShowSetting = true;
+            })
           })
+          .id('setting')
         Text(this.loginInfo)
-          .fontSize(32)
+          .fontSize(24)
+          .margin(4)
+        Button(this.loginButton)
+          .type(ButtonType.Normal)
+          .stateEffect(this.loginButtonClickable)
+          .backgroundColor(Color.White)
+          .fontColor(Color.Red)
+          .fontWeight(FontWeight.Lighter)
+          .borderWidth(1)
+          .borderColor(Color.Gray)
+          .borderRadius(4)
+          .height(42)
+          .width(108)
+          .margin(8)
+          .fontSize(28)
+          .onClick(() => {
+            if (this.loginButton === ServerConstants.LOGIN_BUTTON_OUT) {
+              this.logout();
+            }
+            else {
+              this.login()
+            }
+          })
       }
+      .justifyContent(FlexAlign.SpaceBetween)
+      .padding({ left: 16 })
       .height('10%')
       .width('100%')
 
@@ -90,7 +128,7 @@ struct Index {
           Scroll() {
             Column() {
               Row() {
-                Text('推荐歌单')
+                Text($r('app.string.recommend_list'))
                   .fontSize('20fp')
                   .fontWeight(FontWeight.Medium)
                 Image($r('app.media.ic_public_arrow_right'))
@@ -117,7 +155,7 @@ struct Index {
               .width('90%')
 
               Row() {
-                Text('我的歌单')
+                Text($r('app.string.my_list'))
                   .fontSize('20fp')
                   .fontWeight(FontWeight.Medium)
                 Image($r('app.media.ic_public_arrow_right'))
@@ -134,7 +172,7 @@ struct Index {
                 ForEach(this.customPlayLists, (item: PlayListData) => {
                   GridItem() {
                     PlayListItem({ item })
-                  }
+                  }.id('my_list_item')
                 })
               }
               .margin(12)
@@ -142,13 +180,21 @@ struct Index {
               .columnsGap(8)
               .rowsGap(12)
               .width('90%')
-            }.align(Alignment.TopStart)
-          }.scrollBarWidth(0)
+            }
+          }
+          .align(Alignment.Top)
+          .edgeEffect(EdgeEffect.Spring)
+          .scrollBarWidth(0)
           .height('100%')
-          .margin({ bottom: 112 })
+          .margin({ bottom: 84 })
         }.onRefreshing(() => {
           setTimeout(() => {
             this.getListFromServer();
+            if (this.loginInfo != ServerConstants.LOGIN_INFO_NO) {
+              this.getCustomListFromServer();
+            } else {
+              this.customPlayLists = [];
+            }
             this.isRefreshing = false
           }, 500)
         })
@@ -219,7 +265,7 @@ struct Index {
           Object.keys(jsonObject).forEach((key) => {
             aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
           });
-          this.playLists.push(new PlayListData('全部歌曲', $r('app.media.icon'), aPlayingList.length + '首',
+          this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ALL, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
             aPlayingList, ''));
           console.info('HttpResponse code:' + data.responseCode);
           console.info('HttpResponse type:' + JSON.stringify(data.resultType));
@@ -242,7 +288,7 @@ struct Index {
           Object.keys(jsonObject).forEach((key) => {
             aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
           });
-          this.playLists.push(new PlayListData('英文歌曲', $r('app.media.icon'), aPlayingList.length + '首',
+          this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ENG, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
             aPlayingList, ''));
           console.info('HttpResponse code:' + data.responseCode);
           console.info('HttpResponse type:' + JSON.stringify(data.resultType));
@@ -255,10 +301,57 @@ struct Index {
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
     }
+    if (this.loginInfo != ServerConstants.LOGIN_INFO_NO) {
+      let loginCookie: string | undefined = AppStorage.get('loginCookie');
+      if (loginCookie === '' || loginCookie === undefined) {
+        return;
+      }
+      try {
+        this.httpRequest.request(ServerConstants.RECENT_SONGS_URL,
+          {
+            method: http.RequestMethod.GET,
+            header: {
+              'Cookie': loginCookie
+            }
+          },
+          (err: Error, data: http.HttpResponse) => {
+            if (!err) {
+              console.info('HttpResponse Recent Result:' + data.result);
+              let aPlayingList: AudioItem[] = Array<AudioItem>();
+              const jsonObject: object = JSON.parse(data.result as string);
+              Object.keys(jsonObject).forEach((key) => {
+                aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
+              });
+              this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_RECENT, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                aPlayingList, ''));
+              console.info('HttpResponse code:' + data.responseCode);
+              console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+              console.info('HttpResponse header:' + JSON.stringify(data.header));
+              console.info('HttpResponse cookies:' + data.cookies);
+            } else {
+              console.info('HttpResponse error:' + JSON.stringify(err));
+            }
+          });
+      } catch (err) {
+        console.info('HttpRequest error:' + JSON.stringify(err));
+      }
+    }
+  }
+
+  logout() {
+    this.loginInfo = ServerConstants.LOGIN_INFO_NO;
+    AppStorage.setOrCreate('loginName', ServerConstants.LOGIN_INFO_NO);
+    this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
+    AppStorage.setOrCreate('loginCookie', '');
+    this.customPlayLists = [];
+    this.getListFromServer();
+    //TODO request logout from server
   }
 
   login() {
     try {
+      this.loginButton = ServerConstants.LOGIN_INFO_ING;
+      this.loginButtonClickable = false;
       this.httpRequest.request(ServerConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
@@ -268,7 +361,7 @@ struct Index {
             this.httpRequest.request(ServerConstants.LOGIN_URL,
               {
                 method: http.RequestMethod.POST,
-                extraData: 'username=' + this.userName + '&password=' + this.password,
+                extraData: 'username=' + ServerConstants.TEST_ACCOUNT_USER + '&password=' + ServerConstants.TEST_ACCOUNT_PWD,
                 header: {
                   'content-Type': 'application/x-www-form-urlencoded',
                   'X-CSRFToken': this.csrfToken,
@@ -280,24 +373,44 @@ struct Index {
                   console.info('HttpResponse Result:' + data.result);
                   console.info('HttpResponse code:' + data.responseCode);
                   if (200 === data.responseCode) {
-                    this.loginInfo = this.userName
-                    this.loginCookie = data.header['set-cookie'];
+                    this.loginInfo = ServerConstants.TEST_ACCOUNT_USER + ServerConstants.LOGIN_INFO_DONE
+                    AppStorage.setOrCreate('loginName', ServerConstants.TEST_ACCOUNT_USER);
+                    let loginCookie: string[] = data.header['set-cookie'];
+                    let cookie: string = loginCookie.map(cookie => {
+                      const parts = cookie.split('=');
+                      return `${parts[0]}=${parts[1]}`;
+                    }).join('; ')
+                    AppStorage.setOrCreate('loginCookie', cookie);
                   }
                   console.info('HttpResponse type:' + JSON.stringify(data.resultType));
                   console.info('HttpResponse header:' + JSON.stringify(data.header));
-
+                  this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
+                  this.getListFromServer();
                   this.getCustomListFromServer();
                 } else {
                   console.info('HttpResponse error:' + JSON.stringify(err));
+                  this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
+                  prompt.showToast({
+                    message: ServerConstants.LOGIN_INFO_FAILED
+                  })
                 }
               });
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
+            prompt.showToast({
+              message: ServerConstants.LOGIN_INFO_FAILED
+            })
           }
         });
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
+      this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
+      prompt.showToast({
+        message: ServerConstants.LOGIN_INFO_FAILED
+      })
     }
+    this.loginButtonClickable = true;
   }
 
   getCustomListFromServer() {
@@ -307,15 +420,13 @@ struct Index {
         {
           method: http.RequestMethod.GET,
           header: {
-            'Cookie': this.loginCookie.map(cookie => {
-              const parts = cookie.split('=');
-              return `${parts[0]}=${parts[1]}`;
-            }).join('; ')
+            'Cookie': AppStorage.get('loginCookie')
           }
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
             console.info('HttpResponse getCustomListFromServer Result:' + data.result);
+
             interface PlaylistItem {
               playlist_name: string;
               song: number;
@@ -324,14 +435,15 @@ struct Index {
               singer: string;
               language: string;
             }
-            let jsonObject: PlaylistItem[]  = JSON.parse(data.result as string);
+
+            let jsonObject: PlaylistItem[] = JSON.parse(data.result as string);
             let groupedByPlaylistName = jsonObject.reduce((accumulator, item) => {
               if (!accumulator[item.playlist_name]) {
                 accumulator[item.playlist_name] = [];
               }
               accumulator[item.playlist_name].push(item);
               return accumulator;
-            }, {} as  Record<string, PlaylistItem[]>);
+            }, {} as Record<string, PlaylistItem[]>);
             const keys = Object.keys(groupedByPlaylistName);
             keys.forEach((playlistName) => {
               console.log(`Playlist: ${playlistName}`);
@@ -339,7 +451,7 @@ struct Index {
               groupedByPlaylistName[playlistName].forEach((song, index) => {
                 aPlayingList.push(new AudioItem(song.name, song.singer, song.id.toString()));
               });
-              this.customPlayLists.push(new PlayListData(playlistName, $r('app.media.icon'), aPlayingList.length + '首',
+              this.customPlayLists.push(new PlayListData(playlistName, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
                 aPlayingList, ''));
             });
           } else {
