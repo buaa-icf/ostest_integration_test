@@ -1,0 +1,37 @@
+/**
+ * Copyright (c) 2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import { CommonModifier,  StackModifier } from '@ohos.arkui.modifier';
+class MyStackModifier extends StackModifier {
+  applyNormalAttributes(instance: MyStackModifier): void {
+  }
+}
+@Entry
+@Component
+struct UIComponentLayoutModifier028 {
+  @State result: number = 0
+  @State myStackModifier: CommonModifier = new MyStackModifier().width(200).height(300)
+  @State myStackModifier1: CommonModifier = new MyStackModifier().alignContent(Alignment.BottomStart)
+  build() {
+    Stack() {
+      Text('Text1')
+        .width(100)
+        .height(100)
+        .backgroundColor("#aabbcc")
+    }
+    .backgroundColor(Color.Pink)
+    .attributeModifier(this.myStackModifier as MyStackModifier)
+    .attributeModifier(this.myStackModifier1 as MyStackModifier)
+  }
+}
