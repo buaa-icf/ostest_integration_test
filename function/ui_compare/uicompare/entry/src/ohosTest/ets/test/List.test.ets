@@ -47,6 +47,14 @@ import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTe
 import UiComponentWordbreak from './UiComponentWordbreakTest/UiComponentWordbreak.test'
 import TestCase from './TestCaseTest/TestCase.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
+import UIComponentTextCommonLocationTest from './UIComponentTextCommonLocationTest/UIComponentTextCommonLocation.test'
+import UIComponentSymbolColorrendering from './UIComponentSymbolColorrenderingTest/UIComponentSymbolColorrendering.test'
+import UIComponentLineheightDecoration from './UIComponentLineheightDecorationTest/UIComponentLineheightDecoration.test'
+import UIComponentTextinputUnderlinecolor from './UIComponentTextinputUnderlinecolorTest/UIComponentTextinputUnderlinecolor.test'
+import UIComponentLayoutStackTest from './UIComponentLayoutStackTest/UIComponentLayoutStack.test'
+import UITestCase from './UITestCaseTest/UITestCase.test'
+import UIComponentCommonattrDrawingLayout from './UIComponentCommonattrDrawingLayoutTest/UIComponentCommonattrDrawingLayout.test'
+import UIComponentLayoutModifierTest from './UIComponentLayoutModifierTest/UIComponentLayoutModifier.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -82,4 +90,12 @@ export default function testsuite() {
   UIComponentCreateColor();
   UiComponentWordbreak();
   TestCase();
+  UIComponentTextCommonLocationTest();
+  UITestCase();
+  UIComponentLayoutStackTest();
+  UIComponentSymbolColorrendering();
+  UIComponentCommonattrDrawingLayout();
+  UIComponentLayoutModifierTest();
+  UIComponentLineheightDecoration();
+  UIComponentTextinputUnderlinecolor();
 }

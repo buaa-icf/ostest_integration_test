@@ -141,7 +141,7 @@ export default function UIComponentDividerBlankInterfaceMin() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0180 finish.`);
       done()
     })
-    
+
     /*
     * @tc.number  SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0190
     * @tc.name    SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0190
