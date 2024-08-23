@@ -1148,6 +1148,37 @@ export default function UiComponentTextCommonTextstyle() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_0940 finish.`);
       done()
     })
+
+    /*
+             * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1190
+             * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1190
+             * @tc.desc    text dragable=true
+      */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1190', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1190 start.`);
+      Settings.createWindow("testability/pages/UIComponentTextCommonTextStyle/UiComponentTextCommonTextstyle1190")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1190 finish.`);
+      done()
+    })
+
+    /*
+           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1200
+           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1200
+           * @tc.desc    text dragable=true
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1200', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1200 start.`);
+      Settings.createWindow("testability/pages/UIComponentTextCommonTextStyle/UiComponentTextCommonTextstyle1200")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1200 finish.`);
+      done()
+    })
+
     /*
               * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1900
               * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_TEXTSTYLE_1900

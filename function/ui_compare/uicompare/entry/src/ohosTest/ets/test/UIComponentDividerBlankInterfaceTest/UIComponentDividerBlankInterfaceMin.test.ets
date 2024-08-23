@@ -128,6 +128,21 @@ export default function UIComponentDividerBlankInterfaceMin() {
     })
 
     /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0180
+       * @tc.name    SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0180
+       * @tc.desc    set min of blank to '50abc', .color(Color.Yellow)
+       */
+    it('SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0180', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0180 start.`);
+      Settings.createWindow("testability/pages/UIComponentDividerBlankInterface/UIComponentDividerBlankInterface018")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0180 finish.`);
+      done()
+    })
+    
+    /*
     * @tc.number  SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0190
     * @tc.name    SUB_ACE_UI_COMPONENT_DIVIDER_BLANK_INTERFACE_0190
     * @tc.desc    set min of blank to 100, width to 50. The spacing is 100vp.

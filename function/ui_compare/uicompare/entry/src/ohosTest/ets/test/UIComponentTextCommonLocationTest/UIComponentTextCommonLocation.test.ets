@@ -682,6 +682,70 @@ export default function UIComponentTextCommonLocationTest() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0510 finish.`);
       done()
     })
+
+    /*
+          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1010
+          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1010
+          * @tc.desc    TextArea showCounter=true
+   */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1010', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1010 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface1010")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1010 finish.`);
+      done()
+    })
+
+    /*
+         * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1030
+         * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1030
+         * @tc.desc    TextArea  style=TextContentStyle.INLINE
+  */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1030', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1010 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface1030")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1030 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1080
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1080
+       * @tc.desc    TextArea  selectionEnd>max
+*/
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1080', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1010 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface1080")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1080 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1090
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1090
+       * @tc.desc    TextArea  selectionEnd>max
+*/
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1090', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1090 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface1090")
+      await Utils.sleep(1000)
+      let driver:Driver=Driver.create()
+      let textarea:Component =await driver.findComponent(ON.id('textarea1090'))
+      await textarea.inputText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+      await textarea.clearText()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1090 finish.`);
+      done()
+    })
   })
 }
 
