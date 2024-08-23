@@ -57,7 +57,7 @@ export default function UITestCase() {
     /*
           * @tc.number  TestCase_10693b5cd42e4d069ee1e690ef038146
           * @tc.name    TestCase_10693b5cd42e4d069ee1e690ef038146
-          * @tc.desc    设置fontFeature为ss02属性
+          * @tc.desc    set fontFeature为ss02
    */
     it('TestCase_10693b5cd42e4d069ee1e690ef038146', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_10693b5cd42e4d069ee1e690ef038146 start.`);
@@ -241,7 +241,7 @@ export default function UITestCase() {
     /*
 * @tc.number  TestCase_718b02bf461e482cb5c999d48ad43b4f
 * @tc.name    TestCase_718b02bf461e482cb5c999d48ad43b4f
-* @tc.desc    不支持动态变化
+* @tc.desc    do not support change
 */
     it('TestCase_718b02bf461e482cb5c999d48ad43b4f', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_718b02bf461e482cb5c999d48ad43b4f start.`);
@@ -319,7 +319,7 @@ export default function UITestCase() {
     /*
 * @tc.number  TestCase_b9d7edec63254feabba03b0940effa8e
 * @tc.name    TestCase_b9d7edec63254feabba03b0940effa8e
-* @tc.desc    不支持color1 和strokeWidth1 写法的变化感知
+* @tc.desc    not supported for color1 and strokeWidth1
 */
     it('TestCase_b9d7edec63254feabba03b0940effa8e', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_b9d7edec63254feabba03b0940effa8e start.`);
@@ -414,7 +414,7 @@ export default function UITestCase() {
     /*
 * @tc.number  TestCase_f8bf8ecff77e4b5e85c4f7ad059885af
 * @tc.name    TestCase_f8bf8ecff77e4b5e85c4f7ad059885af
-* @tc.desc    不支持resizeable1 写法的变化感知
+* @tc.desc    resizeable1
 */
     it('TestCase_f8bf8ecff77e4b5e85c4f7ad059885af', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_f8bf8ecff77e4b5e85c4f7ad059885af start.`);

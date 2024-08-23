@@ -193,7 +193,7 @@ export default function UIComponentTextinputUnderlinecolor() {
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060
-          * @tc.desc    set 多个特殊状态颜色
+          * @tc.desc    set different color
    */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060 start.`);
@@ -218,7 +218,7 @@ export default function UIComponentTextinputUnderlinecolor() {
     /*
          * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070
          * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070
-         * @tc.desc    set showCounter=错误值
+         * @tc.desc    set showCounter=false
   */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070 start.`);
@@ -267,7 +267,7 @@ export default function UIComponentTextinputUnderlinecolor() {
     /*
        * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100
        * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100
-       * @tc.desc    深色模式测试
+       * @tc.desc    dark
 */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100 start.`);
@@ -321,7 +321,7 @@ export default function UIComponentTextinputUnderlinecolor() {
     /*
        * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120
        * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120
-       * @tc.desc    预览器测试
+       * @tc.desc    preview test
 */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120 start.`);

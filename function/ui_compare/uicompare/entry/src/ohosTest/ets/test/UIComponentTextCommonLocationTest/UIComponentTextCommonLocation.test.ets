@@ -55,7 +55,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
      * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0020
      * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0020
-     * @tc.desc        Search placeholder单行
+     * @tc.desc        Search placeholder
   */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0020 start.`);
@@ -70,7 +70,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
    * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0030
    * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0030
-   * @tc.desc        Search 单行文本
+   * @tc.desc        Search
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0030 start.`);
@@ -85,7 +85,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
    * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0040
    * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0040
-   * @tc.desc        Search 多行placeholder
+   * @tc.desc        Search  set placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0040 start.`);
@@ -100,7 +100,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
    * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0050
    * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0050
-   * @tc.desc        Search 多行文本
+   * @tc.desc        Search more text
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0050 start.`);
@@ -115,7 +115,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
        * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0060
        * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0060
-       * @tc.desc        Search 文本为空
+       * @tc.desc        Search no text
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0060 start.`);
@@ -131,7 +131,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
    * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0090
    * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0090
-   * @tc.desc        设置fontSize、fontStyle、fontWeight不同值
+   * @tc.desc        set fontSize、fontStyle、fontWeight
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0090 start.`);
@@ -146,7 +146,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
    * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0100
    * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0100
-   * @tc.desc        设置textAlign、align不同值
+   * @tc.desc        set textAlign、align
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0100 start.`);
@@ -161,7 +161,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0120
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0120
-* @tc.desc        设置border不同值
+* @tc.desc        set border
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0120 start.`);
@@ -176,7 +176,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0140
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0140
-* @tc.desc        设置padding、margin不同值
+* @tc.desc        set padding、margin
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0140 start.`);
@@ -191,7 +191,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0150
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0150
-* @tc.desc        设置width、height
+* @tc.desc        set width、height
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0150 start.`);
@@ -206,7 +206,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0160
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0160
-* @tc.desc        设置maxlength
+* @tc.desc        set maxlength
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0160 start.`);
@@ -221,7 +221,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0170
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0170
-* @tc.desc        设置一段文本内容
+* @tc.desc        set a phrase
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0170 start.`);
@@ -236,7 +236,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0180
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0180
-* @tc.desc        Textinput 仅设置placeholder
+* @tc.desc        Textinput set placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0180 start.`);
@@ -251,7 +251,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0190
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0190
-* @tc.desc        Textinput 单行placeholder
+* @tc.desc        Textinput set placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0190 start.`);
@@ -266,7 +266,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0200
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0200
-* @tc.desc        Textinput 单行文本
+* @tc.desc        Textinput
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0200 start.`);
@@ -281,7 +281,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0210
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0210
-* @tc.desc        Textinput 多行placeholder
+* @tc.desc        Textinput set placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0210 start.`);
@@ -296,7 +296,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0220
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0220
-* @tc.desc        Textinput 多行文本
+* @tc.desc        Textinput
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0220 start.`);
@@ -311,7 +311,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0230
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0230
-* @tc.desc        Textinput 单行placeholder
+* @tc.desc        Textinput single placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0230 start.`);
@@ -326,7 +326,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0260
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0260
-* @tc.desc        Textinput 设置fontSize、fontStyle、fontWeight不同值
+* @tc.desc        Textinput set fontSize、fontStyle、fontWeight
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0260', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0260 start.`);
@@ -341,7 +341,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0270
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0270
-* @tc.desc        Textinput 设置textAlign、align不同值
+* @tc.desc        Textinput textAlign、align
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0270 start.`);
@@ -356,7 +356,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0280
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0280
-* @tc.desc        Textinput 设置barState不同值
+* @tc.desc        Textinput set barState
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0280 start.`);
@@ -371,7 +371,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0290
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0290
-* @tc.desc        Textinput 设置border不同值
+* @tc.desc        Textinput setborder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0290 start.`);
@@ -386,7 +386,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0300
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0300
-* @tc.desc        Textinput 设置maxLines不同值
+* @tc.desc        Textinput set maxLines
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0300 start.`);
@@ -401,7 +401,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0310
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0310
-* @tc.desc        Textinput 设置padding、margin不同值
+* @tc.desc        Textinput set padding、margin
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0310 start.`);
@@ -416,7 +416,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0320
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0320
-* @tc.desc        Textinput 设置width、height不同值
+* @tc.desc        Textinput set width、height
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0320 start.`);
@@ -431,7 +431,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0330
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0330
-* @tc.desc        Textinput 设置maxlength
+* @tc.desc        Textinput set maxlength
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0330 start.`);
@@ -446,7 +446,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0340
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0340
-* @tc.desc        Textinput 设置一段文本
+* @tc.desc        Textinput set a phrese
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0340', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0340 start.`);
@@ -461,7 +461,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0350
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0350
-* @tc.desc        多行文本输入框组件仅设置placeholder
+* @tc.desc        textarea placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0350', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0350 start.`);
@@ -476,7 +476,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0360
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0360
-* @tc.desc        多行文本输入框组件单行placeholder
+* @tc.desc        textarea set placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0360 start.`);
@@ -491,7 +491,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0370
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0370
-* @tc.desc        多行文本输入框组件单行文本
+* @tc.desc        textarea set single phrase
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0370 start.`);
@@ -506,7 +506,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0380
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0380
-* @tc.desc        多行文本输入框组件多行placeholder
+* @tc.desc        textarea set placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0380 start.`);
@@ -521,7 +521,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0390
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0390
-* @tc.desc        多行文本输入框组件多行文本
+* @tc.desc        textarea set multiple placeholder
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0390', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0390 start.`);
@@ -536,7 +536,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0400
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0400
-* @tc.desc        多行文本输入框组件文本内容为空
+* @tc.desc        textarea not set
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0400', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0400 start.`);
@@ -551,7 +551,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0430
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0430
-* @tc.desc        多行文本输入框组件文本设置fontSize、fontStyle、fontWeight不同值
+* @tc.desc        textarea fontSize、fontStyle、fontWeight
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0430 start.`);
@@ -566,7 +566,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0440
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0440
-* @tc.desc        多行文本输入框组件文本设置textAlign、align不同值
+* @tc.desc        textarea set textAlign、align
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0440', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0440 start.`);
@@ -581,7 +581,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0450
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0450
-* @tc.desc        多行文本输入框组件组件设置barState不同值
+* @tc.desc        textarea set barState
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0450', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0450 start.`);
@@ -596,7 +596,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0460
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0460
-* @tc.desc        多行文本输入框组件组件设置border不同值
+* @tc.desc        textarea
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0460', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0460 start.`);
@@ -611,7 +611,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0470
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0470
-* @tc.desc        多行文本输入框组件组件设置maxLines不同值
+* @tc.desc        textarea set maxLines
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0470', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0470 start.`);
@@ -626,7 +626,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0480
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0480
-* @tc.desc        多行文本输入框组件组件设置padding、margin不同值
+* @tc.desc        textarea set padding、margin
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0480', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0480 start.`);
@@ -641,7 +641,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0490
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0490
-* @tc.desc        多行文本输入框组件组件设置width、height不同值
+* @tc.desc        textarea set width、height
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0490', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0490 start.`);
@@ -656,7 +656,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0500
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0500
-* @tc.desc        多行文本输入框组件设置maxlength
+* @tc.desc        textarea set maxlength
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0500', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0500 start.`);
@@ -671,7 +671,7 @@ export default function UIComponentTextCommonLocationTest() {
     /*
 * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0510
 * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0510
-* @tc.desc        多行文本输入框组件设置一段文本内容
+* @tc.desc        textarea set a phrase
 */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0510', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_LOCATION_0510 start.`);

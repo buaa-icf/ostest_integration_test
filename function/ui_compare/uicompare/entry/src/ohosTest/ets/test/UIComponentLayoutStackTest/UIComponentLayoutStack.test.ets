@@ -115,7 +115,7 @@ export default function UIComponentLayoutStackTest() {
     /*
  * @tc.number  SUB_ACE_UI_COMPONENT_LAYOUT_STACK_034
  * @tc.name    SUB_ACE_UI_COMPONENT_LAYOUT_STACK_034
- * @tc.desc   set repeat=ARKUI_IMAGEREPEAT_XY
+ * @tc.desc    set repeat=ARKUI_IMAGEREPEAT_XY
 */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_STACK_034', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_STACK_034 start.`);

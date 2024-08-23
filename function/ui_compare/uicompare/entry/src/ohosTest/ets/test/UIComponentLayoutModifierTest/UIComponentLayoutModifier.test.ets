@@ -62,7 +62,7 @@ export default function UIComponentLayoutModifierTest() {
     /*
      * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0240
      * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0240
-     * @tc.desc         set alignContent 【TopStart、null、End、undefined、BottomEnd】
+     * @tc.desc        set alignContent 【TopStart、null、End、undefined、BottomEnd】
   */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0240 start.`);
@@ -119,7 +119,7 @@ export default function UIComponentLayoutModifierTest() {
     /*
   * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0270
   * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0270
-  * @tc.desc        new MyModifier().alignContent动态切换不感知
+  * @tc.desc        new MyModifier().alignContent
 */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0270 start.`);
@@ -140,7 +140,7 @@ export default function UIComponentLayoutModifierTest() {
     /*
       * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0280
       * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0280
-      * @tc.desc        两次设置attributeModifier是属性的并集
+      * @tc.desc        attributeModifier
    */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0280 start.`);
@@ -155,7 +155,7 @@ export default function UIComponentLayoutModifierTest() {
     /*
      * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0290
      * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0290
-     * @tc.desc        混合设置Modifier
+     * @tc.desc        Modifier
   */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0290 start.`);
@@ -170,7 +170,7 @@ export default function UIComponentLayoutModifierTest() {
     /*
       * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0300
       * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0300
-      * @tc.desc        attributeModifier(myModiferl类)中setGroup1设置alignContent为BottomStart，setGroup2设置alignContent为End
+      * @tc.desc        attributeModifier(myModiferl)setGroup1=alignContent BottomStart，setGroup2 set alignContent End
    */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0300 start.`);
