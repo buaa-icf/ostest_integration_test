@@ -128,9 +128,9 @@
 
 * 场景测试
 
-| 在线音乐场景测试应用                                                                                               | 音乐UX场景测试应用                                      | 新闻UX场景测试应用                                     |
-|----------------------------------------------------------------------------------------------------------|-------------------------------------------------|------------------------------------------------|
-| <img src="scenario/MusicPlayerOnline/screenshots/home.png" alt="描述文字" style="width:384px;height:726px;"> | ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
+| 在线音乐场景测试应用                                                      | 音乐UX场景测试应用                                      | 新闻UX场景测试应用                                     |
+|-----------------------------------------------------------------|-------------------------------------------------|------------------------------------------------|
+| ![image](scenario/MusicPlayerOnline/screenshots/home_small.png) | ![image](scenario/MyMusic/screenshots/home.png) | ![image](scenario/MyNews/screenshots/home.png) | 
 
 * 性能测试
 
