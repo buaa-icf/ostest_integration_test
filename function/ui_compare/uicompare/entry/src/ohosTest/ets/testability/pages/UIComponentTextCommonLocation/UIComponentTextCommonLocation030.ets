@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import { MeasureText } from '@kit.ArkUI'
+@Entry
+@Component
+struct UIComponentTextCommonLocation030 {
+  @State text: string = "They can be classified as built-in components–those directly provided by the ArkUI framework and custom components – those defined by developers" +
+    "The built-in components include buttons radio buttonsprogress indicators and text You can set the rendering effectof thesecomponents in method chaining mode," +
+    "page components are divided into independent UI units to implementindependent creation development and reuse of different units on pages making pages more engineering-oriented."
+  @State place: string = ''
+  controller: TextInputController = new TextInputController()
+  textSize : SizeOptions = MeasureText.measureTextSize({
+    textContent: this.text,
+    fontSize: '50px',
+    lineHeight:'30px',
+    fontWeight:FontWeight.Bolder,
+    fontStyle:FontStyle.Italic
+  })
+  build() {
+    Column() {
+      TextInput({text:this.text})
+        .caretColor(Color.Blue)
+        .width('95%')
+        .textAlign(TextAlign.Center)
+        .style(TextInputStyle.Inline)
+        .barState(BarState.On)
+        .height(40)
+        .margin(20)
+        .maxLines(2)
+        .fontSize(14)
+        .defaultFocus(true)
+      Text(`The width of 'Hello World': ${this.textSize.width}`)
+      Text(`The height of 'Hello World': ${this.textSize.height}`)
+    }.width('100%')
+  }
+}
