@@ -15,6 +15,18 @@
     {
       "name": "keep_running",
       "value": "长时任务权限"
+    },
+    {
+      "name": "refreshing",
+      "value": "刷新中..."
+    },
+    {
+      "name": "recommend_list",
+      "value": "推荐歌单"
+    },
+    {
+      "name": "my_list",
+      "value": "我的歌单"
     }
   ]
 }

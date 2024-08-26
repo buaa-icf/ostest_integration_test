@@ -11,6 +11,18 @@
     {
       "name": "EntryAbility_label",
       "value": "MusicPlayerOnline"
+    },
+    {
+      "name": "refreshing",
+      "value": "refresh..."
+    },
+    {
+      "name": "recommend_list",
+      "value": "Recommend Lists"
+    },
+    {
+      "name": "my_list",
+      "value": "My Lists"
     }
   ]
 }
