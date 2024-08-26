@@ -15,6 +15,14 @@
 
 import demoTest from  './Demo.test'
 import UIAttributeFontInterface001 from  './UIAttributeFontInterfaceTest/UIAttributeFontInterface001.test'
+import UIComponentDividerBlankLayout from  './UIComponentDividerBlankLayout/UIComponentDividerBlankLayout.test'
+import UIComponentDividerDividerInterface from  './UIComponentDividerDividerInterface/UIComponentDividerDividerInterface.test'
+import UIComponentDividerDividerLayout from  './UIComponentDividerDividerLayout/UIComponentDividerDividerLayout.test'
+import UIComponentDividerStyle from  './UIComponentDividerStyle/UIComponentDividerStyle.test'
+import UIComponentLayoutFlexInterface from  './UIComponentLayoutFlexInterface/UIComponentLayoutFlexInterface.test'
+import UIComponentTextRefactorAdjustment from  './UIComponentTextRefactorAdjustment/UIComponentTextRefactorAdjustment.test'
+import UIComponentTextTextareEnhances from  './UIComponentTextTextareEnhances/UIComponentTextTextareEnhances.test'
+import UIAttributeFontInterface001 from  './UIAttributeFontInterfaceTest/UIAttributeFontInterface001.test'
 import UIAttributeFontInterfaceColor from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceColor.test'
 import UIAttributeFontInterfaceFontFamily from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceFontFamily.test'
 import UIAttributeFontInterfaceSize from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceSize.test'
@@ -59,6 +67,13 @@ import UIComponentLayoutModifierTest from './UIComponentLayoutModifierTest/UICom
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
+  UIComponentDividerBlankLayout();
+  UIComponentDividerDividerInterface();
+  UIComponentDividerDividerLayout();
+  UIComponentDividerStyle();
+  UIComponentLayoutFlexInterface();
+  UIComponentTextRefactorAdjustment();
+  UIComponentTextTextareEnhances();
   UIAttributeFontInterfaceColor();
   UIAttributeFontInterfaceFontFamily();
   UIAttributeFontInterfaceSize();
