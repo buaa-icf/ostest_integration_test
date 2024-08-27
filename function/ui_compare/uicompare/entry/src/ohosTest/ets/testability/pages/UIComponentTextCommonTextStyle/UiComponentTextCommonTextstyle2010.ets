@@ -14,7 +14,7 @@
  */
 @Entry
 @Component
-struct UiComponentTextCommonTextstyle008{
+struct UiComponentTextCommonTextstyle2010{
   @State changeValue: string = ''
   @State submitValue: string = ''
   controller: SearchController = new SearchController()

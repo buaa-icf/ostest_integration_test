@@ -22,7 +22,6 @@ import UIComponentDividerStyle from  './UIComponentDividerStyle/UIComponentDivid
 import UIComponentLayoutFlexInterface from  './UIComponentLayoutFlexInterface/UIComponentLayoutFlexInterface.test'
 import UIComponentTextRefactorAdjustment from  './UIComponentTextRefactorAdjustment/UIComponentTextRefactorAdjustment.test'
 import UIComponentTextTextareEnhances from  './UIComponentTextTextareEnhances/UIComponentTextTextareEnhances.test'
-import UIAttributeFontInterface001 from  './UIAttributeFontInterfaceTest/UIAttributeFontInterface001.test'
 import UIAttributeFontInterfaceColor from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceColor.test'
 import UIAttributeFontInterfaceFontFamily from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceFontFamily.test'
 import UIAttributeFontInterfaceSize from  './UIAttributeFontInterfaceTest/UIAttributeFontInterfaceSize.test'
@@ -50,7 +49,6 @@ import UiTextShadowTest001 from './UiTextShadowTest/UiTextShadowTest001.test'
 import UiComponentDividerStyle from './UiComponentDividerStyleTest/UiComponentDividerStyle.test'
 import UiComponentLayoutCommonPixel from './UiComponentLayoutCommonPixelTest/UiComponentLayoutCommonPixel.test'
 import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolumnSidebarcontainerInterfaceTest/UiComponentRowcolumnSidebarcontainerInterface.test'
-import UiComponentTextCommonTextstyle from './UiComponentTextCommonTextstyleTest/UiComponentTextCommonTextstyle.test'
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
 import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
 import UiComponentWordbreak from './UiComponentWordbreakTest/UiComponentWordbreak.test'
@@ -64,6 +62,8 @@ import UIComponentLayoutStackTest from './UIComponentLayoutStackTest/UIComponent
 import UITestCase from './UITestCaseTest/UITestCase.test'
 import UIComponentCommonattrDrawingLayout from './UIComponentCommonattrDrawingLayoutTest/UIComponentCommonattrDrawingLayout.test'
 import UIComponentLayoutModifierTest from './UIComponentLayoutModifierTest/UIComponentLayoutModifier.test'
+import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
+import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolymorphicTest/UIComponentTextTextinputPolymorphic.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -101,7 +101,6 @@ export default function testsuite() {
   UiComponentDividerStyle();
   UiComponentLayoutCommonPixel();
   UiComponentRowcolumnSidebarcontainerInterface();
-  UiComponentTextCommonTextstyle();
   UiComponentTextModifier();
   UIComponentCreateColor();
   UIComponentTextCapi();

@@ -14,7 +14,7 @@
  */
 @Entry
 @Component
-struct UiComponentTextCommonTextstyle014 {
+struct UiComponentTextCommonTextstyle2160 {
   build() {
     Text() {
       Span('LineThrough-span')
