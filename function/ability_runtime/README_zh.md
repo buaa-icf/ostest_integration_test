@@ -11,7 +11,7 @@
 
 ## hitsamstest<a name="hitsamstest"></a>
 
-hitsamstest目录下是自动化测试Permission_ExternalInterfaces的用例。
+hitsamstest目录下是自动化测试Permission_ExternalInterfaces、AppManager_ShareAcquireShareData的用例。
 
 ## stateinfo<a name="stateinfo"></a>
 
