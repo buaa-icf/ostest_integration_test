@@ -52,7 +52,7 @@ import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolum
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
 import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
 import UiComponentWordbreak from './UiComponentWordbreakTest/UiComponentWordbreak.test'
-import TestCase from './TestCaseTest/TestCase.test'
+import UITestCase from './UITestCaseTest/UITestCase.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 import UIComponentTextCommonLocationTest from './UIComponentTextCommonLocationTest/UIComponentTextCommonLocation.test'
 import UIComponentSymbolColorrendering from './UIComponentSymbolColorrenderingTest/UIComponentSymbolColorrendering.test'
