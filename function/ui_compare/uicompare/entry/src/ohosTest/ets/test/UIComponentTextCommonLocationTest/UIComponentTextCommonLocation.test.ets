@@ -17,6 +17,7 @@ import Settings from '../model/Settings'
 import windowSnap from '../model/snapShot'
 import Logger from '../model/Logger'
 import Utils from '../model/Utils'
+import { Driver, ON,Component } from '@ohos.UiTest'
 
 export default function UIComponentTextCommonLocationTest() {
 

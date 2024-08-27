@@ -15,7 +15,7 @@
 
 @Entry
 @Component
-struct UiTextBrighten027 {
+struct UiTextBrighten028 {
   @State accumulateTime: number = 0
 
   controller: TextClockController = new TextClockController()

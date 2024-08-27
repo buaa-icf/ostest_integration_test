@@ -17,6 +17,8 @@ import Settings from '../model/Settings'
 import windowSnap from '../model/snapShot'
 import Logger from '../model/Logger'
 import Utils from '../model/Utils'
+import { Driver, ON } from '@ohos.UiTest'
+
 export default function UiComponentTextCommonTextstyle() {
   describe('UiComponentTextCommonTextstyle', () => {
     afterEach(async (done: Function) => {
