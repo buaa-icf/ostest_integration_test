@@ -65,6 +65,8 @@ import UIComponentLayoutModifierTest from './UIComponentLayoutModifierTest/UICom
 import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
 import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolymorphicTest/UIComponentTextTextinputPolymorphic.test'
 import UIComponentLayoutColumnLayout from './UIComponentLayoutColumnLayoutTest/UIComponentLayoutColumnLayout.test'
+import UIComponentTextCommonLinespace from './UIComponentTextCommonLinespaceTest/UIComponentTextCommonLinespace.test'
+import UIComponentTextCommonLinespaceC from './UIComponentTextCommonLinespaceCTest/UIComponentTextCommonLinespaceC.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -118,4 +120,6 @@ export default function testsuite() {
   UIComponentLineheightDecoration();
   UIComponentTextinputUnderlinecolor();
   UIComponentLayoutColumnLayout();
+  UIComponentTextCommonLinespace();
+  UIComponentTextCommonLinespaceC();
 }
