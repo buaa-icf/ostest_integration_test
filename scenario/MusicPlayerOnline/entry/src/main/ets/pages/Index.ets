@@ -88,9 +88,18 @@ struct Index {
             })
           })
           .id('setting')
-        Text(this.loginInfo)
-          .fontSize(24)
-          .margin(4)
+        if (this.loginInfo === ServerConstants.LOGIN_INFO_NO) {
+          Text(this.loginInfo)
+            .fontSize(24)
+            .margin(4)
+            .transition(TransitionEffect.OPACITY)
+
+        } else {
+          Text(this.loginInfo)
+            .fontSize(24)
+            .margin(4)
+            .transition(TransitionEffect.OPACITY)
+        }
         Button(this.loginButton)
           .type(ButtonType.Normal)
           .stateEffect(this.loginButtonClickable)
@@ -146,6 +155,7 @@ struct Index {
                   GridItem() {
                     PlayListItem({ item })
                   }
+                  .transition({ type: TransitionType.All, opacity: 0 })
                 })
               }
               .margin(12)
@@ -172,7 +182,9 @@ struct Index {
                 ForEach(this.customPlayLists, (item: PlayListData) => {
                   GridItem() {
                     PlayListItem({ item })
-                  }.id('my_list_item')
+                  }
+                  .id('my_list_item')
+                  .transition({ type: TransitionType.All, opacity: 0 })
                 })
               }
               .margin(12)
@@ -186,7 +198,7 @@ struct Index {
           .edgeEffect(EdgeEffect.Spring)
           .scrollBarWidth(0)
           .height('100%')
-          .margin({ bottom: 84 })
+          .margin({ bottom: 72 })
         }.onRefreshing(() => {
           setTimeout(() => {
             this.getListFromServer();
@@ -199,16 +211,27 @@ struct Index {
           }, 500)
         })
 
-        PlayerBar({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
-          .backgroundColor(Color.White)
-          .width('100%')
+        Column() {
+          PlayerBar({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
+            .backgroundColor(Color.White)
+            .width('100%')
+            .margin({ top: 4 })
+        }
+        .opacity(0.8)
+        .linearGradient({
+          direction: GradientDirection.Top,
+          repeating: true,
+          colors: [[0xf0f0f0, 0], [0xffffff, 1]]
+        })
+
         if (this.isShowPlayerDetail) {
           PlayerDetail({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
             .width('100%')
             .height('100%')
             .transition(TransitionEffect.OPACITY
               .animation({ curve: curves.springMotion() })
-              .combine(TransitionEffect.move(TransitionEdge.BOTTOM)))
+              .combine(TransitionEffect.move(TransitionEdge.BOTTOM))
+            )
         }
         if (this.isShowPlayList) {
           Rect()
@@ -255,7 +278,9 @@ struct Index {
   }
 
   getListFromServer() {
-    this.playLists = [];
+    animateTo({ duration: 2000 }, () => {
+      this.playLists = [];
+    })
     try {
       this.httpRequest.request(ServerConstants.ALL_SONGS_URL, (err: Error, data: http.HttpResponse) => {
         if (!err) {
@@ -265,8 +290,10 @@ struct Index {
           Object.keys(jsonObject).forEach((key) => {
             aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
           });
-          this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ALL, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
-            aPlayingList, ''));
+          animateTo({ duration: 1000 }, () => {
+            this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ALL, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+              aPlayingList, ''));
+          })
           console.info('HttpResponse code:' + data.responseCode);
           console.info('HttpResponse type:' + JSON.stringify(data.resultType));
           console.info('HttpResponse header:' + JSON.stringify(data.header));
@@ -288,8 +315,12 @@ struct Index {
           Object.keys(jsonObject).forEach((key) => {
             aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
           });
-          this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ENG, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
-            aPlayingList, ''));
+          animateTo(
+            {duration: 1000},
+            () => {
+              this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ENG, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                aPlayingList, ''));
+            })
           console.info('HttpResponse code:' + data.responseCode);
           console.info('HttpResponse type:' + JSON.stringify(data.resultType));
           console.info('HttpResponse header:' + JSON.stringify(data.header));
@@ -322,8 +353,12 @@ struct Index {
               Object.keys(jsonObject).forEach((key) => {
                 aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
               });
-              this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_RECENT, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
-                aPlayingList, ''));
+              animateTo(
+                {duration: 1000},
+                () => {
+                  this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_RECENT, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                    aPlayingList, ''));
+                })
               console.info('HttpResponse code:' + data.responseCode);
               console.info('HttpResponse type:' + JSON.stringify(data.resultType));
               console.info('HttpResponse header:' + JSON.stringify(data.header));
@@ -339,18 +374,22 @@ struct Index {
   }
 
   logout() {
-    this.loginInfo = ServerConstants.LOGIN_INFO_NO;
     AppStorage.setOrCreate('loginName', ServerConstants.LOGIN_INFO_NO);
-    this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
     AppStorage.setOrCreate('loginCookie', '');
-    this.customPlayLists = [];
+    animateTo({ duration: 2000 }, () => {
+      this.customPlayLists = [];
+      this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
+      this.loginInfo = ServerConstants.LOGIN_INFO_NO;
+    })
     this.getListFromServer();
     //TODO request logout from server
   }
 
   login() {
     try {
-      this.loginButton = ServerConstants.LOGIN_INFO_ING;
+      animateTo({ duration: 2000 }, () => {
+        this.loginButton = ServerConstants.LOGIN_INFO_ING;
+      })
       this.loginButtonClickable = false;
       this.httpRequest.request(ServerConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
@@ -373,7 +412,9 @@ struct Index {
                   console.info('HttpResponse Result:' + data.result);
                   console.info('HttpResponse code:' + data.responseCode);
                   if (200 === data.responseCode) {
-                    this.loginInfo = ServerConstants.TEST_ACCOUNT_USER + ServerConstants.LOGIN_INFO_DONE
+                    animateTo({ duration: 2000 }, () => {
+                      this.loginInfo = ServerConstants.TEST_ACCOUNT_USER + ServerConstants.LOGIN_INFO_DONE
+                    })
                     AppStorage.setOrCreate('loginName', ServerConstants.TEST_ACCOUNT_USER);
                     let loginCookie: string[] = data.header['set-cookie'];
                     let cookie: string = loginCookie.map(cookie => {
@@ -384,7 +425,9 @@ struct Index {
                   }
                   console.info('HttpResponse type:' + JSON.stringify(data.resultType));
                   console.info('HttpResponse header:' + JSON.stringify(data.header));
-                  this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
+                  animateTo({ duration: 2000 }, () => {
+                    this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
+                  })
                   this.getListFromServer();
                   this.getCustomListFromServer();
                 } else {
@@ -414,7 +457,9 @@ struct Index {
   }
 
   getCustomListFromServer() {
-    this.customPlayLists = [];
+    animateTo({ duration: 2000 }, () => {
+      this.customPlayLists = [];
+    })
     try {
       this.httpRequest.request(ServerConstants.CUSTOM_LIST_URL,
         {
@@ -451,8 +496,10 @@ struct Index {
               groupedByPlaylistName[playlistName].forEach((song, index) => {
                 aPlayingList.push(new AudioItem(song.name, song.singer, song.id.toString()));
               });
-              this.customPlayLists.push(new PlayListData(playlistName, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
-                aPlayingList, ''));
+              animateTo({ duration: 1000 }, () => {
+                this.customPlayLists.push(new PlayListData(playlistName, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                  aPlayingList, ''));
+              })
             });
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));

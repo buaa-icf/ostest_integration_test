@@ -331,7 +331,7 @@ export default function abilityTest() {
       await btn1.click();
       await driver.delayMs(3000);
       await driver.pressBack();
-      await driver.delayMs(500);
+      await driver.delayMs(1000);
       let songName: Component = await driver.findComponent(ON.id('songName'));
       let songNameText = await songName.getText();
       await driver.delayMs(500);
@@ -349,11 +349,11 @@ export default function abilityTest() {
       let driver = Driver.create();
       await driver.delayMs(500);
       await driver.pressBack();
-      await driver.delayMs(500);
+      await driver.delayMs(1000);
       let btn: Component = await driver.findComponent(ON.text('英文歌曲'));
       await driver.delayMs(500);
       await btn.click();
-      await driver.delayMs(2000);
+      await driver.delayMs(3000);
       let songName: Component = await driver.findComponent(ON.id('songName'));
       let songNameText = await songName.getText();
       await driver.delayMs(500);
