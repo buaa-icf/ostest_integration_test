@@ -42,7 +42,6 @@ struct Index {
   @State loginInfo: string = ServerConstants.LOGIN_INFO_NO;
   @State loginButton: string = ServerConstants.LOGIN_BUTTON_IN;
   @State loginButtonClickable: boolean = true;
-  @State loginInfoOpacity: number = 1;
   private httpRequest = http.createHttp()
   private csrfToken: string = ''
 
