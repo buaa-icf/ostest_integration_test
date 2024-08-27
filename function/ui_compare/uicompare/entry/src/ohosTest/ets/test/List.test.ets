@@ -59,11 +59,14 @@ import UIComponentSymbolColorrendering from './UIComponentSymbolColorrenderingTe
 import UIComponentLineheightDecoration from './UIComponentLineheightDecorationTest/UIComponentLineheightDecoration.test'
 import UIComponentTextinputUnderlinecolor from './UIComponentTextinputUnderlinecolorTest/UIComponentTextinputUnderlinecolor.test'
 import UIComponentLayoutStackTest from './UIComponentLayoutStackTest/UIComponentLayoutStack.test'
-import UITestCase from './UITestCaseTest/UITestCase.test'
+import UIFontFeature from './UIFontFeatureTest/UIFontFeature.test'
 import UIComponentCommonattrDrawingLayout from './UIComponentCommonattrDrawingLayoutTest/UIComponentCommonattrDrawingLayout.test'
 import UIComponentLayoutModifierTest from './UIComponentLayoutModifierTest/UIComponentLayoutModifier.test'
 import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
 import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolymorphicTest/UIComponentTextTextinputPolymorphic.test'
+import UiComponentNavModifier from './UiComponentNavModifierTest/UiComponentNavModifier.test'
+import UiComponentSymbolSymbol from './UiComponentSymbolSymbolTest/UiComponentSymbolSymbol.test'
+import UiComponentTextCommonAffineTransformation from './UiComponentTextCommonAffineTransformationTest/UiComponentTextCommonAffineTransformation.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -107,7 +110,7 @@ export default function testsuite() {
   UIComponentTextTextinputInterface();
   UIComponentTextTextinputPolymorphic();
   UiComponentWordbreak();
-  TestCase();
+  UIFontFeature();
   UIComponentTextCommonLocationTest();
   UITestCase();
   UIComponentLayoutStackTest();
@@ -116,4 +119,7 @@ export default function testsuite() {
   UIComponentLayoutModifierTest();
   UIComponentLineheightDecoration();
   UIComponentTextinputUnderlinecolor();
+  UiComponentNavModifier();
+  UiComponentSymbolSymbol();
+  UiComponentTextCommonAffineTransformation();
 }
