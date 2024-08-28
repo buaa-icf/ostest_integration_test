@@ -29,6 +29,7 @@ export default class PlayerManager {
   private isSeek: boolean = false;
   private avPlayer: media.AVPlayer | undefined = undefined;
   private list: AudioItem[] = [];
+  private favourList: AudioItem[] = [];
   private currentTime: number = 0;
   private currentDuration: number = 0;
   private item: AudioItem = new AudioItem('', '', '');
@@ -165,6 +166,14 @@ export default class PlayerManager {
     }
     Logger.info(this.tag, 'Play :' + this.listPosition.toString());
     this.item = this.list[this.listPosition]
+    let isFavor = false;
+    for (let favorItem of this.favourList) {
+      if (this.item.id === favorItem.id) {
+        isFavor = true;
+        break;
+      }
+    }
+    this.item.isFavor = isFavor;
     this.avPlayerLive(ServerConstants.PLAY_SONG_URL + this.item.id);
   }
 
@@ -255,6 +264,14 @@ export default class PlayerManager {
     }
     console.info('PlayerManager state url：' + url);
     this.avPlayer.url = url;
+  }
+
+  clearFavourList() {
+    this.favourList = [];
+  }
+
+  setFavourList(list: AudioItem[]) {
+    this.favourList = list;
   }
 
   record_recent() {

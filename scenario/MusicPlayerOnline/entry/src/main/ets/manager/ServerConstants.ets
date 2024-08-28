@@ -30,6 +30,10 @@ export default class ServerConstants {
    */
   static readonly CUSTOM_LIST_URL = this.SERVER_HOST + 'get_playlists/';
   /**
+   * custom list URL
+   */
+  static readonly RECOMMEND_LIST_URL = this.SERVER_HOST + 'get_recommend_playlists/';
+  /**
    * English songs URL
    */
   static readonly ENGLISH_SONGS_URL = this.SERVER_HOST + 'english_songs/';
@@ -74,9 +78,6 @@ export default class ServerConstants {
   /**
    * PLAYER LIST
    */
-  static readonly LIST_DEFAULT_ALL = '全部歌曲';
-  static readonly LIST_DEFAULT_ENG = '英文歌曲';
-  static readonly LIST_DEFAULT_RECENT = '最近播放';
   static readonly LIST_SONG_COUNT = '首';
   /**
    * PLAYER LOGIN
