@@ -79,6 +79,8 @@ export default class ServerConstants {
    * PLAYER LIST
    */
   static readonly LIST_SONG_COUNT = '首';
+  static readonly LIST_SONG_NO_PLAYING = '没有播放';
+  static readonly LIST_SONG_FAVOURITE = '我的收藏';
   /**
    * PLAYER LOGIN
    */

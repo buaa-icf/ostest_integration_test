@@ -390,7 +390,7 @@ struct Index {
                   this.recommendPlayLists.push(new PlayListData(key, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
                     aPlayingList, ''));
                 })
-              if (key === '我的收藏') {
+              if (key === ServerConstants.LIST_SONG_FAVOURITE) {
                 this.PlayerManager.setFavourList(aPlayingList);
               }
             });
