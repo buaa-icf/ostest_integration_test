@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "EntryAbility_label2",
+      "value": "label2"
+    },
+    {
+      "name": "EntryAbility_label3",
+      "value": "label3"
+    },
+    {
+      "name": "AccessibilityExtAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "AccessibilityExtAbility_label",
+      "value": "label"
+    }
+  ]
+}

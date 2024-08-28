@@ -28,5 +28,17 @@
 ## hitsqueryinhouse<a name="hitsqueryinhouse"></a>
 自动化测试Query_InHouse的用例。
 
+## hitsbmscorenopermission<a name="hitsbmscorenopermission"></a>
+自动化测试不配置core权限的测试用例
+
+## hitsbmsnopermission<a name="hitsbmsnopermission"></a>
+自动化测试不在module.json5中声明权限的测试用例
+
+## hitspresetuninstallupdates<a name="hitspresetuninstallupdates"></a>
+自动化测试Preset_Uninstallupdates用例
+
+## hitsqueryinfo<a name="hitsqueryinfo"></a>
+自动化测试Query_AbilityInfo,Query_AppInfo,Query_AppProvision,Query_LauncherInfo,Query_Profile,Query_Resource用例
+
 ## sceneProject<a name="sceneProject"></a>
 自动化测试辅助Demo。

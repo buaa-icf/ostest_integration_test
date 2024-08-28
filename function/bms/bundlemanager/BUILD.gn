@@ -18,9 +18,13 @@ group("bundlemanager") {
   if (is_standard_system) {
     deps = [
       "hitsbmenterprisemdmtest:hitsbmenterprisemdmtest",
+      "hitsbmscorenopermission:HitsBmsCoreNoPermissionTest",
       "hitsbmsdefaultapptest:hits_bms_defaultapp_test",
+      "hitsbmsnopermission:HitsBmsNoPermissionTest",
       "hitsinstallcrowdtest:HitsInstallCrowdTest",
       "hitsinstalloruninstallnormalhap:hitsinstalloruninstallnormalhap",
+      "hitspresetuninstallupdates:HitsPresetUninstallupdatesTest",
+      "hitsqueryinfo:HitsBmsQueryInfo",
       "hitsqueryinhouse:hitsqueryinhouse",
       "sceneProject/bmcrowdtesting:Hits_CrowdTesting",
       "sceneProject/bmenterprise:Hits_bm_enterprise",
@@ -35,6 +39,24 @@ group("bundlemanager") {
       "sceneProject/bmsdefaultapp:hits_bms_default_app",
       "sceneProject/bmsinstallcrowd0200:bmsInstallCrowd0200",
       "sceneProject/bmsinstallcrowd02001:bmsInstallCrowd02001",
+      "sceneProject/bmsqueryinfo001:bmsQueryInfo001",
+      "sceneProject/bmsqueryinfo002:bmsQueryInfo002",
+      "sceneProject/bmsqueryinfo003:bmsQueryInfo003",
+      "sceneProject/bmsqueryinfo004:bmsQueryInfo004",
+      "sceneProject/bmsqueryinfo005:bmsQueryInfo005",
+      "sceneProject/bmsqueryinfo007:bmsQueryInfo007",
+      "sceneProject/bmsqueryinfo008:bmsQueryInfo008",
+      "sceneProject/bmsqueryinfo009:bmsQueryInfo009",
+      "sceneProject/bmsqueryinfo0072:bmsQueryInfo0072",
+      "sceneProject/bmsqueryinfo0082:bmsQueryInfo0082",
+      "sceneProject/bmsqueryinfo0083:bmsQueryInfo0083",
+      "sceneProject/bmsqueryresourceinfo008:bmsQueryResourceInfo008",
+      "sceneProject/bmsqueryresourceinfo024:bmsQueryResourceInfo024",
+      "sceneProject/bmsqueryresourceinfo059:bmsQueryResourceInfo059",
+      "sceneProject/bmsqueryresourceinfo060:bmsQueryResourceInfo060",
+      "sceneProject/bmsqueryresourceinfo062:bmsQueryResourceInfo062",
+      "sceneProject/bmsqueryresourceinfo0082:bmsQueryResourceInfo0082",
+      "sceneProject/bmsqueryresourceinfo0242:bmsQueryResourceInfo0242",
     ]
   }
 }
