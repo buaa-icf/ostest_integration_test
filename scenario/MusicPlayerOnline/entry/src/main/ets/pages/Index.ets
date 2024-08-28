@@ -24,6 +24,7 @@ import PlayListData from '../model/PlayListData';
 import PlayerDetail from '../view/PlayerDetail';
 import emitter from '@ohos.events.emitter';
 import prompt from '@ohos.promptAction';
+import PlayerManager from '../manager/PlayerManager';
 
 PersistentStorage.persistProp('loginCookie', '');
 PersistentStorage.persistProp('loginName', ServerConstants.LOGIN_INFO_NO);
@@ -31,7 +32,8 @@ PersistentStorage.persistProp('loginName', ServerConstants.LOGIN_INFO_NO);
 @Entry
 @Component
 struct Index {
-  @State playLists: PlayListData[] = []
+  private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
+  @State recommendPlayLists: PlayListData[] = []
   @State customPlayLists: PlayListData[] = []
   @State isShowPlayerDetail: boolean = false;
   @State isShowPlayList: boolean = false;
@@ -59,7 +61,7 @@ struct Index {
 
   aboutToAppear(): void {
     let loginName: string | undefined = AppStorage.get('loginName');
-    this.getListFromServer();
+    this.getRecommendListFromServer();
     if (loginName != ServerConstants.LOGIN_INFO_NO) {
       this.loginInfo = loginName + ServerConstants.LOGIN_INFO_DONE;
       this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
@@ -150,19 +152,19 @@ struct Index {
               .width('90%')
               .margin(12)
 
-              Grid() {
-                ForEach(this.playLists, (item: PlayListData) => {
-                  GridItem() {
-                    PlayListItem({ item })
-                  }
-                  .transition({ type: TransitionType.All, opacity: 0 })
-                })
+              Scroll() {
+                Row() {
+                  ForEach(this.recommendPlayLists, (item: PlayListData) => {
+                    PlayListItem({ item }).margin(12)
+                      .transition({ type: TransitionType.All, opacity: 0 })
+                  })
+                }
+                .margin(12)
               }
-              .margin(12)
-              .columnsTemplate('1fr 1fr 1fr')
-              .columnsGap(8)
-              .rowsGap(12)
-              .width('90%')
+              .scrollable(ScrollDirection.Horizontal)
+              .scrollBar(BarState.Off)
+              .edgeEffect(EdgeEffect.Spring)
+              .width('100%')
 
               Row() {
                 Text($r('app.string.my_list'))
@@ -201,7 +203,7 @@ struct Index {
           .margin({ bottom: 72 })
         }.onRefreshing(() => {
           setTimeout(() => {
-            this.getListFromServer();
+            this.getRecommendListFromServer();
             if (this.loginInfo != ServerConstants.LOGIN_INFO_NO) {
               this.getCustomListFromServer();
             } else {
@@ -277,102 +279,6 @@ struct Index {
     }
   }
 
-  getListFromServer() {
-    animateTo({ duration: 2000 }, () => {
-      this.playLists = [];
-    })
-    try {
-      this.httpRequest.request(ServerConstants.ALL_SONGS_URL, (err: Error, data: http.HttpResponse) => {
-        if (!err) {
-          console.info('HttpResponse Result:' + data.result);
-          let aPlayingList: AudioItem[] = Array<AudioItem>();
-          const jsonObject: object = JSON.parse(data.result as string);
-          Object.keys(jsonObject).forEach((key) => {
-            aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
-          });
-          animateTo({ duration: 1000 }, () => {
-            this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ALL, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
-              aPlayingList, ''));
-          })
-          console.info('HttpResponse code:' + data.responseCode);
-          console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-          console.info('HttpResponse header:' + JSON.stringify(data.header));
-          console.info('HttpResponse cookies:' + data.cookies);
-
-        } else {
-          console.info('HttpResponse error:' + JSON.stringify(err));
-        }
-      });
-    } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
-    }
-    try {
-      this.httpRequest.request(ServerConstants.ENGLISH_SONGS_URL, (err: Error, data: http.HttpResponse) => {
-        if (!err) {
-          console.info('HttpResponse Result:' + data.result);
-          let aPlayingList: AudioItem[] = Array<AudioItem>();
-          const jsonObject: object = JSON.parse(data.result as string);
-          Object.keys(jsonObject).forEach((key) => {
-            aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
-          });
-          animateTo(
-            {duration: 1000},
-            () => {
-              this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_ENG, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
-                aPlayingList, ''));
-            })
-          console.info('HttpResponse code:' + data.responseCode);
-          console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-          console.info('HttpResponse header:' + JSON.stringify(data.header));
-          console.info('HttpResponse cookies:' + data.cookies);
-        } else {
-          console.info('HttpResponse error:' + JSON.stringify(err));
-        }
-      });
-    } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
-    }
-    if (this.loginInfo != ServerConstants.LOGIN_INFO_NO) {
-      let loginCookie: string | undefined = AppStorage.get('loginCookie');
-      if (loginCookie === '' || loginCookie === undefined) {
-        return;
-      }
-      try {
-        this.httpRequest.request(ServerConstants.RECENT_SONGS_URL,
-          {
-            method: http.RequestMethod.GET,
-            header: {
-              'Cookie': loginCookie
-            }
-          },
-          (err: Error, data: http.HttpResponse) => {
-            if (!err) {
-              console.info('HttpResponse Recent Result:' + data.result);
-              let aPlayingList: AudioItem[] = Array<AudioItem>();
-              const jsonObject: object = JSON.parse(data.result as string);
-              Object.keys(jsonObject).forEach((key) => {
-                aPlayingList.push(new AudioItem(jsonObject[key].name, jsonObject[key].singer, jsonObject[key].id));
-              });
-              animateTo(
-                {duration: 1000},
-                () => {
-                  this.playLists.push(new PlayListData(ServerConstants.LIST_DEFAULT_RECENT, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
-                    aPlayingList, ''));
-                })
-              console.info('HttpResponse code:' + data.responseCode);
-              console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-              console.info('HttpResponse header:' + JSON.stringify(data.header));
-              console.info('HttpResponse cookies:' + data.cookies);
-            } else {
-              console.info('HttpResponse error:' + JSON.stringify(err));
-            }
-          });
-      } catch (err) {
-        console.info('HttpRequest error:' + JSON.stringify(err));
-      }
-    }
-  }
-
   logout() {
     AppStorage.setOrCreate('loginName', ServerConstants.LOGIN_INFO_NO);
     AppStorage.setOrCreate('loginCookie', '');
@@ -381,7 +287,7 @@ struct Index {
       this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
       this.loginInfo = ServerConstants.LOGIN_INFO_NO;
     })
-    this.getListFromServer();
+    this.getRecommendListFromServer();
     //TODO request logout from server
   }
 
@@ -428,7 +334,7 @@ struct Index {
                   animateTo({ duration: 2000 }, () => {
                     this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
                   })
-                  this.getListFromServer();
+                  this.getRecommendListFromServer();
                   this.getCustomListFromServer();
                 } else {
                   console.info('HttpResponse error:' + JSON.stringify(err));
@@ -454,6 +360,51 @@ struct Index {
       })
     }
     this.loginButtonClickable = true;
+  }
+
+  getRecommendListFromServer() {
+    animateTo({ duration: 2000 }, () => {
+      this.recommendPlayLists = [];
+      this.PlayerManager.clearFavourList();
+    })
+    try {
+      this.httpRequest.request(ServerConstants.RECOMMEND_LIST_URL,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': AppStorage.get('loginCookie')
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse getRecommendListFromServer Result:' + data.result);
+            const jsonObject: object = JSON.parse(data.result as string);
+            Object.keys(jsonObject).forEach((key) => {
+              let aPlayingList: AudioItem[] = Array<AudioItem>();
+              Object.keys(jsonObject[key]).forEach((key2) => {
+                aPlayingList.push(new AudioItem(jsonObject[key][key2].name, jsonObject[key][key2].singer, jsonObject[key][key2].id));
+              });
+              animateTo(
+                { duration: 1000 },
+                () => {
+                  this.recommendPlayLists.push(new PlayListData(key, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                    aPlayingList, ''));
+                })
+              if (key === ServerConstants.LIST_SONG_FAVOURITE) {
+                this.PlayerManager.setFavourList(aPlayingList);
+              }
+            });
+            console.info('HttpResponse code:' + data.responseCode);
+            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+            console.info('HttpResponse header:' + JSON.stringify(data.header));
+            console.info('HttpResponse cookies:' + data.cookies);
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+    }
   }
 
   getCustomListFromServer() {

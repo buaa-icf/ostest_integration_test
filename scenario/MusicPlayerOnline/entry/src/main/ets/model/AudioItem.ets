@@ -22,6 +22,7 @@ export default class AudioItem {
   artist: string = '';
   id: string = '0'
   isPlaying: boolean = false;
+  isFavor: boolean = false;
 
   constructor(title: string, artist: string, id:string) {
     this.title = title;

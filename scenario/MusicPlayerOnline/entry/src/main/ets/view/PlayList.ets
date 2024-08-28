@@ -22,7 +22,7 @@ import ServerConstants from '../manager/ServerConstants';
 @Component
 export default struct PlayList {
   @State playingList: AudioItem[] = Array<AudioItem>();
-  @State listTitle: string = '没有播放'
+  @State listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
   private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
 
   aboutToAppear() {
