@@ -106,7 +106,7 @@ export default function shareAcquireShareDataCore() {
      * @tc.type:Function
      * @tc.size:MediumTest
      */
-    it('SUB_Ability_AbilityRuntime_AppManager_ShareAcquireShareData_3500', 0, async (done: Function) => {
+    it('SUB_Ability_AbilityRuntime_AppManager_ShareAcquireShareData_3500', 0, async (done: Function) => {        
       hilog.info(0x0000, 'applicationContextTag', '%{public}s',
        'SUB_Ability_AbilityRuntime_AppManager_ShareAcquireShareData_3500 begin');
       try {
@@ -146,6 +146,33 @@ export default function shareAcquireShareDataCore() {
         let message: string = (paramError as BusinessError).message;
         console.error(`error.code: ${code}, error.message: ${message}`);
         expect(code).assertEqual(401);
+        done();
+      }
+    });
+
+    /*
+     * @tc.number:SUB_Ability_AbilityRuntime_AppManager_ShareAcquireShareData_3700
+     * @tc.name: SUB_Ability_AbilityRuntime_AppManager_ShareAcquireShareData_3700
+     * @tc.desc:System application killProcessesByBundleName('')(AsyncCallback)
+     * @tc.level:Level 3
+     * @tc.type:Function
+     * @tc.size:MediumTest
+     */
+    it('SUB_Ability_AbilityRuntime_AppManager_ShareAcquireShareData_3700', 0, async (done: Function) => {
+      hilog.info(0x0000, 'applicationContextTag', '%{public}s', 'SUB_Ability_AbilityRuntime_AppManager_ShareAcquireShareData_3700 begin');
+      try {
+        await appManager.killProcessesByBundleName('').then((data: ESObject) => {
+          console.log('------------ killProcessesByBundleName success ------------', data);
+          expect(false).assertTrue();
+          done();
+        }).catch((err:BusinessError)=>{
+          console.error(`11 killProcessesByBundleName error.code: ${err.code}, error.message: ${err.message}`);
+          expect(err.code).assertEqual(16000050);
+          done();
+        })
+      } catch (err) {
+        console.error(`22 killProcessesByBundleName error.code: ${err.code}, error.message: ${err.message}`);
+        expect(err.code).assertEqual(undefined);
         done();
       }
     });
