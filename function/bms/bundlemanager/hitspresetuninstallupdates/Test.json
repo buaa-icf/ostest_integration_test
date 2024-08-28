@@ -1,0 +1,28 @@
+{
+    "description": "Configuration for hjunit demo Tests",
+    "driver": {
+        "type": "OHJSUnitTest",
+        "test-timeout": "180000",
+        "bundle-name": "com.example.hitspresetuninstallupdates",
+        "module-name": "entry_test",
+        "shell-timeout": "600000",
+        "testcase-timeout": 70000
+    },
+    "kits": [
+        {
+            "test-file-name": [
+                "HitsPresetUninstallupdatesTest.hap"
+            ],
+            "type": "AppInstallKit",
+            "cleanup-apps": true
+        },
+        {
+            "type": "PushKit",
+            "push": [
+                "bmsQueryInfo008.hap->/data/app/el2/100/base/com.example.hitspresetuninstallupdates/files/",
+                "bmsQueryInfo0082.hap->/data/app/el2/100/base/com.example.hitspresetuninstallupdates/files/"
+            ]
+        }
+    ]
+}
+

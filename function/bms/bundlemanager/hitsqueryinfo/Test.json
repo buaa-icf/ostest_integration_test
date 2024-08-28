@@ -1,0 +1,44 @@
+{
+  "description": "Configuration for hjunit demo Tests",
+  "driver": {
+    "type": "OHJSUnitTest",
+    "test-timeout": "180000",
+    "bundle-name": "com.example.hitsqueryinfo",
+    "module-name": "entry_test",
+    "shell-timeout": "600000",
+    "testcase-timeout": 70000
+  },
+  "kits": [
+    {
+      "test-file-name": [
+        "HitsBmsQueryInfo.hap",
+        "bmsQueryInfo001.hap",
+        "bmsQueryInfo002.hap",
+        "bmsQueryInfo004.hap",
+        "bmsQueryInfo005.hap"
+      ],
+      "type": "AppInstallKit",
+      "cleanup-apps": true
+    },
+    {
+      "type": "PushKit",
+      "push": [
+        "bmsQueryInfo003.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryInfo007.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryInfo0072.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryInfo008.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryInfo0082.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryInfo0083.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryInfo009.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryResourceInfo008.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryResourceInfo0082.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryResourceInfo024.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryResourceInfo0242.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryResourceInfo059.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryResourceInfo060.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/",
+        "bmsQueryResourceInfo062.hap->/data/app/el2/100/base/com.example.hitsqueryinfo/files/"
+      ]
+    }
+  ]
+}
+

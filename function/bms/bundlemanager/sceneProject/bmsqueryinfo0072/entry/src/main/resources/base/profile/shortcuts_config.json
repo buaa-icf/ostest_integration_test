@@ -1,0 +1,20 @@
+{
+  "shortcuts": [
+    {
+      "shortcutId": "id_test1",
+      "label": "$string:app_name",
+      "icon": "$media:app_icon",
+      "wants": [
+        {
+          "bundleName": "com.ohos.hello",
+          "moduleName": "entry",
+          "abilityName": "EntryAbility",
+          "parameters": {
+            "xxx": "yyy",
+            "xxx2": "yyy2"
+          }
+        }
+      ]
+    }
+  ]
+}
