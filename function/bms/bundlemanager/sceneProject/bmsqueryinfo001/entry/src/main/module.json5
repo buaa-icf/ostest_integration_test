@@ -1,0 +1,265 @@
+/*
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ts",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "metadata": [
+          {
+            "name": "ohos.ability.shortcuts",
+            "resource": "$profile:shortcuts_config"
+          }
+        ]
+      },
+      {
+        "name": "EntryAbility2",
+        "srcEntry": "./ets/entryability/EntryAbility2.ts",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "actions": [
+              "ohos.want.action.sendData"
+            ],
+            "uris": [
+              {
+                "scheme": "",
+                "type": "image/jpeg",
+                "maxFileSupported": 2
+              },
+              {
+                "scheme": "",
+                "type": "text/html",
+                "maxFileSupported": 3
+              },
+              {
+                "scheme": "",
+                "type": "text/plain",
+                "maxFileSupported": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "EntryAbility3",
+        "srcEntry": "./ets/entryability/EntryAbility3.ts",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "actions": [
+              "ohos.want.action.sendData"
+            ],
+            "uris": [
+              {
+                "scheme": "",
+                "type": "image/png",
+                "utd": "general.image",
+                "maxFileSupported": 2
+              },
+              {
+                "scheme": "",
+                "type": "image/png",
+                "utd": "general.html",
+                "maxFileSupported": 3
+              },
+              {
+                "scheme": "",
+                "type": "image/png",
+                "utd": "general.plain-text",
+                "maxFileSupported": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "EntryAbility4",
+        "srcEntry": "./ets/entryability/EntryAbility4.ts",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "actions": [
+              "ohos.want.action.sendData"
+            ],
+            "uris": [
+              {
+                "scheme": "",
+                "type": "image/jpeg",
+                "maxFileSupported": 2
+              },
+              {
+                "scheme": "",
+                "utd": "general.html",
+                "maxFileSupported": 3
+              },
+              {
+                "scheme": "",
+                "type": "text/plain",
+                "maxFileSupported": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "extensionAbilities": [
+      {
+        "name": "FormExtAbility",
+        "srcEntry": "./ets/entryability/FormExtAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "type": "form",
+        "skills": [
+          {
+            "actions": [
+              "ohos.want.action.sendData"
+            ],
+            "uris": [
+              {
+                "scheme": "",
+                "type": "image/jpeg",
+                "maxFileSupported": 2
+              },
+              {
+                "scheme": "",
+                "type": "text/html",
+                "maxFileSupported": 3
+              },
+              {
+                "scheme": "",
+                "type": "text/plain",
+                "maxFileSupported": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FormExtAbility2",
+        "srcEntry": "./ets/entryability/FormExtAbility2.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "type": "form",
+        "exported": true,
+        "skills": [
+          {
+            "actions": [
+              "ohos.want.action.sendData"
+            ],
+            "uris": [
+              {
+                "scheme": "",
+                "type": "image/png",
+                "utd": "general.image",
+                "maxFileSupported": 2
+              },
+              {
+                "scheme": "",
+                "type": "image/png",
+                "utd": "general.html",
+                "maxFileSupported": 3
+              },
+              {
+                "scheme": "",
+                "type": "image/png",
+                "utd": "general.plain-text",
+                "maxFileSupported": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FormExtAbility3",
+        "srcEntry": "./ets/entryability/FormExtAbility3.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        "type": "form",
+        "exported": true,
+        "skills": [
+          {
+            "actions": [
+              "ohos.want.action.sendData"
+            ],
+            "uris": [
+              {
+                "scheme": "",
+                "type": "image/jpeg",
+                "maxFileSupported": 2
+              },
+              {
+                "scheme": "",
+                "utd": "general.html",
+                "maxFileSupported": 3
+              },
+              {
+                "scheme": "",
+                "type": "text/plain",
+                "maxFileSupported": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

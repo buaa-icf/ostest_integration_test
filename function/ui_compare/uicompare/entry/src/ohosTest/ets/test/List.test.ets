@@ -52,14 +52,14 @@ import UiComponentRowcolumnSidebarcontainerInterface from './UiComponentRowcolum
 import UiComponentTextModifier from './UiComponentTextModifierTest/UiComponentTextModifier.test'
 import UIComponentTextCapi from './UIComponentTextCapiTest/UIComponentTextCapi.test'
 import UiComponentWordbreak from './UiComponentWordbreakTest/UiComponentWordbreak.test'
-import TestCase from './TestCaseTest/TestCase.test'
+import UITestCase from './UITestCaseTest/UITestCase.test'
 import UIComponentCreateColor from './UIComponentCreateColorTest/UIComponentCreateColor.test'
 import UIComponentTextCommonLocationTest from './UIComponentTextCommonLocationTest/UIComponentTextCommonLocation.test'
 import UIComponentSymbolColorrendering from './UIComponentSymbolColorrenderingTest/UIComponentSymbolColorrendering.test'
 import UIComponentLineheightDecoration from './UIComponentLineheightDecorationTest/UIComponentLineheightDecoration.test'
 import UIComponentTextinputUnderlinecolor from './UIComponentTextinputUnderlinecolorTest/UIComponentTextinputUnderlinecolor.test'
 import UIComponentLayoutStackTest from './UIComponentLayoutStackTest/UIComponentLayoutStack.test'
-import UITestCase from './UITestCaseTest/UITestCase.test'
+import UIFontFeature from './UIFontFeatureTest/UIFontFeature.test'
 import UIComponentCommonattrDrawingLayout from './UIComponentCommonattrDrawingLayoutTest/UIComponentCommonattrDrawingLayout.test'
 import UIComponentLayoutModifierTest from './UIComponentLayoutModifierTest/UIComponentLayoutModifier.test'
 import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
@@ -67,6 +67,9 @@ import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolym
 import UIComponentLayoutColumnLayout from './UIComponentLayoutColumnLayoutTest/UIComponentLayoutColumnLayout.test'
 import UIComponentTextCommonLinespace from './UIComponentTextCommonLinespaceTest/UIComponentTextCommonLinespace.test'
 import UIComponentTextCommonLinespaceC from './UIComponentTextCommonLinespaceCTest/UIComponentTextCommonLinespaceC.test'
+import UiComponentNavModifier from './UiComponentNavModifierTest/UiComponentNavModifier.test'
+import UiComponentSymbolSymbol from './UiComponentSymbolSymbolTest/UiComponentSymbolSymbol.test'
+import UiComponentTextCommonAffineTransformation from './UiComponentTextCommonAffineTransformationTest/UiComponentTextCommonAffineTransformation.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -110,7 +113,7 @@ export default function testsuite() {
   UIComponentTextTextinputInterface();
   UIComponentTextTextinputPolymorphic();
   UiComponentWordbreak();
-  TestCase();
+  UIFontFeature();
   UIComponentTextCommonLocationTest();
   UITestCase();
   UIComponentLayoutStackTest();
@@ -122,4 +125,7 @@ export default function testsuite() {
   UIComponentLayoutColumnLayout();
   UIComponentTextCommonLinespace();
   UIComponentTextCommonLinespaceC();
+  UiComponentNavModifier();
+  UiComponentSymbolSymbol();
+  UiComponentTextCommonAffineTransformation();
 }

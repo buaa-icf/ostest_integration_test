@@ -28,15 +28,15 @@ import AudioItem from '../model/AudioItem';
 export default struct PlayerDetail {
   private tag: string = 'PlayerDetail';
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
-  @State item:AudioItem = this.PlayerManager.getItem();
+  @State item: AudioItem = this.PlayerManager.getItem();
   @State listTitle: string = this.PlayerManager.getListTitle();
-  @State durationTime: number= 0;
+  @State durationTime: number = 0;
   @State currentTime: number = 0; // 当前时间
   @State state: string = this.PlayerManager.getState(); // 播放状态
   @State rotateAngle: number = 0;
   @State subCurrentIndex: number = 0;
   @State lrcIndex: number = 0
-  @State lrc: LrcLine[]= [];
+  @State lrc: LrcLine[] = [];
   @State contentSwitch: boolean = true;
   @Link isShowPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
@@ -74,9 +74,9 @@ export default struct PlayerDetail {
         this.currentTime = eventData.data.currentTime;
         this.durationTime = eventData.data.currentDuration;
         let newLrcIndex = Math.floor(this.currentTime * this.lrc.length / this.durationTime);
-        if (newLrcIndex !== this.lrcIndex){
+        if (newLrcIndex !== this.lrcIndex) {
           this.lrcIndex = newLrcIndex;
-          this.scroller.scrollToIndex(this.lrcIndex-5, true)
+          this.scroller.scrollToIndex(this.lrcIndex - 5, true)
         }
       }
     });
@@ -135,27 +135,16 @@ export default struct PlayerDetail {
             Text(this.item.title).fontSize('18fp')
               .maxLines(1)
               .id('detail_title2')
-            Row() {
-              Text(this.item.artist).fontSize('14fp')
-                .fontColor('#a0a0a0')
-                .id('detail_title3')
-              Text('关注')
-                .fontSize('14fp')
-                .borderRadius('8vp')
-                .backgroundColor('#22a0a0a0')
-                .margin('4vp')
-                .padding({ right: '4vp', left: '4vp' })
-              Image($r('app.media.ic_public_arrow_right_grey'))
-                .width('8vp')
-                .height('16vp')
-            }
+            Text(this.item.artist).fontSize('14fp')
+              .fontColor('#a0a0a0')
+              .id('detail_title3')
           }
         }
         .justifyContent(FlexAlign.Center)
         .height('60vp')
         .width('70%')
 
-        Image($r('app.media.ic_public_share'))
+        Image($r('app.media.folder_badge_plus'))
           .height('32vp')
           .width('32vp')
       }
@@ -183,38 +172,24 @@ export default struct PlayerDetail {
               Column() {
                 Text(this.item.title).fontSize('18fp')
                   .id('detail_title4')
-                Row() {
-                  Text(this.item.artist).fontSize('16fp')
-                    .fontColor('#303030')
-                    .id('detail_title5')
-                  Text('关注')
-                    .fontSize('14fp')
-                    .fontColor('#303030')
-                    .backgroundColor('#f0f0f0')
-                    .borderRadius('6vp')
-                    .padding({ left: '4vp', right: '4vp' })
-                }
+                Text(this.item.artist).fontSize('16fp')
+                  .fontColor('#303030')
+                  .id('detail_title5')
               }.alignItems(HorizontalAlign.Start)
 
               Blank()
               Stack() {
-                Image($r('app.media.ic_public_favor'))
-                  .width('36vp')
-                  .height('36vp')
-                Text('100w+').fontSize('10fp')
-                  .backgroundColor('#ffffff')
-                  .margin({ left: '24vp' })
+                if (this.item.isFavor) {
+                  Image($r('app.media.heart_fill'))
+                    .width('36vp')
+                    .height('36vp')
+                } else {
+                  Image($r('app.media.heart'))
+                    .width('36vp')
+                    .height('36vp')
+                }
               }.alignContent(Alignment.Top)
               .margin({ right: '8vp' })
-
-              Stack() {
-                Image($r('app.media.ic_public_comments'))
-                  .width('36vp')
-                  .height('36vp')
-                Text('10w+').fontSize('10fp')
-                  .backgroundColor('#ffffff')
-                  .margin({ left: '24vp' })
-              }.alignContent(Alignment.Top)
             }
             .width('80%')
             .justifyContent(FlexAlign.SpaceBetween)
@@ -303,10 +278,10 @@ export default struct PlayerDetail {
       .justifyContent(FlexAlign.Center)
 
       Row() {
-        Text(CommonUtils.formatTime(this.currentTime/1000)).fontSize('12fp')
+        Text(CommonUtils.formatTime(this.currentTime / 1000)).fontSize('12fp')
           .id('detail_time_current')
         Text('无损').fontSize('12fp')
-        Text(CommonUtils.formatTime(this.durationTime/1000)).fontSize('12fp')
+        Text(CommonUtils.formatTime(this.durationTime / 1000)).fontSize('12fp')
           .id('detail_time_duration')
       }.width('80%')
       .justifyContent(FlexAlign.SpaceBetween)

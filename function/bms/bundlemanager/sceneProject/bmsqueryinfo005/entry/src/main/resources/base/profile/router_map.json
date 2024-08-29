@@ -1,0 +1,9 @@
+{
+  "routerMap": [
+    {
+      "name": "routerMapTwo",
+      "pageSourceFile": "src/main/ets/pages/PageTwo.ets",
+      "buildFunction": "myFunction"
+    }
+  ]
+}
