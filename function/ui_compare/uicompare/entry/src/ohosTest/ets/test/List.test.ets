@@ -64,6 +64,9 @@ import UIComponentCommonattrDrawingLayout from './UIComponentCommonattrDrawingLa
 import UIComponentLayoutModifierTest from './UIComponentLayoutModifierTest/UIComponentLayoutModifier.test'
 import UIComponentTextTextinputInterface from './UIComponentTextTextinputInterfaceTest/UIComponentTextTextinputInterface.test'
 import UIComponentTextTextinputPolymorphic from './UIComponentTextTextinputPolymorphicTest/UIComponentTextTextinputPolymorphic.test'
+import UIComponentLayoutColumnLayout from './UIComponentLayoutColumnLayoutTest/UIComponentLayoutColumnLayout.test'
+import UIComponentTextCommonLinespace from './UIComponentTextCommonLinespaceTest/UIComponentTextCommonLinespace.test'
+import UIComponentTextCommonLinespaceC from './UIComponentTextCommonLinespaceCTest/UIComponentTextCommonLinespaceC.test'
 import UiComponentNavModifier from './UiComponentNavModifierTest/UiComponentNavModifier.test'
 import UiComponentSymbolSymbol from './UiComponentSymbolSymbolTest/UiComponentSymbolSymbol.test'
 import UiComponentTextCommonAffineTransformation from './UiComponentTextCommonAffineTransformationTest/UiComponentTextCommonAffineTransformation.test'
@@ -119,6 +122,9 @@ export default function testsuite() {
   UIComponentLayoutModifierTest();
   UIComponentLineheightDecoration();
   UIComponentTextinputUnderlinecolor();
+  UIComponentLayoutColumnLayout();
+  UIComponentTextCommonLinespace();
+  UIComponentTextCommonLinespaceC();
   UiComponentNavModifier();
   UiComponentSymbolSymbol();
   UiComponentTextCommonAffineTransformation();
