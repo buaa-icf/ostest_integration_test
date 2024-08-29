@@ -126,19 +126,19 @@ export default function uriAuthorizationAndRevocationTest() {
       }
     })
 
-    // it('SUB_Ability_AbilityRuntime_Uri_AuthorizationAndRevocation_3500', 0, async (done: Function) => {
-    //   console.log("AuthorizationAndRevocation_3500: " + `uri: ${uri}`);
-    //   let targetBundleName = 'com.ohos.bundleerr'
-    //   try {
-    //     uriPermissionManager.revokeUriPermission(uri, targetBundleName, (result) => {
-    //       console.log("AuthorizationAndRevocation_3500, revokeUriPermission error: " + result.code);
-    //       expect(result.code).assertEqual(16000050);
-    //       done();
-    //     });
-    //   } catch (e) {
-    //     console.log("AuthorizationAndRevocation_3500: " + `revokeUriPermission failed: ${JSON.stringify(e)}`);
-    //   }
-    // })
+    it('SUB_Ability_AbilityRuntime_Uri_AuthorizationAndRevocation_3500', 0, async (done: Function) => {
+      console.log("AuthorizationAndRevocation_3500: " + `uri: ${uri}`);
+      let targetBundleName = 'com.ohos.bundleerr'
+      try {
+        uriPermissionManager.revokeUriPermission(uri, targetBundleName, (result) => {
+          console.log("AuthorizationAndRevocation_3500, revokeUriPermission error: " + result.code);
+          expect(result.code).assertEqual(16000050);
+          done();
+        });
+      } catch (e) {
+        console.log("AuthorizationAndRevocation_3500: " + `revokeUriPermission failed: ${JSON.stringify(e)}`);
+      }
+    })
 
     it('SUB_Ability_AbilityRuntime_Uri_AuthorizationAndRevocation_3600', 0, async (done: Function) => {
       console.log("AuthorizationAndRevocation_3600: " + `uri: ${uri}`);
