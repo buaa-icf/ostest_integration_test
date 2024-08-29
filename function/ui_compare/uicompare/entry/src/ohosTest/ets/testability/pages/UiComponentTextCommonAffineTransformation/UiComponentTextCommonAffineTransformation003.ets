@@ -23,20 +23,8 @@ struct UiComponentTextCommonAffineTransformation003 {
     centerX:'50%',
     centerY:'50%'
   }
-  @State areascalesize:ScaleOptions = {
-    x: 1,
-    y: 1,
-    z: 1,
-    centerX:'50%',
-    centerY:'50%'
-  }
-  @State searchscalesize:ScaleOptions = {
-    x: 1,
-    y: 1,
-    z: 1,
-    centerX:'50%',
-    centerY:'50%'
-  }
+  @State areascalesize:ScaleOptions = this.inputscalesize
+  @State searchscalesize:ScaleOptions = this.inputscalesize
   textinputcontroller:TextInputController = new TextInputController()
   textareacontroller:TextAreaController = new TextAreaController()
   searchcontroller: SearchController = new SearchController()
