@@ -42,10 +42,10 @@
     ],
     "requestPermissions": [
       {
-        "name": "ohos.permission.MANAGE_MISSIONS",
+        "name": "ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS",
       },
       {
-        "name": "ohos.permission.CLEAN_BACKGROUND_PROCESSES",
+        "name": "ohos.permission.INSTALL_BUNDLE",
       }
     ]
   },
