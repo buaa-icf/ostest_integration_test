@@ -1,0 +1,49 @@
+{
+    "description": "Configuration for hjunit demo Tests",
+    "driver": {
+        "type": "OHJSUnitTest",
+        "test-timeout": "180000",
+        "bundle-name": "com.example.hitsicondoublelayertest",
+        "module-name": "entry_test",
+        "shell-timeout": "600000",
+        "testcase-timeout": 70000
+    },
+    "kits": [
+        {
+            "test-file-name": [
+                "HitsIconDoubleLayerTest.hap",
+                "bmsIconDoubleLayerNo.hap",
+                "bmsIconDoubleLayerA.hap",
+                "bmsIconDoubleLayerC.hap",
+                "bmsIconDoubleLayerE.hap",
+                "bmsIconDoubleLayerG.hap",
+                "bmsIconDoubleLayerI.hap",
+                "bmsIconDoubleLayer21.hap",
+                "bmsIconDoubleLayer31.hap",
+                "bmsIconDoubleLayer32.hap",
+                "bmsIconDoubleLayer33.hap",
+                "bmsIconDoubleLayer34.hap",
+                "bmsIconDoubleLayer35.hap",
+                "bmsIconDoubleLayer36.hap"
+            ],
+            "type": "AppInstallKit",
+            "cleanup-apps": true
+        },
+        {
+            "type": "PushKit",
+            "push": [
+                "bmsIconDoubleLayerB.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayerD.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayerF.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayerH.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayer211.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayer321.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayer331.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayer341.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayer351.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/",
+                "bmsIconDoubleLayer361.hap->/data/app/el2/100/base/com.example.hitsicondoublelayertest/files/"
+            ]
+        }
+    ]
+}
+
