@@ -23,6 +23,14 @@
     {
       "name": "my_list",
       "value": "My Lists"
+    },
+    {
+      "name": "search_holder",
+      "value": "song name"
+    },
+    {
+      "name": "lyrics",
+      "value": "lyrics"
     }
   ]
 }

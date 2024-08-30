@@ -14,10 +14,11 @@
  */
 
 import ItemData from '../model/PlayListData';
-import hilog from '@ohos.hilog';
+
+import UIConstants from '../constants/UIConstants';
 import prompt from '@ohos.promptAction';
 import PlayerManager from '../manager/PlayerManager';
-import ServerConstants from '../manager/ServerConstants';
+import ServerConstants from '../constants/ServerConstants';
 
 /**
  * List item information component.
@@ -59,6 +60,7 @@ export default struct PlayListItem {
         .margin({ top: 4 })
     }
     .alignItems(HorizontalAlign.Center)
+    .clickEffect(UIConstants.CLICK_EFFECT)
     .onClick(() => {
       this.enterList();
     })

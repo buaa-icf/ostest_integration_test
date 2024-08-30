@@ -14,7 +14,7 @@
  */
 
 /**
- * Common constants for all features.
+ * Common constants for Server features.
  */
 export default class ServerConstants {
   /**
@@ -29,6 +29,10 @@ export default class ServerConstants {
    * custom list URL
    */
   static readonly CUSTOM_LIST_URL = this.SERVER_HOST + 'get_playlists/';
+  /**
+   * search song
+   */
+  static readonly SEARCH_SONG_URL = this.SERVER_HOST + 'search_song/';
   /**
    * custom list URL
    */
@@ -54,6 +58,10 @@ export default class ServerConstants {
    */
   static readonly RECORD_RECENT = this.SERVER_HOST + 'record_recent/';
   /**
+   * set favourite
+   */
+  static readonly SET_FAVOURITE = this.SERVER_HOST + 'set_favourite/';
+  /**
    * Login URL
    */
   static readonly LOGIN_URL = this.SERVER_HOST + 'authentication/login1/';
@@ -62,19 +70,20 @@ export default class ServerConstants {
    * PLAYER STATE
    */
   static readonly PLAYER_STATE_IDLE = 'idle';
-  static readonly PLAYER_STATE_INITIALIZED = 'initialized'
-  static readonly PLAYER_STATE_PREPARED = 'prepared'
-  static readonly PLAYER_STATE_PLAYING = 'playing'
-  static readonly PLAYER_STATE_PAUSED = 'paused'
-  static readonly PLAYER_STATE_COMPLETED = 'completed'
-  static readonly PLAYER_STATE_STOPPED = 'stopped'
-  static readonly PLAYER_STATE_RELEASED = 'released'
-  static readonly PLAYER_STATE_UNKNOWN = 'unknown'
+  static readonly PLAYER_STATE_INITIALIZED = 'initialized';
+  static readonly PLAYER_STATE_PREPARED = 'prepared';
+  static readonly PLAYER_STATE_PLAYING = 'playing';
+  static readonly PLAYER_STATE_PAUSED = 'paused';
+  static readonly PLAYER_STATE_COMPLETED = 'completed';
+  static readonly PLAYER_STATE_STOPPED = 'stopped';
+  static readonly PLAYER_STATE_RELEASED = 'released';
+  static readonly PLAYER_STATE_UNKNOWN = 'unknown';
   /**
    * PLAYER UPDATE
    */
-  static readonly UPDATE_TIME_EVENT_ID = '1'
-  static readonly UPDATE_STATE_EVENT_ID = '2'
+  static readonly UPDATE_TIME_EVENT_ID = '1';
+  static readonly UPDATE_STATE_EVENT_ID = '2';
+  static readonly UPDATE_FAVOR_EVENT_ID = '3';
   /**
    * PLAYER LIST
    */
@@ -91,6 +100,13 @@ export default class ServerConstants {
   static readonly LOGIN_INFO_FAILED = '登录失败';
   static readonly LOGIN_INFO_DONE = ' 你好！';
   static readonly TEST_ACCOUNT_USER = 'test';
-  static readonly TEST_ACCOUNT_PWD = 'kh123456'
+  static readonly TEST_ACCOUNT_PWD = 'kh123456';
+  static readonly SET_FAVOURITE_ALREADY  =  "重复收藏";
+  static readonly SET_FAVOURITE_SUCCESS =  "收藏成功";
+  static readonly CANCEL_FAVOURITE_SUCCESS =  "取消收藏成功";
+  static readonly CANCEL_FAVOURITE_ALREADY =  "重复取消收藏";
+  static readonly SEARCH_DEFAULT = '未搜索';
+  static readonly SEARCHING = '搜索中';
+  static readonly EMPTY_SEARCH_WORD = '不能搜索空字符';
 }
 

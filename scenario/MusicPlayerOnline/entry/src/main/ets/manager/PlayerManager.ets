@@ -18,7 +18,7 @@ import { BusinessError } from '@ohos.base';
 import AudioItem from '../model/AudioItem';
 import Logger from '../utils/Logger';
 import emitter from '@ohos.events.emitter';
-import ServerConstants from '../manager/ServerConstants';
+import ServerConstants from '../constants/ServerConstants';
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
@@ -295,6 +295,60 @@ export default class PlayerManager {
             console.info('HttpResponse header:' + JSON.stringify(data.header));
             console.info('HttpResponse cookies:' + data.cookies);
 
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+    }
+  }
+
+  set_favourite() {
+    let loginCookie: string | undefined = AppStorage.get('loginCookie');
+    try {
+      let is_favor: string = this.item.isFavor ? '0' : '1';
+      console.info('HttpResponse start:' + ServerConstants.SET_FAVOURITE + this.item.id + '/' + is_favor);
+      this.httpRequest.request(ServerConstants.SET_FAVOURITE + this.item.id + '/' + is_favor,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': loginCookie
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse Result:' + data.result);
+            console.info('HttpResponse code:' + data.responseCode);
+            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+            console.info('HttpResponse header:' + JSON.stringify(data.header));
+            console.info('HttpResponse cookies:' + data.cookies);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              switch (jsonObject["message"]) {
+                case ServerConstants.SET_FAVOURITE_ALREADY:
+                case ServerConstants.SET_FAVOURITE_SUCCESS:
+                  this.item.isFavor = true;
+                  break;
+                case ServerConstants.CANCEL_FAVOURITE_SUCCESS:
+                case ServerConstants.CANCEL_FAVOURITE_ALREADY:
+                  this.item.isFavor = false;
+                  break;
+                default:
+                  this.item.isFavor = false;
+                  break;
+              }
+              let eventData: emitter.EventData = {
+                data: {
+                  "message": jsonObject["message"],
+                }
+              };
+              console.info('HttpResponse msg:' + jsonObject["message"]);
+              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID, this.emitterOptions, eventData);
+            }
+            catch (error) {
+              console.error("JSON :", error.message);
+            }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
           }
