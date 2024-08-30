@@ -120,7 +120,7 @@ struct UiComponentTextCommonAffineTransformation008 {
         .defaultFocus(true)
         .rotate(this.searchrotatesize)
         .id('search008')
-      Button('scale')
+      Button('rotate')
         .margin(10)
         .width('90%')
         .height('5%')
