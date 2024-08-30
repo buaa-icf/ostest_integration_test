@@ -38,8 +38,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0020
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0020
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0020
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0020
         * @tc.desc    scaleoptionlongclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0020', 0, async (done: Function) => {
@@ -80,8 +80,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0030
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0030
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0030
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0030
         * @tc.desc    scaleoption click twice
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0030', 0, async (done: Function) => {
@@ -125,8 +125,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0060
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0060
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0060
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0060
         * @tc.desc    scaleoption centre x 0 y 0
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0060', 0, async (done: Function) => {
@@ -170,8 +170,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0070
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0070
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0070
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0070
         * @tc.desc    text rotate
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0070', 0, async (done: Function) => {
@@ -197,8 +197,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0080
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0080
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0080
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0080
         * @tc.desc    rotatelongclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0080', 0, async (done: Function) => {
@@ -238,8 +238,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0090
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0090
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090
        * @tc.desc    rotate click twice
    */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090', 0, async (done: Function) => {
@@ -281,8 +281,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0110
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0110
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110
        * @tc.desc    translate longclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110', 0, async (done: Function) => {
@@ -328,8 +328,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0120
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0120
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120
        * @tc.desc    translate click twice
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120', 0, async (done: Function) => {
@@ -375,8 +375,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0170
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0170
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170
        * @tc.desc    scale and rotate longclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170', 0, async (done: Function) => {
@@ -422,8 +422,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0180
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0180
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180
        * @tc.desc    scale and rotate click twice
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180', 0, async (done: Function) => {
@@ -469,8 +469,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0200
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0200
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200
        * @tc.desc    width 95 scale and rotate longclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200', 0, async (done: Function) => {
@@ -520,8 +520,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0210
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0210
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210
        * @tc.desc    width 95 scale and rotate click twice
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210', 0, async (done: Function) => {
@@ -571,8 +571,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0260
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0260
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260
        * @tc.desc    translate and rotate longclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260', 0, async (done: Function) => {
@@ -618,8 +618,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0270
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0270
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270
        * @tc.desc    translate and rotate click twice
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270', 0, async (done: Function) => {

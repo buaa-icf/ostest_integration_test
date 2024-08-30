@@ -21,8 +21,16 @@ struct UiComponentTextCommonAffineTransformation012 {
     y: 0,
     z: 0
   }
-  @State textareatranslatesize:TranslateOptions = this.textinputtranslatesize
-  @State searchtranslatesize:TranslateOptions = this.textinputtranslatesize
+  @State textareatranslatesize:TranslateOptions ={
+    x: 0,
+    y: 0,
+    z: 0
+  }
+  @State searchtranslatesize:TranslateOptions = {
+    x: 0,
+    y: 0,
+    z: 0
+  }
   textinputcontroller:TextInputController = new TextInputController()
   textareacontroller:TextAreaController = new TextAreaController()
   searchcontroller: SearchController = new SearchController()

@@ -26,8 +26,26 @@ struct UiComponentTextCommonAffineTransformation009 {
     perspective: 0,
     angle: 0
   }
-  @State textarearotatesize:RotateOptions = this.textinputrotatesize
-  @State searchrotatesize:RotateOptions = this.textinputrotatesize
+  @State textarearotatesize:RotateOptions = {
+    x: 0,
+    y: 0,
+    z: 0,
+    centerX:' 50%',
+    centerY: '50%',
+    centerZ: 0,
+    perspective: 0,
+    angle: 0
+  }
+  @State searchrotatesize:RotateOptions = {
+    x: 0,
+    y: 0,
+    z: 0,
+    centerX:' 50%',
+    centerY: '50%',
+    centerZ: 0,
+    perspective: 0,
+    angle: 0
+  }
   textinputcontroller:TextInputController = new TextInputController()
   textareacontroller:TextAreaController = new TextAreaController()
   searchcontroller: SearchController = new SearchController()

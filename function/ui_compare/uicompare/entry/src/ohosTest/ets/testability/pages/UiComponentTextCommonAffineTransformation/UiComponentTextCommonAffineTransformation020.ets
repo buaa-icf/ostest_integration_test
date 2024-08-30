@@ -23,8 +23,20 @@ struct UiComponentTextCommonAffineTransformation020 {
     centerX:'50%',
     centerY:'50%'
   }
-  @State areascalesize:ScaleOptions = this.inputscalesize
-  @State searchscalesize:ScaleOptions = this.inputscalesize
+  @State areascalesize:ScaleOptions = {
+    x: 1,
+    y: 1,
+    z: 1,
+    centerX:'50%',
+    centerY:'50%'
+  }
+  @State searchscalesize:ScaleOptions = {
+    x: 1,
+    y: 1,
+    z: 1,
+    centerX:'50%',
+    centerY:'50%'
+  }
   @State textinputrotatesize:RotateOptions = {
     x: 0,
     y: 0,
@@ -35,8 +47,26 @@ struct UiComponentTextCommonAffineTransformation020 {
     perspective: 0,
     angle: 0
   }
-  @State textarearotatesize:RotateOptions = this.textinputrotatesize
-  @State searchrotatesize:RotateOptions = this.textinputrotatesize
+  @State textarearotatesize:RotateOptions = {
+    x: 0,
+    y: 0,
+    z: 0,
+    centerX:' 50%',
+    centerY: '50%',
+    centerZ: 0,
+    perspective: 0,
+    angle: 0
+  }
+  @State searchrotatesize:RotateOptions = {
+    x: 0,
+    y: 0,
+    z: 0,
+    centerX:' 50%',
+    centerY: '50%',
+    centerZ: 0,
+    perspective: 0,
+    angle: 0
+  }
   @State textwidth:string = '75%'
   @State textheight:number = 20
   textinputcontroller:TextInputController = new TextInputController()
