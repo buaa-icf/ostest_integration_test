@@ -108,9 +108,11 @@
 
 ### 效果预览
 
-| 主页                             | 播放详情                  | 播放列表                       | 未登录                             |
-|--------------------------------|-----------------------|----------------------------|---------------------------------|
-| ![image](screenshots/home.png) | ![image](screenshots/detail.png) | ![image](screenshots/playlist.png) | ![image](screenshots/home0.png) |
+|                主页                 |               播放详情                |                播放列表                 |
+|:---------------------------------:|:---------------------------------:|:-----------------------------------:|
+|  ![image](screenshots/home.png)   | ![image](screenshots/detail.png)  | ![image](screenshots/playlist.png)  |
+|                搜索                 |               我的歌单                |                 未登录                 |
+| ![image](screenshots/search.png)  | ![image](screenshots/mylists.png) |   ![image](screenshots/home0.png)   |
 
 
 ### 工程目录
