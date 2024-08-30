@@ -15,7 +15,7 @@
 
 @Entry
 @Component
-struct UiComponentTextCommonAffineTransformation008 {
+struct UiComponentTextCommonAffineTransformation009 {
   @State textinputrotatesize:RotateOptions = {
     x: 0,
     y: 0,
@@ -64,7 +64,7 @@ struct UiComponentTextCommonAffineTransformation008 {
         .caretPosition(2)
         .defaultFocus(true)
         .rotate(this.textinputrotatesize)
-        .id('input008')
+        .id('input009')
       Button('rotate')
         .margin(10)
         .width('90%')
@@ -80,7 +80,7 @@ struct UiComponentTextCommonAffineTransformation008 {
             angle: 300
           }
         })
-        .id('inputscale008')
+        .id('inputrotate009')
       TextArea({
         placeholder:'text here',
         controller: this.textareacontroller
@@ -92,7 +92,7 @@ struct UiComponentTextCommonAffineTransformation008 {
         .fontSize(12)
         .defaultFocus(true)
         .rotate(this.textarearotatesize)
-        .id('textarea008')
+        .id('area009')
       Button('rotate')
         .margin(10)
         .width('90%')
@@ -108,7 +108,7 @@ struct UiComponentTextCommonAffineTransformation008 {
             angle: 300
           }
         })
-        .id('arearotatescale008')
+        .id('arearotate009')
       Search({
         placeholder:'text here',
         controller: this.searchcontroller
@@ -119,7 +119,7 @@ struct UiComponentTextCommonAffineTransformation008 {
         .backgroundColor('#f8f8ff')
         .defaultFocus(true)
         .rotate(this.searchrotatesize)
-        .id('search008')
+        .id('search009')
       Button('rotate')
         .margin(10)
         .width('90%')
@@ -135,7 +135,7 @@ struct UiComponentTextCommonAffineTransformation008 {
             angle: 300
           }
         })
-        .id('searchscale008')
+        .id('searchrotate009')
     }
     .width('100%')
     .height('100%')

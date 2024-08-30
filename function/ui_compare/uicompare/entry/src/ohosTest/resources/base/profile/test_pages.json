@@ -1138,13 +1138,22 @@
     "testability/pages/UIComponentTextCommonLinespaceC/UIComponentTextCommonLinespaceC006",
     "testability/pages/UIComponentTextCommonLinespaceC/UIComponentTextCommonLinespaceC007",
     "testability/pages/UIComponentTextCommonLinespaceC/UIComponentTextCommonLinespaceC008",
-    "testability/pages/UIComponentTextCommonLinespaceC/UIComponentTextCommonLinespaceC009"
+    "testability/pages/UIComponentTextCommonLinespaceC/UIComponentTextCommonLinespaceC009",
     "testability/pages/UiComponentNavModifier/UiComponentNavModifier013",
     "testability/pages/UiComponentSymbolSymbol/UiComponentSymbolSymbol009",
     "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation002",
     "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation003",
     "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation006",
     "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation007",
-    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation008"
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation008",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation009",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation011",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation012",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation017",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation018",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation020",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation021",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation026",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation027"
   ]
 }

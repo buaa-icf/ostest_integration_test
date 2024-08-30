@@ -38,8 +38,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0020
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0020
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0020
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0020
         * @tc.desc    scaleoptionlongclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0020', 0, async (done: Function) => {
@@ -80,8 +80,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0030
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0030
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0030
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0030
         * @tc.desc    scaleoption click twice
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0030', 0, async (done: Function) => {
@@ -125,8 +125,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0060
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0060
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0060
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0060
         * @tc.desc    scaleoption centre x 0 y 0
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0060', 0, async (done: Function) => {
@@ -170,8 +170,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0070
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0070
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0070
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0070
         * @tc.desc    text rotate
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0070', 0, async (done: Function) => {
@@ -197,8 +197,8 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0080
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE-TRANSFORMATION_0080
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0080
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0080
         * @tc.desc    rotatelongclick
     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0080', 0, async (done: Function) => {
@@ -234,6 +234,433 @@ export default function UiComponentTextCommonAffineTransformation() {
       windowSnap.snapShot()
       await Utils.sleep(100)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0080 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090
+       * @tc.desc    rotate click twice
+   */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation009")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let ch1:Component = await driver.findComponent(ON.id('input009'));
+      await ch1.inputText('this is input009')
+      await ch1.click()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputrotate009'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area009'));
+      await ch2.inputText('this is area009')
+      await ch2.click()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('arearotate009'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search009'));
+      await ch3.inputText('this is search009')
+      await ch3.click()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchrotate009'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.doubleClick()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0090 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110
+       * @tc.desc    translate longclick
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation011")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let ch1:Component = await driver.findComponent(ON.id('input011'));
+      await ch1.inputText('this is input011')
+      await ch1.longClick()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputtranslate011'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area011'));
+      await ch2.inputText('this is area011')
+      await ch2.longClick()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areatranslate011'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search011'));
+      await ch3.inputText('this is search011')
+      await ch3.longClick()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchtranslate011'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0110 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120
+       * @tc.desc    translate click twice
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation012")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let ch1:Component = await driver.findComponent(ON.id('input012'));
+      await ch1.inputText('this is input012')
+      await ch1.click()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputtranslate012'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area012'));
+      await ch2.inputText('this is area012')
+      await ch2.click()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areatranslate012'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search012'));
+      await ch3.inputText('this is search012')
+      await ch3.click()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchtranslate012'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0120 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170
+       * @tc.desc    scale and rotate longclick
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation017")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let ch1:Component = await driver.findComponent(ON.id('input017'));
+      await ch1.inputText('this is input017')
+      await ch1.longClick()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputchange017'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area017'));
+      await ch2.inputText('this is area017')
+      await ch2.longClick()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areachange017'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search017'));
+      await ch3.inputText('this is search017')
+      await ch3.longClick()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchchange017'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0170 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180
+       * @tc.desc    scale and rotate click twice
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation018")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let ch1:Component = await driver.findComponent(ON.id('input018'));
+      await ch1.inputText('this is input018')
+      await ch1.click()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputchange018'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area018'));
+      await ch2.inputText('this is area018')
+      await ch2.click()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areachange018'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search018'));
+      await ch3.inputText('this is search018')
+      await ch3.click()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchchange018'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0180 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200
+       * @tc.desc    width 95 scale and rotate longclick
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation020")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let btn:Component = await driver.findComponent(ON.id('sizechange20'));
+      await Utils.sleep(100)
+      await btn.click()
+      await Utils.sleep(100)
+      let ch1:Component = await driver.findComponent(ON.id('input020'));
+      await ch1.inputText('this is input020')
+      await ch1.longClick()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputchange020'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area020'));
+      await ch2.inputText('this is area020')
+      await ch2.longClick()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areachange020'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search020'));
+      await ch3.inputText('this is search020')
+      await ch3.longClick()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchchange020'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0200 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210
+       * @tc.desc    width 95 scale and rotate click twice
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation021")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let btn:Component = await driver.findComponent(ON.id('sizechange21'));
+      await Utils.sleep(100)
+      await btn.click()
+      await Utils.sleep(100)
+      let ch1:Component = await driver.findComponent(ON.id('input021'));
+      await ch1.inputText('this is input021')
+      await ch1.click()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputchange021'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area021'));
+      await ch2.inputText('this is area021')
+      await ch2.click()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areachange021'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search021'));
+      await ch3.inputText('this is search021')
+      await ch3.click()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchchange021'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0210 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260
+       * @tc.desc    translate and rotate longclick
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation026")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let ch1:Component = await driver.findComponent(ON.id('input026'));
+      await ch1.inputText('this is input026')
+      await ch1.longClick()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputchange026'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area026'));
+      await ch2.inputText('this is area026')
+      await ch2.longClick()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areachange026'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search026'));
+      await ch3.inputText('this is search026')
+      await ch3.longClick()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchchange026'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0260 finish.`);
+      done()
+    })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270
+       * @tc.desc    translate and rotate click twice
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation027")
+      await Utils.sleep(1000)
+      let driver : Driver = Driver.create();
+      await driver.delayMs(100)
+      let ch1:Component = await driver.findComponent(ON.id('input027'));
+      await ch1.inputText('this is input027')
+      await ch1.click()
+      await Utils.sleep(100)
+      let button1:Component = await driver.findComponent(ON.id('inputchange027'));
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      let ch2:Component = await driver.findComponent(ON.id('area027'));
+      await ch2.inputText('this is area027')
+      await ch2.click()
+      await Utils.sleep(100)
+      let button2:Component = await driver.findComponent(ON.id('areachange027'));
+      await Utils.sleep(100)
+      await button2.click()
+      await Utils.sleep(100)
+      await ch2.click()
+      await Utils.sleep(100)
+      let ch3:Component = await driver.findComponent(ON.id('search027'));
+      await ch3.inputText('this is search027')
+      await ch3.click()
+      await Utils.sleep(100)
+      let button3:Component = await driver.findComponent(ON.id('searchchange027'));
+      await Utils.sleep(100)
+      await button3.click()
+      await Utils.sleep(100)
+      await ch3.click()
+      await Utils.sleep(100)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270 finish.`);
       done()
     })
   })
