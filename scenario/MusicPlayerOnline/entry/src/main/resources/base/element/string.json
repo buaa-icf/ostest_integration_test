@@ -27,6 +27,14 @@
     {
       "name": "my_list",
       "value": "我的歌单"
+    },
+    {
+      "name": "search_holder",
+      "value": "输入歌名"
+    },
+    {
+      "name": "lyrics",
+      "value": "歌词"
     }
   ]
 }

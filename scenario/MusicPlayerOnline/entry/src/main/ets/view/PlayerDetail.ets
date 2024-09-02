@@ -18,7 +18,8 @@ import emitter from '@ohos.events.emitter';
 import Logger from '../utils/Logger';
 import LrcLine from '../model/LrcLine';
 import CommonUtils from '../utils/CommonUtils';
-import ServerConstants from '../manager/ServerConstants';
+import ServerConstants from '../constants/ServerConstants';
+import UIConstants from '../constants/UIConstants';
 import AudioItem from '../model/AudioItem';
 
 /**
@@ -44,7 +45,7 @@ export default struct PlayerDetail {
   private tabsController: TabsController = new TabsController();
 
   @Builder
-  TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
+  TabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
     Column() {
       Row() {
         Text(title)
@@ -61,6 +62,7 @@ export default struct PlayerDetail {
       left: 12,
       right: 12
     })
+    .clickEffect(UIConstants.CLICK_EFFECT)
     .onClick(() => {
       this.subCurrentIndex = index;
       this.tabsController.changeIndex(this.subCurrentIndex);
@@ -68,6 +70,11 @@ export default struct PlayerDetail {
   }
 
   aboutToAppear() {
+    emitter.on(ServerConstants.UPDATE_FAVOR_EVENT_ID, (eventData: emitter.EventData) => {
+      if (eventData !== undefined && eventData.data !== undefined) {
+        this.item = this.PlayerManager.getItem();
+      }
+    });
     emitter.on(ServerConstants.UPDATE_TIME_EVENT_ID, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         //Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
@@ -116,12 +123,13 @@ export default struct PlayerDetail {
   build() {
     Column() {
       Row() {
-        Image($r('app.media.ic_public_arrow_down_0'))
+        Image($r('app.media.chevron_down_circle'))
           .height('48vp')
           .width('48vp')
           .padding('8vp')
+          .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            animateTo({ duration: 350 }, () => {
+            animateTo({ duration: 1000 }, () => {
               this.isShowPlayerDetail = false;
             })
           })
@@ -154,7 +162,7 @@ export default struct PlayerDetail {
       Column() {
         if (this.contentSwitch) {
           Column() {
-            Image(ServerConstants.SONG_IMAGE_URL + this.item.id)
+            Image(this.item.id ? ServerConstants.SONG_IMAGE_URL + this.item.id : $r('app.media.startIcon'))
               .width('300vp')
               .height('300vp')
               .borderRadius('200vp')
@@ -168,13 +176,18 @@ export default struct PlayerDetail {
                 playMode: PlayMode.Normal
               })
               .id('detail_songImg')
+              .clickEffect(UIConstants.CLICK_EFFECT)
+              .onClick(() => {
+                this.contentSwitch = false;
+              })
             Row() {
               Column() {
                 Text(this.item.title).fontSize('18fp')
-                  .id('detail_title4')
+                  .id('detail_songName')
+                  .fontSize(20)
                 Text(this.item.artist).fontSize('16fp')
-                  .fontColor('#303030')
-                  .id('detail_title5')
+                  .fontColor('#a0a0a0')
+                  .id('detail_artist')
               }.alignItems(HorizontalAlign.Start)
 
               Blank()
@@ -188,17 +201,19 @@ export default struct PlayerDetail {
                     .width('36vp')
                     .height('36vp')
                 }
-              }.alignContent(Alignment.Top)
+              }
+              .alignContent(Alignment.Top)
               .margin({ right: '8vp' })
+              .clickEffect(UIConstants.CLICK_EFFECT)
+              .onClick(() => {
+                this.PlayerManager.set_favourite();
+              })
             }
             .width('80%')
             .justifyContent(FlexAlign.SpaceBetween)
           }.width('100%')
           .height('100%')
           .justifyContent(FlexAlign.SpaceAround)
-          .onClick(() => {
-            this.contentSwitch = false;
-          })
         } else {
           Column() {
             Tabs({
@@ -230,19 +245,7 @@ export default struct PlayerDetail {
                   .width('100%')
                 }.height('100%')
               }
-              .tabBar(this.TabBuilder('歌词', 0,
-                $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
-
-              TabContent() {
-                Column() {
-                  Scroll() {
-                    Column({ space: 12 }) {
-                    }
-                  }
-                  .width('100%')
-                }.height('100%')
-              }
-              .tabBar(this.TabBuilder('百科', 1,
+              .tabBar(this.TabBuilder($r('app.string.lyrics'), 0,
                 $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
             }
             .width('100%')
@@ -256,6 +259,7 @@ export default struct PlayerDetail {
           }
           .width('100%')
           .height('100%')
+          .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
             this.contentSwitch = true;
             if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
@@ -280,65 +284,69 @@ export default struct PlayerDetail {
       Row() {
         Text(CommonUtils.formatTime(this.currentTime / 1000)).fontSize('12fp')
           .id('detail_time_current')
-        Text('无损').fontSize('12fp')
         Text(CommonUtils.formatTime(this.durationTime / 1000)).fontSize('12fp')
           .id('detail_time_duration')
       }.width('80%')
       .justifyContent(FlexAlign.SpaceBetween)
 
       Row() {
-        Image($r('app.media.ic_public_list_cycle'))
+        Image($r('app.media.repeat'))
           .objectFit(ImageFit.Contain)
           .width(42)
           .height(42)
           .margin({ right: 12, left: 8 })
           .id('detail_mode')
-        Image($r('app.media.ic_public_play_last'))
+        Image($r('app.media.backward_end_fill'))
           .objectFit(ImageFit.Contain)
           .width(42)
           .height(42)
           .margin({ right: 12, left: 8 })
+          .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
             this.PlayerManager.previous();
           })
           .id('detail_previous')
         if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
-          Image($r('app.media.ic_public_pause'))
+          Image($r('app.media.pause'))
             .objectFit(ImageFit.Contain)
             .width(48)
             .height(48)
             .margin({ right: 12, left: 8 })
+            .clickEffect(UIConstants.CLICK_EFFECT)
             .onClick(() => {
               this.PlayerManager.pause();
             })
             .id('detail_paused')
         } else {
-          Image($r('app.media.ic_public_play'))
+          Image($r('app.media.play_fill'))
             .objectFit(ImageFit.Contain)
             .width(48)
             .height(48)
             .margin({ right: 12, left: '8vp' })
+            .clickEffect(UIConstants.CLICK_EFFECT)
             .onClick(() => {
               this.PlayerManager.resume();
             })
             .id('detail_playing')
         }
-        Image($r('app.media.ic_public_play_next'))
+        Image($r('app.media.forward_end_fill'))
           .objectFit(ImageFit.Contain)
           .width(42)
           .height(42)
           .margin({ right: 12, left: 8 })
+          .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
             this.PlayerManager.next();
           })
           .id('detail_next')
-        Image($r('app.media.ic_public_view_list'))
+        Image($r('app.media.music_note_list'))
           .objectFit(ImageFit.Contain)
           .width(42)
           .height(42)
           .margin({ right: 12, left: 8 })
+          .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            animateTo({ duration: 350 }, () => {
+            animateTo({ duration: 1000 }, () => {
               this.isShowPlayList = true;
             })
           })

@@ -17,7 +17,8 @@ import AudioItem from '../model/AudioItem';
 import PlayerManager from '../manager/PlayerManager'
 import SongCell from './SongCell';
 import emitter from '@ohos.events.emitter';
-import ServerConstants from '../manager/ServerConstants';
+import ServerConstants from '../constants/ServerConstants';
+import UIConstants from '../constants/UIConstants';
 
 @Component
 export default struct PlayList {
@@ -43,7 +44,6 @@ export default struct PlayList {
       Text(this.listTitle)
         .fontSize(24)
         .margin(8)
-        .fontWeight(FontWeight.Bold)
       Scroll() {
         Column({ space: 10 }) {
           List() {
@@ -52,7 +52,8 @@ export default struct PlayList {
                 SongCell({ item })
               }
               .width('100%')
-              .backgroundColor(item.isPlaying ? '#f6f6f6' : Color.White)
+              .backgroundColor(item.isPlaying ? '#f0f0f0' : Color.White)
+              .clickEffect(UIConstants.CLICK_EFFECT)
               .onClick(() => {
                 this.playerManager.playList(this.listTitle, this.playingList, item)
               })

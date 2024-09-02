@@ -14,11 +14,12 @@
  */
 
 import AudioItem from '../model/AudioItem';
-import ServerConstants from '../manager/ServerConstants';
+import ServerConstants from '../constants/ServerConstants';
 
 @Component
 export default struct SongCell {
   @State item: AudioItem = new AudioItem('', '', '');
+  private spaces: string = '                         '
 
   build() {
     Row() {
@@ -26,15 +27,28 @@ export default struct SongCell {
         .width(64)
         .height(64)
       Blank()
-      Text(this.item.title)
-        .fontSize('20fp')
-      Text('·')
-        .fontSize('20fp')
-        .fontColor('#e0e0e0')
-      Text(this.item.artist)
-        .maxLines(1)
-        .fontSize('14fp')
-        .fontColor('#e0e0e0')
+      Text() {
+        if(this.item.isPlaying){
+          Span(this.spaces)
+            .fontSize('20fp')
+        }
+        Span(this.item.title)
+          .fontSize('20fp')
+        Span('·')
+          .fontSize('20fp')
+          .fontColor('#a0a0a0')
+        Span(this.item.artist)
+          .fontColor('#a0a0a0')
+        if(this.item.isPlaying){
+          Span(this.spaces)
+            .fontSize('20fp')
+        }
+      }
+      .id(this.item.title)
+      .maxLines(1)
+      .width('80%')
+      .textAlign(TextAlign.End)
+      .textOverflow({ overflow: this.item.isPlaying ? TextOverflow.MARQUEE : TextOverflow.None })
     }
     .justifyContent(FlexAlign.SpaceBetween)
     .width('90%')

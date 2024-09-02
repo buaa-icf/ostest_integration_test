@@ -19,7 +19,8 @@
 import emitter from '@ohos.events.emitter';
 import Logger from '../utils/Logger';
 import AudioItem from '../model/AudioItem';
-import ServerConstants from '../manager/ServerConstants';
+import ServerConstants from '../constants/ServerConstants';
+import UIConstants from '../constants/UIConstants';
 import PlayerManager from '../manager/PlayerManager';
 
 @Component
@@ -33,6 +34,7 @@ export default struct PlayerBar {
   @Link isShowPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
+  private spaces:string = '       '
 
   aboutToAppear() {
     Logger.info(this.tag, 'aboutToAppear');
@@ -71,9 +73,9 @@ export default struct PlayerBar {
   build() {
     Column() {
       Row() {
-        Image(ServerConstants.SONG_IMAGE_URL + this.item.id)
-          .width(64)
-          .height(64)
+        Image(this.item.id ? (ServerConstants.SONG_IMAGE_URL + this.item.id) : $r('app.media.startIcon'))
+          .width(56)
+          .height(56)
           .margin(4)
           .borderRadius(48)
           .rotate({ angle: this.rotateAngle })
@@ -85,19 +87,33 @@ export default struct PlayerBar {
             playMode: PlayMode.Normal
           })
           .id('songImage')
-        Text(this.item.title !== '' ? this.item.title + ' - ' + this.item.artist : '未播放')
+          .clickEffect(UIConstants.CLICK_EFFECT)
+          .onClick(() => {
+            animateTo({ duration: 1000 }, () => {
+              this.isShowPlayerDetail = true;
+            })
+          })
+        Text(this.item.id ? (this.state === ServerConstants.PLAYER_STATE_PLAYING ? this.spaces + this.item.title + ' - ' + this.item.artist + this.spaces
+          : this.item.title + ' - ' + this.item.artist) : ServerConstants.LIST_SONG_NO_PLAYING)
           .fontSize('24fp')
-          .fontWeight(FontWeight.Bold)
           .maxLines(1)
-          .textOverflow({ overflow: TextOverflow.MARQUEE })
+          .textOverflow({
+            overflow: (this.state === ServerConstants.PLAYER_STATE_PLAYING) ? TextOverflow.MARQUEE : TextOverflow.None
+          })
           .width('60%')
           .textAlign(TextAlign.Center)
           .id('songName')
+          .clickEffect(UIConstants.CLICK_EFFECT)
+          .onClick(() => {
+            animateTo({ duration: 1000 }, () => {
+              this.isShowPlayerDetail = true;
+            })
+          })
         Blank()
         Stack() {
           Row({ space: 40 }) {
             Progress({ value: 0, total: this.durationTime, type: ProgressType.Ring })
-              .color(Color.Black)
+              .color(Color.Blue)
               .value(this.currentTime)
               .width('100%')
               .height('100%')
@@ -106,49 +122,46 @@ export default struct PlayerBar {
           }
 
           if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
-            Image($r('app.media.ic_public_pause'))
+            Image($r('app.media.pause'))
               .objectFit(ImageFit.Contain)
               .width('90%')
               .height('90%')
               .padding('4vp')
+              .clickEffect(UIConstants.CLICK_EFFECT)
               .onClick(() => {
                 this.PlayerManager.pause();
               })
               .id('paused')
           } else {
-            Image($r('app.media.ic_public_play'))
+            Image($r('app.media.media_center'))
               .objectFit(ImageFit.Contain)
               .width('90%')
               .height('90%')
-              .padding('4vp')
+              .clickEffect(UIConstants.CLICK_EFFECT)
               .onClick(() => {
                 this.PlayerManager.resume();
               })
               .id('playing')
           }
         }.alignContent(Alignment.Center)
-        .width(42)
-        .height(42)
+        .width(48)
+        .height(48)
         .margin({ right: 8 })
 
-        Image($r('app.media.ic_public_view_list'))
+        Image($r('app.media.music_note_list'))
           .objectFit(ImageFit.Contain)
           .width(42)
           .height(42)
           .margin({ right: 8, left: 8 })
+          .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            animateTo({ duration: 350 }, () => {
+            animateTo({ duration: 1000 }, () => {
               this.isShowPlayList = true;
             })
           })
           .id('playlist')
       }
       .width('100%')
-      .onClick(() => {
-        animateTo({ duration: 350 }, () => {
-          this.isShowPlayerDetail = true;
-        })
-      })
 
       Divider().strokeWidth(1).color('#E0E0E0')
     }
