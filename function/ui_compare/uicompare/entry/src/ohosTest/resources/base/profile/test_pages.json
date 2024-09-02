@@ -1211,5 +1211,14 @@
     "testability/pages/UIComponentScrollSwiperInterfaceMix/UIComponentScrollSwiperInterfaceMix110",
     "testability/pages/UIComponentScrollSwiperInterfaceMix/UIComponentScrollSwiperInterfaceMix111"
 
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation009",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation011",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation012",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation017",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation018",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation020",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation021",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation026",
+    "testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation027"
   ]
 }

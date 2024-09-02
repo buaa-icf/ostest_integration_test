@@ -15,7 +15,22 @@
 
 @Entry
 @Component
-struct UiComponentTextCommonAffineTransformation008 {
+struct UiComponentTextCommonAffineTransformation027 {
+  @State inputtranslatesize:TranslateOptions = {
+    x: 0,
+    y: 0,
+    z: 0
+  }
+  @State areatranslatesize:TranslateOptions = {
+    x: 0,
+    y: 0,
+    z: 0
+  }
+  @State searchtranslatesize:TranslateOptions = {
+    x: 0,
+    y: 0,
+    z: 0
+  }
   @State textinputrotatesize:RotateOptions = {
     x: 0,
     y: 0,
@@ -56,86 +71,107 @@ struct UiComponentTextCommonAffineTransformation008 {
         placeholder:'text here',
         controller: this.textinputcontroller
       })
+        .width('75%')
+        .height(75)
         .placeholderColor(Color.Red)
-        .margin(10)
+        .margin(5)
         .fontColor('#808080')
         .backgroundColor('#f8f8ff')
         .fontSize(12)
         .caretPosition(2)
         .defaultFocus(true)
+        .translate(this.inputtranslatesize)
         .rotate(this.textinputrotatesize)
-        .id('input008')
-      Button('rotate')
-        .margin(10)
+        .id('input027')
+      Button('inputchange')
+        .margin(5)
         .width('90%')
-        .height('5%')
+        .height(20)
         .fontSize(12)
         .onClick(()=>{
+          this.inputtranslatesize={
+            x: 100,
+            y: 10
+          }
           this.textinputrotatesize={
-            x: 0,
+            x: 1,
             y: 0,
-            z: 1,
+            z: 0,
             centerX: '0%',
             centerY: '0%',
             angle: 300
           }
         })
-        .id('inputscale008')
+        .id('inputchange027')
       TextArea({
         placeholder:'text here',
         controller: this.textareacontroller
       })
+        .width('75%')
+        .height(75)
         .placeholderColor(Color.Red)
-        .margin(10)
+        .margin(5)
         .fontColor('#808080')
         .backgroundColor('#f8f8ff')
         .fontSize(12)
         .defaultFocus(true)
+        .translate(this.areatranslatesize)
         .rotate(this.textarearotatesize)
-        .id('textarea008')
-      Button('rotate')
-        .margin(10)
+        .id('area027')
+      Button('areachange')
+        .margin(5)
         .width('90%')
-        .height('5%')
+        .height(20)
         .fontSize(12)
         .onClick(()=>{
+          this.areatranslatesize={
+            x: 100,
+            y: 10
+          }
           this.textarearotatesize={
-            x: 0,
+            x: 1,
             y: 0,
-            z: 1,
+            z: 0,
             centerX: '0%',
             centerY: '0%',
             angle: 300
           }
         })
-        .id('arearotatescale008')
+        .id('areachange027')
       Search({
         placeholder:'text here',
         controller: this.searchcontroller
       })
+        .width('75%')
+        .height(75)
         .placeholderColor(Color.Red)
-        .margin(10)
+        .margin(5)
         .fontColor('#808080')
         .backgroundColor('#f8f8ff')
         .defaultFocus(true)
+        .translate(this.searchtranslatesize)
         .rotate(this.searchrotatesize)
-        .id('search008')
-      Button('rotate')
-        .margin(10)
+        .id('search027')
+      Button('searchchange')
+        .margin(5)
         .width('90%')
-        .height('5%')
+        .height(20)
         .fontSize(12)
         .onClick(()=>{
+          this.searchtranslatesize={
+            x: 100,
+            y: 10
+          }
           this.searchrotatesize={
-            x: 0,
+            x: 1,
             y: 0,
-            z: 1,
+            z: 0,
             centerX: '0%',
             centerY: '0%',
             angle: 300
           }
         })
-        .id('searchscale008')
+        .id('searchchange027')
     }
     .width('100%')
     .height('100%')
