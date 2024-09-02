@@ -34,4 +34,3 @@ struct UIComponentScrollSwiperInterfaceMix039 {
     }
   }
 }
-

@@ -39,7 +39,6 @@ struct UIComponentScrollSwiperInterfacemix056 {
   }
   build() {
     Column() {
-
       TextInput({
         text: this.text,
         placeholder: 'Enter your password...',

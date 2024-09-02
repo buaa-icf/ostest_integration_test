@@ -39,13 +39,3 @@ struct UIComponentScrollSwiperInterfacemix111 {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-

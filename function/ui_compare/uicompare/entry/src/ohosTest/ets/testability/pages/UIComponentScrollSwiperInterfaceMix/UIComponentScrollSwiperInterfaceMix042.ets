@@ -18,8 +18,6 @@ struct UIComponentScrollSwiperInterfaceMix042 {
   @State text: string = '564123156';
   @State PassWordSrc1: Resource = $r('app.media.icon')
   @State PassWordSrc2: Resource = $r('app.media.icon')
-
-
   build() {
     Column() {
       TextInput({

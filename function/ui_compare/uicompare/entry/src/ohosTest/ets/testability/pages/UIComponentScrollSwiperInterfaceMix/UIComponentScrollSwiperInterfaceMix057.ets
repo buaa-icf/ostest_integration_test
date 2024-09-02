@@ -37,4 +37,3 @@ struct UIComponentScrollSwiperInterfacemix057 {
     }
   }
 }
-

@@ -33,8 +33,6 @@ struct UIComponentScrollSwiperInterfaceMix079 {
         .margin(20)
         .fontSize(18)
         .fontColor(Color.Black)
-
-
     }
   }
 }

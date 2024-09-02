@@ -36,7 +36,6 @@ struct UIComponentScrollSwiperInterfaceMix051 {
         console.info('Select:' + index)
       })
   }
-
   build() {
     Column() {
       TextInput({
