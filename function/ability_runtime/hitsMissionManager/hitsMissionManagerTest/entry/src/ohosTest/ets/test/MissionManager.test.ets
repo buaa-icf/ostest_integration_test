@@ -78,17 +78,19 @@ export default function missionManagerTest() {
       }
     })
 
-    // it('SUB_Ability_AbilityRuntime_MissionManager_MissionTask_3900', 0, () => {
-    //   missionManager.off('mission', 1, (err: BusinessError) => {
-    //     if (!err) {
-    //       console.log(TAG + ` off result: ${JSON.stringify(err)}`);
-    //       expect().assertFail();
-    //     } else {
-    //       console.error(TAG + ` off failed: ${JSON.stringify(err)}`);
-    //       expect(true).assertTrue();
-    //     }
-    //   });
-    // })
+    it('SUB_Ability_AbilityRuntime_MissionManager_MissionTask_3900', 0, () => {
+      missionManager.off('mission', 1, (err: BusinessError) => {
+        if (!err) {
+          console.log(TAG + ` off result: ${JSON.stringify(err)}`);
+          expect().assertFail();
+        } else {
+          console.error(TAG + ` off failed: ${JSON.stringify(err)}`);
+          if (err.code === 16300002) {
+            expect(true).assertTrue();
+          }
+        }
+      });
+    })
 
     it('SUB_Ability_AbilityRuntime_MissionManager_MissionTask_3600', 0, async (done: Function) => {
       await missionManager.getMissionInfos('', 10)
