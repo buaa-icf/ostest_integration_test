@@ -37,6 +37,7 @@ struct UiComponentSpanBaselineoffset05 {
           else this.text = 'Offset is '+this.num.toString()
           this.index++;
         })
+        .id('Button5')
       Text(this.text)
       Text(){
         Span('base')

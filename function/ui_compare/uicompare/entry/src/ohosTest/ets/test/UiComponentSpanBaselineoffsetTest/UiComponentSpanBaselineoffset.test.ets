@@ -17,6 +17,7 @@ import Settings from '../model/Settings'
 import windowSnap from '../model/snapShot'
 import Logger from '../model/Logger'
 import Utils from '../model/Utils'
+import { Driver, ON } from '@ohos.UiTest'
 
 export default function UiComponentSpanBaselineoffset() {
   describe('UiComponentSpanBaselineoffset', () => {
@@ -31,7 +32,7 @@ export default function UiComponentSpanBaselineoffset() {
         }
         Logger.info('TEST', `Succeeded in destroy the window.`);
       })
-      await Utils.sleep(1000);
+      await Utils.sleep(3000);
       done()
     })
 
@@ -43,6 +44,10 @@ export default function UiComponentSpanBaselineoffset() {
     it('SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0010 start.`);
       Settings.createWindow("testability/pages/UiComponentSpanBaselineoffset/UiComponentSpanBaselineoffset001")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button1"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      await driver.click(pointCenter.x, pointCenter.y);
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -58,6 +63,12 @@ export default function UiComponentSpanBaselineoffset() {
     it('SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0030 start.`);
       Settings.createWindow("testability/pages/UiComponentSpanBaselineoffset/UiComponentSpanBaselineoffset003")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button3"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -88,6 +99,12 @@ export default function UiComponentSpanBaselineoffset() {
     it('SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0050 start.`);
       Settings.createWindow("testability/pages/UiComponentSpanBaselineoffset/UiComponentSpanBaselineoffset005")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button5"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -103,6 +120,12 @@ export default function UiComponentSpanBaselineoffset() {
     it('SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0070 start.`);
       Settings.createWindow("testability/pages/UiComponentSpanBaselineoffset/UiComponentSpanBaselineoffset007")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button7"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 13; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)

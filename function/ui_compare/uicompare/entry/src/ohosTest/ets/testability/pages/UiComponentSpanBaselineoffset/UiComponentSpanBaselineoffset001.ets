@@ -28,6 +28,7 @@ struct UiComponentSpanBaselineoffset01 {
   build() {
     Column() {
       Button('button', { type: ButtonType.Capsule, stateEffect: true })
+        .id('Button1')
         .margin(10)
         .onClick(() => {
           this.rank = this.index % this.total
