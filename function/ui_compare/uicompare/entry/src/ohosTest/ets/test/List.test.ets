@@ -70,6 +70,7 @@ import UIComponentTextCommonLinespaceC from './UIComponentTextCommonLinespaceCTe
 import UiComponentNavModifier from './UiComponentNavModifierTest/UiComponentNavModifier.test'
 import UiComponentSymbolSymbol from './UiComponentSymbolSymbolTest/UiComponentSymbolSymbol.test'
 import UiComponentTextCommonAffineTransformation from './UiComponentTextCommonAffineTransformationTest/UiComponentTextCommonAffineTransformation.test'
+import UIComponentScrollSwiperInterfaceMixTest from './UIComponentScrollSwiperInterfaceMixTest/UIComponentScrollSwiperInterfaceMix.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -128,4 +129,6 @@ export default function testsuite() {
   UiComponentNavModifier();
   UiComponentSymbolSymbol();
   UiComponentTextCommonAffineTransformation();
+  UIComponentScrollSwiperInterfaceMixTest();
+
 }
