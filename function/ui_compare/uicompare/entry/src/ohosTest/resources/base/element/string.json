@@ -31,6 +31,10 @@
     {
       "name": "boardSize_10",
       "value": "0vp"
+    },
+    {
+      "name": "fontfamily_1",
+      "value": "HarmonyOS Sans"
     }
   ]
 }

@@ -71,6 +71,10 @@ import UiComponentNavModifier from './UiComponentNavModifierTest/UiComponentNavM
 import UiComponentSymbolSymbol from './UiComponentSymbolSymbolTest/UiComponentSymbolSymbol.test'
 import UiComponentTextCommonAffineTransformation from './UiComponentTextCommonAffineTransformationTest/UiComponentTextCommonAffineTransformation.test'
 import UIComponentScrollSwiperInterfaceMixTest from './UIComponentScrollSwiperInterfaceMixTest/UIComponentScrollSwiperInterfaceMix.test'
+import UIComponentTextTextinputAction from './UIComponentTextTextinputActionTest/UIComponentTextTextinputAction.test'
+import UIComponentTextCommonAffingTranTest from './UIComponentTextCommonAffingTranTest/UIComponentTextCommonAffingTran.test'
+import UIComponentSymbolDisplay from './UIComponentSymbolDisplayTest/UIComponentSymbolDisplay.test'
+import UIAttributeFontSupportstage from './UIAttributeFontSupportstageTest/UIAttributeFontSupportstage.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -130,5 +134,8 @@ export default function testsuite() {
   UiComponentSymbolSymbol();
   UiComponentTextCommonAffineTransformation();
   UIComponentScrollSwiperInterfaceMixTest();
-
+  UIComponentTextTextinputAction();
+  UIComponentTextCommonAffingTranTest();
+  UIComponentSymbolDisplay();
+  UIAttributeFontSupportstage();
 }
