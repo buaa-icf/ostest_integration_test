@@ -18,7 +18,7 @@ import windowSnap from '../model/snapShot'
 import Logger from '../model/Logger'
 import Utils from '../model/Utils'
 import router from '@ohos.router';
-import {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix} from '@ohos.UiTest';
+import {UiComponent, UiDriver, Component, Driver, UiWindow,MouseButton, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix} from '@ohos.UiTest';
 export default function UiComponentTextTextareaInterface() {
   describe('UiComponentTextTextareaInterface', () => {
     afterEach(async (done: Function) => {
