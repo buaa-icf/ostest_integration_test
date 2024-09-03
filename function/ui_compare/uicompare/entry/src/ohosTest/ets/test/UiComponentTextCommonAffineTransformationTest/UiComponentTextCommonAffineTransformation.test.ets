@@ -663,5 +663,246 @@ export default function UiComponentTextCommonAffineTransformation() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0270 finish.`);
       done()
     })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350
+     * @tc.desc      Set the zoom and pan properties, keeping the width and height unchanged. Long press/double-click the text content and observe the cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation035")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0360
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0360
+     * @tc.desc      Set the zoom and pan attributes, keeping the width and height unchanged. Click on the text content and observe the cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0360', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0360 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation036")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0360 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0370
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0370
+     * @tc.desc      Set zoom+pan properties, increase width, decrease height, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0370', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0370 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation037")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0370 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0380
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0380
+     * @tc.desc      Set zoom+pan properties, increase width, decrease height, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0380', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0380 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation038")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0380 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0390
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0390
+     * @tc.desc      Set zoom+pan properties, increase width, decrease height, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0390', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0390 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation039")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0390 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400
+     * @tc.desc      Set zoom+pan properties, increase width, decrease height, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation040")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400 finish.`);
+      done()
+    })
+
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410
+     * @tc.desc      Set zoom+pan properties, increase width, decrease height, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation041")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0420
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0420
+     * @tc.desc      Set zoom+pan properties, increase width, decrease height, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0420', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0420 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation042")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0420 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0450
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0450
+     * @tc.desc      The padding, margin, border, and backgroundColor properties have default values. Click on the text content and observe the cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0450', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0450 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation045")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0450 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0460
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0460
+     * @tc.desc      Change the values of padding, margin, border, and backgroundColor properties, long press/double-click the text content, and observe the changes in the cursor menu
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0460', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0460 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation046")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0460 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0470
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0470
+     * @tc.desc      Change the values of padding, margin, border, and backgroundColor properties, long press/double-click the text content, and observe the changes in the cursor menu
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0470', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0470 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation047")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0470 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0480
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0480
+     * @tc.desc      Change the values of padding, margin, border, and backgroundColor properties, long press/double-click the text content, and observe the changes in the cursor menu
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0480', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0480 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation048")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0480 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0490
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0490
+     * @tc.desc      Set zoom+rotation+translation attributes, input type set to normal, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0490', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0490 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation049")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0490 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0500
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0500
+     * @tc.desc      Set the zoom+rotation+translation properties, input type to normal, click on the text content, and observe the cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0500', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0500 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation050")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0500 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0510
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0510
+     * @tc.desc      Set zoom+rotation+translation attributes, input type to email, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0510', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0510 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation051")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0510 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0520
+     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0520
+     * @tc.desc      Set zoom+rotation+translation attributes, input type to email, long press/double-click text content, observe cursor menu changes
+    */
+    it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0520', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0520 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation052")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0520 finish.`);
+      done()
+    })
   })
 }

@@ -39,6 +39,111 @@ export default function UIComponentLayoutModifierTest() {
     })
 
     /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding properties of the component will take effect
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier016")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding properties of the component will take effect
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier017")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180
+     * @tc.desc      A custom modifier for two components
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier018")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190
+     * @tc.desc      New MyModifier(). hideTitleBar (xx) dynamically switches without perception
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier019")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200
+     * @tc.desc      Setting attributiModifier twice is the union of attributes
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier020")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210
+     * @tc.desc      Mixed settings
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier021")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220
+     * @tc.desc      Set the same attribute based on the second one
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier022")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220 finish.`);
+      done()
+    })
+
+    /*
    * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230
    * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230
    * @tc.desc        set alignContent 【TopStart、Top、TopEnd、Start、Center、End、BottomStart、Bottom、BottomEnd】
@@ -179,6 +284,621 @@ export default function UIComponentLayoutModifierTest() {
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0300 finish.`);
+      done()
+    })
+
+    /*
+    * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310
+    * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310
+    * @tc.desc      StepperItemModifier， Set a custom Modifier to a component, and the corresponding properties of the component will take effect
+   */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier031")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0320
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0320
+     * @tc.desc      Set custom Modifier to a component (outlier)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0320', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0320 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier032")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0320 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0330
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0330
+     * @tc.desc      Custom modifier attribute value changes, component corresponding attribute takes effect
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0330', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0330 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier033")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0330 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0340
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0340
+     * @tc.desc      StepperItemModifier， A custom modifier for two components
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0340', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0340 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier034")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0340 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0350
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0350
+     * @tc.desc      StepperItemModifier, new MyModifier(). extLabel (xx) dynamically switches without perception
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0350', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0350 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier035")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0350 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0360
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0360
+     * @tc.desc      Setting attributiModifier twice is the union of attributes
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0360', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0360 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier036")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0360 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0370
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0370
+     * @tc.desc      Mixed settings
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0370', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0370 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier037")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0370 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380
+     * @tc.desc      Set the same attribute based on the second one
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier038")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0470
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0470
+     * @tc.desc      set a custom Modifier to a component, and the corresponding attribute of the component takes effect (params, target).
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0470', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0470 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier047")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0470 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0480
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0480
+     * @tc.desc      Set a custom Modifier to a component that corresponds to an active attribute
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0480', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0480 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier048")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0480 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0490
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0490
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding property of the component will take effect (type NavigatorType. Push)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0490', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0490 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier049")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0490 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0500
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0500
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding property of the component will take effect (type NavigatorType. Replace)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0500', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0500 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier050")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0500 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0510
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0510
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding property of the component will take effect (type NavigatorType. Back)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0510', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0510 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier051")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0510 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0520
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0520
+     * @tc.desc      Set a custom Modifier to a component that corresponds to a property that takes effect (type NavigatorType. Back), with an exception value
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0520', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0520 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier052")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0520 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0530
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0530
+     * @tc.desc      Custom modifier attribute value changes, component corresponding attribute takes effect
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0530', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0530 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier053")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0530 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0540
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0540
+     * @tc.desc      A custom modifier for two components
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0540', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0540 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier054")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0540 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0550
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0550
+     * @tc.desc      new MyModifier(). target (xx) dynamically switches without perception
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0550', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0550 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier055")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0550 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0560
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0560
+     * @tc.desc      Setting attributiModifier twice is the union of attributes
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0560', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0560 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier056")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0560 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0570
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0570
+     * @tc.desc      Mixed settings
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0570', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0570 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier057")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0570 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0580
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0580
+     * @tc.desc      Set the same attribute based on the second one
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0580', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0580 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier058")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0580 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0590
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0590
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding properties of the component will take effect (NavRouteMode. PUSH-WISH-RECREATE)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0590', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0590 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier059")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0590 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0600
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0600
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding properties of the component will take effect (NavRouteMode. PUSH)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0600', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0600 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier060")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0600 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0610
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0610
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding properties of the component will take effect (NavRouteMode. REPLACE)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0610', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0610 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier061")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0610 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0620
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0620
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding property of the component takes effect (outlier)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0620', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0620 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier062")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0620 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0630
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0630
+     * @tc.desc      Custom modifier attribute value changes, component corresponding attribute takes effect
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0630', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0630 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier063")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0630 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0640
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0640
+     * @tc.desc      Assign a custom modifier to two components
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0640', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0640 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier064")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0640 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0650
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0650
+     * @tc.desc      New MyModifier(). mode (xx) dynamically switches without perception
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0650', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0650 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier065")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0650 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0660
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0660
+     * @tc.desc      Setting attributiModifier twice is the union of attributes
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0660', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0660 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier066")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0660 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0670
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0670
+     * @tc.desc      Mixed settings
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0670', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0670 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier067")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0670 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0680
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0680
+     * @tc.desc      Set the same attribute based on the second one
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0680', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0680 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier068")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0680 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0690
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0690
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding properties of the component will take effect (hideTolBar, subtitle). The titleMode、hideBackButton、hideTitleBar、backButtonIcon）
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0690', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0690 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier069")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0690 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0700
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0700
+     * @tc.desc      Assign a custom modifier to a component, and the corresponding attribute of the component will take effect (mode)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0700', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0700 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier070")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0700 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0710
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0710
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding property of the component will take effect (navBarPosition)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0710', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0710 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier071")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0710 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0720
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0720
+     * @tc.desc      Set a custom Modifier to a component whose corresponding property takes effect (minContentWidth navBarWidthRange、navBarWidth）
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0720', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0720 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier072")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0720 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0730
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0730
+     * @tc.desc      Set a custom Modifier to a component, and the corresponding property of the component will take effect (hideNavBar)
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0730', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0730 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier073")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0730 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0740
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0740
+     * @tc.desc      Custom modifier attribute value changes, component corresponding attribute takes effect
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0740', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0740 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier074")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0740 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0750
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0750
+     * @tc.desc      A custom modifier for two components
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0750', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0750 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier075")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0750 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0760
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0760
+     * @tc.desc      New MyModifier(). hideTitleBar (xx) dynamically switches without perception
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0760', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0760 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier076")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0760 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0770
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0770
+     * @tc.desc      Setting attributiModifier twice is the union of attributes
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0770', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0770 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier077")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0770 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0780
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0780
+     * @tc.desc      Mixed settings
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0780', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0780 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier078")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0780 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0790
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0790
+     * @tc.desc      Set the same attribute based on the second one
+    */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0790', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0790 start.`);
+      Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier079")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0790 finish.`);
       done()
     })
   })
