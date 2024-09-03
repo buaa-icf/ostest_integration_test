@@ -35,6 +35,7 @@ export default function UiComponentTextTextareaInterface() {
       await Utils.sleep(1000);
       done()
     })
+
     /*
               * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010
               * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010
@@ -49,6 +50,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020
@@ -63,6 +65,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040
@@ -77,6 +80,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050
@@ -91,6 +95,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060
@@ -105,6 +110,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070
@@ -119,6 +125,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090
@@ -133,6 +140,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140
@@ -147,6 +155,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150
@@ -161,6 +170,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170
@@ -175,6 +185,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210
@@ -189,6 +200,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220
@@ -203,6 +215,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220 finish.`);
       done()
     })
+
     /*
          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230
          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230
@@ -217,6 +230,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340
@@ -231,6 +245,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340 finish.`);
       done()
     })
+
     /*
               * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360
               * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360
@@ -245,6 +260,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370
@@ -259,6 +275,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380
@@ -273,6 +290,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420
@@ -287,6 +305,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430
@@ -301,6 +320,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440
@@ -315,6 +335,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450
@@ -329,6 +350,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470
@@ -343,6 +365,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480
@@ -357,6 +380,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490
@@ -371,6 +395,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510
@@ -385,6 +410,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530
@@ -399,6 +425,28 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530 finish.`);
       done()
     })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540
+       * @tc.desc    not set CopyOptions
+*/
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface540")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let text: Component = await driver.findComponent(ON.id('textArea540'))
+      await text.inputText('hello world')
+      await driver.longClick(150,150)
+      await driver.mouseClick({x:150,y:50},MouseButton.MOUSE_BUTTON_LEFT)
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540 finish.`);
+      done()
+    })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560
@@ -413,6 +461,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600
@@ -427,6 +476,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610
@@ -441,6 +491,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620
@@ -455,6 +506,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630
@@ -469,6 +521,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640
@@ -483,6 +536,80 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640 finish.`);
       done()
     })
+
+    /*
+       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750
+       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750
+       * @tc.desc    set CopyOptions=inapp
+*/
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface750")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let text: Component = await driver.findComponent(ON.id('textArea750'))
+      await text.inputText('hello world')
+      await driver.longClick(200,150)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:200, y:100},MouseButton.MOUSE_BUTTON_MIDDLE, 2072,2019);
+      await Utils.sleep(1000)
+      await driver.longClick(400,400)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:400, y:400},MouseButton.MOUSE_BUTTON_RIGHT, 2622);
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750 finish.`);
+      done()
+    })
+
+    /*
+      * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760
+      * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760
+      * @tc.desc    set CopyOptions=localdevice
+*/
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface760")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let text: Component = await driver.findComponent(ON.id('textArea760'))
+      let button: Component = await driver.findComponent(ON.id('jump0760'))
+      await text.inputText('hello world')
+      await driver.longClick(200,150)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:200, y:100},MouseButton.MOUSE_BUTTON_MIDDLE, 2072,2019);
+      await button.click()
+      await Utils.sleep(1000)
+      await driver.longClick(400,400)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:400, y:400},MouseButton.MOUSE_BUTTON_RIGHT, 2622);
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760 finish.`);
+      done()
+    })
+
+    /*
+        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770
+        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770
+        * @tc.desc    set CopyOptions=none
+ */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770 start.`);
+      Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface770")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let text: Component = await driver.findComponent(ON.id('textArea770'))
+      await text.inputText('hello world')
+      await driver.longClick(150,150)
+      await driver.mouseClick({x:150,y:50},MouseButton.MOUSE_BUTTON_LEFT)
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770 finish.`);
+      done()
+    })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860
@@ -497,6 +624,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870
@@ -511,6 +639,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890
@@ -525,6 +654,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910
@@ -539,6 +669,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920
@@ -553,6 +684,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930
@@ -567,6 +699,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950
@@ -581,6 +714,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960
@@ -595,6 +729,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970
@@ -609,6 +744,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980
@@ -623,6 +759,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990
@@ -637,6 +774,7 @@ export default function UiComponentTextTextareaInterface() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990 finish.`);
       done()
     })
+
     /*
           * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000
           * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000
