@@ -38,6 +38,36 @@ export default function UIAttributeFontInterfaceFontFamily() {
     })
 
     /*
+   * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0050
+   * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0050
+   * @tc.desc    set fontFamily=app.media
+   */
+    it('SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0050', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0050 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface/UIAttributeFontInterface050")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0050 finish.`);
+      done()
+    })
+
+    /*
+    * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0060
+    * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0060
+    * @tc.desc    set own fontFamily
+    */
+    it('SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0060', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0060 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface/UIAttributeFontInterface060")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0060 finish.`);
+      done()
+    })
+
+    /*
      * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0070
      * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0070
      * @tc.desc    set fontFamily to 'HarmonyOS Sans'

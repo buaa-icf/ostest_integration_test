@@ -235,6 +235,34 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
+         * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080
+         * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080
+         * @tc.desc    copy text
+  */
+    it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080 start.`);
+      Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor008")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button01: Component = await driver.findComponent(ON.id('UIComponentTextinputUnderlinecolor008'))
+      let text: Component = await driver.findComponent(ON.id('underline008'))
+      await button01.inputText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+      await Utils.sleep(1000)
+      await driver.longClick(150,200)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:150, y:200},MouseButton.MOUSE_BUTTON_MIDDLE, 2072,2019);
+      await Utils.sleep(1000)
+      await driver.longClick(150,100)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:150, y:100},MouseButton.MOUSE_BUTTON_RIGHT, 2622);
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080 finish.`);
+      done()
+    })
+
+    /*
          * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090
          * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090
          * @tc.desc    change InputType

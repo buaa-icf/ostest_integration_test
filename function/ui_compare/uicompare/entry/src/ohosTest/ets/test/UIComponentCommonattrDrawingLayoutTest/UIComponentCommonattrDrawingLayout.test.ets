@@ -38,6 +38,21 @@ export default function UIComponentCommonattrDrawingLayout() {
     })
 
     /*
+     * @tc.number  SUB_ACE_UI_COMPONENT_COMMONATTR_DRAWING_LAYOUTMIRRORING_0010
+     * @tc.name    SUB_ACE_UI_COMPONENT_COMMONATTR_DRAWING_LAYOUTMIRRORING_0010
+     * @tc.desc    position top:LengthMetrics.px(150),end:LengthMetrics.px(100)
+     */
+    it('SUB_ACE_UI_COMPONENT_COMMONATTR_DRAWING_LAYOUTMIRRORING_0010', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_COMMONATTR_DRAWING_LAYOUTMIRRORING_0010 start.`);
+      Settings.createWindow("testability/pages/UIComponentCommonattrDrawingLayout/UIComponentCommonattrDrawingLayout001")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_COMMONATTR_DRAWING_LAYOUTMIRRORING_0010 finish.`);
+      done()
+    })
+
+    /*
      * @tc.number  SUB_ACE_UI_COMPONENT_COMMONATTR_DRAWING_LAYOUTMIRRORING_0020
      * @tc.name    SUB_ACE_UI_COMPONENT_COMMONATTR_DRAWING_LAYOUTMIRRORING_0020
      * @tc.desc    position top:LengthMetrics.vp(150),end:LengthMetrics.vp(100)

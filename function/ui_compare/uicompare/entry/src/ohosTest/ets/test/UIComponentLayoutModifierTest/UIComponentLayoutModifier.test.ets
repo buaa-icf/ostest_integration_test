@@ -181,6 +181,135 @@ export default function UIComponentLayoutModifierTest() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0300 finish.`);
       done()
     })
+
+    /*
+     * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0390
+     * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0390
+     * @tc.desc        set 【ItemAlign.Start、ItemAlign.Center、ItemAlign.End、ItemAlign.Stretch】
+  */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0390', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0390 start.`);
+      Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier039")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('modifier039'))
+      for (let i = 0; i <4; i++) {
+        await button.click()
+      }
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0390 finish.`);
+      done()
+    })
+
+    /*
+   * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0410
+   * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0410
+   * @tc.desc        set GridCol
+*/
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0410', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0410 start.`);
+      Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier041")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0410 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0420
+     * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0420
+     * @tc.desc        set two 【ItemAlign.Start、ItemAlign.Center、ItemAlign.End、ItemAlign.Stretch】
+  */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0420', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0420 start.`);
+      Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier042")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('layout042'))
+      for (let i = 0; i <4; i++) {
+        await button.click()
+      }
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0420 finish.`);
+      done()
+    })
+
+    /*
+    * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0430
+    * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0430
+    * @tc.desc        not support change
+ */
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0430', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0430 start.`);
+      Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier043")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('mymodifier043'))
+      for (let i = 0; i <4; i++) {
+        await button.click()
+      }
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0430 finish.`);
+      done()
+    })
+
+    /*
+  * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0440
+  * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0440
+  * @tc.desc        twice set attributeModifier
+*/
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0440', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0440 start.`);
+      Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier044")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0440 finish.`);
+      done()
+    })
+
+    /*
+* @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0450
+* @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0450
+* @tc.desc        mix set GridRowModifier
+*/
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0450', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0450 start.`);
+      Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier045")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('modifier045'))
+      await button.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0450 finish.`);
+      done()
+    })
+
+    /*
+* @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0460
+* @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0460
+* @tc.desc        set same attribute
+*/
+    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0460', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0460 start.`);
+      Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier046")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('modifier046-1'))
+      let button2: Component = await driver.findComponent(ON.id('modifier046-2'))
+      await button.click()
+      await Utils.sleep(1000)
+      await button2.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0460 finish.`);
+      done()
+    })
   })
 }
 

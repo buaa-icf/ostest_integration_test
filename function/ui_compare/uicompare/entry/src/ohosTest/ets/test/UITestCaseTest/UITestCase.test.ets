@@ -429,5 +429,160 @@ export default function UITestCase() {
       Logger.info('TEST', `TestCase_f8bf8ecff77e4b5e85c4f7ad059885af finish.`);
       done()
     })
+
+    /*
+* @tc.number  TestCase_d8ec1ec5fb804025839e5e7fef0ef018
+* @tc.name    TestCase_d8ec1ec5fb804025839e5e7fef0ef018
+* @tc.desc    set my CustomModifier
+*/
+    it('TestCase_d8ec1ec5fb804025839e5e7fef0ef018', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_d8ec1ec5fb804025839e5e7fef0ef018 start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase040")
+      await Utils.sleep(1000)
+      let driver:Driver=Driver.create()
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `TestCase_d8ec1ec5fb804025839e5e7fef0ef018 finish.`);
+      done()
+    })
+
+    /*
+* @tc.number  TestCase_735ee53282514bd28482031d300ae125
+* @tc.name    TestCase_735ee53282514bd28482031d300ae125
+* @tc.desc    both set MySideBarContainerModifier
+*/
+    it('TestCase_735ee53282514bd28482031d300ae125', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_735ee53282514bd28482031d300ae125 start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase041")
+      await Utils.sleep(1000)
+      let driver:Driver=Driver.create()
+      let button:Component =await driver.findComponent(ON.id('sibarcontain041'))
+      await driver.mouseClick({x:50,y:150},MouseButton.MOUSE_BUTTON_LEFT)
+      await Utils.sleep(1000)
+      await button.click()
+      await Utils.sleep(1000)
+      await driver.click(50,150)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `TestCase_735ee53282514bd28482031d300ae125 finish.`);
+      done()
+    })
+
+    /*
+* @tc.number  TestCase_7a59e25e46484c7ea5221ee009e2a6d8
+* @tc.name    TestCase_7a59e25e46484c7ea5221ee009e2a6d8
+* @tc.desc    set MySideBarContainerModifier divider
+*/
+    it('TestCase_7a59e25e46484c7ea5221ee009e2a6d8', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_7a59e25e46484c7ea5221ee009e2a6d8 start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase042")
+      await Utils.sleep(1000)
+      let driver:Driver=Driver.create()
+      let button:Component =await driver.findComponent(ON.id('sibarcontain042'))
+      await driver.mouseClick({x:50,y:150},MouseButton.MOUSE_BUTTON_LEFT)
+      await Utils.sleep(1000)
+      await button.click()
+      await Utils.sleep(1000)
+      await driver.click(50,150)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `TestCase_7a59e25e46484c7ea5221ee009e2a6d8 finish.`);
+      done()
+    })
+
+    /*
+* @tc.number  TestCase_8a740ab65ee54809b7c942f6565ce99d
+* @tc.name    TestCase_8a740ab65ee54809b7c942f6565ce99d
+* @tc.desc    set text fontfeature
+*/
+    it('TestCase_8a740ab65ee54809b7c942f6565ce99d', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_8a740ab65ee54809b7c942f6565ce99d start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase043")
+      await Utils.sleep(1000)
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `TestCase_8a740ab65ee54809b7c942f6565ce99d finish.`);
+      done()
+    })
+
+    /*
+* @tc.number  TestCase_dc8fb766364a4cf793eeacc2d54079b4
+* @tc.name    TestCase_dc8fb766364a4cf793eeacc2d54079b4
+* @tc.desc    not support autoHide1
+*/
+    it('TestCase_dc8fb766364a4cf793eeacc2d54079b4', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_dc8fb766364a4cf793eeacc2d54079b4 start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase044")
+      await Utils.sleep(1000)
+      let driver:Driver=Driver.create()
+      let button:Component =await driver.findComponent(ON.id('sibarcontain044'))
+      await button.click()
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `TestCase_dc8fb766364a4cf793eeacc2d54079b4 finish.`);
+      done()
+    })
+
+    /*
+* @tc.number  TestCase_e3217abf487946988aaf74c7bcb4f658
+* @tc.name    TestCase_e3217abf487946988aaf74c7bcb4f658
+* @tc.desc    not supported divider1
+*/
+    it('TestCase_e3217abf487946988aaf74c7bcb4f658', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_e3217abf487946988aaf74c7bcb4f658 start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase045")
+      await Utils.sleep(1000)
+      let driver:Driver=Driver.create()
+      let button:Component =await driver.findComponent(ON.id('sibarcontain045'))
+      await driver.mouseClick({x:50,y:150},MouseButton.MOUSE_BUTTON_LEFT)
+      await Utils.sleep(1000)
+      await button.click()
+      await Utils.sleep(1000)
+      await driver.click(50,150)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `TestCase_e3217abf487946988aaf74c7bcb4f658 finish.`);
+      done()
+    })
+
+    /*
+* @tc.number  TestCase_ee3e8f1404f246ef86a4e14a3a291adc
+* @tc.name    TestCase_ee3e8f1404f246ef86a4e14a3a291adc
+* @tc.desc    invoke BlankModifier
+*/
+    it('TestCase_ee3e8f1404f246ef86a4e14a3a291adc', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_ee3e8f1404f246ef86a4e14a3a291adc start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase046")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(10000)
+      Logger.info('TEST', `TestCase_ee3e8f1404f246ef86a4e14a3a291adc finish.`);
+      done()
+    })
+
+    /*
+* @tc.number  TestCase_fac477187ff84bdda09550cdfe935c64
+* @tc.name    TestCase_fac477187ff84bdda09550cdfe935c64
+* @tc.desc    set MySideBarContainerModifier divider
+*/
+    it('TestCase_fac477187ff84bdda09550cdfe935c64', 0, async (done: Function) => {
+      Logger.info('TEST', `TestCase_fac477187ff84bdda09550cdfe935c64 start.`);
+      Settings.createWindow("testability/pages/UITestCase/UITestCase047")
+      await Utils.sleep(1000)
+      let driver:Driver=Driver.create()
+      let button:Component =await driver.findComponent(ON.id('sibarcontain047'))
+      await driver.mouseClick({x:50,y:150},MouseButton.MOUSE_BUTTON_LEFT)
+      await Utils.sleep(1000)
+      await button.click()
+      await Utils.sleep(1000)
+      await driver.click(50,150)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `TestCase_fac477187ff84bdda09550cdfe935c64 finish.`);
+      done()
+    })
   })
 }
