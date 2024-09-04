@@ -231,6 +231,12 @@ export default function UiComponentSpanBaselineoffset() {
     it('SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0190 start.`);
       Settings.createWindow("testability/pages/UiComponentSpanBaselineoffset/UiComponentSpanBaselineoffset019")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button19"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 13; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -246,6 +252,12 @@ export default function UiComponentSpanBaselineoffset() {
     it('SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SPAN_BASELINEOFFSET_0200 start.`);
       Settings.createWindow("testability/pages/UiComponentSpanBaselineoffset/UiComponentSpanBaselineoffset020")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("Button20"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 13; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)

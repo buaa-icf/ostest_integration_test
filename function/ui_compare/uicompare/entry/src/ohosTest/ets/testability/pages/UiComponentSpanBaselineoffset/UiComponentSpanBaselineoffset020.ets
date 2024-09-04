@@ -44,6 +44,7 @@ struct UiComponentSpanBaselineoffset020 {
           }
           this.index++;
         })
+        .id('Button20')
       Text(this.text)
       Text(){
         Span('Span1')
