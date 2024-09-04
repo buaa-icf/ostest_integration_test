@@ -112,10 +112,10 @@ export default function UIAttributeFontSupportstage() {
     })
 
     /*
-    * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0060
-    * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0060
-    * @tc.desc    font-size
-    */
+     * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0060
+     * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0060
+     * @tc.desc    font-size
+     */
     it('SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0060 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontSupportstage/UIAttributeFontSupportstage006")
@@ -127,10 +127,10 @@ export default function UIAttributeFontSupportstage() {
     })
 
     /*
-    * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0070
-    * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0070
-    * @tc.desc    font-weight
-    */
+     * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0070
+     * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0070
+     * @tc.desc    font-weight
+     */
     it('SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0070 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontSupportstage/UIAttributeFontSupportstage007")
@@ -142,10 +142,10 @@ export default function UIAttributeFontSupportstage() {
     })
 
     /*
-    * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0080
-    * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0080
-    * @tc.desc    font-color
-    */
+     * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0080
+     * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0080
+     * @tc.desc    font-color
+     */
     it('SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0080 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontSupportstage/UIAttributeFontSupportstage008")
@@ -157,10 +157,10 @@ export default function UIAttributeFontSupportstage() {
     })
 
     /*
-    * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090
-    * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090
-    * @tc.desc    menu fontfamily
-    */
+     * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090
+     * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090
+     * @tc.desc    menu fontfamily
+     */
     it('SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0090 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontSupportstage/UIAttributeFontSupportstage009")
@@ -174,10 +174,10 @@ export default function UIAttributeFontSupportstage() {
     })
 
     /*
-    * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0050
-    * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0050
-    * @tc.desc    search fontfamily
-    */
+     * @tc.number  SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0050
+     * @tc.name    SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0050
+     * @tc.desc    search fontfamily
+     */
     it('SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_ATTRIBUTES_FONT_SUPPORTSTAGE_0100 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontSupportstage/UIAttributeFontSupportstage010")

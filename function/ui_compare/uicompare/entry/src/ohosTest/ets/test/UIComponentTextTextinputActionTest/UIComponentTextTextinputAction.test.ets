@@ -37,10 +37,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-   * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0010
-   * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0010
-   * @tc.desc        Set TextContentStyle=Inline
-   */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0010
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0010
+     * @tc.desc        Set TextContentStyle=Inline
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0010 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction001")
@@ -58,10 +58,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0140
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0140
-* @tc.desc        input long phrase
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0140
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0140
+     * @tc.desc        input long phrase
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0140 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction014")
@@ -78,10 +78,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-   * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0240
-   * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0240
-   * @tc.desc        change enabled
-   */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0240
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0240
+     * @tc.desc        change enabled
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0240 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction024")
@@ -102,10 +102,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-  * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0280
-  * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0280
-  * @tc.desc        Set style=password
-  */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0280
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0280
+     * @tc.desc        Set style=password
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0280 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction028")
@@ -125,10 +125,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-  * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0290
-  * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0290
-  * @tc.desc        input password
-  */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0290
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0290
+     * @tc.desc        input password
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0290 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction029")
@@ -152,10 +152,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-  * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0300
-  * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0300
-  * @tc.desc        select password
-  */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0300
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0300
+     * @tc.desc        select password
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0300 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction030")
@@ -179,10 +179,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-   * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0310
-   * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0310
-   * @tc.desc        click end
-   */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0310
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0310
+     * @tc.desc        click end
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0310 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction031")
@@ -199,10 +199,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-   * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0330
-   * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0330
-   * @tc.desc        Set showcounter
-   */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0330
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0330
+     * @tc.desc        Set showcounter
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0330 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction033")
@@ -219,10 +219,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-   * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0380
-   * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0380
-   * @tc.desc        Set style=Normal
-   */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0380
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0380
+     * @tc.desc        Set style=Normal
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0380 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction038")
@@ -240,10 +240,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
-  * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0390
-  * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0390
-  * @tc.desc        change password、numberpassword、new_password
-  */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0390
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0390
+     * @tc.desc        change password、numberpassword、new_password
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0390', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0390 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction039")
@@ -271,10 +271,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
- * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0570
- * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0570
- * @tc.desc        Set attributeModifier
- */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0570
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0570
+     * @tc.desc        Set attributeModifier
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0570', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_ACTION_0570 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputAction057")
@@ -289,10 +289,10 @@ export default function UIComponentTextTextinputAction() {
     })
 
     /*
- * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_INTERACTION_0200
- * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_INTERACTION_0200
- * @tc.desc        input
- */
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_INTERACTION_0200
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_INTERACTION_0200
+     * @tc.desc        input
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_INTERACTION_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTINPUT_INTERACTION_0200 start.`);
       Settings.createWindow("testability/pages/UIComponentTextTextinputAction/UIComponentTextTextinputInterAction0020")

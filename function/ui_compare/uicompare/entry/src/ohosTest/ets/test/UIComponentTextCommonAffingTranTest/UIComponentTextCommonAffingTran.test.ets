@@ -39,18 +39,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-   * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0140
-   * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0140
-   * @tc.desc        set matrix4
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0140
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0140
+     * @tc.desc        set matrix4
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0140 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0140")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0140")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0140'))
       let button: Component = await driver.findComponent(ON.id('transform0140'))
-      await driver.longClick(150,150)
+      await driver.longClick(150, 150)
       await Utils.sleep(1000)
       await button.click()
       await Utils.sleep(1000)
@@ -61,19 +61,19 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-  * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0150
-  * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0150
-  * @tc.desc        set matrix4.identity().translate({ x: 50, y: 50 })
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0150
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0150
+     * @tc.desc        set matrix4.identity().translate({ x: 50, y: 50 })
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0150 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0150")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0150")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0150'))
       let button: Component = await driver.findComponent(ON.id('transform0150'))
       await text.inputText('hello world')
-      await driver.longClick(150,150)
+      await driver.longClick(150, 150)
       await Utils.sleep(1000)
       await button.click()
       await Utils.sleep(1000)
@@ -84,18 +84,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
- * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0160
- * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0160
- * @tc.desc        set scale={ x: -2, y: 0.5, z：-5 }
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0160
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0160
+     * @tc.desc        set scale={ x: -2, y: 0.5, z：-5 }
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0160 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0160")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0160")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0160'))
       let button: Component = await driver.findComponent(ON.id('transform0160'))
-      await driver.longClick(150,150)
+      await driver.longClick(150, 150)
       await Utils.sleep(1000)
       await button.click()
       await Utils.sleep(1000)
@@ -106,18 +106,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0190
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0190
-* @tc.desc        set rotate=   { x: 1, y: 0, z:0, centerX: '0%',centerY: '0%',angle: 300}
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0190
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0190
+     * @tc.desc        set rotate={ x: 1,y:0,z:0,centerX:'0%',centerY:'0%',angle: 300}
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0190 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0190")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0190")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0190'))
       let button: Component = await driver.findComponent(ON.id('transform0190'))
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
@@ -127,18 +127,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0220
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0220
-* @tc.desc        set rotate={ x: 1, y: 0, z:0,       centerX: '0%',centerY: '0%',angle: 300}
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0220
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0220
+     * @tc.desc        set rotate={x:1,y:0,z:0,centerX:'0%',centerY:'0%',angle:300}
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0220 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0220")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0220")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0220'))
       let button: Component = await driver.findComponent(ON.id('transform0220'))
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
@@ -148,13 +148,13 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0230
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0230
-* @tc.desc        both set rotate={ x: 1, y: 0, z:0,       centerX: '0%',centerY: '0%',angle: 300}
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0230
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0230
+     * @tc.desc        both set rotate={x:1,y:0,z:0,centerX:'0%',centerY:'0%',angle:300}
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0230 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0230")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0230")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0230'))
@@ -164,15 +164,15 @@ export default function UIComponentTextCommonAffingTranTest() {
       let button02: Component = await driver.findComponent(ON.id('transform0230-1'))
       let button03: Component = await driver.findComponent(ON.id('transform0230-2'))
       await text.inputText('aaaa')
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       await text02.inputText('aaaa')
-      await driver.longClick(250,150)
+      await driver.longClick(250, 150)
       await button02.click()
       await Utils.sleep(1000)
       await text03.inputText('aaaa')
-      await driver.longClick(350,150)
+      await driver.longClick(350, 150)
       await button03.click()
       await Utils.sleep(1000)
       await Utils.sleep(1000)
@@ -184,13 +184,13 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0240
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0240
-* @tc.desc        both set scale={ x: -2, y: 0.5, z：-5 }
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0240
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0240
+     * @tc.desc        both set scale={ x: -2, y: 0.5, z：-5 }
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0240 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0240")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0240")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0240'))
@@ -200,15 +200,15 @@ export default function UIComponentTextCommonAffingTranTest() {
       let button02: Component = await driver.findComponent(ON.id('transform0240-1'))
       let button03: Component = await driver.findComponent(ON.id('transform0240-2'))
       await text.inputText('aaaa')
-      await driver.click(100,150)
+      await driver.click(100, 150)
       await button.click()
       await Utils.sleep(1000)
       await text02.inputText('aaaa')
-      await driver.click(250,150)
+      await driver.click(250, 150)
       await button02.click()
       await Utils.sleep(1000)
       await text03.inputText('aaaa')
-      await driver.click(350,150)
+      await driver.click(350, 150)
       await button03.click()
       await Utils.sleep(1000)
       await Utils.sleep(1000)
@@ -220,18 +220,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0250
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0250
-* @tc.desc        set 【width('75%').height(75)】
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0250
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0250
+     * @tc.desc        set .width('75%').height(75)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0250', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0250 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0250")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0250")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0250'))
       let button: Component = await driver.findComponent(ON.id('transform0250'))
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
@@ -241,18 +241,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0280
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0280
-* @tc.desc        set 【width('95%').height(50)】
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0280
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0280
+     * @tc.desc        set width('95%').height(50)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0280 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0280")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0280")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0280'))
       let button: Component = await driver.findComponent(ON.id('transform0280'))
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
@@ -262,13 +262,13 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0290
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0290
-* @tc.desc        set translate={ x: 100, y: 10 }
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0290
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0290
+     * @tc.desc        set translate={ x: 100, y: 10 }
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0290 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0290")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0290")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0290'))
@@ -278,15 +278,15 @@ export default function UIComponentTextCommonAffingTranTest() {
       let button02: Component = await driver.findComponent(ON.id('transform0290-1'))
       let button03: Component = await driver.findComponent(ON.id('transform0290-2'))
       await text.inputText('aaaa')
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       await text02.inputText('aaaa')
-      await driver.longClick(250,150)
+      await driver.longClick(250, 150)
       await button02.click()
       await Utils.sleep(1000)
       await text03.inputText('aaaa')
-      await driver.longClick(350,150)
+      await driver.longClick(350, 150)
       await button03.click()
       await Utils.sleep(1000)
       await Utils.sleep(1000)
@@ -298,13 +298,13 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0300
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0300
-* @tc.desc        set rotate={ x: 1, y: 0, z:0,centerX: '0%',centerY: '0%',angle: 300}
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0300
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0300
+     * @tc.desc        set rotate={ x: 1, y: 0, z:0,centerX: '0%',centerY: '0%',angle: 300}
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0300 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0300")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0300")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0300'))
@@ -314,15 +314,15 @@ export default function UIComponentTextCommonAffingTranTest() {
       let button02: Component = await driver.findComponent(ON.id('transform0300-1'))
       let button03: Component = await driver.findComponent(ON.id('transform0300-2'))
       await text.inputText('aaaa')
-      await driver.click(100,150)
+      await driver.click(100, 150)
       await button.click()
       await Utils.sleep(1000)
       await text02.inputText('aaaa')
-      await driver.click(250,150)
+      await driver.click(250, 150)
       await button02.click()
       await Utils.sleep(1000)
       await text03.inputText('aaaa')
-      await driver.click(350,150)
+      await driver.click(350, 150)
       await button03.click()
       await Utils.sleep(1000)
       await Utils.sleep(1000)
@@ -334,18 +334,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0310
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0310
-* @tc.desc        set 【width(50%').height(95)】
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0310
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0310
+     * @tc.desc        set width(50%').height(95)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0310 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0310")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0310")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0310'))
       let button: Component = await driver.findComponent(ON.id('transform0310'))
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
@@ -355,13 +355,13 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0320
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0320
-* @tc.desc        longclick TextInput/textarea/search
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0320
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0320
+     * @tc.desc        longclick TextInput/textarea/search
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0320 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0320")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0320")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0320'))
@@ -371,15 +371,15 @@ export default function UIComponentTextCommonAffingTranTest() {
       let button02: Component = await driver.findComponent(ON.id('transform0320-1'))
       let button03: Component = await driver.findComponent(ON.id('transform0320-2'))
       await text.inputText('aaaa')
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       await text02.inputText('aaaa')
-      await driver.longClick(250,150)
+      await driver.longClick(250, 150)
       await button02.click()
       await Utils.sleep(1000)
       await text03.inputText('aaaa')
-      await driver.longClick(350,150)
+      await driver.longClick(350, 150)
       await button03.click()
       await Utils.sleep(1000)
       await Utils.sleep(1000)
@@ -391,13 +391,13 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0330
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0330
-* @tc.desc        click TextInput/textarea/search
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0330
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0330
+     * @tc.desc        click TextInput/textarea/search
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0330 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0330")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0330")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0330'))
@@ -407,15 +407,15 @@ export default function UIComponentTextCommonAffingTranTest() {
       let button02: Component = await driver.findComponent(ON.id('transform0330-1'))
       let button03: Component = await driver.findComponent(ON.id('transform0330-2'))
       await text.inputText('aaaa')
-      await driver.click(100,150)
+      await driver.click(100, 150)
       await button.click()
       await Utils.sleep(1000)
       await text02.inputText('aaaa')
-      await driver.click(250,150)
+      await driver.click(250, 150)
       await button02.click()
       await Utils.sleep(1000)
       await text03.inputText('aaaa')
-      await driver.click(350,150)
+      await driver.click(350, 150)
       await button03.click()
       await Utils.sleep(1000)
       await Utils.sleep(1000)
@@ -427,18 +427,18 @@ export default function UIComponentTextCommonAffingTranTest() {
     })
 
     /*
-* @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0340
-* @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0340
-* @tc.desc        set 【width('75%').height(75)】
-*/
+     * @tc.number      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0340
+     * @tc.name        SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0340
+     * @tc.desc        set width('75%').height(75)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0340', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0340 start.`);
-      Settings.createWindow( "testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0340")
+      Settings.createWindow("testability/pages/UIComponentTextCommonAffingTran/UIComponentTextCommonAffingTran0340")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create()
       let text: Component = await driver.findComponent(ON.id('TextCommonAffing0340'))
       let button: Component = await driver.findComponent(ON.id('transform0340'))
-      await driver.longClick(100,150)
+      await driver.longClick(100, 150)
       await button.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
@@ -446,7 +446,5 @@ export default function UIComponentTextCommonAffingTranTest() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0340`);
       done()
     })
-
-
   })
 }

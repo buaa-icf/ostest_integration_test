@@ -37,10 +37,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-              * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010
-              * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010
-              * @tc.desc   TextArea FontStyle.Italic
-       */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010
+     * @tc.desc   TextArea FontStyle.Italic
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0010 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface001")
@@ -52,10 +52,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020
-          * @tc.desc    TextArea FontStyle.Normal
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020
+     * @tc.desc    TextArea FontStyle.Normal
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0020 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface002")
@@ -67,10 +67,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040
-          * @tc.desc    TextArea fontWeight=0
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040
+     * @tc.desc    TextArea fontWeight=0
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0040 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface004")
@@ -82,10 +82,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050
-          * @tc.desc   TextArea fontWeight=-1 -11
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050
+     * @tc.desc   TextArea fontWeight=-1 -11
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0050 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface005")
@@ -97,10 +97,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060
-          * @tc.desc    TextArea fontWeight=1000
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060
+     * @tc.desc    TextArea fontWeight=1000
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0060 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface006")
@@ -112,10 +112,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070
-          * @tc.desc    TextArea fontWeight=1 11
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070
+     * @tc.desc    TextArea fontWeight=1 11
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0070 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface007")
@@ -127,10 +127,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090
-          * @tc.desc    TextArea fontWeight=750
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090
+     * @tc.desc    TextArea fontWeight=750
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0090 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface009")
@@ -142,10 +142,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140
-          * @tc.desc    TextArea  fontWeight(FontWeight.Medium)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140
+     * @tc.desc    TextArea  fontWeight(FontWeight.Medium)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0140 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface140")
@@ -157,10 +157,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150
-          * @tc.desc    TextArea fontWeight(FontWeight.Normal)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150
+     * @tc.desc    TextArea fontWeight(FontWeight.Normal)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0150 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface150")
@@ -172,10 +172,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170
-          * @tc.desc    TextArea fontWeight(FontWeight.undefined)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170
+     * @tc.desc    TextArea fontWeight(FontWeight.undefined)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0170 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface170")
@@ -187,10 +187,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210
-          * @tc.desc    TextArea placeholderColor('rgb(0,0,255)')
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210
+     * @tc.desc    TextArea placeholderColor('rgb(0,0,255)')
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0210 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface210")
@@ -202,10 +202,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220
-          * @tc.desc  TextArea placeholderColor('rgba(0, 255,0,1')
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220
+     * @tc.desc  TextArea placeholderColor('rgba(0, 255,0,1')
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0220 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface220")
@@ -217,10 +217,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-         * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230
-         * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230
-         * @tc.desc  TextArea placeholderColor('abcd')
-  */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230
+     * @tc.desc  TextArea placeholderColor('abcd')
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0230 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface230")
@@ -232,10 +232,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340
-          * @tc.desc    TextArea  placeholderFont({size:-1})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340
+     * @tc.desc    TextArea  placeholderFont({size:-1})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0340 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface340")
@@ -247,10 +247,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-              * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360
-              * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360
-              * @tc.desc    TextArea   .placeholderFont({size:0})
-       */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360
+     * @tc.desc    TextArea   .placeholderFont({size:0})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0360 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface360")
@@ -262,10 +262,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370
-          * @tc.desc    TextArea  placeholderFont({size:'10%'})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370
+     * @tc.desc    TextArea  placeholderFont({size:'10%'})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0370 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface370")
@@ -277,10 +277,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380
-          * @tc.desc    TextArea  placeholderFont({size:11})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380
+     * @tc.desc    TextArea  placeholderFont({size:11})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0380 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface380")
@@ -292,10 +292,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420
-          * @tc.desc    TextArea  placeholderFont({size:20,weight:0})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420
+     * @tc.desc    TextArea  placeholderFont({size:20,weight:0})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0420 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface420")
@@ -307,10 +307,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430
-          * @tc.desc    TextArea  placeholderFont({size:20,weight:'10%'})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430
+     * @tc.desc    TextArea  placeholderFont({size:20,weight:'10%'})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0430 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface430")
@@ -322,10 +322,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440
-          * @tc.desc    TextArea  placeholderFont({size:20,weight:1000})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440
+     * @tc.desc    TextArea  placeholderFont({size:20,weight:1000})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0440 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface440")
@@ -337,10 +337,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450
-          * @tc.desc    TextArea  placeholderFont({size:20,weight:11})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450
+     * @tc.desc    TextArea  placeholderFont({size:20,weight:11})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0450 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface450")
@@ -352,10 +352,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470
-          * @tc.desc    TextArea  placeholderFont({size:20,weight:750})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470
+     * @tc.desc    TextArea  placeholderFont({size:20,weight:750})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0470 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface470")
@@ -367,10 +367,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480
-          * @tc.desc    TextArea  placeholderFont({size:20,weight:'abc'})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480
+     * @tc.desc    TextArea  placeholderFont({size:20,weight:'abc'})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0480 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface480")
@@ -382,10 +382,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490
-          * @tc.desc    TextArea  placeholderFont({size:20,weight:undefined})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490
+     * @tc.desc    TextArea  placeholderFont({size:20,weight:undefined})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0490 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface490")
@@ -397,10 +397,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510
-          * @tc.desc    TextArea  placeholderFont({size:20,family:'HarmonyOS Sans'})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510
+     * @tc.desc    TextArea  placeholderFont({size:20,family:'HarmonyOS Sans'})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0510 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface510")
@@ -412,10 +412,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530
-          * @tc.desc    TextArea  placeholderFont({size:20,style:FontStyle.Normal})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530
+     * @tc.desc    TextArea  placeholderFont({size:20,style:FontStyle.Normal})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0530 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface530")
@@ -427,10 +427,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540
-       * @tc.desc    not set CopyOptions
-*/
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540
+     * @tc.desc    not set CopyOptions
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0540 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface540")
@@ -448,10 +448,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560
-          * @tc.desc    TextArea   not set placeholderFont
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560
+     * @tc.desc    TextArea   not set placeholderFont
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0560 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface560")
@@ -463,10 +463,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600
-          * @tc.desc    set placeholder and text
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600
+     * @tc.desc    set placeholder and text
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0600 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface600")
@@ -478,10 +478,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610
-          * @tc.desc    TextArea  caretPosition(-1)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610
+     * @tc.desc    TextArea  caretPosition(-1)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0610 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface610")
@@ -493,10 +493,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620
-          * @tc.desc    TextArea  caretPosition(0)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620
+     * @tc.desc    TextArea  caretPosition(0)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0620 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface620")
@@ -508,10 +508,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630
-          * @tc.desc    TextArea caretPosition(8)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630
+     * @tc.desc    TextArea caretPosition(8)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0630 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface630")
@@ -523,10 +523,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640
-          * @tc.desc    TextArea   not set placeholderFont
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640
+     * @tc.desc    TextArea   not set placeholderFont
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0640 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface640")
@@ -538,10 +538,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750
-       * @tc.desc    set CopyOptions=inapp
-*/
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750
+     * @tc.desc    set CopyOptions=inapp
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0750 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface750")
@@ -563,10 +563,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-      * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760
-      * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760
-      * @tc.desc    set CopyOptions=localdevice
-*/
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760
+     * @tc.desc    set CopyOptions=localdevice
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0760 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface760")
@@ -590,10 +590,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770
-        * @tc.desc    set CopyOptions=none
- */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770
+     * @tc.desc    set CopyOptions=none
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0770 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface770")
@@ -611,10 +611,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860
-          * @tc.desc    TextArea   fontSize(-1)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860
+     * @tc.desc    TextArea   fontSize(-1)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0860 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface860")
@@ -626,10 +626,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870
-          * @tc.desc    TextArea  fontSize(-21)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870
+     * @tc.desc    TextArea  fontSize(-21)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0870 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface870")
@@ -641,10 +641,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890
-          * @tc.desc    TextArea  fontSize("10%")
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890
+     * @tc.desc    TextArea  fontSize("10%")
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0890 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface890")
@@ -656,10 +656,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910
-          * @tc.desc    TextArea  fontSize(11)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910
+     * @tc.desc    TextArea  fontSize(11)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0910 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface910")
@@ -671,10 +671,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920
-          * @tc.desc    TextArea  fontSize(21)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920
+     * @tc.desc    TextArea  fontSize(21)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0920 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface920")
@@ -686,10 +686,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930
-          * @tc.desc    TextArea  fontSize('abc')
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930
+     * @tc.desc    TextArea  fontSize('abc')
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0930 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface930")
@@ -701,10 +701,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950
-          * @tc.desc    TextArea  not set inputfilter
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950
+     * @tc.desc    TextArea  not set inputfilter
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0950 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface950")
@@ -716,10 +716,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960
-          * @tc.desc    TextArea inputFilter('[A-Z]', (value: string) => {console.info("testtest" + value)})
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960
+     * @tc.desc    TextArea inputFilter('[A-Z]', (value: string) => {console.info("testtest" + value)})
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0960 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface960")
@@ -731,10 +731,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970
-          * @tc.desc    TextArea  inputFilter('[A-Z]')
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970
+     * @tc.desc    TextArea  inputFilter('[A-Z]')
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0970 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface970")
@@ -746,10 +746,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980
-          * @tc.desc    TextArea maxLength(20)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980
+     * @tc.desc    TextArea maxLength(20)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0980 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface980")
@@ -761,10 +761,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990
-          * @tc.desc    TextArea  setTextSelection(-3, 3)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990
+     * @tc.desc    TextArea  setTextSelection(-3, 3)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_0990 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface990")
@@ -776,10 +776,10 @@ export default function UiComponentTextTextareaInterface() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000
-          * @tc.desc    TextArea  setTextSelection(1, 3)
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000
+     * @tc.desc    TextArea  setTextSelection(1, 3)
+     */
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXTAREA_INTERFACE_1000 start.`);
       Settings.createWindow("testability/pages/UiComponentTextTextareaInterface/UiComponentTextTextareaInterface1000")

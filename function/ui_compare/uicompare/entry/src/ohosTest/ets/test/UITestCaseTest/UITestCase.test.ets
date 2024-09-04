@@ -37,9 +37,9 @@ export default function UITestCase() {
     })
 
     /*
-            * @tc.number  TestCase_0881e5105f134cca8e15983912f15f20
-            * @tc.name    TestCase_0881e5105f134cca8e15983912f15f20
-            * @tc.desc    MyColumnSplitModifier
+     * @tc.number  TestCase_0881e5105f134cca8e15983912f15f20
+     * @tc.name    TestCase_0881e5105f134cca8e15983912f15f20
+     * @tc.desc    MyColumnSplitModifier
      */
     it('TestCase_0881e5105f134cca8e15983912f15f20', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_0881e5105f134cca8e15983912f15f20 start.`);
@@ -55,10 +55,10 @@ export default function UITestCase() {
     })
 
     /*
-          * @tc.number  TestCase_10693b5cd42e4d069ee1e690ef038146
-          * @tc.name    TestCase_10693b5cd42e4d069ee1e690ef038146
-          * @tc.desc    set fontFeature为ss02
-   */
+     * @tc.number  TestCase_10693b5cd42e4d069ee1e690ef038146
+     * @tc.name    TestCase_10693b5cd42e4d069ee1e690ef038146
+     * @tc.desc    set fontFeature为ss02
+     */
     it('TestCase_10693b5cd42e4d069ee1e690ef038146', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_10693b5cd42e4d069ee1e690ef038146 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase002")
@@ -70,10 +70,10 @@ export default function UITestCase() {
     })
 
     /*
-          * @tc.number  TestCase_1f5f04727d4347bcade56ec84b7ba266
-          * @tc.name    TestCase_1f5f04727d4347bcade56ec84b7ba266
-          * @tc.desc    MyRowModifier set FlexAlign.End、FlexAlign.Start
-   */
+     * @tc.number  TestCase_1f5f04727d4347bcade56ec84b7ba266
+     * @tc.name    TestCase_1f5f04727d4347bcade56ec84b7ba266
+     * @tc.desc    MyRowModifier set FlexAlign.End、FlexAlign.Start
+     */
     it('TestCase_1f5f04727d4347bcade56ec84b7ba266', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_1f5f04727d4347bcade56ec84b7ba266 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase003")
@@ -88,10 +88,10 @@ export default function UITestCase() {
     })
 
     /*
-             * @tc.number  TestCase_2187d4e32ada4fab8fbbd438088a5ce7
-             * @tc.name    TestCase_2187d4e32ada4fab8fbbd438088a5ce7
-             * @tc.desc    MyRowSplitModifier resizeable=true
-      */
+     * @tc.number  TestCase_2187d4e32ada4fab8fbbd438088a5ce7
+     * @tc.name    TestCase_2187d4e32ada4fab8fbbd438088a5ce7
+     * @tc.desc    MyRowSplitModifier resizeable=true
+     */
     it('TestCase_2187d4e32ada4fab8fbbd438088a5ce7', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_2187d4e32ada4fab8fbbd438088a5ce7 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase004")
@@ -106,10 +106,10 @@ export default function UITestCase() {
     })
 
     /*
-           * @tc.number  TestCase_25e9c6aa299b43528a021a64eb4da55d
-           * @tc.name    TestCase_25e9c6aa299b43528a021a64eb4da55d
-           * @tc.desc    MyBlankModifier color=yello
-    */
+     * @tc.number  TestCase_25e9c6aa299b43528a021a64eb4da55d
+     * @tc.name    TestCase_25e9c6aa299b43528a021a64eb4da55d
+     * @tc.desc    MyBlankModifier color=yello
+     */
     it('TestCase_25e9c6aa299b43528a021a64eb4da55d', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_25e9c6aa299b43528a021a64eb4da55d start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase005")
@@ -125,10 +125,10 @@ export default function UITestCase() {
     })
 
     /*
-         * @tc.number  TestCase_2faade527e91452281dec1a21dab4f7d
-         * @tc.name    TestCase_2faade527e91452281dec1a21dab4f7d
-         * @tc.desc    MyColumnModifier set alignItems
-  */
+     * @tc.number  TestCase_2faade527e91452281dec1a21dab4f7d
+     * @tc.name    TestCase_2faade527e91452281dec1a21dab4f7d
+     * @tc.desc    MyColumnModifier set alignItems
+     */
     it('TestCase_2faade527e91452281dec1a21dab4f7d', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_2faade527e91452281dec1a21dab4f7d start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase006")
@@ -144,10 +144,10 @@ export default function UITestCase() {
     })
 
     /*
-      * @tc.number  TestCase_33a56f39a4df45c097221ee19237eb5b
-      * @tc.name    TestCase_33a56f39a4df45c097221ee19237eb5b
-      * @tc.desc    MyRowModifier set alignItems
-*/
+     * @tc.number  TestCase_33a56f39a4df45c097221ee19237eb5b
+     * @tc.name    TestCase_33a56f39a4df45c097221ee19237eb5b
+     * @tc.desc    MyRowModifier set alignItems
+     */
     it('TestCase_33a56f39a4df45c097221ee19237eb5b', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_33a56f39a4df45c097221ee19237eb5b start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase007")
@@ -166,7 +166,7 @@ export default function UITestCase() {
      * @tc.number  TestCase_58db935309314858b8b5ddd99b9e2bc8
      * @tc.name    TestCase_58db935309314858b8b5ddd99b9e2bc8
      * @tc.desc    MyDividerModifier set linecap
-*/
+     */
     it('TestCase_58db935309314858b8b5ddd99b9e2bc8', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_58db935309314858b8b5ddd99b9e2bc8 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase008")
@@ -182,10 +182,10 @@ export default function UITestCase() {
     })
 
     /*
-   * @tc.number  TestCase_6049ebfd5fd1409f95e3c59424c4e9c7
-   * @tc.name    TestCase_6049ebfd5fd1409f95e3c59424c4e9c7
-   * @tc.desc    MyRowModifier set two FlexAlign.End、FlexAlign.Start
-*/
+     * @tc.number  TestCase_6049ebfd5fd1409f95e3c59424c4e9c7
+     * @tc.name    TestCase_6049ebfd5fd1409f95e3c59424c4e9c7
+     * @tc.desc    MyRowModifier set two FlexAlign.End、FlexAlign.Start
+     */
     it('TestCase_6049ebfd5fd1409f95e3c59424c4e9c7', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_6049ebfd5fd1409f95e3c59424c4e9c7 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase009")
@@ -201,10 +201,10 @@ export default function UITestCase() {
     })
 
     /*
-       * @tc.number  TestCase_612fad460834401e96f0d3b68f67dc8f
-       * @tc.name    TestCase_612fad460834401e96f0d3b68f67dc8f
-       * @tc.desc    MyColumnModifier set tow column FlexAlign.End、FlexAlign.Start
-    */
+     * @tc.number  TestCase_612fad460834401e96f0d3b68f67dc8f
+     * @tc.name    TestCase_612fad460834401e96f0d3b68f67dc8f
+     * @tc.desc    MyColumnModifier set tow column FlexAlign.End、FlexAlign.Start
+     */
     it('TestCase_612fad460834401e96f0d3b68f67dc8f', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_612fad460834401e96f0d3b68f67dc8f start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase010")
@@ -220,10 +220,10 @@ export default function UITestCase() {
     })
 
     /*
- * @tc.number  TestCase_67a3cfa6dbc149658b9b5438a428d160
- * @tc.name    TestCase_67a3cfa6dbc149658b9b5438a428d160
- * @tc.desc    MyBlankModifier set color=yello
-*/
+     * @tc.number  TestCase_67a3cfa6dbc149658b9b5438a428d160
+     * @tc.name    TestCase_67a3cfa6dbc149658b9b5438a428d160
+     * @tc.desc    MyBlankModifier set color=yello
+     */
     it('TestCase_67a3cfa6dbc149658b9b5438a428d160', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_67a3cfa6dbc149658b9b5438a428d160 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase011")
@@ -239,10 +239,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_718b02bf461e482cb5c999d48ad43b4f
-* @tc.name    TestCase_718b02bf461e482cb5c999d48ad43b4f
-* @tc.desc    do not support change
-*/
+     * @tc.number  TestCase_718b02bf461e482cb5c999d48ad43b4f
+     * @tc.name    TestCase_718b02bf461e482cb5c999d48ad43b4f
+     * @tc.desc    do not support change
+     */
     it('TestCase_718b02bf461e482cb5c999d48ad43b4f', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_718b02bf461e482cb5c999d48ad43b4f start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase012")
@@ -260,10 +260,10 @@ export default function UITestCase() {
 
 
     /*
-* @tc.number  TestCase_752f0513159849948d499299cf89c4f6
-* @tc.name    TestCase_752f0513159849948d499299cf89c4f6
-* @tc.desc    MyDividerModifier set linecap=round
-*/
+     * @tc.number  TestCase_752f0513159849948d499299cf89c4f6
+     * @tc.name    TestCase_752f0513159849948d499299cf89c4f6
+     * @tc.desc    MyDividerModifier set linecap=round
+     */
     it('TestCase_752f0513159849948d499299cf89c4f6', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_752f0513159849948d499299cf89c4f6 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase014")
@@ -279,10 +279,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_abaae3a5f0414a07899d04f2ac328e96
-* @tc.name    TestCase_abaae3a5f0414a07899d04f2ac328e96
-* @tc.desc    MyColumnSplitModifier set resizeable=true
-*/
+     * @tc.number  TestCase_abaae3a5f0414a07899d04f2ac328e96
+     * @tc.name    TestCase_abaae3a5f0414a07899d04f2ac328e96
+     * @tc.desc    MyColumnSplitModifier set resizeable=true
+     */
     it('TestCase_abaae3a5f0414a07899d04f2ac328e96', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_abaae3a5f0414a07899d04f2ac328e96 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase020")
@@ -298,10 +298,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_b3f799fc946f4ac1af92d75e894eb560
-* @tc.name    TestCase_b3f799fc946f4ac1af92d75e894eb560
-* @tc.desc    MyColumnModifier set two FlexAlign.End、FlexAlign.Start
-*/
+     * @tc.number  TestCase_b3f799fc946f4ac1af92d75e894eb560
+     * @tc.name    TestCase_b3f799fc946f4ac1af92d75e894eb560
+     * @tc.desc    MyColumnModifier set two FlexAlign.End、FlexAlign.Start
+     */
     it('TestCase_b3f799fc946f4ac1af92d75e894eb560', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_b3f799fc946f4ac1af92d75e894eb560 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase021")
@@ -317,10 +317,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_b9d7edec63254feabba03b0940effa8e
-* @tc.name    TestCase_b9d7edec63254feabba03b0940effa8e
-* @tc.desc    not supported for color1 and strokeWidth1
-*/
+     * @tc.number  TestCase_b9d7edec63254feabba03b0940effa8e
+     * @tc.name    TestCase_b9d7edec63254feabba03b0940effa8e
+     * @tc.desc    not supported for color1 and strokeWidth1
+     */
     it('TestCase_b9d7edec63254feabba03b0940effa8e', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_b9d7edec63254feabba03b0940effa8e start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase022")
@@ -336,10 +336,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_bda7a084304b4eef8cf317da5eb03071
-* @tc.name    TestCase_bda7a084304b4eef8cf317da5eb03071
-* @tc.desc    change to pink
-*/
+     * @tc.number  TestCase_bda7a084304b4eef8cf317da5eb03071
+     * @tc.name    TestCase_bda7a084304b4eef8cf317da5eb03071
+     * @tc.desc    change to pink
+     */
     it('TestCase_bda7a084304b4eef8cf317da5eb03071', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_bda7a084304b4eef8cf317da5eb03071 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase024")
@@ -355,10 +355,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_d4d5fc2a28af4e0dbfae435b5c87c9d5
-* @tc.name    TestCase_d4d5fc2a28af4e0dbfae435b5c87c9d5
-* @tc.desc    MyColumnSplitModifier set divider
-*/
+     * @tc.number  TestCase_d4d5fc2a28af4e0dbfae435b5c87c9d5
+     * @tc.name    TestCase_d4d5fc2a28af4e0dbfae435b5c87c9d5
+     * @tc.desc    MyColumnSplitModifier set divider
+     */
     it('TestCase_d4d5fc2a28af4e0dbfae435b5c87c9d5', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_d4d5fc2a28af4e0dbfae435b5c87c9d5 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase025")
@@ -374,10 +374,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_e7004bb275504047ba383ec9db34fbb2
-* @tc.name    TestCase_e7004bb275504047ba383ec9db34fbb2
-* @tc.desc    MyBlankModifier change to 0xBBFFFF
-*/
+     * @tc.number  TestCase_e7004bb275504047ba383ec9db34fbb2
+     * @tc.name    TestCase_e7004bb275504047ba383ec9db34fbb2
+     * @tc.desc    MyBlankModifier change to 0xBBFFFF
+     */
     it('TestCase_e7004bb275504047ba383ec9db34fbb2', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_e7004bb275504047ba383ec9db34fbb2 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase030")
@@ -393,10 +393,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_f67a815b3a6a480fa937b6d7138ca220
-* @tc.name    TestCase_f67a815b3a6a480fa937b6d7138ca220
-* @tc.desc    two blank change to pink
-*/
+     * @tc.number  TestCase_f67a815b3a6a480fa937b6d7138ca220
+     * @tc.name    TestCase_f67a815b3a6a480fa937b6d7138ca220
+     * @tc.desc    two blank change to pink
+     */
     it('TestCase_f67a815b3a6a480fa937b6d7138ca220', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_f67a815b3a6a480fa937b6d7138ca220 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase034")
@@ -412,10 +412,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_f8bf8ecff77e4b5e85c4f7ad059885af
-* @tc.name    TestCase_f8bf8ecff77e4b5e85c4f7ad059885af
-* @tc.desc    resizeable1
-*/
+     * @tc.number  TestCase_f8bf8ecff77e4b5e85c4f7ad059885af
+     * @tc.name    TestCase_f8bf8ecff77e4b5e85c4f7ad059885af
+     * @tc.desc    resizeable1
+     */
     it('TestCase_f8bf8ecff77e4b5e85c4f7ad059885af', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_f8bf8ecff77e4b5e85c4f7ad059885af start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase035")
@@ -431,10 +431,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_d8ec1ec5fb804025839e5e7fef0ef018
-* @tc.name    TestCase_d8ec1ec5fb804025839e5e7fef0ef018
-* @tc.desc    set my CustomModifier
-*/
+     * @tc.number  TestCase_d8ec1ec5fb804025839e5e7fef0ef018
+     * @tc.name    TestCase_d8ec1ec5fb804025839e5e7fef0ef018
+     * @tc.desc    set my CustomModifier
+     */
     it('TestCase_d8ec1ec5fb804025839e5e7fef0ef018', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_d8ec1ec5fb804025839e5e7fef0ef018 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase040")
@@ -448,10 +448,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_735ee53282514bd28482031d300ae125
-* @tc.name    TestCase_735ee53282514bd28482031d300ae125
-* @tc.desc    both set MySideBarContainerModifier
-*/
+     * @tc.number  TestCase_735ee53282514bd28482031d300ae125
+     * @tc.name    TestCase_735ee53282514bd28482031d300ae125
+     * @tc.desc    both set MySideBarContainerModifier
+     */
     it('TestCase_735ee53282514bd28482031d300ae125', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_735ee53282514bd28482031d300ae125 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase041")
@@ -470,10 +470,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_7a59e25e46484c7ea5221ee009e2a6d8
-* @tc.name    TestCase_7a59e25e46484c7ea5221ee009e2a6d8
-* @tc.desc    set MySideBarContainerModifier divider
-*/
+     * @tc.number  TestCase_7a59e25e46484c7ea5221ee009e2a6d8
+     * @tc.name    TestCase_7a59e25e46484c7ea5221ee009e2a6d8
+     * @tc.desc    set MySideBarContainerModifier divider
+     */
     it('TestCase_7a59e25e46484c7ea5221ee009e2a6d8', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_7a59e25e46484c7ea5221ee009e2a6d8 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase042")
@@ -492,10 +492,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_8a740ab65ee54809b7c942f6565ce99d
-* @tc.name    TestCase_8a740ab65ee54809b7c942f6565ce99d
-* @tc.desc    set text fontfeature
-*/
+     * @tc.number  TestCase_8a740ab65ee54809b7c942f6565ce99d
+     * @tc.name    TestCase_8a740ab65ee54809b7c942f6565ce99d
+     * @tc.desc    set text fontfeature
+     */
     it('TestCase_8a740ab65ee54809b7c942f6565ce99d', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_8a740ab65ee54809b7c942f6565ce99d start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase043")
@@ -508,10 +508,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_dc8fb766364a4cf793eeacc2d54079b4
-* @tc.name    TestCase_dc8fb766364a4cf793eeacc2d54079b4
-* @tc.desc    not support autoHide1
-*/
+     * @tc.number  TestCase_dc8fb766364a4cf793eeacc2d54079b4
+     * @tc.name    TestCase_dc8fb766364a4cf793eeacc2d54079b4
+     * @tc.desc    not support autoHide1
+     */
     it('TestCase_dc8fb766364a4cf793eeacc2d54079b4', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_dc8fb766364a4cf793eeacc2d54079b4 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase044")
@@ -527,10 +527,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_e3217abf487946988aaf74c7bcb4f658
-* @tc.name    TestCase_e3217abf487946988aaf74c7bcb4f658
-* @tc.desc    not supported divider1
-*/
+     * @tc.number  TestCase_e3217abf487946988aaf74c7bcb4f658
+     * @tc.name    TestCase_e3217abf487946988aaf74c7bcb4f658
+     * @tc.desc    not supported divider1
+     */
     it('TestCase_e3217abf487946988aaf74c7bcb4f658', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_e3217abf487946988aaf74c7bcb4f658 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase045")
@@ -549,10 +549,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_ee3e8f1404f246ef86a4e14a3a291adc
-* @tc.name    TestCase_ee3e8f1404f246ef86a4e14a3a291adc
-* @tc.desc    invoke BlankModifier
-*/
+     * @tc.number  TestCase_ee3e8f1404f246ef86a4e14a3a291adc
+     * @tc.name    TestCase_ee3e8f1404f246ef86a4e14a3a291adc
+     * @tc.desc    invoke BlankModifier
+     */
     it('TestCase_ee3e8f1404f246ef86a4e14a3a291adc', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_ee3e8f1404f246ef86a4e14a3a291adc start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase046")
@@ -564,10 +564,10 @@ export default function UITestCase() {
     })
 
     /*
-* @tc.number  TestCase_fac477187ff84bdda09550cdfe935c64
-* @tc.name    TestCase_fac477187ff84bdda09550cdfe935c64
-* @tc.desc    set MySideBarContainerModifier divider
-*/
+     * @tc.number  TestCase_fac477187ff84bdda09550cdfe935c64
+     * @tc.name    TestCase_fac477187ff84bdda09550cdfe935c64
+     * @tc.desc    set MySideBarContainerModifier divider
+     */
     it('TestCase_fac477187ff84bdda09550cdfe935c64', 0, async (done: Function) => {
       Logger.info('TEST', `TestCase_fac477187ff84bdda09550cdfe935c64 start.`);
       Settings.createWindow("testability/pages/UITestCase/UITestCase047")

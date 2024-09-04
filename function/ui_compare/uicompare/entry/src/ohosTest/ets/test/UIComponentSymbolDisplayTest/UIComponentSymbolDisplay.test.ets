@@ -37,10 +37,10 @@ export default function UIComponentSymbolDisplay() {
     })
 
     /*
-           * @tc.number  SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0030
-           * @tc.name    SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0030
-           * @tc.desc    resource=sys.media.ohos_lungs
-    */
+     * @tc.number  SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0030
+     * @tc.name    SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0030
+     * @tc.desc    resource=sys.media.ohos_lungs
+     */
     it('SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0030 start.`);
       Settings.createWindow("testability/pages/UIComponentSymbolDisplay/UIComponentSymbolDisplay003")
@@ -55,10 +55,10 @@ export default function UIComponentSymbolDisplay() {
     })
 
     /*
-           * @tc.number  SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0090
-           * @tc.name    SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0090
-           * @tc.desc    resource=sys.media.ohos_lungs
-    */
+     * @tc.number  SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0090
+     * @tc.name    SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0090
+     * @tc.desc    resource=sys.media.ohos_lungs
+     */
     it('SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_SYMBOL_SYMBOL_DISPLAY_0090 start.`);
       Settings.createWindow("testability/pages/UIComponentSymbolDisplay/UIComponentSymbolDisplay009")
