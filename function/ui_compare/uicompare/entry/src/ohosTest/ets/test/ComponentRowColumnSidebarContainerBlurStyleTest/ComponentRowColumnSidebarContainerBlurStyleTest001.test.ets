@@ -14,6 +14,7 @@
  */
 
 import { describe, beforeAll, beforeEach, afterEach, afterAll, it, expect } from '@ohos/hypium'
+import { Driver, ON , Component} from '@ohos.UiTest'
 import Settings from '../model/Settings'
 import windowSnap from '../model/snapShot'
 import Logger from '../model/Logger'
@@ -47,8 +48,20 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
     it('SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0010 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle001")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      for(let i = 1; i <= 11; i++){
+        let driver: Driver = Driver.create();
+        let IDTest: string = ("ComponentRowColumnSidebarContainerBlurStyle001_00" + i.toString()).toString()
+        if(i <= 9){
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle001_00" + i.toString()).toString()
+        }else{
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle001_0" + i.toString()).toString()
+        }
+        let SliderCom1 = await driver.findComponent(ON.id(IDTest));
+        let pointCenter1 = await SliderCom1.getBoundsCenter();
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+      }
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0010 finish.`);
       done()
@@ -64,6 +77,10 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0011 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle002")
       await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentRowColumnSidebarContainerBlurStyle002_001"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      await driver.drag(pointCenter1.x * 2, pointCenter1.y, 0, 0, 600);
       windowSnap.snapShot()
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0011 finish.`);
@@ -79,8 +96,20 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
     it('SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0012', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0012 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle003")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      for(let i = 1; i <= 11; i++){
+        let driver: Driver = Driver.create();
+        let IDTest: string = ("ComponentRowColumnSidebarContainerBlurStyle003_00" + i.toString()).toString()
+        if(i <= 9){
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle003_00" + i.toString()).toString()
+        }else{
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle003_0" + i.toString()).toString()
+        }
+        let SliderCom1 = await driver.findComponent(ON.id(IDTest));
+        let pointCenter1 = await SliderCom1.getBoundsCenter();
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+      }
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0012 finish.`);
       done()
@@ -96,6 +125,10 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0013 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle004")
       await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentRowColumnSidebarContainerBlurStyle004_001"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      await driver.drag(pointCenter1.x * 2, pointCenter1.y, 0, 0, 600);
       windowSnap.snapShot()
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0013 finish.`);
@@ -111,8 +144,20 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
     it('SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0014', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0014 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle005")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      for(let i = 1; i <= 11; i++){
+        let driver: Driver = Driver.create();
+        let IDTest: string = ("ComponentRowColumnSidebarContainerBlurStyle005_00" + i.toString()).toString()
+        if(i <= 9){
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle005_00" + i.toString()).toString()
+        }else{
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle005_0" + i.toString()).toString()
+        }
+        let SliderCom1 = await driver.findComponent(ON.id(IDTest));
+        let pointCenter1 = await SliderCom1.getBoundsCenter();
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+      }
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0014 finish.`);
       done()
@@ -128,6 +173,10 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0015 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle006")
       await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentRowColumnSidebarContainerBlurStyle006_001"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      await driver.drag(pointCenter1.x * 2, pointCenter1.y, 0, 0, 600);
       windowSnap.snapShot()
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0015 finish.`);
@@ -143,8 +192,20 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
     it('SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0016', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0016 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle007")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      for(let i = 1; i <= 13; i++){
+        let driver: Driver = Driver.create();
+        let IDTest: string = ("ComponentRowColumnSidebarContainerBlurStyle007_00" + i.toString()).toString()
+        if(i <= 9){
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle007_00" + i.toString()).toString()
+        }else{
+          IDTest = ("ComponentRowColumnSidebarContainerBlurStyle007_0" + i.toString()).toString()
+        }
+        let SliderCom1 = await driver.findComponent(ON.id(IDTest));
+        let pointCenter1 = await SliderCom1.getBoundsCenter();
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+      }
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0016 finish.`);
       done()
@@ -160,6 +221,10 @@ export default function ComponentRowColumnSidebarContainerBlurStyleTest001() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0017 start.`);
       Settings.createWindow("testability/pages/ComponentRowColumnSidebarContainerBlurStyle/ComponentRowColumnSidebarContainerBlurStyle008")
       await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentRowColumnSidebarContainerBlurStyle008_001"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      await driver.drag(pointCenter1.x * 2, pointCenter1.y, 0, 0, 600);
       windowSnap.snapShot()
       await Utils.sleep(2000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_ROWCOLUMN_SIDEBARCONTAINER_BLURSTLYE_0017 finish.`);

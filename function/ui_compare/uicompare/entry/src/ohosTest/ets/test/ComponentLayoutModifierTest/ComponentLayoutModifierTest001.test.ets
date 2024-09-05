@@ -18,8 +18,9 @@ import Settings from '../model/Settings'
 import windowSnap from '../model/snapShot'
 import Logger from '../model/Logger'
 import Utils from '../model/Utils'
+import { Driver, ON , Component} from '@ohos.UiTest'
 
-export default function ComponentLayoutModifierTest001() {
+  export default function ComponentLayoutModifierTest001() {
 
   describe('ComponentLayoutModifierTest001', () => {
     afterEach(async (done: Function) => {
@@ -47,9 +48,28 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0010 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier001")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier001_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier001_switch"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier001_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      for (let i = 0; i < 4; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0010 finish.`);
       done()
     })
@@ -63,9 +83,28 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0020 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier002")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier002_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier002_switch"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier002_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      for (let i = 0; i < 4; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0020 finish.`);
       done()
     })
@@ -79,9 +118,28 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0030 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier003")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier003_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier003_switch"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier003_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      for (let i = 0; i < 4; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0030 finish.`);
       done()
     })
@@ -95,9 +153,28 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0040 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier004")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier004_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier004_switch"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier004_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      for (let i = 0; i < 4; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0040 finish.`);
       done()
     })
@@ -111,9 +188,29 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0050 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier005")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier005_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier005_switch"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier005_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      await driver.click(pointCenter3.x, pointCenter3.y);
+      for (let i = 0; i < 4; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0050 finish.`);
       done()
     })
@@ -127,9 +224,29 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0060 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier006")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier006_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier006_switch"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier006_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      await driver.click(pointCenter3.x, pointCenter3.y);
+      for (let i = 0; i < 4; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0060 finish.`);
       done()
     })
@@ -143,9 +260,28 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0070 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier007")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier007_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 6; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier007_switch"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier007_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      for (let i = 0; i < 4; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0070 finish.`);
       done()
     })
@@ -159,9 +295,19 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0080 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier008")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier008_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 3; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier008_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0080 finish.`);
       done()
     })
@@ -175,9 +321,20 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0090 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier009")
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier009_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 3; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier009_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
       windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0090 finish.`);
       done()
     })
@@ -191,9 +348,18 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0100 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier010")
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier010_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      await driver.click(pointCenter1.x, pointCenter1.y);
+      await Utils.sleep(1000)
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier010_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      await driver3.click(pointCenter3.x, pointCenter3.y);
       windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0100 finish.`);
       done()
     })
@@ -207,9 +373,18 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0110 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier011")
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier011_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      await driver.click(pointCenter1.x, pointCenter1.y);
+      await Utils.sleep(1000)
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier011_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      await driver3.click(pointCenter3.x, pointCenter3.y);
       windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0110 finish.`);
       done()
     })
@@ -223,9 +398,29 @@ export default function ComponentLayoutModifierTest001() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0120 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier012")
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let SliderCom1 = await driver.findComponent(ON.id("ComponentLayoutModifier012_Span"));
+      let pointCenter1 = await SliderCom1.getBoundsCenter();
+      for (let i = 0; i < 3; i++) {
+        await driver.click(pointCenter1.x, pointCenter1.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver3: Driver = Driver.create();
+      let SliderCom3 = await driver3.findComponent(ON.id("ComponentLayoutModifier012_gridColOffset"));
+      let pointCenter3 = await SliderCom3.getBoundsCenter();
+      for (let i = 0; i < 3; i++) {
+        await driver3.click(pointCenter3.x, pointCenter3.y);
+        windowSnap.snapShot()
+        await Utils.sleep(500)
+      }
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier012_Modifier"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
       windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0120 finish.`);
       done()
     })
@@ -240,8 +435,12 @@ export default function ComponentLayoutModifierTest001() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0130 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier013")
       await Utils.sleep(2000)
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier013_Modifier"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
       windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0130 finish.`);
       done()
     })
@@ -256,8 +455,12 @@ export default function ComponentLayoutModifierTest001() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0140 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier014")
       await Utils.sleep(2000)
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier014_Modifier"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
       windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0140 finish.`);
       done()
     })
@@ -272,121 +475,13 @@ export default function ComponentLayoutModifierTest001() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0150 start.`);
       Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier015")
       await Utils.sleep(2000)
+      let driver2: Driver = Driver.create();
+      let SliderCom2 = await driver2.findComponent(ON.id("ComponentLayoutModifier015_Modifier"));
+      let pointCenter2 = await SliderCom2.getBoundsCenter();
+      await driver2.click(pointCenter2.x, pointCenter2.y);
       windowSnap.snapShot()
-      await Utils.sleep(2000)
+      await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0150 finish.`);
-      done()
-    })
-
-    /**
-     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160
-     * @tc.name      LAYOUT_MODIFIER
-     * @tc.desc      NavDestinationModifier， Set a custom Modifier to a component, and the corresponding properties of the component will take effect
-     * @tc.level     Level 3
-     */
-    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160 start.`);
-      Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier016")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160 finish.`);
-      done()
-    })
-
-    /**
-     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170
-     * @tc.name      LAYOUT_MODIFIER
-     * @tc.desc      NavDestinationModifier， Custom modifier attribute value changes, component corresponding attribute takes effect
-     * @tc.level     Level 3
-     */
-    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170 start.`);
-      Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier017")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170 finish.`);
-      done()
-    })
-
-    /**
-     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180
-     * @tc.name      LAYOUT_MODIFIER
-     * @tc.desc      NavDestinationModifier， A custom modifier for two components
-     * @tc.level     Level 3
-     */
-    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180 start.`);
-      Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier018")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180 finish.`);
-      done()
-    })
-
-    /**
-     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190
-     * @tc.name      LAYOUT_MODIFIER
-     * @tc.desc      NavDestination Modifier, new MyModifier(). hideTitleBar (xx) dynamically switches without perception
-     * @tc.level     Level 3
-     */
-    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190 start.`);
-      Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier019")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190 finish.`);
-      done()
-    })
-
-    /**
-     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200
-     * @tc.name      LAYOUT_MODIFIER
-     * @tc.desc      NavDestinationModifier， Setting attributiModifier twice is the union of attributes
-     * @tc.level     Level 3
-     */
-    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200 start.`);
-      Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier020")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200 finish.`);
-      done()
-    })
-
-    /**
-     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210
-     * @tc.name      LAYOUT_MODIFIER
-     * @tc.desc      NavDestinationModifier， Mixed settings
-     * @tc.level     Level 3
-     */
-    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210 start.`);
-      Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier021")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210 finish.`);
-      done()
-    })
-
-    /**
-     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220
-     * @tc.name      LAYOUT_MODIFIER
-     * @tc.desc      NavDestinationModifier， Mixed settings
-     * @tc.level     Level 3
-     */
-    it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220', 0, async (done: Function) => {
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220 start.`);
-      Settings.createWindow("testability/pages/ComponentLayoutModifier/ComponentLayoutModifier022")
-      await Utils.sleep(2000)
-      windowSnap.snapShot()
-      await Utils.sleep(2000)
-      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220 finish.`);
       done()
     })
   })
