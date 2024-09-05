@@ -47,6 +47,7 @@ struct ComponentRowColumnSidebarContainerBlurStyle008 {
           })
       }
     }
+    .id("ComponentRowColumnSidebarContainerBlurStyle008_001")
     .sideBarPosition(SideBarPosition.End)
     .onChange((value: boolean) => {
       console.info('status:' + value)

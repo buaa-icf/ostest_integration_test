@@ -39,6 +39,7 @@ struct ComponentRowColumnSidebarContainerBlurStyle006 {
       }.width('100%')
       .justifyContent(FlexAlign.SpaceEvenly)
     }
+    .id("ComponentRowColumnSidebarContainerBlurStyle006_001")
     .sideBarPosition(SideBarPosition.End)
     .onChange((value: boolean) => {
       console.info('status:' + value)

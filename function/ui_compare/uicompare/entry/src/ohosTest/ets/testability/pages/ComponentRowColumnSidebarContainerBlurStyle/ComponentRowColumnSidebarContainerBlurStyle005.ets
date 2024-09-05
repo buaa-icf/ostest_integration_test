@@ -49,62 +49,62 @@ struct ComponentRowColumnSidebarContainerBlurStyle005 {
         Button("showSideBarTrue")
           .onClick(() => {
             this.ShowSideBarState = true
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_001")
 
         Button("showSideBarFalse")
           .onClick(() => {
             this.ShowSideBarState = false
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_002")
 
         Button("ButtonStyle left + 1")
           .onClick(() => {
             this.addLeft += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_003")
 
         Button("ButtonStyle left - 1")
           .onClick(() => {
             this.addLeft -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_004")
 
         Button("ButtonStyle top + 1")
           .onClick(() => {
             this.addTop += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_005")
 
         Button("ButtonStyle top - 1")
           .onClick(() => {
             this.addTop -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_006")
 
         Button("ButtonStyle width + 1")
           .onClick(() => {
             this.addWidth += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_007")
 
         Button("ButtonStyle width - 1")
           .onClick(() => {
             this.addWidth -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_008")
 
         Button("ButtonStyle height + 1")
           .onClick(() => {
             this.addHeight += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_009")
 
         Button("ButtonStyle height - 1")
           .onClick(() => {
             this.addHeight -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_010")
 
         Button("howControlButton设置为true")
           .onClick(() => {
             this.ShowControlButtonState = true
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_011")
 
         Button("howControlButton设置为false")
           .onClick(() => {
             this.ShowControlButtonState = false
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle005_012")
       }
     }
     .showControlButton(this.ShowControlButtonState)

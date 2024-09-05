@@ -46,7 +46,7 @@ struct ComponentRowColumnSidebarContainerBlurStyle004 {
             this.SideBarContainerTypeState = SideBarContainerType.Overlay
           })
       }
-    }
+    }.id("ComponentRowColumnSidebarContainerBlurStyle004_001")
     .onChange((value: boolean) => {
       console.info('status:' + value)
     })

@@ -39,9 +39,11 @@ struct ComponentRowColumnSidebarContainerBlurStyle002 {
       }.width('100%')
       .justifyContent(FlexAlign.SpaceEvenly)
     }
+    .showSideBar(true)
     .onChange((value: boolean) => {
       console.info('status:' + value)
     })
     .divider({ strokeWidth: '1vp', color: Color.Gray, startMargin: '4vp', endMargin: '4vp' })
+    .id("ComponentRowColumnSidebarContainerBlurStyle002_001")
   }
 }

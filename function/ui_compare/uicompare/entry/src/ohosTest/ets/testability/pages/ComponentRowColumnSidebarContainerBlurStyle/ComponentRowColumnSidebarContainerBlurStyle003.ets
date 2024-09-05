@@ -50,67 +50,67 @@ struct ComponentRowColumnSidebarContainerBlurStyle003 {
         Button("SideBarContainerType.Overlay")
           .onClick(() => {
             this.SideBarContainerTypeState = SideBarContainerType.Overlay
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_001")
 
         Button("showSideBarTrue")
           .onClick(() => {
             this.ShowSideBarState = true
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_002")
 
         Button("showSideBarFalse")
           .onClick(() => {
             this.ShowSideBarState = false
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_003")
 
         Button("ButtonStyle left + 1")
           .onClick(() => {
             this.addLeft += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_004")
 
         Button("ButtonStyle left - 1")
           .onClick(() => {
             this.addLeft -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_005")
 
         Button("ButtonStyle top + 1")
           .onClick(() => {
             this.addTop += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_006")
 
         Button("ButtonStyle top - 1")
           .onClick(() => {
             this.addTop -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_007")
 
         Button("ButtonStyle width + 1")
           .onClick(() => {
             this.addWidth += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_008")
 
         Button("ButtonStyle width - 1")
           .onClick(() => {
             this.addWidth -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_009")
 
         Button("ButtonStyle height + 1")
           .onClick(() => {
             this.addHeight += 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_010")
 
         Button("ButtonStyle height - 1")
           .onClick(() => {
             this.addHeight -= 1
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_011")
 
         Button("howControlButton设置为true")
           .onClick(() => {
             this.ShowControlButtonState = true
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_012")
 
         Button("howControlButton设置为false")
           .onClick(() => {
             this.ShowControlButtonState = false
-          })
+          }).id("ComponentRowColumnSidebarContainerBlurStyle003_013")
       }
     }
     .showControlButton(this.ShowControlButtonState)
