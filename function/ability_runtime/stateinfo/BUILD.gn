@@ -18,8 +18,15 @@ group("hits_ability_runtime_stateinfo") {
   if (is_standard_system) {
     deps = [
       "getextensionrunninginfostest:hits_stateinfo_getrunninginfo_test",
+      "openharmonyisterminatingtest:hits_stateinfo_isterminating_test",
+      "stateInfobackability:hits_stateinfo_backability",
+      "stateInfostartability:hits_stateinfo_startability",
       "stateinfoappempty:hits_stateinfo_app_empty",
+      "stateinfoappemptyfeature:hits_stateinfo_app_feature",
+      "stateinfoappkillself:hits_stateinfo_app_killself",
+      "stateinfogetforgroundapps:hits_stateinfo_getforgrdapps",
       "stateinfoserviceempty:hits_stateinfo_service_empty",
+      "stateinfoservicekillself:hits_stateinfo_service_killself",
     ]
   }
 }
