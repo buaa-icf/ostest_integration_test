@@ -57,6 +57,7 @@ struct MyNavDestination {
             }
             this.index ++;
           })
+          .id('UiComponentLayoutModifier021_modifier')
 
         Text("NavPathInfo: name: " + this.name + ", paramNum: " + this.paramNum)
         Button('pushPath', { stateEffect: true, type: ButtonType.Capsule })
@@ -112,6 +113,7 @@ struct UiComponentLayoutModifier021 {
       Stack({alignContent: Alignment.Center}) {
         Button('pushPath', { stateEffect: true, type: ButtonType.Capsule })
           .width('80%')
+          .id('UiComponentLayoutModifier021')
           .height(40)
           .margin(20)
           .onClick(() => {

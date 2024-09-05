@@ -42,10 +42,17 @@ export default function UIComponentLayoutModifierTest() {
      * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160
      * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160
      * @tc.desc      Set a custom Modifier to a component, and the corresponding properties of the component will take effect
-    */
+     */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0160 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier016")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier016'))
+      await button.click()
+      let button_modifier: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier016_modifier'))
+      for(let i=0;i<4;i++){
+        await button_modifier.click()
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -61,6 +68,13 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0170 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier017")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier017'))
+      await button.click()
+      let button_modifier: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier017_modifier'))
+      for(let i=0;i<4;i++){
+        await button_modifier.click()
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -76,6 +90,13 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0180 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier018")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier018'))
+      await button.click()
+      let button_modifier: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier018_modifier'))
+      for(let i=0;i<4;i++){
+        await button_modifier.click()
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -91,6 +112,13 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0190 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier019")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier019'))
+      await button.click()
+      let button_modifier: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier019_modifier'))
+      for(let i=0;i<4;i++){
+        await button_modifier.click()
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -106,6 +134,13 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0200 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier020")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier020'))
+      await button.click()
+      let button_modifier1: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier020_modifier1'))
+      let button_modifier2: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier020_modifier2'))
+      await button_modifier1.click()
+      await button_modifier2.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -121,6 +156,11 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0210 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier021")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier021'))
+      await button.click()
+      let button_modifier: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier021_modifier'))
+      await button_modifier.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -136,6 +176,13 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0220 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier022")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier022'))
+      await button.click()
+      let button_modifier1: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier022_modifier1'))
+      let button_modifier2: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier022_modifier2'))
+      await button_modifier1.click()
+      await button_modifier2.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -144,10 +191,10 @@ export default function UIComponentLayoutModifierTest() {
     })
 
     /*
-   * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230
-   * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230
-   * @tc.desc        set alignContent 【TopStart、Top、TopEnd、Start、Center、End、BottomStart、Bottom、BottomEnd】
-*/
+       * @tc.number      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230
+       * @tc.name        SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230
+       * @tc.desc        set alignContent 【TopStart、Top、TopEnd、Start、Center、End、BottomStart、Bottom、BottomEnd】
+    */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0230 start.`);
       Settings.createWindow("testability/pages/UIComponentLayoutModifier/UIComponentLayoutModifier023")
@@ -288,14 +335,17 @@ export default function UIComponentLayoutModifierTest() {
     })
 
     /*
-    * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310
-    * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310
-    * @tc.desc      StepperItemModifier， Set a custom Modifier to a component, and the corresponding properties of the component will take effect
-   */
+     * @tc.number    SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310
+     * @tc.name      SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310
+     * @tc.desc      StepperItemModifier， Set a custom Modifier to a component, and the corresponding properties of the component will take effect
+    */
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier031")
-      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let nextButton: Component = await driver.findComponent(ON.text('Next'));
+      await nextButton.click();
+      await Utils.sleep(2000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0310 finish.`);
@@ -310,6 +360,12 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0320 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier032")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier032'))
+      await button.doubleClick()
+      await Utils.sleep(1000)
+      let nextButton: Component = await driver.findComponent(ON.text('Next'));
+      await nextButton.click();
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -325,6 +381,12 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0330 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier033")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier033'))
+      await button.doubleClick()
+      await Utils.sleep(1000)
+      let nextButton: Component = await driver.findComponent(ON.text('Next'));
+      await nextButton.click();
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -340,6 +402,9 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0340', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0340 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier034")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier034'))
+      await button.doubleClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -355,6 +420,9 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0350', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0350 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier035")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier035'))
+      await button.doubleClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -370,6 +438,12 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0360 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier036")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier036'))
+      await button.click()
+      await Utils.sleep(1000)
+      let nextButton: Component = await driver.findComponent(ON.text('Next'));
+      await nextButton.click();
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -385,6 +459,12 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0370 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier037")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier037'))
+      await button.click()
+      await Utils.sleep(1000)
+      let nextButton: Component = await driver.findComponent(ON.text('Next'));
+      await nextButton.click();
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -400,7 +480,10 @@ export default function UIComponentLayoutModifierTest() {
     it('SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380 start.`);
       Settings.createWindow("testability/pages/UiComponentLayoutModifier/UiComponentLayoutModifier038")
-      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentLayoutModifier038'))
+      await button.click()
+      await Utils.sleep(13000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LAYOUT_MODIFIER_0380 finish.`);

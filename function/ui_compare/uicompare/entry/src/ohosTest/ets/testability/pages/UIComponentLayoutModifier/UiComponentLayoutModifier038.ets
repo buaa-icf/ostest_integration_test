@@ -67,6 +67,7 @@ struct UiComponentLayoutModifier038 {
             .itemTextStyle()
           Button('nextLabel' + this.firstState)
             .backgroundColor('#007dFF')
+            .id('UiComponentLayoutModifier038')
             .onClick(() => {
               if(true){
                 (this.myModifier as MyModifier).setGroup0()

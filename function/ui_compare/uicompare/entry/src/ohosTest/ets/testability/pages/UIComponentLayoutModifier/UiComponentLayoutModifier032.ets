@@ -69,6 +69,7 @@ struct UiComponentLayoutModifier032 {
               (this.myModifier as MyModifier).setGroup0()
               this.firstState = this.firstState === ItemState.Skip ? ItemState.Normal : ItemState.Skip
             })
+            .id('UiComponentLayoutModifier032')
         }.itemStyle()
       }
       .attributeModifier(this.myModifier as MyModifier)

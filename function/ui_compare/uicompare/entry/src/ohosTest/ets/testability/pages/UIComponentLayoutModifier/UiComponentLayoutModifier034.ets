@@ -68,6 +68,7 @@ struct UiComponentLayoutModifier034 {
             .onClick(() => {
               (this.myModifier as MyModifier).setGroup1()
             })
+            .id('UiComponentLayoutModifier034')
         }.itemStyle()
       }
       .attributeModifier(this.myModifier as MyModifier)

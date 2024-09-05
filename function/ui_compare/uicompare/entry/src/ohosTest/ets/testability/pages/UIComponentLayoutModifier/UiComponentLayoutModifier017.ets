@@ -46,7 +46,7 @@ struct MyNavDestination {
         Text((this.text).toString()).width(100).height(100)
         Button('button', { type: ButtonType.Capsule, stateEffect: true })
           .margin(10)
-          .id("Button")
+          .id('UiComponentLayoutModifier017_modifier')
           .onClick(() => {
             console.log("Modifier","onClick")
             if(this.index % this.total == 0){
@@ -116,6 +116,7 @@ struct UiComponentLayoutModifier017 {
             let p = new PageParam(1);
             this.stack.pushPath({ name: "pageOne", param: p })
           })
+          .id('UiComponentLayoutModifier017')
       }
       .width('100%')
       .height('100%')

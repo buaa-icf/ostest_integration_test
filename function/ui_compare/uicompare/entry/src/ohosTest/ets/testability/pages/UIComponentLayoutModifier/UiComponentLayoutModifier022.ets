@@ -58,6 +58,7 @@ struct MyNavDestination {
         Text((this.text_1).toString()).width(100).height(100)
         Text((this.text_2).toString()).width(100).height(100)
         Button('button1', { type: ButtonType.Capsule, stateEffect: true })
+          .id('UiComponentLayoutModifier022_modifier1')
           .margin(10)
           .onClick(() => {
             console.log("Modifier","onClick")
@@ -68,6 +69,7 @@ struct MyNavDestination {
             }
           })
         Button('button2', { type: ButtonType.Capsule, stateEffect: true })
+          .id('UiComponentLayoutModifier022_modifier2')
           .margin(10)
           .onClick(() => {
             console.log("Modifier","onClick")
@@ -132,6 +134,7 @@ struct UiComponentLayoutModifier022 {
       Stack({alignContent: Alignment.Center}) {
         Button('pushPath', { stateEffect: true, type: ButtonType.Capsule })
           .width('80%')
+          .id('UiComponentLayoutModifier022')
           .height(40)
           .margin(20)
           .onClick(() => {
