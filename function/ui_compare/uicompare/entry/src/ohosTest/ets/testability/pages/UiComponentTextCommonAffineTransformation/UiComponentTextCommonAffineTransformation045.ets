@@ -33,6 +33,7 @@ struct UiComponentTextCommonAffineTransformation045 {
         .translate({ x: 10, y: 100, z: 10 })
         .scale({ x: -2, y: 0.5, z: -5})
         .rotate({ x: 0, y: 1, z: 0, centerX: '0%',centerY: '0%', angle: 300 })
+        .id("UiComponentTextCommonAffineTransformation045")
       TextArea({
         text: this.area_text,
         controller: this.area_controller

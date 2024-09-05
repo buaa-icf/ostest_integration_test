@@ -43,6 +43,7 @@ struct UiComponentTextCommonAffineTransformation037 {
         .height(50)
         .translate({ x: 100, y: 10 })
         .scale({ x: -2, y: 0.5, z: -5})
+        .id("UiComponentTextCommonAffineTransformation037")
 
       Search({ value: this.changeValue, placeholder: 'Type to search...' })
         .searchButton('SEARCH')

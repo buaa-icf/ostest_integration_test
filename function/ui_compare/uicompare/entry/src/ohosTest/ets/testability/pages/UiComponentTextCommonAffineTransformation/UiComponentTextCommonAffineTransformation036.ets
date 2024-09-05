@@ -32,7 +32,6 @@ struct UiComponentTextCommonAffineTransformation036 {
         .placeholderFont({ size: 14, weight: 400 })
         .translate({ x: 100, y: 10 })
         .scale({ x: -2, y: 0.5, z: -5})
-
       TextArea({
         text: this.area_text,
         placeholder: 'input your word...',
@@ -43,7 +42,7 @@ struct UiComponentTextCommonAffineTransformation036 {
         .height(75)
         .translate({ x: 100, y: 10 })
         .scale({ x: -2, y: 0.5, z: -5})
-
+        .id("UiComponentTextCommonAffineTransformation036")
       Search({ value: this.changeValue, placeholder: 'Type to search...' })
         .searchButton('SEARCH')
         .width('75%')

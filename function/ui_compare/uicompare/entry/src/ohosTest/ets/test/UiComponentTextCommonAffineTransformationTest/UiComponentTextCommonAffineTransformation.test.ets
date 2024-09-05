@@ -665,13 +665,16 @@ export default function UiComponentTextCommonAffineTransformation() {
     })
 
     /*
-     * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350
-     * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350
-     * @tc.desc      Set the zoom and pan properties, keeping the width and height unchanged. Long press/double-click the text content and observe the cursor menu changes
-    */
+ * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350
+ * @tc.name      SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350
+ * @tc.desc      Set the zoom and pan properties, keeping the width and height unchanged. Long press/double-click the text content and observe the cursor menu changes
+*/
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0350 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation035")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation035'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -687,6 +690,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0360 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation036")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation036'))
+      await button.click()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -702,6 +708,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0370 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation037")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation037'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -717,6 +726,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0380 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation038")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation038'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -732,6 +744,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0390', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0390 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation039")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation039'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -747,13 +762,15 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation040")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation040'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0400 finish.`);
       done()
     })
-
 
     /*
      * @tc.number    SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410
@@ -763,6 +780,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0410 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation041")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation041'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -778,6 +798,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0420 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation042")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation042'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -793,6 +816,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0450', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0450 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation045")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation045'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -808,6 +834,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0460', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0460 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation046")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation046'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -823,6 +852,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0470', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0470 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation047")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation047'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -838,6 +870,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0480', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0480 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation048")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation048'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -853,6 +888,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0490', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0490 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation049")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation049'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -868,6 +906,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0500', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0500 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation050")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation050'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -883,6 +924,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0510', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0510 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation051")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation051'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -898,6 +942,9 @@ export default function UiComponentTextCommonAffineTransformation() {
     it('SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0520', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_COMMON_AFFINE_TRANSFORMATION_0520 start.`);
       Settings.createWindow("testability/pages/UiComponentTextCommonAffineTransformation/UiComponentTextCommonAffineTransformation052")
+      let driver: Driver = Driver.create()
+      let button: Component = await driver.findComponent(ON.id('UiComponentTextCommonAffineTransformation052'))
+      await button.longClick()
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)

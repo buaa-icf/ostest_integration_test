@@ -35,6 +35,7 @@ struct UiComponentTextCommonAffineTransformation046 {
         .margin(10)
         .border({ width: 5, color: 0x317AF7, radius: 10, style: BorderStyle.Dotted })
         .backgroundColor(Color.Blue)
+        .id("UiComponentTextCommonAffineTransformation046")
     }
   }
 }

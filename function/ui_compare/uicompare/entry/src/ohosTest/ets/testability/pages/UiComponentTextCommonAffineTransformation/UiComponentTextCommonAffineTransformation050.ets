@@ -50,6 +50,7 @@ struct UiComponentTextCommonAffineTransformation050 {
         .margin(20)
         .border({ width: 5, color: 0x317AF7, radius: 10, style: BorderStyle.Dotted })
         .backgroundColor(Color.Red)
+        .id("UiComponentTextCommonAffineTransformation050")
       Search({ value: this.changeValue})
         .searchButton('SEARCH')
         .width('40%')
