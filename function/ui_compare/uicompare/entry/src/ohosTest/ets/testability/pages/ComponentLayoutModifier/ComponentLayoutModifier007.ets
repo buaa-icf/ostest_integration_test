@@ -81,6 +81,7 @@ struct ComponentLayoutModifier007 {
             this.SwitchNumber = 500
           }
         })
+          .id("ComponentLayoutModifier007_switch")
       }
 
       Row() {
@@ -92,6 +93,7 @@ struct ComponentLayoutModifier007 {
             this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
           }
         })
+          .id("ComponentLayoutModifier007_Span")
       }
 
       Row() {
@@ -103,6 +105,7 @@ struct ComponentLayoutModifier007 {
             this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
           }
         })
+          .id("ComponentLayoutModifier007_gridColOffset")
       }
 
     }.width('80%').margin({ left: 10, top: 5, bottom: 5 }).height(200)

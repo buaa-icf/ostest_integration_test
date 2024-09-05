@@ -15,7 +15,7 @@
 import { GridColModifier } from '@ohos.arkui.modifier'
 
 class MyGridColModifier implements AttributeModifier<GridColModifier> {
-  isSpan: boolean = false
+  isSpan: boolean = true
   SpanMode: number = 1
   gridColOffsetMode: number = 6
 
@@ -81,6 +81,7 @@ struct ComponentLayoutModifier003 {
             this.SwitchNumber = 500
           }
         })
+          .id("ComponentLayoutModifier003_switch")
       }
 
       Row() {
@@ -92,6 +93,7 @@ struct ComponentLayoutModifier003 {
             this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
           }
         })
+          .id("ComponentLayoutModifier003_Span")
       }
 
       Row() {
@@ -103,6 +105,7 @@ struct ComponentLayoutModifier003 {
             this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
           }
         })
+          .id("ComponentLayoutModifier003_gridColOffset")
       }
 
     }.width('80%').margin({ left: 10, top: 5, bottom: 5 }).height(200)

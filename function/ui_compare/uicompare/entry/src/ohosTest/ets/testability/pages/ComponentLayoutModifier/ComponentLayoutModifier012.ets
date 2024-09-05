@@ -20,6 +20,7 @@ class MyGridColModifier implements AttributeModifier<GridColModifier> {
   orderMode: number = 4
 
   applyNormalAttribute(instance: GridColModifier): void {
+    instance.span(undefined)
     if(this.gridColOffsetMode == 6){
       instance.gridColOffset({xs: undefined})
     }else if(this.gridColOffsetMode == 8){
@@ -56,7 +57,7 @@ struct ComponentLayoutModifier012 {
           GridCol() {
             Row().width("100%").height("20vp")
           }.borderColor(color).borderWidth(2)
-          .attributeModifier(this.modifier).span({xs: this.SpanNumber})
+          .attributeModifier(this.modifier)
         })
       }.width("100%").height("100%")
       .onBreakpointChange((breakpoint) => {
@@ -77,12 +78,13 @@ struct ComponentLayoutModifier012 {
             this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
           }
         })
+          .id("ComponentLayoutModifier012_Span")
       }
 
       Row() {
         Button('Modifier设置').onClick(() => {
-          this.SpanNumber = 2
-        })
+          this.gridColOffsetIndex = 3
+        }).id("ComponentLayoutModifier012_Modifier")
       }
 
 
@@ -106,6 +108,7 @@ struct ComponentLayoutModifier012 {
             this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
           }
         })
+          .id("ComponentLayoutModifier012_gridColOffset")
       }
     }.width('80%').margin({ left: 10, top: 5, bottom: 5 }).height(200)
     .border({ color: '#880606', width: 2 })

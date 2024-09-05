@@ -150,7 +150,7 @@ struct ComponentLayoutModifier011 {
   @State currentBp: string = 'unknown'
 
   @State SpanIndex: number = 0;
-  @State SpanMode: number[] = [1, 2, 8, 3, 6, 2]
+  @State SpanMode: number[] = [1, 3, 8, 2, 6, 2]
   @State SpanModeStr: string[] = ['1', '2', 'null', '3', 'undefined', '2']
 
   @State gridColOffsetIndex: number = 0;
@@ -186,6 +186,7 @@ struct ComponentLayoutModifier011 {
             this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
           }
         })
+          .id("ComponentLayoutModifier011_Span")
       }
 
       Row() {
@@ -197,6 +198,7 @@ struct ComponentLayoutModifier011 {
             this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
           }
         })
+          .id("ComponentLayoutModifier011_gridColOffset")
       }
     }.width('80%').margin({ left: 10, top: 5, bottom: 5 }).height(200)
     .border({ color: '#880606', width: 2 })

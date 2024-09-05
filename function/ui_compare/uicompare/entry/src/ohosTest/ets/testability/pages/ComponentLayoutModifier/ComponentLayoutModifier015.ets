@@ -15,7 +15,7 @@
 import { GridColModifier } from '@ohos.arkui.modifier'
 
 class MyGridColModifier implements AttributeModifier<GridColModifier> {
-  SwitchFlag: boolean = false
+  SwitchFlag: boolean = true
 
   applyNormalAttribute(instance: GridColModifier): void {
     if(this.SwitchFlag){
@@ -66,7 +66,7 @@ struct ComponentLayoutModifier015 {
           }else {
             this.modifier.SwitchFlag = !this.modifier.SwitchFlag
           }
-        })
+        }).id("ComponentLayoutModifier015_Modifier")
       }
     }.width('80%').margin({ left: 10, top: 5, bottom: 5 }).height(200)
     .border({ color: '#880606', width: 2 })

@@ -43,6 +43,7 @@ class MyGridColModifier implements AttributeModifier<GridColModifier> {
     }else {
       instance.gridColOffset(this.orderMode)
     }
+    instance.gridColOffset(undefined)
   }
 }
 
@@ -56,7 +57,7 @@ struct ComponentLayoutModifier008 {
   @State currentBp: string = 'unknown'
 
   @State SpanIndex: number = 0;
-  @State SpanMode: number[] = [1, 2, 8, 3, 6, 2]
+  @State SpanMode: number[] = [1, 3, 8, 2, 6, 2]
   @State SpanModeStr: string[] = ['1', '2', 'null', '3', 'undefined', '2']
 
   @State gridColOffsetIndex: number = 0;
@@ -96,6 +97,7 @@ struct ComponentLayoutModifier008 {
             this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
           }
         })
+          .id("ComponentLayoutModifier008_Span")
       }
 
       Row() {
@@ -107,6 +109,7 @@ struct ComponentLayoutModifier008 {
             this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
           }
         })
+          .id("ComponentLayoutModifier008_gridColOffset")
       }
 
       Row() {

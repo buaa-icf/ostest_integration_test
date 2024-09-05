@@ -56,7 +56,7 @@ struct ComponentLayoutModifier014 {
 
       Row() {
         Button('GridColModifier，两次设置attributeModifier').onClick(() => {
-        })
+        }).id("ComponentLayoutModifier014_Modifier")
       }
 
       Row() {

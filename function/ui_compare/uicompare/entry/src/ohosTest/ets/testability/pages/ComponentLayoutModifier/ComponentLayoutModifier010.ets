@@ -58,11 +58,11 @@ struct ComponentLayoutModifier010 {
   @State currentBp: string = 'unknown'
 
   @State SpanIndex: number = 0;
-  @State SpanMode: number[] = [1, 2, 8, 3, 6, 2]
+  @State SpanMode: number[] = [1, 3, 8, 2, 6, 2]
   @State SpanModeStr: string[] = ['1', '2', 'null', '3', 'undefined', '2']
 
   @State gridColOffsetIndex: number = 0;
-  @State gridColOffsetMode: number[] = [6, 1, 8, 3]
+  @State gridColOffsetMode: number[] = [1, 6, 8, 3]
   @State gridColOffsetModeStr: string[] = ['undefined', '1', 'null', '2']
 
   @State orderIndex: number = 0;
@@ -84,45 +84,49 @@ struct ComponentLayoutModifier010 {
         this.currentBp = breakpoint
       })
 
-      Row() {
-        Button('GridColModifier，order属性').onClick(() => {
-        })
-      }
+      Column(){
+        Row() {
+          Button('GridColModifier，order属性').onClick(() => {
+          })
+        }
 
-      Row() {
-        Button('更改Span-xs：' + this.SpanModeStr[this.SpanIndex]).onClick(() => {
-          this.SpanIndex++
-          this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
-          if (this.SpanIndex > (this.SpanModeStr.length - 1)) {
-            this.SpanIndex = 0
+        Row() {
+          Button('更改Span-xs：' + this.SpanModeStr[this.SpanIndex]).onClick(() => {
+            this.SpanIndex++
             this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
-          }
-        })
-      }
+            if (this.SpanIndex > (this.SpanModeStr.length - 1)) {
+              this.SpanIndex = 0
+              this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
+            }
+          })
+            .id("ComponentLayoutModifier010_Span")
+        }
 
-      Row() {
-        Button('更改gridColOffset-xs：' + this.gridColOffsetModeStr[this.gridColOffsetIndex]).onClick(() => {
-          this.gridColOffsetIndex++
-          this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
-          if (this.gridColOffsetIndex > (this.gridColOffsetModeStr.length - 1)) {
-            this.gridColOffsetIndex = 0
+        Row() {
+          Button('更改gridColOffset-xs：' + this.gridColOffsetModeStr[this.gridColOffsetIndex]).onClick(() => {
+            this.gridColOffsetIndex++
             this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
-          }
-        })
-      }
+            if (this.gridColOffsetIndex > (this.gridColOffsetModeStr.length - 1)) {
+              this.gridColOffsetIndex = 0
+              this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
+            }
+          })
+            .id("ComponentLayoutModifier010_gridColOffset")
+        }
 
-      Row() {
-        Button('更改order-xs：' + this.orderModeStr[this.orderIndex]).onClick(() => {
-          this.orderIndex++
-          this.modifier.orderMode = this.orderMode[this.orderIndex]
-          if (this.orderIndex > (this.orderModeStr.length - 1)) {
-            this.orderIndex = 0
+        Row() {
+          Button('更改order-xs：' + this.orderModeStr[this.orderIndex]).onClick(() => {
+            this.orderIndex++
             this.modifier.orderMode = this.orderMode[this.orderIndex]
-          }
-        })
+            if (this.orderIndex > (this.orderModeStr.length - 1)) {
+              this.orderIndex = 0
+              this.modifier.orderMode = this.orderMode[this.orderIndex]
+            }
+          })
+        }
       }
-
     }.width('80%').margin({ left: 10, top: 5, bottom: 5 }).height(200)
     .border({ color: '#880606', width: 2 })
+
   }
 }

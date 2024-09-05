@@ -96,6 +96,7 @@ struct ComponentLayoutModifier009 {
             this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
           }
         })
+          .id("ComponentLayoutModifier009_Span")
       }
 
       Row() {
@@ -107,6 +108,7 @@ struct ComponentLayoutModifier009 {
             this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
           }
         })
+          .id("ComponentLayoutModifier009_gridColOffset")
       }
 
       Row() {

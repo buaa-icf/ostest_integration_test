@@ -15,7 +15,7 @@
 import { GridColModifier } from '@ohos.arkui.modifier'
 
 class MyGridColModifier implements AttributeModifier<GridColModifier> {
-  isSpan: boolean = false
+  isSpan: boolean = true
   SpanMode: number = 1
   gridColOffsetMode: number = 6
 
@@ -75,16 +75,20 @@ struct ComponentLayoutModifier001 {
       })
 
       Row() {
-        Button('GridColModifier，span与gridColOffset').onClick(() => {
+        Button('GridColModifier，span与gridColOffset')
+          .onClick(() => {
           if(this.SwitchNumber == 450){
             this.modifier.isSpan = !this.modifier.isSpan
             this.SwitchNumber = 500
           }
         })
+          .id("ComponentLayoutModifier001_switch")
       }
 
       Row() {
-        Button('更改Span：' + this.SpanModeStr[this.SpanIndex]).onClick(() => {
+        Button('更改Span：' + this.SpanModeStr[this.SpanIndex])
+          .id("ComponentLayoutModifier001_Span")
+          .onClick(() => {
           this.SpanIndex++
           this.modifier.SpanMode = this.SpanMode[this.SpanIndex]
           if (this.SpanIndex > (this.SpanModeStr.length - 1)) {
@@ -95,7 +99,9 @@ struct ComponentLayoutModifier001 {
       }
 
       Row() {
-        Button('更改gridColOffset：' + this.gridColOffsetModeStr[this.gridColOffsetIndex]).onClick(() => {
+        Button('更改gridColOffset：' + this.gridColOffsetModeStr[this.gridColOffsetIndex])
+          .id("ComponentLayoutModifier001_gridColOffset")
+          .onClick(() => {
           this.gridColOffsetIndex++
           this.modifier.gridColOffsetMode = this.gridColOffsetMode[this.gridColOffsetIndex]
           if (this.gridColOffsetIndex > (this.gridColOffsetModeStr.length - 1)) {
