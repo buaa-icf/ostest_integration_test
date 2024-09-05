@@ -1,0 +1,34 @@
+{
+    "description": "Configuration for hjunit demo Tests",
+    "driver": {
+        "type": "OHJSUnitTest",
+        "test-timeout": "180000",
+        "shell-timeout": "180000",
+        "bundle-name": "com.hits.stateinfo.isterminating",
+        "module-name": "entry_test",
+		"testcase-timeout": "200000"
+    },
+    "kits": [
+        {
+            "test-file-name": [
+                "HitsStateInfoIsTerminatingTest.hap",
+                "HitsStateInfoServiceEmpty.hap",
+                "HitsStateInfoAppEmpty.hap",
+                "HitsStateInfoGetFrogrdApps.hap",
+                "HitsStateInfoStartAbility.hap",
+                "HitsStateInfoBackAbility.hap",
+                "HitsStateInfoAppKillSelf.hap",
+                "HitsStateInfoAppFeature.hap",
+                "HitsStateInfoServiceKillSelf.hap"
+            ],
+            "type": "AppInstallKit",
+            "cleanup-apps": true
+        },{
+            "type": "ShellKit",
+            "run-command": [
+                "power-shell wakeup",
+                "power-shell setmode 602"
+            ]
+        }
+    ]
+}
