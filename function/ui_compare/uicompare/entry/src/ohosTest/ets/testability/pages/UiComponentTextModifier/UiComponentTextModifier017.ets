@@ -48,6 +48,7 @@ struct MySearch {
 
   build(){
     Search({ placeholder: 'Type to search...', controller: this.controller })
+      .id("UiComponentTextModifier017")
       .searchButton("搜索")
       .width('95%')
       .height(40)

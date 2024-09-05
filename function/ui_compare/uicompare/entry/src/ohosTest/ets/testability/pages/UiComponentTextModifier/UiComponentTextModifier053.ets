@@ -57,6 +57,7 @@ struct UiComponentTextModifier053 {
     Column() {
       Text((this.text).toString()).width(100).height(100)
       Button('button', { type: ButtonType.Capsule, stateEffect: true })
+        .id("UiComponentTextModifier053")
         .margin(10)
         .onClick(() => {
           console.log("Modifier","onClick")
