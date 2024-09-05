@@ -43,7 +43,7 @@ struct Index {
   @State isRefreshing: boolean = false;
   @State mOffset: number = 0;
   @State mFriction: number = 48;
-  @State maskOpacity: number = 0.5;
+  @State maskOpacity: number = 0.3;
   @State loginInfo: string = ServerConstants.LOGIN_INFO_NO;
   @State loginButton: string = ServerConstants.LOGIN_BUTTON_IN;
   @State rowAngle: number = 0;
@@ -374,7 +374,7 @@ struct Index {
           Rect()
             .width('100%')
             .height('100%')
-            .fill('#e0e0e0')
+            .fill('#f0f0f0')
             .fillOpacity(this.maskOpacity)
             .onClick(() => {
               this.isShowPlayList = false;

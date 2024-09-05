@@ -94,7 +94,7 @@ export default struct PlayerDetail {
     emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         Logger.info(this.tag, 'state:' + eventData.data.state);
-        if (eventData.data.state === ServerConstants.PLAYER_STATE_RELEASED) {
+        if (eventData.data.state === ServerConstants.PLAYER_STATE_IDLE) {
           this.noItem = true;
         }
         if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {

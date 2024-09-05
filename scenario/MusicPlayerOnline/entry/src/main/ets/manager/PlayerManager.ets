@@ -45,6 +45,10 @@ export default class PlayerManager {
     priority: emitter.EventPriority.HIGH
   };
 
+  constructor() {
+    this.startContinuousTask();
+  }
+
   // 注册avplayer回调函数
   setAVPlayerCallback(avPlayer: media.AVPlayer) {
     // seek操作结果回调函数
@@ -86,7 +90,7 @@ export default class PlayerManager {
       switch (state) {
         case ServerConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
           console.info('PlayerManager state idle called.');
-          avPlayer.release(); // 调用release接口销毁实例对象
+          //avPlayer.release(); // 调用release接口销毁实例对象
           break;
         case ServerConstants.PLAYER_STATE_INITIALIZED: // avplayer 设置播放源后触发该状态上报
           console.info('PlayerManager state initialized called.');
@@ -100,7 +104,6 @@ export default class PlayerManager {
           console.info('PlayerManager state playing called.');
           this.list[this.listPosition].isPlaying = true;
           this.record_recent();
-          this.startContinuousTask();
           break;
         case ServerConstants.PLAYER_STATE_PAUSED: // pause成功调用后触发该状态机上报
           console.info('PlayerManager state paused called.');
@@ -112,7 +115,7 @@ export default class PlayerManager {
           break;
         case ServerConstants.PLAYER_STATE_STOPPED: // stop接口成功调用后触发该状态机上报
           console.info('PlayerManager state stopped called.');
-          this.stopContinuousTask();
+          //this.stopContinuousTask();
           this.currentTime = 0;
           Logger.info(this.tag, 'Stop:' + this.item.title);
           avPlayer.reset(); // 调用reset接口初始化avplayer状态
@@ -327,9 +330,10 @@ export default class PlayerManager {
       this.avPlayer = await media.createAVPlayer();
       this.setAVPlayerCallback(this.avPlayer);
     } else {
-      this.avPlayer.release();
-      this.avPlayer = await media.createAVPlayer();
-      this.setAVPlayerCallback(this.avPlayer);
+      await this.avPlayer.reset();
+      //this.avPlayer.release();
+      //this.avPlayer = await media.createAVPlayer();
+      //this.setAVPlayerCallback(this.avPlayer);
     }
     console.info('PlayerManager state url：' + url);
     this.avPlayer.url = url;
