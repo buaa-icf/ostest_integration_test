@@ -43,10 +43,9 @@ struct Index {
   @State isRefreshing: boolean = false;
   @State mOffset: number = 0;
   @State mFriction: number = 48;
-  @State maskOpacity: number = 0.5;
+  @State maskOpacity: number = 0.3;
   @State loginInfo: string = ServerConstants.LOGIN_INFO_NO;
   @State loginButton: string = ServerConstants.LOGIN_BUTTON_IN;
-  @State loginButtonClickable: boolean = true;
   @State rowAngle: number = 0;
   @State colAngle: number = 0;
   private httpRequest = http.createHttp();
@@ -95,49 +94,51 @@ struct Index {
   build() {
     Column() {
       Row() {
-        Image($r('app.media.open_sidebar'))
-          .objectFit(ImageFit.Fill)
-          .width(32)
-          .height(42)
-          .margin({ right: 8, left: 8 })
-          .clickEffect(UIConstants.CLICK_EFFECT)
-          .onClick(() => {
-            animateTo({ duration: 1000 }, () => {
+        Row() {
+          Image($r('app.media.open_sidebar'))
+            .width(32)
+            .height(42)
+            .objectFit(ImageFit.Fill)
+            .clickEffect(UIConstants.CLICK_EFFECT)
+            .onClick(() => {
               //this.isShowSetting = true;
             })
-          })
-          .id('setting')
+            .id('setting')
+        }
+        .width(96)
+        .height('100%')
+        .alignSelf(ItemAlign.Start)
+
         if (this.loginInfo === ServerConstants.LOGIN_INFO_NO) {
           Text(this.loginInfo)
             .fontSize(24)
             .margin({ right: 4, left: 4 })
-            .transition(TransitionEffect.OPACITY)
+            .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease })
+              .combine(TransitionEffect.translate({ y: 24 })))
 
         } else {
           Text(this.loginInfo)
             .fontSize(24)
             .margin({ right: 4, left: 4 })
-            .transition(TransitionEffect.OPACITY)
+            .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease })
+              .combine(TransitionEffect.translate({ y: -24 })))
         }
-        Button(this.loginButton)
-          .type(ButtonType.Normal)
-          .stateEffect(this.loginButtonClickable)
+        Text(this.loginButton)
           .backgroundColor(Color.White)
           .fontColor(Color.Red)
           .fontWeight(FontWeight.Lighter)
-          .borderWidth(1)
           .borderColor(Color.Gray)
           .borderRadius(4)
           .height(42)
-          .width(108)
-          .margin({ right: 4, left: 4 })
+          .width(96)
+          .textAlign(TextAlign.End)
           .fontSize(28)
+          .maxLines(1)
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
             if (this.loginButton === ServerConstants.LOGIN_BUTTON_OUT) {
               this.logout();
-            }
-            else {
+            } else if (this.loginButton === ServerConstants.LOGIN_BUTTON_IN) {
               this.login()
             }
           })
@@ -365,7 +366,7 @@ struct Index {
             .width('100%')
             .height('100%')
             .transition(TransitionEffect.OPACITY
-              .animation({ curve: curves.springMotion() })
+              .animation({ duration: 1000, curve: Curve.FastOutSlowIn })
               .combine(TransitionEffect.move(TransitionEdge.BOTTOM))
             )
         }
@@ -373,22 +374,17 @@ struct Index {
           Rect()
             .width('100%')
             .height('100%')
-            .fill('#e0e0e0')
+            .fill('#f0f0f0')
             .fillOpacity(this.maskOpacity)
-            .clickEffect(UIConstants.CLICK_EFFECT)
             .onClick(() => {
-              animateTo({ duration: 1000 }, () => {
-                this.isShowPlayList = false;
-              })
+              this.isShowPlayList = false;
             })
-            .transition(TransitionEffect.OPACITY)
-        }
-        if (this.isShowPlayList) {
+            .transition(TransitionEffect.OPACITY.animation({ duration: 1000, curve: Curve.Ease }))
           PlayList()
             .width('100%')
             .height('80%')
             .transition(TransitionEffect.OPACITY
-              .animation({ curve: curves.springMotion() })
+              .animation({ duration: 1000, curve: Curve.FastOutSlowIn })
               .combine(TransitionEffect.move(TransitionEdge.BOTTOM)))
         }
       }
@@ -400,14 +396,10 @@ struct Index {
 
   onBackPress() {
     if (this.isShowPlayList) {
-      animateTo({ duration: 1000 }, () => {
-        this.isShowPlayList = false;
-      })
+      this.isShowPlayList = false;
       return true;
     } else if (this.isShowPlayerDetail) {
-      animateTo({ duration: 1000 }, () => {
-        this.isShowPlayerDetail = false;
-      })
+      this.isShowPlayerDetail = false;
       return true;
     } else {
       return false;
@@ -417,9 +409,9 @@ struct Index {
   logout() {
     AppStorage.setOrCreate('loginName', ServerConstants.LOGIN_INFO_NO);
     AppStorage.setOrCreate('loginCookie', '');
+    this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
     animateTo({ duration: 2000 }, () => {
       this.customPlayLists = [];
-      this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
       this.loginInfo = ServerConstants.LOGIN_INFO_NO;
     })
     this.getRecommendListFromServer();
@@ -428,10 +420,7 @@ struct Index {
 
   login() {
     try {
-      animateTo({ duration: 2000 }, () => {
-        this.loginButton = ServerConstants.LOGIN_INFO_ING;
-      })
-      this.loginButtonClickable = false;
+      this.loginButton = ServerConstants.LOGIN_INFO_ING;
       this.httpRequest.request(ServerConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
@@ -454,9 +443,7 @@ struct Index {
                     console.info('HttpResponse Result:' + data.result);
                     console.info('HttpResponse code:' + data.responseCode);
                     if (200 === data.responseCode) {
-                      animateTo({ duration: 2000 }, () => {
-                        this.loginInfo = ServerConstants.TEST_ACCOUNT_USER + ServerConstants.LOGIN_INFO_DONE
-                      })
+                      this.loginInfo = ServerConstants.TEST_ACCOUNT_USER + ServerConstants.LOGIN_INFO_DONE;
                       AppStorage.setOrCreate('loginName', ServerConstants.TEST_ACCOUNT_USER);
                       let loginCookie: string[] = data.header['set-cookie'];
                       let cookie: string = loginCookie.map(cookie => {
@@ -467,9 +454,7 @@ struct Index {
                     }
                     console.info('HttpResponse type:' + JSON.stringify(data.resultType));
                     console.info('HttpResponse header:' + JSON.stringify(data.header));
-                    animateTo({ duration: 2000 }, () => {
-                      this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
-                    })
+                    this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
                     this.getRecommendListFromServer();
                     this.getCustomListFromServer();
                   } else {
@@ -499,7 +484,6 @@ struct Index {
         message: ServerConstants.LOGIN_INFO_FAILED
       })
     }
-    this.loginButtonClickable = true;
   }
 
   getRecommendListFromServer() {
@@ -612,8 +596,8 @@ struct Index {
 
   searchSongsFromServer(search_word: string) {
     search_word = search_word.trim();
-    if(!search_word){
-      prompt.showToast({message:ServerConstants.EMPTY_SEARCH_WORD});
+    if (!search_word) {
+      prompt.showToast({ message: ServerConstants.EMPTY_SEARCH_WORD });
       return;
     }
     animateTo(
