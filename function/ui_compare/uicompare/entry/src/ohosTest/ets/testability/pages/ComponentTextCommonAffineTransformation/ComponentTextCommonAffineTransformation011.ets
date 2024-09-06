@@ -33,7 +33,7 @@ struct ComponentTextCommonAffineTransformation011 {
         text: this.text,
         placeholder: 'The text area can hold an unlimited amount of text. input your word...',
         controller: this.controllerArea
-      })
+      }).id("ComponentTextCommonAffineTransformation011_002")
         .style(this.TextContentStyleState)
         .width("10%")
         .scale({x: -2, y: 0.5, z: -5})
@@ -54,7 +54,7 @@ struct ComponentTextCommonAffineTransformation011 {
           .onClick(() => {
             this.TextContentStyleState = TextContentStyle.DEFAULT
             this.TextInputStyleState = TextInputStyle.Default
-        })
+        }).id("ComponentTextCommonAffineTransformation011_001")
       }
     }
     .width("100%")

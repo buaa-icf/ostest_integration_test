@@ -35,12 +35,14 @@ struct ComponentTextCommonAffineTransformation001 {
           this.InputTypeState = InputType.Number
           this.SearchTypeState = SearchType.NUMBER
         })
+        .id("ComponentTextCommonAffineTransformation001_001")
 
       TextArea({
         text: this.text,
         placeholder: 'The text area can hold an unlimited amount of text. input your word...',
         controller: this.controllerArea
       })
+        .id("ComponentTextCommonAffineTransformation001_002")
         .type(this.TextAreaTypeState)
         .width("40%")
         .scale({x: -2, y: 0.5, z: -5})
@@ -48,6 +50,7 @@ struct ComponentTextCommonAffineTransformation001 {
         .rotate({ x: 0, y: 1, z:0, centerX: '0%',centerY: '0%',angle: 300})
 
       TextInput({ text: this.text, placeholder: 'input your word...', controller: this.controllerInput })
+
         .type(this.InputTypeState)
         .width("40%")
         .scale({x: -2, y: 0.5, z: -5})

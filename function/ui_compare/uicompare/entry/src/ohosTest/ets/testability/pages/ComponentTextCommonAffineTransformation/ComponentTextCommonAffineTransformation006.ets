@@ -33,7 +33,7 @@ struct ComponentTextCommonAffineTransformation006 {
         text: this.text,
         placeholder: 'The text area can hold an unlimited amount of text. input your word...',
         controller: this.controllerArea
-      })
+      }).id("ComponentTextCommonAffineTransformation006_001")
         .caretStyle({width: 1.5})
         .fontSize(14)
         .type(this.TextAreaTypeState)

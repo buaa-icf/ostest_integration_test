@@ -35,12 +35,14 @@ struct ComponentTextCommonAffineTransformation002 {
           this.InputTypeState = InputType.Number
           this.SearchTypeState = SearchType.NUMBER
         })
+        .id("ComponentTextCommonAffineTransformation002_001")
 
       TextArea({
         text: this.text,
         placeholder: 'The text area can hold an unlimited amount of text. input your word...',
         controller: this.controllerArea
       })
+        .id("ComponentTextCommonAffineTransformation002_002")
         .type(this.TextAreaTypeState)
         .width("40%")
         .scale({x: -2, y: 0.5, z: -5})

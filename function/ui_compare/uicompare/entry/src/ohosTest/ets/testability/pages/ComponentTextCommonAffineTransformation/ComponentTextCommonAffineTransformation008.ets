@@ -41,7 +41,7 @@ struct ComponentTextCommonAffineTransformation008 {
         text: this.text,
         placeholder: 'The text area can hold an unlimited amount of text. input your word...',
         controller: this.controllerArea
-      })
+      }).id("ComponentTextCommonAffineTransformation008_003")
         .caretStyle({width: this.caretStyleMode[this.caretStyleIndex]})
         .fontSize(this.fontSizeMode[this.fontSizeIndex])
         .type(this.TextAreaTypeState)
@@ -74,7 +74,7 @@ struct ComponentTextCommonAffineTransformation008 {
           if (this.caretStyleIndex > (this.caretStyleModeStr.length - 1)) {
             this.caretStyleIndex = 0
           }
-        })
+        }).id("ComponentTextCommonAffineTransformation008_001")
       }
 
       Row() {
@@ -83,7 +83,7 @@ struct ComponentTextCommonAffineTransformation008 {
           if (this.fontSizeIndex > (this.fontSizeModeStr.length - 1)) {
             this.fontSizeIndex = 0
           }
-        })
+        }).id("ComponentTextCommonAffineTransformation008_002")
       }
     }
     .width("100%")
