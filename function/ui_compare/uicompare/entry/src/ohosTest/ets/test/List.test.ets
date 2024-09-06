@@ -71,6 +71,11 @@ import UiComponentNavModifier from './UiComponentNavModifierTest/UiComponentNavM
 import UiComponentSymbolSymbol from './UiComponentSymbolSymbolTest/UiComponentSymbolSymbol.test'
 import UiComponentTextCommonAffineTransformation from './UiComponentTextCommonAffineTransformationTest/UiComponentTextCommonAffineTransformation.test'
 import UIComponentScrollSwiperInterfaceMixTest from './UIComponentScrollSwiperInterfaceMixTest/UIComponentScrollSwiperInterfaceMix.test'
+import ComponentTextCommonTextMinFontSize001 from './ComponentTextCommonTextMinFontSizeTest/ComponentTextCommonTextMinFontSizeTest001.test'
+import ComponentLayoutModifierTest001 from './ComponentLayoutModifierTest/ComponentLayoutModifierTest001.test'
+import ComponentRowColumnSidebarContainerAttributeTest001 from './ComponentRowColumnSidebarContainerAttributeTest/ComponentRowColumnSidebarContainerAttributeTest001.test'
+import ComponentRowColumnSidebarContainerBlurStyleTest001 from './ComponentRowColumnSidebarContainerBlurStyleTest/ComponentRowColumnSidebarContainerBlurStyleTest001.test'
+import ComponentTextCommonAffineTransformationTest001 from './ComponentTextCommonAffineTransformationTest/ComponentTextCommonAffineTransformationTest001.test'
 import UIComponentTextTextinputAction from './UIComponentTextTextinputActionTest/UIComponentTextTextinputAction.test'
 import UIComponentTextCommonAffingTranTest from './UIComponentTextCommonAffingTranTest/UIComponentTextCommonAffingTran.test'
 import UIComponentSymbolDisplay from './UIComponentSymbolDisplayTest/UIComponentSymbolDisplay.test'
@@ -134,6 +139,11 @@ export default function testsuite() {
   UiComponentSymbolSymbol();
   UiComponentTextCommonAffineTransformation();
   UIComponentScrollSwiperInterfaceMixTest();
+  ComponentTextCommonTextMinFontSize001();
+  ComponentLayoutModifierTest001();
+  ComponentRowColumnSidebarContainerAttributeTest001();
+  ComponentRowColumnSidebarContainerBlurStyleTest001();
+  ComponentTextCommonAffineTransformationTest001();
   UIComponentTextTextinputAction();
   UIComponentTextCommonAffingTranTest();
   UIComponentSymbolDisplay();
