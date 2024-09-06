@@ -38,9 +38,9 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-            * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0010
-            * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0010
-            * @tc.desc    set underlineColor
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0010
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0010
+     * @tc.desc    set underlineColor
      */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0010 start.`);
@@ -60,10 +60,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-           * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0020
-           * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0020
-           * @tc.desc    set typing
-    */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0020
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0020
+     * @tc.desc    set typing
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0020 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor002")
@@ -92,10 +92,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-           * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0030
-           * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0030
-           * @tc.desc    set normal
-    */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0030
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0030
+     * @tc.desc    set normal
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0030 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor003")
@@ -125,10 +125,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0040
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0040
-          * @tc.desc    set error
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0040
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0040
+     * @tc.desc    set error
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0040 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor004")
@@ -158,10 +158,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-        * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0050
-        * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0050
-        * @tc.desc    set disable
- */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0050
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0050
+     * @tc.desc    set disable
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0050 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor005")
@@ -191,10 +191,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-          * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060
-          * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060
-          * @tc.desc    set different color
-   */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060
+     * @tc.desc    set different color
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0060 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor006")
@@ -216,10 +216,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-         * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070
-         * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070
-         * @tc.desc    set showCounter=false
-  */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070
+     * @tc.desc    set showCounter=false
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0070 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor007")
@@ -235,10 +235,38 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-         * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090
-         * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090
-         * @tc.desc    change InputType
-  */
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080
+     * @tc.desc    copy text
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080 start.`);
+      Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor008")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create()
+      let button01: Component = await driver.findComponent(ON.id('UIComponentTextinputUnderlinecolor008'))
+      let text: Component = await driver.findComponent(ON.id('underline008'))
+      await button01.inputText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+      await Utils.sleep(1000)
+      await driver.longClick(150,200)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:150, y:200},MouseButton.MOUSE_BUTTON_MIDDLE, 2072,2019);
+      await Utils.sleep(1000)
+      await driver.longClick(150,100)
+      await Utils.sleep(1000)
+      await driver.mouseClick({x:150, y:100},MouseButton.MOUSE_BUTTON_RIGHT, 2622);
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0080 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090
+     * @tc.desc    change InputType
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0090 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor009")
@@ -265,10 +293,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100
-       * @tc.desc    dark
-*/
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100
+     * @tc.desc    dark
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0100 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor010")
@@ -287,10 +315,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0110
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0110
-       * @tc.desc    change enable
-*/
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0110
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0110
+     * @tc.desc    change enable
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0110 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor011")
@@ -309,9 +337,7 @@ export default function UIComponentTextinputUnderlinecolor() {
       await button04.click()
       await Utils.sleep(1000)
       await driver.triggerKey(2016)
-      await driver.mouseDoubleClick({
-        x: 80, y: 80
-      }, MouseButton.MOUSE_BUTTON_LEFT, 2072);
+      await driver.mouseDoubleClick({  x: 80, y: 80}, MouseButton.MOUSE_BUTTON_LEFT, 2072);
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0110 finish.`);
@@ -319,10 +345,10 @@ export default function UIComponentTextinputUnderlinecolor() {
     })
 
     /*
-       * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120
-       * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120
-       * @tc.desc    preview test
-*/
+     * @tc.number  SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120
+     * @tc.name    SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120
+     * @tc.desc    preview test
+     */
     it('SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXTINPUT_UNDERLINECOLOR_0120 start.`);
       Settings.createWindow("testability/pages/UIComponentTextinputUnderlinecolor/UIComponentTextinputUnderlinecolor012")
