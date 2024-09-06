@@ -34,7 +34,7 @@ export default struct PlayerBar {
   @Link isShowPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
-  private spaces:string = '       '
+  private spaces: string = '       '
 
   aboutToAppear() {
     Logger.info(this.tag, 'aboutToAppear');
@@ -80,7 +80,7 @@ export default struct PlayerBar {
           .borderRadius(48)
           .rotate({ angle: this.rotateAngle })
           .animation({
-            duration: 3600,
+            duration: 7200,
             curve: Curve.Linear,
             delay: 500,
             iterations: -1,
@@ -89,9 +89,7 @@ export default struct PlayerBar {
           .id('songImage')
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            animateTo({ duration: 1000 }, () => {
-              this.isShowPlayerDetail = true;
-            })
+            this.isShowPlayerDetail = true;
           })
         Text(this.item.id ? (this.state === ServerConstants.PLAYER_STATE_PLAYING ? this.spaces + this.item.title + ' - ' + this.item.artist + this.spaces
           : this.item.title + ' - ' + this.item.artist) : ServerConstants.LIST_SONG_NO_PLAYING)
@@ -105,15 +103,13 @@ export default struct PlayerBar {
           .id('songName')
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            animateTo({ duration: 1000 }, () => {
-              this.isShowPlayerDetail = true;
-            })
+            this.isShowPlayerDetail = true;
           })
         Blank()
         Stack() {
           Row({ space: 40 }) {
             Progress({ value: 0, total: this.durationTime, type: ProgressType.Ring })
-              .color(Color.Blue)
+              .color(Color.Gray)
               .value(this.currentTime)
               .width('100%')
               .height('100%')
@@ -123,9 +119,6 @@ export default struct PlayerBar {
 
           if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
             Image($r('app.media.pause'))
-              .objectFit(ImageFit.Contain)
-              .width('90%')
-              .height('90%')
               .padding('4vp')
               .clickEffect(UIConstants.CLICK_EFFECT)
               .onClick(() => {
@@ -134,9 +127,6 @@ export default struct PlayerBar {
               .id('paused')
           } else {
             Image($r('app.media.media_center'))
-              .objectFit(ImageFit.Contain)
-              .width('90%')
-              .height('90%')
               .clickEffect(UIConstants.CLICK_EFFECT)
               .onClick(() => {
                 this.PlayerManager.resume();
@@ -144,20 +134,17 @@ export default struct PlayerBar {
               .id('playing')
           }
         }.alignContent(Alignment.Center)
-        .width(48)
-        .height(48)
+        .width(46)
+        .height(46)
         .margin({ right: 8 })
 
         Image($r('app.media.music_note_list'))
-          .objectFit(ImageFit.Contain)
           .width(42)
           .height(42)
           .margin({ right: 8, left: 8 })
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            animateTo({ duration: 1000 }, () => {
-              this.isShowPlayList = true;
-            })
+            this.isShowPlayList = true;
           })
           .id('playlist')
       }

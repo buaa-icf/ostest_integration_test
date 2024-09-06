@@ -19,10 +19,12 @@ import AudioItem from '../model/AudioItem';
 import Logger from '../utils/Logger';
 import emitter from '@ohos.events.emitter';
 import ServerConstants from '../constants/ServerConstants';
+import { PLAY_MODE } from '../constants/PlayMode';
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
 import http from '@ohos.net.http'
+
 
 export default class PlayerManager {
   private tag: string = 'PlayerManager';
@@ -35,11 +37,17 @@ export default class PlayerManager {
   private item: AudioItem = new AudioItem('', '', '');
   private listPosition: number = 0;
   private state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
-  private listTitle: string = '';
+  private listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
   private httpRequest = http.createHttp();
+  private playMode: number | undefined = PLAY_MODE.REPEAT;
+  private shuffleIndex: number[] = [];
   private emitterOptions: emitter.Options = {
     priority: emitter.EventPriority.HIGH
   };
+
+  constructor() {
+    this.startContinuousTask();
+  }
 
   // 注册avplayer回调函数
   setAVPlayerCallback(avPlayer: media.AVPlayer) {
@@ -68,6 +76,9 @@ export default class PlayerManager {
       console.info('PlayerManager state durationUpdate：' + time);
       this.currentDuration = time;
     })
+    avPlayer.on('seekDone', (seekDoneTime:number) => {
+      console.info('seekDone success,and seek time is:' + seekDoneTime)
+    })
     avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
       this.state = state;
       let eventData: emitter.EventData = {
@@ -79,7 +90,7 @@ export default class PlayerManager {
       switch (state) {
         case ServerConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
           console.info('PlayerManager state idle called.');
-          avPlayer.release(); // 调用release接口销毁实例对象
+          //avPlayer.release(); // 调用release接口销毁实例对象
           break;
         case ServerConstants.PLAYER_STATE_INITIALIZED: // avplayer 设置播放源后触发该状态上报
           console.info('PlayerManager state initialized called.');
@@ -93,19 +104,18 @@ export default class PlayerManager {
           console.info('PlayerManager state playing called.');
           this.list[this.listPosition].isPlaying = true;
           this.record_recent();
-          this.startContinuousTask();
           break;
         case ServerConstants.PLAYER_STATE_PAUSED: // pause成功调用后触发该状态机上报
           console.info('PlayerManager state paused called.');
           break;
         case ServerConstants.PLAYER_STATE_COMPLETED: // 播放结束后触发该状态机上报
           console.info('PlayerManager state completed called.');
-          avPlayer.stop(); //调用播放结束接口
+          //avPlayer.stop(); //调用播放结束接口
           this.next();
           break;
         case ServerConstants.PLAYER_STATE_STOPPED: // stop接口成功调用后触发该状态机上报
           console.info('PlayerManager state stopped called.');
-          this.stopContinuousTask();
+          //this.stopContinuousTask();
           this.currentTime = 0;
           Logger.info(this.tag, 'Stop:' + this.item.title);
           avPlayer.reset(); // 调用reset接口初始化avplayer状态
@@ -131,6 +141,11 @@ export default class PlayerManager {
     }
     this.list = list;
     this.listTitle = listTitle;
+    this.playMode = PLAY_MODE.REPEAT;
+    this.shuffleIndex = [];
+    for (let i = 0; i < list.length; i++) {
+      this.shuffleIndex.push(i);
+    }
     this.play(item);
   }
 
@@ -153,12 +168,15 @@ export default class PlayerManager {
    * 播放
    */
   play(item: AudioItem): void {
-    this.stop();
     Logger.info(this.tag, 'Play finish:' + this.listPosition.toString());
-    let index = -1
-    if (item !== undefined) {
-      index = this.list.indexOf(item)
+    if (this.item) {
+      this.item.isPlaying = false;
     }
+    let index = -1
+    if (item === undefined) {
+      return
+    }
+    index = this.list.indexOf(item)
     if (-1 === index) {
       this.listPosition = 0;
     } else {
@@ -212,10 +230,25 @@ export default class PlayerManager {
    */
   next(): void {
     let newPosition = 0;
-    if (this.listPosition + 1 === this.list.length) {
-      newPosition = 0;
-    } else {
-      newPosition = this.listPosition + 1;
+    switch (this.playMode) {
+      case PLAY_MODE.REPEAT1:
+        newPosition = this.listPosition;
+        break;
+      case PLAY_MODE.SHUFFLE:
+        let currentIndex: number = this.shuffleIndex.indexOf(this.listPosition);
+        let nextIndex: number = 0;
+        if (currentIndex + 1 !== this.shuffleIndex.length) {
+          nextIndex = currentIndex + 1;
+        }
+        newPosition = this.shuffleIndex[nextIndex];
+        break;
+      default:
+        if (this.listPosition + 1 === this.list.length) {
+          newPosition = 0;
+        } else {
+          newPosition = this.listPosition + 1;
+        }
+        break;
     }
     Logger.info(this.tag, 'Play next:' + newPosition.toString());
     this.play(this.list[newPosition]);
@@ -226,18 +259,50 @@ export default class PlayerManager {
    */
   previous() {
     let newPosition = 0;
-    if (this.listPosition === 0) {
-      newPosition = 0;
-    } else {
-      newPosition = this.listPosition - 1;
+    switch (this.playMode) {
+      case PLAY_MODE.REPEAT1:
+        newPosition = this.listPosition;
+        break;
+      case PLAY_MODE.SHUFFLE:
+        let currentIndex: number = this.shuffleIndex.indexOf(this.listPosition);
+        let nextIndex: number = 0;
+        if (currentIndex !== 0) {
+          nextIndex = currentIndex - 1;
+        } else {
+          nextIndex = this.shuffleIndex.length - 1;
+        }
+        newPosition = this.shuffleIndex[nextIndex];
+        break;
+      default:
+        if (this.listPosition === 0) {
+          newPosition = this.list.length - 1;
+        } else {
+          newPosition = this.listPosition - 1;
+        }
+        break;
     }
     Logger.info(this.tag, 'Play previous:' + newPosition.toString());
     this.play(this.list[newPosition]);
   }
 
   //播放顺序
-  setPlayMode() {
-
+  setPlayMode(): number {
+    switch (this.playMode) {
+    //to repeat1
+      case PLAY_MODE.REPEAT:
+        this.playMode = PLAY_MODE.REPEAT1;
+        break;
+    //to shuffle
+      case PLAY_MODE.REPEAT1:
+        this.playMode = PLAY_MODE.SHUFFLE;
+        this.shuffleIndex.sort(() => Math.random() - 0.5);
+        break;
+    //to repeat
+      default:
+        this.playMode = PLAY_MODE.REPEAT;
+        break;
+    }
+    return this.playMode;
   }
 
   getItem(): AudioItem {
@@ -252,15 +317,23 @@ export default class PlayerManager {
     return this.state;
   }
 
+  getPlayMode(): number {
+    if (this.playMode === undefined) {
+      return PLAY_MODE.REPEAT;
+    }
+    return this.playMode;
+  }
+
   async avPlayerLive(url: string) {
     // 创建avPlayer实例对象
     if (this.avPlayer === undefined) {
       this.avPlayer = await media.createAVPlayer();
       this.setAVPlayerCallback(this.avPlayer);
     } else {
-      this.avPlayer.release();
-      this.avPlayer = await media.createAVPlayer();
-      this.setAVPlayerCallback(this.avPlayer);
+      await this.avPlayer.reset();
+      //this.avPlayer.release();
+      //this.avPlayer = await media.createAVPlayer();
+      //this.setAVPlayerCallback(this.avPlayer);
     }
     console.info('PlayerManager state url：' + url);
     this.avPlayer.url = url;

@@ -26,6 +26,7 @@ export default struct SongCell {
       Image(ServerConstants.SONG_IMAGE_URL + this.item.id)
         .width(64)
         .height(64)
+        .borderRadius(4)
       Blank()
       Text() {
         if(this.item.isPlaying){

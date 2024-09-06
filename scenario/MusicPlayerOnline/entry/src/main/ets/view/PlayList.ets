@@ -22,16 +22,27 @@ import UIConstants from '../constants/UIConstants';
 
 @Component
 export default struct PlayList {
+  private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State playingList: AudioItem[] = Array<AudioItem>();
   @State listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
-  private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
+  private scrollerForList: Scroller = new Scroller();
 
   aboutToAppear() {
-    this.playingList = this.playerManager.getCurrentPlayList();
     this.listTitle = this.playerManager.getListTitle();
+    animateTo({ duration: 2000 }, () => {
+      this.playingList = this.playerManager.getCurrentPlayList();
+    })
+    setTimeout(() => {
+      this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
+    }, 3000)
     emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
-        this.playingList = this.playerManager.getCurrentPlayList();
+      if (eventData !== undefined && eventData.data !== undefined && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
+        animateTo({ duration: 2000 }, () => {
+          this.playingList = this.playerManager.getCurrentPlayList();
+        })
+        setTimeout(() => {
+          this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
+        }, 2000)
       }
     });
   }
@@ -43,30 +54,27 @@ export default struct PlayList {
     Column() {
       Text(this.listTitle)
         .fontSize(24)
-        .margin(8)
-      Scroll() {
-        Column({ space: 10 }) {
-          List() {
-            ForEach(this.playingList, (item: AudioItem) => {
-              ListItem() {
-                SongCell({ item })
-              }
-              .width('100%')
-              .backgroundColor(item.isPlaying ? '#f0f0f0' : Color.White)
-              .clickEffect(UIConstants.CLICK_EFFECT)
-              .onClick(() => {
-                this.playerManager.playList(this.listTitle, this.playingList, item)
-              })
-              .height('84vp')
-            })
+        .margin(12)
+        .maxLines(1)
+        .textOverflow({ overflow: TextOverflow.MARQUEE })
+      List({ scroller: this.scrollerForList }) {
+        ForEach(this.playingList, (item: AudioItem) => {
+          ListItem() {
+            SongCell({ item })
           }
           .width('100%')
-          .backgroundColor(Color.White)
-        }
-        .width('100%')
+          .height('84vp')
+          .backgroundColor(item.isPlaying ? '#f0f0f0' : Color.White)
+          .transition({ type: TransitionType.All, opacity: 0 })
+          .clickEffect(UIConstants.CLICK_EFFECT)
+          .onClick(() => {
+            this.playerManager.play(item)
+          })
+        })
       }
-      .margin({ bottom: 36 })
       .width('100%')
+      .backgroundColor(Color.White)
+      .margin({ bottom: 36 })
     }
     .height('100%')
     .backgroundColor(Color.White)

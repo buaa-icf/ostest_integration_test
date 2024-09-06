@@ -78,6 +78,7 @@ export default class ServerConstants {
   static readonly PLAYER_STATE_STOPPED = 'stopped';
   static readonly PLAYER_STATE_RELEASED = 'released';
   static readonly PLAYER_STATE_UNKNOWN = 'unknown';
+
   /**
    * PLAYER UPDATE
    */
@@ -96,7 +97,7 @@ export default class ServerConstants {
   static readonly LOGIN_BUTTON_IN = '登录';
   static readonly LOGIN_BUTTON_OUT = '登出';
   static readonly LOGIN_INFO_NO = '未登录';
-  static readonly LOGIN_INFO_ING = '正在登录...';
+  static readonly LOGIN_INFO_ING = '···';
   static readonly LOGIN_INFO_FAILED = '登录失败';
   static readonly LOGIN_INFO_DONE = ' 你好！';
   static readonly TEST_ACCOUNT_USER = 'test';
@@ -109,4 +110,3 @@ export default class ServerConstants {
   static readonly SEARCHING = '搜索中';
   static readonly EMPTY_SEARCH_WORD = '不能搜索空字符';
 }
-
