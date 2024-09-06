@@ -16,7 +16,8 @@
 @Entry
 @Component
 struct UIComponentCreateColor010 {
-  @State booltext:boolean = false
+  @State selectionStart: number = 0
+  @State selectionEnd: number = 0
   @State caretcolorIndex: number = 0;
   @State caretcolor: Color[] = [Color.Red, Color.Green, Color.Blue]
   @State caretcolorStr: string[] = ['Red', 'Green', 'Blue']
@@ -27,36 +28,25 @@ struct UIComponentCreateColor010 {
       //change selection
       Button('setTextSelection')
         .width('90%')
+        .height('10%')
         .margin(20)
-        .id('setTextSelection')
+        .id('setTextSelection010')
         .onClick(()=>{
-          this.booltext=true
+          this.selectionStart=0
+          this.selectionEnd=5
         })
       //change caretcolor
       Button('caretColor')
         .width('90%')
+        .height('10%')
         .margin(20)
-        .id('caretColor')
+        .id('caretColor010')
         .onClick(()=>{
           this.caretcolorIndex++
           if (this.caretcolorIndex > (this.caretcolorStr.length - 1)) {
             this.caretcolorIndex = 0
           }
         })
-      //select(0,5)
-      if(this.booltext){
-        TextArea({
-          text: 'rgbcolorrgb',
-          controller: this.controller
-        })
-          .caretColor('#007DFF')
-          .width(300)
-          .defaultFocus(true)
-          .id('rgb')
-          .onFocus(() => {
-            this.controller.setTextSelection(0, 5)
-          })
-      }
       //caretcolor
       TextArea({
         text: this.caretcolorStr[this.caretcolorIndex],
@@ -64,8 +54,13 @@ struct UIComponentCreateColor010 {
       })
         .caretColor(this.caretcolor[this.caretcolorIndex])
         .width(300)
+        .height('20%')
         .margin(20)
-        .id('colorstr')
+        .defaultFocus(true)
+        .onClick(() => {
+          this.controller.setTextSelection(this.selectionStart, this.selectionEnd)
+        })
+        .id('colorstr010')
     }
     .width('100%')
     .height('100%')
