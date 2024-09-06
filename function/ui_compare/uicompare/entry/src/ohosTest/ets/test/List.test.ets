@@ -76,6 +76,10 @@ import ComponentLayoutModifierTest001 from './ComponentLayoutModifierTest/Compon
 import ComponentRowColumnSidebarContainerAttributeTest001 from './ComponentRowColumnSidebarContainerAttributeTest/ComponentRowColumnSidebarContainerAttributeTest001.test'
 import ComponentRowColumnSidebarContainerBlurStyleTest001 from './ComponentRowColumnSidebarContainerBlurStyleTest/ComponentRowColumnSidebarContainerBlurStyleTest001.test'
 import ComponentTextCommonAffineTransformationTest001 from './ComponentTextCommonAffineTransformationTest/ComponentTextCommonAffineTransformationTest001.test'
+import UIComponentTextTextinputAction from './UIComponentTextTextinputActionTest/UIComponentTextTextinputAction.test'
+import UIComponentTextCommonAffingTranTest from './UIComponentTextCommonAffingTranTest/UIComponentTextCommonAffingTran.test'
+import UIComponentSymbolDisplay from './UIComponentSymbolDisplayTest/UIComponentSymbolDisplay.test'
+import UIAttributeFontSupportstage from './UIAttributeFontSupportstageTest/UIAttributeFontSupportstage.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -140,4 +144,8 @@ export default function testsuite() {
   ComponentRowColumnSidebarContainerAttributeTest001();
   ComponentRowColumnSidebarContainerBlurStyleTest001();
   ComponentTextCommonAffineTransformationTest001();
+  UIComponentTextTextinputAction();
+  UIComponentTextCommonAffingTranTest();
+  UIComponentSymbolDisplay();
+  UIAttributeFontSupportstage();
 }
