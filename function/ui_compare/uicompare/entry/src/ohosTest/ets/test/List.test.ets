@@ -80,6 +80,8 @@ import UIComponentTextTextinputAction from './UIComponentTextTextinputActionTest
 import UIComponentTextCommonAffingTranTest from './UIComponentTextCommonAffingTranTest/UIComponentTextCommonAffingTran.test'
 import UIComponentSymbolDisplay from './UIComponentSymbolDisplayTest/UIComponentSymbolDisplay.test'
 import UIAttributeFontSupportstage from './UIAttributeFontSupportstageTest/UIAttributeFontSupportstage.test'
+import UIAttributeFontInterface002 from './UIAttributeFontInterfaceTest/UIAttributeFontInterface002.test'
+import UIAttributeFontInterface003 from './UIAttributeFontInterfaceTest/UIAttributeFontInterface003.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
