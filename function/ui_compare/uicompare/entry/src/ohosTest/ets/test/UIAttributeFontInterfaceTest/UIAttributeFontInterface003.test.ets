@@ -1905,5 +1905,588 @@ export default function UIAttributeFontInterface003() {
         }
       }
     })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840
+     * @tc.name   : SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840
+     * @tc.desc   : Search component
+     * Click on the input box and enter characters.
+     * Click the "lineHeight" button to dynamically change the line height (-5, 0, 10, 20, '30%', '40vp').
+     * Long-press to select text.
+     */
+    it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle61")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle61_1'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle61_2'));
+      await button1.click()
+      for(let i_01 = 0; i_01<6; i_01++){
+        await button2.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i_01 == 5){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850
+     * @tc.name   : SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850
+     * @tc.desc   : Search component
+     * Click on the input box and enter characters.
+     * Click the "lineHeight" button to dynamically change the line height (-5, 0, 10, 20, '30%', '40vp').
+     * Click the "decoration" button to display text decoration lines.
+     */
+    it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle62")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle62_01'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle62_02'));
+      let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle62_03'));
+      await button1.click()
+      await button3.click()
+      for(let i_02 = 0; i_02 < 6; i_02++){
+        await button2.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i_02==5){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020
+     * @tc.desc   : Use the addsymbolspan interface, set value: $r to introduce sys.media.ohos_trash_circle (click to
+     * add a system resource symbolSpan)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle63")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030
+     * @tc.desc   : Use the addSymbolSpan interface to set value: $r to introduce app.media.img2 (click to add a custom
+     * symbolSpan)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle64")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040
+     * @tc.desc   : Click on "Add symbolSpan" (to add a symbolSpan using the addSymbolSpan interface without setting
+     * the offset)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle65")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle65_01'));
+      await button.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060
+     * @tc.desc   : Click on "fontsize++" / "fontsize--" (to adjust the fontsize in the "Add Symbolspan1" button)
+     * Click on "Add Symbolspan1" (to add a symbolspan using the addsymbolspan interface)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle66")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle66_01'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle66_02'));
+      let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle66_03'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button2.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button3.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070
+     * @tc.desc   : Set fontSize to 10, -10, '10abc', '50%' use addSymbolSpan to add
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle67")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_01'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_02'));
+      let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_03'));
+      let button4: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_04'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button2.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button3.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button4.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080
+     * @tc.desc   : Click on "fontcolor" and select from "color.red, color.black, color.pink, {color.red,color.black},
+     * {color.red,color.black,color.pink}" (to set the fontcolor in the "Add symbolSpan1" button)
+     * Click on "Add symbolSpan1" (to add a symbolSpan using the addSymbolSpan interface)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle68")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle68_01'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle68_02'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button2.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090
+     * @tc.desc   : Click on "Set fontcolor to 0xff0000" (to set the fontcolor for adding symbolspan2)
+     * Click on "Add Symbolspan2" (to add a symbolspan using the addsymbolspan interface)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle69")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle69_01'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100
+     * @tc.desc   : Set fontColor, '#008800','rgba(0,255,0,1)','rgb(0,0,255)',then use the addSymbolSpan interface
+     * to add the symbolSpan
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle70")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle70_01'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle70_02'));
+      let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle70_03'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button2.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button3.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110
+     * @tc.desc   : Click on "fontcolor $r("app.color.ColorRed")" (to set the fontcolor in the "Add symbolSpan3" button)
+     * Click on "Add symbolSpan3" (to add a symbolSpan using the addSymbolSpan interface)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle71")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle71_01'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120
+     * @tc.desc   : Click on "fontWeight+50" / "fontWeight-50" (to set the fontWeight in the "Add Symbolspan1" button)
+     * Click on "Add Symbolspan1" (to add a symbolspan using the addsymbolspan interface)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle72")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle72_01'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle72_02'));
+      let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle72_03'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button2.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button3.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130
+     * @tc.desc   : Set fontWeight=("600","-100","400abc","500abc") and use the addSymbolSpan interface to add a
+     * symbolSpan.
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle73")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_01'));
+      let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_02'));
+      let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_03'));
+      let button4: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_04'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button2.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button3.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      await button4.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140
+     * @tc.desc   : Click on "fontWeight" (to toggle the fontWeight (Lighter, Normal, Regular, Medium, Bold, Bolder)
+     * in the "Add SymbolSpan1" button)
+     * Click on "Add symbolSpan1" (to add a symbolSpan using the addSymbolSpan interface)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle74")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle74_01'));
+      await Utils.sleep(1000)
+      for(let i = 0; i<5; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==5){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150
+     * @tc.desc   : Click on "fontsize++" / "fontsize--" (to set the fontsize in the "Update Symbolspan1" button)
+     * Long press to select an existing symbolspan
+     * Click on "Update Symbolspan1" (to add a symbolspan using the updatesymbolspan interface)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle75")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle75_01'));
+      await Utils.sleep(1000)
+      for(let i = 0; i<4; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==4){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160
+     * @tc.desc   : Set fontSize to 10, -10, '10abc', '50%' and call updatesymbolspan to update
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle76")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle76_01'));
+      await Utils.sleep(1000)
+      for(let i = 0; i<4; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==4){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170
+     * @tc.desc   : Click "fontcolor" and select from "color.red, color.black, color.pink, {color.red,color.black},
+     * {color.red,color.black,color.pink}" (to set the fontcolor in the "Update symbolspan1" button)
+     * Long press to select
+     * Click "Update symbolspan1" (use the updatesymbolspan interface to update the symbolspan)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle77")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle77_01'));
+      for(let i = 0; i<3; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==3){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180
+     * @tc.desc   : Click "Set fontcolor to 0xff0000" (to set the fontcolor in the "Update symbolSpan2" function)
+     * Long press to select
+     * Click "Update symbolSpan2" (use the updateSymbolSpan interface to update the symbolSpan)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle78")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle78_01'));
+      await button1.click()
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190
+     * @tc.desc   : Set fontColor, '#008800','rgba(0,255,0,1)','rgb(0,0,255)',then use the updateSymbolSpan interface
+     * to update the symbolSpan
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle79")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle79_01'));
+      for(let i = 0; i<3; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==3){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210
+     * @tc.desc   : Click "fontWeight+50" / "fontWeight-50" (to set the fontWeight in the "Update symbolSpan1" button)
+     * Long press to select, then use the updateSymbolSpan interface to update the symbolSpan
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle80")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle80_01'));
+      for(let i = 0; i<6; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==6){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220
+     * @tc.desc   : Set fontWeight to '600', '-100', '400abc', '500%', and call updateSpanStyle to update the style
+     * of the selected content.
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle81")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle81_01'));
+      for(let i = 0; i<6; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==6){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230
+     * @tc.desc   : Click "fontWeight" (toggle the fontWeight (Lighter, Normal, Regular, Medium, Bold, Bolder) in
+     * the "Update symbolspan1" button)
+     * Long press to select, then click "Update symbolspan1" (use the updatesymbolspan interface to update the
+     *  symbolspan)
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle82")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle82_01'));
+      for(let i = 0; i<6; i++){
+        await button1.click()
+        await Utils.sleep(1000)
+        windowSnap.snapShot()
+        await Utils.sleep(1000)
+        if(i==6){
+          Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230 finish.`);
+          done()
+        }
+      }
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360
+     * @tc.name   : SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360
+     * @tc.desc   : Click "setTypingStyle" (use setTypingStyle to set fontsize to 30, fontcolor to red,
+     * and fontweight to 600), Click to add a "symbolspan"
+     */
+    it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle86")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle86_01'));
+      let richEditor:Component = await driver.findComponent(ON.id('RichEditor_086'));
+      await button1.click()
+      await Utils.sleep(1000)
+      await richEditor.inputText("999999999")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360 finish.`);
+      done()
+    })
   })
 }
