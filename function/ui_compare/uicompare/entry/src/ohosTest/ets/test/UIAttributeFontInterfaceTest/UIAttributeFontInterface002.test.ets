@@ -21,6 +21,22 @@ import Utils from '../model/Utils'
 import {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation,
   ResizeDirection, WindowMode, PointerMatrix} from '@ohos.UiTest';
 
+/*
+ * SUB_ACE_UI_ATTRIBUTES_FONT_INTERFACE_0010:设置文本颜色
+ *
+ * Settings.createWindow(config.url)：
+ *  创建窗口，更改窗口基本配置，更改方式详见model/Settings createWindow方法
+ *
+ * windowSnap.snapShot(globalThis.context)：
+ *  窗口截屏&图片文件保存，存储在设备端
+ *  存储文件固定，单挑用例执行后覆盖，用于自动化UI对比
+ *  支持调试更改文件名为时间戳格式，更改model/snapShot createAndGetFile方法 注释L35，放开L32，L33
+ *
+ * Logger日志使用方法：
+ *  import Logger form './model/Logger'
+ *  Logger.info(TAG,`config = ${config}, err = ${JSON.stringify(exception)}`)
+ * */
+
 export default function UIAttributeFontInterface002() {
 
   describe('UIAttributeFontInterface002', () => {
@@ -1948,6 +1964,1393 @@ export default function UIAttributeFontInterface002() {
       windowSnap.snapShot()
       await Utils.sleep(1000)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0160 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170
+     * @tc.desc   : Add a Text component, and include a child Span component with a single line of content. Set the
+     * textBackgroundStyle attribute with the properties: {color: Color.Green, radius: {bottomLeft: 10}}
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage110")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180
+     * @tc.desc   : Add a Text component, and include a child Span component with a single line of content. Set the
+     * textBackgroundStyle attribute with the properties: {color: Color.Green, radius: {bottomRight: 10}}
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage111")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190
+     * @tc.desc   : Add a Text component, and include a child Span component with a single line of content. Set the
+     * textBackgroundStyle attribute with the properties: {color: Color.Green, radius: {topLeft: 10, topRight: 20,
+     * bottomLeft: 40, bottomRight: 80}}
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage112")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200
+     * @tc.desc   : Add a Text component, and include a child Span component with a single line of content. Upon
+     * clicking the button labeled "Background Color: Red," set the textBackgroundStyle attribute with the
+     * properties: {color: this.color, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage113")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage113'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210
+     * @tc.desc   : Add a Text component, and include a child `Span` component with a single line of content.
+     * Upon clicking the button labeled "Corner Radius: 10," set the `textBackgroundStyle` attribute with the
+     * properties: `{color: Color.Green, radius: this.number}` where `this.number` is dynamically set to a value
+     * (10, 20, or 30) based on the button click.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage114")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button_20: Component = await driver.findComponent(ON.id('fontAttributePage114_20'));
+      await button_20.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let button_30: Component = await driver.findComponent(ON.id('fontAttributePage114_30'));
+      await button_30.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220
+     * @tc.desc   : Add a Text component, and include a child `Span` component with a single line of content.
+     * Set the `textBackgroundStyle` attribute with a radius of 5.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage115")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230
+     * @tc.desc   : Add a Text component, and include a child `Span` component with a single line of content.
+     * Set the `textBackgroundStyle` attribute with the color property to `Color.Green`
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage116")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240
+     * @tc.desc   : Add a Text component, and within it, add a `ContainerSpan`. Inside the `ContainerSpan`,
+     * include both a `Span` and an `ImageSpan` to be displayed in a single line. Set the `textBackgroundStyle`
+     * property of the `ContainerSpan` with the style: `{color: Color.Green, radius: 5}`.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage117")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250
+     * @tc.desc   : Add a Text component, and within it, add a `ContainerSpan`. Inside the `ContainerSpan`,
+     * set both a `Span` and an `ImageSpan` to display in a single line. Ensure the dimensions of the `ImageSpan` are
+     * larger than those of the `Span`. Set the `textBackgroundStyle` property of the `ContainerSpan` with the style:
+     * `{color: Color.Green, radius: 5}`.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage118")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0260
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0260
+     * @tc.desc   : Add Text Component Add ContainerSpan, configure Span and ImageSpan within the component to display
+     * in a single line Set textBackgroundStyle({color: Color.Green, radius: 5}) on ContainerSpan to dynamically change
+     * font size and image size
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0260', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0260 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage119")
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      let fontSize: Component = await driver.findComponent(ON.id('fontAttributePage119_01'));
+      let imageSize: Component = await driver.findComponent(ON.id('fontAttributePage119_02'));
+      await fontSize.click()
+      await imageSize.click()
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0260 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270
+     * @tc.desc   : Add a Text component, and within it, add a ContainerSpan. Inside the ContainerSpan, set both a Span
+     * and an ImageSpan to be displayed in a single line. For the ImageSpan within the ContainerSpan, set the
+     * textBackgroundStyle to {color: Color.Red, radius: 5}. For the Span within the ContainerSpan, set the
+     * textBackgroundStyle to {color: Color.Blue, radius: 5}. Additionally, set the textBackgroundStyle for the
+     * ContainerSpan itself to {color: Color.Green, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage120")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280
+     * @tc.desc   : Add a Text component, and within it, add a ContainerSpan. Inside the ContainerSpan, include both a
+     * Span and an ImageSpan to be displayed in a single line. For the Span within the ContainerSpan, set the
+     * textBackgroundStyle to {color: Color.Blue, radius: 5}. For the ContainerSpan itself, set the textBackgroundStyle
+     * to {color: Color.Green, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage121")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290
+     * @tc.desc   : Add a Text component with a blue background color by setting backgroundColor to Blue. Within the
+     * Text component, add a ContainerSpan. Inside the ContainerSpan, include both a Span and an ImageSpan to be
+     * displayed in a single line. Set the textBackgroundStyle for the ContainerSpan to {color: Color.Red, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage122")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300
+     * @tc.desc   : Add a Text component with rounded corners for the border by setting borderRadius to 10. Within the
+     * Text component, add a ContainerSpan. Inside the ContainerSpan, include both a Span and an ImageSpan to be
+     * displayed in a single line. Set the textBackgroundStyle for the ContainerSpan to {color: Color.Red, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage123")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310
+     * @tc.desc   : Add a Text component and within it, add a ContainerSpan. Inside the ContainerSpan, include multiple
+     * Span and ImageSpan components to be displayed in a single line. Set the textBackgroundStyle for the
+     * ContainerSpan with the properties: {color: Color.Red, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage124")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320
+     * @tc.desc   : Add a Text component and within it, add a ContainerSpan. Inside the ContainerSpan, include multiple
+     * Span and ImageSpan components, with content that exceeds three lines. Set the textBackgroundStyle for the
+     * ContainerSpan with the properties: {color: Color.Red, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage125")
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0330
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0330
+     * @tc.desc   : Add a Text component and within it, add a ContainerSpan. Inside the ContainerSpan, include multiple
+     * Span and ImageSpan components, with content that exceeds three lines. Set the textBackgroundStyle for the
+     * ContainerSpan with the properties: {color: Color.Red, radius: 5}.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0330', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0330 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage126")
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let widthDec: Component = await driver.findComponent(ON.id('fontAttributePage126_01'));
+      let widthInc: Component = await driver.findComponent(ON.id('fontAttributePage126_02'));
+      await widthDec.click()
+      await widthInc.click()
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0330 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010
+     * @tc.desc   : Add a Text component with the following settings: .maxLines(2), .width('220vp')
+     * (without setting the height), .minFontSize(14), .maxFontSize(24). Call the measureTextSize method twice to
+     * compare the text height when the Text component's maxLines is set versus when it's set to maxLines + 1.
+     * Add a TextInput component and assign the input content to the Text component.
+     * Set the textIndent property to 10, and input the text "文本截断是按字截断".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage127")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage127'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020
+     * @tc.desc   : Set the textIndent property to 10, and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i ams".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage128")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage128'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0030
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0030
+     * @tc.desc   : Set the textIndent property to 0, and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0030', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage129")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage129'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040
+     * @tc.desc   : Set the textIndent property to 0, and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am asdf".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage130")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage130'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050
+     * @tc.desc   : Set the textIndent property to -10, and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage131")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage131'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060
+     * @tc.desc   : Set the textIndent property to -10, and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am asdf".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage132")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage132'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070
+     * @tc.desc   : Set the textIndent property to '0', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage133")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage133'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080
+     * @tc.desc   : Set the textIndent property to '0', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am asdf".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage134")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage134'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090
+     * @tc.desc   : Set the textIndent property to '30px', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage135")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage135'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100
+     * @tc.desc   : Set the textIndent property to '30px', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i ams".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage136")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage136'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110
+     * @tc.desc   : Set the textIndent property to '-10px', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage137")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage137'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120
+     * @tc.desc   : Set the textIndent property to '-10px', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am asdf".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage138")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage138'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130
+     * @tc.desc   : Set the textIndent property to '10%', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage139")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage139'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140
+     * @tc.desc   : Set the textIndent property to '10%', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage140")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage140'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150
+     * @tc.desc   : Set the textIndent property to 'abc', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage141")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage141'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160
+     * @tc.desc   : Set the textIndent property to 'abc', and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am asdf".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage142")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage142'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170
+     * @tc.desc   : Do not set the textIndent property and input the text "本截断是按字截断文本截断是按字截断文本截断是按字截
+     * 断文本i am".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage143")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage143'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180
+     * @tc.desc   : Do not set the textIndent property and input the text "本截断是按字截断文本截断是按字截断文本截断是按字
+     * 截断文本i am asdf".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage144")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage144'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text "文本截断是按字截断".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage145")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage145'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "本截断是按字截断文本截断是按字截断文本截断是按字截断文本是按字".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage146")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage146'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "てられますテキスト切り捨ては単語によって切り捨て".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage147")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage147'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "この切り捨ては単語によって切り捨てられますテキスト切り捨ては単語によって切り捨てられますテキスト切り捨ては単語によって切り捨て
+     * られますテキストは単語によって切り".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage148")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage148'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "이 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage149")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage149'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "이 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다.
+     * 텍스트 잘림은 단어로 자릅니다".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage150")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage150'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "This truncation is truncated text by".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage151")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage151'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "This truncation is truncating text by word Truncating text by word Truncating text by word Truncating
+     * text by word Truncating text by word Yes".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage152")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage152'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "按字截断によって切이 잘림This truncation is".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage153")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage153'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280
+     * @tc.desc   : Set the wordBreak property to NORMAL, and input the text
+     * "按字截断によって切이 잘림This truncation is按字截断によって切이 잘림This truncation is按字截断によって切이 잘림This
+     * truncation is按字截断によって切이 잘림This truncation is".
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage154")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage154'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "文本截断是按字截断"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage155")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage155'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "本截断是按字截断文本截断是按字截断文本截断是按字截断文本是按字"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage156")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage156'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "てられますテキスト切り捨ては単語によって切り捨て"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage157")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage157'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "この切り捨ては単語によって切り捨てられますテキスト切り捨ては単語によって切り捨てられますテキスト切り捨ては単語によって切り捨てられ
+     * ますテキストは単語によって切り"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage158")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage158'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "이 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage159")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage159'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "이 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다.
+     * 텍스트 잘림은 단어로 자릅니다"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage160")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage160'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "This truncation is truncated text by"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage161")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage161'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "This truncation is truncating text by word Truncating text by word Truncating text by word Truncating text
+     * by word Truncating text by word Yes by word Truncating text by word"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage162")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage162'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "按字截断によって切이 잘림This truncation is"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage163")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage163'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380
+     * @tc.desc   : Set the wordBreak property to BREAK_ALL, and input the text
+     * "按字截断によって切이 잘림This truncation is按字截断によって切이 잘림This truncation is按字截断によって切이 잘림This
+     * truncation is按字截断によって切이 잘림This truncation is"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage164")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage164'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "文本截断是按字截断"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage165")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage165'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "本截断是按字截断文本截断是按字截断文本截断是按字截断文本是按字"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage166")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage166'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "てられますテキスト切り捨ては単語によって切り捨て"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage167")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage167'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "この切り捨ては単語によって切り捨てられますテキスト切り捨ては単語によって切り捨てられますテキスト切り捨ては単語によって切り捨てられます
+     * テキストは単語によって切り"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage168")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage168'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "이 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage169")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage169'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "이 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다. 텍스트 잘림은 단어로 자릅니다. 텍스트
+     * 잘림은 단어로 자릅니다"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage170")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage170'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "This truncation is truncated text by"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage171")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage171'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "This truncation is truncating text by word Truncating text by word Truncating text by word Truncating text by
+     * word Truncating text by word Yes by word"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage172")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage172'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "按字截断によって切이 잘림This truncation is"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage173")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage173'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480
+     * @tc.desc   : Set the wordBreak property to BREAK_WORD, and input the text
+     * "按字截断によって切이 잘림This truncation is按字截断によって切이 잘림This truncation is按字截断によって切이 잘림This
+     * truncation is按字截断によって切이 잘림This truncation"
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage174")
+      await Utils.sleep(1000)
+      let driver: Driver = Driver.create();
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage174'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0490
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0490
+     * @tc.desc   : Set the maxLines property to 3 and input the text "本截断是按字截断文本截断是按字截断文本截断是按字截断文本
+     * i am本截断是按字截断文本截断是按字截断文本截断是按字截断文本". When you change maxLines from 3 to 5, input an
+     * additional character.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0490', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0490 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage175")
+      await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage175'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0490 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0500
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0500
+     * @tc.desc   : Set maxLines to 3 and input the text "本截断是按字截断文本截断是按字截断文本截断是按字截断文本i am本截断是按字截
+     * 断文本截断是按字截断文本截断是按字截断文本". After changing maxLines from 5 back to 3, input an additional character.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0500', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0500 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage176")
+      await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage176'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0500 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0510
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0510
+     * @tc.desc   : Set the Text component's width to 100%, leave the height unset, and set maxLines to 2. Input the
+     * text "本截断是按字截断文本截断是按字截断文本截断是按字截断文本i am本截断是按字截断文本截断是按字截断文本截断是". After switching
+     * from portrait to landscape orientation, input an additional character.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0510', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0510 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage177")
+      await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage177'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0510 finish.`);
+      done()
+    })
+
+    /*
+     * @tc.number : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0520
+     * @tc.name   : SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0520
+     * @tc.desc   : Set the `Text` component's width to 100%, do not set its height, and set `maxLines` to 2. Input the
+     * text "本截断是按字截断文本截断是按字截断文本截断是按字截断文本i am本截断是按字截断文本截断是按字截断文本截断是". After switching
+     * from landscape to portrait orientation, input an additional character.
+     */
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0520', 0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0520 start.`);
+      Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage178")
+      await Utils.sleep(2000)
+      let driver: Driver = Driver.create();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      let button: Component = await driver.findComponent(ON.id('fontAttributePage178'));
+      await button.click();
+      await Utils.sleep(1000)
+      windowSnap.snapShot()
+      await Utils.sleep(1000)
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0520 finish.`);
       done()
     })
   })
