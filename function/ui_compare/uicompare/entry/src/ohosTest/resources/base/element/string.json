@@ -35,6 +35,18 @@
     {
       "name": "fontfamily_1",
       "value": "HarmonyOS Sans"
+    },
+    {
+      "name": "test_value",
+      "value": "-10"
+    },
+    {
+      "name": "TestAbility_label_p",
+      "value": "100%"
+    },
+    {
+      "name": "abc",
+      "value": "abc"
     }
   ]
 }
