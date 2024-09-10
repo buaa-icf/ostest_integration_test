@@ -62,6 +62,7 @@ struct UiComponentTextModifier001 {
       Text((this.text).toString()).width(100).height(100)
       Button('button', { type: ButtonType.Capsule, stateEffect: true })
         .margin(10)
+        .id("UiComponentTextModifier001")
         .onClick(() => {
           console.log("Modifier","onClick")
           if(this.index % this.total == 0){

@@ -17,6 +17,7 @@ import Settings from '../model/Settings'
 import windowSnap from '../model/snapShot'
 import Logger from '../model/Logger'
 import Utils from '../model/Utils'
+import { Component,Driver, ON } from '@ohos.UiTest'
 
 export default function UiComponentTextModifier() {
 
@@ -44,6 +45,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0010 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier001")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier001"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -59,6 +67,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0020 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier002")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier002"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -74,6 +89,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0030 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier003")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier003"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -89,6 +111,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0040 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier004")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier004"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -104,6 +133,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0050 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier005")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier005"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -119,6 +155,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0060 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier006")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier006"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -134,6 +177,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0070 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier007")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier007"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -149,6 +199,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0080 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier008")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier008"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -164,6 +221,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0090 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier009")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier009"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -179,6 +243,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0100 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier010")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier010"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -194,6 +265,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0110 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier011")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier011"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -209,6 +287,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0120 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier012")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier012"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -224,6 +309,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0130 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier013")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier013"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -239,6 +331,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0140 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier014")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier014"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -254,6 +353,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0150 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier015")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier015"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -269,6 +375,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0160 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier016")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier016"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -284,6 +397,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0170 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier017")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier017"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -299,6 +419,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0180 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier018")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier018"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -314,6 +441,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0190 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier019")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier019"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -329,6 +463,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0200 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier020")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier020"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -344,6 +485,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0210 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier021")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier021"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -359,6 +507,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0220 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier022")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier022"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -374,6 +529,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0230 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier023")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier023"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -389,6 +551,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0240 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier024")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier024"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -404,6 +573,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0250', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0250 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier025")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier025"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -419,6 +595,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0260', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0260 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier026")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier026"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -434,6 +617,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0270 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier027")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier027"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -449,6 +639,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0280 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier028")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier028"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -464,6 +661,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0290 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier029")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier029"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -479,6 +683,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0300 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier030")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier030"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -494,6 +705,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0310 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier031")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier031"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -509,6 +727,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0320 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier032")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier032"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -524,6 +749,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0330 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier033")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier033"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -539,6 +771,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0340', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0340 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier034")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier034"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -554,6 +793,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0350', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0350 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier035")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier035"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -569,6 +815,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0360 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier036")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier036"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -584,6 +837,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0370 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier037")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier037"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -599,6 +859,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0380 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier038")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier038"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -614,6 +881,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0390', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0390 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier039")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier039"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -629,6 +903,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0400', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0400 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier040")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier040"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -644,6 +925,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0410', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0410 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier041")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier041"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -659,6 +947,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0420 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier042")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier042"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -674,6 +969,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0430 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier043")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier043"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -689,6 +991,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0440', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0440 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier044")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier044"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -704,6 +1013,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0450', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0450 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier045")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier045"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -719,6 +1035,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0460', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0460 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier046")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier046"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -734,6 +1057,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0470', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0470 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier047")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier047"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -749,6 +1079,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0480', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0480 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier048")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier048"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -764,6 +1101,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0490', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0490 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier049")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier049"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -779,6 +1123,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0500', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0500 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier050")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier050"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -794,6 +1145,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0510', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0510 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier051")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier051"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -809,6 +1167,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0520', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0520 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier052")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier052"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -824,6 +1189,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0530', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0530 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier053")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier053"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -839,6 +1211,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0540', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0540 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier054")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier054"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -854,6 +1233,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0550', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0550 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier055")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier055"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -869,6 +1255,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0560', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0560 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier056")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier056"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -884,6 +1277,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0570', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0570 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier057")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier057"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -899,6 +1299,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0580', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0580 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier058")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier058"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -914,6 +1321,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0590', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0590 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier059")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier059"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -929,6 +1343,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0600', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0600 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier060")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier060"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -944,6 +1365,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0610', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0610 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier061")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier061"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -959,6 +1387,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0620', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0620 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier062")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier062"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -974,6 +1409,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0630', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0630 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier063")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier063"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -989,6 +1431,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0640', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0640 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier064")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier064"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1004,6 +1453,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0650', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0650 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier065")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier065"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1019,6 +1475,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0660', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0660 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier066")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier066"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1034,6 +1497,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0670', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0670 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier067")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier067"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1049,6 +1519,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0680', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0680 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier068")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier068"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1064,6 +1541,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0690', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0690 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier069")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier069"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1079,6 +1563,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0700', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0700 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier070")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier070"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1094,6 +1585,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0710', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0710 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier071")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier071"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1109,6 +1607,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0720', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0720 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier072")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier072"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1124,6 +1629,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0730', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0730 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier073")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier073"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1139,6 +1651,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0740', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0740 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier074")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier074"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1154,6 +1673,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0750', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0750 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier075")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier075"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1169,6 +1695,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0760', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0760 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier076")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier076"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1184,6 +1717,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0770', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0770 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier077")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier077"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1199,6 +1739,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0780', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0780 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier078")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier078"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1214,6 +1761,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0790', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0790 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier079")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier079"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1229,6 +1783,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0800', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0800 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier080")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier080"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1244,6 +1805,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0810', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0810 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier081")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier081"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1259,6 +1827,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0820', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0820 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier082")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier082"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1274,6 +1849,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0830', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0830 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier083")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier083"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1289,6 +1871,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0840', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0840 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier084")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier084"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1304,6 +1893,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0850', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0850 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier085")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier085"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1319,6 +1915,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0860', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0860 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier086")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier086"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1334,6 +1937,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0870', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0870 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier087")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier087"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1349,6 +1959,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0880', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0880 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier088")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier088"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1364,6 +1981,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0890', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0890 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier089")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier089"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1379,6 +2003,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0900', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0900 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier090")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier090"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1394,6 +2025,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0910', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0910 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier091")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier091"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1409,6 +2047,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0920', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0920 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier092")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier092"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1424,6 +2069,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0930', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0930 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier093")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier093"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1439,6 +2091,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0940', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0940 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier094")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier094"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1454,6 +2113,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0950', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0950 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier095")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier095"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)
@@ -1469,6 +2135,13 @@ export default function UiComponentTextModifier() {
     it('SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0960', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_MODIFIER_0960 start.`);
       Settings.createWindow("testability/pages/UiComponentTextModifier/UiComponentTextModifier096")
+      let driver: Driver = Driver.create();
+      let SliderCom = await driver.findComponent(ON.id("UiComponentTextModifier096"));
+      let pointCenter = await SliderCom.getBoundsCenter();
+      for (let i = 0; i < 10; i++) {
+        await driver.click(pointCenter.x, pointCenter.y);
+        await Utils.sleep(300);
+      }
       await Utils.sleep(1000)
       windowSnap.snapShot()
       await Utils.sleep(1000)

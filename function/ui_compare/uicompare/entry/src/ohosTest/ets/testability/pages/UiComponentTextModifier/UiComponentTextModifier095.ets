@@ -86,6 +86,7 @@ struct UiComponentTextModifier095  {
     Column() {
       Text((this.text_show).toString()).width(100).height(100)
       Button('button_show', { type: ButtonType.Capsule, stateEffect: true })
+        .id("UiComponentTextModifier095")
         .margin(10)
         .onClick(() => {
           console.log("Modifier","onClick")
