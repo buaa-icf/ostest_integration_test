@@ -47,27 +47,28 @@ export default function UIComponentCreateColor() {
       Settings.createWindow("testability/pages/UIComponentCreateColor/UIComponentCreateColor005")
       await Utils.sleep(1000)
       let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
-      let button1:Component = await driver.findComponent(ON.id('caretColor'));
       await driver.delayMs(100)
       await Utils.sleep(100)
-      await button1.click()
-      await Utils.sleep(100)
-      let ch2:Component  = await driver.findComponent(ON.id('colorstr'));
+      let ch1:Component  = await driver.findComponent(ON.id('colorstr005'));
       await driver.delayMs(100)
-      await ch2.click()
-      await Utils.sleep(100)
+      await ch1.click()
+      let button1:Component = await driver.findComponent(ON.id('caretColor005'));
+      await driver.delayMs(100)
       await button1.click()
+      await ch1.click()
       await Utils.sleep(100)
-      await button1.click()
-      await Utils.sleep(100)
-      let btn:Component  = await driver.findComponent(ON.id('setTextSelection'));
+      let btn:Component  = await driver.findComponent(ON.id('setTextSelection005'));
       await driver.delayMs(100)
       await btn.click()
       await Utils.sleep(100)
-      let ch1:Component  = await driver.findComponent(ON.id('rgb'));
-      await driver.delayMs(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
       await ch1.click()
       await Utils.sleep(100)
       windowSnap.snapShot()
@@ -85,27 +86,28 @@ export default function UIComponentCreateColor() {
       Settings.createWindow("testability/pages/UIComponentCreateColor/UIComponentCreateColor010")
       await Utils.sleep(1000)
       let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
-      let button1:Component = await driver.findComponent(ON.id('caretColor'));
       await driver.delayMs(100)
       await Utils.sleep(100)
-      await button1.click()
-      await Utils.sleep(100)
-      let ch2:Component  = await driver.findComponent(ON.id('colorstr'));
+      let ch1:Component  = await driver.findComponent(ON.id('colorstr010'));
       await driver.delayMs(100)
-      await ch2.click()
-      await Utils.sleep(100)
+      await ch1.click()
+      let button1:Component = await driver.findComponent(ON.id('caretColor010'));
+      await driver.delayMs(100)
       await button1.click()
+      await ch1.click()
       await Utils.sleep(100)
-      await button1.click()
-      await Utils.sleep(100)
-      let btn:Component  = await driver.findComponent(ON.id('setTextSelection'));
+      let btn:Component  = await driver.findComponent(ON.id('setTextSelection010'));
       await driver.delayMs(100)
       await btn.click()
       await Utils.sleep(100)
-      let ch1:Component  = await driver.findComponent(ON.id('rgb'));
-      await driver.delayMs(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
       await ch1.click()
       await Utils.sleep(100)
       windowSnap.snapShot()
@@ -123,27 +125,29 @@ export default function UIComponentCreateColor() {
       Settings.createWindow("testability/pages/UIComponentCreateColor/UIComponentCreateColor014")
       await Utils.sleep(1000)
       let driver : Driver = Driver.create();
-      await driver.delayMs(1000)
-      await Utils.sleep(1000)
-      let button1:Component = await driver.findComponent(ON.id('caretColor'));
-      await driver.delayMs(1000)
+      await driver.delayMs(100)
       await Utils.sleep(100)
-      let ch2:Component  = await driver.findComponent(ON.id('colorstr'));
-      await driver.delayMs(1000)
-      await ch2.click()
-      await Utils.sleep(1000)
+      let ch1:Component  = await driver.findComponent(ON.id('colorstr014'));
+      await driver.delayMs(100)
+      await ch1.click()
+      await ch1.inputText('rgbcolor rgb text14')
+      let button1:Component = await driver.findComponent(ON.id('caretColor014'));
+      await driver.delayMs(100)
       await button1.click()
-      await Utils.sleep(1500)
-      await button1.click()
-      await Utils.sleep(1500)
-      await button1.click()
+      await ch1.click()
       await Utils.sleep(100)
-      let btn:Component  = await driver.findComponent(ON.id('setTextSelection'));
+      let btn:Component  = await driver.findComponent(ON.id('setTextSelection014'));
       await driver.delayMs(100)
       await btn.click()
       await Utils.sleep(100)
-      let ch1:Component  = await driver.findComponent(ON.id('rgb'));
-      await driver.delayMs(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
+      await ch1.click()
+      await Utils.sleep(100)
+      await button1.click()
+      await Utils.sleep(100)
       await ch1.click()
       await Utils.sleep(100)
       windowSnap.snapShot()

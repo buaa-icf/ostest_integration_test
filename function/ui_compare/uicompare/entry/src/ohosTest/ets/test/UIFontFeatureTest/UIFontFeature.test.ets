@@ -21,7 +21,7 @@ import { Component, Driver ,ON } from '@ohos.UiTest'
 
 export default function UIFontFeature() {
 
-  describe('TestCase', () => {
+  describe('UIFontFeature', () => {
     afterEach(async (done: Function) => {
       if (Settings.windowClass == undefined) {
         return
