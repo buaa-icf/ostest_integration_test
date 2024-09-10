@@ -35,7 +35,6 @@ struct fontAttributeAndStyle83 {
     [Color.Red],
     [Color.Red,Color.Yellow],
     [Color.Red,Color.Red],
-    [Color.Red,Color.Red],
   ]
 
   build() {
@@ -59,15 +58,15 @@ struct fontAttributeAndStyle83 {
         .id("fontAttributeAndStyle83_01")
         .fontSize(18)
         .onClick(()=>{
-          if(this.clickNum1<6){
+          if(this.clickNum1<3){
             this.textColor = this.textColors[this.clickNum1]
-            // this.symbolRenderingStrategy = this.renderingStrategies[this.clickNum1]
+            this.symbolRenderingStrategy = this.renderingStrategies[this.clickNum1]
             this.clickNum1++
-            if(this.clickNum1==6){
+            if(this.clickNum1==3){
               this.clickNum1=0
             }
           }
-          this.controller.updateParagraphStyle({
+          this.controller.updateSpanStyle({
             start: this.start,
             end: this.end,
             symbolStyle: {

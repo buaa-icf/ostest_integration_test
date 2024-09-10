@@ -15,7 +15,7 @@
 
 @Entry
 @Component
-struct fontAttributePage34 {
+struct fontAttributePage35 {
 
   build() {
     Column() {

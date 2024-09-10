@@ -15,7 +15,7 @@
 
 @Entry
 @Component
-struct fontAttributeAndStyle15 {
+struct fontAttributeAndStyle06 {
   @State letterSpacing:number | string | Resource = 0
   @State type:InputType = InputType.Normal
   @State text:string = "开源鸿蒙"

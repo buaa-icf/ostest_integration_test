@@ -17,6 +17,7 @@
 @Component
 struct fontAttributeAndStyle05 {
   @State letterSpacing:number | string | Resource = 0
+  private clickNum1:number = 0
   private clickNum2:number = 0
   private letterSpacings:Array<number | string | Resource> = [
     -2,

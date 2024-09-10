@@ -15,7 +15,7 @@
 
 @Entry
 @Component
-struct fontAttributePage51 {
+struct fontAttributePage52 {
   @State start: number = 5
   @State end: number = 20
   @State selectText:string = "OpenHarmony是由开放原子开源基金会(OpenAtom Foundation)孵化及运营的开源项目, 目标是面向全场景、全连" +

@@ -1884,7 +1884,7 @@ export default function UIAttributeFontInterface003() {
      */
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0830', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0830 start.`);
-      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle53")
+      Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle60")
       await Utils.sleep(1000)
       let driver: Driver = Driver.create();
       await Utils.sleep(1000)

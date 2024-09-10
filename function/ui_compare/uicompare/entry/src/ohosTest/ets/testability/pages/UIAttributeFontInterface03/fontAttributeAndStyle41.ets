@@ -15,7 +15,7 @@
 
 @Entry
 @Component
-struct fontAttributeAndStyle42 {
+struct fontAttributeAndStyle41 {
   @State lineHeight:number | string | Resource = 24
   private clickNum:number = 0
   private lineHeights:Array<number | string | Resource> = [
