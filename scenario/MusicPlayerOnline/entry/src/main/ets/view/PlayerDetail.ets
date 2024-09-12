@@ -73,13 +73,13 @@ export default struct PlayerDetail {
   }
 
   aboutToAppear() {
-    emitter.on(ServerConstants.UPDATE_FAVOR_EVENT_ID, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         this.item = this.PlayerManager.getItem();
         this.noItem = false;
       }
     });
-    emitter.on(ServerConstants.UPDATE_TIME_EVENT_ID, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         //Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
         this.currentTime = eventData.data.currentTime;
@@ -91,7 +91,7 @@ export default struct PlayerDetail {
         }
       }
     });
-    emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID_DETAIL, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         Logger.info(this.tag, 'state:' + eventData.data.state);
         if (eventData.data.state === ServerConstants.PLAYER_STATE_IDLE) {
@@ -108,7 +108,7 @@ export default struct PlayerDetail {
               this.rotateAngle = 360;
               Logger.info(this.tag, 'rotateAngle:360');
             }
-          }, 1000);
+          }, 100);
         }
         if (eventData.data.state !== ServerConstants.PLAYER_STATE_PLAYING) {
           this.rotateAngle = 0;
@@ -128,13 +128,16 @@ export default struct PlayerDetail {
   }
 
   aboutToDisappear() {
+    Logger.info(this.tag, 'aboutToDisappear');
+    emitter.off(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL);
+    emitter.off(ServerConstants.UPDATE_STATE_EVENT_ID_DETAIL);
+    emitter.off(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL);
   }
 
   build() {
     Column() {
       Row() {
-        Image($r('app.media.chevron_down_circle'))
-          .height('36vp')
+        Image($r('app.media.chevron_down'))
           .width('36vp')
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
@@ -382,6 +385,5 @@ export default struct PlayerDetail {
     .width('100%')
     .height('100%')
     .backgroundColor(Color.White)
-    .borderRadius({ topLeft: 18, topRight: 18 })
   }
 }

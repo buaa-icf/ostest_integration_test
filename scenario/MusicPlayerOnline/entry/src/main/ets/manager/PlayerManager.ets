@@ -71,12 +71,13 @@ export default class PlayerManager {
         }
       };
       emitter.emit(ServerConstants.UPDATE_TIME_EVENT_ID, this.emitterOptions, eventData);
+      emitter.emit(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL, this.emitterOptions, eventData);
     })
     avPlayer.on('durationUpdate', (time: number) => {
       console.info('PlayerManager state durationUpdate：' + time);
       this.currentDuration = time;
     })
-    avPlayer.on('seekDone', (seekDoneTime:number) => {
+    avPlayer.on('seekDone', (seekDoneTime: number) => {
       console.info('seekDone success,and seek time is:' + seekDoneTime)
     })
     avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
@@ -87,10 +88,11 @@ export default class PlayerManager {
         }
       };
       emitter.emit(ServerConstants.UPDATE_STATE_EVENT_ID, this.emitterOptions, eventData);
+      emitter.emit(ServerConstants.UPDATE_STATE_EVENT_ID_DETAIL, this.emitterOptions, eventData);
       switch (state) {
         case ServerConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
           console.info('PlayerManager state idle called.');
-          //avPlayer.release(); // 调用release接口销毁实例对象
+        //avPlayer.release(); // 调用release接口销毁实例对象
           break;
         case ServerConstants.PLAYER_STATE_INITIALIZED: // avplayer 设置播放源后触发该状态上报
           console.info('PlayerManager state initialized called.');
@@ -110,12 +112,12 @@ export default class PlayerManager {
           break;
         case ServerConstants.PLAYER_STATE_COMPLETED: // 播放结束后触发该状态机上报
           console.info('PlayerManager state completed called.');
-          //avPlayer.stop(); //调用播放结束接口
+        //avPlayer.stop(); //调用播放结束接口
           this.next();
           break;
         case ServerConstants.PLAYER_STATE_STOPPED: // stop接口成功调用后触发该状态机上报
           console.info('PlayerManager state stopped called.');
-          //this.stopContinuousTask();
+        //this.stopContinuousTask();
           this.currentTime = 0;
           Logger.info(this.tag, 'Stop:' + this.item.title);
           avPlayer.reset(); // 调用reset接口初始化avplayer状态
@@ -417,7 +419,8 @@ export default class PlayerManager {
                 }
               };
               console.info('HttpResponse msg:' + jsonObject["message"]);
-              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID, this.emitterOptions, eventData);
+              //emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID, this.emitterOptions, eventData);
+              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, this.emitterOptions, eventData);
             }
             catch (error) {
               console.error("JSON :", error.message);
@@ -472,6 +475,28 @@ export default class PlayerManager {
       });
     } catch (error) {
       console.error(`PlayerManager Operation stopBackgroundRunning failed. code is ${(error as BusinessError).code} message is ${(error as BusinessError).message}`);
+    }
+  }
+
+  async exitAPP() {
+    try {
+      if (this.avPlayer !== undefined) {
+        await this.avPlayer.release();
+        this.avPlayer = undefined;
+      }
+      this.stopContinuousTask();
+
+      (AppStorage.get('APPContext') as common.UIAbilityContext).terminateSelf()
+        .then(() => {
+          console.info('PlayerManager terminateSelf succeed');
+        })
+        .catch((err: BusinessError) => {
+          console.error(`PlayerManager terminateSelf failed, code is ${err.code}, message is ${err.message}`);
+        });
+    } catch (err) {
+      let code = (err as BusinessError).code;
+      let message = (err as BusinessError).message;
+      console.error(`PlayerManager terminateSelf failed, code is ${code}, message is ${message}`);
     }
   }
 }

@@ -64,6 +64,7 @@ export default class ServerConstants {
   /**
    * Login URL
    */
+  static readonly REGISTER_URL = this.SERVER_HOST + 'authentication/signup1/';
   static readonly LOGIN_URL = this.SERVER_HOST + 'authentication/login1/';
   static readonly CSRF_URL = this.SERVER_HOST + 'authentication/get-csrf-token/';
   /**
@@ -85,6 +86,9 @@ export default class ServerConstants {
   static readonly UPDATE_TIME_EVENT_ID = '1';
   static readonly UPDATE_STATE_EVENT_ID = '2';
   static readonly UPDATE_FAVOR_EVENT_ID = '3';
+  static readonly UPDATE_TIME_EVENT_ID_DETAIL = '4';
+  static readonly UPDATE_STATE_EVENT_ID_DETAIL = '5';
+  static readonly UPDATE_FAVOR_EVENT_ID_DETAIL = '6';
   /**
    * PLAYER LIST
    */
@@ -99,9 +103,9 @@ export default class ServerConstants {
   static readonly LOGIN_INFO_NO = '未登录';
   static readonly LOGIN_INFO_ING = '···';
   static readonly LOGIN_INFO_FAILED = '登录失败';
+  static readonly REGISTER_INFO_FAILED = '注册失败';
+  static readonly REGISTER_INFO_SUCCESS = '注册成功';
   static readonly LOGIN_INFO_DONE = ' 你好！';
-  static readonly TEST_ACCOUNT_USER = 'test';
-  static readonly TEST_ACCOUNT_PWD = 'kh123456';
   static readonly SET_FAVOURITE_ALREADY  =  "重复收藏";
   static readonly SET_FAVOURITE_SUCCESS =  "收藏成功";
   static readonly CANCEL_FAVOURITE_SUCCESS =  "取消收藏成功";
@@ -109,4 +113,6 @@ export default class ServerConstants {
   static readonly SEARCH_DEFAULT = '未搜索';
   static readonly SEARCHING = '搜索中';
   static readonly EMPTY_SEARCH_WORD = '不能搜索空字符';
+  static readonly LOGIN_FAILED = 'login failed!';
+  static readonly REGISTER_FAILED = 'signup failed!';
 }
