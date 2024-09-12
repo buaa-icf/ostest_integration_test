@@ -65,7 +65,7 @@ export default function abilityTest() {
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.text('推荐歌单'));
       await driver.delayMs(500);
-      await driver.assertComponentExist(ON.text('全部歌曲'));
+      await driver.assertComponentExist(ON.text('中文歌曲'));
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.text('英文歌曲'));
       await driver.delayMs(500);
@@ -90,6 +90,18 @@ export default function abilityTest() {
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(2000);
+      let userName: Component = await driver.findComponent(ON.id('login_user_name'));
+      await driver.delayMs(500);
+      await userName.inputText('test')
+      await driver.delayMs(1000);
+      let userPwd: Component = await driver.findComponent(ON.id('login_pwd'));
+      await driver.delayMs(500);
+      await userPwd.inputText('kh123456')
+      await driver.delayMs(1000);
+      let btnLogin: Component = await driver.findComponent(ON.id('login_button'));
+      await driver.delayMs(500);
+      await btnLogin.click();
+      await driver.delayMs(2000);
       await driver.assertComponentExist(ON.text('登出'));
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.text('11'));
@@ -107,6 +119,10 @@ export default function abilityTest() {
     it('MusicPlayerOnline_Home_003', 0, async (done: Function) => {
       HiLog.info(DOMAIN, TAG, 'MusicPlayerOnline_Home_003 begin');
       let driver = Driver.create();
+      await driver.delayMs(1000);
+      let btnR: Component = await driver.findComponent(ON.id('scroll_row'));
+      await driver.delayMs(500);
+      await btnR.click();
       await driver.delayMs(1000);
       let btn: Component = await driver.findComponent(ON.text('全部歌曲'));
       await driver.delayMs(500);

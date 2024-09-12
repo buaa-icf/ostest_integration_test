@@ -34,7 +34,7 @@ export default struct PlayList {
     })
     setTimeout(() => {
       this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
-    }, 3000)
+    }, 2000)
     emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
         animateTo({ duration: 2000 }, () => {
