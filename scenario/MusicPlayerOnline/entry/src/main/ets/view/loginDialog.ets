@@ -18,11 +18,11 @@ export struct LoginCustomDialog {
   @Link inputPwd: string;
   @Link inputPwd2: string;
   @State isRegister: boolean = false;
-  @State title:string = '登录';
+  @State title: string = '登录';
   controller?: CustomDialogController;
   cancel: () => void = () => {
   }
-  confirm: (isRegister:boolean) => void = () => {
+  confirm: (isRegister: boolean) => void = () => {
   }
 
   build() {
@@ -57,14 +57,21 @@ export struct LoginCustomDialog {
 
       Flex({ justifyContent: FlexAlign.SpaceAround }) {
         Button('取消')
+          .backgroundColor(Color.White)
+          .fontColor(Color.Black)
+          .fontWeight(FontWeight.Lighter)
+          .fontSize(18)
           .onClick(() => {
             if (this.controller != undefined) {
               this.controller.close()
               this.cancel()
             }
-          }).backgroundColor(0xffffff).fontColor(Color.Black)
+          })
         Button('注册')
+          .backgroundColor(Color.White)
           .fontColor(Color.Blue)
+          .fontWeight(FontWeight.Lighter)
+          .fontSize(18)
           .id('register_button')
           .onClick(() => {
             if (this.isRegister && this.controller != undefined) {
@@ -74,8 +81,10 @@ export struct LoginCustomDialog {
               this.title = '注册';
             }
           })
-          .fontColor(Color.Blue)
         Button('登录')
+          .backgroundColor(Color.White)
+          .fontWeight(FontWeight.Lighter)
+          .fontSize(18)
           .fontColor(Color.Red)
           .id('login_button')
           .onClick(() => {
@@ -86,7 +95,7 @@ export struct LoginCustomDialog {
               this.title = '登录';
             }
           })
-      }.margin({ bottom: 10 })
-    }.borderRadius(10)
+      }.margin({ bottom: 12, top: 12 })
+    }.borderRadius(8)
   }
 }
