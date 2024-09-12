@@ -76,7 +76,7 @@ struct UiComponentTextCommonAffineTransformation020 {
   build() {
     Column() {
       Button('sizechange')
-        .margin(5)
+        .margin(10)
         .width('90%')
         .height(15)
         .fontSize(12)

@@ -71,6 +71,7 @@ import UiComponentNavModifier from './UiComponentNavModifierTest/UiComponentNavM
 import UiComponentSymbolSymbol from './UiComponentSymbolSymbolTest/UiComponentSymbolSymbol.test'
 import UiComponentTextCommonAffineTransformation from './UiComponentTextCommonAffineTransformationTest/UiComponentTextCommonAffineTransformation.test'
 import UIComponentScrollSwiperInterfaceMixTest from './UIComponentScrollSwiperInterfaceMixTest/UIComponentScrollSwiperInterfaceMix.test'
+import UiComponentSpanBaselineoffset from './UiComponentSpanBaselineoffsetTest/UiComponentSpanBaselineoffset.test'
 import ComponentTextCommonTextMinFontSize001 from './ComponentTextCommonTextMinFontSizeTest/ComponentTextCommonTextMinFontSizeTest001.test'
 import ComponentLayoutModifierTest001 from './ComponentLayoutModifierTest/ComponentLayoutModifierTest001.test'
 import ComponentRowColumnSidebarContainerAttributeTest001 from './ComponentRowColumnSidebarContainerAttributeTest/ComponentRowColumnSidebarContainerAttributeTest001.test'
@@ -141,6 +142,8 @@ export default function testsuite() {
   UiComponentSymbolSymbol();
   UiComponentTextCommonAffineTransformation();
   UIComponentScrollSwiperInterfaceMixTest();
+  UiComponentSpanBaselineoffset();
+
   ComponentTextCommonTextMinFontSize001();
   ComponentLayoutModifierTest001();
   ComponentRowColumnSidebarContainerAttributeTest001();

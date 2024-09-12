@@ -16,10 +16,11 @@
 @Entry
 @Component
 struct UIComponentCreateColor005 {
-  @State booltext:boolean = false
   @State caretcolorIndex: number = 0;
   @State caretcolor: Color[] = [Color.Red, Color.Green, Color.Blue]
   @State caretcolorStr: string[] = ['Red', 'Green', 'Blue']
+  @State selectionStart: number = 0
+  @State selectionEnd: number = 0
   controller:TextInputController = new TextInputController()
 
   build() {
@@ -27,45 +28,39 @@ struct UIComponentCreateColor005 {
       //change selection
       Button('setTextSelection')
         .width('90%')
+        .height('10%')
         .margin({top:20})
-        .id('setTextSelection')
+        .id('setTextSelection005')
         .onClick(()=>{
-            this.booltext=true
+          this.selectionStart=0
+          this.selectionEnd=5
         })
       //change caret color
       Button('caretColor')
         .width('90%')
+        .height('10%')
         .margin(20)
-        .id('caretColor')
+        .id('caretColor005')
         .onClick(()=>{
-            this.caretcolorIndex++
-            if (this.caretcolorIndex > (this.caretcolorStr.length - 1)) {
-              this.caretcolorIndex = 0
-            }
+          this.caretcolorIndex++
+          if (this.caretcolorIndex > (this.caretcolorStr.length - 1)) {
+            this.caretcolorIndex = 0
+          }
         })
-      //setTextSelection
-      if(this.booltext){
-        TextInput({
-          text: 'rgbcolorrgb',
-          controller: this.controller
-        })
-          .caretColor('#007DFF')
-          .width(300)
-          .defaultFocus(true)
-          .onFocus(() => {
-            this.controller.setTextSelection(0, 5)
-          })
-          .id('rgb')
-      }
       //caretcolor
       TextInput({
-        text: this.caretcolorStr[this.caretcolorIndex],
+        text: 'rgbcolor rgb text',
         controller: this.controller
       })
         .caretColor(this.caretcolor[this.caretcolorIndex])
         .width(300)
+        .height('20%')
         .margin(20)
-        .id('colorstr')
+        .defaultFocus(true)
+        .onClick(() => {
+          this.controller.setTextSelection(this.selectionStart, this.selectionEnd)
+        })
+        .id('colorstr005')
     }
     .width('100%')
     .height('100%')

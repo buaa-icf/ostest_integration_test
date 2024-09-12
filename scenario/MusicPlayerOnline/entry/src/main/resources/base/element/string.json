@@ -35,6 +35,10 @@
     {
       "name": "lyrics",
       "value": "歌词"
+    },
+    {
+      "name": "exit",
+      "value": "退出"
     }
   ]
 }

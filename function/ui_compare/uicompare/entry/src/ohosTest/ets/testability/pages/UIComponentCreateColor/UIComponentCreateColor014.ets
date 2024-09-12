@@ -19,7 +19,8 @@ import prompt from '@system.prompt';
 @Component
 
 struct UIComponentCreateColor014 {
-  @State booltext:boolean = false
+  @State selectionStart: number = 0
+  @State selectionEnd: number = 0
   @State caretcolorIndex: number = 0;
   @State caretcolor: Color[] = [Color.Red, Color.Green, Color.Blue]
   @State caretcolorStr: string[] = ['Red', 'Green', 'Blue']
@@ -30,45 +31,39 @@ struct UIComponentCreateColor014 {
       //change selection
       Button('setTextSelection')
         .width('90%')
-        .margin(50)
-        .id('setTextSelection')
+        .height('10%')
+        .margin(20)
+        .id('setTextSelection014')
         .onClick(()=>{
-          this.booltext=true
+          this.selectionStart=0
+          this.selectionEnd=5
         })
       //change caretcolor
       Button('caretColor')
         .width('90%')
-        .margin(50)
+        .height('10%')
+        .margin(20)
         .backgroundColor(Color.Orange)
-        .id('caretColor')
+        .id('caretColor014')
         .onClick(()=>{
           this.caretcolorIndex++
           if (this.caretcolorIndex > (this.caretcolorStr.length - 1)) {
             this.caretcolorIndex = 0
           }
         })
-      //select(0,5)
-      if(this.booltext){
-        Search({
-          value: 'rgbcolorrgb',
-          controller: this.controller
-        })
-          .caretStyle({color:'#007DFF'})
-          .width(300)
-          .defaultFocus(true)
-          .onFocus(() => {
-            this.controller.setTextSelection(0, 5)
-          })
-          .id('rgb')
-      }
       //caretcolor
       Search({
         controller: this.controller
       })
         .caretStyle({color:this.caretcolor[this.caretcolorIndex]})
         .width(300)
+        .height('20%')
         .margin(20)
-        .id('colorstr')
+        .defaultFocus(true)
+        .onClick(() => {
+          this.controller.setTextSelection(this.selectionStart, this.selectionEnd)
+        })
+        .id('colorstr014')
     }
     .width('100%')
     .height('100%')
