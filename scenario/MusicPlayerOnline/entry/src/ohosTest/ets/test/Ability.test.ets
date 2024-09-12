@@ -90,6 +90,18 @@ export default function abilityTest() {
       await driver.delayMs(500);
       await btn.click();
       await driver.delayMs(2000);
+      let userName: Component = await driver.findComponent(ON.id('login_user_name'));
+      await driver.delayMs(500);
+      await userName.inputText('test')
+      await driver.delayMs(1000);
+      let userPwd: Component = await driver.findComponent(ON.id('login_pwd'));
+      await driver.delayMs(500);
+      await userPwd.inputText('kh123456')
+      await driver.delayMs(1000);
+      let btnLogin: Component = await driver.findComponent(ON.id('login_button'));
+      await driver.delayMs(500);
+      await btnLogin.click();
+      await driver.delayMs(2000);
       await driver.assertComponentExist(ON.text('登出'));
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.text('11'));
