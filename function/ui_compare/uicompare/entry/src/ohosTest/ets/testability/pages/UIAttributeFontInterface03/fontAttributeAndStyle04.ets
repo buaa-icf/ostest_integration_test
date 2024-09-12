@@ -22,14 +22,18 @@ struct fontAttributeAndStyle04 {
   build() {
     Column() {
       TextInput({ placeholder: 'please input', text:this.text })
+        .id("fontAttributeAndStyle04_1")
         .type(InputType.Normal)
+        .copyOption(CopyOptions.InApp)
         .letterSpacing(3)
         .width(240)
         .height(60)
         .margin({top:50})
 
       TextInput({ placeholder: 'please input'})
+        .id("fontAttributeAndStyle04_1")
         .type(InputType.Normal)
+        .copyOption(CopyOptions.InApp)
         .letterSpacing(-2)
         .width(240)
         .height(60)

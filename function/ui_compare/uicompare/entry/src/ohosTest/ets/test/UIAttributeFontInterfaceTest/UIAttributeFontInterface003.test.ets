@@ -36,7 +36,7 @@ export default function UIAttributeFontInterface003() {
         }
         Logger.info('TEST', `Succeeded in destroy the window.`);
       })
-      await Utils.sleep(1000);
+      await Utils.sleep(500);
       done()
     })
 
@@ -53,18 +53,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0130 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle01")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle01_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle01_2'));
       for(let i_01 = 0; i_01<9; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02<5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 8){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0130 finish.`);
             done()
@@ -83,15 +83,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0140 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle02")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle02'));
       for(let i = 0; i<9; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==8){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0140 finish.`);
           done()
@@ -110,9 +110,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0150 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle03")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle03_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle03_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle03_3'));
@@ -121,13 +121,13 @@ export default function UIAttributeFontInterface003() {
         await button1.click()
         for(let i_02 = 0; i_02<5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           await button3.click()
           await button4.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 2){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0150 finish.`);
             done()
@@ -146,37 +146,37 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0160 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle04")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle04_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle04_2'));
       await button1.longClick()
       let selectAll: Component = await driver.findComponent(ON.text('全选'));
       if(selectAll){
         await selectAll.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         let copy: Component = await driver.findComponent(ON.text('复制'));
         let paste: Component = await driver.findComponent(ON.text('粘贴'));
         await copy.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         await button2.longClick()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         await paste.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
       } else {
         let copy: Component = await driver.findComponent(ON.text('复制'));
         let paste: Component = await driver.findComponent(ON.text('粘贴'));
         await copy.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         await button2.longClick()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         await paste.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
       }
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0160 finish.`);
       done()
@@ -192,15 +192,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0170 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle05")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle05'));
       for(let i = 0; i<5; i++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0170 finish.`);
           done()
@@ -220,18 +220,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0180 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle06")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle06_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle06_02'));
       for(let i_01 = 0; i_01 < 10; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02 < 5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01==9){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0180 finish.`);
             done()
@@ -252,18 +252,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0190 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle07")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle07_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle07_2'));
       for(let i_01 = 0; i_01 < 10; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02 < 5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01==9){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0190 finish.`);
             done()
@@ -283,9 +283,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0200 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle08")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle08_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle08_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle08_3'));
@@ -294,9 +294,9 @@ export default function UIAttributeFontInterface003() {
         await button1.click()
         for(let i_02 = 0; i_02<3; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==2 && i_01 == 4){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0200 finish.`);
             done()
@@ -316,9 +316,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0210 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle09")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle09_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle09_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle09_3'));
@@ -328,7 +328,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<4; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 3 && i_01 == 4){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0210 finish.`);
             done()
@@ -348,20 +348,20 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0220 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle10")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle10_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle10_2'));
       let input: Component = await driver.findComponent(ON.id('fontAttributeAndStyle10'));
       await button1.click()
       for(let i_01 = 0; i_01<5; i_01++){
         await button2.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         await input.longClick()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0220 finish.`);
           done()
@@ -379,15 +379,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0230 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle11")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle11'));
       for(let i = 0; i<6; i++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0230 finish.`);
           done()
@@ -406,9 +406,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0240 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle12")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle12_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle12_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle12_3'));
@@ -418,7 +418,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<4; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 3 && i_01 == 5){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0240 finish.`);
             done()
@@ -437,15 +437,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0250', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0250 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle13")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle13'));
       for(let i = 0; i<6; i++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0250 finish.`);
           done()
@@ -464,9 +464,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0260', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0260 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle14")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle14_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle14_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle14_03'));
@@ -474,9 +474,9 @@ export default function UIAttributeFontInterface003() {
         await button2.click()
         for(let i_02 = 0; i_02 < 3; i_02++){
           await button1.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           await button3.click()
           if(i_02==2 && i_01 == 5){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0260 finish.`);
@@ -498,18 +498,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0270 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle15")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle15_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle15_02'));
       for(let i_01 = 0; i_01 < 10; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02 < 6; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==5 && i_01==9){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0270 finish.`);
             done()
@@ -530,18 +530,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0280 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle16")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle16_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle16_2'));
       for(let i_01 = 0; i_01 < 10; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02 < 6; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==5 && i_01==9){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0280 finish.`);
             done()
@@ -561,18 +561,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0290 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle17")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle17_1'));
       let input: Component = await driver.findComponent(ON.type('TextInput'));
       for(let i_01 = 0; i_01 < 10; i_01++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         await input.longClick()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01==9){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0290 finish.`);
           done()
@@ -592,9 +592,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0300 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle18")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle18_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle18_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle18_03'));
@@ -603,9 +603,9 @@ export default function UIAttributeFontInterface003() {
         await button1.click()
         for(let i_02 = 0; i_02 < 6; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==5 && i_01==1){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0300 finish.`);
             done()
@@ -626,17 +626,17 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0310 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle19")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle19_01'));
       let input: Component = await driver.findComponent(ON.id('fontAttributeAndStyle19_2'));
       await input.click()
       for(let i_01 = 0; i_01 < 9; i_01++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01==8){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0310 finish.`);
           done()
@@ -654,14 +654,14 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0320 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle20")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let input: Component = await driver.findComponent(ON.id('fontAttributeAndStyle20'));
       await input.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0320 finish.`);
       done()
     })
@@ -677,17 +677,17 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0330 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle21")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle21_01'));
       let input: Component = await driver.findComponent(ON.id('fontAttributeAndStyle21_2'));
       await input.click()
       for(let i_01 = 0; i_01 < 4; i_01++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01==3){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0330 finish.`);
           done()
@@ -707,15 +707,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0360 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle23")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle23'));
       for(let i_01 = 0; i_01 < 9; i_01++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01==8){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0360 finish.`);
           done()
@@ -736,21 +736,21 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0370 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle24")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle24_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle24_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle24_3'));
       await button3.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i_01 = 0; i_01 < 4; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02 < 9; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==8 && i_01==3 ){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0370 finish.`);
             done()
@@ -772,21 +772,21 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0380 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle25")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle25_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle25_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle25_3'));
       await button3.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i_01 = 0; i_01 < 2; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02 < 9; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==8 && i_01==1){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0380 finish.`);
             done()
@@ -808,21 +808,21 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0390', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0390 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle26")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle26_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle26_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle26_3'));
       await button3.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i_01 = 0; i_01 < 9; i_01++){
         await button2.click()
         for(let i_02 = 0; i_02 < 3; i_02++){
           await button1.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==2 && i_01==8){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0390 finish.`);
             done()
@@ -844,21 +844,21 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0400', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0400 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle27")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle27_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle27_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle27_3'));
       await button3.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i_01 = 0; i_01 < 9; i_01++){
         await button2.click()
         for(let i_02 = 0; i_02 < 4; i_02++){
           await button1.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==3 && i_01==8){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0400 finish.`);
             done()
@@ -881,16 +881,16 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0410', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0410 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle28")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle28_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle28_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle28_3'));
       let button4: Component = await driver.findComponent(ON.id('fontAttributeAndStyle28_4'));
       let button5: Component = await driver.findComponent(ON.id('fontAttributeAndStyle28_5'));
       await button3.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i_01 = 0; i_01 < 2; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02 < 2; i_02++){
@@ -898,9 +898,9 @@ export default function UIAttributeFontInterface003() {
           for(let i_03 = 0; i_03 < 9; i_03++){
             await button3.click()
             await button4.click()
-            await Utils.sleep(1000)
+            await Utils.sleep(500)
             windowSnap.snapShot()
-            await Utils.sleep(1000)
+            await Utils.sleep(500)
             await button5.click()
             if(i_01==1 && i_02==1 && i_03==8){
               Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0410 finish.`);
@@ -924,18 +924,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0420 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle29")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle29_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle29_2'));
       for(let i_01 = 0; i_01<9; i_01++){
         await button1.click()
         for(let i_02 = 0; i_02<5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 8){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0420 finish.`);
             done()
@@ -954,15 +954,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0430 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle30")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle30'));
       for(let i = 0; i<3; i++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==2){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0430 finish.`);
           done()
@@ -981,9 +981,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0440', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0440 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle31")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle31_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle31_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle31_3'));
@@ -992,13 +992,13 @@ export default function UIAttributeFontInterface003() {
         await button1.click()
         for(let i_02 = 0; i_02<5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           await button3.click()
           await button4.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 2){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0440 finish.`);
             done()
@@ -1017,15 +1017,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0460', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0460 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle32")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle32'));
       for(let i = 0; i<5; i++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0460 finish.`);
           done()
@@ -1044,9 +1044,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0470', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0470 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle33")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle33_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle33_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle33_3'));
@@ -1055,9 +1055,9 @@ export default function UIAttributeFontInterface003() {
         await button2.click()
         for(let i_02 = 0; i_02<5; i_02++){
           await button3.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 3){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0470 finish.`);
             done()
@@ -1077,9 +1077,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0480', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0480 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle34")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle34_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle34_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle34_3'));
@@ -1088,9 +1088,9 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<5; i_02++){
           await button2.click()
           await button3.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 1){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0480 finish.`);
             done()
@@ -1110,9 +1110,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0490', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0490 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle35")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle35_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle35_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle35_3'));
@@ -1121,9 +1121,9 @@ export default function UIAttributeFontInterface003() {
         await button1.click()
         for(let i_02 = 0; i_02<3; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==2 && i_01 == 4){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0490 finish.`);
             done()
@@ -1143,9 +1143,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0500', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0500 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle36")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle36_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle36_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle36_3'));
@@ -1155,7 +1155,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<4; i_02++){
           await button2.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 3 && i_01 == 4){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0500 finish.`);
             done()
@@ -1175,9 +1175,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0510', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0510 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle37")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle37_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle37_2'));
       let textArea: Component = await driver.findComponent(ON.type('TextArea'));
@@ -1185,9 +1185,9 @@ export default function UIAttributeFontInterface003() {
       for(let i_01 = 0; i_01<5; i_01++){
         await button1.click()
         await textArea.longClick()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0510 finish.`);
           done()
@@ -1207,9 +1207,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0520', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0520 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle38")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle38_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle38_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle38_3'));
@@ -1222,7 +1222,7 @@ export default function UIAttributeFontInterface003() {
             await button3.click()
             await button4.click()
             windowSnap.snapShot()
-            await Utils.sleep(1000)
+            await Utils.sleep(500)
             if(i_01 == 1 && i_02==1 && i_03==4){
               Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0520 finish.`);
               done()
@@ -1242,16 +1242,16 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0530', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0530 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle39")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle39_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle39_2'));
       await button1.click()
       for(let i = 0; i<5; i++){
         await button2.click()
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i == 4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0530 finish.`);
           done()
@@ -1270,9 +1270,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0540', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0540 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle40")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle40_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle40_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle40_3'));
@@ -1282,7 +1282,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<4; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 3 && i_01 == 5){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0540 finish.`);
             done()
@@ -1301,15 +1301,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0550', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0550 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle41")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle41'));
       for(let i = 0; i<5; i++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0550 finish.`);
           done()
@@ -1328,9 +1328,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0560', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0560 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle42")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle42_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle42_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle42_3'));
@@ -1339,13 +1339,13 @@ export default function UIAttributeFontInterface003() {
         await button1.click()
         for(let i_02 = 0; i_02<5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           await button3.click()
           await button4.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 2){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0560 finish.`);
             done()
@@ -1365,9 +1365,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0570', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0570 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle43")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle43_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle43_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle43_3'));
@@ -1377,7 +1377,7 @@ export default function UIAttributeFontInterface003() {
           await button2.click()
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==5 && i_01 == 3){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0570 finish.`);
             done()
@@ -1397,9 +1397,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0580', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0580 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle44")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle44_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle44_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle44_3'));
@@ -1409,7 +1409,7 @@ export default function UIAttributeFontInterface003() {
           await button3.click()
           await button2.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==5 && i_01 == 1){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0580 finish.`);
             done()
@@ -1429,18 +1429,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0590', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0590 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle45")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle45_1'));
       let textArea: Component = await driver.findComponent(ON.type('TextArea'));
       for(let i_01 = 0; i_01 < 5; i_01++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         await textArea.longClick()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01==4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0590 finish.`);
           done()
@@ -1460,9 +1460,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0600', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0600 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle46")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle46_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle46_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle46_3'));
@@ -1474,7 +1474,7 @@ export default function UIAttributeFontInterface003() {
           await button2.click()
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==1 && i_01 == 5){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0600 finish.`);
             done()
@@ -1496,16 +1496,16 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0610', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0610 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle47")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle47_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle47_2'));
       await button1.click()
       for(let i_01 = 0; i_01<9; i_01++){
         await button2.click()
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0610 finish.`);
           done()
@@ -1523,14 +1523,14 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0620', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0620 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle48")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle48'));
       await button.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0620 finish.`);
       done()
     })
@@ -1546,16 +1546,16 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0630', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0630 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle49")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle49_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle49_2'));
       await button1.click()
       for(let i_01 = 0; i_01<4; i_01++){
         await button2.click()
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0630 finish.`);
           done()
@@ -1576,9 +1576,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0700', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0700 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle50")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle50_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle50_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle50_3'));
@@ -1588,7 +1588,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<5; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 4 && i_01 == 8){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0700 finish.`);
             done()
@@ -1608,9 +1608,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0720', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0720 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle51")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle51_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle51_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle51_3'));
@@ -1622,7 +1622,7 @@ export default function UIAttributeFontInterface003() {
           await button3.click()
           await button4.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 4 && i_01 == 2){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0720 finish.`);
             done()
@@ -1641,14 +1641,14 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0740', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0740 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle52")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle52'));
       for(let i_02 = 0; i_02<5; i_02++){
         await button1.click()
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_02 == 4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0740 finish.`);
           done()
@@ -1667,9 +1667,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0750', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0750 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle53")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle53_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle53_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle53_3'));
@@ -1679,7 +1679,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<5; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 4 && i_01 == 3){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0750 finish.`);
             done()
@@ -1699,9 +1699,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0760', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0760 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle54")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle54_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle54_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle54_3'));
@@ -1711,7 +1711,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<3; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 2 && i_01 == 4){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0760 finish.`);
             done()
@@ -1731,9 +1731,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0780', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0780 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle55")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle55_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle55_2'));
       let search: Component = await driver.findComponent(ON.type('Search'));
@@ -1741,9 +1741,9 @@ export default function UIAttributeFontInterface003() {
       for(let i_01 = 0; i_01<5; i_01++){
         await button2.click()
         await search.longClick()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0780 finish.`);
           done()
@@ -1761,17 +1761,17 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0790', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0790 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle56")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle56_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle56_2'));
       await button1.click()
       for(let i_01 = 0; i_01<6; i_01++){
         await button2.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0790 finish.`);
           done()
@@ -1790,9 +1790,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0800', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0800 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle57")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle57_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle57_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle57_3'));
@@ -1802,7 +1802,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<4; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 3 && i_01 == 5){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0800 finish.`);
             done()
@@ -1821,15 +1821,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0810', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0810 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle56")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle58'));
       for(let i_01 = 0; i_01<6; i_01++){
         await button.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0810 finish.`);
           done()
@@ -1848,9 +1848,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0820', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0820 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle59")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle59_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle59_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle59_3'));
@@ -1859,13 +1859,13 @@ export default function UIAttributeFontInterface003() {
         await button1.click()
         for(let i_02 = 0; i_02<5; i_02++){
           await button2.click()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           await button3.click()
           await button4.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02==4 && i_01 == 2){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0820 finish.`);
             done()
@@ -1885,9 +1885,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0830', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0830 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle60")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle60_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle60_2'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle60_3'));
@@ -1897,7 +1897,7 @@ export default function UIAttributeFontInterface003() {
         for(let i_02 = 0; i_02<6; i_02++){
           await button3.click()
           windowSnap.snapShot()
-          await Utils.sleep(1000)
+          await Utils.sleep(500)
           if(i_02 == 5 && i_01 == 3){
             Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0830 finish.`);
             done()
@@ -1917,17 +1917,17 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle61")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle61_1'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle61_2'));
       await button1.click()
       for(let i_01 = 0; i_01<6; i_01++){
         await button2.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_01 == 5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0840 finish.`);
           done()
@@ -1946,9 +1946,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle62")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle62_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle62_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle62_03'));
@@ -1956,9 +1956,9 @@ export default function UIAttributeFontInterface003() {
       await button3.click()
       for(let i_02 = 0; i_02 < 6; i_02++){
         await button2.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i_02==5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LINEHEIGHT_DECORATION_LETTERSPACING_0850 finish.`);
           done()
@@ -1975,9 +1975,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle63")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0020 finish.`);
       done()
     })
@@ -1991,9 +1991,9 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle64")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0030 finish.`);
       done()
     })
@@ -2007,15 +2007,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle65")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributeAndStyle65_01'));
       await button.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0040 finish.`);
       done()
     })
@@ -2029,21 +2029,21 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle66")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle66_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle66_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle66_03'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button3.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0060 finish.`);
       done()
     })
@@ -2056,25 +2056,25 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle67")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_03'));
       let button4: Component = await driver.findComponent(ON.id('fontAttributeAndStyle67_04'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button3.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button4.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0070 finish.`);
       done()
     })
@@ -2089,17 +2089,17 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle68")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle68_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle68_02'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0080 finish.`);
       done()
     })
@@ -2113,13 +2113,13 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle69")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle69_01'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0090 finish.`);
       done()
     })
@@ -2133,21 +2133,21 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle70")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle70_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle70_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle70_03'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button3.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0100 finish.`);
       done()
     })
@@ -2161,13 +2161,13 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle71")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle71_01'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0110 finish.`);
       done()
     })
@@ -2181,21 +2181,21 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle72")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle72_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle72_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle72_03'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button3.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0120 finish.`);
       done()
     })
@@ -2209,25 +2209,25 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle73")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_03'));
       let button4: Component = await driver.findComponent(ON.id('fontAttributeAndStyle73_04'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button3.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button4.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0130 finish.`);
       done()
     })
@@ -2242,18 +2242,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle74")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle74_01'));
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i = 0; i<5; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==5){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0140 finish.`);
           done()
@@ -2271,18 +2271,18 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle75")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle75_01'));
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i = 0; i<4; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0150 finish.`);
           done()
@@ -2298,16 +2298,16 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle76")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle76_01'));
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i = 0; i<4; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==4){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0160 finish.`);
           done()
@@ -2326,15 +2326,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle77")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle77_01'));
       for(let i = 0; i<3; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==3){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0170 finish.`);
           done()
@@ -2352,13 +2352,13 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle78")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle78_01'));
       await button1.click()
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0180 finish.`);
       done()
     })
@@ -2372,15 +2372,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle79")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle79_01'));
       for(let i = 0; i<3; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==3){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0190 finish.`);
           done()
@@ -2397,15 +2397,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle80")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle80_01'));
       for(let i = 0; i<6; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==6){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0210 finish.`);
           done()
@@ -2422,15 +2422,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle81")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle81_01'));
       for(let i = 0; i<6; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==6){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0220 finish.`);
           done()
@@ -2449,15 +2449,15 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle82")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle82_01'));
       for(let i = 0; i<6; i++){
         await button1.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         if(i==6){
           Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0230 finish.`);
           done()
@@ -2474,17 +2474,17 @@ export default function UIAttributeFontInterface003() {
     it('SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface03/fontAttributeAndStyle86")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributeAndStyle86_01'));
       let richEditor:Component = await driver.findComponent(ON.id('RichEditor_086'));
       await button1.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await richEditor.inputText("999999999")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_RICHEDITOR_SYMBOL_SHUFFLEEDITING_0360 finish.`);
       done()
     })

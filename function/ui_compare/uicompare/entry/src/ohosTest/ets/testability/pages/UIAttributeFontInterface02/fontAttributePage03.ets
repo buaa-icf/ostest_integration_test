@@ -25,7 +25,7 @@ struct fontAttributePage03 {
       Search({ value: this.changeValue, placeholder: 'Type to search...' })
         .searchButton('SEARCH')
         .searchIcon({
-          src: $r('app.media.icon')
+          src: $r('app.media.big_icon')
         })
         .width('90%')
         .height(60)

@@ -36,7 +36,7 @@ export default function UIAttributeFontInterface002() {
         }
         Logger.info('TEST', `Succeeded in destroy the window.`);
       })
-      await Utils.sleep(1000);
+      await Utils.sleep(500);
       done()
     })
 
@@ -48,9 +48,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SEARCH_INTERFACE_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_INTERFACE_0210 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage01")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_INTERFACE_0210 finish.`);
       done()
     })
@@ -63,9 +63,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SEARCH_INTERFACE_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_INTERFACE_0270 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage03")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_INTERFACE_0270 finish.`);
       done()
     })
@@ -78,9 +78,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SEARCH_LAYOUT_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_LAYOUT_0010 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage04")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_LAYOUT_0010 finish.`);
       done()
     })
@@ -93,15 +93,15 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SEARCH_LAYOUT_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_LAYOUT_0020 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage05")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await driver.triggerKey(2049);
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await driver.triggerKey(2054);
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SEARCH_LAYOUT_0020 finish.`);
       done()
     })
@@ -115,9 +115,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0010 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage06")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0010 finish.`);
       done()
     })
@@ -131,9 +131,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0020 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage07")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0020 finish.`);
       done()
     })
@@ -147,9 +147,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0030 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage08")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0030 finish.`);
       done()
     })
@@ -163,9 +163,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0040 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage09")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0040 finish.`);
       done()
     })
@@ -179,9 +179,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0050 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage10")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0050 finish.`);
       done()
     })
@@ -195,9 +195,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0060 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage11")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0060 finish.`);
       done()
     })
@@ -211,9 +211,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0070 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage12")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0070 finish.`);
       done()
     })
@@ -227,9 +227,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0080 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage13")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0080 finish.`);
       done()
     })
@@ -242,9 +242,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0090 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage14")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0090 finish.`);
       done()
     })
@@ -257,9 +257,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0100 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage15")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0100 finish.`);
       done()
     })
@@ -272,9 +272,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0110 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage16")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0110 finish.`);
       done()
     })
@@ -289,9 +289,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0120 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage17")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0120 finish.`);
       done()
     })
@@ -305,9 +305,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0130 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage18")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0130 finish.`);
       done()
     })
@@ -321,9 +321,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0140 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage19")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0140 finish.`);
       done()
     })
@@ -337,9 +337,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0150 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage20")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0150 finish.`);
       done()
     })
@@ -353,9 +353,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0160 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage21")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0160 finish.`);
       done()
     })
@@ -369,9 +369,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0170 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage22")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0170 finish.`);
       done()
     })
@@ -385,9 +385,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0180 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage23")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0180 finish.`);
       done()
     })
@@ -401,9 +401,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0190 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage24")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0190 finish.`);
       done()
     })
@@ -417,9 +417,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0200 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage25")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0200 finish.`);
       done()
     })
@@ -433,9 +433,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0210 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage26")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0210 finish.`);
       done()
     })
@@ -449,9 +449,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0220 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage27")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0220 finish.`);
       done()
     })
@@ -465,9 +465,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0230 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage28")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0230 finish.`);
       done()
     })
@@ -481,9 +481,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0240 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage29")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0240 finish.`);
       done()
     })
@@ -497,9 +497,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0250', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0250 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage30")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_CAPI_0250 finish.`);
       done()
     })
@@ -513,9 +513,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0014', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0014 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage33")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0014 finish.`);
       done()
     })
@@ -529,9 +529,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0067', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0067 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage34")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0067 finish.`);
       done()
     })
@@ -545,9 +545,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0081', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0081 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage35")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SPAN_INTERFACE_0081 finish.`);
       done()
     })
@@ -560,9 +560,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0350', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0350 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage36")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0350 finish.`);
       done()
     })
@@ -576,19 +576,19 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0420 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage183")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributePage183_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributePage183_02'));
       await button1.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0420 finish.`);
       done()
     })
@@ -601,19 +601,19 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0430 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage184")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributePage184_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributePage184_02'));
       await button1.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0430 finish.`);
       done()
     })
@@ -626,32 +626,32 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0690', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0690 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage185")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributePage185_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributePage185_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributePage185_03'));
       let button4: Component = await driver.findComponent(ON.id('fontAttributePage185_04'));
       await button1.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button3.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i_01 = 0; i_01 < 5; i_01++){
         await button2.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
       }
       for(let i_02 = 0; i_02 < 5; i_02++){
         await button4.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
       }
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0690 finish.`);
       done()
@@ -666,35 +666,35 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0700', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0700 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage186")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributePage186_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributePage186_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributePage186_03'));
       let button4: Component = await driver.findComponent(ON.id('fontAttributePage186_04'));
       await button1.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       for(let i_01 = 0; i_01 < 5; i_01++){
         await button2.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
       }
       for(let i_02 = 0; i_02 < 2; i_02++){
         await button3.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
       }
       for(let i_03 = 0; i_03 < 2; i_03++){
         await button4.click()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
         windowSnap.snapShot()
-        await Utils.sleep(1000)
+        await Utils.sleep(500)
       }
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_SYMBOL_MIXEDDISPLAY_0700 finish.`);
       done()
@@ -709,9 +709,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0010 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage41")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0010 finish.`);
       done()
     })
@@ -725,9 +725,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0020 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage42")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0020 finish.`);
       done()
     })
@@ -741,9 +741,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0030 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage43")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0030 finish.`);
       done()
     })
@@ -756,9 +756,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0040 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage44")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0040 finish.`);
       done()
     })
@@ -771,13 +771,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0050 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage45")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let copy: Component = await driver.findComponent(ON.text('复制'));
       await copy.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0050 finish.`);
       done()
     })
@@ -790,9 +790,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0060 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage46")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0060 finish.`);
       done()
     })
@@ -805,9 +805,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0070 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage47")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0070 finish.`);
       done()
     })
@@ -820,9 +820,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0080 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage48")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0080 finish.`);
       done()
     })
@@ -835,9 +835,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0090 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage49")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0090 finish.`);
       done()
     })
@@ -850,9 +850,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0100 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage50")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0100 finish.`);
       done()
     })
@@ -866,9 +866,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0110 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage51")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0110 finish.`);
       done()
     })
@@ -882,12 +882,12 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0120 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage52")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       await driver.click(100,200)
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0120 finish.`);
       done()
     })
@@ -901,13 +901,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0140 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage53")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let selectAll: Component = await driver.findComponent(ON.text('全选'));
       await selectAll.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0140 finish.`);
       done()
     })
@@ -920,9 +920,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0170 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage54")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0170 finish.`);
       done()
     })
@@ -935,9 +935,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0180 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage55")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0180 finish.`);
       done()
     })
@@ -950,9 +950,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0190 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage56")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0190 finish.`);
       done()
     })
@@ -966,9 +966,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0200 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage57")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0200 finish.`);
       done()
     })
@@ -982,9 +982,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0210 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage58")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0210 finish.`);
       done()
     })
@@ -997,9 +997,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0220 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage59")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0220 finish.`);
       done()
     })
@@ -1012,9 +1012,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0230 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage60")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0230 finish.`);
       done()
     })
@@ -1028,9 +1028,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0240 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage61")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0240 finish.`);
       done()
     })
@@ -1044,13 +1044,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0250', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0250 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage62")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let changeSelect: Component = await driver.findComponent(ON.id('changeSelection63'));
       await changeSelect.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0250 finish.`);
       done()
     })
@@ -1064,9 +1064,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0260', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0260 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage63")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0260 finish.`);
       done()
     })
@@ -1080,9 +1080,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0270 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage64")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0270 finish.`);
       done()
     })
@@ -1096,9 +1096,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0280 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage65")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0280 finish.`);
       done()
     })
@@ -1112,9 +1112,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0290 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage66")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0290 finish.`);
       done()
     })
@@ -1129,9 +1129,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0300 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage67")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0300 finish.`);
       done()
     })
@@ -1145,9 +1145,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0310 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage68")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0310 finish.`);
       done()
     })
@@ -1162,9 +1162,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0320 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage69")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0320 finish.`);
       done()
     })
@@ -1178,13 +1178,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0330 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage70")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let copy: Component = await driver.findComponent(ON.text('复制'));
       await copy.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0330 finish.`);
       done()
     })
@@ -1198,9 +1198,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0340', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0340 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage71")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0340 finish.`);
       done()
     })
@@ -1214,9 +1214,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0350', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0350 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage72")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0350 finish.`);
       done()
     })
@@ -1230,9 +1230,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0360 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage73")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0360 finish.`);
       done()
     })
@@ -1246,9 +1246,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0370 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage74")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0370 finish.`);
       done()
     })
@@ -1262,13 +1262,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0380 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage75")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let copy: Component = await driver.findComponent(ON.text('复制'));
       await copy.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0380 finish.`);
       done()
     })
@@ -1282,13 +1282,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0390', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0390 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage76")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let copy: Component = await driver.findComponent(ON.text('复制'));
       await copy.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0390 finish.`);
       done()
     })
@@ -1302,13 +1302,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0400', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0400 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage77")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let copy: Component = await driver.findComponent(ON.text('复制'));
       await copy.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0400 finish.`);
       done()
     })
@@ -1322,9 +1322,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0410', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0410 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage78")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0410 finish.`);
       done()
     })
@@ -1338,25 +1338,25 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0420 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage79")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let copy1: Component = await driver.findComponent(ON.id('changeText79_1'));
       await copy1.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let copy2: Component = await driver.findComponent(ON.id('changeText79_2'));
       await copy2.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let copy3: Component = await driver.findComponent(ON.id('changeText79_3'));
       await copy3.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0420 finish.`);
       done()
     })
@@ -1369,13 +1369,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0430 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage80")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let changeFontSize: Component = await driver.findComponent(ON.id('changeText80'));
       await changeFontSize.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0430 finish.`);
       done()
     })
@@ -1388,9 +1388,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0440', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0440 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage81")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0440 finish.`);
       done()
     })
@@ -1405,13 +1405,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0450', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0450 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage82")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let select: Component = await driver.findComponent(ON.id('changeSelection82'));
       await select.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0450 finish.`);
       done()
     })
@@ -1426,13 +1426,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0460', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0460 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage83")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let select: Component = await driver.findComponent(ON.id('changeSelection83'));
       await select.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0460 finish.`);
       done()
     })
@@ -1446,9 +1446,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0470', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0470 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage84")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0470 finish.`);
       done()
     })
@@ -1459,12 +1459,12 @@ export default function UIAttributeFontInterface002() {
      * @tc.desc   : Add a Text component and include a child `ImageSpan` component. Set the `verticalAlign` to `center`,
      * and set the `selection` with `selectionStart` at 0 and `selectionEnd` at 20.
      */
-    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0470', 0, async (done: Function) => {
+    it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0480', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0480 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage85")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0480 finish.`);
       done()
     })
@@ -1478,9 +1478,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0490', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0490 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage86")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0490 finish.`);
       done()
     })
@@ -1494,9 +1494,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0500', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0500 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage87")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0500 finish.`);
       done()
     })
@@ -1510,9 +1510,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0510', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0510 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage88")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0510 finish.`);
       done()
     })
@@ -1526,9 +1526,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0520', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0520 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage89")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0520 finish.`);
       done()
     })
@@ -1542,9 +1542,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0530', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0530 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage90")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0530 finish.`);
       done()
     })
@@ -1558,9 +1558,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0540', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0540 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage91")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0540 finish.`);
       done()
     })
@@ -1574,9 +1574,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0550', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0550 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage92")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0550 finish.`);
       done()
     })
@@ -1590,9 +1590,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0560', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0560 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage93")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0560 finish.`);
       done()
     })
@@ -1605,13 +1605,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0590', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0590 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage94")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage94'));
       await button.longClick();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0590 finish.`);
       done()
     })
@@ -1625,13 +1625,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0600', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0600 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage95")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('changeHeight95'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0600 finish.`);
       done()
     })
@@ -1644,9 +1644,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0610', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0610 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage96")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0610 finish.`);
       done()
     })
@@ -1659,9 +1659,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0630', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0610 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage179")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0630 finish.`);
       done()
     })
@@ -1675,17 +1675,17 @@ export default function UIAttributeFontInterface002() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0640 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage180")
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributePage180_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributePage180_02'));
       await button1.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0640 finish.`);
       done()
     })
@@ -1699,17 +1699,17 @@ export default function UIAttributeFontInterface002() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0650 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage181")
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributePage181_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributePage181_02'));
       await button1.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0650 finish.`);
       done()
     })
@@ -1724,21 +1724,21 @@ export default function UIAttributeFontInterface002() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0660 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage182")
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button1: Component = await driver.findComponent(ON.id('fontAttributePage182_01'));
       let button2: Component = await driver.findComponent(ON.id('fontAttributePage182_02'));
       let button3: Component = await driver.findComponent(ON.id('fontAttributePage182_03'));
       await button1.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button2.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       await button3.click();
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_ABILITY_0660 finish.`);
       done()
     })
@@ -1751,9 +1751,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0040 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage97")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0040 finish.`);
       done()
     })
@@ -1767,9 +1767,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0050 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage98")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0050 finish.`);
       done()
     })
@@ -1783,9 +1783,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0060 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage99")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0060 finish.`);
       done()
     })
@@ -1799,9 +1799,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0070 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage100")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0070 finish.`);
       done()
     })
@@ -1815,9 +1815,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0080 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage101")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0080 finish.`);
       done()
     })
@@ -1831,9 +1831,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0090 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage102")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0090 finish.`);
       done()
     })
@@ -1847,9 +1847,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0100 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage103")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0100 finish.`);
       done()
     })
@@ -1863,9 +1863,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0110 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage104")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0110 finish.`);
       done()
     })
@@ -1880,9 +1880,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0120 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage105")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0120 finish.`);
       done()
     })
@@ -1896,9 +1896,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0130 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage106")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0130 finish.`);
       done()
     })
@@ -1912,9 +1912,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0140 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage107")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0140 finish.`);
       done()
     })
@@ -1928,9 +1928,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0150 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage108")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0150 finish.`);
       done()
     })
@@ -1944,9 +1944,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0160 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage109")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0160 finish.`);
       done()
     })
@@ -1960,9 +1960,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage110")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0170 finish.`);
       done()
     })
@@ -1976,9 +1976,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage111")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0180 finish.`);
       done()
     })
@@ -1993,9 +1993,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage112")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0190 finish.`);
       done()
     })
@@ -2010,13 +2010,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage113")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage113'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0200 finish.`);
       done()
     })
@@ -2032,20 +2032,20 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage114")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button_20: Component = await driver.findComponent(ON.id('fontAttributePage114_20'));
       await button_20.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button_30: Component = await driver.findComponent(ON.id('fontAttributePage114_30'));
       await button_30.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0210 finish.`);
       done()
     })
@@ -2059,9 +2059,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage115")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0220 finish.`);
       done()
     })
@@ -2075,9 +2075,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage116")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0230 finish.`);
       done()
     })
@@ -2092,9 +2092,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage117")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0240 finish.`);
       done()
     })
@@ -2110,9 +2110,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage118")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0250 finish.`);
       done()
     })
@@ -2128,13 +2128,13 @@ export default function UIAttributeFontInterface002() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0260 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage119")
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
       let fontSize: Component = await driver.findComponent(ON.id('fontAttributePage119_01'));
       let imageSize: Component = await driver.findComponent(ON.id('fontAttributePage119_02'));
       await fontSize.click()
       await imageSize.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0260 finish.`);
       done()
@@ -2152,9 +2152,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage120")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0270 finish.`);
       done()
     })
@@ -2170,9 +2170,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage121")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0280 finish.`);
       done()
     })
@@ -2187,9 +2187,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage122")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0290 finish.`);
       done()
     })
@@ -2204,9 +2204,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage123")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0300 finish.`);
       done()
     })
@@ -2221,9 +2221,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage124")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0310 finish.`);
       done()
     })
@@ -2238,9 +2238,9 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage125")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0320 finish.`);
       done()
     })
@@ -2256,14 +2256,14 @@ export default function UIAttributeFontInterface002() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0330 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage126")
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let widthDec: Component = await driver.findComponent(ON.id('fontAttributePage126_01'));
       let widthInc: Component = await driver.findComponent(ON.id('fontAttributePage126_02'));
       await widthDec.click()
       await widthInc.click()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_CONTAINERSPAN_0330 finish.`);
       done()
@@ -2281,13 +2281,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage127")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage127'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0010 finish.`);
       done()
     })
@@ -2301,13 +2301,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage128")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage128'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 finish.`);
       done()
     })
@@ -2321,13 +2321,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0030', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage129")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage129'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0020 finish.`);
       done()
     })
@@ -2341,13 +2341,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage130")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage130'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0040 finish.`);
       done()
     })
@@ -2361,13 +2361,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage131")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage131'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0050 finish.`);
       done()
     })
@@ -2381,13 +2381,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage132")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage132'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0060 finish.`);
       done()
     })
@@ -2401,13 +2401,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage133")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage133'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0070 finish.`);
       done()
     })
@@ -2421,13 +2421,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage134")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage134'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0080 finish.`);
       done()
     })
@@ -2441,13 +2441,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage135")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage135'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0090 finish.`);
       done()
     })
@@ -2461,13 +2461,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage136")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage136'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0100 finish.`);
       done()
     })
@@ -2481,13 +2481,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage137")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage137'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0110 finish.`);
       done()
     })
@@ -2501,13 +2501,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage138")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage138'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0120 finish.`);
       done()
     })
@@ -2521,13 +2521,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage139")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage139'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0130 finish.`);
       done()
     })
@@ -2541,13 +2541,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage140")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage140'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0140 finish.`);
       done()
     })
@@ -2561,13 +2561,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage141")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage141'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0150 finish.`);
       done()
     })
@@ -2581,13 +2581,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage142")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage142'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0160 finish.`);
       done()
     })
@@ -2601,13 +2601,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage143")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage143'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0170 finish.`);
       done()
     })
@@ -2621,13 +2621,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage144")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage144'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0180 finish.`);
       done()
     })
@@ -2640,13 +2640,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage145")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage145'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0190 finish.`);
       done()
     })
@@ -2660,13 +2660,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage146")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage146'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0200 finish.`);
       done()
     })
@@ -2680,13 +2680,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage147")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage147'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0210 finish.`);
       done()
     })
@@ -2701,13 +2701,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage148")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage148'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0220 finish.`);
       done()
     })
@@ -2721,13 +2721,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage149")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage149'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0230 finish.`);
       done()
     })
@@ -2742,13 +2742,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage150")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage150'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0240 finish.`);
       done()
     })
@@ -2762,13 +2762,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage151")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage151'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0250 finish.`);
       done()
     })
@@ -2783,13 +2783,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage152")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage152'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0260 finish.`);
       done()
     })
@@ -2803,13 +2803,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage153")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage153'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0270 finish.`);
       done()
     })
@@ -2824,13 +2824,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage154")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage154'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0280 finish.`);
       done()
     })
@@ -2844,13 +2844,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage155")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage155'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0290 finish.`);
       done()
     })
@@ -2864,13 +2864,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage156")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage156'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0300 finish.`);
       done()
     })
@@ -2884,13 +2884,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage157")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage157'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0310 finish.`);
       done()
     })
@@ -2905,13 +2905,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage158")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage158'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0320 finish.`);
       done()
     })
@@ -2925,13 +2925,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage159")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage159'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0330 finish.`);
       done()
     })
@@ -2946,13 +2946,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage160")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage160'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0340 finish.`);
       done()
     })
@@ -2966,13 +2966,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage161")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage161'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0350 finish.`);
       done()
     })
@@ -2987,13 +2987,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage162")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage162'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0360 finish.`);
       done()
     })
@@ -3007,13 +3007,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage163")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage163'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0370 finish.`);
       done()
     })
@@ -3028,13 +3028,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage164")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage164'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0380 finish.`);
       done()
     })
@@ -3048,13 +3048,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage165")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage165'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0390 finish.`);
       done()
     })
@@ -3068,13 +3068,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage166")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage166'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0400 finish.`);
       done()
     })
@@ -3088,13 +3088,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage167")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage167'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0410 finish.`);
       done()
     })
@@ -3109,13 +3109,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage168")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage168'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0420 finish.`);
       done()
     })
@@ -3129,13 +3129,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage169")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage169'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0430 finish.`);
       done()
     })
@@ -3150,13 +3150,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage170")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage170'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0440 finish.`);
       done()
     })
@@ -3170,13 +3170,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage171")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage171'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0450 finish.`);
       done()
     })
@@ -3191,13 +3191,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage172")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage172'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0460 finish.`);
       done()
     })
@@ -3211,13 +3211,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage173")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage173'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0470 finish.`);
       done()
     })
@@ -3232,13 +3232,13 @@ export default function UIAttributeFontInterface002() {
     it('SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480', 0, async (done: Function) => {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480 start.`);
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage174")
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let driver: Driver = Driver.create();
       let button: Component = await driver.findComponent(ON.id('fontAttributePage174'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0480 finish.`);
       done()
     })
@@ -3255,14 +3255,14 @@ export default function UIAttributeFontInterface002() {
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage175")
       await Utils.sleep(2000)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributePage175'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0490 finish.`);
       done()
     })
@@ -3278,14 +3278,14 @@ export default function UIAttributeFontInterface002() {
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage176")
       await Utils.sleep(2000)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributePage176'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0500 finish.`);
       done()
     })
@@ -3302,14 +3302,14 @@ export default function UIAttributeFontInterface002() {
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage177")
       await Utils.sleep(2000)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributePage177'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0510 finish.`);
       done()
     })
@@ -3326,14 +3326,14 @@ export default function UIAttributeFontInterface002() {
       Settings.createWindow("testability/pages/UIAttributeFontInterface02/fontAttributePage178")
       await Utils.sleep(2000)
       let driver: Driver = Driver.create();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       let button: Component = await driver.findComponent(ON.id('fontAttributePage178'));
       await button.click();
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       windowSnap.snapShot()
-      await Utils.sleep(1000)
+      await Utils.sleep(500)
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_TEXT_TEXT_TRUNCATION_0520 finish.`);
       done()
     })

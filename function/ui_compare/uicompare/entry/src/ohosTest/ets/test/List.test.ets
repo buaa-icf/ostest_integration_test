@@ -150,4 +150,6 @@ export default function testsuite() {
   UIComponentTextCommonAffingTranTest();
   UIComponentSymbolDisplay();
   UIAttributeFontSupportstage();
+  UIAttributeFontInterface002()
+  UIAttributeFontInterface003()
 }
