@@ -37,6 +37,10 @@
       "value": "HarmonyOS Sans"
     },
     {
+      "name": "span",
+      "value": "span"
+    },
+    {
       "name": "test_value",
       "value": "-10"
     },
