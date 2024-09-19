@@ -24,6 +24,7 @@ import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager'
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
 import http from '@ohos.net.http'
+import prompt from '@ohos.promptAction';
 
 
 export default class PlayerManager {
@@ -369,9 +370,17 @@ export default class PlayerManager {
             console.info('HttpResponse type:' + JSON.stringify(data.resultType));
             console.info('HttpResponse header:' + JSON.stringify(data.header));
             console.info('HttpResponse cookies:' + data.cookies);
-
+            let eventData: emitter.EventData = {
+              data: {
+                "message": ServerConstants.UPDATE_USER_LIST_RECOMMEND,
+              }
+            };
+            emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
           }
         });
     } catch (err) {
@@ -381,6 +390,7 @@ export default class PlayerManager {
 
   set_favourite() {
     let loginCookie: string | undefined = AppStorage.get('loginCookie');
+    let msg: string = ''
     try {
       let is_favor: string = this.item.isFavor ? '0' : '1';
       console.info('HttpResponse start:' + ServerConstants.SET_FAVOURITE + this.item.id + '/' + is_favor);
@@ -413,24 +423,90 @@ export default class PlayerManager {
                   this.item.isFavor = false;
                   break;
               }
+              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, this.emitterOptions);
+              prompt.showToast({
+                message: jsonObject["message"]
+              })
               let eventData: emitter.EventData = {
                 data: {
-                  "message": jsonObject["message"],
+                  "message": ServerConstants.UPDATE_USER_LIST_RECOMMEND,
                 }
               };
-              console.info('HttpResponse msg:' + jsonObject["message"]);
-              //emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID, this.emitterOptions, eventData);
-              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, this.emitterOptions, eventData);
+              emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
             }
             catch (error) {
               console.error("JSON :", error.message);
+              msg = JSON.stringify(error);
             }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
           }
         });
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
+      msg = JSON.stringify(err);
+    }
+    if (msg !== '') {
+      prompt.showToast({
+        message: msg
+      })
+    }
+  }
+
+  add_to_playlist(song_id: string, playlist_name: string) {
+    let loginCookie: string | undefined = AppStorage.get('loginCookie');
+    let msg: string = ''
+    try {
+      console.info('HttpResponse start:' + ServerConstants.ADD_TO_PLAYLIST + song_id + '/' + playlist_name);
+      this.httpRequest.request(ServerConstants.ADD_TO_PLAYLIST + song_id + '/' + playlist_name,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': loginCookie
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse Result:' + data.result);
+            console.info('HttpResponse code:' + data.responseCode);
+            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+            console.info('HttpResponse header:' + JSON.stringify(data.header));
+            console.info('HttpResponse cookies:' + data.cookies);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              console.info('HttpResponse msg:' + jsonObject["message"]);
+              let eventData: emitter.EventData = {
+                data: {
+                  "message": ServerConstants.UPDATE_USER_LIST_CUSTOM,
+                }
+              };
+              emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
+              prompt.showToast({
+                message: jsonObject["message"]
+              })
+            } catch (error) {
+              console.error("JSON :", error.message);
+              msg = JSON.stringify(error);
+            }
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+      msg = JSON.stringify(err);
+    }
+    console.info('HttpRequest msg:' + msg);
+    if (msg !== '') {
+      prompt.showToast({
+        message: msg
+      })
     }
   }
 

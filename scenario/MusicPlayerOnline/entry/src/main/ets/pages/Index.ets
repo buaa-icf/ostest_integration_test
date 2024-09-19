@@ -114,12 +114,26 @@ struct Index {
         this.getRecommendListFromServer();
       }
     });
+    emitter.on(ServerConstants.UPDATE_USER_LIST, (eventData: emitter.EventData) => {
+      if (eventData !== undefined && eventData.data !== undefined) {
+        if(eventData.data.message === ServerConstants.UPDATE_USER_LIST_CUSTOM){
+          this.getCustomListFromServer();
+        }
+        if(eventData.data.message === ServerConstants.UPDATE_USER_LIST_RECOMMEND){
+          this.getRecommendListFromServer();
+        }
+      }
+    });
   }
 
   aboutToDisappear(): void {
     emitter.off(ServerConstants.UPDATE_TIME_EVENT_ID);
     emitter.off(ServerConstants.UPDATE_STATE_EVENT_ID);
-    this.dialogController = null;
+    emitter.off(ServerConstants.UPDATE_USER_LIST);
+    if (this.dialogController !== null) {
+      this.dialogController.close();
+      this.dialogController = null;
+    }
   }
 
   build() {
@@ -296,7 +310,7 @@ struct Index {
                       GridItem() {
                         PlayListItem({ item })
                       }
-                      .id('my_list_item')
+                      .id('search_list_item')
                       .transition({ type: TransitionType.All, opacity: 0 })
                     })
                   }
@@ -405,7 +419,12 @@ struct Index {
           })
 
           if (this.isShowPlayerDetail) {
-            PlayerDetail({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
+            PlayerDetail({
+              isShowPlayList: $isShowPlayList,
+              isShowPlayerDetail: $isShowPlayerDetail,
+              customPlayLists: this.customPlayLists,
+              loginInfo: this.loginInfo,
+            })
               .width('100%')
               .height('100%')
               .transition(TransitionEffect.OPACITY
@@ -531,6 +550,9 @@ struct Index {
                     this.getCustomListFromServer();
                   } else {
                     console.info('HttpResponse error:' + JSON.stringify(err));
+                    prompt.showToast({
+                      message: JSON.stringify(err)
+                    })
                     this.loginFailed();
                   }
                 });
@@ -541,6 +563,9 @@ struct Index {
             }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
             this.loginFailed();
           }
         });
@@ -594,6 +619,10 @@ struct Index {
                     prompt.showToast({
                       message: ServerConstants.REGISTER_INFO_SUCCESS
                     })
+                    this.login(userName.trim(), pwd.trim());
+                    if (this.dialogController) {
+                      this.dialogController.close();
+                    }
                   } else {
                     console.info('HttpResponse error:' + JSON.stringify(err));
                     prompt.showToast({
@@ -672,10 +701,16 @@ struct Index {
             console.info('HttpResponse cookies:' + data.cookies);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
           }
         });
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
+      prompt.showToast({
+        message: JSON.stringify(err)
+      })
     }
   }
 
@@ -730,6 +765,9 @@ struct Index {
             }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
           }
         });
     } catch (err) {
@@ -789,6 +827,9 @@ struct Index {
             console.info('HttpResponse cookies:' + data.cookies);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
             this.searchSongTitle = ServerConstants.SEARCH_DEFAULT;
           }
         });

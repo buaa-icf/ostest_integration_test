@@ -20,7 +20,7 @@
 export default class AudioItem {
   title: string = '';
   artist: string = '';
-  id: string = '0'
+  id: string = ''
   isPlaying: boolean = false;
   isFavor: boolean = false;
 
