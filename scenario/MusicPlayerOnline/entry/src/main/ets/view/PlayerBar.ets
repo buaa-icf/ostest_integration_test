@@ -34,7 +34,7 @@ export default struct PlayerBar {
   @Link isShowPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
-  private spaces: string = '       '
+  private spaces: string = '               '
 
   aboutToAppear() {
     Logger.info(this.tag, 'aboutToAppear');

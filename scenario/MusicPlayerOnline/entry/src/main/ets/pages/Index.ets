@@ -106,12 +106,21 @@ struct Index {
     } else {
       this.customPlayLists = [];
     }
-    emitter.on(ServerConstants.UPDATE_FAVOR_EVENT_ID, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.UPDATE_USER_LIST, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
-        prompt.showToast({
-          message: eventData.data.message
-        })
-        this.getRecommendListFromServer();
+        switch (eventData.data.message) {
+          case ServerConstants.UPDATE_USER_LIST_CUSTOM:
+            this.getCustomListFromServer();
+            break;
+          case ServerConstants.UPDATE_USER_LIST_RECENT:
+            this.getRecentListFromServer();
+            break;
+          case ServerConstants.UPDATE_USER_LIST_FAVOR:
+            this.getFavorListFromServer();
+            break;
+          default:
+            break;
+        }
       }
     });
   }
@@ -119,7 +128,11 @@ struct Index {
   aboutToDisappear(): void {
     emitter.off(ServerConstants.UPDATE_TIME_EVENT_ID);
     emitter.off(ServerConstants.UPDATE_STATE_EVENT_ID);
-    this.dialogController = null;
+    emitter.off(ServerConstants.UPDATE_USER_LIST);
+    if (this.dialogController !== null) {
+      this.dialogController.close();
+      this.dialogController = null;
+    }
   }
 
   build() {
@@ -296,7 +309,7 @@ struct Index {
                       GridItem() {
                         PlayListItem({ item })
                       }
-                      .id('my_list_item')
+                      .id('search_list_item')
                       .transition({ type: TransitionType.All, opacity: 0 })
                     })
                   }
@@ -405,7 +418,12 @@ struct Index {
           })
 
           if (this.isShowPlayerDetail) {
-            PlayerDetail({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
+            PlayerDetail({
+              isShowPlayList: $isShowPlayList,
+              isShowPlayerDetail: $isShowPlayerDetail,
+              customPlayLists: this.customPlayLists,
+              loginInfo: this.loginInfo,
+            })
               .width('100%')
               .height('100%')
               .transition(TransitionEffect.OPACITY
@@ -531,6 +549,9 @@ struct Index {
                     this.getCustomListFromServer();
                   } else {
                     console.info('HttpResponse error:' + JSON.stringify(err));
+                    prompt.showToast({
+                      message: JSON.stringify(err)
+                    })
                     this.loginFailed();
                   }
                 });
@@ -541,6 +562,9 @@ struct Index {
             }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
             this.loginFailed();
           }
         });
@@ -594,6 +618,10 @@ struct Index {
                     prompt.showToast({
                       message: ServerConstants.REGISTER_INFO_SUCCESS
                     })
+                    this.login(userName.trim(), pwd.trim());
+                    if (this.dialogController) {
+                      this.dialogController.close();
+                    }
                   } else {
                     console.info('HttpResponse error:' + JSON.stringify(err));
                     prompt.showToast({
@@ -632,7 +660,6 @@ struct Index {
   getRecommendListFromServer() {
     animateTo({ duration: 2000 }, () => {
       this.recommendPlayLists = [];
-      this.PlayerManager.clearFavourList();
     })
     try {
       this.httpRequest.request(ServerConstants.RECOMMEND_LIST_URL,
@@ -658,9 +685,6 @@ struct Index {
                     this.recommendPlayLists.push(new PlayListData(key, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
                       aPlayingList, ''));
                   })
-                if (key === ServerConstants.LIST_SONG_FAVOURITE) {
-                  this.PlayerManager.setFavourList(aPlayingList);
-                }
               });
             }
             catch (error) {
@@ -672,10 +696,135 @@ struct Index {
             console.info('HttpResponse cookies:' + data.cookies);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
           }
         });
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
+      prompt.showToast({
+        message: JSON.stringify(err)
+      })
+    }
+  }
+
+  getFavorListFromServer() {
+    try {
+      this.httpRequest.request(ServerConstants.FAVOR_LIST_URL,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': AppStorage.get('loginCookie')
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse getRecentListFromServer Result:' + data.result);
+            try {
+              let existingIndex = this.customPlayLists.findIndex(item => item.title === ServerConstants.LIST_SONG_FAVOURITE);
+              let aPlayingList: AudioItem[] = Array<AudioItem>();
+              const jsonObject: object = JSON.parse(data.result as string);
+              if (jsonObject[ServerConstants.LIST_SONG_FAVOURITE]) {
+                Object.keys(jsonObject[ServerConstants.LIST_SONG_FAVOURITE]).forEach((key) => {
+                  aPlayingList.push(new AudioItem(jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].name, jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].singer, jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].id));
+                });
+                animateTo(
+                  { duration: 1000 },
+                  () => {
+                    if (aPlayingList.length !== 0) {
+                      let favorItem = new PlayListData(ServerConstants.LIST_SONG_FAVOURITE, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                        aPlayingList, '');
+                      if (existingIndex !== -1) {
+                        this.customPlayLists[existingIndex] = favorItem;
+                      } else {
+                        this.customPlayLists.unshift(favorItem);
+                      }
+                    } else {
+                      if (existingIndex !== -1) {
+                        this.customPlayLists.splice(existingIndex, 1);
+                      }
+                    }
+                  })
+              } else {
+                this.customPlayLists.splice(existingIndex, 1);
+              }
+              this.PlayerManager.setFavourList(aPlayingList);
+            }
+            catch (error) {
+              console.error("JSON :", error.message);
+            }
+            console.info('HttpResponse code:' + data.responseCode);
+            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+            console.info('HttpResponse header:' + JSON.stringify(data.header));
+            console.info('HttpResponse cookies:' + data.cookies);
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+      prompt.showToast({
+        message: JSON.stringify(err)
+      })
+    }
+  }
+
+  getRecentListFromServer() {
+    try {
+      this.httpRequest.request(ServerConstants.RECENT_LIST_URL,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': AppStorage.get('loginCookie')
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse getRecentListFromServer Result:' + data.result);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              Object.keys(jsonObject).forEach((key) => {
+                let aPlayingList: AudioItem[] = Array<AudioItem>();
+                Object.keys(jsonObject[key]).forEach((key2) => {
+                  aPlayingList.push(new AudioItem(jsonObject[key][key2].name, jsonObject[key][key2].singer, jsonObject[key][key2].id));
+                });
+                animateTo(
+                  { duration: 1000 },
+                  () => {
+                    let recentItem = new PlayListData(key, $r('app.media.icon'), aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                      aPlayingList, '');
+                    let existingIndex = this.customPlayLists.findIndex(item => item.title === recentItem.title);
+                    if (existingIndex !== -1) {
+                      this.customPlayLists[existingIndex] = recentItem;
+                    } else {
+                      this.customPlayLists.unshift(recentItem);
+                    }
+                  })
+              });
+            }
+            catch (error) {
+              console.error("JSON :", error.message);
+            }
+            console.info('HttpResponse code:' + data.responseCode);
+            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
+            console.info('HttpResponse header:' + JSON.stringify(data.header));
+            console.info('HttpResponse cookies:' + data.cookies);
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+      prompt.showToast({
+        message: JSON.stringify(err)
+      })
     }
   }
 
@@ -724,12 +873,17 @@ struct Index {
                     aPlayingList, ''));
                 })
               });
+              this.getRecentListFromServer();
+              this.getFavorListFromServer();
             }
             catch (error) {
               console.error("JSON :", error.message);
             }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
           }
         });
     } catch (err) {
@@ -789,6 +943,9 @@ struct Index {
             console.info('HttpResponse cookies:' + data.cookies);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
             this.searchSongTitle = ServerConstants.SEARCH_DEFAULT;
           }
         });

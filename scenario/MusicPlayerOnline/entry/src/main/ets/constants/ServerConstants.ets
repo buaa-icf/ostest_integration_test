@@ -34,9 +34,17 @@ export default class ServerConstants {
    */
   static readonly SEARCH_SONG_URL = this.SERVER_HOST + 'search_song/';
   /**
-   * custom list URL
+   * recommend list URL
    */
   static readonly RECOMMEND_LIST_URL = this.SERVER_HOST + 'get_recommend_playlists/';
+  /**
+   * recent list URL
+   */
+  static readonly RECENT_LIST_URL = this.SERVER_HOST + 'get_recent_playlists/';
+  /**
+   * favor list URL
+   */
+  static readonly FAVOR_LIST_URL = this.SERVER_HOST + 'get_favor_playlists/';
   /**
    * English songs URL
    */
@@ -62,6 +70,10 @@ export default class ServerConstants {
    */
   static readonly SET_FAVOURITE = this.SERVER_HOST + 'set_favourite/';
   /**
+   * add song to playlist
+   */
+  static readonly ADD_TO_PLAYLIST = this.SERVER_HOST + 'add_to_playlist/';
+  /**
    * Login URL
    */
   static readonly REGISTER_URL = this.SERVER_HOST + 'authentication/signup1/';
@@ -85,10 +97,13 @@ export default class ServerConstants {
    */
   static readonly UPDATE_TIME_EVENT_ID = '1';
   static readonly UPDATE_STATE_EVENT_ID = '2';
-  static readonly UPDATE_FAVOR_EVENT_ID = '3';
   static readonly UPDATE_TIME_EVENT_ID_DETAIL = '4';
   static readonly UPDATE_STATE_EVENT_ID_DETAIL = '5';
   static readonly UPDATE_FAVOR_EVENT_ID_DETAIL = '6';
+  static readonly UPDATE_USER_LIST = '3';
+  static readonly UPDATE_USER_LIST_CUSTOM = '31';
+  static readonly UPDATE_USER_LIST_RECENT = '32';
+  static readonly UPDATE_USER_LIST_FAVOR = '33';
   /**
    * PLAYER LIST
    */
@@ -104,7 +119,7 @@ export default class ServerConstants {
   static readonly LOGIN_INFO_ING = '···';
   static readonly LOGIN_INFO_FAILED = '登录失败';
   static readonly REGISTER_INFO_FAILED = '注册失败';
-  static readonly REGISTER_INFO_SUCCESS = '注册成功';
+  static readonly REGISTER_INFO_SUCCESS = '注册成功，自动登录...';
   static readonly LOGIN_INFO_DONE = ' 你好！';
   static readonly SET_FAVOURITE_ALREADY  =  "重复收藏";
   static readonly SET_FAVOURITE_SUCCESS =  "收藏成功";

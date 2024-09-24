@@ -22,6 +22,9 @@ import ServerConstants from '../constants/ServerConstants';
 import UIConstants from '../constants/UIConstants';
 import AudioItem from '../model/AudioItem';
 import { PLAY_MODE } from '../constants/PlayMode';
+import { addToListDialog } from './addToListDialog';
+import PlayListData from '../model/PlayListData';
+import prompt from '@ohos.promptAction';
 
 /**
  * Setting tab content
@@ -44,8 +47,48 @@ export default struct PlayerDetail {
   @State noItem: boolean = false;
   @Link isShowPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
+  @Prop customPlayLists: PlayListData[];
+  @Prop loginInfo: string;
+  @State listOptions: Array<SelectOption> = [];
+  @State inputListName: string = '';
   private scroller: Scroller = new Scroller()
   private tabsController: TabsController = new TabsController();
+  private isDialogOpened: boolean = false;
+  private songIdToAdd: string = '';
+  dialogController: CustomDialogController | null = new CustomDialogController({
+    builder: addToListDialog({
+      cancel: () => {
+        if (this.dialogController !== null) {
+          this.dialogController.close();
+          this.isDialogOpened = false;
+        }
+      },
+      confirm: () => {
+        if (this.inputListName.trim()) {
+          if (this.songIdToAdd !== '') {
+            this.PlayerManager.add_to_playlist(this.songIdToAdd, this.inputListName);
+            this.songIdToAdd = '';
+            if (this.dialogController !== null) {
+              this.dialogController.close();
+              this.isDialogOpened = false;
+            }
+          }
+        } else {
+          prompt.showToast({
+            message: '歌单名不能为空'
+          });
+        }
+      },
+      inputListName: $inputListName,
+      listOptions: $listOptions,
+    }),
+    autoCancel: true,
+    alignment: DialogAlignment.Bottom,
+    offset: { dx: 0, dy: -20 },
+    gridCount: 4,
+    customStyle: false,
+    cornerRadius: 10,
+  })
 
   @Builder
   TabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
@@ -73,11 +116,11 @@ export default struct PlayerDetail {
   }
 
   aboutToAppear() {
-    emitter.on(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
+    emitter.on(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, () => {
+      animateTo({ duration: 2000 }, () => {
         this.item = this.PlayerManager.getItem();
-        this.noItem = false;
-      }
+      })
+      this.noItem = false;
     });
     emitter.on(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
@@ -132,6 +175,21 @@ export default struct PlayerDetail {
     emitter.off(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL);
     emitter.off(ServerConstants.UPDATE_STATE_EVENT_ID_DETAIL);
     emitter.off(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL);
+    if (this.dialogController !== null) {
+      this.dialogController.close();
+      this.isDialogOpened = false;
+      this.dialogController = null;
+    }
+  }
+
+  onBackPress() {
+    if (this.isDialogOpened && this.dialogController !== null) {
+      this.dialogController.close();
+      this.isDialogOpened = false;
+      return true;
+    } else {
+      return false;
+    }
   }
 
   build() {
@@ -179,6 +237,27 @@ export default struct PlayerDetail {
           .width('36vp')
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
+            if (this.loginInfo === ServerConstants.LOGIN_INFO_NO) {
+              prompt.showToast({
+                message: '请先登录！'
+              })
+              return;
+            }
+            if (this.item.id === '') {
+              prompt.showToast({
+                message: '请先播放一首歌曲！'
+              });
+              return;
+            }
+            if (this.dialogController != null) {
+              this.listOptions = [];
+              for (let item of this.customPlayLists) {
+                this.listOptions.push({ value: item.title });
+              }
+              this.dialogController.open();
+              this.songIdToAdd = this.item.id;
+              this.isDialogOpened = true;
+            }
           })
       }
       .width('90%')
@@ -320,6 +399,10 @@ export default struct PlayerDetail {
       Row() {
         Text(CommonUtils.formatTime(this.currentTime / 1000)).fontSize('12fp')
           .id('detail_time_current')
+        if (this.item.quality === '.flac'){
+          Text('无损')
+            .id('high_quality')
+        }
         Text(CommonUtils.formatTime(this.durationTime / 1000)).fontSize('12fp')
           .id('detail_time_duration')
       }.width('80%')
