@@ -399,6 +399,10 @@ export default struct PlayerDetail {
       Row() {
         Text(CommonUtils.formatTime(this.currentTime / 1000)).fontSize('12fp')
           .id('detail_time_current')
+        if (this.item.quality === '.flac'){
+          Text('无损')
+            .id('high_quality')
+        }
         Text(CommonUtils.formatTime(this.durationTime / 1000)).fontSize('12fp')
           .id('detail_time_duration')
       }.width('80%')

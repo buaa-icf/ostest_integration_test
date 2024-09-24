@@ -23,6 +23,7 @@ export default class AudioItem {
   id: string = ''
   isPlaying: boolean = false;
   isFavor: boolean = false;
+  quality = '.mp3';
 
   constructor(title: string, artist: string, id:string) {
     this.title = title;

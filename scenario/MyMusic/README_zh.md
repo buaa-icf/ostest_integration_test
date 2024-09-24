@@ -94,7 +94,7 @@
 ```
 git init
 git config core.sparsecheckout true
-echo scenario/arkui/MyMusic/ > .git/info/sparse-checkout
+echo scenario/MyMusic/ > .git/info/sparse-checkout
 git remote add origin https://gitee.com/openharmony-sig/ostest_integration_test.git
 git pull origin master
 ```

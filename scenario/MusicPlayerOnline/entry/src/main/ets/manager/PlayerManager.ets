@@ -128,6 +128,14 @@ export default class PlayerManager {
           break;
         default:
           console.info('PlayerManager state unknown called.');
+          if (this.avPlayer !== undefined) {
+            try {
+              this.avPlayer.release();
+            } catch (err) {
+              console.info('PlayerManager state unknown called.' + JSON.stringify(err));
+            }
+            this.avPlayer = undefined;
+          }
           break;
       }
     })
@@ -160,10 +168,10 @@ export default class PlayerManager {
    * 播放
    */
   resume(): void {
-    if (this.state === ServerConstants.PLAYER_STATE_PAUSED) {
-      if (this.avPlayer !== undefined) {
-        this.avPlayer.play();
-      }
+    if (this.state === ServerConstants.PLAYER_STATE_PAUSED && this.avPlayer !== undefined) {
+      this.avPlayer.play();
+    } else {
+      this.play(this.item);
     }
   }
 
@@ -370,9 +378,16 @@ export default class PlayerManager {
             console.info('HttpResponse type:' + JSON.stringify(data.resultType));
             console.info('HttpResponse header:' + JSON.stringify(data.header));
             console.info('HttpResponse cookies:' + data.cookies);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              this.item.quality = jsonObject['message'];
+              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, this.emitterOptions);
+            } catch (err) {
+              console.info('HttpResponse error:' + JSON.stringify(err));
+            }
             let eventData: emitter.EventData = {
               data: {
-                "message": ServerConstants.UPDATE_USER_LIST_RECOMMEND,
+                "message": ServerConstants.UPDATE_USER_LIST_RECENT,
               }
             };
             emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
@@ -429,7 +444,7 @@ export default class PlayerManager {
               })
               let eventData: emitter.EventData = {
                 data: {
-                  "message": ServerConstants.UPDATE_USER_LIST_RECOMMEND,
+                  "message": ServerConstants.UPDATE_USER_LIST_FAVOR,
                 }
               };
               emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);

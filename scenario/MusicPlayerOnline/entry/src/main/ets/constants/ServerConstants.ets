@@ -34,9 +34,17 @@ export default class ServerConstants {
    */
   static readonly SEARCH_SONG_URL = this.SERVER_HOST + 'search_song/';
   /**
-   * custom list URL
+   * recommend list URL
    */
   static readonly RECOMMEND_LIST_URL = this.SERVER_HOST + 'get_recommend_playlists/';
+  /**
+   * recent list URL
+   */
+  static readonly RECENT_LIST_URL = this.SERVER_HOST + 'get_recent_playlists/';
+  /**
+   * favor list URL
+   */
+  static readonly FAVOR_LIST_URL = this.SERVER_HOST + 'get_favor_playlists/';
   /**
    * English songs URL
    */
@@ -89,13 +97,13 @@ export default class ServerConstants {
    */
   static readonly UPDATE_TIME_EVENT_ID = '1';
   static readonly UPDATE_STATE_EVENT_ID = '2';
-  static readonly UPDATE_FAVOR_EVENT_ID = '3';
   static readonly UPDATE_TIME_EVENT_ID_DETAIL = '4';
   static readonly UPDATE_STATE_EVENT_ID_DETAIL = '5';
   static readonly UPDATE_FAVOR_EVENT_ID_DETAIL = '6';
-  static readonly UPDATE_USER_LIST = '7';
-  static readonly UPDATE_USER_LIST_CUSTOM = '1';
-  static readonly UPDATE_USER_LIST_RECOMMEND = '2';
+  static readonly UPDATE_USER_LIST = '3';
+  static readonly UPDATE_USER_LIST_CUSTOM = '31';
+  static readonly UPDATE_USER_LIST_RECENT = '32';
+  static readonly UPDATE_USER_LIST_FAVOR = '33';
   /**
    * PLAYER LIST
    */
