@@ -85,7 +85,7 @@ export struct addToListDialog {
           .fontWeight(FontWeight.Lighter)
           .fontSize(18)
           .fontColor(Color.Red)
-          .id('login_button')
+          .id('login_confirm')
           .onClick(() => {
             this.confirm()
           })

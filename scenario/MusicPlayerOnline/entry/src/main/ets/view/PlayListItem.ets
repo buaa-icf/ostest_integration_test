@@ -56,7 +56,7 @@ export default struct PlayListItem {
 
       Text(this.item.title)
         .fontSize('20fp')
-        .maxLines(2)
+        .maxLines(1)
         .margin({ top: 4 })
     }
     .alignItems(HorizontalAlign.Center)

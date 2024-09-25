@@ -38,36 +38,18 @@ export default struct PlayerBar {
 
   aboutToAppear() {
     Logger.info(this.tag, 'aboutToAppear');
-    emitter.on(ServerConstants.UPDATE_TIME_EVENT_ID, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
-        //Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
-        this.currentTime = eventData.data.currentTime;
-        this.durationTime = eventData.data.currentDuration;
-      }
+    emitter.on(ServerConstants.MAIN_UPDATE_TIME, (eventData: emitter.EventData) => {
+      this.updateTime(eventData);
     });
-    emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
-        Logger.info(this.tag, 'state:' + eventData.data.state);
-        if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
-          this.item = this.PlayerManager.getItem();
-          if (this.rotateAngle === 0) {
-            this.rotateAngle = 360;
-            Logger.info(this.tag, 'rotateAngle:360');
-          }
-        }
-        if (eventData.data.state !== ServerConstants.PLAYER_STATE_PLAYING) {
-          this.rotateAngle = 0;
-          Logger.info(this.tag, 'rotateAngle:0');
-        }
-        this.state = eventData.data.state;
-      }
+    emitter.on(ServerConstants.MAIN_UPDATE_STATE, (eventData: emitter.EventData) => {
+      this.updateState(eventData)
     });
   }
 
   aboutToDisappear() {
+    emitter.off(ServerConstants.MAIN_UPDATE_TIME);
+    emitter.off(ServerConstants.MAIN_UPDATE_STATE);
     Logger.info(this.tag, 'aboutToDisappear');
-    emitter.off(ServerConstants.UPDATE_TIME_EVENT_ID);
-    emitter.off(ServerConstants.UPDATE_STATE_EVENT_ID);
   }
 
   build() {
@@ -153,5 +135,29 @@ export default struct PlayerBar {
       Divider().strokeWidth(1).color('#E0E0E0')
     }
     .width('100%')
+  }
+
+  updateTime(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined) {
+      this.currentTime = eventData.data.currentTime;
+      this.durationTime = eventData.data.currentDuration;
+    }
+  }
+  updateState(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined) {
+      Logger.info(this.tag, 'state:' + eventData.data.state);
+      if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
+        this.item = this.PlayerManager.getItem();
+        if (this.rotateAngle === 0) {
+          this.rotateAngle = 360;
+          Logger.info(this.tag, 'rotateAngle:360');
+        }
+      }
+      if (eventData.data.state !== ServerConstants.PLAYER_STATE_PLAYING) {
+        this.rotateAngle = 0;
+        Logger.info(this.tag, 'rotateAngle:0');
+      }
+      this.state = eventData.data.state;
+    }
   }
 }
