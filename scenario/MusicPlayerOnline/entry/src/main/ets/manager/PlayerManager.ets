@@ -23,8 +23,7 @@ import { PLAY_MODE } from '../constants/PlayMode';
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
-import http from '@ohos.net.http'
-import prompt from '@ohos.promptAction';
+import HttpManager from './HttpManager';
 
 
 export default class PlayerManager {
@@ -39,7 +38,6 @@ export default class PlayerManager {
   private listPosition: number = 0;
   private state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
   private listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
-  private httpRequest = http.createHttp();
   private playMode: number | undefined = PLAY_MODE.REPEAT;
   private shuffleIndex: number[] = [];
   private emitterOptions: emitter.Options = {
@@ -71,8 +69,8 @@ export default class PlayerManager {
           "currentDuration": this.currentDuration
         }
       };
-      emitter.emit(ServerConstants.UPDATE_TIME_EVENT_ID, this.emitterOptions, eventData);
-      emitter.emit(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL, this.emitterOptions, eventData);
+      emitter.emit(ServerConstants.MAIN_UPDATE_TIME, this.emitterOptions, eventData);
+      emitter.emit(ServerConstants.DETAIL_UPDATE_TIME, this.emitterOptions, eventData);
     })
     avPlayer.on('durationUpdate', (time: number) => {
       console.info('PlayerManager state durationUpdate：' + time);
@@ -88,8 +86,9 @@ export default class PlayerManager {
           "state": state,
         }
       };
-      emitter.emit(ServerConstants.UPDATE_STATE_EVENT_ID, this.emitterOptions, eventData);
-      emitter.emit(ServerConstants.UPDATE_STATE_EVENT_ID_DETAIL, this.emitterOptions, eventData);
+      emitter.emit(ServerConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
+      emitter.emit(ServerConstants.DETAIL_UPDATE_STATE, this.emitterOptions, eventData);
+      emitter.emit(ServerConstants.PLAYLIST_UPDATE_STATE, this.emitterOptions, eventData);
       switch (state) {
         case ServerConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
           console.info('PlayerManager state idle called.');
@@ -106,7 +105,7 @@ export default class PlayerManager {
         case ServerConstants.PLAYER_STATE_PLAYING: // play成功调用后触发该状态机上报
           console.info('PlayerManager state playing called.');
           this.list[this.listPosition].isPlaying = true;
-          this.record_recent();
+          HttpManager.getInstance().record_recent();
           break;
         case ServerConstants.PLAYER_STATE_PAUSED: // pause成功调用后触发该状态机上报
           console.info('PlayerManager state paused called.');
@@ -320,6 +319,14 @@ export default class PlayerManager {
     return this.item;
   }
 
+  setItemQuality(quality: string) {
+    this.item.quality = quality;
+  }
+
+  setItemFavor(isFavor: boolean) {
+    this.item.isFavor = isFavor;
+  }
+
   getListTitle(): string {
     return this.listTitle;
   }
@@ -358,173 +365,7 @@ export default class PlayerManager {
     this.favourList = list;
   }
 
-  record_recent() {
-    let loginCookie: string | undefined = AppStorage.get('loginCookie');
-    if (loginCookie === '' || loginCookie === undefined) {
-      return;
-    }
-    try {
-      this.httpRequest.request(ServerConstants.RECORD_RECENT + this.item.id,
-        {
-          method: http.RequestMethod.GET,
-          header: {
-            'Cookie': loginCookie
-          }
-        },
-        (err: Error, data: http.HttpResponse) => {
-          if (!err) {
-            console.info('HttpResponse Result:' + data.result);
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
-            try {
-              const jsonObject: object = JSON.parse(data.result as string);
-              this.item.quality = jsonObject['message'];
-              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, this.emitterOptions);
-            } catch (err) {
-              console.info('HttpResponse error:' + JSON.stringify(err));
-            }
-            let eventData: emitter.EventData = {
-              data: {
-                "message": ServerConstants.UPDATE_USER_LIST_RECENT,
-              }
-            };
-            emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
-          } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
-            prompt.showToast({
-              message: JSON.stringify(err)
-            })
-          }
-        });
-    } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
-    }
-  }
-
-  set_favourite() {
-    let loginCookie: string | undefined = AppStorage.get('loginCookie');
-    let msg: string = ''
-    try {
-      let is_favor: string = this.item.isFavor ? '0' : '1';
-      console.info('HttpResponse start:' + ServerConstants.SET_FAVOURITE + this.item.id + '/' + is_favor);
-      this.httpRequest.request(ServerConstants.SET_FAVOURITE + this.item.id + '/' + is_favor,
-        {
-          method: http.RequestMethod.GET,
-          header: {
-            'Cookie': loginCookie
-          }
-        },
-        (err: Error, data: http.HttpResponse) => {
-          if (!err) {
-            console.info('HttpResponse Result:' + data.result);
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
-            try {
-              const jsonObject: object = JSON.parse(data.result as string);
-              switch (jsonObject["message"]) {
-                case ServerConstants.SET_FAVOURITE_ALREADY:
-                case ServerConstants.SET_FAVOURITE_SUCCESS:
-                  this.item.isFavor = true;
-                  break;
-                case ServerConstants.CANCEL_FAVOURITE_SUCCESS:
-                case ServerConstants.CANCEL_FAVOURITE_ALREADY:
-                  this.item.isFavor = false;
-                  break;
-                default:
-                  this.item.isFavor = false;
-                  break;
-              }
-              emitter.emit(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, this.emitterOptions);
-              prompt.showToast({
-                message: jsonObject["message"]
-              })
-              let eventData: emitter.EventData = {
-                data: {
-                  "message": ServerConstants.UPDATE_USER_LIST_FAVOR,
-                }
-              };
-              emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
-            }
-            catch (error) {
-              console.error("JSON :", error.message);
-              msg = JSON.stringify(error);
-            }
-          } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
-            prompt.showToast({
-              message: JSON.stringify(err)
-            })
-          }
-        });
-    } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
-      msg = JSON.stringify(err);
-    }
-    if (msg !== '') {
-      prompt.showToast({
-        message: msg
-      })
-    }
-  }
-
-  add_to_playlist(song_id: string, playlist_name: string) {
-    let loginCookie: string | undefined = AppStorage.get('loginCookie');
-    let msg: string = ''
-    try {
-      console.info('HttpResponse start:' + ServerConstants.ADD_TO_PLAYLIST + song_id + '/' + playlist_name);
-      this.httpRequest.request(ServerConstants.ADD_TO_PLAYLIST + song_id + '/' + playlist_name,
-        {
-          method: http.RequestMethod.GET,
-          header: {
-            'Cookie': loginCookie
-          }
-        },
-        (err: Error, data: http.HttpResponse) => {
-          if (!err) {
-            console.info('HttpResponse Result:' + data.result);
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
-            try {
-              const jsonObject: object = JSON.parse(data.result as string);
-              console.info('HttpResponse msg:' + jsonObject["message"]);
-              let eventData: emitter.EventData = {
-                data: {
-                  "message": ServerConstants.UPDATE_USER_LIST_CUSTOM,
-                }
-              };
-              emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
-              prompt.showToast({
-                message: jsonObject["message"]
-              })
-            } catch (error) {
-              console.error("JSON :", error.message);
-              msg = JSON.stringify(error);
-            }
-          } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
-            prompt.showToast({
-              message: JSON.stringify(err)
-            })
-          }
-        });
-    } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
-      msg = JSON.stringify(err);
-    }
-    console.info('HttpRequest msg:' + msg);
-    if (msg !== '') {
-      prompt.showToast({
-        message: msg
-      })
-    }
-  }
-
+  //设置后台任务
   startContinuousTask() {
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [
@@ -556,7 +397,7 @@ export default class PlayerManager {
     }
   }
 
-  // cancel continuous task
+  //取消后台任务
   stopContinuousTask(): void {
     try {
       backgroundTaskManager.stopBackgroundRunning(AppStorage.get('APPContext') as common.UIAbilityContext).then(() => {
@@ -569,6 +410,7 @@ export default class PlayerManager {
     }
   }
 
+  //退出app
   async exitAPP() {
     try {
       if (this.avPlayer !== undefined) {

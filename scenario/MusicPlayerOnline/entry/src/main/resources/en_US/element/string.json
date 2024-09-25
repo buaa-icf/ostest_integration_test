@@ -21,6 +21,10 @@
       "value": "Recommend Lists"
     },
     {
+      "name": "singer_list",
+      "value": "Singer"
+    },
+    {
       "name": "my_list",
       "value": "My Lists"
     },

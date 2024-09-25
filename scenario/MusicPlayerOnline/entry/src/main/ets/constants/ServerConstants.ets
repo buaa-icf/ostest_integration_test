@@ -34,6 +34,10 @@ export default class ServerConstants {
    */
   static readonly SEARCH_SONG_URL = this.SERVER_HOST + 'search_song/';
   /**
+   * singer list
+   */
+  static readonly SINGER_LIST_URL = this.SERVER_HOST + 'singer_list/';
+  /**
    * recommend list URL
    */
   static readonly RECOMMEND_LIST_URL = this.SERVER_HOST + 'get_recommend_playlists/';
@@ -93,23 +97,41 @@ export default class ServerConstants {
   static readonly PLAYER_STATE_UNKNOWN = 'unknown';
 
   /**
-   * PLAYER UPDATE
+   * 首页播放状态更新消息
    */
-  static readonly UPDATE_TIME_EVENT_ID = '1';
-  static readonly UPDATE_STATE_EVENT_ID = '2';
-  static readonly UPDATE_TIME_EVENT_ID_DETAIL = '4';
-  static readonly UPDATE_STATE_EVENT_ID_DETAIL = '5';
-  static readonly UPDATE_FAVOR_EVENT_ID_DETAIL = '6';
-  static readonly UPDATE_USER_LIST = '3';
-  static readonly UPDATE_USER_LIST_CUSTOM = '31';
-  static readonly UPDATE_USER_LIST_RECENT = '32';
-  static readonly UPDATE_USER_LIST_FAVOR = '33';
+  static readonly MAIN_UPDATE_TIME = '1';
+  static readonly MAIN_UPDATE_STATE = '2';
+  /**
+   * 详情页播放状态更新消息
+   */
+  static readonly DETAIL_UPDATE_TIME = '3';
+  static readonly DETAIL_UPDATE_STATE = '4';
+  static readonly DETAIL_UPDATE_FAVOR = '5';
+  /**
+   * 播放列表播放状态更新消息
+   */
+  static readonly PLAYLIST_UPDATE_STATE = '6';
+
+  //首页列表更新消息
+  static readonly UPDATE_USER_LIST = '8';
+  static readonly UPDATE_USER_LIST_RECOMMEND = '80';
+  static readonly UPDATE_USER_LIST_CUSTOM = '81';
+  static readonly UPDATE_USER_LIST_RECENT = '82';
+  static readonly UPDATE_USER_LIST_FAVOR = '83';
+  static readonly UPDATE_USER_LIST_SINGER = '84';
+  static readonly UPDATE_USER_LIST_SEARCH = '85';
+
+  //首页登录更新消息
+  static readonly LOGIN_RESULT = '9'
+  static readonly LOGIN_RESULT_SUCCESS = '90'
+  static readonly LOGIN_RESULT_FAILED = '91'
   /**
    * PLAYER LIST
    */
   static readonly LIST_SONG_COUNT = '首';
   static readonly LIST_SONG_NO_PLAYING = '没有播放';
   static readonly LIST_SONG_FAVOURITE = '我的收藏';
+  static readonly LIST_SONG_RECENT = '最近播放';
   /**
    * PLAYER LOGIN
    */
@@ -126,7 +148,7 @@ export default class ServerConstants {
   static readonly CANCEL_FAVOURITE_SUCCESS =  "取消收藏成功";
   static readonly CANCEL_FAVOURITE_ALREADY =  "重复取消收藏";
   static readonly SEARCH_DEFAULT = '未搜索';
-  static readonly SEARCHING = '搜索中';
+  static readonly SEARCHING = '搜索:';
   static readonly EMPTY_SEARCH_WORD = '不能搜索空字符';
   static readonly LOGIN_FAILED = 'login failed!';
   static readonly REGISTER_FAILED = 'signup failed!';

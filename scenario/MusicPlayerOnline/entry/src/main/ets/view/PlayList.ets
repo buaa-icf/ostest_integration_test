@@ -35,7 +35,8 @@ export default struct PlayList {
     setTimeout(() => {
       this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
     }, 2000)
-    emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID, (eventData: emitter.EventData) => {
+
+    emitter.on(ServerConstants.PLAYLIST_UPDATE_STATE, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
         animateTo({ duration: 2000 }, () => {
           this.playingList = this.playerManager.getCurrentPlayList();
@@ -48,6 +49,7 @@ export default struct PlayList {
   }
 
   aboutToDisappear(): void {
+    emitter.off(ServerConstants.PLAYLIST_UPDATE_STATE);
   }
 
   build() {

@@ -38,14 +38,13 @@ export default struct PlayerBar {
 
   aboutToAppear() {
     Logger.info(this.tag, 'aboutToAppear');
-    emitter.on(ServerConstants.UPDATE_TIME_EVENT_ID, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.MAIN_UPDATE_TIME, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
-        //Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
         this.currentTime = eventData.data.currentTime;
         this.durationTime = eventData.data.currentDuration;
       }
     });
-    emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.MAIN_UPDATE_STATE, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         Logger.info(this.tag, 'state:' + eventData.data.state);
         if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
@@ -66,8 +65,6 @@ export default struct PlayerBar {
 
   aboutToDisappear() {
     Logger.info(this.tag, 'aboutToDisappear');
-    emitter.off(ServerConstants.UPDATE_TIME_EVENT_ID);
-    emitter.off(ServerConstants.UPDATE_STATE_EVENT_ID);
   }
 
   build() {

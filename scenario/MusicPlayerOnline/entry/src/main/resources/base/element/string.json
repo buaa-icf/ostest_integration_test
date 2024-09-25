@@ -25,6 +25,10 @@
       "value": "推荐歌单"
     },
     {
+      "name": "singer_list",
+      "value": "热门歌手"
+    },
+    {
       "name": "my_list",
       "value": "我的歌单"
     },

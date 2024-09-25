@@ -25,6 +25,7 @@ import { PLAY_MODE } from '../constants/PlayMode';
 import { addToListDialog } from './addToListDialog';
 import PlayListData from '../model/PlayListData';
 import prompt from '@ohos.promptAction';
+import HttpManager from '../manager/HttpManager';
 
 /**
  * Setting tab content
@@ -66,7 +67,7 @@ export default struct PlayerDetail {
       confirm: () => {
         if (this.inputListName.trim()) {
           if (this.songIdToAdd !== '') {
-            this.PlayerManager.add_to_playlist(this.songIdToAdd, this.inputListName);
+            HttpManager.getInstance().add_to_playlist(this.songIdToAdd, this.inputListName);
             this.songIdToAdd = '';
             if (this.dialogController !== null) {
               this.dialogController.close();
@@ -116,13 +117,13 @@ export default struct PlayerDetail {
   }
 
   aboutToAppear() {
-    emitter.on(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL, () => {
+    emitter.on(ServerConstants.DETAIL_UPDATE_FAVOR, () => {
       animateTo({ duration: 2000 }, () => {
         this.item = this.PlayerManager.getItem();
       })
       this.noItem = false;
     });
-    emitter.on(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.DETAIL_UPDATE_TIME, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         //Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
         this.currentTime = eventData.data.currentTime;
@@ -134,7 +135,7 @@ export default struct PlayerDetail {
         }
       }
     });
-    emitter.on(ServerConstants.UPDATE_STATE_EVENT_ID_DETAIL, (eventData: emitter.EventData) => {
+    emitter.on(ServerConstants.DETAIL_UPDATE_STATE, (eventData: emitter.EventData) => {
       if (eventData !== undefined && eventData.data !== undefined) {
         Logger.info(this.tag, 'state:' + eventData.data.state);
         if (eventData.data.state === ServerConstants.PLAYER_STATE_IDLE) {
@@ -172,9 +173,9 @@ export default struct PlayerDetail {
 
   aboutToDisappear() {
     Logger.info(this.tag, 'aboutToDisappear');
-    emitter.off(ServerConstants.UPDATE_TIME_EVENT_ID_DETAIL);
-    emitter.off(ServerConstants.UPDATE_STATE_EVENT_ID_DETAIL);
-    emitter.off(ServerConstants.UPDATE_FAVOR_EVENT_ID_DETAIL);
+    emitter.off(ServerConstants.DETAIL_UPDATE_TIME);
+    emitter.off(ServerConstants.DETAIL_UPDATE_STATE);
+    emitter.off(ServerConstants.DETAIL_UPDATE_FAVOR);
     if (this.dialogController !== null) {
       this.dialogController.close();
       this.isDialogOpened = false;
@@ -252,7 +253,9 @@ export default struct PlayerDetail {
             if (this.dialogController != null) {
               this.listOptions = [];
               for (let item of this.customPlayLists) {
-                this.listOptions.push({ value: item.title });
+                if(item.title !== ServerConstants.LIST_SONG_FAVOURITE && item.title !== ServerConstants.LIST_SONG_RECENT){
+                  this.listOptions.push({ value: item.title });
+                }
               }
               this.dialogController.open();
               this.songIdToAdd = this.item.id;
@@ -313,7 +316,7 @@ export default struct PlayerDetail {
                 .margin({ right: '8vp' })
                 .clickEffect(UIConstants.CLICK_EFFECT)
                 .onClick(() => {
-                  this.PlayerManager.set_favourite();
+                  HttpManager.getInstance().set_favourite();
                 })
               }
               .width('80%')
