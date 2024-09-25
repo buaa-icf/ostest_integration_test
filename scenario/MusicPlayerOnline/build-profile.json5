@@ -1,6 +1,19 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_hk2UHQE6-ErE070Ws-glQcy1fqzzWJa-YFhy3hlWKdg=.cer",
+          "storePassword": "0000001AB22FBDBD4816BDDE71C489BBC1F9A76F7472B473A58321B20952F07AA2A077937F0FC72BF3F2",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001A240E59627ABDDF94AD4BE975DCAA2B17D1D2D6E89305F7794E5506071F20FA9E0AE0AF6600E1",
+          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_hk2UHQE6-ErE070Ws-glQcy1fqzzWJa-YFhy3hlWKdg=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_MusicPlayerOnline_hk2UHQE6-ErE070Ws-glQcy1fqzzWJa-YFhy3hlWKdg=.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

@@ -160,7 +160,6 @@ export default class HttpManager {
                         }
                       };
                       emitter.emit(ServerConstants.LOGIN_RESULT, this.emitterOptions, eventData);
-                      //this.getRecommendListFromServer();
                       this.getCustomListFromServer();
                     }
                   } else {
@@ -226,7 +225,7 @@ export default class HttpManager {
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.PlayerManager.setItemQuality(jsonObject['message']);
-              emitter.emit(ServerConstants.DETAIL_UPDATE_FAVOR, this.emitterOptions);
+              emitter.emit(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, this.emitterOptions);
             } catch (err) {
               console.info('HttpResponse error:' + JSON.stringify(err));
             }
@@ -281,7 +280,7 @@ export default class HttpManager {
                   break;
               }
               this.PlayerManager.setItemFavor(item.isFavor);
-              emitter.emit(ServerConstants.DETAIL_UPDATE_FAVOR, this.emitterOptions);
+              emitter.emit(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, this.emitterOptions);
               prompt.showToast({
                 message: jsonObject["message"]
               })
@@ -309,7 +308,7 @@ export default class HttpManager {
     }
   }
 
-
+  //歌曲加入歌单
   add_to_playlist(song_id: string, playlist_name: string) {
     let loginCookie: string | undefined = AppStorage.get('loginCookie');
     let msg: string = ''
@@ -332,15 +331,10 @@ export default class HttpManager {
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               console.info('HttpResponse msg:' + jsonObject["message"]);
-              let eventData: emitter.EventData = {
-                data: {
-                  "message": ServerConstants.UPDATE_USER_LIST_CUSTOM,
-                }
-              };
-              emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
               prompt.showToast({
                 message: jsonObject["message"]
               })
+              this.getCustomListFromServer();
             } catch (error) {
               console.error("JSON :", error.message);
               msg = JSON.stringify(error);
@@ -364,6 +358,7 @@ export default class HttpManager {
     }
   }
 
+  //获取推荐歌单
   getRecommendListFromServer() {
     try {
       this.httpRequest.request(ServerConstants.RECOMMEND_LIST_URL,
@@ -420,6 +415,7 @@ export default class HttpManager {
     }
   }
 
+  //获取推荐歌手
   getSingerListFromServer() {
     try {
       this.httpRequest.request(ServerConstants.SINGER_LIST_URL,
@@ -472,6 +468,7 @@ export default class HttpManager {
     }
   }
 
+  //获取我的收藏
   getFavorListFromServer() {
     try {
       this.httpRequest.request(ServerConstants.FAVOR_LIST_URL,
@@ -526,6 +523,7 @@ export default class HttpManager {
     }
   }
 
+  //获取最近播放
   getRecentListFromServer() {
     try {
       this.httpRequest.request(ServerConstants.RECENT_LIST_URL,
@@ -582,6 +580,7 @@ export default class HttpManager {
     }
   }
 
+  //获取自定义歌单
   getCustomListFromServer() {
     try {
       this.httpRequest.request(ServerConstants.CUSTOM_LIST_URL,
@@ -651,6 +650,7 @@ export default class HttpManager {
     }
   }
 
+  //搜素歌曲
   searchSongsFromServer(search_word: string) {
     try {
       this.httpRequest.request(ServerConstants.SEARCH_SONG_URL + search_word,

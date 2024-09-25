@@ -37,14 +37,7 @@ export default struct PlayList {
     }, 2000)
 
     emitter.on(ServerConstants.PLAYLIST_UPDATE_STATE, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
-        animateTo({ duration: 2000 }, () => {
-          this.playingList = this.playerManager.getCurrentPlayList();
-        })
-        setTimeout(() => {
-          this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
-        }, 2000)
-      }
+      this.updateState(eventData);
     });
   }
 
@@ -81,5 +74,16 @@ export default struct PlayList {
     .height('100%')
     .backgroundColor(Color.White)
     .borderRadius({ topLeft: '18vp', topRight: '18vp' })
+  }
+
+  updateState(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
+      animateTo({ duration: 2000 }, () => {
+        this.playingList = this.playerManager.getCurrentPlayList();
+      })
+      setTimeout(() => {
+        this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
+      }, 2000)
+    }
   }
 }

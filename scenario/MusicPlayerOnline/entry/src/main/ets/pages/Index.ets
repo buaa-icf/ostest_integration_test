@@ -22,7 +22,6 @@ import PlayListData from '../model/PlayListData';
 import PlayerDetail from '../view/PlayerDetail';
 import emitter from '@ohos.events.emitter';
 import prompt from '@ohos.promptAction';
-import PlayerManager from '../manager/PlayerManager';
 import Setting from '../view/Setting';
 import { LoginCustomDialog } from '../view/loginDialog';
 import HttpManager from '../manager/HttpManager';
@@ -33,7 +32,6 @@ PersistentStorage.persistProp('loginName', ServerConstants.LOGIN_INFO_NO);
 @Entry
 @Component
 struct Index {
-  private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State recommendPlayLists: PlayListData[] = [];
   @State customPlayLists: PlayListData[] = [];
   @State searchResultPlayLists: PlayListData[] = [];
@@ -59,7 +57,7 @@ struct Index {
   @State inputUserName: string = ''
   @State inputPwd: string = ''
   @State inputPwd2: string = ''
-  dialogController: CustomDialogController | null = new CustomDialogController({
+  private dialogController: CustomDialogController | null = new CustomDialogController({
     builder: LoginCustomDialog({
       cancel: () => {
         if (this.dialogController !== null) {
@@ -110,133 +108,15 @@ struct Index {
     }
 
     emitter.on(ServerConstants.LOGIN_RESULT, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
-        switch (eventData.data.message) {
-          case ServerConstants.LOGIN_RESULT_SUCCESS:
-            this.loginInfo = this.inputUserName + ServerConstants.LOGIN_INFO_DONE;
-            this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
-            if (this.dialogController !== null) {
-              this.dialogController.close();
-            }
-            break;
-          case ServerConstants.LOGIN_RESULT_FAILED:
-            this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
-            break;
-          default:
-            break;
-        }
-      }
+      this.updateLogin(eventData);
     });
 
     emitter.on(ServerConstants.UPDATE_USER_LIST, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
-        switch (eventData.data.message) {
-          case ServerConstants.UPDATE_USER_LIST_RECOMMEND:
-            if (eventData.data.isStart) {
-              animateTo({ duration: 2000 }, () => {
-                this.recommendPlayLists = [];
-              })
-            }
-            animateTo(
-              { duration: 1000 },
-              () => {
-                if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                  console.info('UPDATE_USER_LIST_RECOMMEND:' + (eventData.data.item as PlayListData).title);
-                  this.recommendPlayLists.push(eventData.data.item as PlayListData);
-                }
-              })
-            break;
-          case ServerConstants.UPDATE_USER_LIST_CUSTOM:
-            if (eventData.data.isStart) {
-              animateTo({ duration: 2000 }, () => {
-                this.customPlayLists = [];
-              })
-            }
-            animateTo({ duration: 1000 }, () => {
-              if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                console.info('UPDATE_USER_LIST_CUSTOM:' + (eventData.data.item as PlayListData).title);
-                this.customPlayLists.push(eventData.data.item as PlayListData);
-              }
-            })
-            break;
-          case ServerConstants.UPDATE_USER_LIST_RECENT:
-            animateTo(
-              { duration: 1000 },
-              () => {
-                if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                  console.info('UPDATE_USER_LIST_RECENT:' + (eventData.data.item as PlayListData).title);
-                  let recentItem = eventData.data.item as PlayListData;
-                  let existingIndex = this.customPlayLists.findIndex(item => item.title === recentItem.title);
-                  if (existingIndex !== -1) {
-                    this.customPlayLists[existingIndex] = recentItem;
-                  } else {
-                    this.customPlayLists.unshift(recentItem);
-                  }
-                }
-              })
-            break;
-          case ServerConstants.UPDATE_USER_LIST_SEARCH:
-            if (eventData.data.isStart) {
-              animateTo({ duration: 2000 }, () => {
-                this.searchResultPlayLists = []
-              })
-            }
-            animateTo(
-              { duration: 1000 },
-              () => {
-                if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                  console.info('UPDATE_USER_LIST_SEARCH:' + (eventData.data.item as PlayListData).title);
-                  this.searchResultPlayLists.push(eventData.data.item as PlayListData)
-                }
-              })
-            break;
-          case ServerConstants.UPDATE_USER_LIST_FAVOR:
-            let existingIndex = this.customPlayLists.findIndex(item => item.title === ServerConstants.LIST_SONG_FAVOURITE);
-            animateTo(
-              { duration: 1000 },
-              () => {
-                if (eventData.data !== undefined) {
-                  if (eventData.data.item !== undefined) {
-                    console.info('UPDATE_USER_LIST_FAVOR:' + (eventData.data.item as PlayListData).title);
-                    if (existingIndex !== -1) {
-                      this.customPlayLists[existingIndex] = eventData.data.item as PlayListData;
-                    } else {
-                      this.customPlayLists.unshift(eventData.data.item as PlayListData);
-                    }
-                  } else {
-                    if (existingIndex !== -1) {
-                      this.customPlayLists.splice(existingIndex, 1);
-                    }
-                  }
-                }
-              })
-            break;
-          case ServerConstants.UPDATE_USER_LIST_SINGER:
-            if (eventData.data.isStart) {
-              animateTo({ duration: 2000 }, () => {
-                this.singerList = []
-              })
-            }
-            animateTo(
-              { duration: 1000 },
-              () => {
-                if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                  console.info('UPDATE_USER_LIST_SINGER:' + (eventData.data.item as PlayListData).title);
-                  this.singerList.push(eventData.data.item as PlayListData);
-                  this.SingerAngle = 180;
-                }
-              })
-            break;
-          default:
-            break;
-        }
-      }
+      this.updateLists(eventData);
     });
   }
 
   aboutToDisappear(): void {
-    emitter.off(ServerConstants.MAIN_UPDATE_TIME);
-    emitter.off(ServerConstants.MAIN_UPDATE_STATE);
     emitter.off(ServerConstants.UPDATE_USER_LIST);
     emitter.off(ServerConstants.LOGIN_RESULT);
     if (this.dialogController !== null) {
@@ -692,5 +572,129 @@ struct Index {
         this.searchResultPlayLists = [];
       })
     HttpManager.getInstance().searchSongsFromServer(search_word);
+  }
+
+  updateLogin(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined) {
+      switch (eventData.data.message) {
+        case ServerConstants.LOGIN_RESULT_SUCCESS:
+          this.loginInfo = this.inputUserName + ServerConstants.LOGIN_INFO_DONE;
+          this.loginButton = ServerConstants.LOGIN_BUTTON_OUT;
+          if (this.dialogController !== null) {
+            this.dialogController.close();
+          }
+          break;
+        case ServerConstants.LOGIN_RESULT_FAILED:
+          this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  updateLists(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined) {
+      switch (eventData.data.message) {
+        case ServerConstants.UPDATE_USER_LIST_RECOMMEND:
+          if (eventData.data.isStart) {
+            animateTo({ duration: 2000 }, () => {
+              this.recommendPlayLists = [];
+            })
+          }
+          animateTo(
+            { duration: 1000 },
+            () => {
+              if (eventData.data !== undefined && eventData.data.item !== undefined) {
+                console.info('UPDATE_USER_LIST_RECOMMEND:' + (eventData.data.item as PlayListData).title);
+                this.recommendPlayLists.push(eventData.data.item as PlayListData);
+              }
+            })
+          break;
+        case ServerConstants.UPDATE_USER_LIST_CUSTOM:
+          if (eventData.data.isStart) {
+            animateTo({ duration: 2000 }, () => {
+              this.customPlayLists = [];
+            })
+          }
+          animateTo({ duration: 1000 }, () => {
+            if (eventData.data !== undefined && eventData.data.item !== undefined) {
+              console.info('UPDATE_USER_LIST_CUSTOM:' + (eventData.data.item as PlayListData).title);
+              this.customPlayLists.push(eventData.data.item as PlayListData);
+            }
+          })
+          break;
+        case ServerConstants.UPDATE_USER_LIST_RECENT:
+          animateTo(
+            { duration: 1000 },
+            () => {
+              if (eventData.data !== undefined && eventData.data.item !== undefined) {
+                console.info('UPDATE_USER_LIST_RECENT:' + (eventData.data.item as PlayListData).title);
+                let recentItem = eventData.data.item as PlayListData;
+                let existingIndex = this.customPlayLists.findIndex(item => item.title === recentItem.title);
+                if (existingIndex !== -1) {
+                  this.customPlayLists[existingIndex] = recentItem;
+                } else {
+                  this.customPlayLists.unshift(recentItem);
+                }
+              }
+            })
+          break;
+        case ServerConstants.UPDATE_USER_LIST_SEARCH:
+          if (eventData.data.isStart) {
+            animateTo({ duration: 2000 }, () => {
+              this.searchResultPlayLists = []
+            })
+          }
+          animateTo(
+            { duration: 1000 },
+            () => {
+              if (eventData.data !== undefined && eventData.data.item !== undefined) {
+                console.info('UPDATE_USER_LIST_SEARCH:' + (eventData.data.item as PlayListData).title);
+                this.searchResultPlayLists.push(eventData.data.item as PlayListData)
+              }
+            })
+          break;
+        case ServerConstants.UPDATE_USER_LIST_FAVOR:
+          let existingIndex = this.customPlayLists.findIndex(item => item.title === ServerConstants.LIST_SONG_FAVOURITE);
+          animateTo(
+            { duration: 1000 },
+            () => {
+              if (eventData.data !== undefined) {
+                if (eventData.data.item !== undefined) {
+                  console.info('UPDATE_USER_LIST_FAVOR:' + (eventData.data.item as PlayListData).title);
+                  if (existingIndex !== -1) {
+                    this.customPlayLists[existingIndex] = eventData.data.item as PlayListData;
+                  } else {
+                    this.customPlayLists.unshift(eventData.data.item as PlayListData);
+                  }
+                } else {
+                  if (existingIndex !== -1) {
+                    this.customPlayLists.splice(existingIndex, 1);
+                  }
+                }
+              }
+            })
+          break;
+        case ServerConstants.UPDATE_USER_LIST_SINGER:
+          if (eventData.data.isStart) {
+            animateTo({ duration: 2000 }, () => {
+              this.singerList = []
+            })
+          }
+          animateTo(
+            { duration: 1000 },
+            () => {
+              if (eventData.data !== undefined && eventData.data.item !== undefined) {
+                console.info('UPDATE_USER_LIST_SINGER:' + (eventData.data.item as PlayListData).title);
+                this.singerList.push(eventData.data.item as PlayListData);
+                this.SingerAngle = 180;
+              }
+            })
+          break;
+        default:
+          break;
+      }
+    }
   }
 }

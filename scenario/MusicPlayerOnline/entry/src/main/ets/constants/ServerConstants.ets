@@ -106,7 +106,7 @@ export default class ServerConstants {
    */
   static readonly DETAIL_UPDATE_TIME = '3';
   static readonly DETAIL_UPDATE_STATE = '4';
-  static readonly DETAIL_UPDATE_FAVOR = '5';
+  static readonly DETAIL_UPDATE_FAVOR_AND_QUALITY = '5';
   /**
    * 播放列表播放状态更新消息
    */

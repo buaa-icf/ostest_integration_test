@@ -117,50 +117,6 @@ export default struct PlayerDetail {
   }
 
   aboutToAppear() {
-    emitter.on(ServerConstants.DETAIL_UPDATE_FAVOR, () => {
-      animateTo({ duration: 2000 }, () => {
-        this.item = this.PlayerManager.getItem();
-      })
-      this.noItem = false;
-    });
-    emitter.on(ServerConstants.DETAIL_UPDATE_TIME, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
-        //Logger.info(this.tag, 'currentTime:' + eventData.data.currentTime);
-        this.currentTime = eventData.data.currentTime;
-        this.durationTime = eventData.data.currentDuration;
-        let newLrcIndex = Math.floor(this.currentTime * this.lrc.length / this.durationTime);
-        if (newLrcIndex !== this.lrcIndex) {
-          this.lrcIndex = newLrcIndex;
-          this.scroller.scrollToIndex(this.lrcIndex - 5, true)
-        }
-      }
-    });
-    emitter.on(ServerConstants.DETAIL_UPDATE_STATE, (eventData: emitter.EventData) => {
-      if (eventData !== undefined && eventData.data !== undefined) {
-        Logger.info(this.tag, 'state:' + eventData.data.state);
-        if (eventData.data.state === ServerConstants.PLAYER_STATE_IDLE) {
-          this.noItem = true;
-        }
-        if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
-          this.item = this.PlayerManager.getItem();
-          this.noItem = false;
-          this.lrc = CommonUtils.getLrc(this.item.title);
-          this.listTitle = this.PlayerManager.getListTitle();
-          this.scroller.scrollToIndex(0, true)
-          setTimeout(() => {
-            if (this.rotateAngle === 0) {
-              this.rotateAngle = 360;
-              Logger.info(this.tag, 'rotateAngle:360');
-            }
-          }, 100);
-        }
-        if (eventData.data.state !== ServerConstants.PLAYER_STATE_PLAYING) {
-          this.rotateAngle = 0;
-          Logger.info(this.tag, 'rotateAngle:0');
-        }
-        this.state = eventData.data.state;
-      }
-    });
     if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
       setTimeout(() => {
         if (this.rotateAngle === 0) {
@@ -169,13 +125,23 @@ export default struct PlayerDetail {
         }
       }, 100);
     }
+
+    emitter.on(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, () => {
+      this.updateFavor();
+    });
+    emitter.on(ServerConstants.DETAIL_UPDATE_TIME, (eventData: emitter.EventData) => {
+      this.updateTime(eventData);
+    });
+    emitter.on(ServerConstants.DETAIL_UPDATE_STATE, (eventData: emitter.EventData) => {
+      this.updateState(eventData);
+    });
   }
 
   aboutToDisappear() {
     Logger.info(this.tag, 'aboutToDisappear');
     emitter.off(ServerConstants.DETAIL_UPDATE_TIME);
     emitter.off(ServerConstants.DETAIL_UPDATE_STATE);
-    emitter.off(ServerConstants.DETAIL_UPDATE_FAVOR);
+    emitter.off(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY);
     if (this.dialogController !== null) {
       this.dialogController.close();
       this.isDialogOpened = false;
@@ -253,7 +219,7 @@ export default struct PlayerDetail {
             if (this.dialogController != null) {
               this.listOptions = [];
               for (let item of this.customPlayLists) {
-                if(item.title !== ServerConstants.LIST_SONG_FAVOURITE && item.title !== ServerConstants.LIST_SONG_RECENT){
+                if (item.title !== ServerConstants.LIST_SONG_FAVOURITE && item.title !== ServerConstants.LIST_SONG_RECENT) {
                   this.listOptions.push({ value: item.title });
                 }
               }
@@ -402,7 +368,7 @@ export default struct PlayerDetail {
       Row() {
         Text(CommonUtils.formatTime(this.currentTime / 1000)).fontSize('12fp')
           .id('detail_time_current')
-        if (this.item.quality === '.flac'){
+        if (this.item.quality === '.flac') {
           Text('无损')
             .id('high_quality')
         }
@@ -471,5 +437,51 @@ export default struct PlayerDetail {
     .width('100%')
     .height('100%')
     .backgroundColor(Color.White)
+  }
+
+  updateFavor() {
+    animateTo({ duration: 2000 }, () => {
+      this.item = this.PlayerManager.getItem();
+    })
+    this.noItem = false;
+  }
+
+  updateTime(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined) {
+      this.currentTime = eventData.data.currentTime;
+      this.durationTime = eventData.data.currentDuration;
+      let newLrcIndex = Math.floor(this.currentTime * this.lrc.length / this.durationTime);
+      if (newLrcIndex !== this.lrcIndex) {
+        this.lrcIndex = newLrcIndex;
+        this.scroller.scrollToIndex(this.lrcIndex - 5, true)
+      }
+    }
+  }
+
+  updateState(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined) {
+      Logger.info(this.tag, 'state:' + eventData.data.state);
+      if (eventData.data.state === ServerConstants.PLAYER_STATE_IDLE) {
+        this.noItem = true;
+      }
+      if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
+        this.item = this.PlayerManager.getItem();
+        this.noItem = false;
+        this.lrc = CommonUtils.getLrc(this.item.title);
+        this.listTitle = this.PlayerManager.getListTitle();
+        this.scroller.scrollToIndex(0, true)
+        setTimeout(() => {
+          if (this.rotateAngle === 0) {
+            this.rotateAngle = 360;
+            Logger.info(this.tag, 'rotateAngle:360');
+          }
+        }, 100);
+      }
+      if (eventData.data.state !== ServerConstants.PLAYER_STATE_PLAYING) {
+        this.rotateAngle = 0;
+        Logger.info(this.tag, 'rotateAngle:0');
+      }
+      this.state = eventData.data.state;
+    }
   }
 }
