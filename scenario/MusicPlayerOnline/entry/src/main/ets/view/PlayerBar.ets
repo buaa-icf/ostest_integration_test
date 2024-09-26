@@ -18,7 +18,7 @@
  */
 import emitter from '@ohos.events.emitter';
 import Logger from '../utils/Logger';
-import AudioItem from '../model/AudioItem';
+import AudioData from '../model/AudioData';
 import ServerConstants from '../constants/ServerConstants';
 import UIConstants from '../constants/UIConstants';
 import PlayerManager from '../manager/PlayerManager';
@@ -26,7 +26,7 @@ import PlayerManager from '../manager/PlayerManager';
 @Component
 export default struct PlayerBar {
   private tag: string = 'PlayerBar';
-  @State item: AudioItem = new AudioItem('', '', '')
+  @State item: AudioData = new AudioData('', '', '')
   @State rotateAngle: number = 0;
   @State durationTime: number = 100;
   @State currentTime: number = 0;

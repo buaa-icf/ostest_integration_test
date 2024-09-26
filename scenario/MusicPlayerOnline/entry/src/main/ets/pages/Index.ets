@@ -14,17 +14,20 @@
  */
 
 import PlayerBar from '../view/PlayerBar';
-import PlayList from '../view/PlayList';
-import PlayListItem from '../view/PlayListItem';
+import PlayListDetail from '../view/PlayListDetail';
 import ServerConstants from '../constants/ServerConstants';
 import UIConstants from '../constants/UIConstants';
 import PlayListData from '../model/PlayListData';
+import PlayListGroupData from '../model/PlayListGroupData';
 import PlayerDetail from '../view/PlayerDetail';
 import emitter from '@ohos.events.emitter';
 import prompt from '@ohos.promptAction';
 import Setting from '../view/Setting';
 import { LoginCustomDialog } from '../view/loginDialog';
 import HttpManager from '../manager/HttpManager';
+import SingleRowScrollerList from '../view/SingleRowScrollerList';
+import TriColGridList from '../view/TriColGridList';
+import TriColNestScrollerGrid from '../view/TriColNestScrollerGrid';
 
 PersistentStorage.persistProp('loginCookie', '');
 PersistentStorage.persistProp('loginName', ServerConstants.LOGIN_INFO_NO);
@@ -32,10 +35,9 @@ PersistentStorage.persistProp('loginName', ServerConstants.LOGIN_INFO_NO);
 @Entry
 @Component
 struct Index {
-  @State recommendPlayLists: PlayListData[] = [];
+  @State recommendPlayLists: PlayListGroupData[] = [];
   @State customPlayLists: PlayListData[] = [];
   @State searchResultPlayLists: PlayListData[] = [];
-  @State singerList: PlayListData[] = [];
   @State searchSongTitle: string = ServerConstants.SEARCH_DEFAULT;
   @State isShowPlayerDetail: boolean = false;
   @State isShowPlayList: boolean = false;
@@ -46,14 +48,10 @@ struct Index {
   @State maskOpacity: number = 0.5;
   @State loginInfo: string = ServerConstants.LOGIN_INFO_NO;
   @State loginButton: string = ServerConstants.LOGIN_BUTTON_IN;
-  @State rowAngle: number = 0;
   @State colAngle: number = 0;
-  @State SingerAngle: number = 0;
   @State isShowSidebar: boolean = false;
-  private rowScroller: Scroller = new Scroller();
-  private colScroller: Scroller = new Scroller()
   private rootScroller: Scroller = new Scroller()
-  private singerListClickable: boolean = true;
+  private colScroller: Scroller = new Scroller();
   @State inputUserName: string = ''
   @State inputPwd: string = ''
   @State inputPwd2: string = ''
@@ -216,210 +214,21 @@ struct Index {
           }) {
             Scroll(this.rootScroller) {
               Column() {
-                Row() {
-                  Text($r('app.string.recommend_list'))
-                    .fontSize('20fp')
-                    .fontWeight(FontWeight.Medium)
-                  Image($r('app.media.chevron_right_2'))
-                    .objectFit(ImageFit.Contain)
-                    .width(48)
-                    .height(48)
-                    .padding(8)
-                    .rotate({ angle: this.rowAngle })
-                    .id('scroll_row')
-                    .clickEffect(UIConstants.CLICK_EFFECT)
-                    .onClick(() => {
-                      animateTo({ duration: 1000 }, () => {
-                        if (this.rowAngle === 0) {
-                          this.rowScroller.scrollEdge(Edge.End)
-                          this.rowAngle = 180;
-                        } else {
-                          this.rowScroller.scrollEdge(Edge.Start)
-                          this.rowAngle = 0;
-                        }
-                      })
-                    })
-                }
-                .height(36)
-                .justifyContent(FlexAlign.SpaceBetween)
-                .width('90%')
-                .margin(12)
-
-                Scroll(this.rowScroller) {
-                  Row() {
-                    ForEach(this.recommendPlayLists, (item: PlayListData) => {
-                      PlayListItem({ item }).margin({ left: 12, right: 12 })
-                        .transition({ type: TransitionType.All, opacity: 0 })
-                    })
-                  }
-                  .margin(12)
-                }
-                .scrollable(ScrollDirection.Horizontal)
-                .scrollBar(BarState.Off)
-                .edgeEffect(EdgeEffect.Spring)
-                .width('100%')
-                .onReachEnd(() => {
-                  animateTo({ duration: 1000 }, () => {
-                    this.rowAngle = 180;
-                  })
-                })
-                .onReachStart(() => {
-                  animateTo({ duration: 1000 }, () => {
-                    this.rowAngle = 0;
-                  })
-                })
 
                 if (this.searchSongTitle !== ServerConstants.SEARCH_DEFAULT) {
-                  Row() {
-                    Text(this.searchSongTitle)
-                      .fontSize('20fp')
-                      .fontWeight(FontWeight.Medium)
-                      .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }))
-                    Image($r('app.media.xmark_circle'))
-                      .objectFit(ImageFit.Contain)
-                      .width(48)
-                      .height(48)
-                      .padding(8)
-                      .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }).combine(
-                        TransitionEffect.rotate({ z: 1, angle: 180 })
-                      ))
-                      .clickEffect(UIConstants.CLICK_EFFECT)
-                      .onClick(() => {
-                        animateTo({ duration: 1000 }, () => {
-                          this.searchSongTitle = ServerConstants.SEARCH_DEFAULT;
-                          this.searchResultPlayLists = [];
-                        })
-                      })
-                  }
-                  .height(36)
-                  .justifyContent(FlexAlign.SpaceBetween)
-                  .width('90%')
-                  .margin(12)
-
-                  Grid() {
-                    ForEach(this.searchResultPlayLists, (item: PlayListData) => {
-                      GridItem() {
-                        PlayListItem({ item })
-                      }
-                      .id('search_list_item')
-                      .transition({ type: TransitionType.All, opacity: 0 })
-                    })
-                  }
-                  .margin(12)
-                  .columnsTemplate('1fr 1fr 1fr')
-                  .columnsGap(8)
-                  .rowsGap(12)
-                  .width('90%')
+                  TriColGridList({ title: this.searchSongTitle, playLists: this.searchResultPlayLists })
                 }
-                Row() {
-                  Text($r('app.string.singer_list'))
-                    .fontSize('20fp')
-                    .fontWeight(FontWeight.Medium)
-                    .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }))
-                  if (this.singerListClickable) {
-                    Image($r('app.media.chevron_down_2'))
-                      .objectFit(ImageFit.Contain)
-                      .width(48)
-                      .height(48)
-                      .padding(8)
-                      .rotate({ angle: this.SingerAngle })
-                      .clickEffect(UIConstants.CLICK_EFFECT)
-                      .onClick(() => {
-                        if (!this.singerListClickable) {
-                          return;
-                        }
-                        this.singerListClickable = false;
-                        setTimeout(() => {
-                          this.singerListClickable = true;
-                        }, 2000)
-                        animateTo({ duration: 1000 }, () => {
-                          if (this.singerList.length > 0) {
-                            animateTo(
-                              { duration: 1000 },
-                              () => {
-                                this.SingerAngle = 0;
-                                this.singerList = [];
-                              })
-                          } else {
-                            HttpManager.getInstance().getSingerListFromServer();
-                          }
-                        })
-                      })
-                  }
-                }
-                .height(36)
-                .justifyContent(FlexAlign.SpaceBetween)
-                .width('90%')
-                .margin(12)
 
-                Grid() {
-                  ForEach(this.singerList, (item: PlayListData) => {
-                    GridItem() {
-                      PlayListItem({ item })
-                    }
-                    .id('search_list_item')
-                    .transition({ type: TransitionType.All, opacity: 0 })
-                  })
-                }
-                .margin(12)
-                .columnsTemplate('1fr 1fr 1fr')
-                .columnsGap(8)
-                .rowsGap(12)
-                .width('90%')
+                ForEach(this.recommendPlayLists, (item: PlayListGroupData) => {
+                  SingleRowScrollerList({ title: item.title, playLists: item.lists })
+                })
 
-
-                Row() {
-                  Text($r('app.string.my_list'))
-                    .fontSize('20fp')
-                    .fontWeight(FontWeight.Medium)
-                  Image($r('app.media.chevron_down_2'))
-                    .objectFit(ImageFit.Contain)
-                    .width(48)
-                    .height(48)
-                    .padding(8)
-                    .id('scroll_col')
-                    .rotate({ angle: this.colAngle })
-                    .clickEffect(UIConstants.CLICK_EFFECT)
-                    .onClick(() => {
-                      animateTo({ duration: 1000 }, () => {
-                        if (this.colAngle === 0) {
-                          if (!this.rootScroller.isAtEnd()) {
-                            this.colAngle = 180;
-                            this.rootScroller.scrollEdge(Edge.Bottom);
-                          }
-                        } else {
-                          if (this.rootScroller.currentOffset().yOffset !== 0) {
-                            this.colAngle = 0;
-                            this.rootScroller.scrollEdge(Edge.Top);
-                          }
-                        }
-                      })
-                    })
-                }
-                .height(36)
-                .justifyContent(FlexAlign.SpaceBetween)
-                .width('90%')
-                .margin(12)
-
-                Grid(this.colScroller) {
-                  ForEach(this.customPlayLists, (item: PlayListData) => {
-                    GridItem() {
-                      PlayListItem({ item })
-                    }
-                    .id('my_list_item')
-                    .transition({ type: TransitionType.All, opacity: 0 })
-                  })
-                }
-                .margin(12)
-                .columnsTemplate('1fr 1fr 1fr')
-                .columnsGap(8)
-                .rowsGap(12)
-                .scrollBar(BarState.Off)
-                .width('90%')
-                .height('75%')
-                .nestedScroll({
-                  scrollForward: NestedScrollMode.PARENT_FIRST,
-                  scrollBackward: NestedScrollMode.SELF_FIRST
+                TriColNestScrollerGrid({
+                  title: '我的歌单',
+                  colAngle: this.colAngle,
+                  rootScroller: this.rootScroller,
+                  colScroller: this.colScroller,
+                  playLists: this.customPlayLists,
                 })
               }
             }
@@ -495,7 +304,7 @@ struct Index {
               .transition(TransitionEffect.OPACITY.animation({ duration: 1000, curve: Curve.Ease }))
           }
           if (this.isShowPlayList) {
-            PlayList()
+            PlayListDetail()
               .width('100%')
               .height('80%')
               .transition(TransitionEffect.OPACITY
@@ -606,8 +415,8 @@ struct Index {
             { duration: 1000 },
             () => {
               if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                console.info('UPDATE_USER_LIST_RECOMMEND:' + (eventData.data.item as PlayListData).title);
-                this.recommendPlayLists.push(eventData.data.item as PlayListData);
+                console.info('UPDATE_USER_LIST_RECOMMEND:' + (eventData.data.item as PlayListGroupData).title);
+                this.recommendPlayLists.push(eventData.data.item as PlayListGroupData);
               }
             })
           break;
@@ -673,22 +482,6 @@ struct Index {
                     this.customPlayLists.splice(existingIndex, 1);
                   }
                 }
-              }
-            })
-          break;
-        case ServerConstants.UPDATE_USER_LIST_SINGER:
-          if (eventData.data.isStart) {
-            animateTo({ duration: 2000 }, () => {
-              this.singerList = []
-            })
-          }
-          animateTo(
-            { duration: 1000 },
-            () => {
-              if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                console.info('UPDATE_USER_LIST_SINGER:' + (eventData.data.item as PlayListData).title);
-                this.singerList.push(eventData.data.item as PlayListData);
-                this.SingerAngle = 180;
               }
             })
           break;

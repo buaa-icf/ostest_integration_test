@@ -55,8 +55,11 @@ export default struct PlayListItem {
       .justifyContent(FlexAlign.SpaceBetween)
 
       Text(this.item.title)
-        .fontSize('20fp')
+        .fontSize(20)
         .maxLines(1)
+        .textOverflow({overflow:TextOverflow.MARQUEE})
+        .width(120)
+        .textAlign(TextAlign.Center)
         .margin({ top: 4 })
     }
     .alignItems(HorizontalAlign.Center)

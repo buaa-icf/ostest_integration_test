@@ -118,8 +118,7 @@ export default class ServerConstants {
   static readonly UPDATE_USER_LIST_CUSTOM = '81';
   static readonly UPDATE_USER_LIST_RECENT = '82';
   static readonly UPDATE_USER_LIST_FAVOR = '83';
-  static readonly UPDATE_USER_LIST_SINGER = '84';
-  static readonly UPDATE_USER_LIST_SEARCH = '85';
+  static readonly UPDATE_USER_LIST_SEARCH = '84';
 
   //首页登录更新消息
   static readonly LOGIN_RESULT = '9'
