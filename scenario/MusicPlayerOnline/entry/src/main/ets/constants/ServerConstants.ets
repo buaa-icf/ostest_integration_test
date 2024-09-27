@@ -99,18 +99,20 @@ export default class ServerConstants {
   /**
    * 首页播放状态更新消息
    */
-  static readonly MAIN_UPDATE_TIME = '1';
-  static readonly MAIN_UPDATE_STATE = '2';
+  static readonly MAIN_UPDATE_TIME = '01';
+  static readonly MAIN_UPDATE_STATE = '02';
+  static readonly MAIN_SHOW_PLAYLIST = '03';
   /**
    * 详情页播放状态更新消息
    */
-  static readonly DETAIL_UPDATE_TIME = '3';
-  static readonly DETAIL_UPDATE_STATE = '4';
-  static readonly DETAIL_UPDATE_FAVOR_AND_QUALITY = '5';
+  static readonly DETAIL_UPDATE_TIME = '10';
+  static readonly DETAIL_UPDATE_STATE = '11';
+  static readonly DETAIL_UPDATE_FAVOR_AND_QUALITY = '12';
   /**
    * 播放列表播放状态更新消息
    */
-  static readonly PLAYLIST_UPDATE_STATE = '6';
+  static readonly PLAYLIST_UPDATE_STATE = '20';
+  static readonly PLAYLIST_UPDATE_CHANGED = '21';
 
   //首页列表更新消息
   static readonly UPDATE_USER_LIST = '8';
@@ -128,7 +130,7 @@ export default class ServerConstants {
    * PLAYER LIST
    */
   static readonly LIST_SONG_COUNT = '首';
-  static readonly LIST_SONG_NO_PLAYING = '没有播放';
+  static readonly LIST_SONG_NO_PLAYING = '点击或双击歌单';
   static readonly LIST_SONG_FAVOURITE = '我的收藏';
   static readonly LIST_SONG_RECENT = '最近播放';
   /**

@@ -71,7 +71,7 @@ export default function abilityTest() {
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.text('我的歌单'));
       await driver.delayMs(500);
-      await driver.assertComponentExist(ON.text('没有播放'));
+      await driver.assertComponentExist(ON.text('点击或双击歌单'));
       await driver.delayMs(500);
       await driver.assertComponentExist(ON.id('playing'));
       await driver.delayMs(500);

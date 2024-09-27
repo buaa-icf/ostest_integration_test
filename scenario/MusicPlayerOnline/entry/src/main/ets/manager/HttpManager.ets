@@ -380,10 +380,17 @@ export default class HttpManager {
                 Object.keys(jsonObject[key]).forEach((key1) => {
                   let aPlayingList: AudioData[] = [];
                   Object.keys(jsonObject[key][key1]).forEach((key2) => {
-                    aPlayingList.push(new AudioData(jsonObject[key][key1][key2].name, jsonObject[key][key1][key2].singer, jsonObject[key][key1][key2].id));
+                    aPlayingList.push(new AudioData(
+                      jsonObject[key][key1][key2].name,
+                      jsonObject[key][key1][key2].singer,
+                      jsonObject[key][key1][key2].id,
+                      jsonObject[key][key1][key2].album,
+                      jsonObject[key][key1][key2].year,
+                      jsonObject[key][key1][key2].language
+                    ));
                   })
                   let item = new PlayListData(key1, $r('app.media.icon'),
-                    aPlayingList.length > 1 ? aPlayingList.length + ServerConstants.LIST_SONG_COUNT : '',
+                    aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
                     aPlayingList, '')
                   playingLists.push(item);
                 });
@@ -439,10 +446,18 @@ export default class HttpManager {
               let item: PlayListData | undefined = undefined;
               if (jsonObject[ServerConstants.LIST_SONG_FAVOURITE]) {
                 Object.keys(jsonObject[ServerConstants.LIST_SONG_FAVOURITE]).forEach((key) => {
-                  aPlayingList.push(new AudioData(jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].name, jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].singer, jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].id));
+                  aPlayingList.push(new AudioData(
+                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].name,
+                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].singer,
+                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].id,
+                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].album,
+                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].year,
+                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].language
+                  )
+                  );
                 });
                 item = new PlayListData(ServerConstants.LIST_SONG_FAVOURITE, $r('app.media.icon'),
-                  aPlayingList.length > 1 ? aPlayingList.length + ServerConstants.LIST_SONG_COUNT : '',
+                  aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
                   aPlayingList, '')
               }
               this.PlayerManager.setFavourList(aPlayingList);
@@ -495,11 +510,18 @@ export default class HttpManager {
               Object.keys(jsonObject).forEach((key) => {
                 let aPlayingList: AudioData[] = Array<AudioData>();
                 Object.keys(jsonObject[key]).forEach((key2) => {
-                  aPlayingList.push(new AudioData(jsonObject[key][key2].name, jsonObject[key][key2].singer, jsonObject[key][key2].id));
+                  aPlayingList.push(new AudioData(
+                    jsonObject[key][key2].name,
+                    jsonObject[key][key2].singer,
+                    jsonObject[key][key2].id,
+                    jsonObject[key][key2].album,
+                    jsonObject[key][key2].year,
+                    jsonObject[key][key2].language
+                  ));
                 });
 
                 let item = new PlayListData(key, $r('app.media.icon'),
-                  aPlayingList.length > 1 ? aPlayingList.length + ServerConstants.LIST_SONG_COUNT : '',
+                  aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
                   aPlayingList, '');
                 let eventData: emitter.EventData = {
                   data: {
@@ -551,10 +573,12 @@ export default class HttpManager {
               interface PlaylistItem {
                 playlist_name: string;
                 song: number;
-                id: number;
+                id: string;
                 name: string;
                 singer: string;
                 language: string;
+                year: string;
+                album: string;
               }
 
               let jsonObject: PlaylistItem[] = JSON.parse(data.result as string);
@@ -571,11 +595,11 @@ export default class HttpManager {
                 console.log(`Playlist: ${playlistName}`);
                 let aPlayingList: AudioData[] = Array<AudioData>();
                 groupedByPlaylistName[playlistName].forEach((song, index) => {
-                  aPlayingList.push(new AudioData(song.name, song.singer, song.id.toString()));
+                  aPlayingList.push(new AudioData(song.name, song.singer, song.id, song.album, song.year, song.language));
                 });
 
                 let item = new PlayListData(playlistName, $r('app.media.icon'),
-                  aPlayingList.length > 1 ? aPlayingList.length + ServerConstants.LIST_SONG_COUNT : '',
+                  aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
                   aPlayingList, '')
                 let eventData: emitter.EventData = {
                   data: {
@@ -624,7 +648,14 @@ export default class HttpManager {
               Object.keys(jsonObject).forEach((key) => {
                 Object.keys(jsonObject[key]).forEach((key2) => {
                   let aPlayingList: AudioData[] = Array<AudioData>();
-                  let aAudioItem = new AudioData(jsonObject[key][key2].name, jsonObject[key][key2].singer, jsonObject[key][key2].id)
+                  let aAudioItem = new AudioData(
+                    jsonObject[key][key2].name,
+                    jsonObject[key][key2].singer,
+                    jsonObject[key][key2].id,
+                    jsonObject[key][key2].album,
+                    jsonObject[key][key2].year,
+                    jsonObject[key][key2].language
+                  )
                   aPlayingList.push(aAudioItem);
                   let item = new PlayListData(jsonObject[key][key2].name, $r('app.media.icon'), '', aPlayingList, '')
                   let eventData: emitter.EventData = {

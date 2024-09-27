@@ -31,7 +31,7 @@ export default struct PlayerBar {
   @State durationTime: number = 100;
   @State currentTime: number = 0;
   @State state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
-  @Link isShowPlayList: boolean;
+  @Link isShowCurrentPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   private spaces: string = '               '
@@ -121,12 +121,13 @@ export default struct PlayerBar {
         .margin({ right: 8 })
 
         Image($r('app.media.music_note_list'))
-          .width(42)
-          .height(42)
+          .width(40)
+          .height(40)
           .margin({ right: 8, left: 8 })
+          .shadow({ radius: 1, color: Color.Gray })
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            this.isShowPlayList = true;
+            this.isShowCurrentPlayList = true;
           })
           .id('playlist')
       }

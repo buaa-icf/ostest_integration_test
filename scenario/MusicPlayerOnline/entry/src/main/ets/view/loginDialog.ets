@@ -60,6 +60,7 @@ export struct LoginCustomDialog {
           .backgroundColor(Color.White)
           .fontColor(Color.Black)
           .fontWeight(FontWeight.Lighter)
+          .shadow({ radius: 1, color: Color.Gray })
           .fontSize(18)
           .onClick(() => {
             if (this.controller != undefined) {
@@ -71,6 +72,7 @@ export struct LoginCustomDialog {
           .backgroundColor(Color.White)
           .fontColor(Color.Blue)
           .fontWeight(FontWeight.Lighter)
+          .shadow({ radius: 1, color: Color.Gray })
           .fontSize(18)
           .id('register_button')
           .onClick(() => {
@@ -84,6 +86,8 @@ export struct LoginCustomDialog {
         Button('登录')
           .backgroundColor(Color.White)
           .fontWeight(FontWeight.Lighter)
+          .borderRadius(4)
+          .shadow({ radius: 1, color: Color.Gray })
           .fontSize(18)
           .fontColor(Color.Red)
           .id('login_button')
