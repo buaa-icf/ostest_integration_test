@@ -14,7 +14,7 @@
  */
 
 import PlayerBar from '../view/PlayerBar';
-import PlayListDetail from '../view/PlayListDetail';
+import CurrentPlayList from '../view/CurrentPlayList';
 import ServerConstants from '../constants/ServerConstants';
 import UIConstants from '../constants/UIConstants';
 import PlayListData from '../model/PlayListData';
@@ -28,6 +28,7 @@ import HttpManager from '../manager/HttpManager';
 import SingleRowScrollerList from '../view/SingleRowScrollerList';
 import TriColGridList from '../view/TriColGridList';
 import TriColNestScrollerGrid from '../view/TriColNestScrollerGrid';
+import ExplorePlayList from '../view/ExplorePlayList';
 
 PersistentStorage.persistProp('loginCookie', '');
 PersistentStorage.persistProp('loginName', ServerConstants.LOGIN_INFO_NO);
@@ -40,6 +41,7 @@ struct Index {
   @State searchResultPlayLists: PlayListData[] = [];
   @State searchSongTitle: string = ServerConstants.SEARCH_DEFAULT;
   @State isShowPlayerDetail: boolean = false;
+  @State isShowCurrentPlayList: boolean = false;
   @State isShowPlayList: boolean = false;
   @State isRefreshing: boolean = false;
   @State isShowSingerList: boolean = false;
@@ -112,11 +114,23 @@ struct Index {
     emitter.on(ServerConstants.UPDATE_USER_LIST, (eventData: emitter.EventData) => {
       this.updateLists(eventData);
     });
+
+    emitter.on(ServerConstants.PLAYLIST_UPDATE_CHANGED, () => {
+      if (!this.isShowPlayerDetail) {
+        this.isShowPlayerDetail = true;
+      }
+    });
+
+    emitter.on(ServerConstants.MAIN_SHOW_PLAYLIST, () => {
+      this.showExplorePlaylist();
+    });
   }
 
   aboutToDisappear(): void {
     emitter.off(ServerConstants.UPDATE_USER_LIST);
     emitter.off(ServerConstants.LOGIN_RESULT);
+    emitter.off(ServerConstants.PLAYLIST_UPDATE_CHANGED);
+    emitter.off(ServerConstants.MAIN_SHOW_PLAYLIST);
     if (this.dialogController !== null) {
       this.dialogController.close();
       this.dialogController = null;
@@ -173,9 +187,10 @@ struct Index {
             .borderRadius(4)
             .height(42)
             .width(96)
-            .textAlign(TextAlign.End)
+            .textAlign(TextAlign.Center)
             .fontSize(28)
             .maxLines(1)
+            .shadow({ radius: 1, color: Color.Gray })
             .clickEffect(UIConstants.CLICK_EFFECT)
             .onClick(() => {
               if (this.loginButton === ServerConstants.LOGIN_BUTTON_OUT) {
@@ -262,8 +277,17 @@ struct Index {
             }, 1000)
           })
 
+          if (this.isShowPlayList) {
+            ExplorePlayList({ isShowPlayList: this.isShowPlayList })
+              .width('100%')
+              .height('90%')
+              .transition(TransitionEffect.OPACITY
+                .animation({ duration: 1000, curve: Curve.FastOutSlowIn })
+                .combine(TransitionEffect.move(TransitionEdge.BOTTOM)))
+              .margin({ bottom: 72 })
+          }
           Column() {
-            PlayerBar({ isShowPlayList: $isShowPlayList, isShowPlayerDetail: $isShowPlayerDetail })
+            PlayerBar({ isShowCurrentPlayList: $isShowCurrentPlayList, isShowPlayerDetail: $isShowPlayerDetail })
               .backgroundColor(Color.White)
               .width('100%')
               .margin({ top: 4 })
@@ -277,7 +301,7 @@ struct Index {
 
           if (this.isShowPlayerDetail) {
             PlayerDetail({
-              isShowPlayList: $isShowPlayList,
+              isShowCurrentPlayList: $isShowCurrentPlayList,
               isShowPlayerDetail: $isShowPlayerDetail,
               customPlayLists: this.customPlayLists,
               loginInfo: this.loginInfo,
@@ -289,22 +313,22 @@ struct Index {
                 .combine(TransitionEffect.move(TransitionEdge.BOTTOM))
               )
           }
-          if (this.isShowPlayList || this.isShowSidebar) {
+          if (this.isShowCurrentPlayList || this.isShowSidebar) {
             Rect()
               .width('100%')
               .height('100%')
               .fill('#e0e0e0')
               .fillOpacity(this.maskOpacity)
               .onClick(() => {
-                this.isShowPlayList = false;
+                this.isShowCurrentPlayList = false;
                 animateTo({ duration: 1000 }, () => {
                   this.isShowSidebar = false;
                 })
               })
               .transition(TransitionEffect.OPACITY.animation({ duration: 1000, curve: Curve.Ease }))
           }
-          if (this.isShowPlayList) {
-            PlayListDetail()
+          if (this.isShowCurrentPlayList) {
+            CurrentPlayList()
               .width('100%')
               .height('80%')
               .transition(TransitionEffect.OPACITY
@@ -335,11 +359,14 @@ struct Index {
         this.isShowSidebar = false;
       })
       return true;
-    } else if (this.isShowPlayList) {
-      this.isShowPlayList = false;
+    } else if (this.isShowCurrentPlayList) {
+      this.isShowCurrentPlayList = false;
       return true;
     } else if (this.isShowPlayerDetail) {
       this.isShowPlayerDetail = false;
+      return true;
+    } else if (this.isShowPlayList) {
+      this.isShowPlayList = false;
       return true;
     } else {
       return false;
@@ -399,6 +426,12 @@ struct Index {
         default:
           break;
       }
+    }
+  }
+
+  showExplorePlaylist() {
+    if (!this.isShowPlayList) {
+      this.isShowPlayList = true;
     }
   }
 

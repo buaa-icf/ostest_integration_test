@@ -19,6 +19,7 @@ import UIConstants from '../constants/UIConstants';
 import prompt from '@ohos.promptAction';
 import PlayerManager from '../manager/PlayerManager';
 import ServerConstants from '../constants/ServerConstants';
+import emitter from '@ohos.events.emitter';
 
 /**
  * List item information component.
@@ -27,6 +28,9 @@ import ServerConstants from '../constants/ServerConstants';
 export default struct PlayListItem {
   private item: ItemData = new ItemData('', $r('app.media.icon'), '', [], '');
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
+  private emitterOptions: emitter.Options = {
+    priority: emitter.EventPriority.HIGH
+  };
 
   aboutToAppear() {
   }
@@ -38,12 +42,9 @@ export default struct PlayListItem {
           Text(this.item.subTitle)
             .fontSize(16)
             .margin(8)
+            .backgroundColor('#10909090')
             .fontColor(Color.White)
           Blank()
-          Image($r('app.media.ic_public_play_white'))
-            .width(20)
-            .height(20)
-            .margin(8)
         }
         .width('100%')
       }
@@ -57,24 +58,38 @@ export default struct PlayListItem {
       Text(this.item.title)
         .fontSize(20)
         .maxLines(1)
-        .textOverflow({overflow:TextOverflow.MARQUEE})
+        .textOverflow({ overflow: TextOverflow.MARQUEE })
         .width(120)
         .textAlign(TextAlign.Center)
         .margin({ top: 4 })
     }
     .alignItems(HorizontalAlign.Center)
     .clickEffect(UIConstants.CLICK_EFFECT)
-    .onClick(() => {
-      this.enterList();
-    })
+    .gesture(
+      TapGesture({ count: 2 })
+        .onAction((event: GestureEvent) => {
+          if (event) {
+            this.playThisList();
+          }
+        })
+    )
+    .gesture(
+      TapGesture({ count: 1 })
+        .onAction((event: GestureEvent) => {
+          if (event) {
+            this.PlayerManager.setExploreList(this.item);
+            emitter.emit(ServerConstants.MAIN_SHOW_PLAYLIST, this.emitterOptions);
+          }
+        })
+    )
   }
 
-  enterList() {
+  playThisList() {
     prompt.showToast({
       message: '播放歌单：' + this.item.title
     })
     if (this.item.list.length > 0) {
-      this.PlayerManager.playList(this.item.title, this.item.list, this.item.list[0])
+      this.PlayerManager.playList(this.item.title, this.item.list, this.item.list[0], true);
     }
   }
 }

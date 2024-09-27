@@ -18,16 +18,24 @@
  */
 
 export default class AudioData {
+  id: string = ''
   title: string = '';
   artist: string = '';
-  id: string = ''
   isPlaying: boolean = false;
   isFavor: boolean = false;
   quality = '.mp3';
+  album?: string = '';
+  year?: string = '';
+  language?: string = '';
+  count?: string = '';
 
-  constructor(title: string, artist: string, id:string) {
+  constructor(title: string, artist: string, id: string, album?: string, year?: string, language?: string, count?: string) {
     this.title = title;
     this.artist = artist;
     this.id = id;
+    this.album = album;
+    this.year = year;
+    this.language = language;
+    this.count = count;
   }
 }

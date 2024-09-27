@@ -24,6 +24,7 @@ import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager'
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
 import HttpManager from './HttpManager';
+import PlayListData from '../model/PlayListData';
 
 
 export default class PlayerManager {
@@ -31,6 +32,7 @@ export default class PlayerManager {
   private isSeek: boolean = false;
   private avPlayer: media.AVPlayer | undefined = undefined;
   private list: AudioData[] = [];
+  private explorePlaylistItem: PlayListData = new PlayListData('', $r('app.media.icon'), '', [], '');
   private favourList: AudioData[] = [];
   private currentTime: number = 0;
   private currentDuration: number = 0;
@@ -143,7 +145,7 @@ export default class PlayerManager {
   /**
    * 初始化
    */
-  playList(listTitle: string, list: AudioData[], item: AudioData): void {
+  playList(listTitle: string, list: AudioData[], item: AudioData, isNotify?: boolean): void {
     this.stop();
     if (list.length <= 0) {
       Logger.error(this.tag, 'PlayList:' + 'list length <= 0');
@@ -157,6 +159,9 @@ export default class PlayerManager {
       this.shuffleIndex.push(i);
     }
     this.play(item);
+    if (isNotify) {
+      emitter.emit(ServerConstants.PLAYLIST_UPDATE_CHANGED, this.emitterOptions);
+    }
   }
 
   getCurrentPlayList(): AudioData[] {
@@ -183,7 +188,7 @@ export default class PlayerManager {
       this.item.isPlaying = false;
     }
     let index = -1
-    if (item === undefined) {
+    if (item === undefined || item.id === '') {
       return
     }
     index = this.list.indexOf(item)
@@ -325,6 +330,14 @@ export default class PlayerManager {
 
   setItemFavor(isFavor: boolean) {
     this.item.isFavor = isFavor;
+  }
+
+  setExploreList(aPlayListData: PlayListData) {
+    this.explorePlaylistItem = aPlayListData;
+  }
+
+  getExploreList(): PlayListData {
+    return this.explorePlaylistItem;
   }
 
   getListTitle(): string {

@@ -21,7 +21,7 @@ import ServerConstants from '../constants/ServerConstants';
 import UIConstants from '../constants/UIConstants';
 
 @Component
-export default struct PlayListDetail {
+export default struct CurrentPlayList {
   private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State playingList: AudioData[] = Array<AudioData>();
   @State listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
@@ -29,7 +29,7 @@ export default struct PlayListDetail {
 
   aboutToAppear() {
     this.listTitle = this.playerManager.getListTitle();
-    animateTo({ duration: 2000 }, () => {
+    animateTo({ duration: 1000 }, () => {
       this.playingList = this.playerManager.getCurrentPlayList();
     })
     setTimeout(() => {
@@ -47,11 +47,18 @@ export default struct PlayListDetail {
 
   build() {
     Column() {
-      Text(this.listTitle)
-        .fontSize(24)
-        .margin(12)
-        .maxLines(1)
-        .textOverflow({ overflow: TextOverflow.MARQUEE })
+      Row() {
+        Text('当前播放：' + this.listTitle)
+          .fontSize(24)
+          .maxLines(1)
+          .textOverflow({ overflow: TextOverflow.MARQUEE })
+        Text('(' + this.playingList.length + ')')
+          .fontSize(16)
+          .maxLines(1)
+      }
+      .margin(12)
+      .alignItems(VerticalAlign.Bottom)
+
       List({ scroller: this.scrollerForList }) {
         ForEach(this.playingList, (item: AudioData) => {
           ListItem() {

@@ -46,7 +46,7 @@ export default struct PlayerDetail {
   @State contentSwitch: boolean = true;
   @State playMode: number = this.PlayerManager.getPlayMode();
   @State noItem: boolean = false;
-  @Link isShowPlayList: boolean;
+  @Link isShowCurrentPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
   @Prop customPlayLists: PlayListData[];
   @Prop loginInfo: string;
@@ -429,7 +429,7 @@ export default struct PlayerDetail {
           .height(42)
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
-            this.isShowPlayList = true;
+            this.isShowCurrentPlayList = true;
           })
           .id('detail_playlist')
       }.width('100%')
