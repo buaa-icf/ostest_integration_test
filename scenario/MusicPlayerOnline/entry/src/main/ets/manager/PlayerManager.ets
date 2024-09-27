@@ -15,7 +15,7 @@
 
 import media from '@ohos.multimedia.media';
 import { BusinessError } from '@ohos.base';
-import AudioItem from '../model/AudioItem';
+import AudioData from '../model/AudioData';
 import Logger from '../utils/Logger';
 import emitter from '@ohos.events.emitter';
 import ServerConstants from '../constants/ServerConstants';
@@ -30,11 +30,11 @@ export default class PlayerManager {
   private tag: string = 'PlayerManager';
   private isSeek: boolean = false;
   private avPlayer: media.AVPlayer | undefined = undefined;
-  private list: AudioItem[] = [];
-  private favourList: AudioItem[] = [];
+  private list: AudioData[] = [];
+  private favourList: AudioData[] = [];
   private currentTime: number = 0;
   private currentDuration: number = 0;
-  private item: AudioItem = new AudioItem('', '', '');
+  private item: AudioData = new AudioData('', '', '');
   private listPosition: number = 0;
   private state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
   private listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
@@ -143,7 +143,7 @@ export default class PlayerManager {
   /**
    * 初始化
    */
-  playList(listTitle: string, list: AudioItem[], item: AudioItem): void {
+  playList(listTitle: string, list: AudioData[], item: AudioData): void {
     this.stop();
     if (list.length <= 0) {
       Logger.error(this.tag, 'PlayList:' + 'list length <= 0');
@@ -159,7 +159,7 @@ export default class PlayerManager {
     this.play(item);
   }
 
-  getCurrentPlayList(): AudioItem[] {
+  getCurrentPlayList(): AudioData[] {
     return this.list;
   }
 
@@ -177,7 +177,7 @@ export default class PlayerManager {
   /**
    * 播放
    */
-  play(item: AudioItem): void {
+  play(item: AudioData): void {
     Logger.info(this.tag, 'Play finish:' + this.listPosition.toString());
     if (this.item) {
       this.item.isPlaying = false;
@@ -315,7 +315,7 @@ export default class PlayerManager {
     return this.playMode;
   }
 
-  getItem(): AudioItem {
+  getItem(): AudioData {
     return this.item;
   }
 
@@ -361,7 +361,7 @@ export default class PlayerManager {
     this.favourList = [];
   }
 
-  setFavourList(list: AudioItem[]) {
+  setFavourList(list: AudioData[]) {
     this.favourList = list;
   }
 

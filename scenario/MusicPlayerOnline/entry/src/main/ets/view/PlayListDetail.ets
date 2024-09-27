@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-import AudioItem from '../model/AudioItem';
+import AudioData from '../model/AudioData';
 import PlayerManager from '../manager/PlayerManager'
-import SongCell from './SongCell';
+import SongItem from './SongItem';
 import emitter from '@ohos.events.emitter';
 import ServerConstants from '../constants/ServerConstants';
 import UIConstants from '../constants/UIConstants';
 
 @Component
-export default struct PlayList {
+export default struct PlayListDetail {
   private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
-  @State playingList: AudioItem[] = Array<AudioItem>();
+  @State playingList: AudioData[] = Array<AudioData>();
   @State listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
   private scrollerForList: Scroller = new Scroller();
 
@@ -53,9 +53,9 @@ export default struct PlayList {
         .maxLines(1)
         .textOverflow({ overflow: TextOverflow.MARQUEE })
       List({ scroller: this.scrollerForList }) {
-        ForEach(this.playingList, (item: AudioItem) => {
+        ForEach(this.playingList, (item: AudioData) => {
           ListItem() {
-            SongCell({ item })
+            SongItem({ item })
           }
           .width('100%')
           .height('84vp')

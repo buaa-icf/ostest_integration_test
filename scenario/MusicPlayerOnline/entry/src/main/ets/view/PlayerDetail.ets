@@ -20,7 +20,7 @@ import LrcLine from '../model/LrcLine';
 import CommonUtils from '../utils/CommonUtils';
 import ServerConstants from '../constants/ServerConstants';
 import UIConstants from '../constants/UIConstants';
-import AudioItem from '../model/AudioItem';
+import AudioData from '../model/AudioData';
 import { PLAY_MODE } from '../constants/PlayMode';
 import { addToListDialog } from './addToListDialog';
 import PlayListData from '../model/PlayListData';
@@ -34,7 +34,7 @@ import HttpManager from '../manager/HttpManager';
 export default struct PlayerDetail {
   private tag: string = 'PlayerDetail';
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
-  @State item: AudioItem = this.PlayerManager.getItem();
+  @State item: AudioData = this.PlayerManager.getItem();
   @State listTitle: string = this.PlayerManager.getListTitle();
   @State durationTime: number = 0;
   @State currentTime: number = 0;
@@ -163,7 +163,9 @@ export default struct PlayerDetail {
     Column() {
       Row() {
         Image($r('app.media.chevron_down'))
-          .width('36vp')
+          .width(48)
+          .height(48)
+          .padding(6)
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowPlayerDetail = false;
@@ -200,8 +202,9 @@ export default struct PlayerDetail {
         .height('60vp')
 
         Image($r('app.media.folder_badge_plus'))
-          .height('36vp')
-          .width('36vp')
+          .width(48)
+          .height(48)
+          .padding(8)
           .clickEffect(UIConstants.CLICK_EFFECT)
           .onClick(() => {
             if (this.loginInfo === ServerConstants.LOGIN_INFO_NO) {

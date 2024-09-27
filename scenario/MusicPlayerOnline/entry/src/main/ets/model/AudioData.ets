@@ -12,32 +12,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import AudioData from './AudioData';
 
 /**
- * List item data entity.
+ * AudioItem data entity.
  */
-export default class PlayListData {
-  /**
-   * Text of list item.
-   */
-  title: string;
-  /**
-   * Image of list item.
-   */
-  img: Resource;
-  /**
-   * Other resource of list item.
-   */
-  others?: string;
-  subTitle: string
-  list: AudioData[] = []
 
-  constructor(title: string, img: Resource, subTitle: string, list: AudioData[], others?: string) {
+export default class AudioData {
+  title: string = '';
+  artist: string = '';
+  id: string = ''
+  isPlaying: boolean = false;
+  isFavor: boolean = false;
+  quality = '.mp3';
+
+  constructor(title: string, artist: string, id:string) {
     this.title = title;
-    this.img = img;
-    this.others = others;
-    this.subTitle = subTitle;
-    this.list = list;
+    this.artist = artist;
+    this.id = id;
   }
 }

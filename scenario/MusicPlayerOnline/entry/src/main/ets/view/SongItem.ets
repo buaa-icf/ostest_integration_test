@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import AudioItem from '../model/AudioItem';
+import AudioData from '../model/AudioData';
 import ServerConstants from '../constants/ServerConstants';
 
 @Component
-export default struct SongCell {
-  @State item: AudioItem = new AudioItem('', '', '');
+export default struct SongItem {
+  @State item: AudioData = new AudioData('', '', '');
   private spaces: string = '                         '
 
   build() {
