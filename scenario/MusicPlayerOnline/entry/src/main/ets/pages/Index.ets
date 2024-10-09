@@ -419,6 +419,12 @@ struct Index {
           if (this.dialogController !== null) {
             this.dialogController.close();
           }
+          setTimeout(() => {
+            animateTo({ duration: 1000 }, () => {
+              this.colAngle = 180;
+              this.rootScroller.scrollEdge(Edge.Bottom);
+            })
+          },2000)
           break;
         case ServerConstants.LOGIN_RESULT_FAILED:
           this.loginButton = ServerConstants.LOGIN_BUTTON_IN;
