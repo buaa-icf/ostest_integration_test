@@ -42,8 +42,9 @@ export default struct PlayListItem {
           Text(this.item.subTitle)
             .fontSize(16)
             .margin(8)
-            .backgroundColor('#10909090')
+            .backgroundColor('#30909090')
             .fontColor(Color.White)
+            .borderRadius(4)
           Blank()
         }
         .width('100%')
@@ -51,6 +52,7 @@ export default struct PlayListItem {
       .borderRadius(12)
       .backgroundImage(this.item.list.length > 0 ? ServerConstants.SONG_IMAGE_URL + this.item.list[0].id : this.item.img)
       .backgroundImageSize(ImageSize.Cover)
+      .shadow({ radius: 1, color: Color.Gray })
       .width(120)
       .height(120)
       .justifyContent(FlexAlign.SpaceBetween)

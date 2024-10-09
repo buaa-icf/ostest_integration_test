@@ -255,6 +255,7 @@ export default struct PlayerDetail {
                 })
                 .id('detail_songImg')
                 .clickEffect(UIConstants.CLICK_EFFECT)
+                .shadow({ radius: 1, color: Color.Gray })
                 .onClick(() => {
                   this.contentSwitch = false;
                 })

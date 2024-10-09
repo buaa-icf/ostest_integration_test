@@ -20,43 +20,27 @@ export default class ServerConstants {
   /**
    * server host ,replace with your owen server address
    */
-  static readonly SERVER_HOST = 'http://192.168.62.240:8000/';
-  /**
-   * All songs URL
-   */
-  static readonly ALL_SONGS_URL = this.SERVER_HOST + 'all_songs1/';
+  static readonly SERVER_HOST = 'http://192.168.13.29:8000/';
   /**
    * custom list URL
    */
-  static readonly CUSTOM_LIST_URL = this.SERVER_HOST + 'get_playlists/';
+  static readonly CUSTOM_LIST_URL = this.SERVER_HOST + 'get_playlists';
   /**
    * search song
    */
   static readonly SEARCH_SONG_URL = this.SERVER_HOST + 'search_song/';
   /**
-   * singer list
-   */
-  static readonly SINGER_LIST_URL = this.SERVER_HOST + 'singer_list/';
-  /**
    * recommend list URL
    */
-  static readonly RECOMMEND_LIST_URL = this.SERVER_HOST + 'get_recommend_playlists/';
+  static readonly RECOMMEND_LIST_URL = this.SERVER_HOST + 'get_recommend_playlists';
   /**
    * recent list URL
    */
-  static readonly RECENT_LIST_URL = this.SERVER_HOST + 'get_recent_playlists/';
+  static readonly RECENT_LIST_URL = this.SERVER_HOST + 'get_recent_playlists';
   /**
    * favor list URL
    */
-  static readonly FAVOR_LIST_URL = this.SERVER_HOST + 'get_favor_playlists/';
-  /**
-   * English songs URL
-   */
-  static readonly ENGLISH_SONGS_URL = this.SERVER_HOST + 'english_songs/';
-  /**
-   * Recent songs URL
-   */
-  static readonly RECENT_SONGS_URL = this.SERVER_HOST + 'recent_songs/';
+  static readonly FAVOR_LIST_URL = this.SERVER_HOST + 'get_favor_playlists';
   /**
    * Song Image URL
    */

@@ -60,6 +60,7 @@ export default struct PlayerBar {
           .height(56)
           .margin(4)
           .borderRadius(48)
+          .shadow({ radius: 1, color: Color.Gray })
           .rotate({ angle: this.rotateAngle })
           .animation({
             duration: 7200,
