@@ -1,0 +1,105 @@
+/*
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the 'License')
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+@Entry
+@Component
+struct ComponentTextRicheditorAI0040 {
+  controller: RichEditorController = new RichEditorController();
+  options: RichEditorOptions = { controller: this.controller };
+  @State phoneNumber: string = '029-49781104';
+  @State url: string = 'www.baidu.com';
+  @State email: string = '***@example.com';
+  @State address: string = 'XX省XX市XX区XXXX';
+  @State enableDataDetector: boolean = false;
+  @State types: TextDataDetectorType[] = [];
+
+  build() {
+    Row() {
+      Column() {
+        Button('AI')
+          .id('AI')
+          .width(100)
+          .height(50)
+          .onClick(() => {
+            this.enableDataDetector = true;
+          })
+        Button('url')
+          .id('url')
+          .width(100)
+          .height(50)
+          .onClick(() => {
+            this.types =[TextDataDetectorType.URL];
+          })
+        Button('tel')
+          .id('tel')
+          .width(100)
+          .height(50)
+          .onClick(() => {
+            this.types =[TextDataDetectorType.PHONE_NUMBER];
+          })
+        Button('addr')
+          .id('addr')
+          .width(100)
+          .height(50)
+          .onClick(() => {
+            this.types =[TextDataDetectorType.ADDRESS];
+          })
+        Button('email')
+          .id('email')
+          .width(100)
+          .height(50)
+          .onClick(() => {
+            this.types =[TextDataDetectorType.EMAIL];
+          })
+        RichEditor(this.options)
+          .onReady(() => {
+            this.controller.addTextSpan('URL：' + this.url + '\n',
+              {
+                style:
+                {
+                  fontSize: 30
+                }
+              });
+            this.controller.addTextSpan('电话号码：' + this.phoneNumber + '\n',
+              {
+                style:
+                {
+                  fontSize: 30
+                }
+              });
+            this.controller.addTextSpan('邮箱：' + this.email + '\n',
+              {
+                style:
+                {
+                  fontSize: 30
+                }
+              });
+            this.controller.addTextSpan('地址：' + this.address,
+              {
+                style:
+                {
+                  fontSize: 30
+                }
+              });
+          })
+          .id('ComponentTextRicheditorAI0040')
+          .enableDataDetector(this.enableDataDetector)
+      }
+      .width('100%')
+      .height('100%')
+    }
+  }
+}

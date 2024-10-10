@@ -59,46 +59,60 @@ Note:If the text contains special characters, please escape them according to th
         <licensefile></licensefile>
         <policylist>
             <policy
-                desc=""
-                name="projectPolicy">
+                    desc=""
+                    name="projectPolicy">
                 <policyitem
-                    desc="Developed By Southeast University."
-                    filefilter="copyrightPolicyFilter"
-                    group="defaultGroup"
-                    name="Southeast University."
-                    path=".*"
-                    rule="may"
-                    type="copyright"/>
+                        desc="Developed By Southeast University."
+                        filefilter="copyrightPolicyFilter"
+                        group="defaultGroup"
+                        name="Southeast University."
+                        path=".*"
+                        rule="may"
+                        type="copyright"/>
             </policy>
             <policy
-                desc=""
-                name="projectPolicy">
+                    desc=""
+                    name="projectPolicy">
                 <policyitem
-                    desc="Developed By OpenValley Digital Co., Ltd."
-                    filefilter="copyrightPolicyFilter"
-                    group="defaultGroup"
-                    name="Hunan OpenValley Digital Industry Development Co., Ltd."
-                    path=".*"
-                    rule="may"
-                    type="copyright"/>
+                        desc="Developed By OpenValley Digital Co., Ltd."
+                        filefilter="copyrightPolicyFilter"
+                        group="defaultGroup"
+                        name="Hunan OpenValley Digital Industry Development Co., Ltd."
+                        path=".*"
+                        rule="may"
+                        type="copyright"/>
             </policy>
             <policy
-                desc=""
-                name="projectPolicy">
+                    desc=""
+                    name="projectPolicy">
                 <policyitem
-                    desc="Developed By Shenzhen Kaihong Digital Industry Development Co., Ltd."
-                    filefilter="copyrightPolicyFilter"
-                    group="defaultGroup"
-                    name="Shenzhen Kaihong Digital Industry Development Co., Ltd."
-                    path=".*"
-                    rule="may"
-                    type="copyright"/>
+                        desc="Developed By Shenzhen Kaihong Digital Industry Development Co., Ltd."
+                        filefilter="copyrightPolicyFilter"
+                        group="defaultGroup"
+                        name="Shenzhen Kaihong Digital Industry Development Co., Ltd."
+                        path=".*"
+                        rule="may"
+                        type="copyright"/>
+            </policy>
+            <policy
+                    desc=""
+                    name="projectPolicy">
+                <policyitem
+                        desc="Developed By Huawei Device Co., Ltd."
+                        filefilter="copyrightPolicyFilter"
+                        group="defaultGroup"
+                        name="Huawei Device Co., Ltd."
+                        path=".*"
+                        rule="may"
+                        type="copyright"/>
             </policy>
         </policylist>
         <filefilterlist>
             <filefilter name="binaryFileTypePolicyFilter" desc="Filters for binary file policies" >
                 <filteritem type="filename" name="*.png" desc="Provided by the UX team."/>
                 <filteritem type="filename" name="*.jpg" desc="Provided by the UX team."/>
+                <filteritem type="filename" name="*.ttf" desc="Provided by the UX team."/>
+                <filteritem type="filename" name="*.TTF" desc="Provided by the UX team."/>
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="License文件头校验策略的过滤条件" >
                 <filteritem type="filename" name="oh-package.json5" desc="OpenHarmony工程编译入口脚本，无需添加License头"/>
@@ -107,6 +121,9 @@ Note:If the text contains special characters, please escape them according to th
                 <filteritem type="filename" name="hvigor-config.json5" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
                 <filteritem type="filename" name="hvigor-wrapper.js" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
                 <filteritem type="filename" name="hvigorfile.ts" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
+				<filteritem type="filename" name="build-profile.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
+				<filteritem type="filename" name="module.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
+				<filteritem type="filename" name="app.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
             </filefilter>
             <filefilter name="copyrightPolicyFilter" desc="Copyright文件头校验策略的过滤条件" >
                 <filteritem type="filename" name="oh-package.json5" desc="OpenHarmony工程编译入口脚本，无需添加版权头"/>
@@ -114,7 +131,10 @@ Note:If the text contains special characters, please escape them according to th
                 <filteritem type="filename" name="hvigorw.bat" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
                 <filteritem type="filename" name="hvigor-config.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
                 <filteritem type="filename" name="hvigor-wrapper.js" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
+				<filteritem type="filename" name="hvigorfile.ts" desc="OpenHarmony工程编译配置文件，无需添加License头"/>
                 <filteritem type="filename" name="build-profile.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
+				<filteritem type="filename" name="module.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
+				<filteritem type="filename" name="app.json5" desc="OpenHarmony工程编译配置文件，无需添加版权头"/>
             </filefilter>
         </filefilterlist>
     </oatconfig>
