@@ -20,7 +20,7 @@ export default class ServerConstants {
   /**
    * server host ,replace with your owen server address
    */
-  static readonly SERVER_HOST = 'http://192.168.13.29:8000/';
+  static readonly SERVER_HOST = 'http://192.168.13.110:8000/';
   /**
    * custom list URL
    */
@@ -83,33 +83,37 @@ export default class ServerConstants {
   /**
    * 首页播放状态更新消息
    */
-  static readonly MAIN_UPDATE_TIME = '01';
-  static readonly MAIN_UPDATE_STATE = '02';
-  static readonly MAIN_SHOW_PLAYLIST = '03';
+  static readonly MAIN_UPDATE_TIME = 'MAIN_UPDATE_TIME';
+  static readonly MAIN_UPDATE_STATE = 'MAIN_UPDATE_STATE';
+  static readonly MAIN_SHOW_PLAYLIST = 'MAIN_SHOW_PLAYLIST';
   /**
    * 详情页播放状态更新消息
    */
-  static readonly DETAIL_UPDATE_TIME = '10';
-  static readonly DETAIL_UPDATE_STATE = '11';
-  static readonly DETAIL_UPDATE_FAVOR_AND_QUALITY = '12';
+  static readonly DETAIL_UPDATE_TIME = 'DETAIL_UPDATE_TIME';
+  static readonly DETAIL_UPDATE_STATE = 'DETAIL_UPDATE_STATE';
+  static readonly DETAIL_UPDATE_FAVOR_AND_QUALITY = 'DETAIL_UPDATE_FAVOR_AND_QUALITY';
+  /**
+   * 卡片更新消息
+   */
+  static readonly CARD_UPDATE_STATE = 'music.online.card.update';
   /**
    * 播放列表播放状态更新消息
    */
-  static readonly PLAYLIST_UPDATE_STATE = '20';
-  static readonly PLAYLIST_UPDATE_CHANGED = '21';
+  static readonly PLAYLIST_UPDATE_STATE = 'PLAYLIST_UPDATE_STATE';
+  static readonly PLAYLIST_UPDATE_CHANGED = 'PLAYLIST_UPDATE_CHANGED';
 
   //首页列表更新消息
-  static readonly UPDATE_USER_LIST = '8';
-  static readonly UPDATE_USER_LIST_RECOMMEND = '80';
-  static readonly UPDATE_USER_LIST_CUSTOM = '81';
-  static readonly UPDATE_USER_LIST_RECENT = '82';
-  static readonly UPDATE_USER_LIST_FAVOR = '83';
-  static readonly UPDATE_USER_LIST_SEARCH = '84';
+  static readonly UPDATE_USER_LIST = 'UPDATE_USER_LIST';
+  static readonly UPDATE_USER_LIST_RECOMMEND = 'UPDATE_USER_LIST_RECOMMEND';
+  static readonly UPDATE_USER_LIST_CUSTOM = 'UPDATE_USER_LIST_CUSTOM';
+  static readonly UPDATE_USER_LIST_RECENT = 'UPDATE_USER_LIST_RECENT';
+  static readonly UPDATE_USER_LIST_FAVOR = 'UPDATE_USER_LIST_FAVOR';
+  static readonly UPDATE_USER_LIST_SEARCH = 'UPDATE_USER_LIST_SEARCH';
 
   //首页登录更新消息
-  static readonly LOGIN_RESULT = '9'
-  static readonly LOGIN_RESULT_SUCCESS = '90'
-  static readonly LOGIN_RESULT_FAILED = '91'
+  static readonly LOGIN_RESULT = 'LOGIN_RESULT'
+  static readonly LOGIN_RESULT_SUCCESS = 'LOGIN_RESULT_SUCCESS'
+  static readonly LOGIN_RESULT_FAILED = 'LOGIN_RESULT_FAILED'
   /**
    * PLAYER LIST
    */

@@ -37,15 +37,31 @@
         ]
       }
     ],
-    "requestPermissions":[
+    "extensionAbilities": [
       {
-        "name" : "ohos.permission.INTERNET",
+        "name": "EntryFormAbility",
+        "srcEntry": "./ets/entryformability/EntryFormAbility.ets",
+        "label": "$string:EntryFormAbility_label",
+        "description": "$string:EntryFormAbility_desc",
+        "type": "form",
+        "metadata": [
+          {
+            "name": "ohos.extension.form",
+            "resource": "$profile:form_config"
+          }
+        ]
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
         "reason": "$string:EntryAbility_desc",
         "usedScene": {
           "abilities": [
-            "EntryAbility"
+            "EntryAbility",
+            "EntryFormAbility"
           ],
-          "when":"inuse"
+          "when": "inuse"
         }
       },
       {

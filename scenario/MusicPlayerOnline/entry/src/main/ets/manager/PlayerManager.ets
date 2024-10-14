@@ -25,10 +25,14 @@ import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
 import HttpManager from './HttpManager';
 import PlayListData from '../model/PlayListData';
+import Base from '@ohos.base';
+import formProvider from '@ohos.app.form.formProvider';
+import formBindingData from '@ohos.app.form.formBindingData';
 
 
 export default class PlayerManager {
   private tag: string = 'PlayerManager';
+  private formId: string = '1234567890';
   private isSeek: boolean = false;
   private avPlayer: media.AVPlayer | undefined = undefined;
   private list: AudioData[] = [];
@@ -36,11 +40,11 @@ export default class PlayerManager {
   private favourList: AudioData[] = [];
   private currentTime: number = 0;
   private currentDuration: number = 0;
-  private item: AudioData = new AudioData('', '', '');
+  private item: AudioData = new AudioData('未播放', '--', '');
   private listPosition: number = 0;
   private state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
   private listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
-  private playMode: number | undefined = PLAY_MODE.REPEAT;
+  private playMode: number = PLAY_MODE.REPEAT;
   private shuffleIndex: number[] = [];
   private emitterOptions: emitter.Options = {
     priority: emitter.EventPriority.HIGH
@@ -91,10 +95,11 @@ export default class PlayerManager {
       emitter.emit(ServerConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
       emitter.emit(ServerConstants.DETAIL_UPDATE_STATE, this.emitterOptions, eventData);
       emitter.emit(ServerConstants.PLAYLIST_UPDATE_STATE, this.emitterOptions, eventData);
+      this.updateCard();
       switch (state) {
         case ServerConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
           console.info('PlayerManager state idle called.');
-        //avPlayer.release(); // 调用release接口销毁实例对象
+          //avPlayer.release(); // 调用release接口销毁实例对象
           break;
         case ServerConstants.PLAYER_STATE_INITIALIZED: // avplayer 设置播放源后触发该状态上报
           console.info('PlayerManager state initialized called.');
@@ -114,12 +119,12 @@ export default class PlayerManager {
           break;
         case ServerConstants.PLAYER_STATE_COMPLETED: // 播放结束后触发该状态机上报
           console.info('PlayerManager state completed called.');
-        //avPlayer.stop(); //调用播放结束接口
+          //avPlayer.stop(); //调用播放结束接口
           this.next();
           break;
         case ServerConstants.PLAYER_STATE_STOPPED: // stop接口成功调用后触发该状态机上报
           console.info('PlayerManager state stopped called.');
-        //this.stopContinuousTask();
+          //this.stopContinuousTask();
           this.currentTime = 0;
           Logger.info(this.tag, 'Stop:' + this.item.title);
           avPlayer.reset(); // 调用reset接口初始化avplayer状态
@@ -317,11 +322,17 @@ export default class PlayerManager {
         this.playMode = PLAY_MODE.REPEAT;
         break;
     }
+    this.updatePlayMode();
     return this.playMode;
   }
 
   getItem(): AudioData {
     return this.item;
+  }
+
+  setFormId(formId: string) {
+    this.formId = formId;
+    this.updateCard();
   }
 
   setItemQuality(quality: string) {
@@ -330,6 +341,7 @@ export default class PlayerManager {
 
   setItemFavor(isFavor: boolean) {
     this.item.isFavor = isFavor;
+    this.updateCard();
   }
 
   setExploreList(aPlayListData: PlayListData) {
@@ -349,9 +361,6 @@ export default class PlayerManager {
   }
 
   getPlayMode(): number {
-    if (this.playMode === undefined) {
-      return PLAY_MODE.REPEAT;
-    }
     return this.playMode;
   }
 
@@ -444,6 +453,30 @@ export default class PlayerManager {
       let message = (err as BusinessError).message;
       console.error(`PlayerManager terminateSelf failed, code is ${code}, message is ${message}`);
     }
+  }
+
+  updateCard() {
+    let formData: Record<string, AudioData| string> = {
+      'audioItem': this.item,
+      'isPlaying': this.state,
+    };
+    let formMsg: formBindingData.FormBindingData = formBindingData.createFormBindingData(formData);
+    formProvider.updateForm(this.formId, formMsg).then(() => {
+      console.info('FormAbility updateForm success.');
+    }).catch((error: Base.BusinessError) => {
+      console.info(`Operation updateForm failed. Cause: ${JSON.stringify(error)}`);
+    })
+  }
+  updatePlayMode() {
+    let formData: Record<string, number> = {
+      'playMode': this.playMode,
+    };
+    let formMsg: formBindingData.FormBindingData = formBindingData.createFormBindingData(formData);
+    formProvider.updateForm(this.formId, formMsg).then(() => {
+      console.info('FormAbility updateForm success.');
+    }).catch((error: Base.BusinessError) => {
+      console.info(`Operation updateForm failed. Cause: ${JSON.stringify(error)}`);
+    })
   }
 }
 
