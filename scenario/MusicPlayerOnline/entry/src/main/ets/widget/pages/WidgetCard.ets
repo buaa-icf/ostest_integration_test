@@ -14,7 +14,7 @@
  */
 
 import AudioData from '../../model/AudioData';
-import ServerConstants from '../../constants/ServerConstants';
+import AppConstants from '../../constants/AppConstants';
 import { PLAY_MODE } from '../../constants/PlayMode';
 
 let storageUpdateByMsg = new LocalStorage();
@@ -49,10 +49,11 @@ struct WidgetCard {
   readonly MAX_LINES_VALUE: number = 1;
   @LocalStorageProp('formId') formId: string = '';
   @LocalStorageProp('audioItem') audioItem: AudioData = new AudioData('未播放', '--', '')
-  @LocalStorageProp('isPlaying') isPlaying: string = ServerConstants.PLAYER_STATE_UNKNOWN;
+  @LocalStorageProp('serverHost') serverHost: string = '';
+  @LocalStorageProp('isPlaying') isPlaying: string = AppConstants.PLAYER_STATE_UNKNOWN;
   @LocalStorageProp('imgName') imgName: string = '';
-  private downloadImgId: string = ''
   @LocalStorageProp('playMode') playMode: number = PLAY_MODE.REPEAT;
+  private downloadImgId: string = ''
 
   aboutToAppear(): void {
     postCardAction(this, {
@@ -141,7 +142,8 @@ struct WidgetCard {
           .width(this.FULL_PERCENT)
 
           Row() {
-            Image(this.playMode === PLAY_MODE.REPEAT ? $r('app.media.repeat') : (this.playMode === PLAY_MODE.REPEAT1 ? $r('app.media.repeat_1') : $r('app.media.shuffle')))
+            Image(this.playMode === PLAY_MODE.REPEAT ? $r('app.media.repeat') :
+              (this.playMode === PLAY_MODE.REPEAT1 ? $r('app.media.repeat_1') : $r('app.media.shuffle')))
               .width(64)
               .height(64)
               .padding(4)
@@ -156,7 +158,7 @@ struct WidgetCard {
               .onClick(() => {
                 this.onPreviousClick()
               })
-            if (this.isPlaying === ServerConstants.PLAYER_STATE_PLAYING) {
+            if (this.isPlaying === AppConstants.PLAYER_STATE_PLAYING) {
               Image($r('app.media.pause'))
                 .width(64)
                 .height(64)
@@ -173,7 +175,7 @@ struct WidgetCard {
                     postCardAction(this, {
                       action: 'message',
                       params: {
-                        info: ServerConstants.SONG_IMAGE_URL + this.audioItem.id
+                        info: this.serverHost + AppConstants.SONG_IMAGE_URL + this.audioItem.id
                       }
                     });
                   }

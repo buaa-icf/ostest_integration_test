@@ -12,22 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import PlayerManager from '../manager/PlayerManager';
-
-class SettingItem {
-  title: string;
-  img: Resource;
-  subTitle: string;
-  others?: boolean = false;
-
-  constructor(title: string, img: Resource, subTitle: string, others?: boolean) {
-    this.title = title;
-    this.img = img;
-    this.others = others;
-    this.subTitle = subTitle;
-  }
-}
+import SettingItem from '../model/SettingItem';
+import settingCell from './SettingCell';
 
 /**
  * Setting tab content
@@ -39,49 +27,13 @@ export default struct Setting {
   @Link loginInfo: string;
 
   aboutToAppear(): void {
-    this.items.push(new SettingItem('保持登录', $r('app.media.key_horizontal'), '重启自动登录', true));
-    this.items.push(new SettingItem('关于', $r('app.media.info_circle'), '版本'));
-  }
-
-  @Builder
-  settingCell(item: SettingItem) {
-    Row() {
-      Image(item.img)
-        .width(28)
-        .height(28)
-        .margin(4)
-
-      Row() {
-        Text(item.title)
-          .maxLines(1)
-          .fontSize(20)
-          .fontWeight(FontWeight.Lighter)
-
-        Text(item.subTitle)
-          .fontSize(14)
-          .fontWeight(FontWeight.Lighter)
-          .fontColor(Color.Gray)
-          .margin({ left: 8, right: 8 })
-          .maxLines(1)
-      }.alignItems(VerticalAlign.Bottom)
-
-      Blank()
-      if (item.others) {
-        Toggle({ type: ToggleType.Switch, isOn: true })
-          .selectedColor(Color.Orange)
-      } else {
-        Image($r('app.media.chevron_right'))
-          .width(12)
-          .height(24)
-      }
-    }
-    .alignItems(VerticalAlign.Center)
-    .justifyContent(FlexAlign.SpaceBetween)
-    .width('100%')
-    .padding({
-      left: 8,
-      right: 22
-    })
+    console.log('SettingSetting:'+AppStorage.get(AppConstants.DETAIL_DEFAULT_SETTING));
+    this.items.push(new SettingItem(AppConstants.detailDefaultSetting, $r('app.media.doc_plaintext'), AppConstants.detailDefaultSettingDes,
+      true));
+    this.items.push(new SettingItem(AppConstants.playModeTitle, $r('app.media.shuffle'), AppConstants.playModeDes,
+      true));
+    this.items.push(new SettingItem(AppConstants.keepLoginTitle, $r('app.media.key_horizontal'), AppConstants.keepLoginDes, true));
+    this.items.push(new SettingItem(AppConstants.aboutTitle, $r('app.media.questionmark_circle'), AppConstants.aboutDes));
   }
 
   build() {
@@ -106,7 +58,7 @@ export default struct Setting {
       List() {
         ForEach(this.items, (item: SettingItem) => {
           ListItem() {
-            this.settingCell(item)
+            settingCell({item:item})
           }
           .height(56)
         })
@@ -141,7 +93,7 @@ export default struct Setting {
       .backgroundColor(Color.White)
       .borderRadius(12)
       .margin({ top: 12, bottom: 12 })
-      .clickEffect(UIConstants.CLICK_EFFECT)
+      .clickEffect(AppConstants.CLICK_EFFECT)
       .onClick(() => {
         this.PlayerManager.exitAPP();
       })

@@ -14,11 +14,9 @@
  */
 
 import ItemData from '../model/PlayListData';
-
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import prompt from '@ohos.promptAction';
 import PlayerManager from '../manager/PlayerManager';
-import ServerConstants from '../constants/ServerConstants';
 import emitter from '@ohos.events.emitter';
 
 /**
@@ -50,7 +48,7 @@ export default struct PlayListItem {
         .width('100%')
       }
       .borderRadius(12)
-      .backgroundImage(this.item.list.length > 0 ? ServerConstants.SONG_IMAGE_URL + this.item.list[0].id : this.item.img)
+      .backgroundImage(this.item.list.length > 0 ? AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.list[0].id : this.item.img)
       .backgroundImageSize(ImageSize.Cover)
       .shadow({ radius: 1, color: Color.Gray })
       .width(120)
@@ -66,7 +64,7 @@ export default struct PlayListItem {
         .margin({ top: 4 })
     }
     .alignItems(HorizontalAlign.Center)
-    .clickEffect(UIConstants.CLICK_EFFECT)
+    .clickEffect(AppConstants.CLICK_EFFECT)
     .gesture(
       TapGesture({ count: 2 })
         .onAction((event: GestureEvent) => {
@@ -80,7 +78,7 @@ export default struct PlayListItem {
         .onAction((event: GestureEvent) => {
           if (event) {
             this.PlayerManager.setExploreList(this.item);
-            emitter.emit(ServerConstants.MAIN_SHOW_PLAYLIST, this.emitterOptions);
+            emitter.emit(AppConstants.MAIN_SHOW_PLAYLIST, this.emitterOptions);
           }
         })
     )

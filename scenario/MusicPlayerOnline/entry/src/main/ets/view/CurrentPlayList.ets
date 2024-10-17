@@ -17,14 +17,13 @@ import AudioData from '../model/AudioData';
 import PlayerManager from '../manager/PlayerManager'
 import SongItem from './SongItem';
 import emitter from '@ohos.events.emitter';
-import ServerConstants from '../constants/ServerConstants';
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 
 @Component
 export default struct CurrentPlayList {
   private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State playingList: AudioData[] = Array<AudioData>();
-  @State listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
+  @State listTitle: string = AppConstants.LIST_SONG_NO_PLAYING;
   private scrollerForList: Scroller = new Scroller();
 
   aboutToAppear() {
@@ -33,16 +32,17 @@ export default struct CurrentPlayList {
       this.playingList = this.playerManager.getCurrentPlayList();
     })
     setTimeout(() => {
-      this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
+      this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true,
+        ScrollAlign.CENTER);
     }, 2000)
 
-    emitter.on(ServerConstants.PLAYLIST_UPDATE_STATE, (eventData: emitter.EventData) => {
+    emitter.on(AppConstants.PLAYLIST_UPDATE_STATE, (eventData: emitter.EventData) => {
       this.updateState(eventData);
     });
   }
 
   aboutToDisappear(): void {
-    emitter.off(ServerConstants.PLAYLIST_UPDATE_STATE);
+    emitter.off(AppConstants.PLAYLIST_UPDATE_STATE);
   }
 
   build() {
@@ -62,16 +62,29 @@ export default struct CurrentPlayList {
       List({ scroller: this.scrollerForList }) {
         ForEach(this.playingList, (item: AudioData) => {
           ListItem() {
-            SongItem({ item })
+            Row() {
+              SongItem({ item })
+                .width('90%')
+                .clickEffect(AppConstants.CLICK_EFFECT)
+                .onClick(() => {
+                  this.playerManager.play(item)
+                })
+              if (!item.isPlaying) {
+                Image($r('app.media.xmark'))
+                  .height(36)
+                  .width(36)
+                  .padding(8)
+                  .clickEffect(AppConstants.CLICK_EFFECT)
+                  .onClick(() => {
+                    this.playerManager.removeSongFromCurrentList(item);
+                  })
+              }
+            }.margin(8)
           }
           .width('100%')
           .height('84vp')
           .backgroundColor(item.isPlaying ? '#f0f0f0' : Color.White)
           .transition({ type: TransitionType.All, opacity: 0 })
-          .clickEffect(UIConstants.CLICK_EFFECT)
-          .onClick(() => {
-            this.playerManager.play(item)
-          })
         })
       }
       .width('100%')
@@ -84,12 +97,14 @@ export default struct CurrentPlayList {
   }
 
   updateState(eventData: emitter.EventData) {
-    if (eventData !== undefined && eventData.data !== undefined && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
+    if (eventData !== undefined && eventData.data !== undefined &&
+      eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
       animateTo({ duration: 2000 }, () => {
         this.playingList = this.playerManager.getCurrentPlayList();
       })
       setTimeout(() => {
-        this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true, ScrollAlign.CENTER);
+        this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true,
+          ScrollAlign.CENTER);
       }, 2000)
     }
   }

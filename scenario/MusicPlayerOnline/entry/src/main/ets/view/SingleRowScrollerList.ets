@@ -18,7 +18,7 @@
  * 单行横向滚动组件
  */
 
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import PlayListData from '../model/PlayListData';
 import PlayListItem from './PlayListItem';
 
@@ -48,7 +48,7 @@ export default struct SingleRowScrollerList {
           .padding(8)
           .rotate({ angle: this.arrowAngle })
           .id('scroll_row')
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             animateTo({ duration: 1000 }, () => {
               if (this.arrowAngle === 0) {
