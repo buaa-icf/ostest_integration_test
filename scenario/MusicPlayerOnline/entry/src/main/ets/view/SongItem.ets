@@ -14,7 +14,8 @@
  */
 
 import AudioData from '../model/AudioData';
-import ServerConstants from '../constants/ServerConstants';
+import AppConstants from '../constants/AppConstants';
+import PlayerManager from '../manager/PlayerManager';
 
 @Component
 export default struct SongItem {
@@ -23,7 +24,7 @@ export default struct SongItem {
 
   build() {
     Row() {
-      Image(ServerConstants.SONG_IMAGE_URL + this.item.id)
+      Image(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id)
         .width(64)
         .height(64)
         .borderRadius(4)

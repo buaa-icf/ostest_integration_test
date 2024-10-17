@@ -14,7 +14,7 @@
  */
 
 import AudioData from '../model/AudioData';
-import ServerConstants from '../constants/ServerConstants';
+import AppConstants from '../constants/AppConstants';
 
 @Component
 export default struct ExploreSongItem {
@@ -39,18 +39,21 @@ export default struct ExploreSongItem {
           Text(this.item.artist)
             .fontColor('#a0a0a0')
             .maxLines(1)
-          Blank()
+            .width('50%')
+            .textOverflow({overflow:TextOverflow.Ellipsis})
           Text(this.item.album+'('+this.item.year+')')
             .fontColor('#a0a0a0')
             .maxLines(1)
+            .width('50%')
+            .textOverflow({overflow:TextOverflow.MARQUEE})
+            .textAlign(TextAlign.End)
         }
-        .align(Alignment.Start)
         .width('90%')
         .justifyContent(FlexAlign.SpaceBetween)
       }
     }
     .justifyContent(FlexAlign.SpaceBetween)
-    .width('90%')
+    .width('100%')
     .alignSelf(ItemAlign.Center)
   }
 }

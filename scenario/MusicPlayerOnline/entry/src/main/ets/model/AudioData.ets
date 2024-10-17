@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import LrcLine from "./LrcLine";
 
 /**
  * AudioItem data entity.
@@ -23,6 +24,7 @@ export default class AudioData {
   artist: string = '';
   isPlaying: boolean = false;
   isFavor: boolean = false;
+  lrc: LrcLine[] = []
   quality = '.mp3';
   album?: string = '';
   year?: string = '';

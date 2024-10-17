@@ -30,8 +30,9 @@ export default class PlayListData {
    * Other resource of list item.
    */
   others?: string;
-  subTitle: string
-  list: AudioData[] = []
+  subTitle: string;
+  list: AudioData[] = [];
+  isCustom = false;
 
   constructor(title: string, img: Resource, subTitle: string, list: AudioData[], others?: string) {
     this.title = title;

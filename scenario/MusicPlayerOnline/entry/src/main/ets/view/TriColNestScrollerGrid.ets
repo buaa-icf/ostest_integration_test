@@ -12,14 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import ServerConstants from '../constants/ServerConstants';
 
 /**
  * TriColNestScrollerGridList component.
  * 三列竖向联动滚动Grid列表
  */
 
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import PlayListData from '../model/PlayListData';
 import PlayListItem from './PlayListItem';
 
@@ -50,7 +49,7 @@ export default struct TriColNestScrollerGrid {
           .padding(8)
           .id('scroll_col')
           .rotate({ angle: this.colAngle })
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             animateTo({ duration: 1000 }, () => {
               if (this.colAngle === 0) {

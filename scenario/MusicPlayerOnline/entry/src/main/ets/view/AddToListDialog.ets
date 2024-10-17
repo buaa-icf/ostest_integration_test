@@ -12,10 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Font } from '@ohos.arkui.UIContext';
 
 @CustomDialog
-export struct addToListDialog {
+export struct AddToListDialog {
   @Link inputListName: string;
   @State title: string = '将歌曲加入[新建歌单]或[已有歌单]';
   @State text: string = "选择已有歌单";

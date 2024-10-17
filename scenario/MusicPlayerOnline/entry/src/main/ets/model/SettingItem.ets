@@ -13,10 +13,19 @@
  * limitations under the License.
  */
 
-
 /**
- * Common constants for UI features.
+ * SettingItem data entity.
  */
-export default class ServerConstants {
-  static readonly CLICK_EFFECT:ClickEffect = {level:ClickEffectLevel.MIDDLE, scale: 0.8};
+export default class SettingItem {
+  title: string;
+  img: Resource;
+  subTitle: string;
+  others?: boolean = false;
+
+  constructor(title: string, img: Resource, subTitle: string, others?: boolean) {
+    this.title = title;
+    this.img = img;
+    this.others = others;
+    this.subTitle = subTitle;
+  }
 }

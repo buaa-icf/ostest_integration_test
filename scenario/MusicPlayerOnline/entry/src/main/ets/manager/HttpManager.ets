@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import http from '@ohos.net.http'
-import ServerConstants from '../constants/ServerConstants';
+import AppConstants from '../constants/AppConstants';
 import emitter from '@ohos.events.emitter';
 import PlayerManager from './PlayerManager';
 import prompt from '@ohos.promptAction';
@@ -56,14 +56,14 @@ export default class HttpManager {
       return;
     }
     try {
-      this.httpRequest.request(ServerConstants.CSRF_URL,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
             console.info('HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.csrfToken = jsonObject['csrf_token'];
-              this.httpRequest.request(ServerConstants.REGISTER_URL,
+              this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.REGISTER_URL,
                 {
                   method: http.RequestMethod.POST,
                   extraData: 'username=' + userName.trim() + '&password=' + pwd.trim(),
@@ -76,40 +76,40 @@ export default class HttpManager {
                 (err: Error, data: http.HttpResponse) => {
                   if (!err) {
                     console.info('HttpResponse Result:' + data.result);
-                    if ((data.result as string).indexOf(ServerConstants.REGISTER_FAILED) !== -1) {
+                    if ((data.result as string).indexOf(AppConstants.REGISTER_FAILED) !== -1) {
                       prompt.showToast({
-                        message: ServerConstants.REGISTER_INFO_FAILED + data.result
+                        message: AppConstants.REGISTER_INFO_FAILED + data.result
                       })
                       return;
                     }
                     prompt.showToast({
-                      message: ServerConstants.REGISTER_INFO_SUCCESS
+                      message: AppConstants.REGISTER_INFO_SUCCESS
                     })
                     this.login(userName.trim(), pwd.trim());
                   } else {
                     console.info('HttpResponse error:' + JSON.stringify(err));
                     prompt.showToast({
-                      message: ServerConstants.REGISTER_INFO_FAILED
+                      message: AppConstants.REGISTER_INFO_FAILED
                     })
                   }
                 });
             } catch (err) {
               console.info('HttpRequest error:' + JSON.stringify(err));
               prompt.showToast({
-                message: ServerConstants.REGISTER_INFO_FAILED
+                message: AppConstants.REGISTER_INFO_FAILED
               })
             }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
-              message: ServerConstants.REGISTER_INFO_FAILED
+              message: AppConstants.REGISTER_INFO_FAILED
             })
           }
         });
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
       prompt.showToast({
-        message: ServerConstants.REGISTER_INFO_FAILED
+        message: AppConstants.REGISTER_INFO_FAILED
       })
     }
   }
@@ -117,14 +117,14 @@ export default class HttpManager {
   //登录
   login(userName: string, pwd: string) {
     try {
-      this.httpRequest.request(ServerConstants.CSRF_URL,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
             console.info('HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.csrfToken = jsonObject['csrf_token'];
-              this.httpRequest.request(ServerConstants.LOGIN_URL,
+              this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.LOGIN_URL,
                 {
                   method: http.RequestMethod.POST,
                   extraData: 'username=' + userName + '&password=' + pwd,
@@ -137,30 +137,29 @@ export default class HttpManager {
                 (err: Error, data: http.HttpResponse) => {
                   if (!err) {
                     console.info('HttpResponse Result:' + data.result);
-                    console.info('HttpResponse code:' + data.responseCode);
-                    console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-                    console.info('HttpResponse header:' + JSON.stringify(data.header));
                     if (200 === data.responseCode) {
-                      console.info('HttpResponse code:' + (data.result as string).indexOf(ServerConstants.LOGIN_FAILED));
-                      if ((data.result as string).indexOf(ServerConstants.LOGIN_FAILED) !== -1) {
+                      console.info('HttpResponse code:' +
+                      (data.result as string).indexOf(AppConstants.LOGIN_FAILED));
+                      if ((data.result as string).indexOf(AppConstants.LOGIN_FAILED) !== -1) {
                         this.loginFailed();
                         return;
                       }
 
-                      AppStorage.setOrCreate('loginName', userName);
                       let loginCookie: string[] = data.header['set-cookie'];
                       let cookie: string = loginCookie.map(cookie => {
                         const parts = cookie.split('=');
                         return `${parts[0]}=${parts[1]}`;
                       }).join('; ')
-                      AppStorage.setOrCreate('loginCookie', cookie);
+
+                      AppStorage.setOrCreate(AppConstants.LOGIN_COOKIE, cookie);
+                      AppStorage.setOrCreate(AppConstants.LOGIN_NAME, userName);
 
                       let eventData: emitter.EventData = {
                         data: {
-                          "message": ServerConstants.LOGIN_RESULT_SUCCESS,
+                          "message": AppConstants.LOGIN_RESULT_SUCCESS,
                         }
                       };
-                      emitter.emit(ServerConstants.LOGIN_RESULT, this.emitterOptions, eventData);
+                      emitter.emit(AppConstants.LOGIN_RESULT, this.emitterOptions, eventData);
                       this.getCustomListFromServer();
                     }
                   } else {
@@ -171,8 +170,7 @@ export default class HttpManager {
                     this.loginFailed();
                   }
                 });
-            }
-            catch (error) {
+            } catch (error) {
               console.error("JSON :", error.message);
               this.loginFailed();
             }
@@ -193,23 +191,23 @@ export default class HttpManager {
   loginFailed() {
     let eventData: emitter.EventData = {
       data: {
-        "message": ServerConstants.LOGIN_RESULT_FAILED,
+        "message": AppConstants.LOGIN_RESULT_FAILED,
       }
     };
-    emitter.emit(ServerConstants.LOGIN_RESULT, this.emitterOptions, eventData);
+    emitter.emit(AppConstants.LOGIN_RESULT, this.emitterOptions, eventData);
     prompt.showToast({
-      message: ServerConstants.LOGIN_INFO_FAILED
+      message: AppConstants.LOGIN_INFO_FAILED
     })
   }
 
   //记录最近播放信息，并获取歌曲格式
   record_recent() {
-    let loginCookie: string | undefined = AppStorage.get('loginCookie');
+    let loginCookie: string | undefined = AppStorage.get(AppConstants.LOGIN_COOKIE);
     if (loginCookie === '' || loginCookie === undefined) {
       return;
     }
     try {
-      this.httpRequest.request(ServerConstants.RECORD_RECENT + this.PlayerManager.getItem().id,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.RECORD_RECENT_URL + this.PlayerManager.getItem().id,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -219,14 +217,10 @@ export default class HttpManager {
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
             console.info('HttpResponse record_recent Result:' + data.result);
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.PlayerManager.setItemQuality(jsonObject['message']);
-              emitter.emit(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, this.emitterOptions);
+              emitter.emit(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, this.emitterOptions);
             } catch (err) {
               console.info('HttpResponse error:' + JSON.stringify(err));
             }
@@ -244,14 +238,26 @@ export default class HttpManager {
   }
 
   //设置收藏
-  set_favourite() {
-    let loginCookie: string | undefined = AppStorage.get('loginCookie');
+  set_favourite(itemToSet?: AudioData, alwaysSet?: boolean) {
+    let loginCookie: string | undefined = AppStorage.get(AppConstants.LOGIN_COOKIE);
+    if (loginCookie === undefined || loginCookie === AppConstants.LOGIN_COOKIE_NONE) {
+      prompt.showToast({
+        message: AppConstants.LOGIN_INFO_NO
+      })
+      return;
+    }
     let msg: string = ''
     try {
       let item = this.PlayerManager.getItem();
+      if (itemToSet !== undefined) {
+        item = itemToSet;
+      }
       let is_favor: string = item.isFavor ? '0' : '1';
-      console.info('HttpResponse start:' + ServerConstants.SET_FAVOURITE + item.id + '/' + is_favor);
-      this.httpRequest.request(ServerConstants.SET_FAVOURITE + item.id + '/' + is_favor,
+      if (alwaysSet) {
+        is_favor = '1';
+      }
+      console.info('HttpResponse start:' + AppConstants.SET_FAVOURITE_URL + item.id + '/' + is_favor);
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SET_FAVOURITE_URL + item.id + '/' + is_favor,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -261,19 +267,15 @@ export default class HttpManager {
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
             console.info('HttpResponse Result:' + data.result);
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               switch (jsonObject["message"]) {
-                case ServerConstants.SET_FAVOURITE_ALREADY:
-                case ServerConstants.SET_FAVOURITE_SUCCESS:
+                case AppConstants.SET_FAVOURITE_ALREADY:
+                case AppConstants.SET_FAVOURITE_SUCCESS:
                   item.isFavor = true;
                   break;
-                case ServerConstants.CANCEL_FAVOURITE_SUCCESS:
-                case ServerConstants.CANCEL_FAVOURITE_ALREADY:
+                case AppConstants.CANCEL_FAVOURITE_SUCCESS:
+                case AppConstants.CANCEL_FAVOURITE_ALREADY:
                   item.isFavor = false;
                   break;
                 default:
@@ -281,13 +283,12 @@ export default class HttpManager {
                   break;
               }
               this.PlayerManager.setItemFavor(item.isFavor);
-              emitter.emit(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, this.emitterOptions);
+              emitter.emit(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, this.emitterOptions);
               prompt.showToast({
                 message: jsonObject["message"]
               })
               this.getFavorListFromServer();
-            }
-            catch (error) {
+            } catch (error) {
               console.error("JSON :", error.message);
               msg = JSON.stringify(error);
             }
@@ -311,11 +312,17 @@ export default class HttpManager {
 
   //歌曲加入歌单
   add_to_playlist(song_id: string, playlist_name: string) {
-    let loginCookie: string | undefined = AppStorage.get('loginCookie');
+    let loginCookie: string | undefined = AppStorage.get(AppConstants.LOGIN_COOKIE);
+    if (loginCookie === undefined || loginCookie === AppConstants.LOGIN_COOKIE_NONE) {
+      prompt.showToast({
+        message: AppConstants.LOGIN_INFO_NO
+      })
+      return;
+    }
     let msg: string = ''
     try {
-      console.info('HttpResponse start:' + ServerConstants.ADD_TO_PLAYLIST + song_id + '/' + playlist_name);
-      this.httpRequest.request(ServerConstants.ADD_TO_PLAYLIST + song_id + '/' + playlist_name,
+      console.info('HttpResponse start:' + AppConstants.ADD_TO_PLAYLIST_URL + song_id + '/' + playlist_name);
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ADD_TO_PLAYLIST_URL + song_id + '/' + playlist_name,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -325,10 +332,57 @@ export default class HttpManager {
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
             console.info('HttpResponse Result:' + data.result);
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              console.info('HttpResponse msg:' + jsonObject["message"]);
+              prompt.showToast({
+                message: jsonObject["message"]
+              })
+              this.getCustomListFromServer();
+            } catch (error) {
+              console.error("JSON :", error.message);
+              msg = JSON.stringify(error);
+            }
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+      msg = JSON.stringify(err);
+    }
+    console.info('HttpRequest msg:' + msg);
+    if (msg !== '') {
+      prompt.showToast({
+        message: msg
+      })
+    }
+  }
+  //从歌单删除歌曲
+  removeSongFromList(song_id: string, playlist_name: string) {
+    let loginCookie: string | undefined = AppStorage.get(AppConstants.LOGIN_COOKIE);
+    if (loginCookie === undefined || loginCookie === AppConstants.LOGIN_COOKIE_NONE) {
+      prompt.showToast({
+        message: AppConstants.LOGIN_INFO_NO
+      })
+      return;
+    }
+    let msg: string = ''
+    try {
+      console.info('HttpResponse start:' + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name);
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': loginCookie
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               console.info('HttpResponse msg:' + jsonObject["message"]);
@@ -362,11 +416,11 @@ export default class HttpManager {
   //获取推荐歌单
   getRecommendListFromServer() {
     try {
-      this.httpRequest.request(ServerConstants.RECOMMEND_LIST_URL,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.RECOMMEND_LIST_URL,
         {
           method: http.RequestMethod.GET,
           header: {
-            'Cookie': AppStorage.get('loginCookie')
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
           }
         },
         (err: Error, data: http.HttpResponse) => {
@@ -390,28 +444,23 @@ export default class HttpManager {
                     ));
                   })
                   let item = new PlayListData(key1, $r('app.media.icon'),
-                    aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                    aPlayingList.length + AppConstants.LIST_SONG_COUNT,
                     aPlayingList, '')
                   playingLists.push(item);
                 });
                 let eventData: emitter.EventData = {
                   data: {
-                    "message": ServerConstants.UPDATE_USER_LIST_RECOMMEND,
+                    "message": AppConstants.UPDATE_USER_LIST_RECOMMEND,
                     "item": new PlayListGroupData(key, playingLists),
                     "isStart": isStart,
                   }
                 };
-                emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
+                emitter.emit(AppConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
                 isStart = false;
               });
-            }
-            catch (error) {
+            } catch (error) {
               console.error("JSON :", error.message);
             }
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
@@ -430,11 +479,11 @@ export default class HttpManager {
   //获取我的收藏
   getFavorListFromServer() {
     try {
-      this.httpRequest.request(ServerConstants.FAVOR_LIST_URL,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.FAVOR_LIST_URL,
         {
           method: http.RequestMethod.GET,
           header: {
-            'Cookie': AppStorage.get('loginCookie')
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
           }
         },
         (err: Error, data: http.HttpResponse) => {
@@ -444,38 +493,33 @@ export default class HttpManager {
               let aPlayingList: AudioData[] = Array<AudioData>();
               const jsonObject: object = JSON.parse(data.result as string);
               let item: PlayListData | undefined = undefined;
-              if (jsonObject[ServerConstants.LIST_SONG_FAVOURITE]) {
-                Object.keys(jsonObject[ServerConstants.LIST_SONG_FAVOURITE]).forEach((key) => {
+              if (jsonObject[AppConstants.LIST_SONG_FAVOURITE]) {
+                Object.keys(jsonObject[AppConstants.LIST_SONG_FAVOURITE]).forEach((key) => {
                   aPlayingList.push(new AudioData(
-                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].name,
-                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].singer,
-                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].id,
-                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].album,
-                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].year,
-                    jsonObject[ServerConstants.LIST_SONG_FAVOURITE][key].language
+                    jsonObject[AppConstants.LIST_SONG_FAVOURITE][key].name,
+                    jsonObject[AppConstants.LIST_SONG_FAVOURITE][key].singer,
+                    jsonObject[AppConstants.LIST_SONG_FAVOURITE][key].id,
+                    jsonObject[AppConstants.LIST_SONG_FAVOURITE][key].album,
+                    jsonObject[AppConstants.LIST_SONG_FAVOURITE][key].year,
+                    jsonObject[AppConstants.LIST_SONG_FAVOURITE][key].language
                   )
                   );
                 });
-                item = new PlayListData(ServerConstants.LIST_SONG_FAVOURITE, $r('app.media.icon'),
-                  aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                item = new PlayListData(AppConstants.LIST_SONG_FAVOURITE, $r('app.media.icon'),
+                  aPlayingList.length + AppConstants.LIST_SONG_COUNT,
                   aPlayingList, '')
               }
               this.PlayerManager.setFavourList(aPlayingList);
               let eventData: emitter.EventData = {
                 data: {
-                  "message": ServerConstants.UPDATE_USER_LIST_FAVOR,
+                  "message": AppConstants.UPDATE_USER_LIST_FAVOR,
                   "item": item,
                 }
               };
-              emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
-            }
-            catch (error) {
+              emitter.emit(AppConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
+            } catch (error) {
               console.error("JSON :", error.message);
             }
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
@@ -494,11 +538,11 @@ export default class HttpManager {
   //获取最近播放
   getRecentListFromServer() {
     try {
-      this.httpRequest.request(ServerConstants.RECENT_LIST_URL,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.RECENT_LIST_URL,
         {
           method: http.RequestMethod.GET,
           header: {
-            'Cookie': AppStorage.get('loginCookie')
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
           }
         },
         (err: Error, data: http.HttpResponse) => {
@@ -521,26 +565,21 @@ export default class HttpManager {
                 });
 
                 let item = new PlayListData(key, $r('app.media.icon'),
-                  aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                  aPlayingList.length + AppConstants.LIST_SONG_COUNT,
                   aPlayingList, '');
                 let eventData: emitter.EventData = {
                   data: {
-                    "message": ServerConstants.UPDATE_USER_LIST_RECENT,
+                    "message": AppConstants.UPDATE_USER_LIST_RECENT,
                     "item": item,
                     "isStart": isStart,
                   }
                 };
-                emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
+                emitter.emit(AppConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
                 isStart = false;
               });
-            }
-            catch (error) {
+            } catch (error) {
               console.error("JSON :", error.message);
             }
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
@@ -559,11 +598,11 @@ export default class HttpManager {
   //获取自定义歌单
   getCustomListFromServer() {
     try {
-      this.httpRequest.request(ServerConstants.CUSTOM_LIST_URL,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.CUSTOM_LIST_URL,
         {
           method: http.RequestMethod.GET,
           header: {
-            'Cookie': AppStorage.get('loginCookie')
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
           }
         },
         (err: Error, data: http.HttpResponse) => {
@@ -595,26 +634,27 @@ export default class HttpManager {
                 console.log(`Playlist: ${playlistName}`);
                 let aPlayingList: AudioData[] = Array<AudioData>();
                 groupedByPlaylistName[playlistName].forEach((song, index) => {
-                  aPlayingList.push(new AudioData(song.name, song.singer, song.id, song.album, song.year, song.language));
+                  aPlayingList.push(new AudioData(song.name, song.singer, song.id, song.album, song.year,
+                    song.language));
                 });
 
                 let item = new PlayListData(playlistName, $r('app.media.icon'),
-                  aPlayingList.length + ServerConstants.LIST_SONG_COUNT,
+                  aPlayingList.length + AppConstants.LIST_SONG_COUNT,
                   aPlayingList, '')
+                item.isCustom = true;
                 let eventData: emitter.EventData = {
                   data: {
-                    "message": ServerConstants.UPDATE_USER_LIST_CUSTOM,
+                    "message": AppConstants.UPDATE_USER_LIST_CUSTOM,
                     "item": item,
                     "isStart": isStart,
                   }
                 };
-                emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
+                emitter.emit(AppConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
                 isStart = false;
               });
               this.getRecentListFromServer();
               this.getFavorListFromServer();
-            }
-            catch (error) {
+            } catch (error) {
               console.error("JSON :", error.message);
             }
           } else {
@@ -632,11 +672,11 @@ export default class HttpManager {
   //搜素歌曲
   searchSongsFromServer(search_word: string) {
     try {
-      this.httpRequest.request(ServerConstants.SEARCH_SONG_URL + search_word,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SEARCH_SONG_URL + search_word,
         {
           method: http.RequestMethod.GET,
           header: {
-            'Cookie': AppStorage.get('loginCookie')
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
           }
         },
         (err: Error, data: http.HttpResponse) => {
@@ -660,22 +700,51 @@ export default class HttpManager {
                   let item = new PlayListData(jsonObject[key][key2].name, $r('app.media.icon'), '', aPlayingList, '')
                   let eventData: emitter.EventData = {
                     data: {
-                      "message": ServerConstants.UPDATE_USER_LIST_SEARCH,
+                      "message": AppConstants.UPDATE_USER_LIST_SEARCH,
                       "item": item,
                       "isStart": isStart,
                     }
                   };
-                  emitter.emit(ServerConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
+                  emitter.emit(AppConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
                   isStart = false;
                 });
               });
             } catch (error) {
               console.error("JSON :", error.message);
             }
-            console.info('HttpResponse code:' + data.responseCode);
-            console.info('HttpResponse type:' + JSON.stringify(data.resultType));
-            console.info('HttpResponse header:' + JSON.stringify(data.header));
-            console.info('HttpResponse cookies:' + data.cookies);
+          } else {
+            console.info('HttpResponse error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest error:' + JSON.stringify(err));
+    }
+  }
+
+  //查询歌词
+  getLrc(id: string) {
+    try {
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.GET_SONG_LRC_URL + id,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse getLrc Result:' + data.result);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              let id: string = jsonObject['id'];
+              let lrc: string = jsonObject['lrc'];
+              this.PlayerManager.setLrc(id, lrc);
+            } catch (error) {
+              console.error("JSON :", error.message);
+            }
           } else {
             console.info('HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({

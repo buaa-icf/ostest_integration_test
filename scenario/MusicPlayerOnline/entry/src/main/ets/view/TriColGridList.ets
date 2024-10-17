@@ -12,14 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import ServerConstants from '../constants/ServerConstants';
 
 /**
  * TriColGridList component.
  * 三列竖向Grid列表
  */
 
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import PlayListData from '../model/PlayListData';
 import PlayListItem from './PlayListItem';
 
@@ -50,10 +49,10 @@ export default struct TriColGridList {
           .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }).combine(
             TransitionEffect.rotate({ z: 1, angle: 180 })
           ))
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             animateTo({ duration: 1000 }, () => {
-              this.title = ServerConstants.SEARCH_DEFAULT;
+              this.title = AppConstants.SEARCH_DEFAULT;
               this.playLists = [];
             })
           })

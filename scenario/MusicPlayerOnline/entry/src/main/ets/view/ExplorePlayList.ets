@@ -16,24 +16,34 @@
 import AudioData from '../model/AudioData';
 import PlayerManager from '../manager/PlayerManager'
 import ExploreSongItem from './ExploreSongItem';
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import PlayListData from '../model/PlayListData';
 import prompt from '@ohos.promptAction';
+import { ExploreListMore } from './ExploreListMore';
+import emitter from '@ohos.events.emitter';
 
 @Component
 export default struct ExplorePlayList {
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State explorePlaylistItem: PlayListData = new PlayListData('', $r('app.media.icon'), '', [], '');
   @Link isShowPlayList: boolean;
+  @Prop customPlayLists: PlayListData[];
   private scrollerForList: Scroller = new Scroller();
+  private dialogController: CustomDialogController | null = null;
 
   aboutToAppear() {
     animateTo({ duration: 1000 }, () => {
       this.explorePlaylistItem = this.PlayerManager.getExploreList();
     })
+    emitter.on(AppConstants.UPDATE_EXPLORE_LIST, () => {
+      animateTo({ duration: 1000 }, () => {
+        this.explorePlaylistItem = this.PlayerManager.getExploreList();
+      })
+    });
   }
 
   aboutToDisappear(): void {
+    emitter.off(AppConstants.UPDATE_EXPLORE_LIST);
   }
 
   build() {
@@ -43,7 +53,7 @@ export default struct ExplorePlayList {
           .width(48)
           .height(48)
           .padding(6)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowPlayList = false;
           })
@@ -64,13 +74,14 @@ export default struct ExplorePlayList {
           .width(48)
           .height(48)
           .padding(6)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             if (this.explorePlaylistItem.list.length > 0) {
               prompt.showToast({
                 message: '播放歌单：' + this.explorePlaylistItem.title
               })
-              this.PlayerManager.playList(this.explorePlaylistItem.title, this.explorePlaylistItem.list, this.explorePlaylistItem.list[0]);
+              this.PlayerManager.playList(this.explorePlaylistItem.title, this.explorePlaylistItem.list,
+                this.explorePlaylistItem.list[0]);
             }
           })
       }
@@ -83,19 +94,41 @@ export default struct ExplorePlayList {
           ListItem() {
             Row() {
               ExploreSongItem({ item, index })
-            }
+                .width('85%')
+                .clickEffect(AppConstants.CLICK_EFFECT)
+                .onClick(() => {
+                  prompt.showToast({
+                    message: '播放歌曲：' + item.title
+                  })
+                  this.PlayerManager.playList(this.explorePlaylistItem.title, this.explorePlaylistItem.list, item);
+                })
+              Image($r('app.media.more'))
+                .height(48)
+                .width(48)
+                .padding(8)
+                .clickEffect(AppConstants.CLICK_EFFECT)
+                .onClick(() => {
+                  this.dialogController = new CustomDialogController({
+                    builder: ExploreListMore({
+                      clickedItem: item,
+                      customListTitle: (this.explorePlaylistItem.isCustom ? this.explorePlaylistItem.title : ''),
+                      customPlayLists: this.customPlayLists,
+                    }),
+                    autoCancel: true,
+                    alignment: DialogAlignment.Bottom,
+                    offset: { dx: 0, dy: -20 },
+                    gridCount: 4,
+                    customStyle: false,
+                    cornerRadius: 10,
+                  })
+                  this.dialogController.open();
+                })
+            }.justifyContent(FlexAlign.SpaceEvenly)
           }
           .backgroundColor((index % 2) === 0 ? '#fafafa' : Color.White)
           .width('100%')
           .height('84vp')
           .transition({ type: TransitionType.All, opacity: 0 })
-          .clickEffect(UIConstants.CLICK_EFFECT)
-          .onClick(() => {
-            prompt.showToast({
-              message: '播放歌曲：' + item.title
-            })
-            this.PlayerManager.playList(this.explorePlaylistItem.title, this.explorePlaylistItem.list, item);
-          })
         })
       }
       .width('100%')

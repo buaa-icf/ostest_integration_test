@@ -16,16 +16,15 @@
 import PlayerManager from '../manager/PlayerManager';
 import emitter from '@ohos.events.emitter';
 import Logger from '../utils/Logger';
-import LrcLine from '../model/LrcLine';
 import CommonUtils from '../utils/CommonUtils';
-import ServerConstants from '../constants/ServerConstants';
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import AudioData from '../model/AudioData';
 import { PLAY_MODE } from '../constants/PlayMode';
-import { addToListDialog } from './addToListDialog';
+import { AddToListDialog } from './AddToListDialog';
 import PlayListData from '../model/PlayListData';
 import prompt from '@ohos.promptAction';
 import HttpManager from '../manager/HttpManager';
+import LrcLine from '../model/LrcLine';
 
 /**
  * Setting tab content
@@ -42,8 +41,7 @@ export default struct PlayerDetail {
   @State rotateAngle: number = 0;
   @State subCurrentIndex: number = 0;
   @State lrcIndex: number = 0
-  @State lrc: LrcLine[] = [];
-  @State contentSwitch: boolean = true;
+  @State albumImageContent: boolean = true;
   @State playMode: number = this.PlayerManager.getPlayMode();
   @State noItem: boolean = false;
   @Link isShowCurrentPlayList: boolean;
@@ -53,11 +51,10 @@ export default struct PlayerDetail {
   @State listOptions: Array<SelectOption> = [];
   @State inputListName: string = '';
   private scroller: Scroller = new Scroller()
-  private tabsController: TabsController = new TabsController();
   private isDialogOpened: boolean = false;
   private songIdToAdd: string = '';
   dialogController: CustomDialogController | null = new CustomDialogController({
-    builder: addToListDialog({
+    builder: AddToListDialog({
       cancel: () => {
         if (this.dialogController !== null) {
           this.dialogController.close();
@@ -91,33 +88,9 @@ export default struct PlayerDetail {
     cornerRadius: 10,
   })
 
-  @Builder
-  TabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
-    Column() {
-      Row() {
-        Text(title)
-          .fontSize('20fp')
-          .fontColor(this.subCurrentIndex === index ? '#E02020' : '#6B6B6B')
-      }.alignItems(VerticalAlign.Top)
-
-      Image(this.subCurrentIndex === index ? selectedImg : normalImg)
-        .width(25)
-    }
-    .height(60)
-    .margin({
-      top: 12,
-      left: 12,
-      right: 12
-    })
-    .clickEffect(UIConstants.CLICK_EFFECT)
-    .onClick(() => {
-      this.subCurrentIndex = index;
-      this.tabsController.changeIndex(this.subCurrentIndex);
-    })
-  }
-
   aboutToAppear() {
-    if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
+    this.albumImageContent = (AppStorage.get(AppConstants.DETAIL_DEFAULT_SETTING) != AppConstants.TOGGLE_SETTING_ON);
+    if (this.state === AppConstants.PLAYER_STATE_PLAYING) {
       setTimeout(() => {
         if (this.rotateAngle === 0) {
           this.rotateAngle = 360;
@@ -126,22 +99,26 @@ export default struct PlayerDetail {
       }, 100);
     }
 
-    emitter.on(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, () => {
+    emitter.on(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, () => {
       this.updateFavor();
     });
-    emitter.on(ServerConstants.DETAIL_UPDATE_TIME, (eventData: emitter.EventData) => {
+    emitter.on(AppConstants.DETAIL_UPDATE_TIME, (eventData: emitter.EventData) => {
       this.updateTime(eventData);
     });
-    emitter.on(ServerConstants.DETAIL_UPDATE_STATE, (eventData: emitter.EventData) => {
+    emitter.on(AppConstants.DETAIL_UPDATE_STATE, (eventData: emitter.EventData) => {
       this.updateState(eventData);
+    });
+    emitter.on(AppConstants.DETAIL_UPDATE_LRC, () => {
+      this.updateLrc();
     });
   }
 
   aboutToDisappear() {
     Logger.info(this.tag, 'aboutToDisappear');
-    emitter.off(ServerConstants.DETAIL_UPDATE_TIME);
-    emitter.off(ServerConstants.DETAIL_UPDATE_STATE);
-    emitter.off(ServerConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY);
+    emitter.off(AppConstants.DETAIL_UPDATE_TIME);
+    emitter.off(AppConstants.DETAIL_UPDATE_STATE);
+    emitter.off(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY);
+    emitter.off(AppConstants.DETAIL_UPDATE_LRC);
     if (this.dialogController !== null) {
       this.dialogController.close();
       this.isDialogOpened = false;
@@ -166,14 +143,14 @@ export default struct PlayerDetail {
           .width(48)
           .height(48)
           .padding(6)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowPlayerDetail = false;
           })
           .id('detail_dismiss')
 
         Column() {
-          if (this.contentSwitch) {
+          if (this.albumImageContent) {
             Text(this.listTitle)
               .fontSize(20)
               .maxLines(2)
@@ -205,11 +182,11 @@ export default struct PlayerDetail {
           .width(48)
           .height(48)
           .padding(8)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
-            if (this.loginInfo === ServerConstants.LOGIN_INFO_NO) {
+            if (this.loginInfo === AppConstants.LOGIN_INFO_NO) {
               prompt.showToast({
-                message: '请先登录！'
+                message: AppConstants.LOGIN_INFO_NO
               })
               return;
             }
@@ -222,7 +199,8 @@ export default struct PlayerDetail {
             if (this.dialogController != null) {
               this.listOptions = [];
               for (let item of this.customPlayLists) {
-                if (item.title !== ServerConstants.LIST_SONG_FAVOURITE && item.title !== ServerConstants.LIST_SONG_RECENT) {
+                if (item.title !== AppConstants.LIST_SONG_FAVOURITE &&
+                  item.title !== AppConstants.LIST_SONG_RECENT) {
                   this.listOptions.push({ value: item.title });
                 }
               }
@@ -238,13 +216,13 @@ export default struct PlayerDetail {
 
       Column() {
         if (!this.noItem) {
-          if (this.contentSwitch) {
+          if (this.albumImageContent) {
             Column() {
-              Image(this.item.id ? ServerConstants.SONG_IMAGE_URL + this.item.id : $r('app.media.startIcon'))
-                .width('300vp')
-                .height('300vp')
-                .borderRadius('200vp')
-                .margin('50vp')
+              Image(this.item.id ? AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id : $r('app.media.startIcon'))
+                .width(300)
+                .height(300)
+                .borderRadius(150)
+                .margin(50)
                 .rotate({ angle: this.rotateAngle })
                 .animation({
                   duration: 36000,
@@ -254,10 +232,10 @@ export default struct PlayerDetail {
                   playMode: PlayMode.Normal
                 })
                 .id('detail_songImg')
-                .clickEffect(UIConstants.CLICK_EFFECT)
+                .clickEffect(AppConstants.CLICK_EFFECT)
                 .shadow({ radius: 1, color: Color.Gray })
                 .onClick(() => {
-                  this.contentSwitch = false;
+                  this.albumImageContent = false;
                 })
 
               Row() {
@@ -284,7 +262,7 @@ export default struct PlayerDetail {
                 }
                 .alignContent(Alignment.Top)
                 .margin({ right: '8vp' })
-                .clickEffect(UIConstants.CLICK_EFFECT)
+                .clickEffect(AppConstants.CLICK_EFFECT)
                 .onClick(() => {
                   HttpManager.getInstance().set_favourite();
                 })
@@ -297,56 +275,54 @@ export default struct PlayerDetail {
             .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }).combine(
               TransitionEffect.translate({ z: 24 })))
           } else {
-            Column() {
-              Tabs({
-                barPosition: BarPosition.End,
-                index: 0,
-                controller: this.tabsController
-              }) {
-                TabContent() {
-                  Column() {
-                    List({ space: 10, scroller: this.scroller }) {
-                      ForEach(this.lrc, (item: LrcLine, index: number) => {
-                        ListItem() {
-                          if (index === this.lrcIndex) {
-                            Text(item.title)
-                              .width('100%')
-                              .textAlign(TextAlign.Center)
-                              .fontSize('24fp')
-                              .fontColor(Color.Black)
-                          } else {
-                            Text(item.title)
-                              .width('100%')
-                              .textAlign(TextAlign.Center)
-                              .fontSize('18fp')
-                              .fontColor(Color.Gray)
-                          }
-                        }
-                      })
-                    }
+            Stack({ alignContent: Alignment.Center }) {
+              Image(this.item.id ? AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id : $r('app.media.startIcon'))
+                .width('80%')
+                .height('80%')
+                .foregroundEffect({ radius: 20 })
+                .borderRadius(200)
+                .opacity(0.4)
+              Column() {
+                if (this.item.lrc === null || this.item.lrc === undefined || this.item.lrc.length < 1) {
+                  Text('暂无歌词')
                     .width('100%')
-                  }.height('100%')
+                    .height('100%')
+                    .textAlign(TextAlign.Center)
+                    .fontSize('24fp')
+                    .fontColor(Color.Orange)
+                } else {
+                  List({ space: 10, scroller: this.scroller }) {
+                    ForEach(this.item.lrc, (item: LrcLine, index: number) => {
+                      ListItem() {
+                        if (index === this.lrcIndex) {
+                          Text(item.title)
+                            .width('100%')
+                            .textAlign(TextAlign.Center)
+                            .fontSize('24fp')
+                            .fontColor(Color.Orange)
+                        } else {
+                          Text(item.title)
+                            .width('100%')
+                            .textAlign(TextAlign.Center)
+                            .fontSize('18fp')
+                            .fontColor(Color.Gray)
+                        }
+                      }
+                    })
+                  }
+                  .scrollBar(BarState.Off)
+                  .width('100%')
                 }
-                .tabBar(this.TabBuilder($r('app.string.lyrics'), 0,
-                  $r('app.media.ic_screenshot_line_select'), $r('app.media.ic_screenshot_line')))
               }
-              .width('100%')
-              .barHeight(60)
-              .barWidth('70%')
-              .barMode(BarMode.Scrollable)
-              .barPosition(BarPosition.Start)
-              .onChange((index: number) => {
-                this.subCurrentIndex = index;
-              })
             }
             .width('100%')
             .height('100%')
             .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }).combine(
               TransitionEffect.translate({ y: -24 })))
-            .clickEffect(UIConstants.CLICK_EFFECT)
+            .clickEffect(AppConstants.CLICK_EFFECT)
             .onClick(() => {
-              this.contentSwitch = true;
-              if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
+              this.albumImageContent = true;
+              if (this.state === AppConstants.PLAYER_STATE_PLAYING) {
                 this.rotateAngle = 0;
                 animateTo({ duration: 36000 }, () => {
                   this.rotateAngle = 360;
@@ -382,10 +358,11 @@ export default struct PlayerDetail {
       .justifyContent(FlexAlign.SpaceBetween)
 
       Row() {
-        Image(this.playMode === PLAY_MODE.REPEAT ? $r('app.media.repeat') : (this.playMode === PLAY_MODE.REPEAT1 ? $r('app.media.repeat_1') : $r('app.media.shuffle')))
+        Image(this.playMode === PLAY_MODE.REPEAT ? $r('app.media.repeat') :
+          (this.playMode === PLAY_MODE.REPEAT1 ? $r('app.media.repeat_1') : $r('app.media.shuffle')))
           .width(42)
           .height(42)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.playMode = this.PlayerManager.setPlayMode();
           })
@@ -393,16 +370,16 @@ export default struct PlayerDetail {
         Image($r('app.media.backward_end_fill'))
           .width(42)
           .height(42)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.PlayerManager.previous();
           })
           .id('detail_previous')
-        if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
+        if (this.state === AppConstants.PLAYER_STATE_PLAYING) {
           Image($r('app.media.pause'))
             .width(48)
             .height(48)
-            .clickEffect(UIConstants.CLICK_EFFECT)
+            .clickEffect(AppConstants.CLICK_EFFECT)
             .onClick(() => {
               this.PlayerManager.pause();
             })
@@ -411,7 +388,7 @@ export default struct PlayerDetail {
           Image($r('app.media.play_fill'))
             .width(48)
             .height(48)
-            .clickEffect(UIConstants.CLICK_EFFECT)
+            .clickEffect(AppConstants.CLICK_EFFECT)
             .onClick(() => {
               this.PlayerManager.resume();
             })
@@ -420,7 +397,7 @@ export default struct PlayerDetail {
         Image($r('app.media.forward_end_fill'))
           .width(42)
           .height(42)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.PlayerManager.next();
           })
@@ -428,7 +405,7 @@ export default struct PlayerDetail {
         Image($r('app.media.music_note_list'))
           .width(42)
           .height(42)
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowCurrentPlayList = true;
           })
@@ -450,14 +427,21 @@ export default struct PlayerDetail {
     this.noItem = false;
   }
 
+  updateLrc() {
+    this.item = this.PlayerManager.getItem();
+  }
+
   updateTime(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined) {
       this.currentTime = eventData.data.currentTime;
       this.durationTime = eventData.data.currentDuration;
-      let newLrcIndex = Math.floor(this.currentTime * this.lrc.length / this.durationTime);
-      if (newLrcIndex !== this.lrcIndex) {
-        this.lrcIndex = newLrcIndex;
-        this.scroller.scrollToIndex(this.lrcIndex - 5, true)
+      if (!this.albumImageContent) {
+        let newLrcIndex = CommonUtils.findLrcIndexByTime(this.item.lrc, this.currentTime, this.lrcIndex)
+        if (newLrcIndex != this.lrcIndex && newLrcIndex != -1) {
+          this.lrcIndex = newLrcIndex;
+          console.info('bestMatchIndex:'+newLrcIndex)
+          this.scroller.scrollToIndex(this.lrcIndex - 5, true)
+        }
       }
     }
   }
@@ -465,13 +449,17 @@ export default struct PlayerDetail {
   updateState(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined) {
       Logger.info(this.tag, 'state:' + eventData.data.state);
-      if (eventData.data.state === ServerConstants.PLAYER_STATE_IDLE) {
+      if (eventData.data.state === AppConstants.PLAYER_STATE_IDLE) {
         this.noItem = true;
       }
-      if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
+      if (this.state !== AppConstants.PLAYER_STATE_PLAYING &&
+        eventData.data.state !== AppConstants.PLAYER_STATE_PAUSED) {
+        this.lrcIndex = 0
+      }
+      if (this.state !== AppConstants.PLAYER_STATE_PLAYING &&
+        eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
         this.item = this.PlayerManager.getItem();
         this.noItem = false;
-        this.lrc = CommonUtils.getLrc(this.item.title);
         this.listTitle = this.PlayerManager.getListTitle();
         this.scroller.scrollToIndex(0, true)
         setTimeout(() => {
@@ -481,7 +469,7 @@ export default struct PlayerDetail {
           }
         }, 100);
       }
-      if (eventData.data.state !== ServerConstants.PLAYER_STATE_PLAYING) {
+      if (eventData.data.state !== AppConstants.PLAYER_STATE_PLAYING) {
         this.rotateAngle = 0;
         Logger.info(this.tag, 'rotateAngle:0');
       }

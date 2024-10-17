@@ -17,11 +17,10 @@
  * List item data entity.
  */
 export default class LrcLine {
-  time: string;
+  time: number;
   title: string;
 
-
-  constructor(time: string, title: string) {
+  constructor(time: number, title: string) {
     this.title = title;
     this.time = time;
   }

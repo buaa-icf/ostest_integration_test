@@ -19,8 +19,7 @@
 import emitter from '@ohos.events.emitter';
 import Logger from '../utils/Logger';
 import AudioData from '../model/AudioData';
-import ServerConstants from '../constants/ServerConstants';
-import UIConstants from '../constants/UIConstants';
+import AppConstants from '../constants/AppConstants';
 import PlayerManager from '../manager/PlayerManager';
 
 @Component
@@ -30,7 +29,7 @@ export default struct PlayerBar {
   @State rotateAngle: number = 0;
   @State durationTime: number = 100;
   @State currentTime: number = 0;
-  @State state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
+  @State state: string = AppConstants.PLAYER_STATE_UNKNOWN;
   @Link isShowCurrentPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
@@ -38,24 +37,24 @@ export default struct PlayerBar {
 
   aboutToAppear() {
     Logger.info(this.tag, 'aboutToAppear');
-    emitter.on(ServerConstants.MAIN_UPDATE_TIME, (eventData: emitter.EventData) => {
+    emitter.on(AppConstants.MAIN_UPDATE_TIME, (eventData: emitter.EventData) => {
       this.updateTime(eventData);
     });
-    emitter.on(ServerConstants.MAIN_UPDATE_STATE, (eventData: emitter.EventData) => {
+    emitter.on(AppConstants.MAIN_UPDATE_STATE, (eventData: emitter.EventData) => {
       this.updateState(eventData)
     });
   }
 
   aboutToDisappear() {
-    emitter.off(ServerConstants.MAIN_UPDATE_TIME);
-    emitter.off(ServerConstants.MAIN_UPDATE_STATE);
+    emitter.off(AppConstants.MAIN_UPDATE_TIME);
+    emitter.off(AppConstants.MAIN_UPDATE_STATE);
     Logger.info(this.tag, 'aboutToDisappear');
   }
 
   build() {
     Column() {
       Row() {
-        Image(this.item.id ? (ServerConstants.SONG_IMAGE_URL + this.item.id) : $r('app.media.startIcon'))
+        Image(this.item.id ? (AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id) : $r('app.media.startIcon'))
           .width(56)
           .height(56)
           .margin(4)
@@ -70,21 +69,21 @@ export default struct PlayerBar {
             playMode: PlayMode.Normal
           })
           .id('songImage')
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowPlayerDetail = true;
           })
-        Text(this.item.id ? (this.state === ServerConstants.PLAYER_STATE_PLAYING ? this.spaces + this.item.title + ' - ' + this.item.artist + this.spaces
-          : this.item.title + ' - ' + this.item.artist) : ServerConstants.LIST_SONG_NO_PLAYING)
+        Text(this.item.id ? (this.state === AppConstants.PLAYER_STATE_PLAYING ? this.spaces + this.item.title + ' - ' + this.item.artist + this.spaces
+          : this.item.title + ' - ' + this.item.artist) : AppConstants.LIST_SONG_NO_PLAYING)
           .fontSize('24fp')
           .maxLines(1)
           .textOverflow({
-            overflow: (this.state === ServerConstants.PLAYER_STATE_PLAYING) ? TextOverflow.MARQUEE : TextOverflow.None
+            overflow: (this.state === AppConstants.PLAYER_STATE_PLAYING) ? TextOverflow.MARQUEE : TextOverflow.None
           })
           .width('60%')
           .textAlign(TextAlign.Center)
           .id('songName')
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowPlayerDetail = true;
           })
@@ -100,17 +99,17 @@ export default struct PlayerBar {
               .id('progressBar')
           }
 
-          if (this.state === ServerConstants.PLAYER_STATE_PLAYING) {
+          if (this.state === AppConstants.PLAYER_STATE_PLAYING) {
             Image($r('app.media.pause'))
               .padding('4vp')
-              .clickEffect(UIConstants.CLICK_EFFECT)
+              .clickEffect(AppConstants.CLICK_EFFECT)
               .onClick(() => {
                 this.PlayerManager.pause();
               })
               .id('paused')
           } else {
             Image($r('app.media.media_center'))
-              .clickEffect(UIConstants.CLICK_EFFECT)
+              .clickEffect(AppConstants.CLICK_EFFECT)
               .onClick(() => {
                 this.PlayerManager.resume();
               })
@@ -126,7 +125,7 @@ export default struct PlayerBar {
           .height(40)
           .margin({ right: 8, left: 8 })
           .shadow({ radius: 1, color: Color.Gray })
-          .clickEffect(UIConstants.CLICK_EFFECT)
+          .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowCurrentPlayList = true;
           })
@@ -148,14 +147,14 @@ export default struct PlayerBar {
   updateState(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined) {
       Logger.info(this.tag, 'state:' + eventData.data.state);
-      if (this.state !== ServerConstants.PLAYER_STATE_PLAYING && eventData.data.state === ServerConstants.PLAYER_STATE_PLAYING) {
+      if (this.state !== AppConstants.PLAYER_STATE_PLAYING && eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
         this.item = this.PlayerManager.getItem();
         if (this.rotateAngle === 0) {
           this.rotateAngle = 360;
           Logger.info(this.tag, 'rotateAngle:360');
         }
       }
-      if (eventData.data.state !== ServerConstants.PLAYER_STATE_PLAYING) {
+      if (eventData.data.state !== AppConstants.PLAYER_STATE_PLAYING) {
         this.rotateAngle = 0;
         Logger.info(this.tag, 'rotateAngle:0');
       }

@@ -18,7 +18,7 @@ import { BusinessError } from '@ohos.base';
 import AudioData from '../model/AudioData';
 import Logger from '../utils/Logger';
 import emitter from '@ohos.events.emitter';
-import ServerConstants from '../constants/ServerConstants';
+import AppConstants from '../constants/AppConstants';
 import { PLAY_MODE } from '../constants/PlayMode';
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
@@ -28,7 +28,8 @@ import PlayListData from '../model/PlayListData';
 import Base from '@ohos.base';
 import formProvider from '@ohos.app.form.formProvider';
 import formBindingData from '@ohos.app.form.formBindingData';
-
+import CommonUtils from '../utils/CommonUtils';
+import prompt from '@ohos.promptAction';
 
 export default class PlayerManager {
   private tag: string = 'PlayerManager';
@@ -42,8 +43,8 @@ export default class PlayerManager {
   private currentDuration: number = 0;
   private item: AudioData = new AudioData('未播放', '--', '');
   private listPosition: number = 0;
-  private state: string = ServerConstants.PLAYER_STATE_UNKNOWN;
-  private listTitle: string = ServerConstants.LIST_SONG_NO_PLAYING;
+  private state: string = AppConstants.PLAYER_STATE_UNKNOWN;
+  private listTitle: string = AppConstants.LIST_SONG_NO_PLAYING;
   private playMode: number = PLAY_MODE.REPEAT;
   private shuffleIndex: number[] = [];
   private emitterOptions: emitter.Options = {
@@ -52,6 +53,21 @@ export default class PlayerManager {
 
   constructor() {
     this.startContinuousTask();
+  }
+
+  initialPlayMode() {
+    if (AppStorage.get(AppConstants.KEEP_LOGIN_SETTING) != AppConstants.TOGGLE_SETTING_ON) {
+      AppStorage.setOrCreate(AppConstants.LOGIN_COOKIE, AppConstants.LOGIN_COOKIE_NONE);
+      AppStorage.setOrCreate(AppConstants.LOGIN_NAME, AppConstants.LOGIN_INFO_NO);
+    }
+    this.playMode = PLAY_MODE.REPEAT;
+    if (AppStorage.get(AppConstants.PLAY_MODE_SETTING) == AppConstants.TOGGLE_SETTING_ON) {
+      let record: number | undefined = AppStorage.get(AppConstants.PLAY_MODE_RECORD);
+      if (record !== undefined) {
+        this.playMode = record;
+      }
+    }
+    this.recordPlayMode();
   }
 
   // 注册avplayer回调函数
@@ -75,8 +91,8 @@ export default class PlayerManager {
           "currentDuration": this.currentDuration
         }
       };
-      emitter.emit(ServerConstants.MAIN_UPDATE_TIME, this.emitterOptions, eventData);
-      emitter.emit(ServerConstants.DETAIL_UPDATE_TIME, this.emitterOptions, eventData);
+      emitter.emit(AppConstants.MAIN_UPDATE_TIME, this.emitterOptions, eventData);
+      emitter.emit(AppConstants.DETAIL_UPDATE_TIME, this.emitterOptions, eventData);
     })
     avPlayer.on('durationUpdate', (time: number) => {
       console.info('PlayerManager state durationUpdate：' + time);
@@ -92,44 +108,44 @@ export default class PlayerManager {
           "state": state,
         }
       };
-      emitter.emit(ServerConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
-      emitter.emit(ServerConstants.DETAIL_UPDATE_STATE, this.emitterOptions, eventData);
-      emitter.emit(ServerConstants.PLAYLIST_UPDATE_STATE, this.emitterOptions, eventData);
+      emitter.emit(AppConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
+      emitter.emit(AppConstants.DETAIL_UPDATE_STATE, this.emitterOptions, eventData);
+      emitter.emit(AppConstants.PLAYLIST_UPDATE_STATE, this.emitterOptions, eventData);
       this.updateCard();
       switch (state) {
-        case ServerConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
+        case AppConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
           console.info('PlayerManager state idle called.');
           //avPlayer.release(); // 调用release接口销毁实例对象
           break;
-        case ServerConstants.PLAYER_STATE_INITIALIZED: // avplayer 设置播放源后触发该状态上报
+        case AppConstants.PLAYER_STATE_INITIALIZED: // avplayer 设置播放源后触发该状态上报
           console.info('PlayerManager state initialized called.');
           avPlayer.prepare();
           break;
-        case ServerConstants.PLAYER_STATE_PREPARED: // prepare调用成功后上报该状态机
+        case AppConstants.PLAYER_STATE_PREPARED: // prepare调用成功后上报该状态机
           console.info('PlayerManager state prepared called.');
           avPlayer.play(); // 调用播放接口开始播放
           break;
-        case ServerConstants.PLAYER_STATE_PLAYING: // play成功调用后触发该状态机上报
+        case AppConstants.PLAYER_STATE_PLAYING: // play成功调用后触发该状态机上报
           console.info('PlayerManager state playing called.');
           this.list[this.listPosition].isPlaying = true;
           HttpManager.getInstance().record_recent();
           break;
-        case ServerConstants.PLAYER_STATE_PAUSED: // pause成功调用后触发该状态机上报
+        case AppConstants.PLAYER_STATE_PAUSED: // pause成功调用后触发该状态机上报
           console.info('PlayerManager state paused called.');
           break;
-        case ServerConstants.PLAYER_STATE_COMPLETED: // 播放结束后触发该状态机上报
+        case AppConstants.PLAYER_STATE_COMPLETED: // 播放结束后触发该状态机上报
           console.info('PlayerManager state completed called.');
           //avPlayer.stop(); //调用播放结束接口
           this.next();
           break;
-        case ServerConstants.PLAYER_STATE_STOPPED: // stop接口成功调用后触发该状态机上报
+        case AppConstants.PLAYER_STATE_STOPPED: // stop接口成功调用后触发该状态机上报
           console.info('PlayerManager state stopped called.');
           //this.stopContinuousTask();
           this.currentTime = 0;
           Logger.info(this.tag, 'Stop:' + this.item.title);
           avPlayer.reset(); // 调用reset接口初始化avplayer状态
           break;
-        case ServerConstants.PLAYER_STATE_RELEASED:
+        case AppConstants.PLAYER_STATE_RELEASED:
           console.info('PlayerManager state released called.');
           break;
         default:
@@ -158,14 +174,14 @@ export default class PlayerManager {
     }
     this.list = list;
     this.listTitle = listTitle;
-    this.playMode = PLAY_MODE.REPEAT;
+    this.initialPlayMode();
     this.shuffleIndex = [];
     for (let i = 0; i < list.length; i++) {
       this.shuffleIndex.push(i);
     }
     this.play(item);
     if (isNotify) {
-      emitter.emit(ServerConstants.PLAYLIST_UPDATE_CHANGED, this.emitterOptions);
+      emitter.emit(AppConstants.PLAYLIST_UPDATE_CHANGED, this.emitterOptions);
     }
   }
 
@@ -177,7 +193,7 @@ export default class PlayerManager {
    * 播放
    */
   resume(): void {
-    if (this.state === ServerConstants.PLAYER_STATE_PAUSED && this.avPlayer !== undefined) {
+    if (this.state === AppConstants.PLAYER_STATE_PAUSED && this.avPlayer !== undefined) {
       this.avPlayer.play();
     } else {
       this.play(this.item);
@@ -212,7 +228,8 @@ export default class PlayerManager {
       }
     }
     this.item.isFavor = isFavor;
-    this.avPlayerLive(ServerConstants.PLAY_SONG_URL + this.item.id);
+    HttpManager.getInstance().getLrc(this.item.id);
+    this.avPlayerLive(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.PLAY_SONG_URL + this.item.id);
   }
 
   /**
@@ -233,6 +250,7 @@ export default class PlayerManager {
       if (this.list.length > this.listPosition) {
         this.list[this.listPosition].isPlaying = false;
       }
+      this.item = new AudioData('未播放', '--', '');
     }
   }
 
@@ -322,6 +340,7 @@ export default class PlayerManager {
         this.playMode = PLAY_MODE.REPEAT;
         break;
     }
+    this.recordPlayMode();
     this.updatePlayMode();
     return this.playMode;
   }
@@ -333,6 +352,7 @@ export default class PlayerManager {
   setFormId(formId: string) {
     this.formId = formId;
     this.updateCard();
+    this.updatePlayMode();
   }
 
   setItemQuality(quality: string) {
@@ -346,6 +366,7 @@ export default class PlayerManager {
 
   setExploreList(aPlayListData: PlayListData) {
     this.explorePlaylistItem = aPlayListData;
+    emitter.emit(AppConstants.UPDATE_EXPLORE_LIST, this.emitterOptions);
   }
 
   getExploreList(): PlayListData {
@@ -385,6 +406,89 @@ export default class PlayerManager {
 
   setFavourList(list: AudioData[]) {
     this.favourList = list;
+  }
+
+  recordPlayMode() {
+    AppStorage.setOrCreate(AppConstants.PLAY_MODE_RECORD, this.playMode);
+  }
+
+  setLrc(id: string, lrc: string) {
+    if (id == this.item.id) {
+      this.item.lrc = CommonUtils.getLrc(lrc);
+      emitter.emit(AppConstants.DETAIL_UPDATE_LRC, this.emitterOptions);
+    }
+  }
+
+  addSongToCurrentList(item: AudioData) {
+    if (this.list.indexOf(item) > -1) {
+      prompt.showToast({
+        message: AppConstants.ADD_TO_CURRENT_LIST_REPEAT
+      })
+      return;
+    }
+    let insertIndex = this.listPosition + 1;
+    this.list.splice(insertIndex, 0, item);
+    let newShuffleIndex: number[] = [...this.shuffleIndex];
+    for (let i = 0; i < newShuffleIndex.length; i++) {
+      //将原来大于等于插入位置的索引+1
+      if (newShuffleIndex[i] >= insertIndex) {
+        newShuffleIndex[i] += 1;
+      }
+    }
+    let newPosition = newShuffleIndex.findIndex(index => index === this.listPosition);
+    if (newPosition !== -1) {
+      newShuffleIndex.splice(newPosition + 1, 0, insertIndex);
+    } else {
+      console.error("Original index not found in shuffleIndex");
+    }
+    this.shuffleIndex = newShuffleIndex;
+    //如果原来没有播放列表，则开始播放
+    if (this.list.length === 1) {
+      this.play(item);
+      this.listTitle = AppConstants.CURRENT_LIST_TITLE;
+    }
+    prompt.showToast({
+      message: AppConstants.ADD_TO_CURRENT_LIST_OK
+    })
+  }
+
+  removeSongFromCurrentList(item: AudioData) {
+    if (this.item.id == item.id) {
+      this.stop();
+    }
+    let index = this.list.indexOf(item);
+    if (index > -1) {
+      this.list.splice(index, 1);
+      let newShuffleIndex: number[] = [...this.shuffleIndex];
+      let shuffleIndex = newShuffleIndex.indexOf(index);
+      if (shuffleIndex > -1) {
+        //删除的索引
+        newShuffleIndex.splice(shuffleIndex, 1);
+        for (let i = 0; i < newShuffleIndex.length; i++) {
+          //将原来大于插入位置的索引-1
+          if (newShuffleIndex[i] > index) {
+            newShuffleIndex[i] -= 1;
+          }
+        }
+      }
+      this.shuffleIndex = newShuffleIndex;
+    }
+    let eventData: emitter.EventData = {
+      data: {
+        "state": this.state,
+      }
+    };
+    emitter.emit(AppConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
+    emitter.emit(AppConstants.DETAIL_UPDATE_STATE, this.emitterOptions, eventData);
+    emitter.emit(AppConstants.PLAYLIST_UPDATE_STATE, this.emitterOptions, eventData);
+  }
+
+  removeSongFromCustomList(item: AudioData) {
+    //http 从服务器请求删除
+    const index = this.explorePlaylistItem.list.indexOf(item);
+    if (index > -1) {
+      this.explorePlaylistItem.list.splice(index, 1);
+    }
   }
 
   //设置后台任务
@@ -456,9 +560,10 @@ export default class PlayerManager {
   }
 
   updateCard() {
-    let formData: Record<string, AudioData| string> = {
+    let formData: Record<string, AudioData | string | undefined> = {
       'audioItem': this.item,
       'isPlaying': this.state,
+      'serverHost': AppStorage.get(AppConstants.SERVER_HOST_PROP),
     };
     let formMsg: formBindingData.FormBindingData = formBindingData.createFormBindingData(formData);
     formProvider.updateForm(this.formId, formMsg).then(() => {
@@ -467,6 +572,7 @@ export default class PlayerManager {
       console.info(`Operation updateForm failed. Cause: ${JSON.stringify(error)}`);
     })
   }
+
   updatePlayMode() {
     let formData: Record<string, number> = {
       'playMode': this.playMode,
