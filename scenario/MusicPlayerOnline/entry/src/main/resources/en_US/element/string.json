@@ -33,6 +33,10 @@
       "value": "song name"
     },
     {
+      "name": "all_singer_list",
+      "value": "Singers"
+    },
+    {
       "name": "lyrics",
       "value": "lyrics"
     },

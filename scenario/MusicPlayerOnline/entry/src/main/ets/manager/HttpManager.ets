@@ -207,7 +207,8 @@ export default class HttpManager {
       return;
     }
     try {
-      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.RECORD_RECENT_URL + this.PlayerManager.getItem().id,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.RECORD_RECENT_URL +
+      this.PlayerManager.getItem().id,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -257,7 +258,8 @@ export default class HttpManager {
         is_favor = '1';
       }
       console.info('HttpResponse start:' + AppConstants.SET_FAVOURITE_URL + item.id + '/' + is_favor);
-      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SET_FAVOURITE_URL + item.id + '/' + is_favor,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SET_FAVOURITE_URL +
+      item.id + '/' + is_favor,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -322,7 +324,8 @@ export default class HttpManager {
     let msg: string = ''
     try {
       console.info('HttpResponse start:' + AppConstants.ADD_TO_PLAYLIST_URL + song_id + '/' + playlist_name);
-      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ADD_TO_PLAYLIST_URL + song_id + '/' + playlist_name,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ADD_TO_PLAYLIST_URL +
+        song_id + '/' + playlist_name,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -361,6 +364,7 @@ export default class HttpManager {
       })
     }
   }
+
   //从歌单删除歌曲
   removeSongFromList(song_id: string, playlist_name: string) {
     let loginCookie: string | undefined = AppStorage.get(AppConstants.LOGIN_COOKIE);
@@ -373,7 +377,8 @@ export default class HttpManager {
     let msg: string = ''
     try {
       console.info('HttpResponse start:' + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name);
-      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.REMOVE_FROM_PLAYLIST_URL +
+        song_id + '/' + playlist_name,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -672,7 +677,8 @@ export default class HttpManager {
   //搜素歌曲
   searchSongsFromServer(search_word: string) {
     try {
-      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SEARCH_SONG_URL + search_word,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SEARCH_SONG_URL +
+        search_word,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -754,6 +760,64 @@ export default class HttpManager {
         });
     } catch (err) {
       console.info('HttpRequest error:' + JSON.stringify(err));
+    }
+  }
+
+  getAllSinger(start: number, end: number) {
+
+    try {
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ALL_SINGER_LIST_URL +
+        start + '/' + end,
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            console.info('HttpResponse getAllSinger Result:' + data.result);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              let playingLists: PlayListData[] = [];
+              Object.keys(jsonObject).forEach((key) => {
+                let aPlayingList: AudioData[] = [];
+                Object.keys(jsonObject[key]).forEach((key1) => {
+                  aPlayingList.push(new AudioData(
+                    jsonObject[key][key1].name,
+                    jsonObject[key][key1].singer,
+                    jsonObject[key][key1].id,
+                    jsonObject[key][key1].album,
+                    jsonObject[key][key1].year,
+                    jsonObject[key][key1].language
+                  ));
+                })
+                let item = new PlayListData(key, $r('app.media.icon'),
+                  aPlayingList.length + AppConstants.LIST_SONG_COUNT,
+                  aPlayingList, '')
+                playingLists.push(item);
+              });
+              let eventData: emitter.EventData = {
+                data: {
+                  "item": playingLists,
+                }
+              };
+              emitter.emit(AppConstants.UPDATE_ALL_SINGER_LIST, this.emitterOptions, eventData);
+            } catch (error) {
+              console.error("JSON :", error.message);
+            }
+          } else {
+            console.info('HttpResponse getAllSinger error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
+          }
+        });
+    } catch (err) {
+      console.info('HttpRequest getAllSinger error:' + JSON.stringify(err));
+      prompt.showToast({
+        message: JSON.stringify(err)
+      })
     }
   }
 }

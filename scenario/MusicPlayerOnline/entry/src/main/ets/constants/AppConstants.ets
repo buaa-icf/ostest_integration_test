@@ -71,6 +71,11 @@ export default class AppConstants {
    */
   static readonly REMOVE_FROM_PLAYLIST_URL = 'remove_from_playlist/';
   /**
+   * get all singer list
+   */
+  static readonly ALL_SINGER_LIST_URL = 'all_singer_list/';
+
+  /**
    * Login URL
    */
   static readonly REGISTER_URL = 'authentication/signup1/';
@@ -117,6 +122,8 @@ export default class AppConstants {
   static readonly UPDATE_USER_LIST_RECENT = 'UPDATE_USER_LIST_RECENT';
   static readonly UPDATE_USER_LIST_FAVOR = 'UPDATE_USER_LIST_FAVOR';
   static readonly UPDATE_USER_LIST_SEARCH = 'UPDATE_USER_LIST_SEARCH';
+  static readonly UPDATE_ALL_SINGER_LIST = 'UPDATE_ALL_SINGER_LIST';
+
   //当前查看歌单更新
   static readonly UPDATE_EXPLORE_LIST = 'UPDATE_EXPLORE_LIST';
   //首页登录更新消息
@@ -170,6 +177,7 @@ export default class AppConstants {
   static readonly keepLoginTitle = '保持登录';
   static readonly keepLoginDes = '重启自动登录';
   static readonly KEEP_LOGIN_SETTING = 'keepLoginSetting';
+  static readonly NO_MORE_SINGER = '没有更多内容了';
   //点击效果
   static readonly CLICK_EFFECT: ClickEffect = {
     level: ClickEffectLevel.MIDDLE, scale: 0.8

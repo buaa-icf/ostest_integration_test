@@ -50,10 +50,6 @@ export class CommonUtils {
     //从当前index往后查找，减少计算量，在支持seek后，需要先重置currentIndex
     for (let i = currentIndex; i < lrcList.length; i++) {
       if (currentTime >= lrcList[i].time && currentTime < lrcList[i+1].time) {
-        if (i > 0 && lrcList[i].time == lrcList[i-1].time) {
-          //带翻译的双语，时间相同返回原始语言行
-          return (i - 1);
-        }
         return i;
       }
     }

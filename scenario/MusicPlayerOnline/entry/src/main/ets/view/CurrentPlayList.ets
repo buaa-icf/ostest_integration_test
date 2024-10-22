@@ -48,7 +48,7 @@ export default struct CurrentPlayList {
   build() {
     Column() {
       Row() {
-        Text('当前播放：' + this.listTitle)
+        Text(this.listTitle)
           .fontSize(24)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.MARQUEE })

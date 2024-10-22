@@ -392,9 +392,6 @@ export default class PlayerManager {
       this.setAVPlayerCallback(this.avPlayer);
     } else {
       await this.avPlayer.reset();
-      //this.avPlayer.release();
-      //this.avPlayer = await media.createAVPlayer();
-      //this.setAVPlayerCallback(this.avPlayer);
     }
     console.info('PlayerManager state url：' + url);
     this.avPlayer.url = url;
@@ -445,8 +442,8 @@ export default class PlayerManager {
     //如果原来没有播放列表，则开始播放
     if (this.list.length === 1) {
       this.play(item);
-      this.listTitle = AppConstants.CURRENT_LIST_TITLE;
     }
+    this.listTitle = AppConstants.CURRENT_LIST_TITLE;
     prompt.showToast({
       message: AppConstants.ADD_TO_CURRENT_LIST_OK
     })

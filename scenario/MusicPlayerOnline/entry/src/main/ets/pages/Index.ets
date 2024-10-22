@@ -30,6 +30,7 @@ import TriColNestScrollerGrid from '../view/TriColNestScrollerGrid';
 import ExplorePlayList from '../view/ExplorePlayList';
 import { PLAY_MODE } from '../constants/PlayMode';
 import PlayerManager from '../manager/PlayerManager';
+import AllSinger from '../view/AllSinger';
 
 PersistentStorage.persistProp(AppConstants.LOGIN_COOKIE, '');
 PersistentStorage.persistProp(AppConstants.LOGIN_NAME, AppConstants.LOGIN_INFO_NO);
@@ -215,19 +216,33 @@ struct Index {
         .width('90%')
 
         Stack({ alignContent: Alignment.Bottom }) {
-          Column() {
+          Row() {
             Search({
               placeholder: $r('app.string.search_holder')
             })
-              .width('90%')
+              .width('80%')
               .height('6%')
               .enableKeyboardOnFocus(false)
               .onSubmit((value: string) => {
                 this.searchSongsFromServer(value);
               })
+            Text($r('app.string.all_singer_list'))
+              .margin(6)
+              .padding(4)
+              .fontSize(20)
+              .clickEffect(AppConstants.CLICK_EFFECT)
+              .height('6%')
+              .textAlign(TextAlign.Center)
+              .borderRadius(8)
+              .shadow({ radius: 1, color: Color.Gray })
+              .onClick(() => {
+                this.isShowSingerList = true;
+              })
           }
-          .width('100%')
+          .width('90%')
           .height('100%')
+          .justifyContent(FlexAlign.SpaceBetween)
+          .alignItems(VerticalAlign.Top)
 
           Refresh({
             refreshing: $$this.isRefreshing,
@@ -285,6 +300,17 @@ struct Index {
             }, 1000)
           })
 
+          if (this.isShowSingerList) {
+            AllSinger({ isShowSingerList: this.isShowSingerList })
+              .width('100%')
+              .height('90%')
+              .backgroundColor(Color.White)
+              .transition(TransitionEffect.OPACITY
+                .animation({ duration: 1000, curve: Curve.FastOutSlowIn })
+                .combine(TransitionEffect.move(TransitionEdge.END))
+              )
+              .margin({ bottom: 72 })
+          }
           if (this.isShowPlayList) {
             ExplorePlayList({ isShowPlayList: this.isShowPlayList, customPlayLists: this.customPlayLists, })
               .width('100%')
@@ -375,6 +401,9 @@ struct Index {
       return true;
     } else if (this.isShowPlayList) {
       this.isShowPlayList = false;
+      return true;
+    } else if (this.isShowSingerList) {
+      this.isShowSingerList = false;
       return true;
     } else {
       return false;
