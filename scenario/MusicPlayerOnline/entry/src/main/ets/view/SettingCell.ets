@@ -100,10 +100,10 @@ export default struct settingCell {
           .fontSize(14)
           .fontWeight(FontWeight.Lighter)
           .fontColor(Color.Gray)
-          .margin({ left: 8, right: 8 })
           .maxLines(1)
       }
       .alignItems(HorizontalAlign.Start)
+      .justifyContent(FlexAlign.SpaceBetween)
 
       Blank()
       if (this.item.others) {
@@ -159,7 +159,11 @@ export default struct settingCell {
       TapGesture({ count: 1 })
         .onAction((event: GestureEvent) => {
           if (event) {
-
+            if (this.item.title === AppConstants.aboutTitle) {
+              prompt.showToast({
+                message: 'Dev by Feline(sunlian@kaihong.com).'
+              });
+            }
           }
         })
     )

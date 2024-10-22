@@ -33,6 +33,7 @@ export default struct ExploreSongItem {
         Text(this.item.title)
           .fontSize(20)
           .maxLines(1)
+          .textOverflow({overflow:TextOverflow.MARQUEE})
           .width('90%')
           .margin({top:4,bottom:8})
         Row() {
@@ -41,7 +42,7 @@ export default struct ExploreSongItem {
             .maxLines(1)
             .width('50%')
             .textOverflow({overflow:TextOverflow.Ellipsis})
-          Text(this.item.album+'('+this.item.year+')')
+          Text(this.item.album)
             .fontColor('#a0a0a0')
             .maxLines(1)
             .width('50%')

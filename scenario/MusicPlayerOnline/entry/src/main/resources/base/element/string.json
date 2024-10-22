@@ -37,6 +37,10 @@
       "value": "输入歌名"
     },
     {
+      "name": "all_singer_list",
+      "value": "歌手列表"
+    },
+    {
       "name": "lyrics",
       "value": "歌词"
     },
