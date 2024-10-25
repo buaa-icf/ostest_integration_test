@@ -55,6 +55,32 @@ export default class PlayerManager {
     this.startContinuousTask();
   }
 
+  initialPlayList() {
+    if (AppStorage.get(AppConstants.PLAYLIST_RECORD) as AudioData[]) {
+      this.list = AppStorage.get(AppConstants.PLAYLIST_RECORD) as AudioData[];
+      let id = AppStorage.get(AppConstants.PLAYLIST_RECORD_INDEX) as string;
+      let index = this.list.findIndex((audioData) => audioData.id === id);
+      this.listPosition = (index !== -1) ? index : 0;
+      if (this.list.length > 0) {
+        this.item = this.list[this.listPosition];
+      }
+      this.listTitle = AppConstants.CURRENT_LIST_TITLE;
+      this.shuffleIndex = [];
+      for (let i = 0; i < this.list.length; i++) {
+        this.shuffleIndex.push(i);
+      }
+      this.shuffleIndex.sort(() => Math.random() - 0.5);
+      setTimeout(() => {
+        let eventData: emitter.EventData = {
+          data: {
+            "state": AppConstants.PLAYER_STATE_IDLE,
+          }
+        };
+        emitter.emit(AppConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
+      }, 500)
+    }
+  }
+
   initialPlayMode() {
     if (AppStorage.get(AppConstants.KEEP_LOGIN_SETTING) != AppConstants.TOGGLE_SETTING_ON) {
       AppStorage.setOrCreate(AppConstants.LOGIN_COOKIE, AppConstants.LOGIN_COOKIE_NONE);
@@ -173,6 +199,7 @@ export default class PlayerManager {
       return;
     }
     this.list = list;
+    AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD, this.list);
     this.listTitle = listTitle;
     this.initialPlayMode();
     this.shuffleIndex = [];
@@ -220,6 +247,7 @@ export default class PlayerManager {
     }
     Logger.info(this.tag, 'Play :' + this.listPosition.toString());
     this.item = this.list[this.listPosition]
+    AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD_INDEX, this.item.id);
     let isFavor = false;
     for (let favorItem of this.favourList) {
       if (this.item.id === favorItem.id) {
@@ -425,6 +453,7 @@ export default class PlayerManager {
     }
     let insertIndex = this.listPosition + 1;
     this.list.splice(insertIndex, 0, item);
+    AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD, this.list);
     let newShuffleIndex: number[] = [...this.shuffleIndex];
     for (let i = 0; i < newShuffleIndex.length; i++) {
       //将原来大于等于插入位置的索引+1
@@ -456,6 +485,7 @@ export default class PlayerManager {
     let index = this.list.indexOf(item);
     if (index > -1) {
       this.list.splice(index, 1);
+      AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD, this.list);
       let newShuffleIndex: number[] = [...this.shuffleIndex];
       let shuffleIndex = newShuffleIndex.indexOf(index);
       if (shuffleIndex > -1) {

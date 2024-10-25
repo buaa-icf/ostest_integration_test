@@ -48,7 +48,9 @@ export default struct PlayListItem {
         .width('100%')
       }
       .borderRadius(12)
-      .backgroundImage(this.item.list.length > 0 ? AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.list[0].id : this.item.img)
+      .backgroundImage(this.item.list.length > 0 ?
+        AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.list[0].id :
+      this.item.img)
       .backgroundImageSize(ImageSize.Cover)
       .shadow({ radius: 1, color: Color.Gray })
       .width(120)

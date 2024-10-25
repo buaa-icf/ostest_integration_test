@@ -17,16 +17,16 @@ import AllSingerDataSource from "../model/AllSingerDataSource";
 import PlayListData from "../model/PlayListData";
 import emitter from '@ohos.events.emitter';
 import HttpManager from "../manager/HttpManager";
-import PlayListItem from "./PlayListItem";
 import prompt from '@ohos.promptAction';
+import SingerItem from "./SingerItem";
 
 @Component
 export default struct AllSinger {
   @Link isShowSingerList: boolean;
-  @State count:number = 0
-  private  aAllSingerDataSource: AllSingerDataSource = new AllSingerDataSource();
+  @State count: number = 0
+  private aAllSingerDataSource: AllSingerDataSource = new AllSingerDataSource();
   private currentIndex: number = 0;
-  private step: number = 50;
+  private step: number = 100;
 
   aboutToAppear() {
     HttpManager.getInstance().getAllSinger(0, this.step);
@@ -53,45 +53,53 @@ export default struct AllSinger {
 
   build() {
     Column({ space: 2 }) {
-      Row() {
-        Image($r('app.media.xmark'))
-          .width(42)
-          .height(42)
-          .padding(6)
+      Stack({ alignContent: Alignment.Start }) {
+        Image($r('app.media.chevron_down'))
+          .width(48)
+          .height(60)
+          .padding({ bottom: 6, top: 6 })
+          .rotate({ angle: 90 })
           .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowSingerList = false;
           })
-        Text($r('app.string.all_singer_list'))
-          .fontSize(24)
-          .maxLines(1)
-        Text(this.count.toString())
-          .fontSize(18)
-          .maxLines(1)
+          .alignSelf(ItemAlign.Start)
+        Row() {
+          Text($r('app.string.all_singer_list'))
+            .fontSize(24)
+            .maxLines(1)
+            .alignSelf(ItemAlign.Center)
+          Text('(' + this.count.toString() + ')')
+            .fontSize(16)
+            .fontColor(Color.Gray)
+            .maxLines(1)
+        }.width('100%')
+        .justifyContent(FlexAlign.Center)
       }
-      .width('90%')
+      .width('100%')
       .margin(4)
-      .justifyContent(FlexAlign.SpaceBetween)
 
       WaterFlow() {
         LazyForEach(this.aAllSingerDataSource, (item: PlayListData, index) => {
           FlowItem() {
-            PlayListItem({ item })
+            SingerItem({ item })
           }
           .onAppear(() => {
             if (index + 10 == this.aAllSingerDataSource.totalCount()) {
               HttpManager.getInstance().getAllSinger(this.currentIndex, this.currentIndex + this.step);
             }
           })
-          .width('100%')
           .backgroundColor(Color.White)
           .borderRadius(12)
         }, (item: string) => item)
       }
-      .columnsTemplate("1fr 1fr 1fr")
-      .columnsGap(10)
-      .rowsGap(5)
-      .margin({ bottom: 36 })
+      .columnsTemplate("1fr 1fr 1fr 1fr")
+      .columnsGap(8)
+      .rowsGap(16)
+      .padding({ left: 8, right: 8 })
+      .margin({ bottom: 64 })
+      .scrollBar(BarState.On)
+      .scrollBarWidth(10)
     }
     .alignItems(HorizontalAlign.Center)
     .height('100%')
