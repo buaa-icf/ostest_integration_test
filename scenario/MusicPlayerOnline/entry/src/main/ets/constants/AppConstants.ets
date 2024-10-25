@@ -178,6 +178,10 @@ export default class AppConstants {
   static readonly keepLoginDes = '重启自动登录';
   static readonly KEEP_LOGIN_SETTING = 'keepLoginSetting';
   static readonly NO_MORE_SINGER = '没有更多内容了';
+
+  static readonly PLAYLIST_RECORD = 'PLAYLIST_RECORD';
+  static readonly PLAYLIST_RECORD_INDEX = 'PLAYLIST_RECORD_INDEX';
+
   //点击效果
   static readonly CLICK_EFFECT: ClickEffect = {
     level: ClickEffectLevel.MIDDLE, scale: 0.8

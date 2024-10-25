@@ -39,6 +39,8 @@ PersistentStorage.persistProp(AppConstants.PLAY_MODE_SETTING, AppConstants.TOGGL
 PersistentStorage.persistProp(AppConstants.PLAY_MODE_RECORD, PLAY_MODE.REPEAT);
 PersistentStorage.persistProp(AppConstants.KEEP_LOGIN_SETTING, AppConstants.TOGGLE_SETTING_ON);
 PersistentStorage.persistProp(AppConstants.SERVER_HOST_PROP, AppConstants.SERVER_HOST);
+PersistentStorage.persistProp(AppConstants.PLAYLIST_RECORD, []);
+PersistentStorage.persistProp(AppConstants.PLAYLIST_RECORD_INDEX, '0');
 
 @Entry
 @Component
@@ -106,6 +108,7 @@ struct Index {
 
   aboutToAppear(): void {
     let loginName: string | undefined = AppStorage.get(AppConstants.LOGIN_NAME);
+    this.PlayerManager.initialPlayList();
     this.PlayerManager.initialPlayMode();
     HttpManager.getInstance().getRecommendListFromServer();
     if (loginName != AppConstants.LOGIN_INFO_NO) {
@@ -220,16 +223,21 @@ struct Index {
             Search({
               placeholder: $r('app.string.search_holder')
             })
-              .width('80%')
+              .width('75%')
               .height('6%')
               .enableKeyboardOnFocus(false)
               .onSubmit((value: string) => {
                 this.searchSongsFromServer(value);
               })
             Text($r('app.string.all_singer_list'))
-              .margin(6)
-              .padding(4)
-              .fontSize(20)
+              .margin({ top: 6 })
+              .padding({
+                left: 8,
+                right: 8,
+                top: 4,
+                bottom: 4
+              })
+              .fontSize(18)
               .clickEffect(AppConstants.CLICK_EFFECT)
               .height('6%')
               .textAlign(TextAlign.Center)

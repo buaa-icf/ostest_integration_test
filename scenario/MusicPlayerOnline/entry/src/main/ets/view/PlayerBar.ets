@@ -148,7 +148,6 @@ export default struct PlayerBar {
     if (eventData !== undefined && eventData.data !== undefined) {
       Logger.info(this.tag, 'state:' + eventData.data.state);
       if (this.state !== AppConstants.PLAYER_STATE_PLAYING && eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
-        this.item = this.PlayerManager.getItem();
         if (this.rotateAngle === 0) {
           this.rotateAngle = 360;
           Logger.info(this.tag, 'rotateAngle:360');
@@ -159,6 +158,7 @@ export default struct PlayerBar {
         Logger.info(this.tag, 'rotateAngle:0');
       }
       this.state = eventData.data.state;
+      this.item = this.PlayerManager.getItem();
     }
   }
 }
