@@ -20,9 +20,11 @@ import prompt from '@ohos.promptAction';
 import AudioData from '../model/AudioData';
 import PlayListData from '../model/PlayListData';
 import PlayListGroupData from '../model/PlayListGroupData';
+import Logger from '../utils/Logger';
 
 // 单例对象 HttpManager
 export default class HttpManager {
+  private tag = 'HttpManager';
   private static instance: HttpManager;
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   private httpRequest = http.createHttp();
@@ -59,7 +61,7 @@ export default class HttpManager {
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.csrfToken = jsonObject['csrf_token'];
@@ -75,7 +77,7 @@ export default class HttpManager {
                 },
                 (err: Error, data: http.HttpResponse) => {
                   if (!err) {
-                    console.info('HttpResponse Result:' + data.result);
+                    Logger.info(this.tag, 'HttpResponse Result:' + data.result);
                     if ((data.result as string).indexOf(AppConstants.REGISTER_FAILED) !== -1) {
                       prompt.showToast({
                         message: AppConstants.REGISTER_INFO_FAILED + data.result
@@ -87,27 +89,27 @@ export default class HttpManager {
                     })
                     this.login(userName.trim(), pwd.trim());
                   } else {
-                    console.info('HttpResponse error:' + JSON.stringify(err));
+                    Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
                     prompt.showToast({
                       message: AppConstants.REGISTER_INFO_FAILED
                     })
                   }
                 });
             } catch (err) {
-              console.info('HttpRequest error:' + JSON.stringify(err));
+              Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
               prompt.showToast({
                 message: AppConstants.REGISTER_INFO_FAILED
               })
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: AppConstants.REGISTER_INFO_FAILED
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       prompt.showToast({
         message: AppConstants.REGISTER_INFO_FAILED
       })
@@ -120,7 +122,7 @@ export default class HttpManager {
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.csrfToken = jsonObject['csrf_token'];
@@ -136,9 +138,9 @@ export default class HttpManager {
                 },
                 (err: Error, data: http.HttpResponse) => {
                   if (!err) {
-                    console.info('HttpResponse Result:' + data.result);
+                    Logger.info(this.tag, 'HttpResponse Result:' + data.result);
                     if (200 === data.responseCode) {
-                      console.info('HttpResponse code:' +
+                      Logger.info(this.tag, 'HttpResponse code:' +
                       (data.result as string).indexOf(AppConstants.LOGIN_FAILED));
                       if ((data.result as string).indexOf(AppConstants.LOGIN_FAILED) !== -1) {
                         this.loginFailed();
@@ -163,7 +165,7 @@ export default class HttpManager {
                       this.getCustomListFromServer();
                     }
                   } else {
-                    console.info('HttpResponse error:' + JSON.stringify(err));
+                    Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
                     prompt.showToast({
                       message: JSON.stringify(err)
                     })
@@ -171,11 +173,11 @@ export default class HttpManager {
                   }
                 });
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
               this.loginFailed();
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
@@ -183,7 +185,7 @@ export default class HttpManager {
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       this.loginFailed();
     }
   }
@@ -217,24 +219,24 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse record_recent Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse record_recent Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.PlayerManager.setItemQuality(jsonObject['message']);
               emitter.emit(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, this.emitterOptions);
             } catch (err) {
-              console.info('HttpResponse error:' + JSON.stringify(err));
+              Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             }
             this.getRecentListFromServer();
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
     }
   }
 
@@ -257,7 +259,7 @@ export default class HttpManager {
       if (alwaysSet) {
         is_favor = '1';
       }
-      console.info('HttpResponse start:' + AppConstants.SET_FAVOURITE_URL + item.id + '/' + is_favor);
+      Logger.info(this.tag, 'HttpResponse start:' + AppConstants.SET_FAVOURITE_URL + item.id + '/' + is_favor);
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SET_FAVOURITE_URL +
       item.id + '/' + is_favor,
         {
@@ -268,7 +270,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               switch (jsonObject["message"]) {
@@ -291,18 +293,18 @@ export default class HttpManager {
               })
               this.getFavorListFromServer();
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
               msg = JSON.stringify(error);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       msg = JSON.stringify(err);
     }
     if (msg !== '') {
@@ -323,7 +325,7 @@ export default class HttpManager {
     }
     let msg: string = ''
     try {
-      console.info('HttpResponse start:' + AppConstants.ADD_TO_PLAYLIST_URL + song_id + '/' + playlist_name);
+      Logger.info(this.tag, 'HttpResponse start:' + AppConstants.ADD_TO_PLAYLIST_URL + song_id + '/' + playlist_name);
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ADD_TO_PLAYLIST_URL +
         song_id + '/' + playlist_name,
         {
@@ -334,30 +336,30 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
-              console.info('HttpResponse msg:' + jsonObject["message"]);
+              Logger.info(this.tag, 'HttpResponse msg:' + jsonObject["message"]);
               prompt.showToast({
                 message: jsonObject["message"]
               })
               this.getCustomListFromServer();
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
               msg = JSON.stringify(error);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       msg = JSON.stringify(err);
     }
-    console.info('HttpRequest msg:' + msg);
+    Logger.info(this.tag, 'HttpRequest msg:' + msg);
     if (msg !== '') {
       prompt.showToast({
         message: msg
@@ -376,7 +378,7 @@ export default class HttpManager {
     }
     let msg: string = ''
     try {
-      console.info('HttpResponse start:' + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name);
+      Logger.info(this.tag, 'HttpResponse start:' + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name);
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.REMOVE_FROM_PLAYLIST_URL +
         song_id + '/' + playlist_name,
         {
@@ -387,30 +389,30 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
-              console.info('HttpResponse msg:' + jsonObject["message"]);
+              Logger.info(this.tag, 'HttpResponse msg:' + jsonObject["message"]);
               prompt.showToast({
                 message: jsonObject["message"]
               })
               this.getCustomListFromServer();
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
               msg = JSON.stringify(error);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       msg = JSON.stringify(err);
     }
-    console.info('HttpRequest msg:' + msg);
+    Logger.info(this.tag, 'HttpRequest msg:' + msg);
     if (msg !== '') {
       prompt.showToast({
         message: msg
@@ -430,7 +432,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse getRecommendListFromServer Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse getRecommendListFromServer Result:' + data.result);
             try {
               let isStart = true;
               const jsonObject: object = JSON.parse(data.result as string);
@@ -464,17 +466,17 @@ export default class HttpManager {
                 isStart = false;
               });
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       prompt.showToast({
         message: JSON.stringify(err)
       })
@@ -493,7 +495,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse getFavorListFromServer Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse getFavorListFromServer Result:' + data.result);
             try {
               let aPlayingList: AudioData[] = Array<AudioData>();
               const jsonObject: object = JSON.parse(data.result as string);
@@ -523,17 +525,17 @@ export default class HttpManager {
               };
               emitter.emit(AppConstants.UPDATE_USER_LIST, this.emitterOptions, eventData);
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       prompt.showToast({
         message: JSON.stringify(err)
       })
@@ -552,7 +554,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse getRecentListFromServer Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse getRecentListFromServer Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               let isStart = true;
@@ -583,17 +585,17 @@ export default class HttpManager {
                 isStart = false;
               });
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
       prompt.showToast({
         message: JSON.stringify(err)
       })
@@ -612,7 +614,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse getCustomListFromServer Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse getCustomListFromServer Result:' + data.result);
             try {
               interface PlaylistItem {
                 playlist_name: string;
@@ -636,7 +638,6 @@ export default class HttpManager {
               const keys = Object.keys(groupedByPlaylistName);
               let isStart = true;
               keys.forEach((playlistName) => {
-                console.log(`Playlist: ${playlistName}`);
                 let aPlayingList: AudioData[] = Array<AudioData>();
                 groupedByPlaylistName[playlistName].forEach((song, index) => {
                   aPlayingList.push(new AudioData(song.name, song.singer, song.id, song.album, song.year,
@@ -660,17 +661,17 @@ export default class HttpManager {
               this.getRecentListFromServer();
               this.getFavorListFromServer();
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
     }
   }
 
@@ -687,7 +688,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse searchSongsFromServer Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse searchSongsFromServer Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               let isStart = true;
@@ -716,17 +717,17 @@ export default class HttpManager {
                 });
               });
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
     }
   }
 
@@ -742,24 +743,24 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse getLrc Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse getLrc Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               let id: string = jsonObject['id'];
               let lrc: string = jsonObject['lrc'];
               this.PlayerManager.setLrc(id, lrc);
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
             }
           } else {
-            console.info('HttpResponse error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest error:' + JSON.stringify(err));
     }
   }
 
@@ -776,7 +777,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            console.info('HttpResponse getAllSinger Result:' + data.result);
+            Logger.info(this.tag, 'HttpResponse getAllSinger Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               let playingLists: PlayListData[] = [];
@@ -804,17 +805,17 @@ export default class HttpManager {
               };
               emitter.emit(AppConstants.UPDATE_ALL_SINGER_LIST, this.emitterOptions, eventData);
             } catch (error) {
-              console.error("JSON :", error.message);
+              Logger.error(this.tag, "JSON :", error.message);
             }
           } else {
-            console.info('HttpResponse getAllSinger error:' + JSON.stringify(err));
+            Logger.info(this.tag, 'HttpResponse getAllSinger error:' + JSON.stringify(err));
             prompt.showToast({
               message: JSON.stringify(err)
             })
           }
         });
     } catch (err) {
-      console.info('HttpRequest getAllSinger error:' + JSON.stringify(err));
+      Logger.info(this.tag, 'HttpRequest getAllSinger error:' + JSON.stringify(err));
       prompt.showToast({
         message: JSON.stringify(err)
       })

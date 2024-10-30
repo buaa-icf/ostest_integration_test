@@ -102,8 +102,8 @@ export default class AppConstants {
   /**
    * 详情页播放状态更新消息
    */
-  static readonly DETAIL_UPDATE_TIME = 'DETAIL_UPDATE_TIME';
   static readonly DETAIL_UPDATE_LRC = 'DETAIL_UPDATE_LRC';
+  static readonly DETAIL_UPDATE_LRC_INDEX = 'DETAIL_UPDATE_LRC_INDEX';
   static readonly DETAIL_UPDATE_STATE = 'DETAIL_UPDATE_STATE';
   static readonly DETAIL_UPDATE_FAVOR_AND_QUALITY = 'DETAIL_UPDATE_FAVOR_AND_QUALITY';
   /**
@@ -181,7 +181,21 @@ export default class AppConstants {
 
   static readonly PLAYLIST_RECORD = 'PLAYLIST_RECORD';
   static readonly PLAYLIST_RECORD_INDEX = 'PLAYLIST_RECORD_INDEX';
+  static readonly CARD_FORM_ID = 'CARD_FORM_ID';
 
+  static readonly HIGH_Q = '320000';
+  static readonly HIGH_DES = '高品质';
+  static readonly FLAC = '.flac';
+  static readonly FLAC_DES = '无损';
+  static readonly QUALITY_DEFAULT = '';
+
+  static readonly CARD_CALL_METHOD_PLAY = 'play';
+  static readonly CARD_CALL_METHOD_NEXT = 'next';
+  static readonly CARD_CALL_METHOD_PREV = 'prev';
+  static readonly CARD_CALL_METHOD_PAUSE = 'pause';
+  static readonly CARD_CALL_METHOD_SET_FAVOR = 'setFavor';
+  static readonly CARD_CALL_METHOD_SET_MODE = 'setMode';
+  static readonly CARD_CALL_METHOD_FORM_ID = 'formId';
   //点击效果
   static readonly CLICK_EFFECT: ClickEffect = {
     level: ClickEffectLevel.MIDDLE, scale: 0.8

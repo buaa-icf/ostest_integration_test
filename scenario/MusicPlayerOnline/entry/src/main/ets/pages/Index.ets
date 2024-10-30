@@ -31,6 +31,7 @@ import ExplorePlayList from '../view/ExplorePlayList';
 import { PLAY_MODE } from '../constants/PlayMode';
 import PlayerManager from '../manager/PlayerManager';
 import AllSinger from '../view/AllSinger';
+import Logger from '../utils/Logger';
 
 PersistentStorage.persistProp(AppConstants.LOGIN_COOKIE, '');
 PersistentStorage.persistProp(AppConstants.LOGIN_NAME, AppConstants.LOGIN_INFO_NO);
@@ -41,10 +42,12 @@ PersistentStorage.persistProp(AppConstants.KEEP_LOGIN_SETTING, AppConstants.TOGG
 PersistentStorage.persistProp(AppConstants.SERVER_HOST_PROP, AppConstants.SERVER_HOST);
 PersistentStorage.persistProp(AppConstants.PLAYLIST_RECORD, []);
 PersistentStorage.persistProp(AppConstants.PLAYLIST_RECORD_INDEX, '0');
+PersistentStorage.persistProp(AppConstants.CARD_FORM_ID, '');
 
 @Entry
 @Component
 struct Index {
+  private tag = 'Index'
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State recommendPlayLists: PlayListGroupData[] = [];
   @State customPlayLists: PlayListData[] = [];
@@ -67,6 +70,8 @@ struct Index {
   @State inputUserName: string = ''
   @State inputPwd: string = ''
   @State inputPwd2: string = ''
+  @State durationTime: number = this.PlayerManager.getDurationTime();
+  @State currentTime: number = this.PlayerManager.getCurrentTime();
   private dialogController: CustomDialogController | null = new CustomDialogController({
     builder: LoginCustomDialog({
       cancel: () => {
@@ -110,6 +115,7 @@ struct Index {
     let loginName: string | undefined = AppStorage.get(AppConstants.LOGIN_NAME);
     this.PlayerManager.initialPlayList();
     this.PlayerManager.initialPlayMode();
+    this.PlayerManager.initialCardFormId();
     HttpManager.getInstance().getRecommendListFromServer();
     if (loginName != AppConstants.LOGIN_INFO_NO) {
       this.loginInfo = loginName + AppConstants.LOGIN_INFO_DONE;
@@ -136,6 +142,10 @@ struct Index {
     emitter.on(AppConstants.MAIN_SHOW_PLAYLIST, () => {
       this.showExplorePlaylist();
     });
+
+    emitter.on(AppConstants.MAIN_UPDATE_TIME, (eventData: emitter.EventData) => {
+      this.updateTime(eventData);
+    });
   }
 
   aboutToDisappear(): void {
@@ -143,6 +153,7 @@ struct Index {
     emitter.off(AppConstants.LOGIN_RESULT);
     emitter.off(AppConstants.PLAYLIST_UPDATE_CHANGED);
     emitter.off(AppConstants.MAIN_SHOW_PLAYLIST);
+    emitter.off(AppConstants.MAIN_UPDATE_TIME);
     if (this.dialogController !== null) {
       this.dialogController.close();
       this.dialogController = null;
@@ -329,7 +340,12 @@ struct Index {
               .margin({ bottom: 72 })
           }
           Column() {
-            PlayerBar({ isShowCurrentPlayList: $isShowCurrentPlayList, isShowPlayerDetail: $isShowPlayerDetail })
+            PlayerBar({
+              isShowCurrentPlayList: $isShowCurrentPlayList,
+              isShowPlayerDetail: $isShowPlayerDetail,
+              durationTime: this.durationTime,
+              currentTime: this.currentTime
+            })
               .backgroundColor(Color.White)
               .width('100%')
               .margin({ top: 4 })
@@ -347,6 +363,8 @@ struct Index {
               isShowPlayerDetail: $isShowPlayerDetail,
               customPlayLists: this.customPlayLists,
               loginInfo: this.loginInfo,
+              durationTime: this.durationTime,
+              currentTime: this.currentTime
             })
               .width('100%')
               .height('100%')
@@ -370,7 +388,9 @@ struct Index {
               .transition(TransitionEffect.OPACITY.animation({ duration: 1000, curve: Curve.Ease }))
           }
           if (this.isShowCurrentPlayList) {
-            CurrentPlayList()
+            CurrentPlayList({
+              currentTime: this.currentTime
+            })
               .width('100%')
               .height('80%')
               .transition(TransitionEffect.OPACITY
@@ -415,6 +435,13 @@ struct Index {
       return true;
     } else {
       return false;
+    }
+  }
+
+  updateTime(eventData: emitter.EventData) {
+    if (eventData !== undefined && eventData.data !== undefined) {
+      this.currentTime = eventData.data.currentTime;
+      this.durationTime = eventData.data.currentDuration;
     }
   }
 
@@ -499,7 +526,7 @@ struct Index {
             { duration: 1000 },
             () => {
               if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                console.info('UPDATE_USER_LIST_RECOMMEND:' + (eventData.data.item as PlayListGroupData).title);
+                Logger.info(this.tag, 'UPDATE_USER_LIST_RECOMMEND:' + (eventData.data.item as PlayListGroupData).title);
                 this.recommendPlayLists.push(eventData.data.item as PlayListGroupData);
               }
             })
@@ -512,7 +539,7 @@ struct Index {
           }
           animateTo({ duration: 1000 }, () => {
             if (eventData.data !== undefined && eventData.data.item !== undefined) {
-              console.info('UPDATE_USER_LIST_CUSTOM:' + (eventData.data.item as PlayListData).title);
+              Logger.info(this.tag, 'UPDATE_USER_LIST_CUSTOM:' + (eventData.data.item as PlayListData).title);
               this.customPlayLists.push(eventData.data.item as PlayListData);
               if ((eventData.data.item as PlayListData).title === this.PlayerManager.getExploreList().title) {
                 this.PlayerManager.setExploreList(eventData.data.item as PlayListData);
@@ -525,7 +552,7 @@ struct Index {
             { duration: 1000 },
             () => {
               if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                console.info('UPDATE_USER_LIST_RECENT:' + (eventData.data.item as PlayListData).title);
+                Logger.info(this.tag, 'UPDATE_USER_LIST_RECENT:' + (eventData.data.item as PlayListData).title);
                 let recentItem = eventData.data.item as PlayListData;
                 let existingIndex = this.customPlayLists.findIndex(item => item.title === recentItem.title);
                 if (existingIndex !== -1) {
@@ -546,7 +573,7 @@ struct Index {
             { duration: 1000 },
             () => {
               if (eventData.data !== undefined && eventData.data.item !== undefined) {
-                console.info('UPDATE_USER_LIST_SEARCH:' + (eventData.data.item as PlayListData).title);
+                Logger.info(this.tag, 'UPDATE_USER_LIST_SEARCH:' + (eventData.data.item as PlayListData).title);
                 this.searchResultPlayLists.push(eventData.data.item as PlayListData)
               }
             })
@@ -558,7 +585,7 @@ struct Index {
             () => {
               if (eventData.data !== undefined) {
                 if (eventData.data.item !== undefined) {
-                  console.info('UPDATE_USER_LIST_FAVOR:' + (eventData.data.item as PlayListData).title);
+                  Logger.info(this.tag, 'UPDATE_USER_LIST_FAVOR:' + (eventData.data.item as PlayListData).title);
                   if (existingIndex !== -1) {
                     this.customPlayLists[existingIndex] = eventData.data.item as PlayListData;
                   } else {

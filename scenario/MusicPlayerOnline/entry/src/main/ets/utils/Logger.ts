@@ -42,4 +42,4 @@ class Logger {
   }
 }
 
-export default new Logger('[Samples_MusicPlayer]');
+export default new Logger('[Samples_MusicPlayerOnline]');
