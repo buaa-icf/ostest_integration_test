@@ -15,22 +15,30 @@
 
 import AudioData from '../model/AudioData';
 import AppConstants from '../constants/AppConstants';
-import PlayerManager from '../manager/PlayerManager';
 
 @Component
 export default struct SongItem {
   @State item: AudioData = new AudioData('', '', '');
-  private spaces: string = '                         '
+  @State index: number = 0;
+  @Prop currentTime: number;
+  private spaces: string = '                             ';
 
   build() {
     Row() {
-      Image(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id)
-        .width(64)
-        .height(64)
-        .borderRadius(4)
-      Blank()
+      if (this.item.isPlaying) {
+        Image(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id)
+          .width(64)
+          .height(64)
+          .borderRadius(32)
+          .rotate({ angle: this.currentTime / 100 })
+      } else {
+        Text((this.index + 1).toString() + '.')
+          .fontSize(20)
+          .fontColor('#a0a0a0')
+          .margin(8)
+      }
       Text() {
-        if(this.item.isPlaying){
+        if (this.item.isPlaying) {
           Span(this.spaces)
             .fontSize('20fp')
         }
@@ -41,19 +49,18 @@ export default struct SongItem {
           .fontColor('#a0a0a0')
         Span(this.item.artist)
           .fontColor('#a0a0a0')
-        if(this.item.isPlaying){
+        if (this.item.isPlaying) {
           Span(this.spaces)
             .fontSize('20fp')
         }
       }
       .id(this.item.title)
       .maxLines(1)
-      .width('80%')
-      .textAlign(TextAlign.End)
-      .textOverflow({ overflow: this.item.isPlaying ? TextOverflow.MARQUEE : TextOverflow.None })
+      .width('90%')
+      .textAlign(TextAlign.Start)
+      .textOverflow({ overflow: this.item.isPlaying ? TextOverflow.MARQUEE : TextOverflow.Ellipsis })
     }
     .justifyContent(FlexAlign.SpaceBetween)
-    .width('90%')
-    .alignSelf(ItemAlign.Center)
+    .width(this.item.isPlaying ? '100%' : '90%')
   }
 }

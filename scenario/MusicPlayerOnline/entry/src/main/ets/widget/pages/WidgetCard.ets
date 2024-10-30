@@ -38,7 +38,9 @@ struct WidgetCard {
   /*
    * The action type.
    */
-  readonly ACTION_TYPE: string = 'router';
+  readonly ACTION_TYPE_ROUTER: string = 'router';
+  readonly ACTION_TYPE_CALL: string = 'call';
+  readonly ACTION_TYPE_MESSAGE: string = 'message';
   /*
    * The ability name.
   */
@@ -53,17 +55,12 @@ struct WidgetCard {
   @LocalStorageProp('isPlaying') isPlaying: string = AppConstants.PLAYER_STATE_UNKNOWN;
   @LocalStorageProp('imgName') imgName: string = '';
   @LocalStorageProp('playMode') playMode: number = PLAY_MODE.REPEAT;
+  @LocalStorageProp('currentTime') currentTime: number = 0;
+  @LocalStorageProp('durationTime') durationTime: number = 0;
   private downloadImgId: string = ''
 
   aboutToAppear(): void {
-    postCardAction(this, {
-      'action': 'call',
-      'abilityName': this.ABILITY_NAME,
-      'params': {
-        'method': 'formId',
-        'formId': this.formId,
-      }
-    });
+    this.sendFormId();
   }
 
   build() {
@@ -83,23 +80,26 @@ struct WidgetCard {
         .opacity(0.9)
 
       Row() {
-        Column() {
+        Stack() {
+          Progress({ value: 0, total: this.durationTime, type: ProgressType.Ring })
+            .color(Color.Orange)
+            .value(this.currentTime)
+            .width(138)
+            .height(138)
+            .style({ strokeWidth: 4, enableScanEffect: true })
           Row()
             .width(128)
             .height(128)
             .borderRadius(64)
-            .margin(8)
             .shadow({ radius: 2, color: Color.Gray })
             .backgroundImage('memory://' + this.imgName)
             .backgroundImageSize(ImageSize.Cover)
+            .rotate({ angle: this.currentTime / 100 })
             .onClick(() => {
-              postCardAction(this, {
-                action: this.ACTION_TYPE,
-                abilityName: this.ABILITY_NAME,
-              });
+              this.onItemClick(this.ACTION_TYPE_ROUTER, this.formId);
             })
         }
-        .justifyContent(FlexAlign.Center)
+        .alignContent(Alignment.Center)
         .height(this.FULL_PERCENT)
 
         Column() {
@@ -124,17 +124,14 @@ struct WidgetCard {
             .margin({ left: 8, right: 8 })
             .width('80%')
             .onClick(() => {
-              postCardAction(this, {
-                action: this.ACTION_TYPE,
-                abilityName: this.ABILITY_NAME,
-              });
+              this.onItemClick(this.ACTION_TYPE_ROUTER, this.formId);
             })
 
             Image(this.audioItem.isFavor ? $r('app.media.heart_fill') : $r('app.media.heart'))
               .width(48)
               .height(48)
               .onClick(() => {
-                this.onSetFavor()
+                this.onItemClick(this.ACTION_TYPE_CALL, AppConstants.CARD_CALL_METHOD_SET_FAVOR);
               })
           }
           .alignItems(VerticalAlign.Top)
@@ -148,7 +145,7 @@ struct WidgetCard {
               .height(64)
               .padding(4)
               .onClick(() => {
-                this.setPlayMode();
+                this.onItemClick(this.ACTION_TYPE_CALL, AppConstants.CARD_CALL_METHOD_SET_MODE);
               })
 
             Image($r('app.media.backward_end_fill'))
@@ -156,7 +153,7 @@ struct WidgetCard {
               .height(64)
               .padding(4)
               .onClick(() => {
-                this.onPreviousClick()
+                this.onItemClick(this.ACTION_TYPE_CALL, AppConstants.CARD_CALL_METHOD_PREV);
               })
             if (this.isPlaying === AppConstants.PLAYER_STATE_PLAYING) {
               Image($r('app.media.pause'))
@@ -164,7 +161,7 @@ struct WidgetCard {
                 .height(64)
                 .padding(8)
                 .onClick(() => {
-                  this.onPauseClick();
+                  this.onItemClick(this.ACTION_TYPE_CALL, AppConstants.CARD_CALL_METHOD_PAUSE);
                 })
                 .onAppear(() => {
                   if (this.audioItem.id !== '') {
@@ -173,7 +170,7 @@ struct WidgetCard {
                     }
                     this.downloadImgId = this.audioItem.id;
                     postCardAction(this, {
-                      action: 'message',
+                      action: this.ACTION_TYPE_MESSAGE,
                       params: {
                         info: this.serverHost + AppConstants.SONG_IMAGE_URL + this.audioItem.id
                       }
@@ -186,7 +183,7 @@ struct WidgetCard {
                 .height(64)
                 .padding(4)
                 .onClick(() => {
-                  this.onPlayClick();
+                  this.onItemClick(this.ACTION_TYPE_CALL, AppConstants.CARD_CALL_METHOD_PLAY);
                 })
             }
 
@@ -195,7 +192,7 @@ struct WidgetCard {
               .height(64)
               .padding(4)
               .onClick(() => {
-                this.onNextClick()
+                this.onItemClick(this.ACTION_TYPE_CALL, AppConstants.CARD_CALL_METHOD_NEXT);
               })
 
           }
@@ -212,65 +209,24 @@ struct WidgetCard {
     }
   }
 
-  setPlayMode(): void {
+  onItemClick(actionType: string, method: string): void {
     postCardAction(this, {
-      'action': 'call',
-      'abilityName': this.ABILITY_NAME,
-      'params': {
-        'method': 'playMode'
+      action: actionType,
+      abilityName: this.ABILITY_NAME,
+      params: {
+        method: method,
       }
     });
-    console.info(TAG, 'postCardAction setPlayMode');
+    this.sendFormId();
   }
 
-  onPlayClick(): void {
+  sendFormId() {
     postCardAction(this, {
-      'action': 'call',
-      'abilityName': this.ABILITY_NAME,
-      'params': {
-        'method': 'play'
-      }
-    });
-    console.info(TAG, 'postCardAction onPlayClick');
-  }
-
-  onPauseClick(): void {
-    postCardAction(this, {
-      'action': 'call',
-      'abilityName': this.ABILITY_NAME,
-      'params': {
-        'method': 'pause'
-      }
-    });
-    console.info(TAG, 'postCardAction onPauseClick');
-  }
-
-  onPreviousClick(): void {
-    postCardAction(this, {
-      'action': 'call',
-      'abilityName': this.ABILITY_NAME,
-      'params': {
-        'method': 'prev'
-      }
-    });
-  }
-
-  onNextClick(): void {
-    postCardAction(this, {
-      'action': 'call',
-      'abilityName': this.ABILITY_NAME,
-      'params': {
-        'method': 'next'
-      }
-    });
-  }
-
-  onSetFavor(): void {
-    postCardAction(this, {
-      'action': 'call',
-      'abilityName': this.ABILITY_NAME,
-      'params': {
-        'method': 'setFavor'
+      action: this.ACTION_TYPE_CALL,
+      abilityName: this.ABILITY_NAME,
+      params: {
+        method: AppConstants.CARD_CALL_METHOD_FORM_ID,
+        formId: this.formId,
       }
     });
   }

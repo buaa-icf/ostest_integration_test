@@ -19,9 +19,11 @@ import emitter from '@ohos.events.emitter';
 import HttpManager from "../manager/HttpManager";
 import prompt from '@ohos.promptAction';
 import SingerItem from "./SingerItem";
+import Logger from "../utils/Logger";
 
 @Component
 export default struct AllSinger {
+  private tag = 'AllSinger';
   @Link isShowSingerList: boolean;
   @State count: number = 0
   private aAllSingerDataSource: AllSingerDataSource = new AllSingerDataSource();
@@ -37,7 +39,7 @@ export default struct AllSinger {
           prompt.showToast({ message: AppConstants.NO_MORE_SINGER });
           return;
         }
-        console.info('UPDATE_ALL_SINGER_LIST size:' + list.length);
+        Logger.info(this.tag, 'UPDATE_ALL_SINGER_LIST size:' + list.length);
         for (let index = 0; index < list.length; index++) {
           this.aAllSingerDataSource.addLastItem(list[index])
         }

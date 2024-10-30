@@ -16,11 +16,13 @@
 import HashMap from '@ohos.util.HashMap'; // 导入HashMap模块
 import HttpManager from '../manager/HttpManager';
 import LrcLine from '../model/LrcLine';
+import Logger from './Logger';
 
 /**
  * Binds data to components and provides interfaces.
  */
 export class CommonUtils {
+  private tag = 'CommonUtils';
 
   getLrc(lrc: string): LrcLine[] {
     let lrcData: LrcLine[] = [];
@@ -60,7 +62,7 @@ export class CommonUtils {
     // 修改正则表达式以匹配两种格式的毫秒部分
     const parts = timeStr.match(/\[(\d{2}):(\d{2})\.(\d{2})(\d{0,1})?\]/);
     if (!parts) {
-      console.info('time format error.');
+      Logger.error(this.tag, 'time format error.');
       return 0;
     }
     const minutes = parseInt(parts[1], 10);

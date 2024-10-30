@@ -35,12 +35,11 @@ export default struct PlayerDetail {
   private PlayerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State item: AudioData = this.PlayerManager.getItem();
   @State listTitle: string = this.PlayerManager.getListTitle();
-  @State durationTime: number = 0;
-  @State currentTime: number = 0;
+  @Prop durationTime: number;
+  @Prop currentTime: number;
   @State state: string = this.PlayerManager.getState();
-  @State rotateAngle: number = 0;
   @State subCurrentIndex: number = 0;
-  @State lrcIndex: number = 0
+  @State lrcIndex: number = this.PlayerManager.getLrcIndex();
   @State albumImageContent: boolean = true;
   @State playMode: number = this.PlayerManager.getPlayMode();
   @State noItem: boolean = false;
@@ -53,6 +52,7 @@ export default struct PlayerDetail {
   private scroller: Scroller = new Scroller()
   private isDialogOpened: boolean = false;
   private songIdToAdd: string = '';
+  private indexScrollStep: number = 6;
   dialogController: CustomDialogController | null = new CustomDialogController({
     builder: AddToListDialog({
       cancel: () => {
@@ -90,20 +90,18 @@ export default struct PlayerDetail {
 
   aboutToAppear() {
     this.albumImageContent = (AppStorage.get(AppConstants.DETAIL_DEFAULT_SETTING) != AppConstants.TOGGLE_SETTING_ON);
-    if (this.state === AppConstants.PLAYER_STATE_PLAYING) {
+
+    if (this.lrcIndex - this.indexScrollStep > 0) {
       setTimeout(() => {
-        if (this.rotateAngle === 0) {
-          this.rotateAngle = 360;
-          Logger.info(this.tag, 'rotateAngle:360');
-        }
-      }, 100);
+        this.scroller.scrollToIndex(this.lrcIndex - this.indexScrollStep, true)
+      }, 100)
     }
 
     emitter.on(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY, () => {
       this.updateFavor();
     });
-    emitter.on(AppConstants.DETAIL_UPDATE_TIME, (eventData: emitter.EventData) => {
-      this.updateTime(eventData);
+    emitter.on(AppConstants.DETAIL_UPDATE_LRC_INDEX, (eventData: emitter.EventData) => {
+      this.updateLrcIndex(eventData);
     });
     emitter.on(AppConstants.DETAIL_UPDATE_STATE, (eventData: emitter.EventData) => {
       this.updateState(eventData);
@@ -115,7 +113,7 @@ export default struct PlayerDetail {
 
   aboutToDisappear() {
     Logger.info(this.tag, 'aboutToDisappear');
-    emitter.off(AppConstants.DETAIL_UPDATE_TIME);
+    emitter.off(AppConstants.DETAIL_UPDATE_LRC_INDEX);
     emitter.off(AppConstants.DETAIL_UPDATE_STATE);
     emitter.off(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY);
     emitter.off(AppConstants.DETAIL_UPDATE_LRC);
@@ -218,17 +216,17 @@ export default struct PlayerDetail {
         if (!this.noItem) {
           if (this.albumImageContent) {
             Column() {
-              Image(this.item.id ? AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id : $r('app.media.startIcon'))
+              Image(this.item.id ?
+                AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id :
+              $r('app.media.startIcon'))
                 .width(300)
                 .height(300)
                 .borderRadius(150)
                 .margin(50)
-                .rotate({ angle: this.rotateAngle })
+                .rotate({ angle: this.currentTime / 100 })
                 .animation({
-                  duration: 36000,
+                  duration: 100,
                   curve: Curve.Linear,
-                  delay: 500,
-                  iterations: -1, // 设置-1表示动画无限循环
                   playMode: PlayMode.Normal
                 })
                 .id('detail_songImg')
@@ -276,7 +274,9 @@ export default struct PlayerDetail {
               TransitionEffect.translate({ z: 24 })))
           } else {
             Stack({ alignContent: Alignment.Center }) {
-              Image(this.item.id ? AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id : $r('app.media.startIcon'))
+              Image(this.item.id ?
+                AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id :
+              $r('app.media.startIcon'))
                 .width('80%')
                 .height('80%')
                 .foregroundEffect({ radius: 20 })
@@ -322,12 +322,6 @@ export default struct PlayerDetail {
             .clickEffect(AppConstants.CLICK_EFFECT)
             .onClick(() => {
               this.albumImageContent = true;
-              if (this.state === AppConstants.PLAYER_STATE_PLAYING) {
-                this.rotateAngle = 0;
-                animateTo({ duration: 36000 }, () => {
-                  this.rotateAngle = 360;
-                })
-              }
             })
           }
         }
@@ -348,10 +342,10 @@ export default struct PlayerDetail {
       Row() {
         Text(CommonUtils.formatTime(this.currentTime / 1000)).fontSize('12fp')
           .id('detail_time_current')
-        if (this.item.quality === '.flac') {
-          Text('无损')
-            .id('high_quality')
-        }
+        Text(this.item.quality === AppConstants.HIGH_Q ? AppConstants.HIGH_DES :
+          this.item.quality === AppConstants.FLAC ? AppConstants.FLAC_DES : AppConstants.QUALITY_DEFAULT)
+          .fontColor(Color.Orange)
+          .id('high_quality')
         Text(CommonUtils.formatTime(this.durationTime / 1000)).fontSize('12fp')
           .id('detail_time_duration')
       }.width('80%')
@@ -421,9 +415,7 @@ export default struct PlayerDetail {
   }
 
   updateFavor() {
-    animateTo({ duration: 2000 }, () => {
-      this.item = this.PlayerManager.getItem();
-    })
+    this.item = this.PlayerManager.getItem();
     this.noItem = false;
   }
 
@@ -431,16 +423,12 @@ export default struct PlayerDetail {
     this.item = this.PlayerManager.getItem();
   }
 
-  updateTime(eventData: emitter.EventData) {
+  updateLrcIndex(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined) {
-      this.currentTime = eventData.data.currentTime;
-      this.durationTime = eventData.data.currentDuration;
       if (!this.albumImageContent) {
-        let newLrcIndex = CommonUtils.findLrcIndexByTime(this.item.lrc, this.currentTime, this.lrcIndex)
-        if (newLrcIndex != this.lrcIndex && newLrcIndex != -1) {
-          this.lrcIndex = newLrcIndex;
-          console.info('bestMatchIndex:'+newLrcIndex)
-          this.scroller.scrollToIndex(this.lrcIndex - 5, true)
+        if (eventData.data.newLrcIndex != this.lrcIndex && eventData.data.newLrcIndex != -1) {
+          this.lrcIndex = eventData.data.newLrcIndex;
+          this.scroller.scrollToIndex(this.lrcIndex - this.indexScrollStep, true)
         }
       }
     }
@@ -453,25 +441,11 @@ export default struct PlayerDetail {
         this.noItem = true;
       }
       if (this.state !== AppConstants.PLAYER_STATE_PLAYING &&
-        eventData.data.state !== AppConstants.PLAYER_STATE_PAUSED) {
-        this.lrcIndex = 0
-      }
-      if (this.state !== AppConstants.PLAYER_STATE_PLAYING &&
         eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
         this.item = this.PlayerManager.getItem();
         this.noItem = false;
         this.listTitle = this.PlayerManager.getListTitle();
         this.scroller.scrollToIndex(0, true)
-        setTimeout(() => {
-          if (this.rotateAngle === 0) {
-            this.rotateAngle = 360;
-            Logger.info(this.tag, 'rotateAngle:360');
-          }
-        }, 100);
-      }
-      if (eventData.data.state !== AppConstants.PLAYER_STATE_PLAYING) {
-        this.rotateAngle = 0;
-        Logger.info(this.tag, 'rotateAngle:0');
       }
       this.state = eventData.data.state;
     }

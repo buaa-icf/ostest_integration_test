@@ -26,9 +26,8 @@ import PlayerManager from '../manager/PlayerManager';
 export default struct PlayerBar {
   private tag: string = 'PlayerBar';
   @State item: AudioData = new AudioData('', '', '')
-  @State rotateAngle: number = 0;
-  @State durationTime: number = 100;
-  @State currentTime: number = 0;
+  @Prop durationTime: number;
+  @Prop currentTime: number;
   @State state: string = AppConstants.PLAYER_STATE_UNKNOWN;
   @Link isShowCurrentPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
@@ -37,16 +36,12 @@ export default struct PlayerBar {
 
   aboutToAppear() {
     Logger.info(this.tag, 'aboutToAppear');
-    emitter.on(AppConstants.MAIN_UPDATE_TIME, (eventData: emitter.EventData) => {
-      this.updateTime(eventData);
-    });
     emitter.on(AppConstants.MAIN_UPDATE_STATE, (eventData: emitter.EventData) => {
       this.updateState(eventData)
     });
   }
 
   aboutToDisappear() {
-    emitter.off(AppConstants.MAIN_UPDATE_TIME);
     emitter.off(AppConstants.MAIN_UPDATE_STATE);
     Logger.info(this.tag, 'aboutToDisappear');
   }
@@ -54,26 +49,22 @@ export default struct PlayerBar {
   build() {
     Column() {
       Row() {
-        Image(this.item.id ? (AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id) : $r('app.media.startIcon'))
+        Image(this.item.id ?
+          (AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SONG_IMAGE_URL + this.item.id) :
+        $r('app.media.startIcon'))
           .width(56)
           .height(56)
           .margin(4)
           .borderRadius(48)
           .shadow({ radius: 1, color: Color.Gray })
-          .rotate({ angle: this.rotateAngle })
-          .animation({
-            duration: 7200,
-            curve: Curve.Linear,
-            delay: 500,
-            iterations: -1,
-            playMode: PlayMode.Normal
-          })
+          .rotate({ angle: this.currentTime / 100 })
           .id('songImage')
           .clickEffect(AppConstants.CLICK_EFFECT)
           .onClick(() => {
             this.isShowPlayerDetail = true;
           })
-        Text(this.item.id ? (this.state === AppConstants.PLAYER_STATE_PLAYING ? this.spaces + this.item.title + ' - ' + this.item.artist + this.spaces
+        Text(this.item.id ? (this.state === AppConstants.PLAYER_STATE_PLAYING ?
+          this.spaces + this.item.title + ' - ' + this.item.artist + this.spaces
           : this.item.title + ' - ' + this.item.artist) : AppConstants.LIST_SONG_NO_PLAYING)
           .fontSize('24fp')
           .maxLines(1)
@@ -138,25 +129,9 @@ export default struct PlayerBar {
     .width('100%')
   }
 
-  updateTime(eventData: emitter.EventData) {
-    if (eventData !== undefined && eventData.data !== undefined) {
-      this.currentTime = eventData.data.currentTime;
-      this.durationTime = eventData.data.currentDuration;
-    }
-  }
   updateState(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined) {
       Logger.info(this.tag, 'state:' + eventData.data.state);
-      if (this.state !== AppConstants.PLAYER_STATE_PLAYING && eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
-        if (this.rotateAngle === 0) {
-          this.rotateAngle = 360;
-          Logger.info(this.tag, 'rotateAngle:360');
-        }
-      }
-      if (eventData.data.state !== AppConstants.PLAYER_STATE_PLAYING) {
-        this.rotateAngle = 0;
-        Logger.info(this.tag, 'rotateAngle:0');
-      }
       this.state = eventData.data.state;
       this.item = this.PlayerManager.getItem();
     }

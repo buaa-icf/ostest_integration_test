@@ -14,13 +14,15 @@
  */
 
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
-import hilog from '@ohos.hilog';
 import UIAbility from '@ohos.app.ability.UIAbility';
 import Want from '@ohos.app.ability.Want';
 import window from '@ohos.window';
+import {formInfo } from '@kit.FormKit';
 import PlayerManager from '../manager/PlayerManager';
 import rpc from '@ohos.rpc';
 import HttpManager from '../manager/HttpManager';
+import Logger from '../utils/Logger';
+import AppConstants from '../constants/AppConstants';
 
 const TAG: string = 'EntryAbility';
 
@@ -30,54 +32,63 @@ export default class EntryAbility extends UIAbility {
     let aPlayerManager: PlayerManager = new PlayerManager();
     AppStorage.setOrCreate('PlayerManager', aPlayerManager);
     try {
-      this.callee.on('play', (data: rpc.MessageSequence) => {
+      this.callee.on(AppConstants.CARD_CALL_METHOD_PLAY, (data: rpc.MessageSequence) => {
         aPlayerManager.resume();
         return null;
       });
-      this.callee.on('pause', (data: rpc.MessageSequence) => {
+      this.callee.on(AppConstants.CARD_CALL_METHOD_PAUSE, (data: rpc.MessageSequence) => {
         aPlayerManager.pause();
         return null;
       });
-      this.callee.on('prev', (data: rpc.MessageSequence) => {
+      this.callee.on(AppConstants.CARD_CALL_METHOD_PREV, (data: rpc.MessageSequence) => {
         aPlayerManager.previous();
         return null;
       });
-      this.callee.on('next', (data: rpc.MessageSequence) => {
+      this.callee.on(AppConstants.CARD_CALL_METHOD_NEXT, (data: rpc.MessageSequence) => {
         aPlayerManager.next();
         return null;
       });
-      this.callee.on('playMode', (data: rpc.MessageSequence) => {
+      this.callee.on(AppConstants.CARD_CALL_METHOD_SET_MODE, (data: rpc.MessageSequence) => {
         aPlayerManager.setPlayMode();
         return null;
       });
-      this.callee.on('setFavor', (data: rpc.MessageSequence) => {
+      this.callee.on(AppConstants.CARD_CALL_METHOD_SET_FAVOR, (data: rpc.MessageSequence) => {
         HttpManager.getInstance().set_favourite();
         return null;
       });
-      this.callee.on('formId', (data: rpc.MessageSequence) => {
+      this.callee.on(AppConstants.CARD_CALL_METHOD_FORM_ID, (data: rpc.MessageSequence) => {
         let params: Record<string, string> = JSON.parse(data.readString());
         if (params.formId !== undefined) {
-          console.info(TAG, 'params.formId:' + params.formId);
+          Logger.info(TAG, 'params.formId:' + params.formId);
           aPlayerManager.setFormId(params.formId);
         }
         return null;
       });
     } catch (error) {
-      console.error('Failed to register callee on. Cause:' + JSON.stringify(error));
+      Logger.error(TAG, 'Failed to register callee on. Cause:' + JSON.stringify(error));
     }
-    console.info(TAG, 'Ability onCreate');
+    Logger.info(TAG, 'Ability onCreate');
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
     // Main window is created, set main page for this ability
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    Logger.info(TAG, 'Ability onWindowStageCreate');
     windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+        Logger.error(TAG, 'Failed to load the content. Cause: ' + JSON.stringify(err) ?? '');
         return;
       }
-      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
+      Logger.info(TAG, 'Succeeded in loading the content.');
     });
+  }
+
+  onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    Logger.info(TAG, 'onNewWant Want:'+JSON.stringify(want));
+    if (want.parameters && want.parameters[formInfo.FormParam.IDENTITY_KEY] !== undefined) {
+      let curFormId = want.parameters[formInfo.FormParam.IDENTITY_KEY].toString();
+      let message: string = (JSON.parse(want.parameters?.params as string))?.method;
+      Logger.info(TAG, `onNewWant curFormId:${curFormId} ,message:${message}.`);
+    }
   }
 
   onDestroy(): void {
@@ -89,22 +100,22 @@ export default class EntryAbility extends UIAbility {
       this.callee.off('formId');
       this.callee.off('playMode');
     } catch (error) {
-      console.error('Failed to register callee off. Cause:' + JSON.stringify(error));
+      Logger.error(TAG, 'Failed to register callee off. Cause:' + JSON.stringify(error));
     }
   }
 
   onWindowStageDestroy(): void {
     // Main window is destroyed, release UI related resources
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    Logger.info(TAG, 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
     // Ability has brought to foreground
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
+    Logger.info(TAG, 'Ability onForeground');
   }
 
   onBackground(): void {
     // Ability has back to background
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
+    Logger.info(TAG, 'Ability onBackground');
   }
 }

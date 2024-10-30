@@ -23,7 +23,8 @@ import AppConstants from '../constants/AppConstants';
 export default struct CurrentPlayList {
   private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
   @State playingList: AudioData[] = Array<AudioData>();
-  @State listTitle: string = AppConstants.LIST_SONG_NO_PLAYING;
+  @Prop listTitle: string;
+  @Prop currentTime: number;
   private scrollerForList: Scroller = new Scroller();
 
   aboutToAppear() {
@@ -34,7 +35,7 @@ export default struct CurrentPlayList {
     setTimeout(() => {
       this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true,
         ScrollAlign.CENTER);
-    }, 2000)
+    }, 1000)
 
     emitter.on(AppConstants.PLAYLIST_UPDATE_STATE, (eventData: emitter.EventData) => {
       this.updateState(eventData);
@@ -60,10 +61,10 @@ export default struct CurrentPlayList {
       .alignItems(VerticalAlign.Bottom)
 
       List({ scroller: this.scrollerForList }) {
-        ForEach(this.playingList, (item: AudioData) => {
+        ForEach(this.playingList, (item: AudioData, index) => {
           ListItem() {
             Row() {
-              SongItem({ item })
+              SongItem({ item, index, currentTime: this.currentTime })
                 .width('90%')
                 .clickEffect(AppConstants.CLICK_EFFECT)
                 .onClick(() => {
