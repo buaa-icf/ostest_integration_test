@@ -551,6 +551,9 @@ export default class PlayerManager {
     let index = this.list.indexOf(item);
     if (index > -1) {
       this.list.splice(index, 1);
+      if (index < this.listPosition) {
+        this.listPosition -= 1;
+      }
       AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD, this.list);
       let newShuffleIndex: number[] = [...this.shuffleIndex];
       let shuffleIndex = newShuffleIndex.indexOf(index);
