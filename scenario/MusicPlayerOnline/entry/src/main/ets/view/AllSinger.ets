@@ -13,22 +13,21 @@
  * limitations under the License.
  */
 import AppConstants from "../constants/AppConstants";
-import AllSingerDataSource from "../model/AllSingerDataSource";
 import PlayListData from "../model/PlayListData";
 import emitter from '@ohos.events.emitter';
 import HttpManager from "../manager/HttpManager";
-import prompt from '@ohos.promptAction';
 import SingerItem from "./SingerItem";
 import Logger from "../utils/Logger";
+import AllSingerDataSource from "../model/AllSingerDataSource";
 
 @Component
 export default struct AllSinger {
   private tag = 'AllSinger';
-  @Link isShowSingerList: boolean;
-  @State count: number = 0
-  private aAllSingerDataSource: AllSingerDataSource = new AllSingerDataSource();
   private currentIndex: number = 0;
   private step: number = 100;
+  @State count: number = 0
+  @Link isShowSingerList: boolean;
+  private aAllSingerDataSource: AllSingerDataSource = new AllSingerDataSource();
 
   aboutToAppear() {
     HttpManager.getInstance().getAllSinger(0, this.step);
@@ -36,15 +35,14 @@ export default struct AllSinger {
       if (eventData.data !== undefined && eventData.data.item !== undefined) {
         let list = eventData.data.item as PlayListData[];
         if (list.length === 0) {
-          prompt.showToast({ message: AppConstants.NO_MORE_SINGER });
           return;
         }
-        Logger.info(this.tag, 'UPDATE_ALL_SINGER_LIST size:' + list.length);
         for (let index = 0; index < list.length; index++) {
           this.aAllSingerDataSource.addLastItem(list[index])
         }
         this.currentIndex += this.step;
         this.count = this.aAllSingerDataSource.totalCount();
+        HttpManager.getInstance().getAllSinger(this.currentIndex, this.currentIndex + this.step);
       }
     });
   }
@@ -71,7 +69,7 @@ export default struct AllSinger {
             .fontSize(24)
             .maxLines(1)
             .alignSelf(ItemAlign.Center)
-          Text('(' + this.count.toString() + ')')
+          Text('(' + this.count + ')')
             .fontSize(16)
             .fontColor(Color.Gray)
             .maxLines(1)
@@ -86,11 +84,6 @@ export default struct AllSinger {
           FlowItem() {
             SingerItem({ item })
           }
-          .onAppear(() => {
-            if (index + 10 == this.aAllSingerDataSource.totalCount()) {
-              HttpManager.getInstance().getAllSinger(this.currentIndex, this.currentIndex + this.step);
-            }
-          })
           .backgroundColor(Color.White)
           .borderRadius(12)
         }, (item: string) => item)

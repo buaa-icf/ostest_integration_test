@@ -30,6 +30,7 @@ import formProvider from '@ohos.app.form.formProvider';
 import formBindingData from '@ohos.app.form.formBindingData';
 import CommonUtils from '../utils/CommonUtils';
 import prompt from '@ohos.promptAction';
+import { audio } from '@kit.AudioKit';
 
 export default class PlayerManager {
   private tag: string = 'PlayerManager';
@@ -41,6 +42,7 @@ export default class PlayerManager {
   private favourList: AudioData[] = [];
   private currentTime: number = 0;
   private currentDuration: number = 0;
+  private lastUpdateProgressTime: number = 0;
   private item: AudioData = new AudioData('未播放', '--', '');
   private listPosition: number = 0;
   private state: string = AppConstants.PLAYER_STATE_UNKNOWN;
@@ -116,8 +118,15 @@ export default class PlayerManager {
     })
     // 状态机变化回调函数
     avPlayer.on('timeUpdate', (time: number) => {
-      this.updatePlayerTime(time);
+      this.currentTime = time;
       this.updateLrcIndex();
+      this.updatePlayerTime();
+
+      let timeInt = Math.floor(time / 1000);
+      if (timeInt !== 0 && timeInt <= this.lastUpdateProgressTime) {
+        return;
+      }
+      this.lastUpdateProgressTime = timeInt;
       this.updateCardProgress();
     })
     avPlayer.on('durationUpdate', (time: number) => {
@@ -177,8 +186,20 @@ export default class PlayerManager {
           break;
       }
       this.updatePlayerState(state);
-      this.updateLrcIndex();
       this.updateCard();
+    })
+
+    avPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: number) => {
+      //Logger.info(this.tag, 'bufferingUpdate called,and infoType value is:' + infoType + ', value is :' + value)
+    })
+
+    avPlayer.on('audioOutputDeviceChangeWithInfo', (data: audio.AudioStreamDeviceChangeInfo) => {
+      Logger.info(this.tag, `${JSON.stringify(data)}`);
+    });
+
+    avPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
+      Logger.info(this.tag, 'audioInterrupt called,and InterruptEvent info is:' + info)
+      this.avPlayer?.pause()
     })
   }
 
@@ -486,7 +507,7 @@ export default class PlayerManager {
 
   updateLrcIndex() {
     let newLrcIndex = CommonUtils.findLrcIndexByTime(this.item.lrc, this.currentTime, this.lrcIndex)
-    if (newLrcIndex != this.lrcIndex && newLrcIndex != -1) {
+    if (newLrcIndex !== this.lrcIndex && newLrcIndex !== -1) {
       this.lrcIndex = newLrcIndex;
       let eventData: emitter.EventData = {
         data: {
@@ -497,8 +518,7 @@ export default class PlayerManager {
     }
   }
 
-  updatePlayerTime(time: number) {
-    this.currentTime = time;
+  updatePlayerTime() {
     let eventData: emitter.EventData = {
       data: {
         "currentTime": this.currentTime,
@@ -518,8 +538,7 @@ export default class PlayerManager {
     emitter.emit(AppConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
     emitter.emit(AppConstants.DETAIL_UPDATE_STATE, this.emitterOptions, eventData);
     emitter.emit(AppConstants.PLAYLIST_UPDATE_STATE, this.emitterOptions, eventData);
-    if (this.state !== AppConstants.PLAYER_STATE_PLAYING &&
-      this.state !== AppConstants.PLAYER_STATE_PAUSED) {
+    if (this.state === AppConstants.PLAYER_STATE_IDLE) {
       this.lrcIndex = 0;
       this.updateLrcIndex();
     }
@@ -532,6 +551,9 @@ export default class PlayerManager {
     let index = this.list.indexOf(item);
     if (index > -1) {
       this.list.splice(index, 1);
+      if (index < this.listPosition) {
+        this.listPosition -= 1;
+      }
       AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD, this.list);
       let newShuffleIndex: number[] = [...this.shuffleIndex];
       let shuffleIndex = newShuffleIndex.indexOf(index);
@@ -651,6 +673,7 @@ export default class PlayerManager {
     formProvider.updateForm(this.formId, formMsg).then(() => {
     }).catch((error: Base.BusinessError) => {
       Logger.info(this.tag, `Operation updateForm failed. Cause: ${JSON.stringify(error)}`);
+      this.setFormId('')
     })
   }
 
@@ -665,6 +688,7 @@ export default class PlayerManager {
     formProvider.updateForm(this.formId, formMsg).then(() => {
     }).catch((error: Base.BusinessError) => {
       Logger.info(this.tag, `Operation updateCardPlayMode failed. Cause: ${JSON.stringify(error)}`);
+      this.setFormId('')
     })
   }
 
@@ -680,6 +704,7 @@ export default class PlayerManager {
     formProvider.updateForm(this.formId, formMsg).then(() => {
     }).catch((error: Base.BusinessError) => {
       Logger.info(this.tag, `Operation updateCardProgress failed. Cause: ${JSON.stringify(error)}`);
+      this.setFormId('')
     })
   }
 }

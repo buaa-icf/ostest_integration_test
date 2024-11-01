@@ -71,9 +71,13 @@ export default class AppConstants {
    */
   static readonly REMOVE_FROM_PLAYLIST_URL = 'remove_from_playlist/';
   /**
-   * get all singer list
+   * get all singers
    */
-  static readonly ALL_SINGER_LIST_URL = 'all_singer_list/';
+  static readonly ALL_SINGERS_URL = 'all_singers/';
+  /**
+   * get all songs by singer
+   */
+  static readonly ALL_SONGS_BY_SINGER_URL = 'all_songs_by_singer/';
 
   /**
    * Login URL
@@ -123,6 +127,7 @@ export default class AppConstants {
   static readonly UPDATE_USER_LIST_FAVOR = 'UPDATE_USER_LIST_FAVOR';
   static readonly UPDATE_USER_LIST_SEARCH = 'UPDATE_USER_LIST_SEARCH';
   static readonly UPDATE_ALL_SINGER_LIST = 'UPDATE_ALL_SINGER_LIST';
+  static readonly UPDATE_ALL_SINGER_LIST_ITEM = 'UPDATE_ALL_SINGER_LIST_ITEM';
 
   //当前查看歌单更新
   static readonly UPDATE_EXPLORE_LIST = 'UPDATE_EXPLORE_LIST';

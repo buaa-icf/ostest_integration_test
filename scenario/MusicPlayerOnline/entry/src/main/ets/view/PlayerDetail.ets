@@ -42,13 +42,14 @@ export default struct PlayerDetail {
   @State lrcIndex: number = this.PlayerManager.getLrcIndex();
   @State albumImageContent: boolean = true;
   @State playMode: number = this.PlayerManager.getPlayMode();
-  @State noItem: boolean = false;
   @Link isShowCurrentPlayList: boolean;
   @Link isShowPlayerDetail: boolean;
   @Prop customPlayLists: PlayListData[];
   @Prop loginInfo: string;
   @State listOptions: Array<SelectOption> = [];
   @State inputListName: string = '';
+  @State transFlag: boolean =
+    (this.state === AppConstants.PLAYER_STATE_PLAYING || this.state === AppConstants.PLAYER_STATE_PAUSED);
   private scroller: Scroller = new Scroller()
   private isDialogOpened: boolean = false;
   private songIdToAdd: string = '';
@@ -90,8 +91,7 @@ export default struct PlayerDetail {
 
   aboutToAppear() {
     this.albumImageContent = (AppStorage.get(AppConstants.DETAIL_DEFAULT_SETTING) != AppConstants.TOGGLE_SETTING_ON);
-
-    if (this.lrcIndex - this.indexScrollStep > 0) {
+    if (this.lrcIndex - this.indexScrollStep > 0 && !this.albumImageContent) {
       setTimeout(() => {
         this.scroller.scrollToIndex(this.lrcIndex - this.indexScrollStep, true)
       }, 100)
@@ -112,7 +112,6 @@ export default struct PlayerDetail {
   }
 
   aboutToDisappear() {
-    Logger.info(this.tag, 'aboutToDisappear');
     emitter.off(AppConstants.DETAIL_UPDATE_LRC_INDEX);
     emitter.off(AppConstants.DETAIL_UPDATE_STATE);
     emitter.off(AppConstants.DETAIL_UPDATE_FAVOR_AND_QUALITY);
@@ -213,7 +212,7 @@ export default struct PlayerDetail {
 
 
       Column() {
-        if (!this.noItem) {
+        if (this.transFlag) {
           if (this.albumImageContent) {
             Column() {
               Image(this.item.id ?
@@ -225,7 +224,7 @@ export default struct PlayerDetail {
                 .margin(50)
                 .rotate({ angle: this.currentTime / 100 })
                 .animation({
-                  duration: 100,
+                  duration: (this.currentTime / 100) < 1 ? 0 : 200,
                   curve: Curve.Linear,
                   playMode: PlayMode.Normal
                 })
@@ -234,6 +233,12 @@ export default struct PlayerDetail {
                 .shadow({ radius: 1, color: Color.Gray })
                 .onClick(() => {
                   this.albumImageContent = false;
+                  this.lrcIndex = this.PlayerManager.getLrcIndex();
+                  if (this.lrcIndex - this.indexScrollStep > 0) {
+                    setTimeout(() => {
+                      this.scroller.scrollToIndex(this.lrcIndex - this.indexScrollStep, true)
+                    }, 100)
+                  }
                 })
 
               Row() {
@@ -415,21 +420,26 @@ export default struct PlayerDetail {
   }
 
   updateFavor() {
-    this.item = this.PlayerManager.getItem();
-    this.noItem = false;
+    setTimeout(() => {
+      if (this.item.id === this.PlayerManager.getItem().id) {
+        this.item.isFavor = this.PlayerManager.getItem().isFavor;
+      }
+    }, 1000);
   }
 
   updateLrc() {
-    this.item = this.PlayerManager.getItem();
+    setTimeout(() => {
+      if (this.item.id === this.PlayerManager.getItem().id) {
+        this.item.lrc = this.PlayerManager.getItem().lrc;
+      }
+    }, 1000);
   }
 
   updateLrcIndex(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined) {
       if (!this.albumImageContent) {
-        if (eventData.data.newLrcIndex != this.lrcIndex && eventData.data.newLrcIndex != -1) {
-          this.lrcIndex = eventData.data.newLrcIndex;
-          this.scroller.scrollToIndex(this.lrcIndex - this.indexScrollStep, true)
-        }
+        this.lrcIndex = eventData.data.newLrcIndex;
+        this.scroller.scrollToIndex(this.lrcIndex - this.indexScrollStep, true)
       }
     }
   }
@@ -437,15 +447,16 @@ export default struct PlayerDetail {
   updateState(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined) {
       Logger.info(this.tag, 'state:' + eventData.data.state);
-      if (eventData.data.state === AppConstants.PLAYER_STATE_IDLE) {
-        this.noItem = true;
+      if (eventData.data.state === AppConstants.PLAYER_STATE_PREPARED) {
+        setTimeout(() => {
+          this.transFlag = true;
+          this.item = this.PlayerManager.getItem();
+          this.listTitle = this.PlayerManager.getListTitle();
+          this.scroller.scrollToIndex(0, true)
+        }, 1000)
       }
-      if (this.state !== AppConstants.PLAYER_STATE_PLAYING &&
-        eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
-        this.item = this.PlayerManager.getItem();
-        this.noItem = false;
-        this.listTitle = this.PlayerManager.getListTitle();
-        this.scroller.scrollToIndex(0, true)
+      if (eventData.data.state === AppConstants.PLAYER_STATE_IDLE) {
+        this.transFlag = false;
       }
       this.state = eventData.data.state;
     }

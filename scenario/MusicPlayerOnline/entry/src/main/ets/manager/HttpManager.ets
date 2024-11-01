@@ -327,7 +327,7 @@ export default class HttpManager {
     try {
       Logger.info(this.tag, 'HttpResponse start:' + AppConstants.ADD_TO_PLAYLIST_URL + song_id + '/' + playlist_name);
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ADD_TO_PLAYLIST_URL +
-        song_id + '/' + playlist_name,
+        song_id + '/' + encodeURIComponent(playlist_name),
         {
           method: http.RequestMethod.GET,
           header: {
@@ -378,9 +378,10 @@ export default class HttpManager {
     }
     let msg: string = ''
     try {
-      Logger.info(this.tag, 'HttpResponse start:' + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name);
+      Logger.info(this.tag,
+        'HttpResponse start:' + AppConstants.REMOVE_FROM_PLAYLIST_URL + song_id + '/' + playlist_name);
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.REMOVE_FROM_PLAYLIST_URL +
-        song_id + '/' + playlist_name,
+        song_id + '/' + encodeURIComponent(playlist_name),
         {
           method: http.RequestMethod.GET,
           header: {
@@ -679,7 +680,7 @@ export default class HttpManager {
   searchSongsFromServer(search_word: string) {
     try {
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.SEARCH_SONG_URL +
-        search_word,
+      encodeURIComponent(search_word),
         {
           method: http.RequestMethod.GET,
           header: {
@@ -765,10 +766,9 @@ export default class HttpManager {
   }
 
   getAllSinger(start: number, end: number) {
-
     try {
-      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ALL_SINGER_LIST_URL +
-        start + '/' + end,
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ALL_SINGERS_URL + start +
+        '/' + end,
         {
           method: http.RequestMethod.GET,
           header: {
@@ -779,23 +779,11 @@ export default class HttpManager {
           if (!err) {
             Logger.info(this.tag, 'HttpResponse getAllSinger Result:' + data.result);
             try {
-              const jsonObject: object = JSON.parse(data.result as string);
+              let jsonObject: object = JSON.parse(data.result as string);
               let playingLists: PlayListData[] = [];
               Object.keys(jsonObject).forEach((key) => {
-                let aPlayingList: AudioData[] = [];
-                Object.keys(jsonObject[key]).forEach((key1) => {
-                  aPlayingList.push(new AudioData(
-                    jsonObject[key][key1].name,
-                    jsonObject[key][key1].singer,
-                    jsonObject[key][key1].id,
-                    jsonObject[key][key1].album,
-                    jsonObject[key][key1].year,
-                    jsonObject[key][key1].language
-                  ));
-                })
-                let item = new PlayListData(key, $r('app.media.icon'),
-                  aPlayingList.length + AppConstants.LIST_SONG_COUNT,
-                  aPlayingList, '')
+                let item = new PlayListData(key, $r('app.media.icon'), '', [], '');
+                item.count = jsonObject[key] as number;
                 playingLists.push(item);
               });
               let eventData: emitter.EventData = {
@@ -809,6 +797,65 @@ export default class HttpManager {
             }
           } else {
             Logger.info(this.tag, 'HttpResponse getAllSinger error:' + JSON.stringify(err));
+            prompt.showToast({
+              message: JSON.stringify(err)
+            })
+          }
+        });
+    } catch (err) {
+      Logger.info(this.tag, 'HttpRequest getAllSinger error:' + JSON.stringify(err));
+      prompt.showToast({
+        message: JSON.stringify(err)
+      })
+    }
+  }
+
+  getAllSongsBySinger(singerName: string) {
+    try {
+      this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.ALL_SONGS_BY_SINGER_URL +
+      encodeURIComponent(singerName),
+        {
+          method: http.RequestMethod.GET,
+          header: {
+            'Cookie': AppStorage.get(AppConstants.LOGIN_COOKIE)
+          }
+        },
+        (err: Error, data: http.HttpResponse) => {
+          if (!err) {
+            Logger.info(this.tag, 'HttpResponse getAllSongsBySinger Result:' + data.result);
+            try {
+              const jsonObject: object = JSON.parse(data.result as string);
+              Object.keys(jsonObject).forEach((key) => {
+                let aPlayingList: AudioData[] = [];
+                Object.keys(jsonObject[key]).forEach((key1) => {
+                  aPlayingList.push(new AudioData(
+                    jsonObject[key][key1].name,
+                    jsonObject[key][key1].singer,
+                    jsonObject[key][key1].id,
+                    jsonObject[key][key1].album,
+                    jsonObject[key][key1].year,
+                    jsonObject[key][key1].language
+                  ));
+                })
+                let aPlayListDataItem: PlayListData = new PlayListData(key, $r('app.media.icon'),
+                  aPlayingList.length + AppConstants.LIST_SONG_COUNT,
+                  aPlayingList, '')
+                if (this.PlayerManager.getExploreList().title === aPlayListDataItem.title) {
+                  this.PlayerManager.setExploreList(aPlayListDataItem);
+                }
+                let eventData: emitter.EventData = {
+                  data: {
+                    "item": aPlayListDataItem,
+                  }
+                };
+                emitter.emit(AppConstants.UPDATE_ALL_SINGER_LIST_ITEM, this.emitterOptions, eventData);
+              });
+            } catch (error) {
+              Logger.error(this.tag, "JSON :", error.message);
+            }
+          } else {
+            Logger.info(this.tag, 'HttpResponse getAllSongsBySinger error:' + JSON.stringify(err));
+            Logger.info(this.tag, singerName);
             prompt.showToast({
               message: JSON.stringify(err)
             })
