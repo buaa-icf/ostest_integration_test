@@ -17,6 +17,7 @@ import ItemData from '../model/PlayListData';
 import AppConstants from '../constants/AppConstants';
 import PlayerManager from '../manager/PlayerManager';
 import emitter from '@ohos.events.emitter';
+import HttpManager from '../manager/HttpManager';
 
 /**
  * List item information component.
@@ -37,9 +38,9 @@ export default struct SingerItem {
     Column() {
       Text(this.item.title)
         .fontSize(20)
-        .fontColor(this.item.list.length > 70 ? this.colors[0] : this.item.list.length > 50 ? this.colors[1] :
-          this.item.list.length > 30 ? this.colors[2] :
-            this.item.list.length > 20 ? this.colors[3] : this.item.list.length > 10 ? this.colors[4] : this.colors[5])
+        .fontColor(this.item.count > 70 ? this.colors[0] : this.item.count > 50 ? this.colors[1] :
+          this.item.count > 30 ? this.colors[2] :
+            this.item.count > 20 ? this.colors[3] : this.item.count > 10 ? this.colors[4] : this.colors[5])
         .width(90)
         .textAlign(TextAlign.Center)
         .margin(4)
@@ -51,6 +52,9 @@ export default struct SingerItem {
     .alignItems(HorizontalAlign.Center)
     .clickEffect(AppConstants.CLICK_EFFECT)
     .onClick(() => {
+      if (this.item.list.length === 0) {
+        HttpManager.getInstance().getAllSongsBySinger(this.item.title);
+      }
       this.PlayerManager.setExploreList(this.item);
       emitter.emit(AppConstants.MAIN_SHOW_PLAYLIST, this.emitterOptions);
     })

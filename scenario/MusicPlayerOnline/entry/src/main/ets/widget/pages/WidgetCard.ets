@@ -95,12 +95,17 @@ struct WidgetCard {
             .backgroundImage('memory://' + this.imgName)
             .backgroundImageSize(ImageSize.Cover)
             .rotate({ angle: this.currentTime / 100 })
-            .onClick(() => {
-              this.onItemClick(this.ACTION_TYPE_ROUTER, this.formId);
+            .animation({
+              duration: (this.currentTime / 100) < 1 ? 0 : 1000,
+              curve: Curve.Linear,
+              playMode: PlayMode.Normal
             })
         }
         .alignContent(Alignment.Center)
         .height(this.FULL_PERCENT)
+        .onClick(() => {
+          this.onItemClick(this.ACTION_TYPE_ROUTER, this.formId);
+        })
 
         Column() {
           Row() {
