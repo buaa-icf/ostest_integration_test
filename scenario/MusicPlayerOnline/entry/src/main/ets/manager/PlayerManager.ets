@@ -138,43 +138,39 @@ export default class PlayerManager {
     })
     avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
       switch (state) {
-        case AppConstants.PLAYER_STATE_IDLE: // 成功调用reset接口后触发该状态机上报
-          Logger.info(this.tag, 'PlayerManager state idle called.');
-          //avPlayer.release(); // 调用release接口销毁实例对象
+        case AppConstants.PLAYER_STATE_IDLE:
+          //Logger.info(this.tag, 'PlayerManager state idle called.');
+          //avPlayer.release();
           break;
-        case AppConstants.PLAYER_STATE_INITIALIZED: // avplayer 设置播放源后触发该状态上报
-          Logger.info(this.tag, 'PlayerManager state initialized called.');
+        case AppConstants.PLAYER_STATE_INITIALIZED:
+          //Logger.info(this.tag, 'PlayerManager state initialized called.');
           avPlayer.prepare();
           break;
-        case AppConstants.PLAYER_STATE_PREPARED: // prepare调用成功后上报该状态机
-          Logger.info(this.tag, 'PlayerManager state prepared called.');
-          avPlayer.play(); // 调用播放接口开始播放
+        case AppConstants.PLAYER_STATE_PREPARED:
+          //Logger.info(this.tag, 'PlayerManager state prepared called.');
+          avPlayer.play();
           break;
-        case AppConstants.PLAYER_STATE_PLAYING: // play成功调用后触发该状态机上报
-          Logger.info(this.tag, 'PlayerManager state playing called.');
+        case AppConstants.PLAYER_STATE_PLAYING:
+          //Logger.info(this.tag, 'PlayerManager state playing called.');
           this.list[this.listPosition].isPlaying = true;
           HttpManager.getInstance().record_recent();
           break;
-        case AppConstants.PLAYER_STATE_PAUSED: // pause成功调用后触发该状态机上报
-          Logger.info(this.tag, 'PlayerManager state paused called.');
+        case AppConstants.PLAYER_STATE_PAUSED:
+          //Logger.info(this.tag, 'PlayerManager state paused called.');
           break;
-        case AppConstants.PLAYER_STATE_COMPLETED: // 播放结束后触发该状态机上报
-          Logger.info(this.tag, 'PlayerManager state completed called.');
-          //avPlayer.stop(); //调用播放结束接口
+        case AppConstants.PLAYER_STATE_COMPLETED:
+          //Logger.info(this.tag, 'PlayerManager state completed called.');
+          avPlayer.stop();
+          break;
+        case AppConstants.PLAYER_STATE_STOPPED:
+          //Logger.info(this.tag, 'PlayerManager state stopped called.');
           this.next();
           break;
-        case AppConstants.PLAYER_STATE_STOPPED: // stop接口成功调用后触发该状态机上报
-          Logger.info(this.tag, 'PlayerManager state stopped called.');
-          //this.stopContinuousTask();
-          this.currentTime = 0;
-          Logger.info(this.tag, 'Stop:' + this.item.title);
-          avPlayer.reset(); // 调用reset接口初始化avplayer状态
-          break;
         case AppConstants.PLAYER_STATE_RELEASED:
-          Logger.info(this.tag, 'PlayerManager state released called.');
+          //Logger.info(this.tag, 'PlayerManager state released called.');
           break;
         default:
-          Logger.info(this.tag, 'PlayerManager state unknown called.');
+          //Logger.info(this.tag, 'PlayerManager state unknown called.');
           if (this.avPlayer !== undefined) {
             try {
               this.avPlayer.release();
@@ -538,9 +534,16 @@ export default class PlayerManager {
     emitter.emit(AppConstants.MAIN_UPDATE_STATE, this.emitterOptions, eventData);
     emitter.emit(AppConstants.DETAIL_UPDATE_STATE, this.emitterOptions, eventData);
     emitter.emit(AppConstants.PLAYLIST_UPDATE_STATE, this.emitterOptions, eventData);
-    if (this.state === AppConstants.PLAYER_STATE_IDLE) {
+    if (this.state === AppConstants.PLAYER_STATE_STOPPED) {
+      //this.stopContinuousTask();
+      this.currentTime = 0;
       this.lrcIndex = 0;
-      this.updateLrcIndex();
+      let eventData: emitter.EventData = {
+        data: {
+          "newLrcIndex": this.lrcIndex,
+        }
+      };
+      emitter.emit(AppConstants.DETAIL_UPDATE_LRC_INDEX, this.emitterOptions, eventData);
     }
   }
 

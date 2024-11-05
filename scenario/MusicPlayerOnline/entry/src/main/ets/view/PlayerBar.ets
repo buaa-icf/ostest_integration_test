@@ -35,7 +35,6 @@ export default struct PlayerBar {
   private spaces: string = '               '
 
   aboutToAppear() {
-    Logger.info(this.tag, 'aboutToAppear');
     emitter.on(AppConstants.MAIN_UPDATE_STATE, (eventData: emitter.EventData) => {
       this.updateState(eventData)
     });
@@ -43,7 +42,6 @@ export default struct PlayerBar {
 
   aboutToDisappear() {
     emitter.off(AppConstants.MAIN_UPDATE_STATE);
-    Logger.info(this.tag, 'aboutToDisappear');
   }
 
   build() {
