@@ -25,21 +25,30 @@ export default struct AllSinger {
   private tag = 'AllSinger';
   private currentIndex: number = 0;
   private step: number = 100;
-  @State count: number = 0
+  private scroller: Scroller = new Scroller();
+  private totalData: PlayListData[] = [];
+  private currentAlphabet: string = '全';
+  @State count: number = 0;
+  @State isLoading: boolean = false;
   @Link isShowSingerList: boolean;
+  @State alphabetIndexerHead: string[] =
+    ['全', '#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+      'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+      'U', 'V', 'W', 'X', 'Y', 'Z'];
   private aAllSingerDataSource: AllSingerDataSource = new AllSingerDataSource();
 
   aboutToAppear() {
     HttpManager.getInstance().getAllSinger(0, this.step);
     emitter.on(AppConstants.UPDATE_ALL_SINGER_LIST, (eventData: emitter.EventData) => {
+      this.isLoading = true;
       if (eventData.data !== undefined && eventData.data.item !== undefined) {
         let list = eventData.data.item as PlayListData[];
         if (list.length === 0) {
+          this.isLoading = false;
           return;
         }
-        for (let index = 0; index < list.length; index++) {
-          this.aAllSingerDataSource.addLastItem(list[index])
-        }
+        this.aAllSingerDataSource.addItems(list);
+        this.totalData = this.totalData.concat(list);
         this.currentIndex += this.step;
         this.count = this.aAllSingerDataSource.totalCount();
         HttpManager.getInstance().getAllSinger(this.currentIndex, this.currentIndex + this.step);
@@ -79,25 +88,63 @@ export default struct AllSinger {
       .width('100%')
       .margin(4)
 
-      WaterFlow() {
-        LazyForEach(this.aAllSingerDataSource, (item: PlayListData, index) => {
-          FlowItem() {
-            SingerItem({ item })
-          }
-          .backgroundColor(Color.White)
-          .borderRadius(12)
-        }, (item: string) => item)
+      Stack({ alignContent: Alignment.TopStart }) {
+        WaterFlow({ scroller: this.scroller }) {
+          LazyForEach(this.aAllSingerDataSource, (item: PlayListData, index) => {
+            FlowItem() {
+              SingerItem({ item })
+            }.backgroundColor(Color.White)
+            .borderRadius(12)
+          })
+        }
+        .columnsTemplate("1fr 1fr 1fr 1fr")
+        .columnsGap(8)
+        .rowsGap(16)
+        .padding({ left: '10%', right: 8 })
+        .margin({ bottom: 64 })
+        .scrollBar(BarState.On)
+        .scrollBarWidth(10)
+
+        AlphabetIndexer({ arrayValue: this.alphabetIndexerHead, selected: 0 })
+          .autoCollapse(false)
+          .itemSize(20)
+          .selectedFont({ size: 20 })
+          .font({ size: 16 })
+          .onSelect((index: number) => {
+            if (!this.isLoading) {
+              this.updateDataBySelect(this.alphabetIndexerHead[index]);
+            }
+          })
+          .enabled(!this.isLoading)
+          .width('10%')
       }
-      .columnsTemplate("1fr 1fr 1fr 1fr")
-      .columnsGap(8)
-      .rowsGap(16)
-      .padding({ left: 8, right: 8 })
-      .margin({ bottom: 64 })
-      .scrollBar(BarState.On)
-      .scrollBarWidth(10)
     }
     .alignItems(HorizontalAlign.Center)
     .height('100%')
     .width('100%')
+  }
+
+  updateDataBySelect(indexer: string) {
+    if (indexer === this.currentAlphabet) {
+      return;
+    }
+    this.currentAlphabet = indexer;
+    this.aAllSingerDataSource.clear();
+    let newData: PlayListData[] = []
+    if (indexer === '全') {
+      newData = this.totalData;
+    } else {
+      this.totalData.forEach(aSinger => {
+        if (aSinger.indexer === indexer) {
+          newData.push(aSinger);
+        }
+      })
+    }
+    setTimeout(() => {
+      animateTo({ duration: 500 }, () => {
+        this.aAllSingerDataSource.setData(newData);
+        this.count = this.aAllSingerDataSource.totalCount();
+      })
+    }, 100)
   }
 }

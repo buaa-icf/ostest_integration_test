@@ -34,6 +34,7 @@ export default class PlayListData {
   list: AudioData[] = [];
   isCustom = false;
   count: number = 0;
+  indexer: string = '#'
 
   constructor(title: string, img: Resource, subTitle: string, list: AudioData[], others?: string) {
     this.title = title;

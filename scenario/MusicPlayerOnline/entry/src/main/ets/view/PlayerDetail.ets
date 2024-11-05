@@ -420,11 +420,11 @@ export default struct PlayerDetail {
   }
 
   updateFavor() {
-    setTimeout(() => {
       if (this.item.id === this.PlayerManager.getItem().id) {
-        this.item.isFavor = this.PlayerManager.getItem().isFavor;
+        animateTo({duration:1000},()=>{
+          this.item = this.PlayerManager.getItem();
+        })
       }
-    }, 1000);
   }
 
   updateLrc() {

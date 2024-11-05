@@ -61,7 +61,7 @@ export default class HttpManager {
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.csrfToken = jsonObject['csrf_token'];
@@ -77,7 +77,7 @@ export default class HttpManager {
                 },
                 (err: Error, data: http.HttpResponse) => {
                   if (!err) {
-                    Logger.info(this.tag, 'HttpResponse Result:' + data.result);
+                    //Logger.info(this.tag, 'HttpResponse Result:' + data.result);
                     if ((data.result as string).indexOf(AppConstants.REGISTER_FAILED) !== -1) {
                       prompt.showToast({
                         message: AppConstants.REGISTER_INFO_FAILED + data.result
@@ -122,7 +122,7 @@ export default class HttpManager {
       this.httpRequest.request(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.CSRF_URL,
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.csrfToken = jsonObject['csrf_token'];
@@ -138,7 +138,7 @@ export default class HttpManager {
                 },
                 (err: Error, data: http.HttpResponse) => {
                   if (!err) {
-                    Logger.info(this.tag, 'HttpResponse Result:' + data.result);
+                    //Logger.info(this.tag, 'HttpResponse Result:' + data.result);
                     if (200 === data.responseCode) {
                       Logger.info(this.tag, 'HttpResponse code:' +
                       (data.result as string).indexOf(AppConstants.LOGIN_FAILED));
@@ -219,7 +219,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse record_recent Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse record_recent Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               this.PlayerManager.setItemQuality(jsonObject['message']);
@@ -270,7 +270,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               switch (jsonObject["message"]) {
@@ -336,7 +336,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               Logger.info(this.tag, 'HttpResponse msg:' + jsonObject["message"]);
@@ -390,7 +390,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               Logger.info(this.tag, 'HttpResponse msg:' + jsonObject["message"]);
@@ -433,7 +433,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse getRecommendListFromServer Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse getRecommendListFromServer Result:' + data.result);
             try {
               let isStart = true;
               const jsonObject: object = JSON.parse(data.result as string);
@@ -496,7 +496,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse getFavorListFromServer Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse getFavorListFromServer Result:' + data.result);
             try {
               let aPlayingList: AudioData[] = Array<AudioData>();
               const jsonObject: object = JSON.parse(data.result as string);
@@ -555,7 +555,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse getRecentListFromServer Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse getRecentListFromServer Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               let isStart = true;
@@ -615,7 +615,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse getCustomListFromServer Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse getCustomListFromServer Result:' + data.result);
             try {
               interface PlaylistItem {
                 playlist_name: string;
@@ -689,7 +689,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse searchSongsFromServer Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse searchSongsFromServer Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               let isStart = true;
@@ -744,7 +744,7 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse getLrc Result:' + data.result);
+            //Logger.info(this.tag, 'HttpResponse getLrc Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               let id: string = jsonObject['id'];
@@ -777,13 +777,13 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse getAllSinger Result:' + data.result);
             try {
               let jsonObject: object = JSON.parse(data.result as string);
               let playingLists: PlayListData[] = [];
               Object.keys(jsonObject).forEach((key) => {
                 let item = new PlayListData(key, $r('app.media.icon'), '', [], '');
-                item.count = jsonObject[key] as number;
+                item.count = jsonObject[key].count as number;
+                item.indexer = jsonObject[key].indexer as string;
                 playingLists.push(item);
               });
               let eventData: emitter.EventData = {
@@ -822,7 +822,6 @@ export default class HttpManager {
         },
         (err: Error, data: http.HttpResponse) => {
           if (!err) {
-            Logger.info(this.tag, 'HttpResponse getAllSongsBySinger Result:' + data.result);
             try {
               const jsonObject: object = JSON.parse(data.result as string);
               Object.keys(jsonObject).forEach((key) => {

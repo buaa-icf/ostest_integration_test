@@ -82,21 +82,39 @@ export default class AllSingerDataSource implements IDataSource {
   }
 
   // 增加前面数据
-  public add1stItem(item:PlayListData): void {
+  public add1stItem(item: PlayListData): void {
     this.dataArray.splice(0, 0, item)
     this.notifyDataAdd(0)
   }
 
   // 在数据尾部增加一个元素
-  public addLastItem(item:PlayListData): void {
+  public addLastItem(item: PlayListData): void {
     this.dataArray.splice(this.dataArray.length, 0, item)
     this.notifyDataAdd(this.dataArray.length - 1)
   }
 
   // 在指定索引位置增加一个元素
-  public addItem(index: number,item:PlayListData): void {
+  public addItem(index: number, item: PlayListData): void {
     this.dataArray.splice(index, 0, item)
     this.notifyDataAdd(index)
+  }
+
+  // 增加一组数据
+  public addItems(alist:PlayListData[]): void {
+    this.dataArray = this.dataArray.concat(alist)
+    this.notifyDataReload()
+  }
+
+  // 替换数据
+  public setData(data: PlayListData[]): void {
+    this.dataArray = data.slice()
+    this.notifyDataReload();
+  }
+
+  // 删除所有元素
+  public clear(): void {
+    this.dataArray = []
+    this.notifyDataReload();
   }
 
   // 删除第一个元素
@@ -105,22 +123,9 @@ export default class AllSingerDataSource implements IDataSource {
     this.notifyDataDelete(0)
   }
 
-  // 删除第二个元素
-  public delete2ndItem(): void {
-    this.dataArray.splice(1, 1)
-    this.notifyDataDelete(1)
-  }
-
   // 删除最后一个元素
   public deleteLastItem(): void {
     this.dataArray.splice(-1, 1)
     this.notifyDataDelete(this.dataArray.length)
-  }
-
-  // 重新加载数据
-  public reload(): void {
-    this.dataArray.splice(1, 1)
-    this.dataArray.splice(3, 2)
-    this.notifyDataReload()
   }
 }
