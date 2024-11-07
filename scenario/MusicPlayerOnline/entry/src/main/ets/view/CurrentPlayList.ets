@@ -22,13 +22,12 @@ import AppConstants from '../constants/AppConstants';
 @Component
 export default struct CurrentPlayList {
   private playerManager: PlayerManager = AppStorage.get('PlayerManager') as PlayerManager;
-  @State playingList: AudioData[] = Array<AudioData>();
-  @Prop listTitle: string;
+  @State playingList: AudioData[] = [];
+  @State listTitle: string = this.playerManager.getListTitle();;
   @Prop currentTime: number;
   private scrollerForList: Scroller = new Scroller();
 
   aboutToAppear() {
-    this.listTitle = this.playerManager.getListTitle();
     animateTo({ duration: 1000 }, () => {
       this.playingList = this.playerManager.getCurrentPlayList();
     })
@@ -100,13 +99,13 @@ export default struct CurrentPlayList {
   updateState(eventData: emitter.EventData) {
     if (eventData !== undefined && eventData.data !== undefined &&
       eventData.data.state === AppConstants.PLAYER_STATE_PLAYING) {
-      animateTo({ duration: 2000 }, () => {
+      animateTo({ duration: 1000 }, () => {
         this.playingList = this.playerManager.getCurrentPlayList();
       })
       setTimeout(() => {
         this.scrollerForList.scrollToIndex(this.playingList.indexOf(this.playerManager.getItem()), true,
           ScrollAlign.CENTER);
-      }, 2000)
+      }, 1000)
     }
   }
 }

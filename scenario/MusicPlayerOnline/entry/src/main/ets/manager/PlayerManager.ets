@@ -43,7 +43,6 @@ export default class PlayerManager {
   private currentTime: number = 0;
   private currentDuration: number = 0;
   private lastUpdateProgressTime: number = 0;
-  private item: AudioData = new AudioData('未播放', '--', '');
   private listPosition: number = 0;
   private state: string = AppConstants.PLAYER_STATE_UNKNOWN;
   private listTitle: string = AppConstants.LIST_SONG_NO_PLAYING;
@@ -64,9 +63,6 @@ export default class PlayerManager {
       let id = AppStorage.get(AppConstants.PLAYLIST_RECORD_INDEX) as string;
       let index = this.list.findIndex((audioData) => audioData.id === id);
       this.listPosition = (index !== -1) ? index : 0;
-      if (this.list.length > 0) {
-        this.item = this.list[this.listPosition];
-      }
       this.listTitle = AppConstants.CURRENT_LIST_TITLE;
       this.shuffleIndex = [];
       for (let i = 0; i < this.list.length; i++) {
@@ -114,7 +110,7 @@ export default class PlayerManager {
     // error回调监听函数,当avPlayer在操作过程中出现错误时调用 reset接口触发重置流程
     avPlayer.on('error', (err: BusinessError) => {
       Logger.error(this.tag, `Invoke PlayerManager failed, code is ${err.code}, message is ${err.message}`);
-      avPlayer.reset(); // 调用reset重置资源，触发idle状态
+      avPlayer.reset();
     })
     // 状态机变化回调函数
     avPlayer.on('timeUpdate', (time: number) => {
@@ -139,38 +135,36 @@ export default class PlayerManager {
     avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
       switch (state) {
         case AppConstants.PLAYER_STATE_IDLE:
-          //Logger.info(this.tag, 'PlayerManager state idle called.');
-          //avPlayer.release();
+          Logger.info(this.tag, 'PlayerManager state idle called.');
           break;
         case AppConstants.PLAYER_STATE_INITIALIZED:
-          //Logger.info(this.tag, 'PlayerManager state initialized called.');
+          Logger.info(this.tag, 'PlayerManager state initialized called.');
           avPlayer.prepare();
           break;
         case AppConstants.PLAYER_STATE_PREPARED:
-          //Logger.info(this.tag, 'PlayerManager state prepared called.');
+          Logger.info(this.tag, 'PlayerManager state prepared called.');
           avPlayer.play();
           break;
         case AppConstants.PLAYER_STATE_PLAYING:
-          //Logger.info(this.tag, 'PlayerManager state playing called.');
-          this.list[this.listPosition].isPlaying = true;
+          Logger.info(this.tag, 'PlayerManager state playing called.');
           HttpManager.getInstance().record_recent();
           break;
         case AppConstants.PLAYER_STATE_PAUSED:
-          //Logger.info(this.tag, 'PlayerManager state paused called.');
+          Logger.info(this.tag, 'PlayerManager state paused called.');
           break;
         case AppConstants.PLAYER_STATE_COMPLETED:
-          //Logger.info(this.tag, 'PlayerManager state completed called.');
+          Logger.info(this.tag, 'PlayerManager state completed called.');
           avPlayer.stop();
           break;
         case AppConstants.PLAYER_STATE_STOPPED:
-          //Logger.info(this.tag, 'PlayerManager state stopped called.');
+          Logger.info(this.tag, 'PlayerManager state stopped called.');
           this.next();
           break;
         case AppConstants.PLAYER_STATE_RELEASED:
-          //Logger.info(this.tag, 'PlayerManager state released called.');
+          Logger.info(this.tag, 'PlayerManager state released called.');
           break;
         default:
-          //Logger.info(this.tag, 'PlayerManager state unknown called.');
+        Logger.info(this.tag, 'PlayerManager state unknown called.');
           if (this.avPlayer !== undefined) {
             try {
               this.avPlayer.release();
@@ -203,7 +197,7 @@ export default class PlayerManager {
    * 初始化
    */
   playList(listTitle: string, list: AudioData[], item: AudioData, isNotify?: boolean): void {
-    this.stop();
+    this.reset();
     if (list.length <= 0) {
       Logger.error(this.tag, 'PlayList:' + 'list length <= 0');
       return;
@@ -233,7 +227,7 @@ export default class PlayerManager {
     if (this.state === AppConstants.PLAYER_STATE_PAUSED && this.avPlayer !== undefined) {
       this.avPlayer.play();
     } else {
-      this.play(this.item);
+      this.play(this.getItem());
     }
   }
 
@@ -242,9 +236,7 @@ export default class PlayerManager {
    */
   play(item: AudioData): void {
     Logger.info(this.tag, 'Play finish:' + this.listPosition.toString());
-    if (this.item) {
-      this.item.isPlaying = false;
-    }
+    this.getItem().isPlaying = false;
     let index = -1
     if (item === undefined || item.id === '') {
       return
@@ -256,18 +248,21 @@ export default class PlayerManager {
       this.listPosition = index;
     }
     Logger.info(this.tag, 'Play :' + this.listPosition.toString());
-    this.item = this.list[this.listPosition]
-    AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD_INDEX, this.item.id);
+    this.getItem().isPlaying = true;
+    AppStorage.setOrCreate(AppConstants.PLAYLIST_RECORD_INDEX, this.getItem().id);
     let isFavor = false;
     for (let favorItem of this.favourList) {
-      if (this.item.id === favorItem.id) {
+      if (this.getItem().id === favorItem.id) {
         isFavor = true;
         break;
       }
     }
-    this.item.isFavor = isFavor;
-    HttpManager.getInstance().getLrc(this.item.id);
-    this.avPlayerLive(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.PLAY_SONG_URL + this.item.id);
+    this.getItem().isFavor = isFavor;
+    if (this.getItem().lrc.length === 0) {
+      HttpManager.getInstance().getLrc(this.getItem().id);
+    }
+    this.avPlayerLive(AppStorage.get(AppConstants.SERVER_HOST_PROP) + AppConstants.PLAY_SONG_URL +
+    this.getItem().id);
   }
 
   /**
@@ -280,15 +275,14 @@ export default class PlayerManager {
   }
 
   /**
-   * 停止
+   * reset
    */
-  stop(): void {
+  reset(): void {
     if (this.avPlayer !== undefined) {
-      this.avPlayer.stop();
+      this.avPlayer.reset();
       if (this.list.length > this.listPosition) {
-        this.list[this.listPosition].isPlaying = false;
+        this.getItem().isPlaying = false;
       }
-      this.item = new AudioData('未播放', '--', '');
     }
   }
 
@@ -384,7 +378,10 @@ export default class PlayerManager {
   }
 
   getItem(): AudioData {
-    return this.item;
+    if (this.list.length === 0) {
+      return new AudioData('未播放', '--', '');
+    }
+    return this.list[this.listPosition];
   }
 
   setFormId(formId: string) {
@@ -395,11 +392,11 @@ export default class PlayerManager {
   }
 
   setItemQuality(quality: string) {
-    this.item.quality = quality;
+    this.getItem().quality = quality;
   }
 
   setItemFavor(isFavor: boolean) {
-    this.item.isFavor = isFavor;
+    this.getItem().isFavor = isFavor;
     this.updateCard();
   }
 
@@ -453,8 +450,8 @@ export default class PlayerManager {
   }
 
   setLrc(id: string, lrc: string) {
-    if (id == this.item.id) {
-      this.item.lrc = CommonUtils.getLrc(lrc);
+    if (id == this.getItem().id) {
+      this.getItem().lrc = CommonUtils.getLrc(lrc);
       emitter.emit(AppConstants.DETAIL_UPDATE_LRC, this.emitterOptions);
     }
   }
@@ -502,7 +499,7 @@ export default class PlayerManager {
   }
 
   updateLrcIndex() {
-    let newLrcIndex = CommonUtils.findLrcIndexByTime(this.item.lrc, this.currentTime, this.lrcIndex)
+    let newLrcIndex = CommonUtils.findLrcIndexByTime(this.getItem().lrc, this.currentTime, this.lrcIndex)
     if (newLrcIndex !== this.lrcIndex && newLrcIndex !== -1) {
       this.lrcIndex = newLrcIndex;
       let eventData: emitter.EventData = {
@@ -548,8 +545,8 @@ export default class PlayerManager {
   }
 
   removeSongFromCurrentList(item: AudioData) {
-    if (this.item.id == item.id) {
-      this.stop();
+    if (this.getItem().id == item.id) {
+      this.reset();
     }
     let index = this.list.indexOf(item);
     if (index > -1) {
@@ -668,7 +665,7 @@ export default class PlayerManager {
       return;
     }
     let formData: Record<string, AudioData | string | undefined> = {
-      'audioItem': this.item,
+      'audioItem': this.getItem(),
       'isPlaying': this.state,
       'serverHost': AppStorage.get(AppConstants.SERVER_HOST_PROP),
     };
