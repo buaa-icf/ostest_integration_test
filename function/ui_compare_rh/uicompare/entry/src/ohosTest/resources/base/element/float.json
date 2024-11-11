@@ -3,6 +3,14 @@
     {
       "name": "boardSize_10",
       "value": "10"
+    },
+    {
+      "name": "strokewidth_10",
+      "value": "10"
+    },
+    {
+      "name": "bbb",
+      "value": "5"
     }
   ]
 }

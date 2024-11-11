@@ -55,6 +55,138 @@
     {
       "name": "font_20",
       "value": "20"
+    },
+    {
+      "name": "attributeUpdater",
+      "value": "resource font"
+    },
+    {
+      "name": "dsfsfsf",
+      "value": "dsfsfsf"
+    },
+    {
+      "name": "empty",
+      "value": ""
+    },
+    {
+      "name": "string100",
+      "value": "100px"
+    },
+    {
+      "name": "string_200px",
+      "value": "200px"
+    },
+    {
+      "name": "string_24",
+      "value": "24%"
+    },
+    {
+      "name": "apple",
+      "value": "苹果"
+    },
+    {
+      "name": "fruit",
+      "value": "水果"
+    },
+    {
+      "name": "appliance",
+      "value": "家电"
+    },
+    {
+      "name": "banana",
+      "value": "香蕉"
+    },
+    {
+      "name": "tv",
+      "value": "电视"
+    },
+    {
+      "name": "computer",
+      "value": "电脑"
+    },
+    {
+      "name": "string_300px",
+      "value": "300px"
+    },
+    {
+      "name": "string_60",
+      "value": "60%"
+    },
+    {
+      "name": "Hyperlink_address",
+      "value": "https://www.openharmony.cn/mainPlay"
+    },
+    {
+      "name": "popup_width",
+      "value": "30px"
+    },
+    {
+      "name": "popup_arrow_offset",
+      "value": "205%"
+    },
+    {
+      "name": "popup_target_space",
+      "value": "30px"
+    },
+    {
+      "name": "popup_offset_x",
+      "value": "30px"
+    },
+    {
+      "name": "popup_radius",
+      "value": "100vp"
+    },
+    {
+      "name": "popup_negative_radius",
+      "value": "-30px"
+    },
+    {
+      "name": "popup_font_family",
+      "value": "'HarmonyOS Sans'"
+    },
+    {
+      "name": "string1",
+      "value": "30vp"
+    },
+    {
+      "name": "50_percent",
+      "value": "50%"
+    },
+    {
+      "name": "24_percent",
+      "value": "24%"
+    },
+    {
+      "name": "lineHeightSize",
+      "value": "60fp"
+    },
+    {
+      "name": "popup_font_time_picker",
+      "value": "Arial,HarmonyOS Sans"
+    },
+    {
+      "name": "time_picker_10vp",
+      "value": "10vp"
+    },
+    {
+      "name": "time_picker_10fp",
+      "value": "10fp"
+    },
+    {
+      "name": "mixRefreshText",
+      "value": "中英文abc"
+    },
+    {
+      "name": "specifalRefreshText",
+      "value": "+-*<>!@#$"
+    },
+    {
+      "name": "width_20",
+      "value": "20"
+    },
+    {
+      "name": "height_20",
+      "value": "20"
     }
   ]
 }
