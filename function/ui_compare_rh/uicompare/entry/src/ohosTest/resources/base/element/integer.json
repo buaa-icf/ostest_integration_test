@@ -10,6 +10,33 @@
     },{
       "name": "50",
       "value": 50
+    },{
+      "name": "integer30",
+      "value": 30
+    },{
+      "name": "integer100",
+      "value": 100
+    },{
+      "name": "string30",
+      "value": 30
+    },{
+      "name": "30",
+      "value": 30
+    },{
+      "name": "15",
+      "value": 15
+    },
+    {
+      "name": "100",
+      "value": 100
+    },
+    {
+      "name": "negative30",
+      "value": -30
+    },
+    {
+      "name": "integer333",
+      "value": 333
     }
   ]
 }
