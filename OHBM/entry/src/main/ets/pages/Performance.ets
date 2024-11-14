@@ -13,13 +13,27 @@
  * limitations under the License.
  */
 
-{
-  "app": {
-    "bundleName": "com.example.musicPlayerOnline",
-    "vendor": "example",
-    "versionCode": 1000003,
-    "versionName": "1.0.3",
-    "icon": "$media:app_icon",
-    "label": "$string:app_name"
+
+@Entry
+@Component
+struct Performance {
+
+  build() {
+    Column() {
+      Scroll() {
+        Column() {
+          Column() {
+            Text('性能评分')
+          }
+
+          Column() {
+          }
+          .margin({ bottom: 80 })
+        }
+        .constraintSize({ minHeight: '100%' })
+      }
+      .height('100%')
+      .padding({ left: 12, right: 12 })
+    }
   }
 }

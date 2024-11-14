@@ -62,6 +62,52 @@
           }
         ],
       }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.ACCELEROMETER",
+        "reason": "$string:EntryAbility_desc",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility",
+            "EntryFormAbility"
+          ],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.READ_HEALTH_DATA",
+        "reason": "$string:EntryAbility_desc",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility",
+            "EntryFormAbility"
+          ],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.ACTIVITY_MOTION",
+        "reason": "$string:EntryAbility_desc",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility",
+            "EntryFormAbility"
+          ],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.GYROSCOPE",
+        "reason": "$string:EntryAbility_desc",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility",
+            "EntryFormAbility"
+          ],
+          "when": "inuse"
+        }
+      }
     ]
   }
 }
