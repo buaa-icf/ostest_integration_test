@@ -12,14 +12,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * List item data entity.
+ */
 
-{
-  "app": {
-    "bundleName": "com.example.musicPlayerOnline",
-    "vendor": "example",
-    "versionCode": 1000003,
-    "versionName": "1.0.3",
-    "icon": "$media:app_icon",
-    "label": "$string:app_name"
+type OnItemClick = () => void;
+
+export default class TestItemData {
+  onItemClick: OnItemClick;
+  title: string;
+  img: Resource;
+  subTitle: string;
+
+  constructor(title: string, img: Resource, subTitle: string, onItemClick: OnItemClick) {
+    this.title = title;
+    this.img = img;
+    this.subTitle = subTitle;
+    this.onItemClick = onItemClick;
   }
 }

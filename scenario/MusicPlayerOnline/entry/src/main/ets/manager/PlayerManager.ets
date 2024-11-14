@@ -14,14 +14,11 @@
  */
 
 import media from '@ohos.multimedia.media';
-import { BusinessError } from '@ohos.base';
 import AudioData from '../model/AudioData';
 import Logger from '../utils/Logger';
 import emitter from '@ohos.events.emitter';
 import AppConstants from '../constants/AppConstants';
 import { PLAY_MODE } from '../constants/PlayMode';
-import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
-import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import common from '@ohos.app.ability.common';
 import HttpManager from './HttpManager';
 import PlayListData from '../model/PlayListData';
@@ -31,12 +28,17 @@ import formBindingData from '@ohos.app.form.formBindingData';
 import CommonUtils from '../utils/CommonUtils';
 import prompt from '@ohos.promptAction';
 import { audio } from '@kit.AudioKit';
+import { backgroundTaskManager } from '@kit.BackgroundTasksKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { wantAgent, WantAgent } from '@kit.AbilityKit';
+import { avSession } from '@kit.AVSessionKit';
 
 export default class PlayerManager {
   private tag: string = 'PlayerManager';
   private formId: string = '';
   private isSeek: boolean = false;
   private avPlayer: media.AVPlayer | undefined = undefined;
+  private avSession: avSession.AVSession | undefined = undefined;
   private list: AudioData[] = [];
   private explorePlaylistItem: PlayListData = new PlayListData('', $r('app.media.icon'), '', [], '');
   private favourList: AudioData[] = [];
@@ -54,7 +56,6 @@ export default class PlayerManager {
   };
 
   constructor() {
-    this.startContinuousTask();
   }
 
   initialPlayList() {
@@ -164,7 +165,7 @@ export default class PlayerManager {
           Logger.info(this.tag, 'PlayerManager state released called.');
           break;
         default:
-        Logger.info(this.tag, 'PlayerManager state unknown called.');
+          Logger.info(this.tag, 'PlayerManager state unknown called.');
           if (this.avPlayer !== undefined) {
             try {
               this.avPlayer.release();
@@ -236,7 +237,9 @@ export default class PlayerManager {
    */
   play(item: AudioData): void {
     Logger.info(this.tag, 'Play finish:' + this.listPosition.toString());
-    this.getItem().isPlaying = false;
+    if (this.getItem() !== undefined) {
+      this.getItem().isPlaying = false;
+    }
     let index = -1
     if (item === undefined || item.id === '') {
       return
@@ -430,6 +433,8 @@ export default class PlayerManager {
     if (this.avPlayer === undefined) {
       this.avPlayer = await media.createAVPlayer();
       this.setAVPlayerCallback(this.avPlayer);
+      this.startContinuousTask();
+      this.createAVSession(AppStorage.get('APPContext') as common.UIAbilityContext);
     } else {
       await this.avPlayer.reset();
     }
@@ -589,10 +594,11 @@ export default class PlayerManager {
 
   //设置后台任务
   startContinuousTask() {
+    Logger.info(this.tag, "1111");
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [
         {
-          bundleName: "com.example.avplayer",
+          bundleName: "com.example.musicPlayerOnline",
           abilityName: "EntryAbility"
         }
       ],
@@ -602,10 +608,13 @@ export default class PlayerManager {
     };
 
     try {
+      Logger.info(this.tag, "2222");
       wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj: WantAgent) => {
         try {
+          let list: Array<string> = ["dataTransfer","audioPlayback"];
+          Logger.info(this.tag, "3333");
           backgroundTaskManager.startBackgroundRunning(AppStorage.get('APPContext') as common.UIAbilityContext,
-            backgroundTaskManager.BackgroundMode.AUDIO_PLAYBACK, wantAgentObj).then(() => {
+            list, wantAgentObj).then(() => {
             Logger.info(this.tag, "PlayerManager Operation startBackgroundRunning succeeded");
           }).catch((error: BusinessError) => {
             Logger.error(this.tag,
@@ -636,6 +645,18 @@ export default class PlayerManager {
         `PlayerManager Operation stopBackgroundRunning failed. code is ${(error as BusinessError).code} message is ${(error as BusinessError).message}`);
     }
   }
+  createAVSession(context: common.UIAbilityContext): void {
+    Logger.debug(this.tag, 'createAVSession begin');
+    avSession.createAVSession(context, 'online_player', 'audio').then((data) => {
+      Logger.debug(this.tag, 'createAVSession succeed');
+      this.avSession = data;
+    });
+  };
+
+  destroyAVSession(): void {
+    Logger.debug(this.tag, 'destroyAVSession begin');
+    this.avSession?.destroy();
+  };
 
   //退出app
   async exitAPP() {
@@ -643,8 +664,9 @@ export default class PlayerManager {
       if (this.avPlayer !== undefined) {
         await this.avPlayer.release();
         this.avPlayer = undefined;
+        this.stopContinuousTask();
+        this.destroyAVSession();
       }
-      this.stopContinuousTask();
 
       (AppStorage.get('APPContext') as common.UIAbilityContext).terminateSelf()
         .then(() => {
