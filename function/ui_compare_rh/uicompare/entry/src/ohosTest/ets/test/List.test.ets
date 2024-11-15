@@ -73,6 +73,14 @@ import ArkUITabsIconStyleSelectedColor from './ArkUITabsIconStyleSelectedColorTe
 import ArkUITabsIconStyleUnselectedColor from './ArkUITabsIconStyleUnselectedColorTest/ArkUITabsIconStyleUnselectedColor.test';
 import ArkUITabsSingleSelectedcolor from './ArkUITabsSingleSelectedcolorTest/ArkUITabsSingleSelectedcolor.test';
 import ArkUITabsSingleUnselectedcolor from './ArkUITabsSingleUnselectedcolorTest/ArkUITabsSingleUnselectedcolor.test';
+import UIComponentScrollSwiperLayout from './UIComponentScrollSwiperLayoutTest/UIComponentScrollSwiperLayout.test';
+import UIComponentScrollSwiperUx from './UIComponentScrollSwiperUxTest/UIComponentScrollSwiperUx.test';
+import UIComponentScrollSwiperInterface from './UIComponentScrollSwiperInterfaceTest/UIComponentScrollSwiperInterface.test';
+import UIComponentScrollSwiperAcross from './UIComponentScrollSwiperAcrossTest/UIComponentScrollSwiperAcross.test';
+import UIComponentScrollSwiperTeace from './UIComponentScrollSwiperTeaceTest/UIComponentScrollSwiperTeace.test';
+import UIComponentScrollSwiperDisplaycount from './UIComponentScrollSwiperDisplaycountTest/UIComponentScrollSwiperDisplaycount.test';
+import UIComponentScrollSwiperArrowHead from './UIComponentScrollSwiperArrowHeadTest/UIComponentScrollSwiperArrowHead.test';
+
 
 export default function testsuite() {
   ComponentTextRicheditorFontfeatures();
@@ -88,7 +96,7 @@ export default function testsuite() {
   ComponentTextRicheditorOnWillChangeTests();
   ComponentTextRicheditorInterfaceTests();
   ComponentTextRicheditorShortKcutKeysTests();
-  
+
   UIComponentNavTabsOnWillShow();
   UIComponentNavTabsContentAdapt();
   ArkUITabScrollable();
@@ -121,5 +129,12 @@ export default function testsuite() {
   ArkUITabsIconStyleUnselectedColor();
   ArkUITabsSingleSelectedcolor();
   ArkUITabsSingleUnselectedcolor();
-  
+
+  UIComponentScrollSwiperLayout();
+  UIComponentScrollSwiperUx();
+  UIComponentScrollSwiperInterface();
+  UIComponentScrollSwiperAcross();
+  UIComponentScrollSwiperTeace();
+  UIComponentScrollSwiperDisplaycount();
+  UIComponentScrollSwiperArrowHead();
 }
