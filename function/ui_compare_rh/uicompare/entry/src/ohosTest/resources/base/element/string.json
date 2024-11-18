@@ -122,7 +122,7 @@
     },
     {
       "name": "popup_arrow_offset",
-      "value": "205%"
+      "value": "15%"
     },
     {
       "name": "popup_target_space",
@@ -151,6 +151,14 @@
     {
       "name": "50_percent",
       "value": "50%"
+    },
+    {
+      "name": "60_negative_percent",
+      "value": "-60%"
+    },
+    {
+      "name": "60_percent",
+      "value": "60%"
     },
     {
       "name": "24_percent",
@@ -191,6 +199,50 @@
     {
       "name": "size_10vp",
       "value": "10vp"
+    },
+    {
+      "name": "ok",
+      "value": "ok"
+    },
+    {
+      "name": "cancel",
+      "value": "cancel"
+    },
+    {
+      "name": "title",
+      "value": "title"
+    },
+    {
+      "name": "Very_long_text",
+      "value": "In the realm of collaborative projects, effective communication is paramount. It serves as the cornerstone for success, ensuring that all team members are aligned with the project's vision and goals. When communication is clear and transparent, it fosters an environment where ideas can flow freely, and misunderstandings are minimized. Team members can leverage their diverse skill sets to contribute to the project, knowing that their input is valued and will be heard. Moreover, good communication allows for the timely resolution of conflicts, which is crucial in maintaining team morale and momentum. It also enables the project to stay on track, as updates and changes can be disseminated quickly, keeping everyone informed and able to adapt accordingly. In essence, communication is not just a means to an end in team projects; it is the lifeblood that sustains the team's progress and unity towards achieving their collective objectives.\n"
+    },
+    {
+      "name": "confirm",
+      "value": "confirm"
+    },
+    {
+      "name": "message",
+      "value": "message"
+    },
+    {
+      "name": "toast_message_1",
+      "value": "王子变青蛙，哇哈哈哈啊"
+    },
+    {
+      "name": "toast_message_2",
+      "value": "showActionMenu"
+    },
+    {
+      "name": "toast_message_3",
+      "value": "我们说过不分离要一直一直一直在一起"
+    },
+    {
+      "name": "button_font_sans",
+      "value": "#0000ff"
+    },
+    {
+      "name": "20string",
+      "value": "20"
     }
   ]
 }

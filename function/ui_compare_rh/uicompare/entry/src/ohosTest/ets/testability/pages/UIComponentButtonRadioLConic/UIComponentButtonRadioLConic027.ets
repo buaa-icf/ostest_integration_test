@@ -1,0 +1,70 @@
+/*
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the 'License')
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@Entry
+@Component
+struct UIComponentButtonRadioLConic027 {
+  @State rating: number = 3.5;
+
+  @Builder
+  indicatorBuilder() {
+    Image('cat.jpg')
+  }
+
+  build() {
+    Flex({ direction: FlexDirection.Row, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
+      Column() {
+        Text('Radio1')
+        Radio({ value: 'Radio1', group: 'radioGroup1', indicatorType: RadioIndicatorType.TICK })
+          .checked(true)
+          .radioStyle({
+            checkedBackgroundColor: Color.Pink
+          })
+          .height(50)
+          .width(50)
+          .id('UIComponentButtonRadioLConic0270')
+      }
+
+      Column() {
+        Text('Radio2')
+        Radio({ value: 'Radio2', group: 'radioGroup2', indicatorType: RadioIndicatorType.DOT })
+          .checked(true)
+          .radioStyle({
+            checkedBackgroundColor: Color.Pink
+          })
+          .height(50)
+          .width(50)
+          .id('UIComponentButtonRadioLConic0271')
+      }
+
+      Column() {
+        Text('Radio3')
+        Radio({
+          value: 'Radio3',
+          group: 'radioGroup3',
+          indicatorType: RadioIndicatorType.CUSTOM,
+          indicatorBuilder: () => this.indicatorBuilder()
+        })
+          .checked(true)
+          .radioStyle({
+            checkedBackgroundColor: Color.Pink
+          })
+          .height(50)
+          .width(50)
+          .id('UIComponentButtonRadioLConic0272')
+      }
+    }.padding({ top: 30 })
+  }
+}

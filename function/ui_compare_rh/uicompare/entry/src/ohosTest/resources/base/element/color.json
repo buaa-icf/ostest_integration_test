@@ -19,6 +19,50 @@
     {
       "name": "colorRed",
       "value": "#FF0000"
+    },
+    {
+      "name": "gray_color",
+      "value": "#808080"
+    },
+    {
+      "name": "color_0x800080",
+      "value": "#800080"
+    },
+    {
+      "name": "color3",
+      "value": "#00FFFF"
+    },
+    {
+      "name": "bg_color",
+      "value": "#f1f3f5"
+    },
+    {
+      "name": "txt_color",
+      "value": "#121212"
+    },
+    {
+      "name": "purple",
+      "value": "#800080"
+    },
+    {
+      "name": "color_gray",
+      "value": "#9effffff"
+    },
+    {
+      "name": "Code_color",
+      "value": "#121212"
+    },
+    {
+      "name": "tab_text_activated",
+      "value": "#00FFFF"
+    },
+    {
+      "name": "category_background",
+      "value": "#ffc0cb"
+    },
+    {
+      "name": "search_placeholder",
+      "value": "#FFCFA613"
     }
   ]
 }

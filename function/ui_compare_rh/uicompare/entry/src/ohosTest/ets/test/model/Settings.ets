@@ -22,6 +22,7 @@ import Window from '@ohos.window'
 import common from '@ohos.app.ability.common';
 import { i18n } from '@kit.LocalizationKit';
 import { router } from '@kit.ArkUI';
+import { systemDateTime } from '@kit.BasicServicesKit';
 
 const TAG: string = '[TEST]';
 
@@ -264,6 +265,21 @@ class Settings {
     console.log(`Switch Locales,appPreferredLanguage2=${appPreferredLanguage2}`);
   }
 
+  /**
+   * 切换应用内部语言
+   * @param locale:(zh-Hans-CN(简体中文),zh-Hant-CN(繁体中文),en-Latn-CN(英文)，ug-CN(维语)，bo-CN(藏语))
+   */
+  switchCusLocales(locale: string) {
+    try {
+      i18n.System.setAppPreferredLanguage(locale); // 设置系统当前Locale为 "zh-CN"
+    } catch (error) {
+      let err: BusinessError = error as BusinessError;
+      console.error(`call System.setAppPreferredLanguage  failed, error code: ${err.code}, message: ${err.message}.`);
+    }
+    let appPreferredLanguage2: string = i18n.System.getAppPreferredLanguage(); // 获取应用偏好语言
+    console.log(`Switch CusLocales,appPreferredLanguage2=${appPreferredLanguage2}`);
+  }
+
   changeOrientation(object?: Object) {
     // 获取上下文，使用common模块
     let context = getContext()
@@ -314,6 +330,21 @@ class Settings {
     } catch (exception) {
     }
     ;
+  }
+
+  getSysDateTime(): Date {
+    try {
+      systemDateTime.getDate().then((date: Date) => {
+        console.info(`Succeeded in getting date : ${date}`);
+        return date;
+      }).catch((error: BusinessError) => {
+        console.info(`Failed to get date. message: ${error.message}, code: ${error.code}`);
+      });
+    } catch (e) {
+      let error = e as BusinessError;
+      console.info(`Failed to get date. message: ${error.message}, code: ${error.code}`);
+    }
+    return new Date();
   }
 }
 
