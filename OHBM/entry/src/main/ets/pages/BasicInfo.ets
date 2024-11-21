@@ -19,30 +19,29 @@ import { sensor } from '@kit.SensorServiceKit';
 import { camera } from '@kit.CameraKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { inputDevice } from '@kit.InputKit';
+import Item from '../models/BasicInfoItemData';
+import BasicInfoArray from '../views/BasicInfoAarry';
+import { display } from '@kit.ArkUI';
 
-class Item {
-  name: string = ''
-  value: string = ''
-
-  constructor(name: string, value: string) {
-    this.name = name;
-    this.value = value;
-  }
-}
 
 @Entry
 @Component
 struct BasicInfo {
-  @State deviceInfoArray: Item[] = []
-  @State batteryInfoArray: Item[] = []
-  @State sensorInfoArray: Item[] = []
-  @State cameraInfoArray: Item[] = []
+  @State deviceInfoArray: Item[] = [];
+  @State batteryInfoArray: Item[] = [];
+  @State sensorInfoArray: Item[] = [];
+  @State cameraInfoArray: Item[] = [];
+  @State inputDevicesArray: Item[] = [];
+  @State displaysArray: Item[] = [];
 
   aboutToAppear(): void {
     this.getDeviceInfo();
     this.getCameraInfo();
     this.getBatteryInfo();
     this.getSensorInfo();
+    this.getInputDevices();
+    this.getDisplays();
   }
 
   build() {
@@ -54,101 +53,17 @@ struct BasicInfo {
         .margin(16)
       Scroll() {
         Column() {
-          Text('设备信息')
-            .fontSize(24)
-            .width('100%')
-            .backgroundColor('#CCCCCC')
-            .padding(12)
-          List() {
-            ForEach(this.deviceInfoArray, (item: Item) => {
-              ListItem() {
-                Row() {
-                  Text(item.name)
-                    .fontSize(18)
-                  Text(item.value)
-                    .fontSize(18)
-                }
-                .margin({ top: 4, bottom: 4 })
-                .justifyContent(FlexAlign.SpaceBetween)
-                .width('100%')
-              }
-            })
-          }
-          .divider({ strokeWidth: 1, color: '#CCCCCC' })
-          .width('90%')
-
-          Text('相机')
-            .fontSize(24)
-            .width('100%')
-            .backgroundColor('#CCCCCC')
-            .padding(12)
-          List() {
-            ForEach(this.cameraInfoArray, (item: Item) => {
-              ListItem() {
-                Row() {
-                  Text(item.name)
-                    .fontSize(18)
-                  Text(item.value)
-                    .fontSize(18)
-                }
-                .margin({ top: 4, bottom: 4 })
-                .justifyContent(FlexAlign.SpaceBetween)
-                .width('100%')
-              }
-            })
-          }
-          .divider({ strokeWidth: 1, color: '#CCCCCC' })
-          .width('90%')
-
-          Text('电量信息')
-            .fontSize(24)
-            .width('100%')
-            .backgroundColor('#CCCCCC')
-            .padding(12)
-          List() {
-            ForEach(this.batteryInfoArray, (item: Item) => {
-              ListItem() {
-                Row() {
-                  Text(item.name)
-                    .fontSize(18)
-                  Text(item.value)
-                    .fontSize(18)
-                }
-                .margin({ top: 4, bottom: 4 })
-                .justifyContent(FlexAlign.SpaceBetween)
-                .width('100%')
-              }
-            })
-          }
-          .divider({ strokeWidth: 1, color: '#CCCCCC' })
-          .width('90%')
-
-          Text('传感器')
-            .fontSize(24)
-            .width('100%')
-            .backgroundColor('#CCCCCC')
-            .padding(12)
-          List() {
-            ForEach(this.sensorInfoArray, (item: Item) => {
-              ListItem() {
-                Row() {
-                  Text(item.name)
-                    .fontSize(18)
-                  Text(item.value)
-                    .fontSize(18)
-                }
-                .margin({ top: 4, bottom: 4 })
-                .justifyContent(FlexAlign.SpaceBetween)
-                .width('100%')
-              }
-            })
-          }
-          .divider({ strokeWidth: 1, color: '#CCCCCC' })
-          .width('90%')
+          BasicInfoArray({title:'设备信息',infoArray:this.deviceInfoArray})
+          BasicInfoArray({title:'相机',infoArray:this.cameraInfoArray})
+          BasicInfoArray({title:'屏幕',infoArray:this.displaysArray})
+          BasicInfoArray({title:'电量信息',infoArray:this.batteryInfoArray})
+          BasicInfoArray({title:'输入设备',infoArray:this.inputDevicesArray})
+          BasicInfoArray({title:'传感器',infoArray:this.sensorInfoArray})
         }
       }
       .scrollBar(BarState.Off)
       .height('100%')
+      .align(Alignment.Top)
     }.margin({ bottom: 48 })
   }
 
@@ -196,7 +111,7 @@ struct BasicInfo {
         cameras = cameraManager.getSupportedCameras();
         for (let index = 0; index < cameras.length; index++) {
           let element = cameras[index];
-          this.cameraInfoArray.push(new Item('ID', element.cameraId));
+          this.cameraInfoArray.push(new Item('#[ID]', element.cameraId));
           this.cameraInfoArray.push(new Item('位置',
             `${element.cameraPosition}(0-相机位置未指定,1-后置相机,2-前置相机)`));
           this.cameraInfoArray.push(new Item('类型',
@@ -269,6 +184,78 @@ struct BasicInfo {
     return cameraManager;
   }
 
+  getInputDevices() {
+    try {
+      inputDevice.getDeviceList().then((ids: Array<Number>) => {
+        for (let index = 0; index < ids.length; index++) {
+          try {
+            inputDevice.getDeviceInfo(ids[index].valueOf(), (error: Error, deviceData: inputDevice.InputDeviceData) => {
+              if (error) {
+                console.log(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                return;
+              }
+              this.inputDevicesArray.push(new Item('#[ID]', deviceData.id.toString()));
+              this.inputDevicesArray.push(new Item('name', deviceData.name.toString()));
+              for (let index = 0; index < deviceData.sources.length; index++) {
+                this.inputDevicesArray.push(new Item('sources', deviceData.sources[index].toString()));
+              }
+              for (let index = 0; index < deviceData.axisRanges.length; index++) {
+                this.inputDevicesArray.push(new Item('axisRanges source', deviceData.axisRanges[index].source.toString()));
+                this.inputDevicesArray.push(new Item('axisRanges axis', deviceData.axisRanges[index].axis.toString()));
+                this.inputDevicesArray.push(new Item('axisRanges max', deviceData.axisRanges[index].max.toString()));
+                this.inputDevicesArray.push(new Item('axisRanges min', deviceData.axisRanges[index].min.toString()));
+                this.inputDevicesArray.push(new Item('axisRanges fuzz', deviceData.axisRanges[index].fuzz.toString()));
+                this.inputDevicesArray.push(new Item('axisRanges flat', deviceData.axisRanges[index].flat.toString()));
+                this.inputDevicesArray.push(new Item('axisRanges resolution', deviceData.axisRanges[index].resolution.toString()));
+              }
+              this.inputDevicesArray.push(new Item('bus', deviceData.bus.toString()));
+              this.inputDevicesArray.push(new Item('product', deviceData.product.toString()));
+              this.inputDevicesArray.push(new Item('vendor', deviceData.vendor.toString()));
+              this.inputDevicesArray.push(new Item('version', deviceData.version.toString()));
+              this.inputDevicesArray.push(new Item('phys', deviceData.phys.toString()));
+              this.inputDevicesArray.push(new Item('uniq', deviceData.uniq.toString()));
+            });
+          } catch (error) {
+            console.log(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        }
+      });
+    } catch (error) {
+      console.log(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
+    }
+
+  }
+
+  getDisplays(){
+    let promise: Promise<Array<display.Display>> = display.getAllDisplays();
+    promise.then((data: Array<display.Display>) => {
+      for (let index = 0; index < data.length; index++) {
+        let element = data[index];
+        this.displaysArray.push(new Item('#[ID]', element.id.toString()));
+        this.displaysArray.push(new Item('name', element.name.toString()));
+        this.displaysArray.push(new Item('alive', element.alive.toString()));
+        this.displaysArray.push(new Item('state', element.state.toString()));
+        this.displaysArray.push(new Item('refreshRate', element.refreshRate.toString()));
+        this.displaysArray.push(new Item('rotation', element.rotation.toString()));
+        this.displaysArray.push(new Item('width', element.width.toString()));
+        this.displaysArray.push(new Item('height', element.height.toString()));
+        this.displaysArray.push(new Item('availableWidth', element.availableWidth.toString()));
+        this.displaysArray.push(new Item('availableHeight', element.availableHeight.toString()));
+        this.displaysArray.push(new Item('densityDPI', element.densityDPI.toString()));
+        this.displaysArray.push(new Item('orientation', element.orientation.toString()));
+        this.displaysArray.push(new Item('densityPixels', element.densityPixels.toString()));
+        this.displaysArray.push(new Item('scaledDensity', element.scaledDensity.toString()));
+        this.displaysArray.push(new Item('xDPI', element.xDPI.toString()));
+        this.displaysArray.push(new Item('yDPI', element.yDPI.toString()));
+        this.displaysArray.push(new Item('colorSpaces', JSON.stringify(element.colorSpaces)));
+        this.displaysArray.push(new Item('hdrFormats', JSON.stringify(element.hdrFormats)));
+      }
+      console.info('Succeeded in obtaining all the display objects. Data: ' + JSON.stringify(data));
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to obtain all the display objects. Code: ${err.code}, message: ${err.message}`);
+    });
+
+  }
   getBatteryInfo() {
     this.batteryInfoArray = []
     this.batteryInfoArray.push(new Item('batterySOC', batteryInfo.batterySOC.toString()));
