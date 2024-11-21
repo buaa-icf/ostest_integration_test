@@ -12,16 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * List item data entity.
+ */
 
-{
-  "module": {
-    "name": "entry_test",
-    "type": "feature",
-    "deviceTypes": [
-      "default",
-      "tablet"
-    ],
-    "deliveryWithInstall": true,
-    "installationFree": false
+export default class BasicInfoItemData {
+  name: string = ''
+  value: string = ''
+
+  constructor(name: string, value: string) {
+    this.name = name;
+    this.value = value;
   }
 }
