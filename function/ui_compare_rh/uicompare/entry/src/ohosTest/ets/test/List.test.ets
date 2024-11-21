@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 import ComponentTextRicheditorFontfeatures
   from './ComponentTextRicheditorFontfeatureTest/ComponentTextRicheditorFontfeatures.test';
 import ComponentTextRicheditorCustomColors
@@ -45,10 +44,14 @@ import UIComponentNavTabsOnWillShow from './UIComponentNavTabsOnWillShowTest/UIC
 import UIComponentNavTabsContentAdapt from './UIComponentNavTabsContentAdaptTest/UIComponentNavTabsContentAdapt.test';
 import ArkUITabScrollable from './ArkUITabScrollableTest/ArkUITabScrollable.test';
 import ArkUITabsLabelStylefont from './ArkUITabsLabelStylefontTest/ArkUITabsLabelStylefont.test';
-import ArkUITabsLabelStyleSelectedColor from './ArkUITabsLabelStyleSelectedColorTest/ArkUITabsLabelStyleSelectedColor.test';
-import ArkUITabsLabelStyleUnselectedColor from './ArkUITabsLabelStyleUnselectedColorTest/ArkUITabsLabelStyleUnselectedColor.test';
-import UIComponentListAndGridWaterFlowAdd from './UIComponentListAndGridWaterFlowAddTest/UIComponentListAndGridWaterFlowAdd.test';
-import UIComponentListAndGridWaterSections from './UIComponentListAndGridWaterSectionsTest/UIComponentListAndGridWaterSections.test';
+import ArkUITabsLabelStyleSelectedColor
+  from './ArkUITabsLabelStyleSelectedColorTest/ArkUITabsLabelStyleSelectedColor.test';
+import ArkUITabsLabelStyleUnselectedColor
+  from './ArkUITabsLabelStyleUnselectedColorTest/ArkUITabsLabelStyleUnselectedColor.test';
+import UIComponentListAndGridWaterFlowAdd
+  from './UIComponentListAndGridWaterFlowAddTest/UIComponentListAndGridWaterFlowAdd.test';
+import UIComponentListAndGridWaterSections
+  from './UIComponentListAndGridWaterSectionsTest/UIComponentListAndGridWaterSections.test';
 import UIComponentNavModifier from './UIComponentNavModifierTest/UIComponentNavModifier.test';
 import UIComponentNavTabsAction from './UIComponentNavTabsActionTest/UIComponentNavTabsAction.test';
 import UIComponentNavTabsBlurStyle from './UIComponentNavTabsBlurStyleTest/UIComponentNavTabsBlurStyle.test';
@@ -58,29 +61,94 @@ import UIComponentNavTabsInterception from './UIComponentNavTabsInterceptionTest
 import UIComponentNavTabsInterface from './UIComponentNavTabsInterfaceTest/UIComponentNavTabsInterface.test';
 import UIComponentNavTabsMirror from './UIComponentNavTabsMirrorTest/UIComponentNavTabsMirror.test';
 import UIComponentTabTabBarSymbol from './UIComponentTabTabBarSymbolTest/UIComponentTabTabBarSymbol.test';
-import UIComponentOtherRefreshPromptText from './UIComponentOtherRefreshPromptTextTest/UIComponentOtherRefreshPromptText.test';
-import UIComponentOtherRefreshInterface from './UIComponentOtherRefreshInterfaceTest/UIComponentOtherRefreshInterface.test';
-import UIComponentOtherRefreshInterAction from './UIComponentOtherRefreshInterActionTest/UIComponentOtherRefreshInterAction.test';
+import UIComponentOtherRefreshPromptText
+  from './UIComponentOtherRefreshPromptTextTest/UIComponentOtherRefreshPromptText.test';
+import UIComponentOtherRefreshInterface
+  from './UIComponentOtherRefreshInterfaceTest/UIComponentOtherRefreshInterface.test';
+import UIComponentOtherRefreshInterAction
+  from './UIComponentOtherRefreshInterActionTest/UIComponentOtherRefreshInterAction.test';
 import UIComponentOtherRefreshAbility from './UIComponentOtherRefreshAbilityTest/UIComponentOtherRefreshAbility.test';
 import FunctionJichuWaterFlow from './FunctionJichuWaterFlowTest/FunctionJichuWaterFlow.test';
-import UIComponentNavTabsSubTabbarStyle from './UIComponentNavTabsSubTabbarStyleTest/UIComponentNavTabsSubTabbarStyle.test';
+import UIComponentNavTabsSubTabbarStyle
+  from './UIComponentNavTabsSubTabbarStyleTest/UIComponentNavTabsSubTabbarStyle.test';
 import ArkUITabsVertical from './ArkUITabsVerticalTest/ArkUITabsVertical.test';
 import UIComponentNavTabsHeight from './UIComponentNavTabsHeightTest/UIComponentNavTabsHeight.test';
 import UIComponentNavTabsWidth from './UIComponentNavTabsWidthTest/UIComponentNavTabsWidth.test';
 import UIComponentNavTabsEdgeeffect from './UIComponentNavTabsEdgeeffectTest/UIComponentNavTabsEdgeeffect.test';
-import UIComponentNavTabsExpandsafearea from './UIComponentNavTabsExpandsafeareaTest/UIComponentNavTabsExpandsafearea.test';
-import ArkUITabsIconStyleSelectedColor from './ArkUITabsIconStyleSelectedColorTest/ArkUITabsIconStyleSelectedColor.test';
-import ArkUITabsIconStyleUnselectedColor from './ArkUITabsIconStyleUnselectedColorTest/ArkUITabsIconStyleUnselectedColor.test';
+import UIComponentNavTabsExpandsafearea
+  from './UIComponentNavTabsExpandsafeareaTest/UIComponentNavTabsExpandsafearea.test';
+import ArkUITabsIconStyleSelectedColor
+  from './ArkUITabsIconStyleSelectedColorTest/ArkUITabsIconStyleSelectedColor.test';
+import ArkUITabsIconStyleUnselectedColor
+  from './ArkUITabsIconStyleUnselectedColorTest/ArkUITabsIconStyleUnselectedColor.test';
 import ArkUITabsSingleSelectedcolor from './ArkUITabsSingleSelectedcolorTest/ArkUITabsSingleSelectedcolor.test';
 import ArkUITabsSingleUnselectedcolor from './ArkUITabsSingleUnselectedcolorTest/ArkUITabsSingleUnselectedcolor.test';
 import UIComponentScrollSwiperLayout from './UIComponentScrollSwiperLayoutTest/UIComponentScrollSwiperLayout.test';
 import UIComponentScrollSwiperUx from './UIComponentScrollSwiperUxTest/UIComponentScrollSwiperUx.test';
-import UIComponentScrollSwiperInterface from './UIComponentScrollSwiperInterfaceTest/UIComponentScrollSwiperInterface.test';
+import UIComponentScrollSwiperInterface
+  from './UIComponentScrollSwiperInterfaceTest/UIComponentScrollSwiperInterface.test';
 import UIComponentScrollSwiperAcross from './UIComponentScrollSwiperAcrossTest/UIComponentScrollSwiperAcross.test';
 import UIComponentScrollSwiperTeace from './UIComponentScrollSwiperTeaceTest/UIComponentScrollSwiperTeace.test';
-import UIComponentScrollSwiperDisplaycount from './UIComponentScrollSwiperDisplaycountTest/UIComponentScrollSwiperDisplaycount.test';
-import UIComponentScrollSwiperArrowHead from './UIComponentScrollSwiperArrowHeadTest/UIComponentScrollSwiperArrowHead.test';
+import UIComponentScrollSwiperDisplaycount
+  from './UIComponentScrollSwiperDisplaycountTest/UIComponentScrollSwiperDisplaycount.test';
+import UIComponentScrollSwiperArrowHead
+  from './UIComponentScrollSwiperArrowHeadTest/UIComponentScrollSwiperArrowHead.test';
+import UIComponentSpecialComponentsFormComponentTransparent
+  from './UIComponentSpecialComponentsFormComponentTransparentTest/UIComponentSpecialComponentsFormComponentTransparent.test';
+import UIComponentSpecialComponentsUIExtensionComponentPopupChange
+  from './UIComponentSpecialComponentsUIExtensionComponentPopupChangeTest/UIComponentSpecialComponentsUIExtensionComponentPopupChange.test';
 
+import UIComponentPopupBoxSpecificationsShadow
+  from './UIComponentPopupBoxSpecificationsShadowTest/UIComponentPopupBoxSpecificationsShadow.test';
+import UIComponentButtonRadioLConic from './UIComponentButtonRadioLConicTest/UIComponentButtonRadioLConic.test';
+import ComponentFunctionLAdvancedComponentsPopupInterface
+  from './ComponentFunctionLAdvancedComponentsPopupInterfaceTest/ComponentFunctionLAdvancedComponentsPopupInterface.test';
+import UIComponentPopupBoxSpecifications
+  from './UIComponentPopupBoxSpecificationsTest/UIComponentPopupBoxSpecifications.test';
+import UIComponentButtonStyle from './UIComponentButtonStyleTest/UIComponentButtonStyle.test';
+import UIComponentButtonRadioCustonmizing
+  from './UIComponentButtonRadioCustonmizingTest/UIComponentButtonRadioCustonmizing.test';
+import UIComponentButtonRadioCheckMark
+  from './UIComponentButtonRadioCheckMarkTest/UIComponentButtonRadioCheckMark.test';
+import UIComponentButtonSelectAttribute
+  from './UIComponentButtonSelectAttributeTest/UIComponentButtonSelectAttribute.test';
+import UIComponentFunctionSelectSymbol from './UIComponentFunctionSelectSymbol/UIComponentFunctionSelectSymbol.test';
+import UIComponentButtonSelectControlSize
+  from './UIComponentButtonSelectControlSize/UIComponentButtonSelectControlSize.test';
+import UIComponentButtonSelectDivider from './UIComponentButtonSelectDivider/UIComponentButtonSelectDivider.test';
+import UITestCaseTest from './UITestCaseTest/UITestCaseTest.test';
+import FunctionJiChuSR000HUB4K from './FunctionJiChuSR000HUB4KTest/FunctionJiChuSR000HUB4K.test';
+import UIComponentUISupportColor from './UIComponentUISupportColorTest/UIComponentUISupportColor.test';
+import UIComponentButtonCommonButton from './UIComponentButtonCommonButtonTest/UIComponentButtonCommonButton.test'
+import ComponentButtonSelectMenuItemContentModifier
+  from './ComponentButtonSelectMenuItemContentModifier/ComponentButtonSelectMenuItemContentModifier.test';
+import UiComponentButtonSelectEnhancement
+  from './UiComponentButtonSelectEnhancement/UiComponentButtonSelectEnhancement.test';
+import UiComponentButtonSelectAlign from './UiComponentButtonSelectAlign/UiComponentButtonSelectAlign.test';
+import UiComponentPopupboxZero from './UiComponentPopupboxZero/UiComponentPopupboxZero.test';
+import UIComponentPopupboxCalendarpickerInterface
+  from './UIComponentPopupboxCalendarpickerInterfaceTest/UIComponentPopupboxCalendarpickerInterface.test';
+import UIComponentPopupboxDatepickerDialogLanguageHabit
+  from './UIComponentPopupboxDatepickerDialogLanguageHabitTest/UIComponentPopupboxDatepickerDialogLanguageHabit.test';
+import TsComponentSR000HRP34 from './TsComponentSR000HRP34Test/TsComponentSR000HRP34Test.test';
+import UiComponentPopupboxDatePickerDialogScenarios
+  from './UiComponentPopupboxDatePickerDialogScenarios/UiComponentPopupboxDatePickerDialogScenarios.test';
+import UiComponentPopupboxDatePickerDialogInterface
+  from './UiComponentPopupboxDatePickerDialogInterface/UiComponentPopupboxDatePickerDialogInterface.test';
+import UIComponentPopupBoxAttribute from './UIComponentPopupBoxAttributeTest/UIComponentPopupBoxAttribute.test';
+import UIComponentPopupBoxPromptToastSequence
+  from './UIComponentPopupBoxPromptToastSequenceTest/UIComponentPopupBoxPromptToastSequence.test';
+import UIComponentPopupBoxSpecificationsPopup
+  from './UIComponentPopupBoxSpecificationsPopupTest/UIComponentPopupBoxSpecificationsPopup.test';
+
+import UIComponentPopupBoxPopupInterface001
+  from './UIComponentPopupBoxPopupInterfaceTest/UIComponentPopupBoxPopupInterface001.test';
+import UIComponentPopupPromptInterface001
+  from './UIComponentPopupPromptInterfaceTest/UIComponentPopupPromptInterface001.test';
+import UIComponentPopupBoxToastStyleInterface001
+  from './UIComponentPopupBoxToastStyleInterfaceTest/UIComponentPopupBoxToastStyleInterface001.test';
+import UIComponentPopupBoxFullDialogInterface001
+  from './UIComponentPopupBoxFullDialogInterfaceTest/UIComponentPopupBoxFullDialogInterface001.test';
 
 export default function testsuite() {
   ComponentTextRicheditorFontfeatures();
@@ -137,4 +205,40 @@ export default function testsuite() {
   UIComponentScrollSwiperTeace();
   UIComponentScrollSwiperDisplaycount();
   UIComponentScrollSwiperArrowHead();
+
+  UIComponentPopupBoxFullDialogInterface001();
+  UIComponentPopupBoxToastStyleInterface001();
+  UIComponentPopupPromptInterface001();
+  UIComponentPopupBoxPopupInterface001();
+  UIComponentButtonStyle();
+  UIComponentButtonRadioLConic();
+  ComponentFunctionLAdvancedComponentsPopupInterface();
+  UIComponentPopupBoxSpecifications();
+  UIComponentButtonRadioCustonmizing();
+  UIComponentButtonRadioCheckMark();
+  UIComponentButtonSelectAttribute();
+  UIComponentSpecialComponentsFormComponentTransparent();
+  UIComponentSpecialComponentsUIExtensionComponentPopupChange();
+  UIComponentPopupBoxSpecificationsShadow();
+  UIComponentFunctionSelectSymbol();
+  UIComponentButtonSelectControlSize();
+  UIComponentButtonSelectDivider();
+  UITestCaseTest();
+  FunctionJiChuSR000HUB4K();
+  UIComponentUISupportColor();
+  UIComponentButtonCommonButton();
+  ComponentButtonSelectMenuItemContentModifier();
+  UiComponentButtonSelectEnhancement();
+  UiComponentButtonSelectAlign();
+  UiComponentPopupboxZero();
+  UIComponentPopupboxCalendarpickerInterface();
+  UIComponentPopupboxDatepickerDialogLanguageHabit();
+  TsComponentSR000HRP34();
+  UiComponentPopupboxDatePickerDialogScenarios();
+  UiComponentPopupboxDatePickerDialogInterface();
+  UIComponentPopupBoxAttribute();
+  UIComponentPopupBoxPromptToastSequence();
+  UIComponentPopupBoxSpecificationsPopup();
 }
+
+

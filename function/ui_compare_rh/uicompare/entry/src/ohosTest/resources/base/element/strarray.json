@@ -1,0 +1,201 @@
+{
+  "strarray": [
+    {
+      "name": "city",
+      "value": [
+        {
+          "value": "بەيجىڭ"
+        },
+        {
+          "value": "شەنجەن"
+        },
+        {
+          "value": "شېنجېن"
+        },
+        {
+          "value": "غوانگژو"
+        }
+      ]
+    },
+    {
+      "name": "swipeSize2",
+      "value": [
+        {
+          "value": "香蕉"
+        },
+        {
+          "value": "苹果"
+        }
+      ]
+    },
+    {
+      "name": "fruit",
+      "value": [
+        {
+          "value": "香蕉"
+        },
+        {
+          "value": "苹果"
+        },
+        {
+          "value": "西瓜"
+        },
+        {
+          "value": "柠檬"
+        }
+      ]
+    },
+    {
+      "name": "fruit_ft",
+      "value": [
+        {
+          "value": "香蕉"
+        },
+        {
+          "value": "蘋果"
+        },
+        {
+          "value": "菠蘿"
+        },
+        {
+          "value": "鳳梨"
+        }
+      ]
+    },
+    {
+      "name": "fruit_zw",
+      "value": [
+        {
+          "value": "བར་སྤུ་ལེབ་"
+        },
+        {
+          "value": "འབྲིད་མདོག"
+        },
+        {
+          "value": "ཤིང་ཏོག་པོ་ལུའོ། "
+        },
+        {
+          "value": "ཤིང་ཏོག་ཧྥེང་ལི། "
+        }
+      ]
+    },{
+      "name": "fruit_ww",
+      "value": [
+        {
+          "value": "بانا نا"
+        },
+        {
+          "value": "ئاپپاق"
+        },
+        {
+          "value": "ئەتىرگۈل"
+        },
+        {
+          "value": "ئاناناس"
+        }
+      ]
+    },
+    {
+      "name": "fruit_en",
+      "value": [
+        {
+          "value": "banana་"
+        },
+        {
+          "value": "apple"
+        },
+        {
+          "value": "orange"
+        },
+        {
+          "value": "lemon"
+        }
+      ]
+    },
+    {
+      "name": "appliance",
+      "value": [
+        {
+          "value": "电视"
+        },
+        {
+          "value": "冰箱"
+        },
+        {
+          "value": "洗衣机"
+        },
+        {
+          "value": "空调"
+        }
+      ]
+    },
+    {
+      "name": "appliance_ft",
+      "value": [
+        {
+          "value": "電視"
+        },
+        {
+          "value": "洗衣機"
+        },
+        {
+          "value": "電腦"
+        },
+        {
+          "value": "空調"
+        }
+      ]
+    },
+    {
+      "name": "appliance_zw",
+      "value": [
+        {
+          "value": "བརྙན་འཕྲིན"
+        },
+        {
+          "value": "འཇོམས་འབུལ་སྒོར"
+        },
+        {
+          "value": "བོད་མངོན་པ།"
+        },
+        {
+          "value": "འབྲེལ་བའི་འོད་ཟེར་"
+        }
+      ]
+    },
+   {
+      "name": "appliance_ww",
+      "value": [
+        {
+          "value": "تېلېۋىزور"
+        },
+        {
+          "value": "تازىلاش ماشىنىسى"
+        },
+        {
+          "value": "مۇزلاتقۇچ"
+        },
+        {
+          "value": "ھەۋا شۇندۇرغۇچ"
+        }
+      ]
+    },
+    {
+      "name": "appliance_en",
+      "value": [
+        {
+          "value": "TV་"
+        },
+        {
+          "value": "Refrigerator"
+        },
+        {
+          "value": "Air Conditioning"
+        },
+        {
+          "value": "Computer"
+        }
+      ]
+    }
+  ]
+}

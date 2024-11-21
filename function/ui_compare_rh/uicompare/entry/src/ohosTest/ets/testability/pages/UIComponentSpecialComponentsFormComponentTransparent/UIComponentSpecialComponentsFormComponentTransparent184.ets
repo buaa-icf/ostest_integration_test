@@ -1,0 +1,63 @@
+/*
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the 'License')
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@Entry
+@Component
+struct UIComponentSpecialComponentsFormComponentTransparent184 {
+  @State message: string = 'Hello';
+  @State customPopup: boolean = false;
+  @State textTip: string = '';
+
+  @Builder
+  popupBuilder() {
+    Row({ space: 2 }) {
+      Text('This is a custom popup').fontSize(10)
+    }
+    .focusable(true)
+    .onFocus(() => {
+      this.textTip = '获取焦点';
+    })
+    .onBlur(() => {
+      this.textTip = '失去焦点';
+    })
+  }
+
+  build() {
+    Row() {
+      Column() {
+        Text('popup组件状态： ' + this.textTip)
+        Button(this.message)
+          .fontSize(20)
+          .fontColor(Color.Blue)
+          .id('UIComponentSpecialComponentsFormComponentTransparent1840')
+          .onClick(() => {
+            this.customPopup = !this.customPopup;
+          })
+          .bindPopup(this.customPopup, {
+            builder: this.popupBuilder,
+            enableArrow: true,
+            showInSubWindow: false,
+            focusable: true
+          })
+      }
+      .width('200px')
+      .height('80px')
+    }
+    .width('100%')
+    .height('100%')
+    .alignItems(VerticalAlign.Center)
+    .justifyContent(FlexAlign.Center)
+  }
+}
