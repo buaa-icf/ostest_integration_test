@@ -1,0 +1,1976 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "bletest"
+    },
+    {
+      "name": "entry_desc",
+      "value": "Component Collection"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "ArkUI components, common attributes, common methods, etc. to classify and describe applications"
+    },
+    {
+      "name": "opencv_core",
+      "value": "Core Operations"
+    },
+    {
+      "name": "opencv_image",
+      "value": "Image Processing"
+    },
+    {
+      "name": "opencv_video",
+      "value": "Video Analysis"
+    },
+    {
+      "name": "opencv_machine",
+      "value": "machine learning"
+    },
+    {
+      "name": "opencv_object_detection",
+      "value": "Object Detection"
+    },
+    {
+      "name": "opencv_dnn",
+      "value": "Deep Neural Networks"
+    },
+    {
+      "name": "animation",
+      "value": "Animation"
+    },
+    {
+      "name": "component",
+      "value": "Component"
+    },
+    {
+      "name": "universal",
+      "value": "Universal"
+    },
+    {
+      "name": "global_method",
+      "value": "Global Method"
+    },
+    {
+      "name": "auxiliary",
+      "value": "Auxiliary"
+    },
+    {
+      "name": "common_properties",
+      "value": "Common properties"
+    },
+    {
+      "name": "prop_background",
+      "value": "Background"
+    },
+
+    {
+      "name": "prop_foreground",
+      "value": "Foreground"
+    },
+    {
+      "name": "prop_border",
+      "value": "Border"
+    },
+    {
+      "name": "prop_font",
+      "value": "Font"
+    },
+    {
+      "name": "prop_bluefont",
+      "value": "#409EFF"
+    },
+    {
+      "name": "prop_orangefont",
+      "value": "#E6A23C"
+    },
+    {
+      "name": "prop_pinkfont",
+      "value": "#F56C6C"
+    },
+    {
+      "name": "prop_size",
+      "value": "Size"
+    },
+    {
+      "name": "graphic_transformation",
+      "value": "Graphics Transform"
+    },
+    {
+      "name": "common_events",
+      "value": "Common events"
+    },
+    {
+      "name": "click_event",
+      "value": "Click event"
+    },
+    {
+      "name": "touch_event",
+      "value": "Touch event"
+    },
+    {
+      "name": "show_hide_event",
+      "value": "Show/Hide Event"
+    },
+    {
+      "name": "drag_drop_event",
+      "value": "Drag/Drop Event"
+    },
+    {
+      "name": "key_event",
+      "value": "Key Event"
+    },
+    {
+      "name": "focus_event",
+      "value": "Focus Event"
+    },
+    {
+      "name": "mouse_event",
+      "value": "Mouse Event"
+    },
+    {
+      "name": "component_area_change_event",
+      "value": "Component Area Change Event"
+    },
+    {
+      "name": "gesture_processing",
+      "value": "Gesture Processing"
+    },
+    {
+      "name": "basic_gestures",
+      "value": "Basic Gestures"
+    },
+    {
+      "name": "tap_gesture",
+      "value": "TapGesture"
+    },
+    {
+      "name": "long_press_gesture",
+      "value": "LongPressGesture"
+    },
+    {
+      "name": "pan_gesture",
+      "value": "PanGesture"
+    },
+    {
+      "name": "pinch_gesture",
+      "value": "PinchGesture"
+    },
+    {
+      "name": "rotation_gesture",
+      "value": "RotationGesture"
+    },
+    {
+      "name": "swipe_gesture",
+      "value": "SwipeGesture"
+    },
+    {
+      "name": "combined_gestures",
+      "value": "Combined Gestures"
+    },
+    {
+      "name": "transition_animation",
+      "value": "Transition animation"
+    },
+    {
+      "name": "interpolation_calculation",
+      "value": "Interpolation calculation"
+    },
+    {
+      "name": "dialog",
+      "value": "Dialog"
+    },
+    {
+      "name": "basic_operations_on_images",
+      "value": "Basic Operations"
+    },
+    {
+      "name": "image_roi_example",
+      "value": "ROI Example"
+    },
+    {
+      "name": "image_padding_example",
+      "value": "Padding Example"
+    },
+    {
+      "name": "arithmetic_operations_on_images",
+      "value": "Arithmetic Example"
+    },
+    {
+      "name": "image_bitwise_example",
+      "value": "Bitwise Example"
+    },
+    {
+      "name": "some_data_structures",
+      "value": "Some Data Structures"
+    },
+    {
+      "name": "data_structures",
+      "value": "Data structures"
+    },
+    {
+      "name": "color_spaces",
+      "value": "Color Spaces"
+    },
+    {
+      "name": "convert_color",
+      "value": "Convert Color"
+    },
+    {
+      "name": "image_inrange",
+      "value": "Image Inrange"
+    },
+    {
+      "name": "geometric_transformations",
+      "value": "Geometric Transformations"
+    },
+    {
+      "name": "image_resize",
+      "value": "Image Resize"
+    },
+    {
+      "name": "affine_transform",
+      "value": "Affine Transform"
+    },
+    {
+      "name": "rotate_transform",
+      "value": "Rotate Transform"
+    },
+    {
+      "name": "get_affine_transform",
+      "value": "Get Affine Transform"
+    },
+    {
+      "name": "perspectiv_transform",
+      "value": "Perspectiv Transform"
+    },
+    {
+      "name": "thresholding",
+      "value": "Thresholding"
+    },
+    {
+      "name": "image_thresholding",
+      "value": "Image Thresholding"
+    },
+    {
+      "name": "adaptive_thresholding",
+      "value": "Adaptive Thresholding"
+    },
+    {
+      "name": "smoothing_images",
+      "value": "Smoothing Images"
+    },
+    {
+      "name": "image_filter",
+      "value": "Image Filter"
+    },
+    {
+      "name": "image_blur",
+      "value": "Image Blur"
+    },
+    {
+      "name": "gaussion_blur",
+      "value": "Gaussion Blur"
+    },
+    {
+      "name": "median_blur",
+      "value": "Median Blur"
+    },
+    {
+      "name": "bilateral_filter",
+      "value": "Bilateral Filter"
+    },
+    {
+      "name": "morphological_transformations",
+      "value": "Morphological Transformations"
+    },
+    {
+      "name": "image_erode",
+      "value": "Image Erode"
+    },
+    {
+      "name": "image_dilate",
+      "value": "Image Dilate"
+    },
+    {
+      "name": "image_opening",
+      "value": "Image Opening"
+    },
+    {
+      "name": "image_closing",
+      "value": "Image Closing"
+    },
+    {
+      "name": "image_gradient",
+      "value": "Image Gradient"
+    },
+    {
+      "name": "top_hat",
+      "value": "Top Hat"
+    },
+    {
+      "name": "black_hat",
+      "value": "Black Hat"
+    },
+    {
+      "name": "get_structuring_element",
+      "value": "Get Structuring Element"
+    },
+    {
+      "name": "image_gradients",
+      "value": "Image Gradients"
+    },
+    {
+      "name": "image_sobel",
+      "value": "Image Sobel"
+    },
+    {
+      "name": "image_laplacian",
+      "value": "Image Laplacian"
+    },
+    {
+      "name": "image_abssobel",
+      "value": "Image Abssobel"
+    },
+    {
+      "name": "canny_edge_detection",
+      "value": "Canny Edge Detection"
+    },
+    {
+      "name": "image_canny",
+      "value": "Image Canny"
+    },
+    {
+      "name": "image_pyramids",
+      "value": "Image Pyramids"
+    },
+    {
+      "name": "image_pyrdown",
+      "value": "Image Pyrdown"
+    },
+    {
+      "name": "image_pyrup",
+      "value": "Image Pyrup"
+    },
+    {
+      "name": "contours",
+      "value": "Contours"
+    },
+    {
+      "name": "contours_basic",
+      "value": "Contours Basic"
+    },
+    {
+      "name": "contours_features",
+      "value": "Contours Features"
+    },
+    {
+      "name": "contours_properties",
+      "value": "Contours Properties"
+    },
+    {
+      "name": "contours_more_functions",
+      "value": "Contours More Functions"
+    },
+    {
+      "name": "contours_hierarchy",
+      "value": "Contours Hierarchy"
+    },
+    {
+      "name": "histograms",
+      "value": "Histograms"
+    },
+    {
+      "name": "find_plot_analyze",
+      "value": "Find Plot Analyze"
+    },
+    {
+      "name": "equalization",
+      "value": "Equalization"
+    },
+    {
+      "name": "backprojection",
+      "value": "Backprojection"
+    },
+    {
+      "name": "image_transforms",
+      "value": "Image Transforms"
+    },
+    {
+      "name": "fourier_transform",
+      "value": "Fourier Transform"
+    },
+    {
+      "name": "template_matching",
+      "value": "Template Matching"
+    },
+    {
+      "name": "template_match_example",
+      "value": "Template Match Example"
+    },
+    {
+      "name": "hough_line_transform",
+      "value": "Hough Rine Transform"
+    },
+    {
+      "name": "hough_lines",
+      "value": "Hough Lines"
+    },
+    {
+      "name": "hough_linesp",
+      "value": "Hough Linesp"
+    },
+    {
+      "name": "hough_circle_transform",
+      "value": "Hough Circle Transform"
+    },
+    {
+      "name": "hough_circle",
+      "value": "Hough Circle"
+    },
+    {
+      "name": "image_segmentation_with_watershed",
+      "value": "Image Segmentation With Watershed"
+    },
+    {
+      "name": "image_threshold",
+      "value": "Image Threshold"
+    },
+    {
+      "name": "image_background",
+      "value": "Image Background"
+    },
+    {
+      "name": "distance_transform",
+      "value": "Distance Transform"
+    },
+    {
+      "name": "image_foreground",
+      "value": "Image Foreground"
+    },
+    {
+      "name": "image_watershed",
+      "value": "Image Watershed"
+    },
+    {
+      "name": "forground_extraction_using_grabcut",
+      "value": "Forground Extraction Using Grabcut"
+    },
+    {
+      "name": "image_grabcut",
+      "value": "Image Grabcut"
+    },
+    {
+      "name": "image_processing_for_video_capture",
+      "value": "Image Processing For Video Capture"
+    },
+    {
+      "name": "image_processing_video_example",
+      "value": "Image Processing Video Example"
+    },
+    {
+      "name": "intelligent_scissors",
+      "value": "Intelligent Scissors"
+    },
+    {
+      "name": "meanshift_camshift",
+      "value": "Meanshift Camshift"
+    },
+    {
+      "name": "meanshift",
+      "value": "Meanshift"
+    },
+    {
+      "name": "camshift",
+      "value": "Camshift"
+    },
+    {
+      "name": "optical_flow",
+      "value": "Optical Flow"
+    },
+    {
+      "name": "lucas_kanade_optical_flow",
+      "value": "Lucas Kanade Optical Flow"
+    },
+    {
+      "name": "dense_optical_flow",
+      "value": "Dense Optical Flow"
+    },
+    {
+      "name": "background_subtraction",
+      "value": "Background Subtraction"
+    },
+    {
+      "name": "face_detection_using_haar_cascades",
+      "value": "Face Detection Using Haar Cascades"
+    },
+    {
+      "name": "face_detection",
+      "value": "Face Detection"
+    },
+    {
+      "name": "face_detection_in_video_capture",
+      "value": "Face Detection In Video Capture"
+    },
+    {
+      "name": "image_classification",
+      "value": "Image Classification"
+    },
+    {
+      "name": "image_classification_with_camera",
+      "value": "Image Classification With Camera"
+    },
+    {
+      "name": "object_detection",
+      "value": "Object Detection"
+    },
+    {
+      "name": "object_detection_with_camera",
+      "value": "Object Detection With Camera"
+    },
+    {
+      "name": "semantic_segmentation",
+      "value": "Semantic Segmentation"
+    },
+    {
+      "name": "style_transfer",
+      "value": "Style Transfer"
+    },
+    {
+      "name": "pose_estimation",
+      "value": "Pose Estimation"
+    },
+
+    {
+      "name": "image_basic_title",
+      "value": "Image Basic Opertor"
+    },
+    {
+      "name": "image_histogram_title",
+      "value": "image histogram"
+    },
+    {
+      "name": "image_filter_title",
+      "value": "image filter"
+    },
+    {
+      "name": "image_morphology_title",
+      "value": "image morphology"
+    },
+    {
+      "name": "image_objdetect_title",
+      "value": "image objdetect"
+    },
+    {
+      "name": "information_presentation_and_dynamic_effects",
+      "value": "Information presentation and dynamic effects"
+    },
+    {
+      "name": "blank_and_divider",
+      "value": "Blank and divider"
+    },
+    {
+      "name": "text_and_input",
+      "value": "Text and input"
+    },
+    {
+      "name": "rows_and_columns",
+      "value": "Rows and columns"
+    },
+    {
+      "name": "stack_flex_and_grid",
+      "value": "Stack, flex and grid"
+    },
+    {
+      "name": "list_and_grid",
+      "value": "List and grid"
+    },
+    {
+      "name": "navigation",
+      "value": "Navigation"
+    },
+    {
+      "name": "canvas_and_graphic_drawing",
+      "value": "Canvas and graphic drawing"
+    },
+    // layout Animation
+    {
+      "name": "layout_animation_expansion",
+      "value": "Layout animation"
+    },
+    {
+      "name": "layout_animation_expansion_align",
+      "value": "Align animation"
+    },
+    {
+      "name": "layout_animation_expansion_size",
+      "value": "Size animation"
+    },
+    {
+      "name": "layout_animation_expansion_padding",
+      "value": "Padding animation"
+    },
+    {
+      "name": "layout_animation_expansion_margin",
+      "value": "Margin animation"
+    },
+    {
+      "name": "layout_animation_expansion_offset",
+      "value": "Offset animation"
+    },
+    {
+      "name": "layout_animation_expansion_position",
+      "value": "Position animation"
+    },
+    {
+      "name": "layout_animation_expansion_markAnchor",
+      "value": "MarkAnchor animation"
+    },
+    {
+      "name": "layout_animation_expansion_alignRules",
+      "value": "AlignRules animation"
+    },
+    {
+      "name": "layout_animation_expansion_direction",
+      "value": "Direction animation"
+    },
+    // size transition
+    {
+      "name": "size_transition_expansion",
+      "value": "Size transition"
+    },
+    {
+      "name": "size_transition_flex",
+      "value": "Flex"
+    },
+    {
+      "name": "size_transition_grid_item",
+      "value": "GridItem"
+    },
+    {
+      "name": "size_transition_list_item",
+      "value": "ListItem"
+    },
+    {
+      "name": "size_transition_swiper_item",
+      "value": "SwiperItem"
+    },
+    {
+      "name": "size_transition_font_size",
+      "value": "FontSize"
+    },
+    {
+      "name": "size_transition_expansion_tabContent",
+      "value": "TabContent"
+    },
+    // AlertDialog
+    {
+      "name": "alert_dialog",
+      "value": "Alert dialog"
+    },
+    {
+      "name": "alert_dialog_type_one",
+      "value": "One button alert dialog"
+    },
+    {
+      "name": "alert_dialog_type_two",
+      "value": "Two button alert dialog"
+    },
+    {
+      "name": "alert_dialog_type_two_button_one",
+      "value": "This is button one"
+    },
+    {
+      "name": "alert_dialog_type_two_button_two",
+      "value": "This is button two"
+    },
+    {
+      "name": "alert_dialog_prompt",
+      "value": "Hint"
+    },
+    {
+      "name": "alert_dialog_warning",
+      "value": "Warning"
+    },
+    {
+      "name": "alert_dialog_info",
+      "value": "You are performing an action"
+    },
+    {
+      "name": "alert_dialog_confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "alert_dialog_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "alert_dialog_type",
+      "value": "Dialog type"
+    },
+    {
+      "name": "alert_dialog_location",
+      "value": "Dialog position"
+    },
+    {
+      "name": "alert_dialog_auto_cancel",
+      "value": "Click on the mask layer to close the dialog"
+    },
+    {
+      "name": "alert_dialog_true",
+      "value": "Closeable"
+    },
+    {
+      "name": "alert_dialog_false",
+      "value": "Non-closing"
+    },
+    {
+      "name": "alert_dialog_top",
+      "value": "Vertical top"
+    },
+    {
+      "name": "alert_dialog_center",
+      "value": "Vertical center"
+    },
+    {
+      "name": "alert_dialog_bottom",
+      "value": "Vertical bottom"
+    },
+    {
+      "name": "alert_dialog_offset",
+      "value": "Relative position offset dialog"
+    },
+    {
+      "name": "alert_dialog_left",
+      "value": "Upper left offset"
+    },
+    {
+      "name": "alert_dialog_right",
+      "value": "Lower right offset"
+    },
+    {
+      "name": "alert_dialog_grid",
+      "value": "Different grid width dialog"
+    },
+    {
+      "name": "alert_dialog_grid_two",
+      "value": "2 grid width"
+    },
+    {
+      "name": "alert_dialog_grid_three",
+      "value": "3 grid width"
+    },
+    {
+      "name": "alert_dialog_grid_four",
+      "value": "4 grid width"
+    },
+    // Foreground
+    {
+      "name": "foreground_color",
+      "value": "Set foreground color"
+    },
+    // Background
+    {
+      "name": "background_color",
+      "value": "Set background color"
+    },
+    {
+      "name": "background_gradient",
+      "value": "Set background gradient"
+    },
+    {
+      "name": "background_gradient_linear",
+      "value": "linear gradient"
+    },
+    {
+      "name": "background_gradient_sweep",
+      "value": "angle gradient"
+    },
+    {
+      "name": "background_gradient_radial",
+      "value": "Radial gradient"
+    },
+    {
+      "name": "background_image_transformation_effect",
+      "value": "Background image transformation effect"
+    },
+    {
+      "name": "set_background_image_size",
+      "value": "Set background image size"
+    },
+    {
+      "name": "set_background_image_position",
+      "value": "Set background image position"
+    },
+    {
+      "name": "set_background_blur_style_color_mode",
+      "value": "Set background blur style color mode"
+    },
+    {
+      "name": "set_background_blur_style_adaptive_color",
+      "value": "Set background blur style adaptive color"
+    },
+    {
+      "name": "blur_style_system",
+      "value": "System"
+    },
+    {
+      "name": "blur_style_light",
+      "value": "Light"
+    },
+    {
+      "name": "blur_style_dark",
+      "value": "Dark"
+    },
+    {
+      "name": "blur_style_default",
+      "value": "Default"
+    },
+    {
+      "name": "set_shadow_type",
+      "value": "Set shadow type"
+    },
+    {
+      "name": "shadow_type_color",
+      "value": "COLOR"
+    },
+    {
+      "name": "shadow_type_blur",
+      "value": "BLUR"
+    },
+    {
+      "name": "blur_style_average",
+      "value": "Average"
+    },
+    {
+      "name": "background_image_size_cover",
+      "value": "Cover"
+    },
+    {
+      "name": "background_image_size_contain",
+      "value": "Contain"
+    },
+
+    {
+      "name": "background_image_position_top_start",
+      "value": "TopStart"
+    },
+    {
+      "name": "background_image_position_top",
+      "value": "Top"
+    },
+    {
+      "name": "background_image_position_top_end",
+      "value": "TopEnd"
+    },
+    {
+      "name": "background_image_position_start",
+      "value": "Top"
+    },
+    {
+      "name": "background_image_position_center",
+      "value": "Center"
+    },
+    {
+      "name": "background_image_position_end",
+      "value": "End"
+    },
+    {
+      "name": "background_image_position_bottom_start",
+      "value": "BottomStart"
+    },
+    {
+      "name": "background_image_position_bottom",
+      "value": "Bottom"
+    },
+
+    {
+      "name": "background_image_position_bottom_end",
+      "value": "BottomEnd"
+    },
+
+    {
+      "name": "background_image",
+      "value": "Set background image"
+    },
+    {
+      "name": "background_image_default",
+      "value": "default"
+    },
+    {
+      "name": "background_image_repeat",
+      "value": "XY axis repeat plot"
+    },
+    {
+      "name": "background_image_size",
+      "value": "Image size 50% wide and 100% high"
+    },
+    {
+      "name": "background_image_offset",
+      "value": "Picture position offset to the right and down"
+    },
+    // Badge
+    {
+      "name": "auxiliary_badge",
+      "value": "Badge"
+    },
+    {
+      "name": "badge_type",
+      "value": "Tag type"
+    },
+    {
+      "name": "badge_number",
+      "value": "Number marker"
+    },
+    {
+      "name": "badge_string",
+      "value": "Text tag"
+    },
+    {
+      "name": "badge_max",
+      "value": "Number tag maximum number of messages"
+    },
+    {
+      "name": "badge_number_normal",
+      "value": "Normal badge"
+    },
+    {
+      "name": "badge_number_max",
+      "value": "Maximum Badge"
+    },
+    {
+      "name": "badge_location",
+      "value": "Mark position"
+    },
+    {
+      "name": "badge_left",
+      "value": "Left marker"
+    },
+    {
+      "name": "badge_top",
+      "value": "Top right tag"
+    },
+    {
+      "name": "badge_right",
+      "value": "Right marker"
+    },
+    {
+      "name": "badge_style",
+      "value": "Marker style"
+    },
+    {
+      "name": "badge_blue",
+      "value": "Large blue marker"
+    },
+    {
+      "name": "badge_green",
+      "value": "Small green marker"
+    },
+    // Border
+    {
+      "name": "border_type",
+      "value": "Border type"
+    },
+    {
+      "name": "border_type_dashed",
+      "value": "Dotted line"
+    },
+    {
+      "name": "border_type_dotted",
+      "value": "Dot"
+    },
+    {
+      "name": "border_type_solid",
+      "value": "Solid line"
+    },
+    {
+      "name": "border_border_style",
+      "value": "Border width, color, rounded corners"
+    },
+    {
+      "name": "border_border_width",
+      "value": "Width"
+    },
+    {
+      "name": "border_border_color",
+      "value": "Color"
+    },
+    {
+      "name": "border_border_radius",
+      "value": "Rounded corners"
+    },
+    {
+      "name": "border_edge_style",
+      "value": "Set the border and style and properties separately"
+    },
+    {
+      "name": "border_style_top",
+      "value": "Top border"
+    },
+    {
+      "name": "border_style_bottom",
+      "value": "Bottom border"
+    },
+    {
+      "name": "border_style_left",
+      "value": "Left border"
+    },
+    {
+      "name": "border_style_right",
+      "value": "Right border"
+    },
+    {
+      "name": "border_radius",
+      "value": "Set the rounded corners of each of the four corners"
+    },
+    {
+      "name": "border_3D",
+      "value": "Set the border 3D"
+    },
+    {
+      "name": "border_radius_left_top",
+      "value": "Top left border"
+    },
+    {
+      "name": "border_radius_left_bottom",
+      "value": "Bottom left border"
+    },
+    {
+      "name": "border_radius_right_top",
+      "value": "Top right border"
+    },
+    {
+      "name": "border_radius_right_bottom",
+      "value": "Bottom right border"
+    },
+    // Button
+    {
+      "name": "button_title",
+      "value": "Button"
+    },
+    {
+      "name": "button_type",
+      "value": "Type"
+    },
+    {
+      "name": "button_confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "button_type_capsule",
+      "value": "Capsule"
+    },
+    {
+      "name": "button_type_normal",
+      "value": "Normal"
+    },
+    {
+      "name": "button_type_circle",
+      "value": "Circle"
+    },
+    {
+      "name": "button_state_effect",
+      "value": "State effect"
+    },
+    {
+      "name": "button_state_effect_true",
+      "value": "Has effect"
+    },
+    {
+      "name": "button_state_effect_false",
+      "value": "No effect"
+    },
+    {
+      "name": "button_disable_style",
+      "value": "Disable"
+    },
+    {
+      "name": "button_custom_style",
+      "value": "Custom style"
+    },
+    {
+      "name": "button_border_radius",
+      "value": " Rounded button"
+    },
+    {
+      "name": "button_with_icon",
+      "value": "Icon button"
+    },
+    {
+      "name": "button_custom_bg_color",
+      "value": "Custom color"
+    },
+    {
+      "name": "button_click",
+      "value": "Button is clicked"
+    },
+    // Click Event
+    {
+      "name": "click_action_tips",
+      "value": "Click the gray area to change the crosshair position"
+    },
+    {
+      "name": "touch_action_tips",
+      "value": "Touch the gray area and move to change the crosshair position"
+    },
+    {
+      "name": "component_area_change_action_tips",
+      "value": "Slide to change the gray area size or position for controlling the ball motion area"
+    },
+    {
+      "name": "get_click_event_detail",
+      "value": "Click location information"
+    },
+    // Drag Event
+    {
+      "name": "drag_drop_action_tips",
+      "value": "Long press the application icon and drag to different areas"
+    },
+    {
+      "name": "component_drag_and_drop",
+      "value": "Component drag and drop"
+    },
+    {
+      "name": "griditem",
+      "value": "GridItem"
+    },
+    {
+      "name": "listitem",
+      "value": "ListItem"
+    },
+    {
+      "name": "hyperlink",
+      "value": "Hyperlink"
+    },
+    {
+      "name": "text",
+      "value": "Text"
+    },
+    {
+      "name": "image",
+      "value": "Image"
+    },
+    {
+      "name": "video",
+      "value": "Video"
+    },
+    {
+      "name": "formcomponent",
+      "value": "FormComponent"
+    },
+    // CustomDialog
+    {
+      "name": "custom_dialog",
+      "value": "Custom dialog"
+    },
+    {
+      "name": "custom_dialog_style_custom",
+      "value": "Whether the dialog style is customized"
+    },
+    {
+      "name": "custom_dialog_style_custom_true",
+      "value": "Custom"
+    },
+    {
+      "name": "custom_dialog_style_custom_false",
+      "value": "Non-custom"
+    },
+    {
+      "name": "custom_dialog_title",
+      "value": "The component collection requests to enable the following permissions"
+    },
+    {
+      "name": "custom_dialog_permission_microphone",
+      "value": "Microphone permission"
+    },
+    {
+      "name": "custom_dialog_permission_microphone_info",
+      "value": "Microphone permission is required for voice calls"
+    },
+    {
+      "name": "custom_dialog_permission_location",
+      "value": "Location permissions"
+    },
+    {
+      "name": "custom_dialog_permission_location_info",
+      "value": "Location permission is required for navigation"
+    },
+    {
+      "name": "custom_dialog_start",
+      "value": "One-click opening"
+    },
+    // DatePickerDialog
+    {
+      "name": "date_picker_dialog",
+      "value": "DatePickerDialog"
+    },
+    {
+      "name": "date_picker_dialog_date",
+      "value": "Show date dialog"
+    },
+    {
+      "name": "date_picker_dialog_date_lunar",
+      "value": "Lunar date:"
+    },
+    {
+      "name": "date_picker_dialog_date_gregorian",
+      "value": "Gregorian calendar date:"
+    },
+    {
+      "name": "date_picker_dialog_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "date_picker_toast_date",
+      "value": "Selected time:"
+    },
+    {
+      "name": "date_picker_dialog_datetimeone",
+      "value": "2022-10-01"
+    },
+    {
+      "name": "date_picker_dialog_datetimetwo",
+      "value": "1970-1-1"
+    },
+    {
+      "name": "date_picker_dialog_datetimethree",
+      "value": "2100-12-31"
+    },
+    // DatePicker
+    {
+      "name": "date_picker_title",
+      "value": "DatePicker"
+    },
+    {
+      "name": "date_picker_lunar",
+      "value": "Is lunar"
+    },
+    // Divider
+    {
+      "name": "divider_title",
+      "value": "Divider"
+    },
+    {
+      "name": "divider_stroke_width",
+      "value": "Stroke width"
+    },
+    {
+      "name": "divider_line_color",
+      "value": "Line color"
+    },
+    {
+      "name": "divider_line_cap",
+      "value": "LineCapStyle"
+    },
+    {
+      "name": "divider_horizontal",
+      "value": "Horizontal"
+    },
+    {
+      "name": "divider_vertical",
+      "value": "Vertical"
+    },
+    {
+      "name": "divider_attribute",
+      "value": "Divider"
+    },
+    {
+      "name": "divider_color_blue",
+      "value": "Blue"
+    },
+    {
+      "name": "divider_color_green",
+      "value": "Green"
+    },
+    {
+      "name": "divider_color_orange",
+      "value": "Orange"
+    },
+    {
+      "name": "divider_color_pink",
+      "value": "Pink"
+    },
+    {
+      "name": "divider_line_type_butt",
+      "value": "Butt"
+    },
+    {
+      "name": "divider_line_type_round",
+      "value": "Round"
+    },
+    {
+      "name": "divider_line_type_square",
+      "value": "Square"
+    },
+    // Font
+    {
+      "name": "font_color",
+      "value": "Color"
+    },
+    {
+      "name": "font_size",
+      "value": "Size"
+    },
+    {
+      "name": "font_thickness",
+      "value": "Thickness"
+    },
+    {
+      "name": "font_style",
+      "value": "Style"
+    },
+    // Interpolation Calculation
+    {
+      "name": "interpolation_calculation_cubic_bezier_curve",
+      "value": "Third-order Bézier curve object"
+    },
+    {
+      "name": "interpolation_calculation_spring",
+      "value": "Spring curve object"
+    },
+    {
+      "name": "interpolation_calculation_init_curve",
+      "value": "EaseIn (deceleration start) difference curve"
+    },
+    {
+      "name": "interpolation_calculation_steps_curve",
+      "value": "step curve object"
+    },
+    // Page Transition
+    {
+      "name": "page_transition",
+      "value": "Transitions between pages"
+    },
+    {
+      "name": "page_transition_left",
+      "value": "Left Entry/Right Exit"
+    },
+    {
+      "name": "page_transition_right",
+      "value": "Right Entry/Left Exit"
+    },
+    {
+      "name": "page_transition_top",
+      "value": "Top Entry/Bottom Exit"
+    },
+    {
+      "name": "page_transition_bottom",
+      "value": "Bottom Entry/Top Exit"
+    },
+    {
+      "name": "page_transition_scale",
+      "value": "Zoom in/out"
+    },
+    {
+      "name": "page_transition_rotate",
+      "value": "Spin in/out"
+    },
+    {
+      "name": "page_transition_back",
+      "value": "Back to page transition between pages"
+    },
+    // QRCode
+    {
+      "name": "qrcode_title",
+      "value": "QRCode"
+    },
+    {
+      "name": "qrcode_content",
+      "value": "Content"
+    },
+    {
+      "name": "qrcode_color",
+      "value": "Color"
+    },
+    {
+      "name": "qrcode_enter_content",
+      "value": "Enter to change QR code"
+    },
+    // Search
+    {
+      "name": "search_placeholder",
+      "value": "Type to search..."
+    },
+    {
+      "name": "search_name",
+      "value": "search"
+    },
+    // Radio
+    {
+      "name": "radio_title",
+      "value": "Radio"
+    },
+    {
+      "name": "radio_no_response_region",
+      "value": "Not add response region(take effect when click the button)"
+    },
+    {
+      "name": "radio_has_response_region",
+      "value": "Add response region (click row of button take effect)"
+    },
+    {
+      "name": "radio_beijing",
+      "value": "Beijing"
+    },
+    {
+      "name": "radio_shanghai",
+      "value": "Shanghai"
+    },
+    {
+      "name": "radio_shenzhen",
+      "value": "Shenzhen"
+    },
+    {
+      "name": "radio_guangzhou",
+      "value": "Guangzhou"
+    },
+    // Rotate
+    {
+      "name": "graphic_transformation_rotate",
+      "value": "Rotate"
+    },
+    {
+      "name": "rotate_photo",
+      "value": "Image rotation"
+    },
+    {
+      "name": "rotate_container",
+      "value": "Component rotation"
+    },
+    {
+      "name": "rotate_before_image",
+      "value": "Original image"
+    },
+    {
+      "name": "rotate_before_component",
+      "value": "Container component"
+    },
+    {
+      "name": "rotate_image_angle",
+      "value": "Rotate 15°"
+    },
+    // SaveArea
+    {
+      "name": "safe_area_type_and_safe_area_edge",
+      "value": "SafeAreaType And SafeAreaEdge"
+    },
+    {
+      "name": "safe_area",
+      "value": "SafeArea"
+    },
+    {
+      "name": "save_area_input_text",
+      "value": "input your word ..."
+    },
+    {
+      "name": "safe_area_type",
+      "value": "SafeAreaType"
+    },
+    {
+      "name": "safe_area_edge",
+      "value": "SafeAreaEdge"
+    },
+    {
+      "name": "safe_area_edge_top",
+      "value": "TOP"
+    },
+    {
+      "name": "safe_area_edge_bottom",
+      "value": "BOTTOM"
+    },
+    {
+      "name": "safe_area_edge_start",
+      "value": "START"
+    },
+    {
+      "name": "safe_area_edge_end",
+      "value": "END"
+    },
+    {
+      "name": "safe_area_type_system",
+      "value": "SYSTEM"
+    },
+    {
+      "name": "safe_area_type_cutout",
+      "value": "CUTOUT"
+    },
+    {
+      "name": "safe_area_type_keyboard",
+      "value": "KEYBOARD"
+    },
+    // Select
+    {
+      "name": "select_title",
+      "value": "Select"
+    },
+    {
+      "name": "select_has_icon",
+      "value": "Select with icon"
+    },
+    {
+      "name": "select_option_bg_and_text_style",
+      "value": "Selected item background color and text style"
+    },
+    {
+      "name": "select_unselect_option_style",
+      "value": "Option item background and text style"
+    },
+    {
+      "name": "select_button_style",
+      "value": "Drop-down button text style"
+    },
+    {
+      "name": "select_picture",
+      "value": "Picture"
+    },
+    {
+      "name": "select_collection",
+      "value": "Collection"
+    },
+    {
+      "name": "select_gesture",
+      "value": "Gesture"
+    },
+    {
+      "name": "select_index",
+      "value": "Select option index:"
+    },
+    {
+      "name": "select_value",
+      "value": "The value of the selected option:"
+    },
+    // Shareelement Transition
+    {
+      "name": "share_element_transition",
+      "value": "Shared element transition"
+    },
+    {
+      "name": "Multiplex_interface",
+      "value": "multiplex"
+    },
+    {
+      "name": "Floating_window",
+      "value": "floating window"
+    },
+    {
+      "name": "Tips_call",
+      "value": "Waiting"
+    },
+    {
+      "name": "Font_family_regular",
+      "value": "HarmonyOS Sans SC-Regular"
+    },
+    {
+      "name": "Font_family_medium",
+      "value": "HarmonyOS Sans SC-Medium"
+    },
+    {
+      "name": "Folder_expansion",
+      "value": "folder expansion"
+    },
+    {
+      "name": "Shop_card_expansion",
+      "value": "shop card expansion"
+    },
+    {
+      "name": "System_icon",
+      "value": "System Icon"
+    },
+    {
+      "name": "Today",
+      "value": "today"
+    },
+    {
+      "name": "Gallery_card_expansion",
+      "value": "gallery card expansion"
+    },
+    // Size
+    {
+      "name": "size_width",
+      "value": "Width"
+    },
+    {
+      "name": "size_width_fixed_100vp",
+      "value": "Width is 100vp"
+    },
+    {
+      "name": "size_width_percent",
+      "value": "width is 60%"
+    },
+    {
+      "name": "size_width_fixed_60vw",
+      "value": "Width is 60vw"
+    },
+    {
+      "name": "size_height",
+      "value": "Height"
+    },
+    {
+      "name": "size_height_fixed_60vh",
+      "value": "Width is 60vh"
+    },
+    {
+      "name": "size_height_fixed_100vp",
+      "value": "Height is 100vp"
+    },
+    {
+      "name": "size_height_percent",
+      "value": "Height is 60%"
+    },
+    {
+      "name": "size_height_fixed_calc",
+      "value": "Height is calc(200vp-100vp)"
+    },
+    // Slider
+    {
+      "name": "slider_title",
+      "value": "Slider"
+    },
+    {
+      "name": "slider_step_tip",
+      "value": "Step and tip (step is 10)"
+    },
+    {
+      "name": "slider_current_value",
+      "value": "Show current value (min-50/max-130)"
+    },
+    {
+      "name": "slider_events",
+      "value": "Events"
+    },
+    {
+      "name": "slider_attributes",
+      "value": "Attributes"
+    },
+    {
+      "name": "slider_vertical_reverse",
+      "value": "Vertical and reverse"
+    },
+    {
+      "name": "slider_forward",
+      "value": "Forward"
+    },
+    {
+      "name": "slider_reverse",
+      "value": "Reverse"
+    },
+    {
+      "name": "slider_select_color",
+      "value": "Select color"
+    },
+    {
+      "name": "slider_track_color",
+      "value": "Track color"
+    },
+    {
+      "name": "slider_block_color",
+      "value": "Block color"
+    },
+    {
+      "name": "slider_track_thickness",
+      "value": "Track thickness"
+    },
+    {
+      "name": "slider_event_begin",
+      "value": "Start dragging the slider"
+    },
+    {
+      "name": "slider_event_moving",
+      "value": "In the process of dragging the slider"
+    },
+    {
+      "name": "slider_event_end",
+      "value": "End drag slider"
+    },
+    {
+      "name": "slider_event_click",
+      "value": "Click the slider to move the slider position"
+    },
+    {
+      "name": "slider_title_value",
+      "value": "Slider slide as a percentage of the total length:"
+    },
+    // Span
+    {
+      "name": "span_title",
+      "value": "Span"
+    },
+    {
+      "name": "span_attribute",
+      "value": "Configure different span attributes"
+    },
+    {
+      "name": "span_content_one",
+      "value": "Steel is tempered in fire and sharp cooling, "
+    },
+    {
+      "name": "span_content_two",
+      "value": "so it can be hard and not afraid of anything. "
+    },
+    {
+      "name": "span_content_three",
+      "value": "It is also in this way that our generation has been tempered in struggles and terrible trials, "
+    },
+    {
+      "name": "span_content_four",
+      "value": "learning not to succumb to life."
+    },
+    {
+      "name": "span_decoration_and_letter_spacing",
+      "value": "Decoration and letter spacing"
+    },
+    {
+      "name": "span_letter_spacing",
+      "value": "LetterSpacing"
+    },
+    {
+      "name": "span_line_height",
+      "value": "LineHeight"
+    },
+    {
+      "name": "span_decoration_type",
+      "value": "Decoration type"
+    },
+    {
+      "name": "span_text_decoration",
+      "value": "Decoration test text"
+    },
+    {
+      "name": "span_text_spacing",
+      "value": "  LetterSpacing test text"
+    },
+    {
+      "name": "span_inherits_text_attribute",
+      "value": "  Span inherits text attribute"
+    },
+    {
+      "name": "span_does_not_inherit_text_attribute",
+      "value": "  Span does not inherits text attribute"
+    },
+    {
+      "name": "span_upper_lower",
+      "value": "Upper or lower case"
+    },
+    {
+      "name": "span_decoration_color",
+      "value": "Decoration color"
+    },
+    {
+      "name": "span_decoration_none",
+      "value": "None"
+    },
+    {
+      "name": "span_decoration_linethrough",
+      "value": "LineThrough"
+    },
+    {
+      "name": "span_decoration_underline",
+      "value": "Underline"
+    },
+    {
+      "name": "span_decoration_overline",
+      "value": "Overline"
+    },
+    //ImageSpan
+    {
+      "name": "image_span_title",
+      "value": "Image Span"
+    },
+    {
+      "name": "image_span_vertical_align",
+      "value": "Vertical Align"
+    },
+    {
+      "name": "image_span_alignment_baseline",
+      "value": "Baseline"
+    },
+    {
+      "name": "image_span_alignment_bottom",
+      "value": "Bottom"
+    },
+    {
+      "name": "image_span_alignment_center",
+      "value": "Center"
+    },
+    {
+      "name": "image_span_alignment_top",
+      "value": "Top"
+    },
+    {
+      "name": "image_span_object_fit",
+      "value": "Object Fit"
+    },
+    {
+      "name": "image_fit_contain",
+      "value": "Contain"
+    },
+    {
+      "name": "image_fit_auto",
+      "value": "Auto"
+    },
+    {
+      "name": "image_fit_fill",
+      "value": "Fill"
+    },
+    {
+      "name": "image_fit_none",
+      "value": "None"
+    },
+    {
+      "name": "image_fit_scale_down",
+      "value": "Scale Down"
+    },
+    {
+      "name": "image_fit_cover",
+      "value": "Cover"
+    },
+    {
+      "name": "image_span_and_span",
+      "value": "image span and span"
+    },
+    {
+      "name": "image_span_vertical_align_and_object_fit",
+      "value": "image span vertical align and object fit"
+    },
+    // Text
+    {
+      "name": "text_title",
+      "value": "Text"
+    },
+    {
+      "name": "text_content",
+      "value": "Steel is tempered in fire and sharp cooling, so it can be hard and not afraid of anything. It is also in this way that our generation has been tempered in struggles and terrible trials, learning not to succumb to life."
+    },
+    {
+      "name": "text_content_en",
+      "value": "Steel is tempered in fire and sharp cooling, so it can be hard and not afraid of anything. It is also in this way that our generation has been tempered in struggles and terrible trials, learning not to succumb to life."
+    },
+    {
+      "name": "text_width",
+      "value": "Text width"
+    },
+    {
+      "name": "text_height",
+      "value": "Text height"
+    },
+    {
+      "name": "text_content_en_first",
+      "value": "Steel is tempered in fire and sharp cooling, so it can be hard and not afraid of anything. "
+    },
+    {
+      "name": "text_content_en_last",
+      "value": "It is also in this way that our generation has been tempered in struggles and terrible trials, learning not to succumb to life. "
+    },
+    {
+      "name": "text_text_align_center",
+      "value": "Center"
+    },
+    {
+      "name": "text_text_align_start",
+      "value": "Start"
+    },
+    {
+      "name": "text_text_align_end",
+      "value": "End"
+    },
+    {
+      "name": "text_decoration_type",
+      "value": "Text decoration type"
+    },
+    {
+      "name": "text_decoration_type_under_line",
+      "value": "Under line"
+    },
+    {
+      "name": "text_decoration_type_line_through",
+      "value": "Line through"
+    },
+    {
+      "name": "text_decoration_type_over_line",
+      "value": "Over line"
+    },
+    {
+      "name": "text_text_align_type",
+      "value": "Text alignment"
+    },
+    {
+      "name": "text_letter_spacing",
+      "value": "Letter spacing"
+    },
+    {
+      "name": "text_overflow",
+      "value": "Text overflow"
+    },
+    {
+      "name": "text_none",
+      "value": "None"
+    },
+    {
+      "name": "text_text_over_flow_clip",
+      "value": "Clip"
+    },
+    {
+      "name": "text_text_over_flow_ellipsis",
+      "value": "Ellipsis"
+    },
+    {
+      "name": "text_line_height",
+      "value": "Line height     "
+    },
+    {
+      "name": "text_font_color",
+      "value": "Font color"
+    },
+    {
+      "name": "text_over_flow",
+      "value": "Text over flow"
+    },
+    {
+      "name": "text_text_case_normal",
+      "value": "Normal"
+    },
+    {
+      "name": "text_text_case",
+      "value": "Text case"
+    },
+    {
+      "name": "text_text_case_uppercase",
+      "value": "Uppercase"
+    },
+    {
+      "name": "text_text_case_lowercase",
+      "value": "Lowercase"
+    },
+    // TextArea
+    {
+      "name": "text_area_set_text_selection",
+      "value": "Set Text Selection"
+    },
+    {
+      "name": "text_area_set_text_selection_start_select_error",
+      "value": "Set Text Selection Start Select Error"
+    },
+    {
+      "name": "text_area_set_text_selection_end_select_error",
+      "value": "Set Text Selection End Select Error"
+    },
+    {
+      "name": "text_input_set_text_selection_start_select",
+      "value": "Start Select:"
+    },
+    {
+      "name": "text_input_set_text_selection_end_select",
+      "value": "End Select:"
+    },
+    
+  ]
+}
