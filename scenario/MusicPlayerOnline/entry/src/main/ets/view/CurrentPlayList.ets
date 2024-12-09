@@ -85,6 +85,7 @@ export default struct CurrentPlayList {
           .height('84vp')
           .backgroundColor(item.isPlaying ? '#f0f0f0' : Color.White)
           .transition({ type: TransitionType.All, opacity: 0 })
+          .id('current'+index.toString())
         })
       }
       .width('100%')
