@@ -129,6 +129,7 @@ export default struct ExplorePlayList {
           .width('100%')
           .height('84vp')
           .transition({ type: TransitionType.All, opacity: 0 })
+          .id('explore'+index.toString())
         })
       }
       .width('100%')
