@@ -15,6 +15,7 @@
 /**
  * List item data entity.
  */
+import { promptAction } from '@kit.ArkUI';
 
 type OnItemClick = () => void;
 
@@ -24,7 +25,12 @@ export default class TestItemData {
   img: Resource;
   subTitle: string;
 
-  constructor(title: string, img: Resource, subTitle: string, onItemClick: OnItemClick) {
+  constructor(title: string, img: Resource, subTitle: string, onItemClick: OnItemClick = () => {
+    promptAction.showToast({
+      message: '敬请期待',
+      duration: 2000
+    });
+  }) {
     this.title = title;
     this.img = img;
     this.subTitle = subTitle;

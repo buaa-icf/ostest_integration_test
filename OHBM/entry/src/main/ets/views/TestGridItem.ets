@@ -33,7 +33,6 @@ export default struct TestGridItem {
       .borderRadius(12)
       .backgroundImage(this.item.img)
       .backgroundImageSize(ImageSize.Cover)
-      .shadow({ radius: 1, color: Color.Gray })
       .width(64)
       .height(64)
       .justifyContent(FlexAlign.SpaceBetween)
@@ -48,9 +47,17 @@ export default struct TestGridItem {
       Text(this.item.subTitle)
         .fontSize(16)
         .margin(4)
+        .maxLines(1)
         .fontColor(Color.Gray)
     }
     .alignItems(HorizontalAlign.Center)
+    .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
+    .shadow({
+      radius: 2,
+      color: Color.Gray,
+      offsetX: 1,
+      offsetY: 1
+    })
     .onClick(() => {
       this.item.onItemClick();
     })

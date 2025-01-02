@@ -23,6 +23,7 @@ import { inputDevice } from '@kit.InputKit';
 import Item from '../models/BasicInfoItemData';
 import BasicInfoArray from '../views/BasicInfoAarry';
 import { display } from '@kit.ArkUI';
+import HeadBar from '../views/HeadBar';
 
 
 @Entry
@@ -46,11 +47,7 @@ struct BasicInfo {
 
   build() {
     Column() {
-      Text('验机')
-        .fontSize(32)
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .margin(16)
+      HeadBar({ title: '验机', isSetting: false })
       Scroll() {
         Column() {
           BasicInfoArray({title:'设备信息',infoArray:this.deviceInfoArray})
