@@ -1957,3 +1957,1973 @@
       // 8
       '57': '(' // 9
     };
+
+var __capsLockActive = false;
+class KeyboardEvent extends Event {
+  constructor(type, KeyboardEventInit) {
+    super(type);
+    if (typeof KeyboardEventInit === 'object') {
+      this._altKeyActive = KeyboardEventInit.altKey ? KeyboardEventInit.altKey : false;
+      this._ctrlKeyActive = KeyboardEventInit.ctrlKey ? KeyboardEventInit.ctrlKey : false;
+      this._metaKeyActive = KeyboardEventInit.metaKey ? KeyboardEventInit.metaKey : false;
+      this._shiftKeyActive = KeyboardEventInit.shiftKey ? KeyboardEventInit.shiftKey : false;
+      this._keyCode = KeyboardEventInit.keyCode ? KeyboardEventInit.keyCode : -1;
+      this._repeat = KeyboardEventInit.repeat ? KeyboardEventInit.repeat : false;
+    } else {
+      this._altKeyActive = false;
+      this._ctrlKeyActive = false;
+      this._metaKeyActive = false;
+      this._shiftKeyActive = false;
+      this._keyCode = -1;
+      this._repeat = false;
+    }
+    var keyCode = this._keyCode;
+    if (keyCode >= 48 && keyCode <= 57) {
+      // 0 ~ 9
+      var number = keyCode - 48;
+      this._code = 'Digit' + number;
+      this._key = this._shiftKeyActive ? __numberShiftMap[keyCode] : '' + number;
+    } else if (keyCode >= 10048 && keyCode <= 10057) {
+      // Numberpad 0 ~ 9
+      // reset to web keyCode since it's a hack in C++ for distinguish numbers in Numberpad.
+      keyCode = this._keyCode = keyCode - 10000;
+      var number = keyCode - 48;
+      this._code = 'Numpad' + number;
+      this._key = '' + number;
+    } else if (keyCode >= 65 && keyCode <= 90) {
+      // A ~ Z
+      var charCode = String.fromCharCode(keyCode);
+      this._code = 'Key' + charCode;
+      this._key = this._shiftKeyActive ^ __capsLockActive ? charCode : charCode.toLowerCase();
+    } else if (keyCode >= 97 && keyCode <= 122) {
+      // a ~ z
+      var charCode = String.fromCharCode(keyCode);
+      this._keyCode = keyCode - (97 - 65); // always return uppercase keycode for backward-compatibility
+      this._code = 'Key' + charCode;
+      this._key = this._shiftKeyActive ^ __capsLockActive ? charCode.toUpperCase() : charCode;
+    } else if (keyCode >= 112 && keyCode <= 123) {
+      // F1 ~ F12
+      this._code = this._key = 'F' + (keyCode - 111);
+    } else if (keyCode === 27) {
+      this._code = this._key = 'Escape';
+    } else if (keyCode === 189) {
+      this._code = 'Minus';
+      this._key = this._shiftKeyActive ? '_' : '-';
+    } else if (keyCode === 187) {
+      this._code = 'Equal';
+      this._key = this._shiftKeyActive ? '+' : '=';
+    } else if (keyCode === 220) {
+      this._code = 'Backslash';
+      this._key = this._shiftKeyActive ? '|' : '\\';
+    } else if (keyCode === 192) {
+      this._code = 'Backquote';
+      this._key = this._shiftKeyActive ? '~' : '`';
+    } else if (keyCode === 8) {
+      this._code = this._key = 'Backspace';
+    } else if (keyCode === 13) {
+      this._code = this._key = 'Enter';
+    } else if (keyCode === 219) {
+      this._code = 'BracketLeft';
+      this._key = this._shiftKeyActive ? '{' : '[';
+    } else if (keyCode === 221) {
+      this._code = 'BracketRight';
+      this._key = this._shiftKeyActive ? '}' : ']';
+    } else if (keyCode === 186) {
+      this._code = 'Semicolon';
+      this._key = this._shiftKeyActive ? ':' : ';';
+    } else if (keyCode === 222) {
+      this._code = 'Quote';
+      this._key = this._shiftKeyActive ? '"' : "'";
+    } else if (keyCode === 9) {
+      this._code = this._key = 'Tab';
+    } else if (keyCode === 17) {
+      this._code = 'ControlLeft';
+      this._key = 'Control';
+    } else if (keyCode === 20017) {
+      this._keyCode = 17; // Reset to the real value.
+      this._code = 'ControlRight';
+      this._key = 'Control';
+    } else if (keyCode === 16) {
+      this._code = 'ShiftLeft';
+      this._key = 'Shift';
+    } else if (keyCode === 20016) {
+      this._keyCode = 16; // Reset to the real value.
+      this._code = 'ShiftRight';
+      this._key = 'Shift';
+    } else if (keyCode === 18) {
+      this._code = 'AltLeft';
+      this._key = 'Alt';
+    } else if (keyCode === 20018) {
+      this._keyCode = 18; // Reset to the real value.
+      this._code = 'AltRight';
+      this._key = 'Alt';
+    } else if (keyCode === 91) {
+      this._code = 'MetaLeft';
+      this._key = 'Meta';
+    } else if (keyCode === 93) {
+      this._code = 'MetaRight';
+      this._key = 'Meta';
+    } else if (keyCode === 37) {
+      this._code = this._key = 'ArrowLeft';
+    } else if (keyCode === 38) {
+      this._code = this._key = 'ArrowUp';
+    } else if (keyCode === 39) {
+      this._code = this._key = 'ArrowRight';
+    } else if (keyCode === 40) {
+      this._code = this._key = 'ArrowDown';
+    } else if (keyCode === 20093) {
+      this._keyCode = 93; // Bug of brower since its keycode is the same as MetaRight.
+      this._code = this._key = 'ContextMenu';
+    } else if (keyCode === 20013) {
+      this._keyCode = 13;
+      this._code = 'NumpadEnter';
+      this._key = 'Enter';
+    } else if (keyCode === 107) {
+      this._code = 'NumpadAdd';
+      this._key = '+';
+    } else if (keyCode === 109) {
+      this._code = 'NumpadSubtract';
+      this._key = '-';
+    } else if (keyCode === 106) {
+      this._code = 'NumpadMultiply';
+      this._key = '*';
+    } else if (keyCode === 111) {
+      this._code = 'NumpadDivide';
+      this._key = '/';
+    } else if (keyCode === 12) {
+      this._code = 'NumLock';
+      this._key = 'Clear';
+    } else if (keyCode === 124) {
+      this._code = this._key = 'F13';
+    } else if (keyCode === 36) {
+      this._code = this._key = 'Home';
+    } else if (keyCode === 33) {
+      this._code = this._key = 'PageUp';
+    } else if (keyCode === 34) {
+      this._code = this._key = 'PageDown';
+    } else if (keyCode === 35) {
+      this._code = this._key = 'End';
+    } else if (keyCode === 188) {
+      this._code = 'Comma';
+      this._key = this._shiftKeyActive ? '<' : ',';
+    } else if (keyCode === 190) {
+      this._code = 'Period';
+      this._key = this._shiftKeyActive ? '>' : '.';
+    } else if (keyCode === 191) {
+      this._code = 'Slash';
+      this._key = this._shiftKeyActive ? '?' : '/';
+    } else if (keyCode === 32) {
+      this._code = 'Space';
+      this._key = ' ';
+    } else if (keyCode === 46) {
+      this._code = this._key = 'Delete';
+    } else if (keyCode === 110) {
+      this._code = 'NumpadDecimal';
+      this._key = '.';
+    } else if (keyCode === 20) {
+      this._code = this._key = 'CapsLock';
+      if (type === 'keyup') {
+        __capsLockActive = !__capsLockActive;
+      }
+    } else {
+      console.log("Unknown keyCode: " + this._keyCode);
+    }
+  }
+
+  // Returns a Boolean indicating if the modifier key, like Alt, Shift, Ctrl, or Meta, was pressed when the event was created.
+  getModifierState() {
+    return false;
+  }
+
+  // Returns a Boolean that is true if the Alt ( Option or ⌥ on OS X) key was active when the key event was generated.
+  get altKey() {
+    return this._altKeyActive;
+  }
+
+  // Returns a DOMString with the code value of the key represented by the event.
+  get code() {
+    return this._code;
+  }
+
+  // Returns a Boolean that is true if the Ctrl key was active when the key event was generated.
+  get ctrlKey() {
+    return this._ctrlKeyActive;
+  }
+
+  // Returns a Boolean that is true if the event is fired between after compositionstart and before compositionend.
+  get isComposing() {
+    return false;
+  }
+
+  // Returns a DOMString representing the key value of the key represented by the event.
+  get key() {
+    return this._key;
+  }
+  get keyCode() {
+    return this._keyCode;
+  }
+
+  // Returns a Number representing the location of the key on the keyboard or other input device.
+  get location() {
+    return 0;
+  }
+
+  // Returns a Boolean that is true if the Meta key (on Mac keyboards, the ⌘ Command key; on Windows keyboards, the Windows key (⊞)) was active when the key event was generated.
+  get metaKey() {
+    return this._metaKeyActive;
+  }
+
+  // Returns a Boolean that is true if the key is being held down such that it is automatically repeating.
+  get repeat() {
+    return this._repeat;
+  }
+
+  // Returns a Boolean that is true if the Shift key was active when the key event was generated.
+  get shiftKey() {
+    return this._shiftKeyActive;
+  }
+}
+module.exports = KeyboardEvent;
+
+},{"./Event":10}],24:[function(require,module,exports){
+"use strict";
+
+const MEDIA_ERR_ABORTED = 1;
+const MEDIA_ERR_NETWORK = 2;
+const MEDIA_ERR_DECODE = 3;
+const MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
+class MediaError {
+  constructor() {}
+  get code() {
+    return MEDIA_ERR_ABORTED;
+  }
+  get message() {
+    return "";
+  }
+}
+module.exports = MediaError;
+
+},{}],25:[function(require,module,exports){
+"use strict";
+
+const Event = require('./Event');
+class MouseEvent extends Event {
+  constructor(type, initArgs) {
+    super(type);
+    this._button = initArgs.button;
+    this._which = initArgs.which;
+    this._wheelDelta = initArgs.wheelDelta;
+    this._clientX = initArgs.clientX;
+    this._clientY = initArgs.clientY;
+    this._screenX = initArgs.screenX;
+    this._screenY = initArgs.screenY;
+    this._pageX = initArgs.pageX;
+    this._pageY = initArgs.pageY;
+  }
+  get button() {
+    return this._button;
+  }
+  get which() {
+    return this._which;
+  }
+  get wheelDelta() {
+    return this._wheelDelta;
+  }
+  get clientX() {
+    return this._clientX;
+  }
+  get clientY() {
+    return this._clientY;
+  }
+  get screenX() {
+    return this._screenX;
+  }
+  get screenY() {
+    return this._screenY;
+  }
+  get pageX() {
+    return this._pageX;
+  }
+  get pageY() {
+    return this._pageY;
+  }
+}
+module.exports = MouseEvent;
+
+},{"./Event":10}],26:[function(require,module,exports){
+"use strict";
+
+const EventTarget = require('./EventTarget');
+const jsbWindow = require('../../jsbWindow');
+class Node extends EventTarget {
+  constructor() {
+    super();
+    this.childNodes = [];
+    this.parentNode = jsbWindow.__canvas;
+  }
+  appendChild(node) {
+    if (node instanceof Node) {
+      this.childNodes.push(node);
+    } else {
+      throw new TypeError('Failed to executed \'appendChild\' on \'Node\': parameter 1 is not of type \'Node\'.');
+    }
+  }
+  insertBefore(newNode, referenceNode) {
+    //REFINE:
+    return newNode;
+  }
+  replaceChild(newChild, oldChild) {
+    //REFINE:
+    return oldChild;
+  }
+  cloneNode() {
+    const copyNode = Object.create(this);
+    Object.assign(copyNode, this);
+    return copyNode;
+  }
+  removeChild(node) {
+    const index = this.childNodes.findIndex(child => child === node);
+    if (index > -1) {
+      return this.childNodes.splice(index, 1);
+    }
+    return null;
+  }
+  contains(node) {
+    return this.childNodes.indexOf(node) > -1;
+  }
+}
+module.exports = Node;
+
+},{"../../jsbWindow":44,"./EventTarget":11}],27:[function(require,module,exports){
+"use strict";
+
+const Event = require('./Event');
+class TouchEvent extends Event {
+  constructor(type, touchEventInit) {
+    super(type);
+    this.touches = [];
+    this.targetTouches = [];
+    this.changedTouches = [];
+  }
+}
+module.exports = TouchEvent;
+
+},{"./Event":10}],28:[function(require,module,exports){
+"use strict";
+
+const HTMLElement = require('./HTMLElement');
+const Image = require('./Image');
+const HTMLCanvasElement = require('./HTMLCanvasElement');
+const HTMLVideoElement = require('./HTMLVideoElement');
+const HTMLScriptElement = require('./HTMLScriptElement');
+const Node = require('./Node');
+const FontFaceSet = require('./FontFaceSet');
+const jsbWindow = require('../../jsbWindow');
+class Document extends Node {
+  constructor() {
+    super();
+    this.readyState = 'complete';
+    this.visibilityState = 'visible';
+    this.documentElement = globalThis;
+    this.hidden = false;
+    this.style = {};
+    this.location = require('./location');
+    this.head = new HTMLElement('head');
+    this.body = new HTMLElement('body');
+    this.fonts = new FontFaceSet();
+    this.scripts = [];
+  }
+  createElementNS(namespaceURI, qualifiedName, options) {
+    return this.createElement(qualifiedName);
+  }
+  createElement(tagName) {
+    if (tagName === 'canvas') {
+      return new HTMLCanvasElement(1, 1);
+    } else if (tagName === 'img') {
+      return new Image();
+    } else if (tagName === 'video') {
+      return new HTMLVideoElement();
+    } else if (tagName === 'script') {
+      return new HTMLScriptElement();
+    }
+    return new HTMLElement(tagName);
+  }
+  getElementById(id) {
+    if (id === jsbWindow.__canvas.id || id === 'canvas') {
+      return jsbWindow.__canvas;
+    }
+    return new HTMLElement(id);
+  }
+  getElementsByTagName(tagName) {
+    if (tagName === 'head') {
+      return [document.head];
+    } else if (tagName === 'body') {
+      return [document.body];
+    } else if (tagName === 'canvas') {
+      return [jsbWindow.__canvas];
+    }
+    return [new HTMLElement(tagName)];
+  }
+  getElementsByName(tagName) {
+    if (tagName === 'head') {
+      return [document.head];
+    } else if (tagName === 'body') {
+      return [document.body];
+    } else if (tagName === 'canvas') {
+      return [jsbWindow.__canvas];
+    }
+    return [new HTMLElement(tagName)];
+  }
+  querySelector(query) {
+    if (query === 'head') {
+      return document.head;
+    } else if (query === 'body') {
+      return document.body;
+    } else if (query === 'canvas') {
+      return jsbWindow.__canvas;
+    } else if (query === `#${jsbWindow.__canvas.id}`) {
+      return jsbWindow.__canvas;
+    }
+    return new HTMLElement(query);
+  }
+  querySelectorAll(query) {
+    if (query === 'head') {
+      return [document.head];
+    } else if (query === 'body') {
+      return [document.body];
+    } else if (query === 'canvas') {
+      return [jsbWindow.__canvas];
+    } else if (query.startsWith('script[type="systemjs-importmap"]')) {
+      return HTMLScriptElement._getAllScriptElementsSystemJSImportType();
+    }
+    return [new HTMLElement(query)];
+  }
+  createTextNode() {
+    return new HTMLElement('text');
+  }
+  elementFromPoint() {
+    return jsbWindow.canvas;
+  }
+  createEvent(type) {
+    if (jsbWindow[type]) {
+      return new jsbWindow[type]();
+    }
+    return null;
+  }
+  exitPointerLock() {
+    jsb.setCursorEnabled(true);
+  }
+}
+let document = new Document();
+module.exports = document;
+
+},{"../../jsbWindow":44,"./FontFaceSet":14,"./HTMLCanvasElement":15,"./HTMLElement":16,"./HTMLScriptElement":19,"./HTMLVideoElement":20,"./Image":21,"./Node":26,"./location":31}],29:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DOMException = void 0;
+exports.Headers = Headers;
+exports.Request = Request;
+exports.Response = Response;
+exports.fetch = fetch;
+const self = globalThis;
+const support = {
+  searchParams: 'URLSearchParams' in self,
+  iterable: 'Symbol' in self && 'iterator' in Symbol,
+  blob: false,
+  // do not support blob in native
+  formData: 'FormData' in self,
+  arrayBuffer: 'ArrayBuffer' in self
+};
+function isDataView(obj) {
+  return obj && DataView.prototype.isPrototypeOf(obj);
+}
+if (support.arrayBuffer) {
+  const viewClasses = ['[object Int8Array]', '[object Uint8Array]', '[object Uint8ClampedArray]', '[object Int16Array]', '[object Uint16Array]', '[object Int32Array]', '[object Uint32Array]', '[object Float32Array]', '[object Float64Array]'];
+  var isArrayBufferView = ArrayBuffer.isView || function (obj) {
+    return obj && viewClasses.indexOf(Object.prototype.toString.call(obj)) > -1;
+  };
+}
+function normalizeName(name) {
+  if (typeof name !== 'string') {
+    name = String(name);
+  }
+  if (/[^a-z0-9\-#$%&'*+.^_`|~]/i.test(name) || name === '') {
+    throw new TypeError('Invalid character in header field name');
+  }
+  return name.toLowerCase();
+}
+function normalizeValue(value) {
+  if (typeof value !== 'string') {
+    value = String(value);
+  }
+  return value;
+}
+
+// Build a destructive iterator for the value list
+function iteratorFor(items) {
+  const iterator = {
+    next() {
+      const value = items.shift();
+      return {
+        done: value === undefined,
+        value
+      };
+    }
+  };
+  if (support.iterable) {
+    iterator[Symbol.iterator] = function () {
+      return iterator;
+    };
+  }
+  return iterator;
+}
+function Headers(headers) {
+  this.map = {};
+  if (headers instanceof Headers) {
+    headers.forEach(function (value, name) {
+      this.append(name, value);
+    }, this);
+  } else if (Array.isArray(headers)) {
+    headers.forEach(function (header) {
+      this.append(header[0], header[1]);
+    }, this);
+  } else if (headers) {
+    Object.getOwnPropertyNames(headers).forEach(function (name) {
+      this.append(name, headers[name]);
+    }, this);
+  }
+}
+Headers.prototype.append = function (name, value) {
+  name = normalizeName(name);
+  value = normalizeValue(value);
+  const oldValue = this.map[name];
+  this.map[name] = oldValue ? `${oldValue}, ${value}` : value;
+};
+Headers.prototype.delete = function (name) {
+  delete this.map[normalizeName(name)];
+};
+Headers.prototype.get = function (name) {
+  name = normalizeName(name);
+  return this.has(name) ? this.map[name] : null;
+};
+Headers.prototype.has = function (name) {
+  return this.map.hasOwnProperty(normalizeName(name));
+};
+Headers.prototype.set = function (name, value) {
+  this.map[normalizeName(name)] = normalizeValue(value);
+};
+Headers.prototype.forEach = function (callback, thisArg) {
+  for (const name in this.map) {
+    if (this.map.hasOwnProperty(name)) {
+      callback.call(thisArg, this.map[name], name, this);
+    }
+  }
+};
+Headers.prototype.keys = function () {
+  const items = [];
+  this.forEach((value, name) => {
+    items.push(name);
+  });
+  return iteratorFor(items);
+};
+Headers.prototype.values = function () {
+  const items = [];
+  this.forEach(value => {
+    items.push(value);
+  });
+  return iteratorFor(items);
+};
+Headers.prototype.entries = function () {
+  const items = [];
+  this.forEach((value, name) => {
+    items.push([name, value]);
+  });
+  return iteratorFor(items);
+};
+if (support.iterable) {
+  Headers.prototype[Symbol.iterator] = Headers.prototype.entries;
+}
+function consumed(body) {
+  if (body.bodyUsed) {
+    return Promise.reject(new TypeError('Already read'));
+  }
+  body.bodyUsed = true;
+}
+function fileReaderReady(reader) {
+  return new Promise((resolve, reject) => {
+    reader.onload = function () {
+      resolve(reader.result);
+    };
+    reader.onerror = function () {
+      reject(reader.error);
+    };
+  });
+}
+function readBlobAsArrayBuffer(blob) {
+  const reader = new FileReader();
+  const promise = fileReaderReady(reader);
+  reader.readAsArrayBuffer(blob);
+  return promise;
+}
+function readBlobAsText(blob) {
+  const reader = new FileReader();
+  const promise = fileReaderReady(reader);
+  reader.readAsText(blob);
+  return promise;
+}
+function readArrayBufferAsText(buf) {
+  const view = new Uint8Array(buf);
+  const chars = new Array(view.length);
+  for (let i = 0; i < view.length; i++) {
+    chars[i] = String.fromCharCode(view[i]);
+  }
+  return chars.join('');
+}
+function bufferClone(buf) {
+  if (buf.slice) {
+    return buf.slice(0);
+  } else {
+    const view = new Uint8Array(buf.byteLength);
+    view.set(new Uint8Array(buf));
+    return view.buffer;
+  }
+}
+function Body() {
+  this.bodyUsed = false;
+  this._initBody = function (body) {
+    this._bodyInit = body;
+    if (!body) {
+      this._bodyText = '';
+    } else if (typeof body === 'string') {
+      this._bodyText = body;
+    } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+      this._bodyBlob = body;
+    } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+      this._bodyFormData = body;
+    } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+      this._bodyText = body.toString();
+    } else if (support.arrayBuffer && support.blob && isDataView(body)) {
+      this._bodyArrayBuffer = bufferClone(body.buffer);
+      // IE 10-11 can't handle a DataView body.
+      this._bodyInit = new Blob([this._bodyArrayBuffer]);
+    } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
+      this._bodyArrayBuffer = bufferClone(body);
+    } else {
+      this._bodyText = body = Object.prototype.toString.call(body);
+    }
+    if (!this.headers.get('content-type')) {
+      if (typeof body === 'string') {
+        this.headers.set('content-type', 'text/plain;charset=UTF-8');
+      } else if (this._bodyBlob && this._bodyBlob.type) {
+        this.headers.set('content-type', this._bodyBlob.type);
+      } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+        this.headers.set('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+      }
+    }
+  };
+  if (support.blob) {
+    this.blob = function () {
+      const rejected = consumed(this);
+      if (rejected) {
+        return rejected;
+      }
+      if (this._bodyBlob) {
+        return Promise.resolve(this._bodyBlob);
+      } else if (this._bodyArrayBuffer) {
+        return Promise.resolve(new Blob([this._bodyArrayBuffer]));
+      } else if (this._bodyFormData) {
+        throw new Error('could not read FormData body as blob');
+      } else {
+        return Promise.resolve(new Blob([this._bodyText]));
+      }
+    };
+    this.arrayBuffer = function () {
+      if (this._bodyArrayBuffer) {
+        return consumed(this) || Promise.resolve(this._bodyArrayBuffer);
+      } else {
+        return this.blob().then(readBlobAsArrayBuffer);
+      }
+    };
+  }
+  this.text = function () {
+    const rejected = consumed(this);
+    if (rejected) {
+      return rejected;
+    }
+    if (this._bodyBlob) {
+      return readBlobAsText(this._bodyBlob);
+    } else if (this._bodyArrayBuffer) {
+      return Promise.resolve(readArrayBufferAsText(this._bodyArrayBuffer));
+    } else if (this._bodyFormData) {
+      throw new Error('could not read FormData body as text');
+    } else {
+      return Promise.resolve(this._bodyText);
+    }
+  };
+  if (support.formData) {
+    this.formData = function () {
+      return this.text().then(decode);
+    };
+  }
+  this.json = function () {
+    return this.text().then(JSON.parse);
+  };
+  return this;
+}
+
+// HTTP methods whose capitalization should be normalized
+const methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH'];
+function normalizeMethod(method) {
+  const upcased = method.toUpperCase();
+  return methods.indexOf(upcased) > -1 ? upcased : method;
+}
+function Request(input, options) {
+  options = options || {};
+  let body = options.body;
+  if (input instanceof Request) {
+    if (input.bodyUsed) {
+      throw new TypeError('Already read');
+    }
+    this.url = input.url;
+    this.credentials = input.credentials;
+    if (!options.headers) {
+      this.headers = new Headers(input.headers);
+    }
+    this.method = input.method;
+    this.mode = input.mode;
+    this.signal = input.signal;
+    if (!body && input._bodyInit != null) {
+      body = input._bodyInit;
+      input.bodyUsed = true;
+    }
+  } else {
+    this.url = String(input);
+  }
+  this.credentials = options.credentials || this.credentials || 'same-origin';
+  if (options.headers || !this.headers) {
+    this.headers = new Headers(options.headers);
+  }
+  this.method = normalizeMethod(options.method || this.method || 'GET');
+  this.mode = options.mode || this.mode || null;
+  this.signal = options.signal || this.signal;
+  this.referrer = null;
+  if ((this.method === 'GET' || this.method === 'HEAD') && body) {
+    throw new TypeError('Body not allowed for GET or HEAD requests');
+  }
+  this._initBody(body);
+}
+Request.prototype.clone = function () {
+  return new Request(this, {
+    body: this._bodyInit
+  });
+};
+function decode(body) {
+  const form = new FormData();
+  body.trim().split('&').forEach(bytes => {
+    if (bytes) {
+      const split = bytes.split('=');
+      const name = split.shift().replace(/\+/g, ' ');
+      const value = split.join('=').replace(/\+/g, ' ');
+      form.append(decodeURIComponent(name), decodeURIComponent(value));
+    }
+  });
+  return form;
+}
+function parseHeaders(rawHeaders) {
+  const headers = new Headers();
+  // Replace instances of \r\n and \n followed by at least one space or horizontal tab with a space
+  // https://tools.ietf.org/html/rfc7230#section-3.2
+  const preProcessedHeaders = rawHeaders.replace(/\r?\n[\t ]+/g, ' ');
+  preProcessedHeaders.split(/\r?\n/).forEach(line => {
+    const parts = line.split(':');
+    const key = parts.shift().trim();
+    if (key) {
+      const value = parts.join(':').trim();
+      headers.append(key, value);
+    }
+  });
+  return headers;
+}
+Body.call(Request.prototype);
+function Response(bodyInit, options) {
+  if (!options) {
+    options = {};
+  }
+  this.type = 'default';
+  this.status = options.status === undefined ? 200 : options.status;
+  this.ok = this.status >= 200 && this.status < 300;
+  this.statusText = 'statusText' in options ? options.statusText : 'OK';
+  this.headers = new Headers(options.headers);
+  this.url = options.url || '';
+  this._initBody(bodyInit);
+}
+Body.call(Response.prototype);
+Response.prototype.clone = function () {
+  return new Response(this._bodyInit, {
+    status: this.status,
+    statusText: this.statusText,
+    headers: new Headers(this.headers),
+    url: this.url
+  });
+};
+Response.error = function () {
+  const response = new Response(null, {
+    status: 0,
+    statusText: ''
+  });
+  response.type = 'error';
+  return response;
+};
+const redirectStatuses = [301, 302, 303, 307, 308];
+Response.redirect = function (url, status) {
+  if (redirectStatuses.indexOf(status) === -1) {
+    throw new RangeError('Invalid status code');
+  }
+  return new Response(null, {
+    status,
+    headers: {
+      location: url
+    }
+  });
+};
+var DOMException = self.DOMException;
+exports.DOMException = DOMException;
+try {
+  new DOMException();
+} catch (err) {
+  exports.DOMException = DOMException = function (message, name) {
+    this.message = message;
+    this.name = name;
+    const error = Error(message);
+    this.stack = error.stack;
+  };
+  DOMException.prototype = Object.create(Error.prototype);
+  DOMException.prototype.constructor = DOMException;
+}
+function fetch(input, init) {
+  return new Promise((resolve, reject) => {
+    const request = new Request(input, init);
+    if (request.signal && request.signal.aborted) {
+      return reject(new DOMException('Aborted', 'AbortError'));
+    }
+    const xhr = new XMLHttpRequest();
+    function abortXhr() {
+      xhr.abort();
+    }
+    xhr.onload = function () {
+      const options = {
+        status: xhr.status,
+        statusText: xhr.statusText,
+        headers: parseHeaders(xhr.getAllResponseHeaders() || '')
+      };
+      options.url = 'responseURL' in xhr ? xhr.responseURL : options.headers.get('X-Request-URL');
+      const body = 'response' in xhr ? xhr.response : xhr.responseText;
+      resolve(new Response(body, options));
+    };
+    xhr.onerror = function () {
+      reject(new TypeError('Network request failed'));
+    };
+    xhr.ontimeout = function () {
+      reject(new TypeError('Network request failed'));
+    };
+    xhr.onabort = function () {
+      reject(new DOMException('Aborted', 'AbortError'));
+    };
+    xhr.open(request.method, request.url, true);
+    if (request.credentials === 'include') {
+      xhr.withCredentials = true;
+    } else if (request.credentials === 'omit') {
+      xhr.withCredentials = false;
+    }
+    if ('responseType' in xhr && support.blob) {
+      xhr.responseType = 'blob';
+    }
+    request.headers.forEach((value, name) => {
+      xhr.setRequestHeader(name, value);
+    });
+    if (request.signal) {
+      request.signal.addEventListener('abort', abortXhr);
+      xhr.onreadystatechange = function () {
+        // DONE (success or failure)
+        if (xhr.readyState === 4) {
+          request.signal.removeEventListener('abort', abortXhr);
+        }
+      };
+    }
+    xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit);
+  });
+}
+fetch.polyfill = true;
+
+},{}],30:[function(require,module,exports){
+"use strict";
+
+require('./window');
+
+},{"./window":34}],31:[function(require,module,exports){
+"use strict";
+
+const location = {
+  href: 'game.js',
+  pathname: 'game.js',
+  search: '',
+  hash: '',
+  protocol: '',
+  reload() {}
+};
+module.exports = location;
+
+},{}],32:[function(require,module,exports){
+"use strict";
+
+let {
+  noop
+} = require('./util');
+const navigator = {
+  platform: __getOS(),
+  language: __getCurrentLanguage(),
+  appVersion: '5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
+  userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 NetType/WIFI Language/zh_CN',
+  onLine: true,
+  //FIXME:
+
+  geolocation: {
+    getCurrentPosition: noop,
+    watchPosition: noop,
+    clearWatch: noop
+  },
+  maxTouchPoints: 10 //FIXME: getting the number from OS.
+};
+
+module.exports = navigator;
+
+},{"./util":33}],33:[function(require,module,exports){
+"use strict";
+
+function noop() {}
+module.exports = noop;
+
+},{}],34:[function(require,module,exports){
+"use strict";
+
+const jsbWindow = require('../../jsbWindow');
+function inject() {
+  jsbWindow.ontouchstart = null;
+  jsbWindow.ontouchmove = null;
+  jsbWindow.ontouchend = null;
+  jsbWindow.ontouchcancel = null;
+  jsbWindow.pageXOffset = jsbWindow.pageYOffset = jsbWindow.clientTop = jsbWindow.clientLeft = 0;
+  jsbWindow.outerWidth = jsbWindow.innerWidth;
+  jsbWindow.outerHeight = jsbWindow.innerHeight;
+  jsbWindow.clientWidth = jsbWindow.innerWidth;
+  jsbWindow.clientHeight = jsbWindow.innerHeight;
+  // if (!__EDITOR__) {
+  jsbWindow.top = jsbWindow.parent = jsbWindow;
+  jsbWindow.location = require('./location');
+  jsbWindow.document = require('./document');
+  jsbWindow.navigator = require('./navigator');
+  // }
+
+  jsbWindow.CanvasRenderingContext2D = require('./CanvasRenderingContext2D');
+  jsbWindow.Element = require('./Element');
+  jsbWindow.HTMLElement = require('./HTMLElement');
+  jsbWindow.HTMLCanvasElement = require('./HTMLCanvasElement');
+  jsbWindow.HTMLImageElement = require('./HTMLImageElement');
+  jsbWindow.HTMLMediaElement = require('./HTMLMediaElement');
+  jsbWindow.HTMLVideoElement = require('./HTMLVideoElement');
+  jsbWindow.HTMLScriptElement = require('./HTMLScriptElement');
+  jsbWindow.__canvas = new jsbWindow.HTMLCanvasElement();
+  jsbWindow.__canvas._width = jsbWindow.innerWidth;
+  jsbWindow.__canvas._height = jsbWindow.innerHeight;
+  jsbWindow.Image = require('./Image');
+  jsbWindow.FileReader = require('./FileReader');
+  jsbWindow.FontFace = require('./FontFace');
+  jsbWindow.FontFaceSet = require('./FontFaceSet');
+  jsbWindow.EventTarget = require('./EventTarget');
+  jsbWindow.Event = jsbWindow.Event || require('./Event');
+  jsbWindow.TouchEvent = require('./TouchEvent');
+  jsbWindow.MouseEvent = require('./MouseEvent');
+  jsbWindow.KeyboardEvent = require('./KeyboardEvent');
+  jsbWindow.DeviceMotionEvent = require('./DeviceMotionEvent');
+
+  // ES6
+  const m_fetch = require('./fetch');
+  jsbWindow.fetch = m_fetch.fetch;
+  jsbWindow.Headers = m_fetch.Headers;
+  jsbWindow.Request = m_fetch.Request;
+  jsbWindow.Response = m_fetch.Response;
+
+  // const PORTRAIT = 0;
+  // const LANDSCAPE_LEFT = -90;
+  // const PORTRAIT_UPSIDE_DOWN = 180;
+  // const LANDSCAPE_RIGHT = 90;
+  jsbWindow.orientation = jsb.device.getDeviceOrientation();
+
+  // jsb.window.devicePixelRatio is readonly
+  if (!__EDITOR__) {
+    Object.defineProperty(jsbWindow, 'devicePixelRatio', {
+      get() {
+        return jsb.device.getDevicePixelRatio ? jsb.device.getDevicePixelRatio() : 1;
+      },
+      set(_dpr) {/* ignore */},
+      enumerable: true,
+      configurable: true
+    });
+  }
+  jsbWindow.screen = {
+    availTop: 0,
+    availLeft: 0,
+    availHeight: jsbWindow.innerWidth,
+    availWidth: jsbWindow.innerHeight,
+    colorDepth: 8,
+    pixelDepth: 8,
+    left: 0,
+    top: 0,
+    width: jsbWindow.innerWidth,
+    height: jsbWindow.innerHeight,
+    orientation: {
+      //FIXME:cjh
+      type: 'portrait-primary' // portrait-primary, portrait-secondary, landscape-primary, landscape-secondary
+    },
+
+    onorientationchange(event) {}
+  };
+  jsbWindow.addEventListener = function (eventName, listener, options) {
+    jsbWindow.__canvas.addEventListener(eventName, listener, options);
+  };
+  jsbWindow.removeEventListener = function (eventName, listener, options) {
+    jsbWindow.__canvas.removeEventListener(eventName, listener, options);
+  };
+  jsbWindow.dispatchEvent = function (event) {
+    jsbWindow.__canvas.dispatchEvent(event);
+  };
+  jsbWindow.getComputedStyle = function (element) {
+    return {
+      position: 'absolute',
+      left: '0px',
+      top: '0px',
+      height: '0px'
+    };
+  };
+  jsbWindow.resize = function (width, height) {
+    jsbWindow.innerWidth = width;
+    jsbWindow.innerHeight = height;
+    jsbWindow.outerWidth = jsbWindow.innerWidth;
+    jsbWindow.outerHeight = jsbWindow.innerHeight;
+    jsbWindow.__canvas._width = jsbWindow.innerWidth;
+    jsbWindow.__canvas._height = jsbWindow.innerHeight;
+    jsbWindow.screen.availWidth = jsbWindow.innerWidth;
+    jsbWindow.screen.availHeight = jsbWindow.innerHeight;
+    jsbWindow.screen.width = jsbWindow.innerWidth;
+    jsbWindow.screen.height = jsbWindow.innerHeight;
+    jsbWindow.clientWidth = jsbWindow.innerWidth;
+    jsbWindow.clientHeight = jsbWindow.innerHeight;
+    // emit resize consistent with web behavior
+    const resizeEvent = new jsbWindow.Event('resize');
+    resizeEvent._target = jsbWindow;
+    jsbWindow.dispatchEvent(resizeEvent);
+  };
+  jsbWindow.focus = function () {};
+  jsbWindow.scroll = function () {};
+  jsbWindow._isInjected = true;
+}
+if (!jsbWindow._isInjected) {
+  inject();
+}
+if (!__EDITOR__) {
+  jsbWindow.localStorage = sys.localStorage;
+}
+
+},{"../../jsbWindow":44,"./CanvasRenderingContext2D":6,"./DeviceMotionEvent":8,"./Element":9,"./Event":10,"./EventTarget":11,"./FileReader":12,"./FontFace":13,"./FontFaceSet":14,"./HTMLCanvasElement":15,"./HTMLElement":16,"./HTMLImageElement":17,"./HTMLMediaElement":18,"./HTMLScriptElement":19,"./HTMLVideoElement":20,"./Image":21,"./KeyboardEvent":23,"./MouseEvent":25,"./TouchEvent":27,"./document":28,"./fetch":29,"./location":31,"./navigator":32}],35:[function(require,module,exports){
+"use strict";
+
+(function (jsb) {
+  if (!jsb || !jsb.AudioEngine) return;
+  jsb.AudioEngine.AudioState = {
+    ERROR: -1,
+    INITIALZING: 0,
+    PLAYING: 1,
+    PAUSED: 2,
+    STOPPED: 3
+  };
+  jsb.AudioEngine.INVALID_AUDIO_ID = -1;
+  jsb.AudioEngine.TIME_UNKNOWN = -1;
+
+  // Adapt to normal runtime based API
+  jsb.AudioEngine.play = jsb.AudioEngine.play2d;
+  jsb.AudioEngine.setErrorCallback = () => {};
+})(jsb);
+
+},{}],36:[function(require,module,exports){
+"use strict";
+
+const EventTarget = require('./jsb-adapter/EventTarget');
+const Event = require('./jsb-adapter/Event');
+const eventTarget = new EventTarget();
+const callbackWrappers = {};
+const callbacks = {};
+let index = 1;
+const callbackWrapper = function (cb) {
+  if (!cb) {
+    return null;
+  }
+  const func = function (event) {
+    cb({
+      value: event.text
+    });
+  };
+  cb.___index = index++;
+  callbackWrappers[cb.___index] = func;
+  return func;
+};
+const getCallbackWrapper = function (cb) {
+  if (cb && cb.___index) {
+    const ret = callbackWrappers[cb.___index];
+    delete callbackWrappers[cb.___index];
+    return ret;
+  } else {
+    return null;
+  }
+};
+const removeListener = function (name, cb) {
+  if (cb) {
+    eventTarget.removeEventListener(name, getCallbackWrapper(cb));
+  } else {
+    // remove all listeners of name
+    const cbs = callbacks[name];
+    if (!cbs) {
+      return;
+    }
+    for (let i = 0, len = cbs.length; i < len; ++i) {
+      eventTarget.removeEventListener(name, cbs[i]);
+    }
+    delete callbacks[name];
+  }
+};
+const recordCallback = function (name, cb) {
+  if (!cb || !name || name === '') {
+    return;
+  }
+  if (!callbacks[name]) {
+    callbacks[name] = [];
+  }
+  callbacks[name].push(cb);
+};
+jsb.inputBox = {
+  onConfirm(cb) {
+    const newCb = callbackWrapper(cb);
+    eventTarget.addEventListener('confirm', newCb);
+    recordCallback('confirm', newCb);
+  },
+  offConfirm(cb) {
+    removeListener('confirm', cb);
+  },
+  onComplete(cb) {
+    const newCb = callbackWrapper(cb);
+    eventTarget.addEventListener('complete', newCb);
+    recordCallback('complete', newCb);
+  },
+  offComplete(cb) {
+    removeListener('complete', cb);
+  },
+  onInput(cb) {
+    const newCb = callbackWrapper(cb);
+    eventTarget.addEventListener('input', newCb);
+    recordCallback('input', newCb);
+  },
+  offInput(cb) {
+    removeListener('input', cb);
+  },
+  /**
+   * @param {string}		options.defaultValue
+   * @param {number}		options.maxLength
+   * @param {bool}        options.multiple
+   * @param {bool}        options.confirmHold
+   * @param {string}      options.confirmType
+   * @param {string}      options.inputType
+   *
+   * Values of options.confirmType can be [done|next|search|go|send].
+   * Values of options.inputType can be [text|email|number|phone|password].
+   */
+  show(options) {
+    jsb.showInputBox(options);
+  },
+  hide() {
+    jsb.hideInputBox();
+  }
+};
+jsb.onTextInput = function (eventName, text) {
+  const event = new Event(eventName);
+  event.text = text;
+  eventTarget.dispatchEvent(event);
+};
+
+},{"./jsb-adapter/Event":10,"./jsb-adapter/EventTarget":11}],37:[function(require,module,exports){
+"use strict";
+
+jsb.__obj_ref_id = 0;
+jsb.registerNativeRef = function (owner, target) {
+  if (owner && target && owner !== target) {
+    let targetID = target.__jsb_ref_id;
+    if (targetID === undefined) targetID = target.__jsb_ref_id = jsb.__obj_ref_id++;
+    let refs = owner.__nativeRefs;
+    if (!refs) {
+      refs = owner.__nativeRefs = {};
+    }
+    refs[targetID] = target;
+  }
+};
+jsb.unregisterNativeRef = function (owner, target) {
+  if (owner && target && owner !== target) {
+    let targetID = target.__jsb_ref_id;
+    if (targetID === undefined) return;
+    let refs = owner.__nativeRefs;
+    if (!refs) {
+      return;
+    }
+    delete refs[targetID];
+  }
+};
+jsb.unregisterAllNativeRefs = function (owner) {
+  if (!owner) return;
+  delete owner.__nativeRefs;
+};
+jsb.unregisterChildRefsForNode = function (node, recursive) {
+  recursive = !!recursive;
+  let children = node.getChildren(),
+    i,
+    l,
+    child;
+  for (i = 0, l = children.length; i < l; ++i) {
+    child = children[i];
+    jsb.unregisterNativeRef(node, child);
+    if (recursive) {
+      jsb.unregisterChildRefsForNode(child, recursive);
+    }
+  }
+};
+
+},{}],38:[function(require,module,exports){
+(function (global,setImmediate){(function (){
+"use strict";
+
+/* promise.min.js
+ * A Promise polyfill implementation.
+ * 2018-11-16
+ *
+ * By taylorhakes, https://github.com/taylorhakes
+ * License: MIT
+ *   See https://github.com/taylorhakes/promise-polyfill/blob/master/LICENSE
+ */
+
+/*! @source https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js */
+!function (e, n) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? n() : typeof define === 'function' && define.amd ? define(n) : n();
+}(0, () => {
+  function e(e) {
+    const n = this.constructor;
+    return this.then(t => n.resolve(e()).then(() => t), t => n.resolve(e()).then(() => n.reject(t)));
+  }
+  function n() {}
+  function t(e) {
+    if (!(this instanceof t)) throw new TypeError('Promises must be constructed via new');
+    if (typeof e !== 'function') throw new TypeError('not a function');
+    this._state = 0, this._handled = !1, this._value = undefined, this._deferreds = [], u(e, this);
+  }
+  function o(e, n) {
+    for (; e._state === 3;) e = e._value;
+    e._state !== 0 ? (e._handled = !0, t._immediateFn(() => {
+      const t = e._state === 1 ? n.onFulfilled : n.onRejected;
+      if (t !== null) {
+        let o;
+        try {
+          o = t(e._value);
+        } catch (f) {
+          return void i(n.promise, f);
+        }
+        r(n.promise, o);
+      } else (e._state === 1 ? r : i)(n.promise, e._value);
+    })) : e._deferreds.push(n);
+  }
+  function r(e, n) {
+    try {
+      if (n === e) throw new TypeError('A promise cannot be resolved with itself.');
+      if (n && (typeof n === 'object' || typeof n === 'function')) {
+        const o = n.then;
+        if (n instanceof t) return e._state = 3, e._value = n, void f(e);
+        if (typeof o === 'function') return void u(function (e, n) {
+          return function () {
+            e.apply(n, arguments);
+          };
+        }(o, n), e);
+      }
+      e._state = 1, e._value = n, f(e);
+    } catch (r) {
+      i(e, r);
+    }
+  }
+  function i(e, n) {
+    e._state = 2, e._value = n, f(e);
+  }
+  function f(e) {
+    e._state === 2 && e._deferreds.length === 0 && t._immediateFn(() => {
+      e._handled || t._unhandledRejectionFn(e._value);
+    });
+    for (let n = 0, r = e._deferreds.length; r > n; n++) o(e, e._deferreds[n]);
+    e._deferreds = null;
+  }
+  function u(e, n) {
+    let t = !1;
+    try {
+      e(e => {
+        t || (t = !0, r(n, e));
+      }, e => {
+        t || (t = !0, i(n, e));
+      });
+    } catch (o) {
+      if (t) return;
+      t = !0, i(n, o);
+    }
+  }
+  const c = setTimeout;
+  t.prototype.catch = function (e) {
+    return this.then(null, e);
+  }, t.prototype.then = function (e, t) {
+    const r = new this.constructor(n);
+    return o(this, new function (e, n, t) {
+      this.onFulfilled = typeof e === 'function' ? e : null, this.onRejected = typeof n === 'function' ? n : null, this.promise = t;
+    }(e, t, r)), r;
+  }, t.prototype.finally = e, t.all = function (e) {
+    return new t((n, t) => {
+      function o(e, f) {
+        try {
+          if (f && (typeof f === 'object' || typeof f === 'function')) {
+            const u = f.then;
+            if (typeof u === 'function') return void u.call(f, n => {
+              o(e, n);
+            }, t);
+          }
+          r[e] = f, --i == 0 && n(r);
+        } catch (c) {
+          t(c);
+        }
+      }
+      if (!e || typeof e.length === 'undefined') throw new TypeError('Promise.all accepts an array');
+      var r = Array.prototype.slice.call(e);
+      if (r.length === 0) return n([]);
+      for (var i = r.length, f = 0; r.length > f; f++) o(f, r[f]);
+    });
+  }, t.resolve = function (e) {
+    return e && typeof e === 'object' && e.constructor === t ? e : new t(n => {
+      n(e);
+    });
+  }, t.reject = function (e) {
+    return new t((n, t) => {
+      t(e);
+    });
+  }, t.race = function (e) {
+    return new t((n, t) => {
+      for (let o = 0, r = e.length; r > o; o++) e[o].then(n, t);
+    });
+  }, t._immediateFn = typeof setImmediate === 'function' && function (e) {
+    setImmediate(e);
+  } || function (e) {
+    c(e, 0);
+  }, t._unhandledRejectionFn = function (e) {
+    void 0 !== console && console && console.warn('Possible Unhandled Promise Rejection:', e);
+  };
+  const l = function () {
+    if (typeof self !== 'undefined') return self;
+    if (typeof window !== 'undefined') return window;
+    if (typeof global !== 'undefined') return global;
+    throw Error('unable to locate global object');
+  }();
+  'Promise' in l ? l.Promise.prototype.finally || (l.Promise.prototype.finally = e) : l.Promise = t;
+});
+
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("timers").setImmediate)
+},{"timers":2}],39:[function(require,module,exports){
+"use strict";
+
+/*
+ Copyright (c) 2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated engine source code (the "Software"), a limited,
+ worldwide, royalty-free, non-assignable, revocable and non-exclusive license
+ to use Cocos Creator solely to develop games on your target platforms. You shall
+ not use Cocos Creator software for developing other software or tools that's
+ used for developing games. You are not granted to publish, distribute,
+ sublicense, and/or sell copies of Cocos Creator.
+
+ The software or tools in this License Agreement are licensed, not sold.
+ Xiamen Yaji Software Co., Ltd. reserves all rights not expressly granted to you.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ */
+
+// fix: WebAssembly.instantiate not working well on V8.
+(function injectWebAssembly() {
+  if (!globalThis.WebAssembly) {
+    console.warn('WebAssembly is not supported!');
+    return;
+  }
+  console.info('injectWebAssembly ...');
+  const oldWebAssemblyInstantiate = WebAssembly.instantiate;
+  const oldWebAssemblyCompile = WebAssembly.compile;
+  WebAssembly.compile = function (bufferSource) {
+    return new Promise((resolve, reject) => {
+      if (!bufferSource) {
+        reject('WebAssembly.compile: Invalid buffer source!');
+      } else if (CC_EDITOR) {
+        // FIX EDITOR ERROR: WebAssembly.Compile is disallowed on the main thread, if the buffer size is larger than 4KB. Use WebAssembly.compile, or compile on a worker thread.
+        resolve(oldWebAssemblyCompile.call(WebAssembly, bufferSource));
+      } else {
+        resolve(new WebAssembly.Module(bufferSource));
+      }
+    });
+  };
+  WebAssembly.instantiate = function (bufferSourceOrModule, importObject) {
+    let ret;
+    if (bufferSourceOrModule instanceof WebAssembly.Module) {
+      ret = oldWebAssemblyInstantiate(bufferSourceOrModule, importObject);
+    } else {
+      ret = new Promise((resolve, reject) => {
+        WebAssembly.compile(bufferSourceOrModule).then(mod => {
+          oldWebAssemblyInstantiate(mod, importObject).then(instance => {
+            resolve({
+              instance: instance,
+              module: mod
+            });
+          }).catch(reject);
+        }).catch(reject);
+      });
+    }
+    return ret;
+  };
+})();
+
+},{}],40:[function(require,module,exports){
+"use strict";
+
+function DOMParser(options) {
+  this.options = options || {
+    locator: {}
+  };
+}
+DOMParser.prototype.parseFromString = function (source, mimeType) {
+  var options = this.options;
+  var sax = new XMLReader();
+  var domBuilder = options.domBuilder || new DOMHandler(); //contentHandler and LexicalHandler
+  var errorHandler = options.errorHandler;
+  var locator = options.locator;
+  var defaultNSMap = options.xmlns || {};
+  var isHTML = /\/x?html?$/.test(mimeType); //mimeType.toLowerCase().indexOf('html') > -1;
+  var entityMap = isHTML ? htmlEntity.entityMap : {
+    'lt': '<',
+    'gt': '>',
+    'amp': '&',
+    'quot': '"',
+    'apos': "'"
+  };
+  if (locator) {
+    domBuilder.setDocumentLocator(locator);
+  }
+  sax.errorHandler = buildErrorHandler(errorHandler, domBuilder, locator);
+  sax.domBuilder = options.domBuilder || domBuilder;
+  if (isHTML) {
+    defaultNSMap[''] = 'http://www.w3.org/1999/xhtml';
+  }
+  defaultNSMap.xml = defaultNSMap.xml || 'http://www.w3.org/XML/1998/namespace';
+  if (source) {
+    sax.parse(source, defaultNSMap, entityMap);
+  } else {
+    sax.errorHandler.error("invalid doc source");
+  }
+  return domBuilder.doc;
+};
+function buildErrorHandler(errorImpl, domBuilder, locator) {
+  if (!errorImpl) {
+    if (domBuilder instanceof DOMHandler) {
+      return domBuilder;
+    }
+    errorImpl = domBuilder;
+  }
+  var errorHandler = {};
+  var isCallback = errorImpl instanceof Function;
+  locator = locator || {};
+  function build(key) {
+    var fn = errorImpl[key];
+    if (!fn && isCallback) {
+      fn = errorImpl.length == 2 ? function (msg) {
+        errorImpl(key, msg);
+      } : errorImpl;
+    }
+    errorHandler[key] = fn && function (msg) {
+      fn('[xmldom ' + key + ']\t' + msg + _locator(locator));
+    } || function () {};
+  }
+  build('warning');
+  build('error');
+  build('fatalError');
+  return errorHandler;
+}
+
+//console.log('#\n\n\n\n\n\n\n####')
+/**
+ * +ContentHandler+ErrorHandler
+ * +LexicalHandler+EntityResolver2
+ * -DeclHandler-DTDHandler 
+ * 
+ * DefaultHandler:EntityResolver, DTDHandler, ContentHandler, ErrorHandler
+ * DefaultHandler2:DefaultHandler,LexicalHandler, DeclHandler, EntityResolver2
+ * @link http://www.saxproject.org/apidoc/org/xml/sax/helpers/DefaultHandler.html
+ */
+function DOMHandler() {
+  this.cdata = false;
+}
+function position(locator, node) {
+  node.lineNumber = locator.lineNumber;
+  node.columnNumber = locator.columnNumber;
+}
+/**
+ * @see org.xml.sax.ContentHandler#startDocument
+ * @link http://www.saxproject.org/apidoc/org/xml/sax/ContentHandler.html
+ */
+DOMHandler.prototype = {
+  startDocument: function () {
+    this.doc = new DOMImplementation().createDocument(null, null, null);
+    if (this.locator) {
+      this.doc.documentURI = this.locator.systemId;
+    }
+  },
+  startElement: function (namespaceURI, localName, qName, attrs) {
+    var doc = this.doc;
+    var el = doc.createElementNS(namespaceURI, qName || localName);
+    var len = attrs.length;
+    appendElement(this, el);
+    this.currentElement = el;
+    this.locator && position(this.locator, el);
+    for (var i = 0; i < len; i++) {
+      var namespaceURI = attrs.getURI(i);
+      var value = attrs.getValue(i);
+      var qName = attrs.getQName(i);
+      var attr = doc.createAttributeNS(namespaceURI, qName);
+      this.locator && position(attrs.getLocator(i), attr);
+      attr.value = attr.nodeValue = value;
+      el.setAttributeNode(attr);
+    }
+  },
+  endElement: function (namespaceURI, localName, qName) {
+    var current = this.currentElement;
+    var tagName = current.tagName;
+    this.currentElement = current.parentNode;
+  },
+  startPrefixMapping: function (prefix, uri) {},
+  endPrefixMapping: function (prefix) {},
+  processingInstruction: function (target, data) {
+    var ins = this.doc.createProcessingInstruction(target, data);
+    this.locator && position(this.locator, ins);
+    appendElement(this, ins);
+  },
+  ignorableWhitespace: function (ch, start, length) {},
+  characters: function (chars, start, length) {
+    chars = _toString.apply(this, arguments);
+    //console.log(chars)
+    if (chars) {
+      if (this.cdata) {
+        var charNode = this.doc.createCDATASection(chars);
+      } else {
+        var charNode = this.doc.createTextNode(chars);
+      }
+      if (this.currentElement) {
+        this.currentElement.appendChild(charNode);
+      } else if (/^\s*$/.test(chars)) {
+        this.doc.appendChild(charNode);
+        //process xml
+      }
+
+      this.locator && position(this.locator, charNode);
+    }
+  },
+  skippedEntity: function (name) {},
+  endDocument: function () {
+    this.doc.normalize();
+  },
+  setDocumentLocator: function (locator) {
+    if (this.locator = locator) {
+      // && !('lineNumber' in locator)){
+      locator.lineNumber = 0;
+    }
+  },
+  //LexicalHandler
+  comment: function (chars, start, length) {
+    chars = _toString.apply(this, arguments);
+    var comm = this.doc.createComment(chars);
+    this.locator && position(this.locator, comm);
+    appendElement(this, comm);
+  },
+  startCDATA: function () {
+    //used in characters() methods
+    this.cdata = true;
+  },
+  endCDATA: function () {
+    this.cdata = false;
+  },
+  startDTD: function (name, publicId, systemId) {
+    var impl = this.doc.implementation;
+    if (impl && impl.createDocumentType) {
+      var dt = impl.createDocumentType(name, publicId, systemId);
+      this.locator && position(this.locator, dt);
+      appendElement(this, dt);
+    }
+  },
+  /**
+   * @see org.xml.sax.ErrorHandler
+   * @link http://www.saxproject.org/apidoc/org/xml/sax/ErrorHandler.html
+   */
+  warning: function (error) {
+    console.warn('[xmldom warning]\t' + error, _locator(this.locator));
+  },
+  error: function (error) {
+    console.error('[xmldom error]\t' + error, _locator(this.locator));
+  },
+  fatalError: function (error) {
+    console.error('[xmldom fatalError]\t' + error, _locator(this.locator));
+    throw error;
+  }
+};
+function _locator(l) {
+  if (l) {
+    return '\n@' + (l.systemId || '') + '#[line:' + l.lineNumber + ',col:' + l.columnNumber + ']';
+  }
+}
+function _toString(chars, start, length) {
+  if (typeof chars == 'string') {
+    return chars.substr(start, length);
+  } else {
+    //java sax connect width xmldom on rhino(what about: "? && !(chars instanceof String)")
+    if (chars.length >= start + length || start) {
+      return new java.lang.String(chars, start, length) + '';
+    }
+    return chars;
+  }
+}
+
+/*
+ * @link http://www.saxproject.org/apidoc/org/xml/sax/ext/LexicalHandler.html
+ * used method of org.xml.sax.ext.LexicalHandler:
+ *  #comment(chars, start, length)
+ *  #startCDATA()
+ *  #endCDATA()
+ *  #startDTD(name, publicId, systemId)
+ *
+ *
+ * IGNORED method of org.xml.sax.ext.LexicalHandler:
+ *  #endDTD()
+ *  #startEntity(name)
+ *  #endEntity(name)
+ *
+ *
+ * @link http://www.saxproject.org/apidoc/org/xml/sax/ext/DeclHandler.html
+ * IGNORED method of org.xml.sax.ext.DeclHandler
+ * 	#attributeDecl(eName, aName, type, mode, value)
+ *  #elementDecl(name, model)
+ *  #externalEntityDecl(name, publicId, systemId)
+ *  #internalEntityDecl(name, value)
+ * @link http://www.saxproject.org/apidoc/org/xml/sax/ext/EntityResolver2.html
+ * IGNORED method of org.xml.sax.EntityResolver2
+ *  #resolveEntity(String name,String publicId,String baseURI,String systemId)
+ *  #resolveEntity(publicId, systemId)
+ *  #getExternalSubset(name, baseURI)
+ * @link http://www.saxproject.org/apidoc/org/xml/sax/DTDHandler.html
+ * IGNORED method of org.xml.sax.DTDHandler
+ *  #notationDecl(name, publicId, systemId) {};
+ *  #unparsedEntityDecl(name, publicId, systemId, notationName) {};
+ */
+"endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g, function (key) {
+  DOMHandler.prototype[key] = function () {
+    return null;
+  };
+});
+
+/* Private static helpers treated below as private instance methods, so don't need to add these to the public API; we might use a Relator to also get rid of non-standard public properties */
+function appendElement(hander, node) {
+  if (!hander.currentElement) {
+    hander.doc.appendChild(node);
+  } else {
+    hander.currentElement.appendChild(node);
+  }
+} //appendChild and setAttributeNS are preformance key
+
+//if(typeof require == 'function'){
+var htmlEntity = require('./entities');
+var XMLReader = require('./sax').XMLReader;
+var DOMImplementation = exports.DOMImplementation = require('./dom').DOMImplementation;
+exports.XMLSerializer = require('./dom').XMLSerializer;
+exports.DOMParser = DOMParser;
+//}
+
+},{"./dom":41,"./entities":42,"./sax":43}],41:[function(require,module,exports){
+"use strict";
+
+/*
+ * DOM Level 2
+ * Object DOMException
+ * @see http://www.w3.org/TR/REC-DOM-Level-1/ecma-script-language-binding.html
+ * @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/ecma-script-binding.html
+ */
+
+function copy(src, dest) {
+  for (var p in src) {
+    dest[p] = src[p];
+  }
+}
+/**
+^\w+\.prototype\.([_\w]+)\s*=\s*((?:.*\{\s*?[\r\n][\s\S]*?^})|\S.*?(?=[;\r\n]));?
+^\w+\.prototype\.([_\w]+)\s*=\s*(\S.*?(?=[;\r\n]));?
+ */
+function _extends(Class, Super) {
+  var pt = Class.prototype;
+  if (!(pt instanceof Super)) {
+    function t() {}
+    ;
+    t.prototype = Super.prototype;
+    t = new t();
+    copy(pt, t);
+    Class.prototype = pt = t;
+  }
+  if (pt.constructor != Class) {
+    if (typeof Class != 'function') {
+      console.error("unknow Class:" + Class);
+    }
+    pt.constructor = Class;
+  }
+}
+var htmlns = 'http://www.w3.org/1999/xhtml';
+// Node Types
+var NodeType = {};
+var ELEMENT_NODE = NodeType.ELEMENT_NODE = 1;
+var ATTRIBUTE_NODE = NodeType.ATTRIBUTE_NODE = 2;
+var TEXT_NODE = NodeType.TEXT_NODE = 3;
+var CDATA_SECTION_NODE = NodeType.CDATA_SECTION_NODE = 4;
+var ENTITY_REFERENCE_NODE = NodeType.ENTITY_REFERENCE_NODE = 5;
+var ENTITY_NODE = NodeType.ENTITY_NODE = 6;
+var PROCESSING_INSTRUCTION_NODE = NodeType.PROCESSING_INSTRUCTION_NODE = 7;
+var COMMENT_NODE = NodeType.COMMENT_NODE = 8;
+var DOCUMENT_NODE = NodeType.DOCUMENT_NODE = 9;
+var DOCUMENT_TYPE_NODE = NodeType.DOCUMENT_TYPE_NODE = 10;
+var DOCUMENT_FRAGMENT_NODE = NodeType.DOCUMENT_FRAGMENT_NODE = 11;
+var NOTATION_NODE = NodeType.NOTATION_NODE = 12;
+
+// ExceptionCode
+var ExceptionCode = {};
+var ExceptionMessage = {};
+var INDEX_SIZE_ERR = ExceptionCode.INDEX_SIZE_ERR = (ExceptionMessage[1] = "Index size error", 1);
+var DOMSTRING_SIZE_ERR = ExceptionCode.DOMSTRING_SIZE_ERR = (ExceptionMessage[2] = "DOMString size error", 2);
+var HIERARCHY_REQUEST_ERR = ExceptionCode.HIERARCHY_REQUEST_ERR = (ExceptionMessage[3] = "Hierarchy request error", 3);
+var WRONG_DOCUMENT_ERR = ExceptionCode.WRONG_DOCUMENT_ERR = (ExceptionMessage[4] = "Wrong document", 4);
+var INVALID_CHARACTER_ERR = ExceptionCode.INVALID_CHARACTER_ERR = (ExceptionMessage[5] = "Invalid character", 5);
+var NO_DATA_ALLOWED_ERR = ExceptionCode.NO_DATA_ALLOWED_ERR = (ExceptionMessage[6] = "No data allowed", 6);
+var NO_MODIFICATION_ALLOWED_ERR = ExceptionCode.NO_MODIFICATION_ALLOWED_ERR = (ExceptionMessage[7] = "No modification allowed", 7);
+var NOT_FOUND_ERR = ExceptionCode.NOT_FOUND_ERR = (ExceptionMessage[8] = "Not found", 8);
+var NOT_SUPPORTED_ERR = ExceptionCode.NOT_SUPPORTED_ERR = (ExceptionMessage[9] = "Not supported", 9);
+var INUSE_ATTRIBUTE_ERR = ExceptionCode.INUSE_ATTRIBUTE_ERR = (ExceptionMessage[10] = "Attribute in use", 10);
+//level2
+var INVALID_STATE_ERR = ExceptionCode.INVALID_STATE_ERR = (ExceptionMessage[11] = "Invalid state", 11);
+var SYNTAX_ERR = ExceptionCode.SYNTAX_ERR = (ExceptionMessage[12] = "Syntax error", 12);
+var INVALID_MODIFICATION_ERR = ExceptionCode.INVALID_MODIFICATION_ERR = (ExceptionMessage[13] = "Invalid modification", 13);
+var NAMESPACE_ERR = ExceptionCode.NAMESPACE_ERR = (ExceptionMessage[14] = "Invalid namespace", 14);
+var INVALID_ACCESS_ERR = ExceptionCode.INVALID_ACCESS_ERR = (ExceptionMessage[15] = "Invalid access", 15);
+function DOMException(code, message) {
+  if (message instanceof Error) {
+    var error = message;
+  } else {
+    error = this;
+    Error.call(this, ExceptionMessage[code]);
+    this.message = ExceptionMessage[code];
+    if (Error.captureStackTrace) Error.captureStackTrace(this, DOMException);
+  }
+  error.code = code;
+  if (message) this.message = this.message + ": " + message;
+  return error;
+}
+;
+DOMException.prototype = Error.prototype;
+copy(ExceptionCode, DOMException);
+/**
+ * @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-536297177
+ * The NodeList interface provides the abstraction of an ordered collection of nodes, without defining or constraining how this collection is implemented. NodeList objects in the DOM are live.
+ * The items in the NodeList are accessible via an integral index, starting from 0.
+ */
+function NodeList() {}
+;
+NodeList.prototype = {
+  /**
+   * The number of nodes in the list. The range of valid child node indices is 0 to length-1 inclusive.
+   * @standard level1
+   */
+  length: 0,
+  /**
+   * Returns the indexth item in the collection. If index is greater than or equal to the number of nodes in the list, this returns null.
+   * @standard level1
+   * @param index  unsigned long 
+   *   Index into the collection.
+   * @return Node
+   * 	The node at the indexth position in the NodeList, or null if that is not a valid index. 
+   */
+  item: function (index) {
+    return this[index] || null;
+  },
+  toString: function (isHTML, nodeFilter) {
+    for (var buf = [], i = 0; i < this.length; i++) {
+      serializeToString(this[i], buf, isHTML, nodeFilter);
+    }
+    return buf.join('');
+  }
+};
+function LiveNodeList(node, refresh) {
+  this._node = node;
+  this._refresh = refresh;
+  _updateLiveList(this);
+}
+function _updateLiveList(list) {
+  var inc = list._node._inc || list._node.ownerDocument._inc;
+  if (list._inc != inc) {
+    var ls = list._refresh(list._node);
+    //console.log(ls.length)
+    __set__(list, 'length', ls.length);
+    copy(ls, list);
+    list._inc = inc;
+  }
+}
+LiveNodeList.prototype.item = function (i) {
+  _updateLiveList(this);
+  return this[i];
+};
+_extends(LiveNodeList, NodeList);
+/**
+ * 
+ * Objects implementing the NamedNodeMap interface are used to represent collections of nodes that can be accessed by name. Note that NamedNodeMap does not inherit from NodeList; NamedNodeMaps are not maintained in any particular order. Objects contained in an object implementing NamedNodeMap may also be accessed by an ordinal index, but this is simply to allow convenient enumeration of the contents of a NamedNodeMap, and does not imply that the DOM specifies an order to these Nodes.
+ * NamedNodeMap objects in the DOM are live.
+ * used for attributes or DocumentType entities 
+ */
+function NamedNodeMap() {}
+;
+function _findNodeIndex(list, node) {
+  var i = list.length;
+  while (i--) {
+    if (list[i] === node) {
+      return i;
+    }
+  }
+}
+function _addNamedNode(el, list, newAttr, oldAttr) {
+  if (oldAttr) {
+    list[_findNodeIndex(list, oldAttr)] = newAttr;
+  } else {
+    list[list.length++] = newAttr;
+  }
+  if (el) {
+    newAttr.ownerElement = el;
+    var doc = el.ownerDocument;
+    if (doc) {
+      oldAttr && _onRemoveAttribute(doc, el, oldAttr);
+      _onAddAttribute(doc, el, newAttr);
+    }
+  }
+}
+function _removeNamedNode(el, list, attr) {
+  //console.log('remove attr:'+attr)
+  var i = _findNodeIndex(list, attr);
+  if (i >= 0) {
+    var lastIndex = list.length - 1;
+    while (i < lastIndex) {
+      list[i] = list[++i];
+    }
+    list.length = lastIndex;
+    if (el) {
+      var doc = el.ownerDocument;
+      if (doc) {
+        _onRemoveAttribute(doc, el, attr);
+        attr.ownerElement = null;
+      }
+    }
+  } else {
+    throw DOMException(NOT_FOUND_ERR, new Error(el.tagName + '@' + attr));
+  }
+}
+NamedNodeMap.prototype = {
+  length: 0,
+  item: NodeList.prototype.item,
+  getNamedItem: function (key) {
+    //		if(key.indexOf(':')>0 || key == 'xmlns'){
+    //			return null;
+    //		}
+    //console.log()
+    var i = this.length;
+    while (i--) {
+      var attr = this[i];
+      //console.log(attr.nodeName,key)
+      if (attr.nodeName == key) {
+        return attr;
+      }
+    }
+  },
+  setNamedItem: function (attr) {
+    var el = attr.ownerElement;
+    if (el && el != this._ownerElement) {
+      throw new DOMException(INUSE_ATTRIBUTE_ERR);
+    }
+    var oldAttr = this.getNamedItem(attr.nodeName);
+    _addNamedNode(this._ownerElement, this, attr, oldAttr);
+    return oldAttr;
+  },
+  /* returns Node */
+  setNamedItemNS: function (attr) {
+    // raises: WRONG_DOCUMENT_ERR,NO_MODIFICATION_ALLOWED_ERR,INUSE_ATTRIBUTE_ERR
+    var el = attr.ownerElement,
+      oldAttr;
+    if (el && el != this._ownerElement) {
+      throw new DOMException(INUSE_ATTRIBUTE_ERR);
+    }
+    oldAttr = this.getNamedItemNS(attr.namespaceURI, attr.localName);
+    _addNamedNode(this._ownerElement, this, attr, oldAttr);
+    return oldAttr;
+  },
+  /* returns Node */
+  removeNamedItem: function (key) {
+    var attr = this.getNamedItem(key);
+    _removeNamedNode(this._ownerElement, this, attr);
+    return attr;
+  },
+  // raises: NOT_FOUND_ERR,NO_MODIFICATION_ALLOWED_ERR
+
+  //for level2
+  removeNamedItemNS: function (namespaceURI, localName) {
+    var attr = this.getNamedItemNS(namespaceURI, localName);
+    _removeNamedNode(this._ownerElement, this, attr);
+    return attr;
+  },
+  getNamedItemNS: function (namespaceURI, localName) {
+    var i = this.length;
+    while (i--) {
+      var node = this[i];
+      if (node.localName == localName && node.namespaceURI == namespaceURI) {
+        return node;
+      }
+    }
+    return null;
+  }
+};
