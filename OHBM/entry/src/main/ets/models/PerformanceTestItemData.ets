@@ -15,25 +15,15 @@
 /**
  * List item data entity.
  */
-import { promptAction } from '@kit.ArkUI';
-
-type OnItemClick = () => void;
-
-export default class TestItemData {
-  onItemClick: OnItemClick;
+@Observed
+export default class PerformanceTestItemData {
   title: string;
-  img: Resource;
   subTitle: string;
+  result: string = '未测试';
+  isSelect: boolean = true;
 
-  constructor(title: string, img: Resource, subTitle: string, onItemClick: OnItemClick = () => {
-    promptAction.showToast({
-      message: '敬请期待',
-      duration: 2000
-    });
-  }) {
+  constructor(title: string, subTitle: string) {
     this.title = title;
-    this.img = img;
     this.subTitle = subTitle;
-    this.onItemClick = onItemClick;
   }
 }

@@ -38,10 +38,10 @@ export default struct BasicInfoArray {
           .height(36)
           .rotate({ angle: this.isFold ? 0 : 180 })
       }
+      .clickEffect({ level: ClickEffectLevel.LIGHT})
       .justifyContent(FlexAlign.SpaceBetween)
-      .backgroundColor('#CCCCCC')
+      .backgroundColor('#33CCCCCC')
       .width('100%')
-      .borderWidth(1)
       .onClick(() => {
         this.isFold = !this.isFold;
       })
@@ -59,13 +59,19 @@ export default struct BasicInfoArray {
               .margin({ top: 4, bottom: 4 })
               .justifyContent(FlexAlign.SpaceBetween)
               .width('100%')
-            }.backgroundColor(index % 2 === 0 ? '#FFFFFF' : '#EEEEEE')
+            }.backgroundColor(index % 2 === 0 ? '#FFFFFF' : '#33EEEEEE')
           })
         }
         .transition(TransitionEffect.OPACITY.animation({ duration: 1000, curve: Curve.Ease }))
-        .divider({ strokeWidth: 1, color: '#CCCCCC' })
         .width('90%')
       }
     }
+    .margin(8)
+    .shadow({
+      radius: 10,
+      color: Color.Gray,
+      offsetX: 5,
+      offsetY: 5
+    })
   }
 }

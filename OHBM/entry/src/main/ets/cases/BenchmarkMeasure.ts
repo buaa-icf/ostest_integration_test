@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 import { ThreadWorkerGlobalScope } from '@kit.ArkTS';
+import { B2Vec2 } from './performance/box2d/Common/b2Math';
+import { B2Array } from './performance/box2d/Dynamics/b2TimeStep';
 
 const TAG = 'Benchmark'
 
@@ -47,6 +49,9 @@ class WorkerMessage {
   r: number;
   g: number;
   b: number;
+  vertices_x:number[];
+  vertices_y:number[];
+  radius:number;
 
   constructor(name: string, type: number, time: number, latency: number, x: number, y: number, r: number, g: number,
     b: number) {
@@ -119,7 +124,7 @@ class Benchmark {
     }
 
     if (!this.data) {
-      this.measure(workerPort);
+      //this.measure(workerPort);
       this.data = { runs: 0, elapsed: 0 };
     } else {
       this.measure(workerPort);
@@ -137,12 +142,12 @@ class Benchmark {
   measure(workerPort: ThreadWorkerGlobalScope): void {
     let elapsed: number = 0;
     let start: number = new Date().getTime();
-
     let i = 0
     for (; (this.doDeterministic ? i < this.minIterations : elapsed < 1000); i++) {
+      workerPort.postMessage(new WorkerMessage(this.name+ `第${i + 1}次测试`, 0, 0, 0, 0, 0, 0, 0, 0))
       this.run(workerPort);
       elapsed = new Date().getTime() - start;
-      workerPort.postMessage(new WorkerMessage(this.name+`(第${i + 1}次)`, 0, elapsed, 0, 0, 0, 0, 0, 0))
+      workerPort.postMessage(new WorkerMessage(this.name+`第${i + 1}次`, 0, elapsed, 0, 0, 0, 0, 0, 0))
     }
     if (this.data != null) {
       this.data.runs += i;
@@ -168,7 +173,7 @@ class BenchmarkRun {
       BenchmarkRNG.resetRNG()
       this.benchmark.runSetup(result, workerPort)
       this.printResult(result)
-      workerPort.postMessage(new WorkerMessage(this.name+'(完成)', 0, result.time, result.latency, 0, 0, 0, 0, 0))
+      workerPort.postMessage(new WorkerMessage(this.name+'完成', 0, result.time, result.latency, 0, 0, 0, 0, 0))
     } catch (error) {
       this.printErrorMessage(JSON.stringify(error))
     }

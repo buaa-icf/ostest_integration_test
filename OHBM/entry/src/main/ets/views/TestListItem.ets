@@ -19,7 +19,7 @@ import ItemData from '../models/TestItemData';
  * List item information component.
  */
 @Component
-export default struct TestGridItem {
+export default struct TestListItem {
   item: ItemData = new ItemData('', $r('app.media.app_icon'), '', () => {
   });
 
@@ -27,37 +27,38 @@ export default struct TestGridItem {
   }
 
   build() {
-    Column() {
+    Row() {
       Column() {
       }
-      .borderRadius(12)
       .backgroundImage(this.item.img)
       .backgroundImageSize(ImageSize.Cover)
-      .width(64)
-      .height(64)
+      .width(32)
+      .height(32)
       .justifyContent(FlexAlign.SpaceBetween)
+      .margin(8)
 
-      Text(this.item.title)
-        .fontSize(20)
-        .maxLines(1)
-        .textOverflow({ overflow: TextOverflow.MARQUEE })
-        .width(120)
-        .textAlign(TextAlign.Center)
-        .margin({ top: 4 })
-      Text(this.item.subTitle)
-        .fontSize(16)
-        .margin(4)
-        .maxLines(1)
-        .fontColor(Color.Gray)
+      Column() {
+        Text(this.item.title)
+          .fontSize(20)
+          .maxLines(1)
+          .margin(4)
+          .textOverflow({ overflow: TextOverflow.MARQUEE })
+        Text(this.item.subTitle)
+          .fontSize(16)
+          .margin(4)
+          .fontColor(Color.Gray)
+      }.alignItems(HorizontalAlign.Start)
+      Blank()
+      Image($r('app.media.chevron_down'))
+        .height(32)
+        .width(32)
+        .margin(8)
+        .rotate({angle:'-90'})
     }
-    .alignItems(HorizontalAlign.Center)
+    .width('100%')
+    .alignItems(VerticalAlign.Center)
+    .justifyContent(FlexAlign.SpaceBetween)
     .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
-    .shadow({
-      radius: 2,
-      color: Color.Gray,
-      offsetX: 1,
-      offsetY: 1
-    })
     .onClick(() => {
       this.item.onItemClick();
     })
