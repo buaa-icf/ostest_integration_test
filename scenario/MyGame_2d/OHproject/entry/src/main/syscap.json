@@ -1,0 +1,22 @@
+{
+  "devices": {
+    "general": [
+      "default",
+      "tablet"
+    ],
+    "custom": [
+      {
+        "harmony": [
+          "SystemCapability.Communication.SoftBus.Core"
+        ]
+      }
+    ]
+  },
+
+  "development": {
+    "addedSysCaps": [
+      "SystemCapability.ArkUI.ArkUI.Libuv",
+      "SystemCapability.ArkUi.Graphics3D"
+    ]
+  }
+}
