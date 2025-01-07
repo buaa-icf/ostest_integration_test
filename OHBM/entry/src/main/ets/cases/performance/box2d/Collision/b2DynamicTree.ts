@@ -63,7 +63,6 @@ export class B2DynamicTree<T> {
     this.mNodes[proxyId].userData = userData;
     this.mNodes[proxyId].height = 0;
     this.insertLeaf(proxyId);
-    console.info('box2d','insertLeaf：'+proxyId)
     return proxyId;
   }
 
@@ -111,22 +110,18 @@ export class B2DynamicTree<T> {
   public query<T extends B2QueryWrapper>(callback: T, aabb: B2AaBb): void {
     let stack: number[] = [];
     stack.push(this.mRoot);
-    console.info('box2d','query stack '+stack.length)
     while (stack.length > 0) {
       let nodeId = stack.pop();
-      console.info('box2d','stack nodeId： '+nodeId)
       if (nodeId === b2NullNode) {
         continue;
       }
       let node = this.mNodes[nodeId!];
-      console.info('box2d','stack node: '+node.aabb.lowerBound.x+','+node.aabb.lowerBound.y)
-      console.info('box2d','stack node: '+node.aabb.upperBound.x+','+node.aabb.upperBound.y)
-      console.info('box2d','node: '+aabb.lowerBound.x+','+aabb.lowerBound.y)
-      console.info('box2d','node: '+aabb.upperBound.x+','+aabb.upperBound.y)
+      //console.info('box2d','stack node: '+node.aabb.lowerBound.x+','+node.aabb.lowerBound.y)
+      //console.info('box2d','stack node: '+node.aabb.upperBound.x+','+node.aabb.upperBound.y)
+      //console.info('box2d','node: '+aabb.lowerBound.x+','+aabb.lowerBound.y)
+      //console.info('box2d','node: '+aabb.upperBound.x+','+aabb.upperBound.y)
       if (b2TestOverlap2(node.aabb, aabb)) {
-        console.info('box2d','b2TestOverlap2: '+nodeId)
         if (node.isLeaf()) {
-          console.info('box2d','isLeaf: '+nodeId)
           let proceed = callback.queryCallback(nodeId!);
           if (proceed === false) {
             return;

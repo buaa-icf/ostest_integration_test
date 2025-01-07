@@ -14,53 +14,65 @@
  */
 
 import ItemData from '../models/TestItemData';
+import { promptAction } from '@kit.ArkUI';
 
 /**
  * List item information component.
  */
 @Component
 export default struct TestListItem {
-  item: ItemData = new ItemData('', $r('app.media.app_icon'), '', () => {
-  });
+  item: ItemData = new ItemData('', $r('app.media.app_icon'), '');
+  active: boolean = false;
 
   aboutToAppear() {
   }
 
   build() {
-    Row() {
-      Column() {
-      }
-      .backgroundImage(this.item.img)
-      .backgroundImageSize(ImageSize.Cover)
-      .width(32)
-      .height(32)
-      .justifyContent(FlexAlign.SpaceBetween)
-      .margin(8)
-
-      Column() {
-        Text(this.item.title)
-          .fontSize(20)
-          .maxLines(1)
-          .margin(4)
-          .textOverflow({ overflow: TextOverflow.MARQUEE })
-        Text(this.item.subTitle)
-          .fontSize(16)
-          .margin(4)
-          .fontColor(Color.Gray)
-      }.alignItems(HorizontalAlign.Start)
-      Blank()
-      Image($r('app.media.chevron_down'))
-        .height(32)
+    Navigator({ target: this.item.url, type: NavigationType.Push }) {
+      Row() {
+        Column() {
+        }
+        .backgroundImage(this.item.img)
+        .backgroundImageSize(ImageSize.Cover)
         .width(32)
+        .height(32)
+        .justifyContent(FlexAlign.SpaceBetween)
         .margin(8)
-        .rotate({angle:'-90'})
+
+        Column() {
+          Text(this.item.title)
+            .fontSize(20)
+            .maxLines(1)
+            .margin(4)
+            .textOverflow({ overflow: TextOverflow.MARQUEE })
+          Text(this.item.subTitle)
+            .fontSize(16)
+            .margin(4)
+            .fontColor(Color.Gray)
+        }.alignItems(HorizontalAlign.Start)
+
+        Blank()
+        Image($r('app.media.chevron_down'))
+          .height(32)
+          .width(32)
+          .margin(8)
+          .rotate({ angle: '-90' })
+      }
+      .width('100%')
+      .alignItems(VerticalAlign.Center)
+      .justifyContent(FlexAlign.SpaceBetween)
+      .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
     }
-    .width('100%')
-    .alignItems(VerticalAlign.Center)
-    .justifyContent(FlexAlign.SpaceBetween)
-    .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
+    .active(this.active)
     .onClick(() => {
-      this.item.onItemClick();
+      if (this.item.url === '') {
+        promptAction.showToast({
+          message: '敬请期待',
+          duration: 2000
+        });
+      } else {
+        this.active = true;
+      }
     })
   }
 }

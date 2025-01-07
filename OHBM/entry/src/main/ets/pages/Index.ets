@@ -14,8 +14,6 @@
  */
 import TestItemData from '../models/TestItemData';
 import TestGridItem from '../views/TestGridItem';
-import router from '@ohos.router';
-import { BusinessError } from '@ohos.base';
 import TestListItem from '../views/TestListItem';
 import HeadBar from '../views/HeadBar';
 import { batteryInfo } from '@kit.BasicServicesKit';
@@ -30,24 +28,9 @@ struct Index {
   private queryHandleId: number = -1;
 
   aboutToAppear(): void {
-    this.items.push(new TestItemData('验机', $r('app.media.rectangle_portrait_rotate'), '基本信息检测', () => {
-      try {
-        router.pushUrl({
-          url: 'pages/BasicInfo',
-        })
-      } catch (err) {
-        console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
-      }
-    }));
-    this.items.push(new TestItemData('性能评分', $r('app.media.timer'), '综合性能测试', () => {
-      try {
-        router.pushUrl({
-          url: 'pages/Performance',
-        })
-      } catch (err) {
-        console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
-      }
-    }));
+    this.items.push(new TestItemData('验机', $r('app.media.rectangle_portrait_rotate'), '基本信息检测',
+      'pages/BasicInfo'));
+    this.items.push(new TestItemData('性能评分', $r('app.media.timer'), '综合性能测试', 'pages/Performance'));
     this.items.push(new TestItemData('存储', $r('app.media.externaldrive'), '读写性能测试'));
     this.items.push(new TestItemData('传输', $r('app.media.mobiledata'), '网络性能测试'));
     this.items.push(new TestItemData('屏幕', $r('app.media.hand_tap'), '显示触屏检测'));
@@ -58,7 +41,7 @@ struct Index {
     this.extraItems.push(new TestItemData('定位', $r('app.media.satellite_map'), 'GPS北斗'));
     this.extraItems.push(new TestItemData('安全', $r('app.media.checkmark_shield'), '系统安全'));
     this.extraItems.push(new TestItemData('触控', $r('app.media.hand_draw'), '输入输出'));
-    this.extraItems.push(new TestItemData('图形', $r('app.media.picture_2'), '显示性能测试'));
+    this.extraItems.push(new TestItemData('游戏', $r('app.media.picture_2'), '游戏专项测试'));
     this.extraItems.push(new TestItemData('NFC', $r('app.media.nfc'), '近距离通信'));
     this.extraItems.push(new TestItemData('电池', $r('app.media.battery_75percent'), '电池健康检查'));
     this.queryHandleId = setInterval(() => {
@@ -80,33 +63,27 @@ struct Index {
       Scroll() {
         Column() {
           RelativeContainer() {
-            Text('开始测评')
-              .fontSize(42)
-              .fontColor(Color.White)
-              .borderRadius(16)
-              .padding(16)
-              .backgroundColor(Color.Orange)
-              .shadow({
-                radius: 10,
-                color: Color.Gray,
-                offsetX: 20,
-                offsetY: 20
-              })
-              .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
-              .alignSelf(ItemAlign.Center)
-              .alignRules({
-                bottom: { anchor: '__container__', align: VerticalAlign.Center },
-                middle: { anchor: '__container__', align: HorizontalAlign.Center }
-              })
-              .onClick(() => {
-                try {
-                  router.pushUrl({
-                    url: 'pages/Performance',
-                  })
-                } catch (err) {
-                  console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
-                }
-              })
+            Navigator({ target: 'pages/Performance', type: NavigationType.Push }) {
+              Text('开始测评')
+                .fontSize(42)
+                .fontColor(Color.White)
+                .borderRadius(16)
+                .padding(16)
+                .backgroundColor(Color.Orange)
+                .shadow({
+                  radius: 10,
+                  color: Color.Gray,
+                  offsetX: 20,
+                  offsetY: 20
+                })
+                .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
+            }
+            .alignSelf(ItemAlign.Center)
+            .alignRules({
+              bottom: { anchor: '__container__', align: VerticalAlign.Center },
+              middle: { anchor: '__container__', align: HorizontalAlign.Center }
+            })
+
             Row() {
               Text('电池温度：' + this.batteryTemp.toString() + ' ℃')
                 .fontSize(16)

@@ -151,7 +151,6 @@ export class B2World {
 
   public step(dt: number, velocityIterations: number, positionIterations: number): void {
     if ((this.mFlags & FlagsW.newFixture) !== 0) {
-      console.info('box2d','011')
       this.mContactManager.findNewContacts();
       this.mFlags &= ~FlagsW.newFixture;
     }
