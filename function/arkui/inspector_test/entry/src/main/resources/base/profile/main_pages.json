@@ -1,0 +1,10 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/IndexQ",
+    "pages/IndexJ",
+    "pages/Rating/rating01",
+    "pages/Rating/ratingModifier",
+    "pages/Select/select01"
+  ]
+}
