@@ -12,3 +12,71 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import router from '@ohos.router'
+
+@Entry
+@Component
+struct IndexJ {
+  @State arrLeft: Array<string> = [
+    'CalendarPicker/calendarPicker01',
+    'DatePicker/datePicker01',
+    'TextPicker/textPicker01',
+    'TimePicker/timePicker01'
+  ];
+
+  @State arrRight: Array<string> = [
+    'TextInput/textInput01_withoutSubnode',
+    "TextInput/textInput02_counter",
+    "TextInput/textInput03_cancelButton",
+    "TextInput/textInput04_error",
+    "TextInput/textInput05_password",
+    "TextInput/textInput06_unit",
+  ];
+
+  build() {
+    Column(){
+      Row() {
+        Scroll() {
+          Column() {
+            ForEach(this.arrLeft, (item: string) => {
+              Button(item)
+                .margin({top:5})
+                .onClick(() => {
+                  router.pushUrl({
+                    url: `pages/${item}`,
+                    params: ''
+                  })
+                })
+            })
+          }
+        }.width("50%")
+
+        Scroll() {
+          Column() {
+            ForEach(this.arrRight, (item: string) => {
+              Button(item)
+                .margin({top:5})
+                .onClick(() => {
+                  router.pushUrl({
+                    url: `pages/${item}`,
+                    params: ''
+                  })
+                })
+            })
+          }
+        }.width("50%")
+      }
+
+      Button('Back')
+        .onClick(()=> {
+          router.pushUrl({
+            url: 'pages/Index',
+            params: ''
+          })
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
