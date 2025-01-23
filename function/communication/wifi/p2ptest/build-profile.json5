@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) 2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:/Users/zxj/.ohos/config/openharmony/default_wifiP2P_tXP99yHzFetlYk5drXx3ewjVaI5sWmWhG7r5K_yGdvg=.cer",
+          "storePassword": "0000001BAC26F26740CCDCC817A3B20042DA6F7260A64BBE97CE4F0CD0FCB17F002A6D38EDBB38D378E06E",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B5C96FD7D8D344713AAA81450C652313FCDBE2FB2A2D8155844CC1E9FD4441F92231B258C29D287",
+          "profile": "C:/Users/zxj/.ohos/config/openharmony/default_wifiP2P_tXP99yHzFetlYk5drXx3ewjVaI5sWmWhG7r5K_yGdvg=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/zxj/.ohos/config/openharmony/default_wifiP2P_tXP99yHzFetlYk5drXx3ewjVaI5sWmWhG7r5K_yGdvg=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": 11,
+        "compatibleSdkVersion": 11,
+        "runtimeOS": "OpenHarmony",
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
