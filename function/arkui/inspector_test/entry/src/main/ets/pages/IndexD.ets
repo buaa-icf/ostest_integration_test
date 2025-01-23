@@ -22,6 +22,8 @@ struct IndexD {
     'Rating/rating01',
     'Rating/ratingModifier',
     'Select/select01',
+    'Slider/slider01',
+    'Swiper/swiper01',
   ];
 
   @State arrRight: Array<string> = [
