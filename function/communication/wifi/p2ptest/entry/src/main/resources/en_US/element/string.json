@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "wifiP2P应用"
+    },
+    {
+      "name": "wifiP2P_client",
+      "value": "客户端"
+    },
+    {
+      "name": "wifiP2P_server",
+      "value": "服务端"
+    },
+    {
+      "name": "title_text",
+      "value": "wifiP2P测试"
+    }
+  ]
+}
