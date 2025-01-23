@@ -13,108 +13,62 @@
  * limitations under the License.
  */
 
-class MyDataSource implements IDataSource {
-  private list: number[] = []
-
-  constructor(list: number[]) {
-    this.list = list
-  }
-
-  totalCount(): number {
-    return this.list.length
-  }
-
-  getData(index: number): number {
-    return this.list[index]
-  }
-
-  registerDataChangeListener(listener: DataChangeListener): void {
-  }
-
-  unregisterDataChangeListener() {
-  }
-}
+import router from '@ohos.router'
 
 @Entry
 @Component
-struct SwiperExample {
-  private swiperController: SwiperController = new SwiperController()
-  private data: MyDataSource = new MyDataSource([])
-
-  aboutToAppear(): void {
-    let list: number[] = []
-    for (let i = 1; i <= 10; i++) {
-      list.push(i);
-    }
-    this.data = new MyDataSource(list)
-  }
+struct Select01 {
+  @State text: string = "TTTTT"
+  @State index: number = 2
+  @State space: number = 8
+  @State arrowPosition: ArrowPosition = ArrowPosition.END
+  @State idOrKeyArray: Array<Array<string>> = [
+    ['', ''],
+    ['dW_select_id', ''],
+    ['', 'dW_select_key'],
+    ['dW_select_id', 'dW_select_key'],
+  ];
 
   build() {
-    Column({ space: 5 }) {
-      Swiper(this.swiperController) {
-        LazyForEach(this.data, (item: string) => {
-          Text(item.toString())
-            .width('90%')
-            .height(160)
-            .backgroundColor(0xAFEEEE)
-            .textAlign(TextAlign.Center)
-            .fontSize(30)
-        }, (item: string) => item)
-      }
-      .cachedCount(2)
-      .index(1)
-      .autoPlay(true)
-      .interval(4000)
-      .loop(true)
-      .duration(1000)
-      .itemSpace(0)
-      .indicator( // 设置圆点导航点样式
-        new DotIndicator()
-          .itemWidth(15)
-          .itemHeight(15)
-          .selectedItemWidth(15)
-          .selectedItemHeight(15)
-          .color(Color.Gray)
-          .selectedColor(Color.Blue))
-      .displayArrow({ // 设置导航点箭头样式
-        showBackground: true,
-        isSidebarMiddle: true,
-        backgroundSize: 24,
-        backgroundColor: Color.White,
-        arrowSize: 18,
-        arrowColor: Color.Blue
-      }, false)
-      .curve(Curve.Linear)
-      .onChange((index: number) => {
-        console.info(index.toString())
-      })
-      .onGestureSwipe((index: number, extraInfo: SwiperAnimationEvent) => {
-        console.info("index: " + index)
-        console.info("current offset: " + extraInfo.currentOffset)
-      })
-      .onAnimationStart((index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => {
-        console.info("index: " + index)
-        console.info("targetIndex: " + targetIndex)
-        console.info("current offset: " + extraInfo.currentOffset)
-        console.info("target offset: " + extraInfo.targetOffset)
-        console.info("velocity: " + extraInfo.velocity)
-      })
-      .onAnimationEnd((index: number, extraInfo: SwiperAnimationEvent) => {
-        console.info("index: " + index)
-        console.info("current offset: " + extraInfo.currentOffset)
+    Column() {
+      Text("Select")
+        .fontSize(18)
+        .margin({ top: 24 })
+      ForEach(this.idOrKeyArray, (item: Array<string>) => {
+        Select([{ value: 'aaa', icon: $r("app.media.icon") },
+          { value: 'bbb', icon: $r("app.media.icon") },
+          { value: 'ccc', icon: $r("app.media.icon") },
+          { value: 'ddd', icon: $r("app.media.icon") }])
+          .selected(this.index)
+          .value(this.text)
+          .font({ size: 16, weight: 500 })
+          .fontColor('#182431')
+          .selectedOptionFont({ size: 16, weight: 400 })
+          .optionFont({ size: 16, weight: 400 })
+          .space(this.space)
+          .arrowPosition(this.arrowPosition)
+          .menuAlign(MenuAlignType.START, {dx:0, dy:0})
+          .optionWidth(200)
+          .optionHeight(300)
+          .id(item[0])
+          .key(item[1])
+          .onSelect((index:number, text?: string | undefined)=>{
+            console.info('Select:' + index)
+            this.index = index;
+            if(text){
+              this.text = text;
+            }
+          })
       })
 
-      Row({ space: 12 }) {
-        Button('showNext')
-          .onClick(() => {
-            this.swiperController.showNext()
+      Button('Back')
+        .onClick(()=> {
+          router.pushUrl({
+            url: 'pages/IndexD',
+            params: ''
           })
-        Button('showPrevious')
-          .onClick(() => {
-            this.swiperController.showPrevious()
-          })
-      }.margin(5)
+        })
+
     }.width('100%')
-    .margin({ top: 5 })
   }
 }
