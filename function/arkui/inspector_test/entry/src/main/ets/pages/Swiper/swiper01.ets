@@ -104,7 +104,7 @@ struct Swiper01 {
           LazyForEach(this.data, (item: string) => {
             Text(item.toString())
               .width('90%')
-              .height(85)
+              .height(78)
               .backgroundColor(0xAFEEEE)
               .textAlign(TextAlign.Center)
               .fontSize(18)
@@ -153,6 +153,14 @@ struct Swiper01 {
           console.info("displayArrow current offset: " + extraInfo.currentOffset)
         })
       })
+
+      Button('Back')
+        .onClick(()=> {
+          router.pushUrl({
+            url: 'pages/IndexD',
+            params: ''
+          })
+        })
     }.width('100%')
   }
 }
