@@ -8,6 +8,16 @@
     "pages/Rating/ratingModifier",
     "pages/Select/select01",
     "pages/Slider/slider01",
-    "pages/Swiper/swiper01"
+    "pages/Swiper/swiper01",
+    "pages/TextInput/textInput01_withoutSubnode",
+    "pages/TextInput/textInput02_counter",
+    "pages/TextInput/textInput03_cancelButton",
+    "pages/TextInput/textInput04_error",
+    "pages/TextInput/textInput05_password",
+    "pages/TextInput/textInput06_unit",
+    "pages/CalendarPicker/calendarPicker01",
+    "pages/DatePicker/datePicker01",
+    "pages/TextPicker/textPicker01",
+    "pages/TimePicker/timePicker01"
   ]
 }

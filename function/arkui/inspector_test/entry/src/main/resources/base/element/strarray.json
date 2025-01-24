@@ -1,0 +1,21 @@
+{
+  "strarray": [
+    {
+      "name": "textPicker_ResourceRange",
+      "value": [
+        {
+          "value": "111"
+        },
+        {
+          "value": "222"
+        },
+        {
+          "value": "333"
+        },
+        {
+          "value": "444"
+        }
+      ]
+    }
+  ]
+}
