@@ -12,3 +12,71 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import router from '@ohos.router'
+
+@Entry
+@Component
+struct IndexQ {
+  @State arrLeft: Array<string> = [
+    'NavDestination/NavDestination01',
+    'Navigation/navigation01',
+    'RichEditor/RichEditor01',
+    'SideBarContainer/SideBarContainer01',
+    'Stepper/stepper01',
+    'Stepper/stepper02',
+    'Stepper/stepper03',
+    'Stepper/stepper04',
+    'Video/video01',
+    'DatePickerDialog/DatePickerDialog01'
+  ];
+
+  @State arrRight: Array<string> = [
+  ];
+
+  build() {
+    Column(){
+      Row() {
+        Scroll() {
+          Column() {
+            ForEach(this.arrLeft, (item: string) => {
+              Button(item)
+                .margin({top:5})
+                .onClick(() => {
+                  router.pushUrl({
+                    url: `pages/${item}`,
+                    params: ''
+                  })
+                })
+            })
+          }
+        }.width("50%")
+
+        Scroll() {
+          Column() {
+            ForEach(this.arrRight, (item: string) => {
+              Button(item)
+                .margin({top:5})
+                .onClick(() => {
+                  router.pushUrl({
+                    url: `pages/${item}`,
+                    params: ''
+                  })
+                })
+            })
+          }
+        }.width("50%")
+      }
+
+      Button('Back')
+        .onClick(()=> {
+          router.pushUrl({
+            url: 'pages/Index',
+            params: ''
+          })
+        })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
