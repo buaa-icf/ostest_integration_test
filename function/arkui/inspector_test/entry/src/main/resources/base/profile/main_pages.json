@@ -18,6 +18,13 @@
     "pages/CalendarPicker/calendarPicker01",
     "pages/DatePicker/datePicker01",
     "pages/TextPicker/textPicker01",
-    "pages/TimePicker/timePicker01"
+    "pages/TimePicker/timePicker01",
+    "pages/ActionSheet/actionSheet01",
+    "pages/ActionSheet/actionSheet02",
+    "pages/AlertDialog/alertDialog01",
+    "pages/AlertDialog/alertDialog02",
+    "pages/AlertDialog/alertDialog03",
+    "pages/AlertDialog/alertDialog04",
+    "pages/CalendarPickerDialog/calendarPickerDialog"
   ]
 }
