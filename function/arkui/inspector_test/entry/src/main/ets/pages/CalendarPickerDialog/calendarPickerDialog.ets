@@ -20,6 +20,9 @@ struct CalendarPickerDialog01 {
 
   build() {
     Column() {
+      Text("CalendarPickerDialog")
+        .fontSize(18)
+        .margin({ top: 24,bottom:24 })
       Button("Show CalendarPicker Dialog")
         .margin(20)
         .onClick(() => {

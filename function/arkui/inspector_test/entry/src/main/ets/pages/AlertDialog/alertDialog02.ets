@@ -19,6 +19,9 @@ struct AlertDialog02 {
 
   build() {
     Column({ space: 5 }) {
+      Text("AlertDialog with [title,subtitle,confirm]")
+        .fontSize(18)
+        .margin({ top: 24,bottom:24 })
       Button('one button dialog')
         .onClick(() => {
           AlertDialog.show(
@@ -32,7 +35,6 @@ struct AlertDialog02 {
               showInSubWindow: true,
               isModal: true,
               offset: { dx: 0, dy: -20 },
-              buttonDirection: DialogButtonDirection.HORIZONTAL,
               confirm: {
                 value: 'button',
                 action: () => {

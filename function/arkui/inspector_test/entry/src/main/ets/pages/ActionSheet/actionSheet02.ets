@@ -19,6 +19,9 @@ struct ActionSheet02 {
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
+      Text("ActionSheet with [subtitle,confirm]")
+        .fontSize(18)
+        .margin({ top: 24,bottom:24 })
       Button('Click to Show ActionSheet')
         .onClick(() => {
           ActionSheet.show({

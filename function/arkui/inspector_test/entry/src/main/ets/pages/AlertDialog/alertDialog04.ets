@@ -19,6 +19,9 @@ struct AlertDialog04 {
 
   build() {
     Column({ space: 5 }) {
+      Text("AlertDialog with [title,subtitle,buttons]")
+        .fontSize(18)
+        .margin({ top: 24,bottom:24 })
       Button('one button dialog')
         .onClick(() => {
           AlertDialog.show(
