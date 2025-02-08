@@ -27,6 +27,8 @@
     "pages/Stepper/stepper03",
     "pages/Stepper/stepper04",
     "pages/Video/video01",
-    "pages/RichEditor/RichEditor01"
+    "pages/RichEditor/RichEditor01",
+    "pages/DatePickerDialog/DatePickerDialog01",
+    "pages/TimePickerDialog/TimePickerDialog01"
   ]
 }
