@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="625c93ce-f838-41f8-9bc8-2bf67ddfbad2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/NavDestination/NavDestination01.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Navigation/navigation01.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Navigation/page1.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Navigation/page2.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/RichEditor/RichEditor01.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/SideBarContainer/SideBarContainer01.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Stepper/stepper01.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Stepper/stepper02.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Stepper/stepper03.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Stepper/stepper04.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/Video/video01.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/resources/base/media/test1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/resources/base/media/test2.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/IndexQ.ets" beforeDir="false" afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/ets/pages/IndexQ.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/resources/base/profile/main_pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/function/arkui/inspector_test/entry/src/main/resources/base/profile/main_pages.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+</project>
