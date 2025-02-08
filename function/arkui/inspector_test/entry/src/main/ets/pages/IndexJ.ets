@@ -22,7 +22,13 @@ struct IndexJ {
     'CalendarPicker/calendarPicker01',
     'DatePicker/datePicker01',
     'TextPicker/textPicker01',
-    'TimePicker/timePicker01'
+    'TimePicker/timePicker01',
+    'TextPickerDialog/textPickerDialog01',
+    "promptAction/promptAction01",
+    "promptAction/promptAction02",
+    "promptAction/promptAction03",
+    "promptAction/promptAction04",
+    "bindMenu/bindMenu01"
   ];
 
   @State arrRight: Array<string> = [

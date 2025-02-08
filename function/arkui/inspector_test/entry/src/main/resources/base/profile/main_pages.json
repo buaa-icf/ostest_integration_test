@@ -34,6 +34,12 @@
     "pages/AlertDialog/alertDialog02",
     "pages/AlertDialog/alertDialog03",
     "pages/AlertDialog/alertDialog04",
-    "pages/CalendarPickerDialog/calendarPickerDialog"
+    "pages/CalendarPickerDialog/calendarPickerDialog",
+    "pages/TextPickerDialog/textPickerDialog01",
+    "pages/promptAction/promptAction01",
+    "pages/promptAction/promptAction02",
+    "pages/promptAction/promptAction03",
+    "pages/promptAction/promptAction04",
+    "pages/bindMenu/bindMenu01"
   ]
 }
