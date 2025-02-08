@@ -28,6 +28,13 @@
     "pages/Stepper/stepper04",
     "pages/Video/video01",
     "pages/RichEditor/RichEditor01",
+    "pages/ActionSheet/actionSheet01",
+    "pages/ActionSheet/actionSheet02",
+    "pages/AlertDialog/alertDialog01",
+    "pages/AlertDialog/alertDialog02",
+    "pages/AlertDialog/alertDialog03",
+    "pages/AlertDialog/alertDialog04",
+    "pages/CalendarPickerDialog/calendarPickerDialog",
     "pages/DatePickerDialog/DatePickerDialog01",
     "pages/TimePickerDialog/TimePickerDialog01"
   ]
