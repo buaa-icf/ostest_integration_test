@@ -28,7 +28,8 @@ struct IndexQ {
     'Stepper/stepper03',
     'Stepper/stepper04',
     'Video/video01',
-    'DatePickerDialog/DatePickerDialog01'
+    'DatePickerDialog/DatePickerDialog01',
+    'TimePickerDialog/TimePickerDialog01',
   ];
 
   @State arrRight: Array<string> = [
