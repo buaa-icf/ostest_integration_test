@@ -36,6 +36,12 @@
     "pages/AlertDialog/alertDialog04",
     "pages/CalendarPickerDialog/calendarPickerDialog",
     "pages/DatePickerDialog/DatePickerDialog01",
-    "pages/TimePickerDialog/TimePickerDialog01"
+    "pages/TimePickerDialog/TimePickerDialog01"，
+    "pages/TextPickerDialog/textPickerDialog01",
+    "pages/promptAction/promptAction01",
+    "pages/promptAction/promptAction02",
+    "pages/promptAction/promptAction03",
+    "pages/promptAction/promptAction04",
+    "pages/bindMenu/bindMenu01"
   ]
 }
