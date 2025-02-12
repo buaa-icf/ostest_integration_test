@@ -36,7 +36,6 @@ export class B2ContactManager implements B2BroadPhaseWrapper {
   }
 
   public addPair(proxyUserDataA: B2FixtureProxy, proxyUserDataB: B2FixtureProxy): void {
-    console.info('box2d','900')
     let proxyA = proxyUserDataA;
     let proxyB = proxyUserDataB;
     let fixtureA = proxyA.fixture;
@@ -49,7 +48,6 @@ export class B2ContactManager implements B2BroadPhaseWrapper {
       return;
     }
     let edge = bodyB.getContactList();
-    console.info('box2d','edge:'+edge)
     while (edge !== null) {
       if (edge.other === bodyA) {
         let fA = edge.contact.fixtureA;
@@ -65,20 +63,16 @@ export class B2ContactManager implements B2BroadPhaseWrapper {
       }
       edge = edge!.next;
     }
-    console.info('box2d','shouldCollide:1')
     if (bodyB.shouldCollide(bodyA) === false) {
       return;
     }
-    console.info('box2d','shouldCollide:2')
     if (this.mContactFilter !== null && this.mContactFilter.shouldCollide(fixtureA, fixtureB) === false) {
       return;
     }
-    console.info('box2d','shouldCollide:3')
     let c = B2Contact.create(fixtureA, indexA, fixtureB, indexB);
     if (c === null) {
       return;
     }
-    console.info('box2d','shouldCollide:4')
     fixtureA = c.fixtureA;
     fixtureB = c.fixtureB;
     indexA = c.childIndexA;
@@ -159,9 +153,7 @@ export class B2ContactManager implements B2BroadPhaseWrapper {
 
   collide(): void {
     let c = this.mContactList;
-    console.info('box2d','000')
     while (c !== null) {
-      console.info('box2d','111')
       let fixtureA = c.fixtureA;
       let fixtureB = c.fixtureB;
       let indexA = c.childIndexA;
@@ -169,16 +161,13 @@ export class B2ContactManager implements B2BroadPhaseWrapper {
       let bodyA = fixtureA.body;
       let bodyB = fixtureB.body;
       if ((c.mFlags & FlagContacts.FILTERFLAG) !== 0) {
-        console.info('box2d','222')
         if (bodyB.shouldCollide(bodyA) === false) {
-          console.info('box2d','333')
           let cNuke = c!;
           c = cNuke.getNext();
           this.destroy(cNuke);
           continue;
         }
         if (this.mContactFilter !== null && this.mContactFilter.shouldCollide(fixtureA, fixtureB) === false) {
-          console.info('box2d','444')
           let cNuke = c!;
           c = cNuke.getNext();
           this.destroy(cNuke);
@@ -186,26 +175,21 @@ export class B2ContactManager implements B2BroadPhaseWrapper {
         }
         c.mFlags &= ~FlagContacts.FILTERFLAG;
       }
-      console.info('box2d','555')
       let activeA = bodyA.isAwake && bodyA.mType !== B2BodyType.STATICBODY;
       let activeB = bodyB.isAwake && bodyB.mType !== B2BodyType.STATICBODY;
       if (activeA === false && activeB === false) {
-        console.info('box2d','666')
         c = c.getNext();
         continue;
       }
-      console.info('box2d','777')
       let proxyIdA = fixtureA.mProxies[indexA].proxyId;
       let proxyIdB = fixtureB.mProxies[indexB].proxyId;
       let overlap = this.mBroadPhase.testOverlap(proxyIdA, proxyIdB);
       if (overlap === false) {
-        console.info('box2d','888')
         let cNuke = c!;
         c = cNuke.getNext();
         this.destroy(cNuke);
         continue;
       }
-      console.info('box2d','999')
       c.update(this.mContactListener!);
       c = c.getNext();
     }

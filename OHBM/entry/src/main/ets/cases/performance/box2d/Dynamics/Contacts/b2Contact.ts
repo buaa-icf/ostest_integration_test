@@ -200,15 +200,11 @@ export class B2Contact {
     }
     let type1 = fixtureA!.fixtureType;
     let type2 = fixtureB!.fixtureType;
-    console.info('box2d','create:1')
     let createFcn = StaticVars.sRegisters.getItem(type1!, type2!).createFcn;
     if (createFcn !== null) {
-      console.info('box2d','create:2')
       if (StaticVars.sRegisters.getItem(type1!, type2!).primary) {
-        console.info('box2d','create:3')
         return createFcn(fixtureA, indexA, fixtureB, indexB);
       } else {
-        console.info('box2d','create:4')
         return createFcn(fixtureB, indexB, fixtureA, indexA);
       }
     } else {

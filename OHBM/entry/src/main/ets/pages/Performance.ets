@@ -163,18 +163,20 @@ struct Performance {
   }
 
   initItems() {
+    this.items.push(new PerformanceTestItemData('3d-cube',
+      '通过创建和操作3D形变，进行TypeScript在图形处理方面的性能测试'))
     this.items.push(new PerformanceTestItemData('n-body',
       '模拟多个物体在相互之间的万有引力作用下的运动，评估物理算法的性能，特别是在模拟大规模天体系统时'))
-    this.items.push(new PerformanceTestItemData('box2d',
+    this.items.push(new PerformanceTestItemData('box2d-0',
       '单个小球自由落体运动测试（Box2D是一个2D物理引擎，用于游戏开发和模拟，评估2D物理模拟的性能，包括碰撞检测、刚体动力学等）'))
-    this.items.push(new PerformanceTestItemData('box2d1', '5个物体的受力运动测试'))
-    this.items.push(new PerformanceTestItemData('box2d2', '单个小球抛物线运动测试'))
-    this.items.push(new PerformanceTestItemData('box2d3', '26个物体的受力运动测试'))
+    this.items.push(new PerformanceTestItemData('box2d-1', '5个物体的受力运动测试'))
+    this.items.push(new PerformanceTestItemData('box2d-2', '单个小球抛物线运动测试'))
+    this.items.push(new PerformanceTestItemData('box2d-3', '26个物体的受力运动测试'))
     this.items.push(new PerformanceTestItemData('raytrace',
       '光线追踪是一种用于生成逼真图像的渲染技术，评估渲染算法的性能，特别是在处理复杂光照和阴影效果时'))
     this.items.push(new PerformanceTestItemData('richards',
       '并发程序的基准测试，模拟一个任务调度系统，评估操作系统的并发处理能力和调度效率'))
-    this.items.push(new PerformanceTestItemData('deltablue',
+    this.items.push(new PerformanceTestItemData('delta-blue',
       '约束求解算法的实现，用于解决一组约束条件的最优解，评估算法性能和计算效率'))
     this.items.push(new PerformanceTestItemData('navier-stokes',
       '纳维-斯托克斯方程是流体动力学中描述流体运动的基本方程，评估流体动力学模拟的性能'))
@@ -305,6 +307,12 @@ struct Performance {
           if (data.name === '太阳') {
             this.fps++;
           }
+          break;
+        case 5:
+          this.context.beginPath();
+          this.context.moveTo(data.vertices_x[0], data.vertices_y[0]);
+          this.context.lineTo(data.vertices_x[1], data.vertices_y[1]);
+          this.context.stroke();
           break;
         default:
           if (data.name.indexOf('全部完成') !== -1) {

@@ -81,7 +81,7 @@ function drawWorld(world: B2World, workerPort: ThreadWorkerGlobalScope) {
       drawShape(shape, pos, angle, workerPort);
       fixtures = fixtures.getNext();
     }
-    console.log('body:' + i.toString() + ' fixture: ' + j.toString())
+    //console.log('body:' + i.toString() + ' fixture: ' + j.toString())
     bodies = bodies.getNext();
   }
 }

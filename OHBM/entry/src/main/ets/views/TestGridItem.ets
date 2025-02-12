@@ -14,52 +14,63 @@
  */
 
 import ItemData from '../models/TestItemData';
+import { promptAction } from '@kit.ArkUI';
 
 /**
  * List item information component.
  */
 @Component
 export default struct TestGridItem {
-  item: ItemData = new ItemData('', $r('app.media.app_icon'), '', () => {
-  });
+  item: ItemData = new ItemData('', $r('app.media.app_icon'), '');
+  active: boolean = false;
 
   aboutToAppear() {
   }
 
   build() {
-    Column() {
+    Navigator({ target: this.item.url, type: NavigationType.Push }) {
       Column() {
-      }
-      .borderRadius(12)
-      .backgroundImage(this.item.img)
-      .backgroundImageSize(ImageSize.Cover)
-      .width(64)
-      .height(64)
-      .justifyContent(FlexAlign.SpaceBetween)
+        Column() {
+        }
+        .borderRadius(12)
+        .backgroundImage(this.item.img)
+        .backgroundImageSize(ImageSize.Cover)
+        .width(64)
+        .height(64)
+        .justifyContent(FlexAlign.SpaceBetween)
 
-      Text(this.item.title)
-        .fontSize(20)
-        .maxLines(1)
-        .textOverflow({ overflow: TextOverflow.MARQUEE })
-        .width(120)
-        .textAlign(TextAlign.Center)
-        .margin({ top: 4 })
-      Text(this.item.subTitle)
-        .fontSize(16)
-        .margin(4)
-        .maxLines(1)
-        .fontColor(Color.Gray)
+        Text(this.item.title)
+          .fontSize(20)
+          .maxLines(1)
+          .textOverflow({ overflow: TextOverflow.MARQUEE })
+          .width(120)
+          .textAlign(TextAlign.Center)
+          .margin({ top: 4 })
+        Text(this.item.subTitle)
+          .fontSize(16)
+          .margin(4)
+          .maxLines(1)
+          .fontColor(Color.Gray)
+      }
+      .alignItems(HorizontalAlign.Center)
+      .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
+      .shadow({
+        radius: 2,
+        color: Color.Gray,
+        offsetX: 1,
+        offsetY: 1
+      })
     }
-    .alignItems(HorizontalAlign.Center)
-    .clickEffect({ level: ClickEffectLevel.MIDDLE, scale: 0.8 })
-    .shadow({
-      radius: 2,
-      color: Color.Gray,
-      offsetX: 1,
-      offsetY: 1
-    })
+    .active(this.active)
     .onClick(() => {
-      this.item.onItemClick();
+      if (this.item.url === '') {
+        promptAction.showToast({
+          message: '敬请期待',
+          duration: 2000
+        });
+      } else {
+        this.active = true;
+      }
     })
   }
 }

@@ -15,6 +15,7 @@
 
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { BenchmarkRun, WorkerMessage } from "../cases/BenchmarkMeasure";
+import { run3DCube } from '../cases/performance/3d-cube';
 import { Base64Run } from '../cases/performance/base64';
 import { runBox2D } from '../cases/performance/box2d/box2d';
 import { runBox2D1 } from '../cases/performance/box2d/box2d1';
@@ -32,14 +33,15 @@ import { runZlib } from '../cases/performance/zlib/zlib';
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 const benchmarks: BenchmarkRun[] = [
+  new BenchmarkRun('3d-cube', true, true, run3DCube, undefined, undefined, undefined, 5),
   new BenchmarkRun('n-body', true, true, runNBody, undefined, undefined, undefined, 5),
-  new BenchmarkRun('box2d', true, true, runBox2D, undefined, undefined, undefined, 10),
-  new BenchmarkRun('box2d1', true, true, runBox2D1, undefined, undefined, undefined, 5),
-  new BenchmarkRun('box2d2', true, true, runBox2D2, undefined, undefined, undefined, 10),
-  new BenchmarkRun('box2d3', true, true, runBox2D3, undefined, undefined, undefined, 3),
+  new BenchmarkRun('box2d-0', true, true, runBox2D, undefined, undefined, undefined, 10),
+  new BenchmarkRun('box2d-1', true, true, runBox2D1, undefined, undefined, undefined, 5),
+  new BenchmarkRun('box2d-2', true, true, runBox2D2, undefined, undefined, undefined, 10),
+  new BenchmarkRun('box2d-3', true, true, runBox2D3, undefined, undefined, undefined, 3),
   new BenchmarkRun('raytrace', true, true, RaytraceRun, undefined, undefined, undefined, 20),
   new BenchmarkRun('richards', true, true, runRichards, undefined, undefined, undefined, 100),
-  new BenchmarkRun('deltablue', true, true, DeltablueRun, undefined, undefined, undefined, 20),
+  new BenchmarkRun('delta-blue', true, true, DeltablueRun, undefined, undefined, undefined, 20),
   new BenchmarkRun('navier-stokes', true, true, NavierstokesRun, NavierStokesSetup, undefined, undefined, 20),
   new BenchmarkRun('base64', true, true, Base64Run, undefined, undefined, undefined, 10),
   new BenchmarkRun('crypto-aes', true, true, AESRun, undefined, undefined, undefined, 10),

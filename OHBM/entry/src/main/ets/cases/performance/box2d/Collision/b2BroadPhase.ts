@@ -44,7 +44,6 @@ export class B2BroadPhase implements B2QueryWrapper {
   public createProxy(aabb: B2AaBb, userData: B2FixtureProxy): number {
     let proxyId = this.mTree.createProxy(aabb, userData);
     this.mProxyCount += 1;
-    console.info('box2d','createProxy:'+proxyId)
     this.bufferMove(proxyId);
     return proxyId;
   }
@@ -63,7 +62,6 @@ export class B2BroadPhase implements B2QueryWrapper {
   }
 
   public touchProxy(proxyId: number): void {
-    console.info('box2d','touchProxy')
     this.bufferMove(proxyId);
   }
 
@@ -87,11 +85,10 @@ export class B2BroadPhase implements B2QueryWrapper {
 
   public updatePairs<T extends B2BroadPhaseWrapper>(callback: T): void {
     this.mPairBuffer.splice(0, this.mPairBuffer.length);
-    console.info('box2d','022')
-    console.info('box2d mMoveBuffer length：',this.mMoveBuffer.length)
+    //console.info('box2d mMoveBuffer length：',this.mMoveBuffer.length)
     for (let i = 0; i < this.mMoveBuffer.length; i++) {
       this.mQueryProxyId = this.mMoveBuffer[i];
-      console.info('box2d','this.mQueryProxyId '+this.mQueryProxyId)
+      //console.info('box2d','this.mQueryProxyId '+this.mQueryProxyId)
       if (this.mQueryProxyId === B2BroadPhase.nullProxy) {
         continue;
       }
@@ -99,16 +96,14 @@ export class B2BroadPhase implements B2QueryWrapper {
       this.mTree.query(this, fatAaBb);
     }
     this.mMoveBuffer.splice(0, this.mMoveBuffer.length);
-    console.info('box2d','066')
     this.mPairBuffer.sort((a, b) => {
-      console.info('box2d','055')
       if (a.proxyIdA === b.proxyIdA) {
         return a.proxyIdB - b.proxyIdB;
       } else {
         return a.proxyIdA - b.proxyIdA;
       }
     });
-    console.info('box2d mPairBuffer.length:',this.mPairBuffer.length)
+    //console.info('box2d mPairBuffer.length:',this.mPairBuffer.length)
     let i = 0;
     while (i < this.mPairBuffer.length) {
       let primaryPair = this.mPairBuffer[i];
@@ -163,11 +158,10 @@ export class B2BroadPhase implements B2QueryWrapper {
   }
   
   public queryCallback(proxyId: number): boolean {
-    console.info('box2d','queryCallback:'+proxyId+' ,this.mQueryProxyId:'+this.mQueryProxyId)
+    //console.info('box2d','queryCallback:'+proxyId+' ,this.mQueryProxyId:'+this.mQueryProxyId)
     if (proxyId === this.mQueryProxyId) {
       return true;
     }
-    console.info('box2d','B2Pair')
     let pair = new B2Pair(Math.min(proxyId, this.mQueryProxyId), Math.max(proxyId, this.mQueryProxyId));
     this.mPairBuffer.push(pair);
     return true;
