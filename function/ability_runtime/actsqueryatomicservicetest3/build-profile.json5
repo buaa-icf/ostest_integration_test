@@ -1,0 +1,54 @@
+/*
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "certpath": "C:/Users/JinZhao/.ohos/config/openharmony/default_actsqueryatomicservicetest3_dplWjXDM8y-2bXw7c3dp2wYftGLPzWujiKt43qUCnEQ=.cer",
+          "storePassword": "0000001A5C44CE5CC90935B3ED59F137BCB9F05D4996A51F44B74843E7CB1E91497D4239B916BE374F97",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001AF2AFDD19D64037993D5A8B053A1DDC276329ED4D5C17B2145B2B254BF9C8213163C3CB261188",
+          "profile": "C:/Users/JinZhao/.ohos/config/openharmony/default_actsqueryatomicservicetest3_dplWjXDM8y-2bXw7c3dp2wYftGLPzWujiKt43qUCnEQ=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/JinZhao/.ohos/config/openharmony/default_actsqueryatomicservicetest3_dplWjXDM8y-2bXw7c3dp2wYftGLPzWujiKt43qUCnEQ=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": 18,
+        "compatibleSdkVersion": 12,
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+  ]
+}
