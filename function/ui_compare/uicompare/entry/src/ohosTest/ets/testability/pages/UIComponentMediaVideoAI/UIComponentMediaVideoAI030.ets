@@ -21,7 +21,7 @@ struct UIComponentMediaVideoAI030 {
   @State enableAnalyzer: boolean | undefined | null = true;
   @State objectFit: ImageFit = ImageFit.Cover;
   private controller: VideoController = new VideoController();
-  private videoSrc = $rawfile('UIComponentMediaVideoAI.mp4')
+  private videoSrc: string = 'https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4';
   config: ImageAnalyzerConfig = {
     types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT],
   };

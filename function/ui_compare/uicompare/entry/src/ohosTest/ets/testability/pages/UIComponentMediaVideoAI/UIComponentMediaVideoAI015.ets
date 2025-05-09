@@ -20,8 +20,7 @@ struct UIComponentMediaVideoAI015 {
   @State index: number = 0;
   @State enableAnalyzer: boolean | undefined | null = true;
   private controller: VideoController = new VideoController();
-  // private videoSrc: string = 'https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4';
-  private videoSrc = $rawfile('UIComponentMediaVideoAI.mp4')
+  private videoSrc: string = 'https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4';
   config: ImageAnalyzerConfig = {
     types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT]
   };

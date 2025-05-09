@@ -23,7 +23,7 @@ struct UIComponentMediaVideoAI029 {
   @State enableAnalyzer: boolean | undefined | null = true;
   @State srcFlag: number = 1;
   private controller: VideoController = new VideoController();
-  @State private videoSrc: Resource = $rawfile('UIComponentMediaVideoAI.mp4');
+  @State private videoSrc: string = 'https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4';
   config: ImageAnalyzerConfig = {
     types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT],
   };
@@ -73,10 +73,10 @@ struct UIComponentMediaVideoAI029 {
           .id(this.name + '_006')
           .onClick(() => {
             if (this.srcFlag == 1) {
-              this.videoSrc = $rawfile('UIComponentMediaVideoAIAnother.mp4');
+              this.videoSrc = 'https://media.w3.org/2010/05/sintel/trailer.mp4';
               this.srcFlag = 2;
             } else {
-              this.videoSrc = $rawfile('UIComponentMediaVideoAI.mp4');
+              this.videoSrc = 'https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4';
               this.srcFlag = 1;
             }
           })
