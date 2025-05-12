@@ -83,6 +83,10 @@ import UIComponentSymbolDisplay from './UIComponentSymbolDisplayTest/UIComponent
 import UIAttributeFontSupportstage from './UIAttributeFontSupportstageTest/UIAttributeFontSupportstage.test'
 import UIAttributeFontInterface002 from './UIAttributeFontInterfaceTest/UIAttributeFontInterface002.test'
 import UIAttributeFontInterface003 from './UIAttributeFontInterfaceTest/UIAttributeFontInterface003.test'
+import UIXcomponentSoftKeyboard from './UIXcomponentSoftKeyboardTest/UIXcomponentSoftKeyboard.test'
+import UIRelativeContainerCollaboration from './UIRelativeContainerCollaborationTest/UIRelativeContainerCollaboration.test'
+import UIComponentMediaVideoReset from './UIComponentMediaVideoResetTest/UIComponentMediaVideoReset.test'
+import UIComponentMediaVideoAI from './UIComponentMediaVideoAITest/UIComponentMediaVideoAI.test'
 export default function testsuite() {
   demoTest();
   UIAttributeFontInterface001();
@@ -155,4 +159,8 @@ export default function testsuite() {
   UIAttributeFontSupportstage();
   UIAttributeFontInterface002()
   UIAttributeFontInterface003()
+  UIXcomponentSoftKeyboard();
+  UIRelativeContainerCollaboration();
+  UIComponentMediaVideoReset();
+  UIComponentMediaVideoAI();
 }
