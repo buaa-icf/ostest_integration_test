@@ -115,6 +115,7 @@ Note:If the text contains special characters, please escape them according to th
                 <filteritem type="filename" name="*.TTF" desc="Provided by the UX team."/>
                 <filteritem type="filename" name="*.bmp" desc="Provided by the UX team."/>
                 <filteritem type="filename" name="*.gif" desc="Provided by the UX team."/>
+                <filteritem type="filename" name="*.webp" desc="Provided by the UX team."/>
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="License文件头校验策略的过滤条件" >
                 <filteritem type="filename" name="oh-package.json5" desc="OpenHarmony工程编译入口脚本，无需添加License头"/>
