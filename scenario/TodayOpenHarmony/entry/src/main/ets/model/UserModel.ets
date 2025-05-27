@@ -13,26 +13,16 @@
  * limitations under the License.
  */
 
-@Entry
-@Component
-struct Index {
-  @State message: string = 'Hello World';
-
-  build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          this.message = 'Welcome';
-        })
-    }
-    .height('100%')
-    .width('100%')
-  }
+// model/UserModel.ets
+export type ResourceStr = string | Resource;
+export interface UserInfo {
+  avatar: ResourceStr;
+  nickname: string;
+  bio: string;
+  followCount: number;
+  fansCount: number;
+  pointCount: number;
+  historyCount: number;
 }
+
+

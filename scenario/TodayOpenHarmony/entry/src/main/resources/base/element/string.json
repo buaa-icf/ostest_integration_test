@@ -1,15 +1,157 @@
-
 {
   "string": [
     {
       "name": "module_desc",
       "value": "module description"
-    }
-  ,{
+    },
+    {
       "name": "EntryAbility_desc",
       "value": "description"
-    },{
+    },
+    {
       "name": "EntryAbility_label",
       "value": "label"
-    }]
+    },
+    {"name": "nickname_placeholder",
+      "value": "输入昵称"
+    },
+    {"name": "bio_placeholder",
+      "value": "个人简介"
+    },
+    {
+      "name": "internet_permission_reason",
+      "value": "需要网络通信功能"
+    },
+
+    {
+      "name": "permission_reason",
+      "value": "连接输入法服务"
+    },
+
+        {
+          "name": "search_placeholder",
+          "value": "搜索OpenHarmony内容"
+        },
+        {
+          "name": "tab_home",
+          "value": "首页"
+        },
+        {
+          "name": "tab_recommend",
+          "value": "推荐"
+        },
+        {
+          "name": "tab_discovery",
+          "value": "发现"
+        },
+        {
+          "name": "tab_profile",
+          "value": "我的"
+        },
+        {
+          "name": "category_news",
+          "value": "新闻"
+        },
+        {
+          "name": "category_activity",
+          "value": "活动"
+        },
+        {
+          "name": "category_live",
+          "value": "直播"
+        },
+        {
+          "name": "category_blog",
+          "value": "博客"
+        },
+        {
+          "name": "button_cancel",
+          "value": "取消"
+        },
+    {
+      "name": "language_english",
+      "value": "英文"
+    },
+    {
+      "name": "language_chinese",
+      "value": "中文"
+    },
+
+    {
+      "name":"point",
+      "value":"积分"
+    },
+    {
+      "name": "collection",
+      "value":"收藏"
+    },
+    {
+      "name":"My_collection",
+      "value":"我的收藏"
+    },
+    {
+      "name":"history",
+      "value":"历史记录"
+    },
+    {
+      "name":"cache_size",
+      "value":"缓存大小 %.1fMB"
+    },
+    {
+      "name":"clean_now",
+      "value":"立即清理"
+    },
+    {
+      "name":"latest_version",
+      "value":"已是最新版本"
+    },
+    {
+      "name":"system_settings",
+      "value":"系统设置"
+    },
+    {
+      "name":"privacy_policy",
+      "value":"隐私政策"
+    },
+    {
+      "name":"version_info",
+      "value":"版本信息"
+    },
+    {
+      "name":"edit_profile",
+      "value":"修改资料"
+    },
+    {
+      "name":"message_notification",
+      "value":"消息通知"
+    },
+    {
+      "name": "app_name",
+      "value": "MyApp"
+    },
+    {
+      "name":"follow",
+      "value":"Following"
+    },
+    {
+      "name":"fans",
+      "value":"Fans"
+    },
+    {
+      "name":"close",
+      "value":"Close"
+    },
+    {
+      "name": "language_setting",
+      "value": "Language Settings"
+    },
+    {
+      "name": "language_switch_failed",
+      "value": "语言切换失败"
+    },
+    {
+      "name": "select_language",
+      "value": "选择语言"
+    }
+  ]
 }
