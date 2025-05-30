@@ -47,7 +47,16 @@ export struct SettingsItem {
     // 模拟备份过程
     setTimeout(() => {
       this.isBackingUp = false;
-      this.lastBackupTime = new Date().toLocaleString();
+
+      // 获取当前日期并格式化为 "月-日 时:分" 格式
+      const now = new Date();
+      const month = (now.getMonth() + 1).toString().padStart(2, '0'); // 月份补零
+      const day = now.getDate().toString().padStart(2, '0'); // 日期补零
+      const hours = now.getHours().toString().padStart(2, '0'); // 小时补零
+      const minutes = now.getMinutes().toString().padStart(2, '0'); // 分钟补零
+
+      this.lastBackupTime = `${month}-${day} ${hours}:${minutes}`;
+
       promptAction.showToast({ message: '备份成功' });
     }, 2000);
   }
@@ -96,16 +105,19 @@ export struct SettingsItem {
         Column() {
           Row() {
             Image($r('app.media.sync'))
-              .width(30)
-              .margin({ left: 16, right: 12 })
+              .width(35)
+              .margin({ left: 12, right: 12 })
 
-            Text("自动同步")
+            Text($r('app.string.auto_sync'))
               .fontColor('#666')
 
             Toggle({ type: ToggleType.Switch })
+              .width(48)
+              .height(28)
               .margin({ right: 16 })
           }
-          .height(25)
+          .height(48)
+          .alignItems(VerticalAlign.Center)
 
           Divider()
             .strokeWidth(1)
@@ -114,20 +126,20 @@ export struct SettingsItem {
 
           Row() {
             Image($r('app.media.backup'))
-              .width(24)
-              .margin({ left: 16, right: 16 })
+              .width(28)
+              .margin({ left: 12, right: 12 })
 
             Column() {
-              Text("数据备份")
+              Text($r('app.string.data_backup'))
                 .fontColor('#666')
 
               if (this.lastBackupTime) {
                 Text(`上次备份：${this.lastBackupTime}`)
                   .fontSize(12)
-                  .fontColor('#333')
-                  .margin({ top: 6 })
+                  .fontColor('#999')
+                  .margin({ top: 4 })
               } else {
-                Text("尚未进行过备份")
+                Text($r('app.string.no_backup_history'))
                   .fontSize(12)
                   .fontColor('#FF8800')
                   .margin({ top: 2 })
@@ -135,7 +147,9 @@ export struct SettingsItem {
             }
             .layoutWeight(1)
 
-            Button(this.isBackingUp ? '备份中...' : '立即备份')
+            Button(this.isBackingUp
+              ? $r('app.string.backup_in_progress')
+              : $r('app.string.backup_now'))
               .width(100)
               .height(28)
               .backgroundColor(this.isBackingUp ? '#F0F0F0' : Color.Transparent)
@@ -160,62 +174,62 @@ export struct SettingsItem {
             .color('#EEE')
             .margin({ left: 16, right: 16 })
 
-        Row() {
-          Image($r('app.media.text'))
-            .width(20)
-            .margin({ left: 16, right: 12 })
-          Text("字体大小")
-            .fontColor('#666')
-
-          // 右侧调节区域
           Row() {
-            Text(`${Math.round(16 * this.fontScale)}px`)
-              .width(40)
-              .fontColor('#333')
-              .textAlign(TextAlign.End)
+            Image($r('app.media.text'))
+              .width(20)
+              .margin({ left: 16, right: 12 })
+            Text($r('app.string.font_size'))
+              .fontColor('#666')
 
-            Button() {
-              Image($r('app.media.minus'))
-                .width(20)
-                .height(20)
-            }
-            .backgroundColor(Color.Transparent)
-            .border({
-              width: 1,
-              color: '#1890FF',
-              style: BorderStyle.Solid
-            })
-            .margin({ left: 8 })
-            .onClick(() => this.adjustFont(-0.1))
+            // 右侧调节区域
+            Row() {
+              Text(`${Math.round(16 * this.fontScale)}px`)
+                .width(40)
+                .fontColor('#333')
+                .textAlign(TextAlign.End)
 
-            Button() {
-              Image($r('app.media.plus'))
-                .width(20)
-                .height(20)
+              Button() {
+                Image($r('app.media.minus'))
+                  .width(20)
+                  .height(20)
+              }
+              .backgroundColor(Color.Transparent)
+              .border({
+                width: 1,
+                color: '#1890FF',
+                style: BorderStyle.Solid
+              })
+              .margin({ left: 8 })
+              .onClick(() => this.adjustFont(-0.1))
+
+              Button() {
+                Image($r('app.media.plus'))
+                  .width(20)
+                  .height(20)
+              }
+              .backgroundColor(Color.Transparent)
+              .border({
+                width: 1,
+                color:  '#1890FF',
+                style: BorderStyle.Solid
+              })
+              .margin({ left: 4 })
+              .onClick(() => this.adjustFont(0.1))
             }
-            .backgroundColor(Color.Transparent)
-            .border({
-              width: 1,
-              color:  '#1890FF',
-              style: BorderStyle.Solid
-            })
-            .margin({ left: 4 })
-            .onClick(() => this.adjustFont(0.1))
+            .margin({ right: 16 })
           }
-          .margin({ right: 16 })
-        }
-        .justifyContent(FlexAlign.SpaceBetween) // 左右分栏
+          .justifyContent(FlexAlign.SpaceBetween) // 左右分栏
 
-        Divider()
-          .strokeWidth(1)
-          .color('#EEE')
-          .margin({ left: 16, right: 16 })
+          Divider()
+            .strokeWidth(1)
+            .color('#EEE')
+            .margin({ left: 16, right: 16 })
 
           Row() {
             Image($r('app.media.permission'))
               .width(28)
               .margin({ left:16, right:12 })
-            Text("应用权限:")
+            Text($r('app.string.app_permission'))
               .fontColor('#666')
               .margin({ right: 8 })
 
@@ -223,7 +237,7 @@ export struct SettingsItem {
               .fontColor('#333')
               .margin({ right: 8 })
 
-            Button('管理')
+            Button($r('app.string.manage'))
               .margin({left:8, right:16})
               .width(60)
               .height(28)
@@ -241,7 +255,7 @@ export struct SettingsItem {
               Image($r('app.media.storage'))
                 .width(24)
                 .margin({  right: 12 })
-              Text("存储管理")
+              Text($r('app.string.storage_management'))
                 .fontColor('#666')
             }
             .layoutWeight(1)
@@ -251,13 +265,13 @@ export struct SettingsItem {
               Text(`${this.storageUsed}GB / ${this.storageTotal}GB`)
                 .fontColor('#555')
                 .fontSize(14)
-                .margin({ right: 20 })
+                .margin({ right:100 })
             }
           }
           .alignItems(VerticalAlign.Center)
-          }
-          .height(300)
-          .width('100%')
+        }
+        .height(300)
+        .width('100%')
         .justifyContent(FlexAlign.SpaceBetween)  // 两端对齐
         .backgroundColor('#FFF')
         .borderRadius(8)

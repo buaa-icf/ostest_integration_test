@@ -16,18 +16,15 @@
 import { NewsItem } from '../../model/NewsModel';
 import router from '@ohos.router';
 import promptAction from '@ohos.promptAction';
-import clipboard from '@ohos.pasteboard';
-import pasteboard from '@ohos.pasteboard';
 
 @Component
 export struct ActivityView {
   @Prop item: NewsItem
-  @StorageLink('isRegistered') @Watch('regChange') isReg: boolean = false
+  @State private isReg: boolean = false // 改为组件私有状态
   @State private pulseEffect: boolean = false
   @State private countAnim: number = this.item.views
   @State private showBadge: boolean = false
   @State private timeRemaining: string = ''
-  @State private refreshFlag: boolean = false
 
   // 倒计时计算器
   private timer: number | undefined = undefined
@@ -41,6 +38,7 @@ export struct ActivityView {
   }
 
   aboutToAppear() {
+    this.countAnim = this.item.views
     // 初始化倒计时
     this.calculateCountdown()
     this.timer = setInterval(() => {
@@ -79,12 +77,12 @@ export struct ActivityView {
   }
 
   // 3D翻转按钮
-  @Builder FlipButton(content: string, action: () => void) {
-    Button(content)
+  @Builder FlipButton() {
+    Button(this.isReg ? '已报名 ✓' : '立即报名')
       .width(150)
       .height(50)
       .backgroundColor(this.isReg ? '#4CAF50' : '#FF4081')
-      .onClick(action)
+      .onClick(() => this.handleRegistration())
       .rotate({
         angle: this.pulseEffect ? 360 : 0,
         centerX: '50%',
@@ -93,7 +91,7 @@ export struct ActivityView {
       .animation({
         duration: 800,
         curve: Curve.EaseInOut,
-      })
+      });
   }
 
   // 数字增长动画
@@ -101,11 +99,11 @@ export struct ActivityView {
     Text(`${Math.floor(this.countAnim)}人`)
       .fontSize(16)
       .fontColor(this.countAnim > 50 ? '#FF5722' : '#666')
-      .onClick(() => {
-        // 点击数字触发增长动画
-        this.countAnim = this.item.views + 1
+      .transition({
+        type: TransitionType.Insert,
+        scale: { x: 0.5, y: 0.5 },
+        opacity: 0.8
       })
-      .transition({ type: TransitionType.Insert, scale: { x: 0.5, y: 0.5 } })
   }
 
   // 徽章弹窗
@@ -125,27 +123,36 @@ export struct ActivityView {
       .zIndex(999)
     }
   }
-  private triggerRefresh() {
-    this.countAnim = this.item.views
-    this.refreshFlag = !this.refreshFlag
-    setTimeout(() => {
-      this.countAnim = this.item.views
-    }, 100)
-  }
 
   private handleInvite() {
-    const code = this.generateInviteCode()
-    router.pushUrl({
-      url: 'pages/InvitePage',
-      params: { code: code }
-    }).then(() => {
-      console.info('导航成功')
-    }).catch((err: BusinessError<number>) => { // 添加泛型参数
-      promptAction.showToast({
-        message: `打开邀请页失败，错误码：${err.code}`,
-        duration: 2000
-      })
-    })
+    const code = this.generateInviteCode();
+    // 直接显示分享成功的提示
+    promptAction.showToast({
+      message: `分享邀请码成功！邀请码：${code}`,
+      duration: 2500
+    });
+  }
+
+  private handleRegistration() {
+    if (!this.isReg) {
+      this.pulseEffect = !this.pulseEffect;
+      this.isReg = true; // 立即更新状态
+      // 添加报名人数动画
+      animateTo({
+        duration: 800,
+        curve: Curve.EaseInOut
+      }, () => {
+        this.countAnim += 1;  // 直接增加当前计数
+      });
+      const inviteCode = this.generateInviteCode();
+      // 添加微延迟确保动画可见
+      setTimeout(() => {
+        promptAction.showToast({
+          message: `报名成功！邀请码已复制\n${inviteCode}`,
+          duration: 2500
+        });
+      }, 300);
+    }
   }
 
   build() {
@@ -156,7 +163,6 @@ export struct ActivityView {
           .width(24)
           .height(24)
           .fillColor(this.countAnim > 50 ? '#FF5722' : '#666')
-
         Column() {
           Text(this.item.title)
             .fontSize(16)
@@ -164,11 +170,11 @@ export struct ActivityView {
           Text(`剩余时间：${this.timeRemaining}`)
             .fontColor('#E91E63')
             .onClick(() => {
-            router.pushUrl({
-              url: 'pages/WebPage',
-              params: { url: encodeURIComponent(this.item.link) }
+              router.pushUrl({
+                url: 'pages/WebPage',
+                params: { url: encodeURIComponent(this.item.link) }
+              })
             })
-          })
 
         }
       }
@@ -177,33 +183,15 @@ export struct ActivityView {
       this.AnimatedCounter()
 
       // 3D翻转按钮
-      this.FlipButton(this.isReg ? '已报名 ✓' : '立即报名', () => {
-        if (!this.isReg) {
-          this.pulseEffect = !this.pulseEffect
-          this.isReg = true
-          this.item.views += 1
-
-          // 自动刷新
-          this.triggerRefresh()
-
-          // 生成邀请码
-          const inviteCode = this.generateInviteCode();
-
-          promptAction.showToast({
-            message: `报名成功！邀请码已复制\n${inviteCode}`,
-            duration: 2500
-          })
-        }
-      })
+      this.FlipButton();
 
       // 附加功能按钮
-      if (this.isReg) {
-        Button('邀请好友 →')
-          .width(120)
-          .backgroundColor('#2196F3')
-          .margin({ top: 8 })
-          .onClick(() => this.handleInvite())
-      }
+      Button(this.isReg ? '分享邀请码' : '邀请好友 →')
+        .width(120)
+        .backgroundColor(this.isReg ? '#4CAF50' : '#2196F3')
+        .margin({ top: 8 })
+        .onClick(() => this.handleInvite())
+
       // 徽章展示
       this.AchievementBadge()
     }

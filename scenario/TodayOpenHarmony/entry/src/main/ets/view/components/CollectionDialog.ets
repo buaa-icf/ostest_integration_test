@@ -49,7 +49,7 @@ export struct CollectionDialog {
   build() {
     Column() {
       Row() {
-        Image($r('app.string.collection'))
+        Image($r('app.media.star'))
           .width(32)
           .height(32)
           .margin({ left: 16, right: 12 })
@@ -71,57 +71,57 @@ export struct CollectionDialog {
         if (this.collectionList.length === 0) {
           this.EmptyState()
         } else {
-        List({ space: 8 }) {
-          ForEach(this.collectionList, (item: CollectionItem) => {
-            ListItem() {
-              Row() {
-                // 新增网站图标
-                Image(item.favicon || $r('app.media.web'))
-                  .width(40)
-                  .height(40)
-                  .margin({ right: 12 })
+          List({ space: 8 }) {
+            ForEach(this.collectionList, (item: CollectionItem) => {
+              ListItem() {
+                Row() {
+                  // 新增网站图标
+                  Image(item.favicon || $r('app.media.web'))
+                    .width(40)
+                    .height(40)
+                    .margin({ right: 12 })
 
-                Column() {
-                  Text(item.title)
-                    .fontSize(16)
-                    .fontColor('#1545A5')// 蓝色
-                    .decoration({
-                      type: TextDecorationType.Underline, // 下划线
-                      color: '#1545A5'
-                    })
-                    .maxLines(1)
-                    .textOverflow({ overflow: TextOverflow.Ellipsis })
+                  Column() {
+                    Text(item.title)
+                      .fontSize(16)
+                      .fontColor('#1545A5')// 蓝色
+                      .decoration({
+                        type: TextDecorationType.Underline, // 下划线
+                        color: '#1545A5'
+                      })
+                      .maxLines(1)
+                      .textOverflow({ overflow: TextOverflow.Ellipsis })
 
-                  // 新增分类标签和访问时间
-                  Row() {
-                    if (item.category) {
-                      Text(item.category)
+                    // 新增分类标签和访问时间
+                    Row() {
+                      if (item.category) {
+                        Text(item.category)
+                          .fontSize(12)
+                          .fontColor('#666')
+                          .padding({ left: 6, right: 6, top: 2, bottom: 2 })
+                          .backgroundColor('#F0F0F0')
+                          .borderRadius(4)
+                      }
+
+                      Text(`最后访问：${this.formatTime(item.lastVisit || Date.now())}`)
                         .fontSize(12)
-                        .fontColor('#666')
-                        .padding({ left: 6, right: 6, top: 2, bottom: 2 })
-                        .backgroundColor('#F0F0F0')
-                        .borderRadius(4)
+                        .fontColor('#999')
                     }
-
-                    Text(`最后访问：${this.formatTime(item.lastVisit || Date.now())}`)
-                      .fontSize(12)
-                      .fontColor('#999')
+                    .margin({ top: 4 })
                   }
-                  .margin({ top: 4 })
-                }
-                .layoutWeight(1)
+                  .layoutWeight(1)
 
-                // 删除按钮
-                if (this.showDelete) {
-                  Button() {
-                    Image($r('app.media.delete'))
-                      .width(20)
-                      .height(20)
-                      .colorFilter('#FF4444') // 红色图标
-                  }
-                  .width(32)  // 增大点击区域
-                  .height(32)
-                  .backgroundColor('#FF444410')
+                  // 删除按钮
+                  if (this.showDelete) {
+                    Button() {
+                      Image($r('app.media.delete'))
+                        .width(20)
+                        .height(20)
+                        .colorFilter('#FF4444') // 红色图标
+                    }
+                    .width(32)  // 增大点击区域
+                    .height(32)
+                    .backgroundColor('#FF444410')
 
                     .margin({ left: 12 })
                     .backgroundColor('#FFF')
@@ -131,23 +131,23 @@ export struct CollectionDialog {
                       // 删除逻辑
                       this.collectionList = this.collectionList.filter(i => i.id !== item.id)
                     })
+                  }
                 }
-              }
-                  .padding(12)
-                  .backgroundColor('#FFF')
-                  .borderRadius(8)
-                  .onClick(() => {
-                    this.onItemClick(item.url)
-                    this.controller?.close() // 点击后立即关闭弹窗
-                  })
-              .transition({ type: TransitionType.All, scale: { x: 0.98, y: 0.98 } })
+                .padding(12)
+                .backgroundColor('#FFF')
+                .borderRadius(8)
+                .onClick(() => {
+                  this.onItemClick(item.url)
+                  this.controller?.close() // 点击后立即关闭弹窗
+                })
+                .transition({ type: TransitionType.All, scale: { x: 0.98, y: 0.98 } })
               }
             })
           }
         }
-        }
-        .height(300)
-          .width('100%')
+      }
+      .height(300)
+      .width('100%')
 
       // 操作按钮
       Button("关闭")

@@ -59,8 +59,6 @@ struct WebPage {
           .margin({ left: 12 })
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
-
-
       }
       .padding(12)
       .backgroundColor('#F0F0F0')
@@ -72,7 +70,6 @@ struct WebPage {
           .height(50)
           .margin({ top: 20 })
       }
-
 
       // WebView容器
       Web({

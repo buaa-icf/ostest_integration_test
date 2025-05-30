@@ -64,7 +64,7 @@ export struct DiscoveryTopic {
   BuildTopicList() {
     Column() {
       Row() {
-        Text('热门话题 🔥')
+        Text($r('app.string.hot_topics'))
           .fontSize(20)
           .fontColor('#1A1A1A')
           .layoutWeight(1)
@@ -129,7 +129,7 @@ export struct DiscoveryTopic {
         .height(100)
 
       Row() {
-        Button("换一换")
+        Button($r('app.string.refresh'))
           .type(ButtonType.Capsule)
           .margin({ left: '30%' })
           .width(80)
@@ -138,7 +138,7 @@ export struct DiscoveryTopic {
           .fontColor('#0A58F1')
           .onClick(() => this.refreshTopics())
 
-        Text('点击探索更多话题')
+        Text($r('app.string.explore_more'))
           .fontSize(12)
           .fontColor('#999999')
           .margin({ left: 8 })
@@ -252,7 +252,7 @@ export struct DiscoveryTopic {
 
       // 发送区域
         Row({ space: 12 }) {
-          TextInput({ placeholder: '说点什么...', text: this.newMessage })
+          TextInput({ placeholder: $r('app.string.say_something'), text: this.newMessage })
             .placeholderColor('#999999')
             .fontSize(16)
             .fontColor('#999')
@@ -265,7 +265,7 @@ export struct DiscoveryTopic {
               this.newMessage = value
             })
 
-          Button('发送')
+          Button($r('app.string.send'))
             .width(80)
             .height(40)
             .backgroundColor('#0A58F1')
@@ -279,16 +279,10 @@ export struct DiscoveryTopic {
       .height('85%')
       .backgroundColor('#FFFFFF')
       .borderRadius(16)
-      .margin({
-        top: '7.5%',
-        bottom: '7.5%'
-      })
+      .margin({ top: '7.5%', bottom: '7.5%' })
       .shadow({ radius: 24, color: '#40000000' })
-      .align(Alignment.Top) // 确保顶部对齐
-      .position({
-        x: '5%',
-        y: '7.5%'
-      }) // 精准定位
+      .align(Alignment.Top)
+      .position({ x: '5%', y: '7.5%' })
       }
       .position({ x: 0, y: 0 })
       .width('100%')
@@ -303,18 +297,18 @@ export struct DiscoveryTopic {
       // 清空输入框
       this.newMessage = ''
     } else {
-      promptAction.showToast({ message: '消息不能为空', duration: 2000 })
+      promptAction.showToast({ message: $r('app.string.message_empty'), duration: 2000 })
     }
   }
 
   // 显示确认弹窗
   private showTopicDialog(item: string) {
     promptAction.showDialog({
-      title: '进入话题',
+      title: $r('app.string.enter_topic'),
       message: `查看 ${item} 的讨论？`,
       buttons: [
-        { text: '取消', color: '#666' },
-        { text: '确定', color: '#0A58F1' }
+        { text: $r('app.string.cancel'), color: '#666' },
+        { text: $r('app.string.confirm'), color: '#0A58F1' }
       ]
     }).then(result => {
       if (result.index === 1) {

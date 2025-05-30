@@ -1,8 +1,36 @@
 {
   "string": [
     {
-      "name": "app_name",
-      "value": "My App"
+      "name": "module_desc",
+      "value": "Module Description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Label"
+    },
+    {
+      "name": "nickname_placeholder",
+      "value": "Enter Nickname"
+    },
+    {
+      "name": "bio_placeholder",
+      "value": "Personal Introduction"
+    },
+    {
+      "name": "internet_permission_reason",
+      "value": "Internet connection is required"
+    },
+    {
+      "name": "nickname_default",
+      "value": "OpenHarmony Developer"
+    },
+    {
+      "name": "bio_default",
+      "value": "Focus on OpenHarmony ecosystem development | Innovative application explorer"
     },
     {
       "name": "search_placeholder",
@@ -10,7 +38,7 @@
     },
     {
       "name": "tab_home",
-      "value": "News"
+      "value": "Home"
     },
     {
       "name": "tab_recommend",
@@ -22,7 +50,7 @@
     },
     {
       "name": "tab_profile",
-      "value": "Me"
+      "value": "Profile"
     },
     {
       "name": "category_news",
@@ -45,68 +73,252 @@
       "value": "Cancel"
     },
     {
-      "name": "language_setting",
-      "value": "Language"
+      "name": "point",
+      "value": "Points"
     },
     {
-      "name": "language_english",
-      "value": "English"
+      "name": "My_collection",
+      "value": "My Collections"
     },
     {
-      "name": "language_chinese",
-      "value": "chinese"
+      "name": "history",
+      "value": "History"
     },
     {
-      "name":"follow",
-      "value":"Following"
+      "name": "cache_size",
+      "value": "Cache Size"
     },
     {
-      "name":"fans",
-      "value":"Fans"
+      "name": "clean_now",
+      "value": "Clean Now"
     },
     {
-      "name":"history",
-      "value":"History"
+      "name": "cleaning",
+      "value": "Cleaning..."
     },
     {
-      "name":"cache_size",
-      "value":"Cache Size %.1fMB"
+      "name": "clean_completed_message",
+      "value": "Clean completed, freed %1$sMB space"
     },
     {
-      "name":"clean_now",
-      "value":"Clean Now"
+      "name": "latest_version",
+      "value": "Latest Version"
     },
     {
-      "name":"latest_version",
-      "value":"Already the latest version"
+      "name": "system_settings",
+      "value": "System Settings"
     },
     {
-      "name":"system_settings",
-      "value":"System Settings"
+      "name": "privacy_policy",
+      "value": "Privacy Policy"
     },
     {
-      "name":"privacy_policy",
-      "value":"Privacy Policy"
+      "name": "version_info",
+      "value": "Version Information"
     },
     {
-      "name":"version_info",
-      "value":"Version"
+      "name": "edit_profile",
+      "value": "Edit Profile"
     },
     {
-      "name":"edit_profile",
-      "value":"Edit Profile"
+      "name": "message_notification",
+      "value": "Message Notification"
     },
     {
-      "name":"message_notification",
-      "value":"Notifications"
+      "name": "last_notification",
+      "value": "Last Notification"
     },
     {
-      "name": "language_switch_failed",
-      "value": "Language switch failed"
+      "name": "account_google",
+      "value": "Google Account"
     },
     {
-      "name": "select_language",
-      "value": "Select Language"
+      "name": "account_facebook",
+      "value": "Facebook Account"
+    },
+    {
+      "name": "account_huawei",
+      "value": "Huawei Account"
+    },
+    {
+      "name": "bind_account_title",
+      "value": "Bind Account"
+    },
+    {
+      "name": "account_binding",
+      "value": "Account Binding"
+    },
+    {
+      "name": "status_unbound",
+      "value": "Unbound"
+    },
+    {
+      "name": "status_bound",
+      "value": "Bound"
+    },
+    {
+      "name": "app_name",
+      "value": "NowOpenHarmony"
+    },
+    {
+      "name": "follow",
+      "value": "Following"
+    },
+    {
+      "name": "fans",
+      "value": "Fans"
+    },
+    {
+      "name": "close",
+      "value": "Close"
+    },
+    {
+      "name": "confirm_bind",
+      "value": "Confirm Bind"
+    },
+    {
+      "name": "empty_credentials_warning",
+      "value": "Account and password cannot be empty"
+    },
+    {
+      "name": "input_username_placeholder",
+      "value": "Enter account"
+    },
+    {
+      "name": "bind_success",
+      "value": "Bind successfully"
+    },
+    {
+      "name": "unbind_success",
+      "value": "Unbound successfully"
+    },
+    {
+      "name": "input_password_placeholder",
+      "value": "Enter password"
+    },
+    {
+      "name": "cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "auto_sync",
+      "value": "Auto Sync"
+    },
+    {
+      "name": "data_backup",
+      "value": "Data Backup"
+    },
+    {
+      "name": "last_backup",
+      "value": "Last Backup"
+    },
+    {
+      "name": "no_backup_history",
+      "value": "No backup history"
+    },
+    {
+      "name": "backup_in_progress",
+      "value": "Backing up..."
+    },
+    {
+      "name": "backup_now",
+      "value": "Backup Now"
+    },
+    {
+      "name": "backup_success",
+      "value": "Backup successful"
+    },
+    {
+      "name": "font_size",
+      "value": "Font Size"
+    },
+    {
+      "name": "app_permission",
+      "value": "App Permissions"
+    },
+    {
+      "name": "manage",
+      "value": "Manage"
+    },
+    {
+      "name": "authorized",
+      "value": "Authorized"
+    },
+    {
+      "name": "unauthorized",
+      "value": "Unauthorized"
+    },
+    {
+      "name": "permission_status",
+      "value": "Permission status: %s"
+    },
+    {
+      "name": "storage_management",
+      "value": "Storage Management"
+    },
+    {
+      "name": "daily_check_in",
+      "value": "Daily Check-in"
+    },
+    {
+      "name": "already_checked_in",
+      "value": "Checked in today"
+    },
+    {
+      "name": "claim_points",
+      "value": "Tap to claim 5 points"
+    },
+    {
+      "name": "checked_in",
+      "value": "Checked In"
+    },
+    {
+      "name": "check_in_now",
+      "value": "Check In Now"
+    },
+    {
+      "name": "points_awarded",
+      "value": "+5 points"
+    },
+    {
+      "name": "hot_topics",
+      "value": "Hot Topics"
+    },
+    {
+      "name": "daily_update",
+      "value": "Daily Update"
+    },
+    {
+      "name": "refresh",
+      "value": "Refresh"
+    },
+    {
+      "name": "explore_more",
+      "value": "Explore more topics"
+    },
+    {
+      "name": "say_something",
+      "value": "Say something..."
+    },
+    {
+      "name": "send",
+      "value": "Send"
+    },
+    {
+      "name": "message_empty",
+      "value": "Message cannot be empty"
+    },
+    {
+      "name": "enter_topic",
+      "value": "Enter Topic"
+    },
+    {
+      "name": "topic_discussion_message",
+      "value": "View discussions about %s?"
     }
   ]
 }

@@ -23,7 +23,6 @@ import { AccountLinking } from './AccountLinking';
 import { AccountType, LinkedAccount } from '../../common/constants/Styles/AccoutType';
 import commonEvent from '@ohos.commonEventManager';
 import { CollectionDialog } from './CollectionDialog';
-import { LanguageSettingItem } from './LanguageSettingItem';
 import{ SettingsItem } from './SettingsItem';
 import type { Credentials } from './AccountLinking';
 import { CleanItem } from './CleanItem';
@@ -44,76 +43,76 @@ import { CollectionItem } from '../../model/CollectionModel';
 type LanguageType = 'en_US' | 'zh_CN';
 
 interface RouterParams {
-    ts?: number;
-  }
+  ts?: number;
+}
 interface LanguageEventParams {
-    newLanguage: LanguageType
-  }
+  newLanguage: LanguageType
+}
 interface PageParams {
-    url: string;
-  }
+  url: string;
+}
 
 interface NavigationTarget {
-    page: string;
-    params?: PageParams; // 使用具体类型替代泛型
+  page: string;
+  params?: PageParams; // 使用具体类型替代泛型
+}
+
+// 公共卡片样式
+@Styles
+function unifiedCardStyle() {
+  .width('100%')
+  .padding(8)
+  .margin(8)
+  .backgroundColor('#F5F5F7')
+  .borderRadius(8)
+  .shadow({ radius: 6, color: 'rgba(0,0,0,0.1)' })
+}
+
+@Component
+export struct UserProfile {
+  @Consume('userVM') userVM: UserViewModel
+  @State cacheSize: number = 24576; // 初始缓存大小
+  @Prop onEdit: () => void;
+  @State notificationStatus: boolean = false;
+  @State context: Context = getContext(this);
+  @StorageLink('currentLanguage') currentLanguage: string = 'zh_CN';
+  @State timestamp: number = 0;
+  @State isFollowersDialogOpen: boolean = false
+  @State followData: User[] = followList;
+  @State totalFollowers: number = 0
+  @State fansList: User[] = FansData; // 直接初始化
+  @State historyList: HistoryRecord[] = HistoryData
+  @State collectionList:CollectionItem[]=CollectionData
+
+  // 已绑定的第三方账号
+  @State linkedAccounts: LinkedAccount[] = [
+    { type: 'google', status: '未绑定' },
+    { type: 'facebook', status: '未绑定'  },
+    { type: 'huawei', status: '未绑定' }
+  ];
+
+  private profileData: Profile = {
+    username: '数码爱好者小明',
+    registerTime: '2023-08-01',
+    email: 'xiaoming@example.com',
+    membershipLevel: '黄金会员',
+    avatar: $r('app.media.logo')
   }
 
-    // 公共卡片样式
-    @Styles
-    function unifiedCardStyle() {
-      .width('100%')
-      .padding(8)
-      .margin(8)
-      .backgroundColor('#F5F5F7')
-      .borderRadius(8)
-      .shadow({ radius: 6, color: 'rgba(0,0,0,0.1)' })
-    }
-
-    @Component
-    export struct UserProfile {
-    @Consume('userVM') userVM: UserViewModel
-    @State cacheSize: number = 24576; // 初始缓存大小
-    @Prop onEdit: () => void;
-    @State notificationStatus: boolean = false;
-    @State context: Context = getContext(this);
-    @StorageLink('currentLanguage') currentLanguage: string = 'zh_CN';
-    @State timestamp: number = 0;
-    @State isFollowersDialogOpen: boolean = false
-    @State followData: User[] = followList;
-    @State totalFollowers: number = 0
-    @State fansList: User[] = FansData; // 直接初始化
-    @State historyList: HistoryRecord[] = HistoryData
-    @State collectionList:CollectionItem[]=CollectionData
-
-    // 已绑定的第三方账号
-    @State linkedAccounts: LinkedAccount[] = [
-      { type: 'google', name: '未绑定' },
-      { type: 'facebook', name: '已绑定' },
-      { type: 'huawei', name: '未绑定' }
-    ];
-
-    private profileData: Profile = {
-      username: '数码爱好者小明',
-      registerTime: '2023-08-01',
-      email: 'xiaoming@example.com',
-      membershipLevel: '黄金会员',
-      avatar: $r('app.media.logo')
-    }
-
- dialogCtrl: CustomDialogController = new CustomDialogController({
-   builder: CollectionDialog({
-     collectionList: this.collectionList,  // 使用导入的数据
-     onItemClick: (url: string) => {
-       router.pushUrl({
-         url: 'pages/WebPage',
-         params: { url: url }
-       })
-     },
-     onClose: () => {
-       console.log("弹窗已关闭");
-     }
-   })
- });
+  dialogCtrl: CustomDialogController = new CustomDialogController({
+    builder: CollectionDialog({
+      collectionList: this.collectionList,  // 使用导入的数据
+      onItemClick: (url: string) => {
+        router.pushUrl({
+          url: 'pages/WebPage',
+          params: { url: url }
+        })
+      },
+      onClose: () => {
+        console.log("弹窗已关闭");
+      }
+    })
+  });
 
   // 修改弹窗控制器初始化
   dialogFollowersCtrl: CustomDialogController = new CustomDialogController({
@@ -184,7 +183,6 @@ interface NavigationTarget {
         this.userVM.updateUserPoints(points); // 假设UserViewModel有updateUserPoints方法
       }
     })
-
   }
 
   @State showFollowers: boolean = false
@@ -244,11 +242,11 @@ interface NavigationTarget {
   private updateAccountItem(origin: LinkedAccount, newStatus: string): LinkedAccount {
     return {
       type: origin.type,
-      name: newStatus,
+      status: newStatus,
     };
   }
 
-build() {
+  build() {
     Scroll() {
       Column({ space: 8 }) {
         // 用户信息卡片
@@ -271,9 +269,9 @@ build() {
                   .then(() => {
                     const newAccounts = this.linkedAccounts.map(item =>
                     item.type === type ? this.updateAccountItem(item, '已绑定') : item
-                  );
+                    );
                     this.linkedAccounts = JSON.parse(JSON.stringify(newAccounts));
-                })
+                  })
                   .catch(() => {
                     prompt.showToast({ message: '绑定失败，请重试' });
                   });
@@ -326,19 +324,15 @@ build() {
             }
             // 缓存清理
             ListItem() {
-                CleanItem({
-                  cacheSize: this.cacheSize,
-                })
-              }
-              .width('100%')
-              .height(56)
-              .borderRadius(12)
-              .margin({ top: 4, bottom: 4 })
-              .backgroundColor('#FFF')
-
-            LanguageSettingItem({
-              context: getContext(this)          // 补充必填参数
-            })
+              CleanItem({
+                cacheSize: this.cacheSize,
+              })
+            }
+            .width('100%')
+            .height(56)
+            .borderRadius(12)
+            .margin({ top: 4, bottom: 4 })
+            .backgroundColor('#FFF')
 
             this.buildFunctionItem(
               $r('app.media.privacy'),

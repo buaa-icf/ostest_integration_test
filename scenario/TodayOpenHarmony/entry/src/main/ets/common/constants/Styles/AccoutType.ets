@@ -16,5 +16,5 @@
 export type AccountType = 'google' | 'facebook' | 'huawei';
 export interface LinkedAccount {
   type: AccountType;
-  name: string;
+  status: string;
 }

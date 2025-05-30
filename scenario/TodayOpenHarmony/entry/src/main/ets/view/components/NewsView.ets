@@ -152,15 +152,18 @@ export struct NewsView {
     Stack() {
       Column({ space: 8 }) {
         Text(this.item.subtitle)
-          .fontSize(14)
+          .fontSize(16)
           .fontColor('#666')
           .maxLines(3)
           .height(20)
 
         Row({ space: 12 }) {
           Text(`浏览：${this.item.views}`)
+            .fontSize(14)
+            .fontColor('#666')
           Text(`发布时间：${this.item.timestamp}`)
-            .fontSize(12)
+            .fontSize(14)
+            .fontColor('#666')
         }
         .padding({ bottom: 8 })
 
@@ -234,10 +237,10 @@ export struct NewsView {
       }
       .width('100%')
       .padding(16)
-        .backgroundColor(Color.White)
-        .borderRadius(12)
-        .shadow({ radius: 8, color: 'rgba(0,0,0,0.1)' })
-        .height('auto')
+      .backgroundColor(Color.White)
+      .borderRadius(12)
+      .shadow({ radius: 8, color: 'rgba(0,0,0,0.1)' })
+      .height('auto')
 
       // 显示分享面板
       if (this.showSharePanel) {

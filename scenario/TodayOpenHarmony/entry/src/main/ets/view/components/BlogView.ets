@@ -26,7 +26,6 @@ export struct BlogView {
   @State showSuccess: boolean = false
   @State keyboardHeight: number = 0
 
-
   private handleSubmit() {
     if (this.newComment.trim()) {
       // 创建新对象触发更新
@@ -105,11 +104,16 @@ export struct BlogView {
       TextArea({ text: this.newComment, placeholder: '输入评论...' })
         .placeholderColor('#999999')
         .fontSize(16)
-        .fontColor('#999')
+        .fontColor('#333333')// 加深字体颜色
+        .backgroundColor('#FFFFFF')// 添加白色背景
+        .border({
+          color: '#FFA500',
+          width: 1,
+          radius: 8  // 添加圆角边框
+        })
         .height(80)
         .width('100%')
         .margin({ top: 16 })
-
         .enterKeyType(EnterKeyType.Send)
         .onChange((value: string) => {
           this.newComment = value;

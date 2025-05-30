@@ -58,9 +58,15 @@ export struct NotificationItem{
           Text($r('app.string.message_notification'))
             .fontSize(18)
             .fontColor('#333')
-          Text(`最后通知：${this.lastTime}`)
-            .fontSize(12)
-            .fontColor('#999')
+
+          Row() {
+            Text($r('app.string.last_notification'))
+              .fontSize(16)
+              .fontColor('#333333')
+            Text(`  ${this.lastTime}`)
+              .fontSize(16)
+              .fontColor('#333333')
+          }
         }
         .alignItems(HorizontalAlign.Start)
 
