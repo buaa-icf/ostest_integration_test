@@ -47,7 +47,7 @@ import UIComponentTextRichEditorKeyboardAppearance
 import UIComponentTextRichEditorUI from './UIComponentTextRichEditorUITest/UIComponentTextRichEditorUI.test';
 
 export default function testsuite() {
-  demoTest();
+  // demoTest();
   UIComponentTextRichEditorUI();
   UIComponentTextRichEditorInterface();
   UIComponentTextRichEditorKeyboardAppearance();

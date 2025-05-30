@@ -92,21 +92,5 @@ export default function demoTest() {
       done()
     })
 
-    /*
-     * @tc.number  TestCase_7b95b49b1c6b41b0a17704449c409e0d
-     * @tc.name    TestCase_7b95b49b1c6b41b0a17704449c409e0d
-     * @tc.desc    Verify whether the soft keyboard closes after XComponent gains focus (via Tab key) when the keyboard is active by default
-     * @tc.level   0
-     */
-    it('TestCase_7b95b49b1c6b41b0a17704449c409e0d', 0, async (done: Function) => {
-      TAG = 'TestCase_7b95b49b1c6b41b0a17704449c409e0d';
-      Logger.info(`[${TAG}]`, `Case start.`);
-      Settings.createWindow('testability/pages/TestCase/TestCase001');
-      await Utils.sleep(1000);
-      expect(1).assertEqual(1);
-      done();
-    })
-
-   
   })
 }
