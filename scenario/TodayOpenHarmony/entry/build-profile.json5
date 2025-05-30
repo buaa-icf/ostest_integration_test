@@ -6,10 +6,12 @@
     {
       "name": "release",
       "arkOptions": {
-        "obfuscation" : {
-          "ruleOptions":{
+        "obfuscation": {
+          "ruleOptions": {
             "enable": false,
-            "files": ["./obfuscation-rules.txt"]
+            "files": [
+              "./obfuscation-rules.txt"
+            ]
           }
         }
       }
@@ -17,11 +19,10 @@
   ],
   "targets": [
     {
-      "name": "default"
-    }
-    ,
+      "name": "default",
+    },
     {
-    "name": "ohosTest",
+      "name": "ohosTest",
     }
   ]
 }

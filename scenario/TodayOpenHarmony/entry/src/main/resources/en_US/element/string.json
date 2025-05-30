@@ -1,0 +1,112 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "My App"
+    },
+    {
+      "name": "search_placeholder",
+      "value": "Search OpenHarmony content"
+    },
+    {
+      "name": "tab_home",
+      "value": "News"
+    },
+    {
+      "name": "tab_recommend",
+      "value": "Recommend"
+    },
+    {
+      "name": "tab_discovery",
+      "value": "Discovery"
+    },
+    {
+      "name": "tab_profile",
+      "value": "Me"
+    },
+    {
+      "name": "category_news",
+      "value": "News"
+    },
+    {
+      "name": "category_activity",
+      "value": "Activities"
+    },
+    {
+      "name": "category_live",
+      "value": "Live"
+    },
+    {
+      "name": "category_blog",
+      "value": "Blog"
+    },
+    {
+      "name": "button_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "language_setting",
+      "value": "Language"
+    },
+    {
+      "name": "language_english",
+      "value": "English"
+    },
+    {
+      "name": "language_chinese",
+      "value": "chinese"
+    },
+    {
+      "name":"follow",
+      "value":"Following"
+    },
+    {
+      "name":"fans",
+      "value":"Fans"
+    },
+    {
+      "name":"history",
+      "value":"History"
+    },
+    {
+      "name":"cache_size",
+      "value":"Cache Size %.1fMB"
+    },
+    {
+      "name":"clean_now",
+      "value":"Clean Now"
+    },
+    {
+      "name":"latest_version",
+      "value":"Already the latest version"
+    },
+    {
+      "name":"system_settings",
+      "value":"System Settings"
+    },
+    {
+      "name":"privacy_policy",
+      "value":"Privacy Policy"
+    },
+    {
+      "name":"version_info",
+      "value":"Version"
+    },
+    {
+      "name":"edit_profile",
+      "value":"Edit Profile"
+    },
+    {
+      "name":"message_notification",
+      "value":"Notifications"
+    },
+    {
+      "name": "language_switch_failed",
+      "value": "Language switch failed"
+    },
+    {
+      "name": "select_language",
+      "value": "Select Language"
+    }
+  ]
+}

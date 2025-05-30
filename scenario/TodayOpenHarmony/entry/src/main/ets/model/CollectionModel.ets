@@ -13,26 +13,11 @@
  * limitations under the License.
  */
 
-@Entry
-@Component
-struct Index {
-  @State message: string = 'Hello World';
-
-  build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          this.message = 'Welcome';
-        })
-    }
-    .height('100%')
-    .width('100%')
-  }
-}
+export interface  CollectionItem  {
+  id: number;
+  title: string;
+  url: string;
+  favicon?: Resource;      // 新增网站图标
+  category?: string;     // 新增分类标签
+  lastVisit?: number;    // 新增最后访问时间
+};

@@ -16,13 +16,53 @@
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
-
+import { Configuration } from '@ohos.app.ability.Configuration';
+import { LanguageManager } from '../common/i18n/LanguageManager';
 const DOMAIN = 0x0000;
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
-    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
+  private langManager?: LanguageManager;
+
+  async onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): Promise<void> {
+    try {
+      // 修正初始化代码
+      this.langManager = await  LanguageManager.getInstance(this.context); // 使用静态工厂方法
+      const savedLang = await this.langManager.getCurrentLanguage(); // 移除非空断言
+
+      //  直接设置全局配置
+      this.context.config = {
+        language: savedLang,
+        direction: ConfigurationConstant.Direction.DIRECTION_HORIZONTAL
+      };
+
+      //  正确更新窗口配置
+      const win = await window.getLastWindow(this.context);
+      if (win) {
+        // 使用标准窗口属性设置方式
+        win.setWindowSystemBarEnable(['status', 'navigation']);
+        win.setWindowBackgroundColor('#F5F5F5');
+      }
+
+      hilog.info(DOMAIN, 'EntryAbility', 'Language initialized: %{public}s', savedLang);
+    } catch (err) {
+      hilog.error(DOMAIN, 'EntryAbility', 'Init failed: %{public}s', JSON.stringify(err));
+    }
+
+    this.context.getApplicationContext().setColorMode(
+      ConfigurationConstant.ColorMode.COLOR_MODE_DARK
+    );
+  }
+
+ async  onConfigurationUpdate(newConfig: Configuration): Promise <void> {
+    if (this.langManager) {
+      // 4. 使用正确方式更新配置
+      const currentLang = await this.langManager.getCurrentLanguage();
+      this.context.config = {
+        language: currentLang as string,
+        direction: this.context.config?.direction ??
+        ConfigurationConstant.Direction.DIRECTION_HORIZONTAL
+      };
+    }
   }
 
   onDestroy(): void {
@@ -33,7 +73,7 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    windowStage.loadContent('pages/Index', (err) => {
+    windowStage.loadContent('pages/HomePage', (err) => {
       if (err.code) {
         hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
         return;

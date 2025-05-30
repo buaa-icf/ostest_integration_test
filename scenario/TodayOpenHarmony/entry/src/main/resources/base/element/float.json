@@ -3,6 +3,22 @@
     {
       "name": "page_text_font_size",
       "value": "50fp"
+    },
+    {
+      "name": "safe_area_bottom",
+      "value": "34vp"
+    },
+    {
+      "name": "safe_area_total",
+      "value": "68vp"
+    },
+    {
+      "name": "tab_bar_height",
+      "value": "56vp"
+    },
+    {
+      "name": "tab_bar_total_height",
+      "value": "90vp"
     }
   ]
 }
