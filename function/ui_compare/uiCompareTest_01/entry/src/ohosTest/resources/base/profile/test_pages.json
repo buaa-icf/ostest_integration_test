@@ -1,0 +1,14 @@
+{
+  "src": [
+    "testability/pages/Index",
+    "testability/pages/focus_dynamic/focusDynamic01",
+    "testability/pages/router_push/pageA",
+    "testability/pages/router_push/pageB",
+    "testability/pages/router_push/pageB2",
+    "testability/pages/router_push/pageC",
+    "testability/pages/router_push/pageC2",
+    "testability/pages/image_span/image01",
+    "testability/pages/selectionMenu_symbol/selectionMenu01",
+    "testability/pages/selectionMenu_symbol/selectionMenu02"
+  ]
+}
