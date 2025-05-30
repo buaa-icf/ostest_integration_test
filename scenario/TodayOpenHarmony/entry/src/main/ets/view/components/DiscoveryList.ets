@@ -37,23 +37,27 @@ export struct DiscoveryList {
           .margin({ right: 12 })
 
         Column() {
-          Text('每日签到')
+          Text($r('app.string.daily_check_in'))
             .fontSize(18)
             .fontColor('#333')
-          Text(this.isCheckedIn ? '今日已签到' : '点击领取5积分')
+          Text(this.isCheckedIn
+            ? $r('app.string.already_checked_in')
+            : $r('app.string.claim_points'))
             .fontSize(12)
             .fontColor('#666')
         }
         Blank()
 
-        Button(this.isCheckedIn ? '已签到' : '立即签到')
+        Button(this.isCheckedIn
+          ? $r('app.string.checked_in')
+          : $r('app.string.check_in_now'))
           .width(100)
           .backgroundColor(this.isCheckedIn ? '#F5F5F5' : '#409EFF')
           .fontColor(this.isCheckedIn ? '#666' : '#FFF')
           .enabled(!this.isCheckedIn)
           .onClick(() => {
             this.isCheckedIn = true;
-            promptAction.showToast({ message: '+5积分' });
+            promptAction.showToast({ message: $r('app.string.points_awarded') });
           })
       }
       .padding(12)

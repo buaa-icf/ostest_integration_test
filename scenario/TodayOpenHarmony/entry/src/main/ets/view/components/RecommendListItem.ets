@@ -42,17 +42,47 @@ export struct RecommendListItem {
   @State showCustomDialog: boolean = false;
   @State showNotShowHint: boolean = false;
   @State contextList: ContextItem[] = ContextData;
+  // 添加防抖状态变量
+  @State isRecommendProcessing: boolean = false;
+  // 初始化隐藏标签存储
+  aboutToAppear() {
+    if (!AppStorage.has('hiddenTags')) {
+      AppStorage.setOrCreate('hiddenTags', []);
+    }
+  }
 
   dialogController: CustomDialogController = new CustomDialogController({
     builder: this.ContextDialogBuilder.bind(this),
     customStyle: true
   })
 
+  private getContextDataByTag(tag: string): ContextItem[] {
+    // 根据标签返回不同的内容
+    switch(tag) {
+      case '入门指南':
+        return ContextData;
+      case '新手教程':
+        return ContextData;
+      case 'Arkui':
+        return ContextData;
+      case '语法':
+        return ContextData;
+      case '状态管理':
+        return ContextData;
+      default:
+        return ContextData;
+    }
+  }
+
   @Builder
   ContextDialogBuilder() {
    ContextDialog({
-     contextList: this.contextList,            // 传递内容列表
-     controller: this.dialogController        // 传递控制器实例
+     categoryTitle: this.selectedTagInfo.name, // 传递点击的标签名称
+     contextList: this.getContextDataByTag(this.selectedTagInfo.name),
+     controller: this.dialogController,     // 传递控制器实例
+     onComplete: () => {
+       prompt.showToast({ message: `${this.selectedTagInfo.name}学习完成!` })
+     }
    })
   }
 
@@ -277,6 +307,7 @@ export struct RecommendListItem {
                   message: '将不再显示此类内容',
                   duration: 2000
                 });
+                this.closePanel(); // 添加关闭操作
               })
 
             Button('关闭')
@@ -307,11 +338,21 @@ export struct RecommendListItem {
       }
     }
   }
+  // 完善偏好存储方法
   private saveUserPreference() {
-    // 这里添加实际存储逻辑，如：
-    // AppStorage.setOrCreate('hideCategory', true);
-  }
+    try {
+      const hiddenTags: string[] = AppStorage.get('hiddenTags') as string[] || [];
+      const tagToHide = this.selectedTagInfo.name;
 
+      // 避免重复添加
+      if (!hiddenTags.includes(tagToHide)) {
+        AppStorage.setOrCreate('hiddenTags', [...hiddenTags, tagToHide]);
+      }
+    } catch (error) {
+      console.error("保存用户偏好失败:", error);
+      prompt.showToast({ message: '保存设置失败，请重试' });
+    }
+  }
   // 关闭面板方法
   private closePanel() {
     animateTo({ duration: 200 }, () => {
@@ -330,6 +371,8 @@ export struct RecommendListItem {
   }
 
   private handleRecommend() {
+    if (this.isRecommendProcessing) return;
+    this.isRecommendProcessing = true;
     this.isRecommended = true;
     prompt.showToast({ message: 'up up 已为文章增加了热度' });
 

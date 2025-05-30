@@ -22,68 +22,57 @@
       "name": "internet_permission_reason",
       "value": "需要网络通信功能"
     },
-
     {
-      "name": "permission_reason",
-      "value": "连接输入法服务"
-    },
-
-        {
-          "name": "search_placeholder",
-          "value": "搜索OpenHarmony内容"
-        },
-        {
-          "name": "tab_home",
-          "value": "首页"
-        },
-        {
-          "name": "tab_recommend",
-          "value": "推荐"
-        },
-        {
-          "name": "tab_discovery",
-          "value": "发现"
-        },
-        {
-          "name": "tab_profile",
-          "value": "我的"
-        },
-        {
-          "name": "category_news",
-          "value": "新闻"
-        },
-        {
-          "name": "category_activity",
-          "value": "活动"
-        },
-        {
-          "name": "category_live",
-          "value": "直播"
-        },
-        {
-          "name": "category_blog",
-          "value": "博客"
-        },
-        {
-          "name": "button_cancel",
-          "value": "取消"
-        },
-    {
-      "name": "language_english",
-      "value": "英文"
+      "name": "nickname_default",
+      "value": "开鸿开发者"
     },
     {
-      "name": "language_chinese",
-      "value": "中文"
+      "name": "bio_default",
+      "value": "专注鸿蒙生态开发 | 创新应用探索者"
     },
-
+    {
+      "name": "search_placeholder",
+      "value": "搜索OpenHarmony内容"
+    },
+    {
+      "name": "tab_home",
+      "value": "首页"
+    },
+    {
+      "name": "tab_recommend",
+      "value": "推荐"
+    },
+    {
+      "name": "tab_discovery",
+      "value": "发现"
+    },
+    {
+      "name": "tab_profile",
+      "value": "我的"
+    },
+    {
+      "name": "category_news",
+      "value": "新闻"
+    },
+    {
+      "name": "category_activity",
+      "value": "活动"
+    },
+    {
+      "name": "category_live",
+      "value": "直播"
+    },
+    {
+      "name": "category_blog",
+      "value": "博客"
+    },
+    {
+      "name": "button_cancel",
+      "value": "取消"
+    },
     {
       "name":"point",
       "value":"积分"
-    },
-    {
-      "name": "collection",
-      "value":"收藏"
     },
     {
       "name":"My_collection",
@@ -94,12 +83,20 @@
       "value":"历史记录"
     },
     {
-      "name":"cache_size",
-      "value":"缓存大小 %.1fMB"
+      "name": "cache_size",
+      "value": "缓存大小"
     },
     {
       "name":"clean_now",
       "value":"立即清理"
+    },
+    {
+      "name":"cleaning",
+      "value":"清理中..."
+    },
+    {
+      "name": "clean_completed_message",
+      "value": "清理完成，释放空间%1$sMB"
     },
     {
       "name":"latest_version",
@@ -126,32 +123,200 @@
       "value":"消息通知"
     },
     {
+      "name": "last_notification",
+      "value": "最后通知"
+    },
+    {
+      "name": "account_google",
+      "value": "Google账号"
+    },
+    {
+      "name": "account_facebook",
+      "value": "Facebook账号"
+    },
+    {
+      "name": "account_huawei",
+      "value": "Huawei账号"
+    },
+    {
+      "name": "bind_account_title",
+      "value": "绑定账号"
+    },
+    {
+      "name": "account_binding",
+      "value": "账号绑定"
+    },
+    {
+      "name": "status_unbound",
+      "value": "未绑定"
+    },
+    {
+      "name": "status_bound",
+      "value": "已绑定"
+    },
+    {
       "name": "app_name",
-      "value": "MyApp"
+      "value": "今日开鸿"
     },
     {
-      "name":"follow",
-      "value":"Following"
+      "name": "follow",
+      "value": "关注"
     },
     {
-      "name":"fans",
-      "value":"Fans"
+      "name": "fans",
+      "value": "粉丝"
     },
     {
-      "name":"close",
-      "value":"Close"
+      "name": "close",
+      "value": "关闭"
     },
     {
-      "name": "language_setting",
-      "value": "Language Settings"
+      "name": "confirm_bind",
+      "value": "确认绑定"
     },
     {
-      "name": "language_switch_failed",
-      "value": "语言切换失败"
+      "name": "empty_credentials_warning",
+      "value": "账号密码不能为空"
     },
     {
-      "name": "select_language",
-      "value": "选择语言"
+      "name": "input_username_placeholder",
+      "value": "请输入账号"
+    },
+    {
+      "name": "bind_success",
+      "value": "绑定成功"
+    },
+    {
+      "name": "unbind_success",
+      "value": "已解绑"
+    },
+    {
+      "name": "input_password_placeholder",
+      "value": "请输入密码"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "confirm",
+      "value": "确认"
+    },
+    {
+      "name": "auto_sync",
+      "value": "自动同步"
+    },
+    {
+      "name": "data_backup",
+      "value": "数据备份"
+    },
+    {
+      "name": "last_backup",
+      "value": "上次备份"
+    },
+    {
+      "name": "no_backup_history",
+      "value": "尚未进行过备份"
+    },
+    {
+      "name": "backup_in_progress",
+      "value": "备份中..."
+    },
+    {
+      "name": "backup_now",
+      "value": "立即备份"
+    },
+    {
+      "name": "backup_success",
+      "value": "备份成功"
+    },
+    {
+      "name": "font_size",
+      "value": "字体大小"
+    },
+    {
+      "name": "app_permission",
+      "value": "应用权限"
+    },
+    {
+      "name": "manage",
+      "value": "管理"
+    },
+    {
+      "name": "authorized",
+      "value": "已授权"
+    },
+    {
+      "name": "unauthorized",
+      "value": "未授权"
+    },
+    {
+      "name": "permission_status",
+      "value": "权限状态：%s"
+    },
+    {
+      "name": "storage_management",
+      "value": "存储管理"
+    },
+    {
+      "name": "daily_check_in",
+      "value": "每日签到"
+    },
+    {
+      "name": "already_checked_in",
+      "value": "今日已签到"
+    },
+    {
+      "name": "claim_points",
+      "value": "点击领取5积分"
+    },
+    {
+      "name": "checked_in",
+      "value": "已签到"
+    },
+    {
+      "name": "check_in_now",
+      "value": "立即签到"
+    },
+    {
+      "name": "points_awarded",
+      "value": "+5积分"
+    },
+    {
+      "name": "hot_topics",
+      "value": "热门话题"
+    },
+    {
+      "name": "daily_update",
+      "value": "每日更新"
+    },
+    {
+      "name": "refresh",
+      "value": "换一换"
+    },
+    {
+      "name": "explore_more",
+      "value": "点击探索更多话题"
+    },
+    {
+      "name": "say_something",
+      "value": "说点什么..."
+    },
+    {
+      "name": "send",
+      "value": "发送"
+    },
+    {
+      "name": "message_empty",
+      "value": "消息不能为空"
+    },
+    {
+      "name": "enter_topic",
+      "value": "进入话题"
+    },
+    {
+      "name": "topic_discussion_message",
+      "value": "查看%s的讨论？"
     }
   ]
 }

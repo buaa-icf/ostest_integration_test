@@ -28,9 +28,8 @@ import  RecommendList  from '../view/components/RecommendList';
 import { RecommendViewModel } from '../viewmodel/RecommendVM';
 import { DiscoveryList } from '../view/components/DiscoveryList';
 import { DiscoveryViewModel } from '../viewmodel/DiscoveryVM';
-import { NewsList } from '../view/components/NewsList';
 import { NewsCard } from '../view/components/NewsCard';
-import { LanguageManager } from '../common/i18n/LanguageManager'; // 导入语言管理器
+import { LanguageManager } from '../common/i18n/LanguageManager';
 import { promptAction } from '@kit.ArkUI';
 
 @Entry

@@ -20,14 +20,13 @@ import { promptAction } from '@kit.ArkUI';
 
 @Component
 export struct LiveView {
-  // 核心数据绑定
-  @Prop item: LiveNewsItem      // 直接使用具体类型
-  @Link isLiving: boolean       // 直播状态双向绑定
+  @Prop item: LiveNewsItem // 直接使用具体类型
+  @Link isLiving: boolean // 直播状态双向绑定
   @State barrageText: string = '' // 弹幕输入状态
   @State reserved: boolean = false
 
   build() {
-    Column() {
+    Column({ space: 12 }) {
       Row({ space: 12 }) {
         Text(`主播：${this.item.author}`)
           .fontSize(16)
@@ -56,14 +55,40 @@ export struct LiveView {
       .width('100%')
       .margin({ top: 8 })
 
+      // 直播类型标签
+      Row() {
+        // 直播标签组
+        if (this.item.tags && this.item.tags.length > 0) {
+          ForEach(this.item.tags, (tag: string, index) => {
+            Text(tag)
+              .fontSize(14)
+              .fontColor('#FFFFFF')
+              .backgroundColor(index % 2 === 0 ? '#FFA500' : '#1890FF')// 双色交替
+              .borderRadius(8)
+              .padding({
+                left: 12,
+                right: 12,
+                top: 4,
+                bottom: 4
+              })
+              .margin({ right: 8, bottom: 8 })
+          })
+        }
+      }
+      .width('100%')
+      .padding({ top: 8, bottom: 8 })
+
       Row({ space: 10 }) {
         Text(`时间：${this.item.timestamp}`)
-          .fontSize(14)
+          .fontSize(16)
           .fontColor('#666666')
+          .layoutWeight(1)
+
         Button(this.reserved ? '已预约' : '预约')
           .padding(8)
           .backgroundColor(this.reserved ? '#E0E0E0' : '#2196F3')
           .fontColor(this.reserved ? '#757575' : 'white')
+          .borderRadius(20)
           .onClick(() => {
             this.reserved = !this.reserved
             promptAction.showToast({
@@ -71,10 +96,12 @@ export struct LiveView {
             })
           })
       }
+      .width('100%')
 
       Button('进入直播')
         .backgroundColor('#D32F2F')
         .width(120)
+        .height(40)
         .margin({ top: 12 })
         .onClick(() => {
           router.pushUrl({
@@ -84,12 +111,19 @@ export struct LiveView {
         })
 
       // 弹幕输入组件
-      TextArea({ text: this.barrageText, placeholder:'发个弹幕吧~' })
+      TextArea({ text: this.barrageText, placeholder: '发个弹幕吧~' })
         .placeholderColor('#999999')
         .fontSize(16)
-        .fontColor('#999')
+        .fontColor('#333333')// 加深字体颜色
+        .backgroundColor('#FFFFFF')// 添加白色背景
+        .border({
+          color: '#FFA500',
+          width: 1,
+          radius: 8  // 添加圆角边框
+        })
         .width('100%')
-        .height(40)
+        .height(80)// 增加高度
+        .padding(8)// 添加内边距
         .margin({ top: 16 })
         .onChange((value: string) => {
           this.barrageText = value

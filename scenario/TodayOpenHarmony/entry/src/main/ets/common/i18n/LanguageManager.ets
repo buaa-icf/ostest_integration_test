@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-import  i18n  from '@ohos.i18n';
 import common from '@ohos.app.ability.common';
 import preferences from '@ohos.data.preferences';
-import { Configuration } from '@ohos.app.ability.Configuration';
 
 type LanguageType = 'en_US' | 'zh_CN';
 
@@ -38,9 +36,6 @@ export class LanguageManager {
 
   public async switchLanguage(lang: LanguageType): Promise<void> {
     try {
-
-
-
 
       // 持久化存储
       const pref = await preferences.getPreferences(this.context, 'settings');

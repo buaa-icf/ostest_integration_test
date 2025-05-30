@@ -21,8 +21,6 @@ export interface ContextItem {
   isCompleted: boolean
   tags: string[]
   difficulty?: 'beginner' | 'intermediate' | 'advanced'
-  createdTime?: string
-  lastModified?: string
 }
 export const ContextData: ContextItem[] = [
   {
@@ -33,8 +31,6 @@ export const ContextData: ContextItem[] = [
     isCompleted: false,
     tags: ['语法', '入门'],
     difficulty: 'beginner',
-    createdTime: '2024-01-01T09:00:00Z',
-    lastModified: '2024-01-05T14:30:00Z'
   },
   {
     id: 2,
@@ -43,6 +39,24 @@ export const ContextData: ContextItem[] = [
     category: '高级功能',
     isCompleted: true,
     tags: ['状态管理', '响应式'],
+    difficulty: 'intermediate'
+  },
+  {
+    id: 3,
+    title: 'UI布局实战',
+    content: '掌握Flex布局、Grid布局和相对定位布局的使用技巧。',
+    category: '界面设计',
+    isCompleted: false,
+    tags: ['布局', '响应式'],
+    difficulty: 'intermediate'
+  },
+  {
+    id: 4,
+    title: '网络请求与数据处理',
+    content: '学习使用@ohos.net.http模块发起HTTP请求，处理GET/POST请求，管理请求头和响应数据.',
+    category: '数据交互',
+    isCompleted: false,
+    tags: ['网络', 'API'],
     difficulty: 'intermediate'
   }
 ]

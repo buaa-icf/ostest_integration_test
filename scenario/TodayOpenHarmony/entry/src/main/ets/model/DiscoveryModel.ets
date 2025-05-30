@@ -17,7 +17,7 @@
 // model/DiscoveryModel.ts
 import { CategoryItem as BaseCategoryItem } from './CategoryModel';
 import { TechEvent } from './EventModel';
-import { EventListData } from '../common/constants/EventListData'; // 补充缺失的导入
+import { EventListData } from '../common/constants/EventListData';
 export { BaseCategoryItem };
 export class DiscoveryData {
   // 热门话题数据
