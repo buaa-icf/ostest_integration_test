@@ -40,10 +40,10 @@ export const NewsListData: NewsItem[] = [
   new NewsItem({
     id: 2,
     type: '新闻',
-    title: '开发者2024大会',
+    title: '开发者2025大会',
     subtitle: '鸿心聚力，智引未来',
-    image: $r('app.media.open'),
-    timestamp: '2024-05-25',
+    image: $r('app.media.New'),
+    timestamp: '2025-05-24',
     views: 23500,
     link: 'https://www.openharmony.cn/developer/',
     isLiked: false,
