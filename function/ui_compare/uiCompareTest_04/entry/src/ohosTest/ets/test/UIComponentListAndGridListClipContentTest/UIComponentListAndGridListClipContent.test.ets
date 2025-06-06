@@ -180,5 +180,37 @@ export default function UIComponentListAndGridListClipContentTest() {
       Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LISTANDGRID_LIST_CLIPCONTENT_0080 finish.`);
       done();
     });
+
+    /*
+     * @tc.number  SUB_ACE_UI_COMPONENT_LISTANDGRID_LIST_CLIPCONTENT_0090
+     * @tc.name    SUB_ACE_UI_COMPONENT_LISTANDGRID_LIST_CLIPCONTENT_0090
+     * @tc.desc    Component 3 groups
+     * @tc.level   0
+     */
+    it('SUB_ACE_UI_COMPONENT_LISTANDGRID_LIST_CLIPCONTENT_0090', Level.LEVEL0, async (done: Function) => {
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LISTANDGRID_LIST_CLIPCONTENT_0090 start.`);
+      Settings.createWindow("testability/pages/UIComponentListAndGridListClipContent/UIComponentListAndGridListClipContent009");
+      await Utils.sleep(2000);
+      windowSnap.snapShot('UIComponentListAndGridListClipContent0090_1');
+      let driver: Driver = Driver.create();
+      let button1: Component = await driver.findComponent(ON.id('-1'));
+      await button1.click();
+      await Utils.sleep(1000);
+      windowSnap.snapShot('UIComponentListAndGridListClipContent0090_2');
+      let button2: Component = await driver.findComponent(ON.id('undefined'));
+      await button2.click();
+      await Utils.sleep(1000);
+      windowSnap.snapShot('UIComponentListAndGridListClipContent0090_3');
+      let button3: Component = await driver.findComponent(ON.id('null'));
+      await button3.click();
+      await Utils.sleep(1000);
+      windowSnap.snapShot('UIComponentListAndGridListClipContent0090_3');
+      let button4: Component = await driver.findComponent(ON.id('70000'));
+      await button4.click();
+      await Utils.sleep(1000);
+      windowSnap.snapShot('UIComponentListAndGridListClipContent0090_4');
+      Logger.info('TEST', `SUB_ACE_UI_COMPONENT_LISTANDGRID_LIST_CLIPCONTENT_0090 finish.`);
+      done();
+    });
   })
 }
