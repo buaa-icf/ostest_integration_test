@@ -26,6 +26,9 @@ import UIComponentMediaCounterLargeFontTest from './UIComponentMediaCounterLarge
 import UIImportComponentContentTest from './UIImportComponentContentTest/UIImportComponentContent.test'
 import ActionEventCommonEventKeyEventDispatchTest from './ActionEventCommonEventKeyEventDispatchTest/ActionEventCommonEventKeyEventDispatch.test'
 import ActionEventCommonEventAreaChangeApproximateChangeTest from './ActionEventCommonEventAreaChangeApproximateChangeTest/ActionEventCommonEventAreaChangeApproximateChange.test'
+import ActionEventCommonEventFrameNodeGestureTest from './ActionEventCommonEventFrameNodeGestureTest/ActionEventCommonEventFrameNodeGesture.test';
+import UIAttributesInterfaceReconstitutionTest from './UIAttributesInterfaceReconstitutionTest/UIAttributesInterfaceReconstitution.test';
+import ActionGestureConfigurationTest from './ActionGestureConfigurationTest/ActionGestureConfiguration.test';
 
 export default function testsuite() {
   demoTest();
@@ -41,4 +44,7 @@ export default function testsuite() {
   UIImportComponentContentTest();
   ActionEventCommonEventKeyEventDispatchTest();
   ActionEventCommonEventAreaChangeApproximateChangeTest();
+  ActionEventCommonEventFrameNodeGestureTest();
+  UIAttributesInterfaceReconstitutionTest();
+  ActionGestureConfigurationTest();
 }
