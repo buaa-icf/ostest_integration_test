@@ -1,0 +1,331 @@
+# NowInOpenHarmony 后端服务
+
+## 项目概述
+
+NowInOpenHarmony 是一个运行在 OpenHarmony 系统上的聚合 OpenHarmony 相关资讯的应用后端服务。该系统从 OpenHarmony 官方网站采集新闻数据，进行结构化处理，并对外提供 RESTful 风格的数据接口供 OpenHarmony 客户端调用。
+
+## 技术栈
+
+- **编程语言**: Python 3.8+
+- **Web框架**: FastAPI
+- **数据库**: SQLite (开发) / PostgreSQL (生产)
+- **任务调度**: APScheduler
+- **爬虫框架**: Requests + BeautifulSoup
+- **缓存机制**: 内存缓存 + 线程安全
+- **部署**: Gunicorn + Nginx
+
+## 功能特性
+
+### 数据采集模块
+- 从 OpenHarmony 官方网站采集新闻
+- 定时自动更新数据
+- 数据去重和清洗
+
+### 缓存机制
+- **启动预热**: 服务启动时自动执行一次数据爬取（后台线程执行）
+- **精细状态管理**: 只有在写入数据库时才设为"准备中"，其他时候使用数据库内容响应
+- **后台更新**: 每30分钟自动更新缓存数据（后台线程执行）
+- **线程安全**: 使用可重入锁保证数据一致性
+- **无缝切换**: 更新时仍使用旧数据，更新完成后切换
+- **非阻塞**: 爬虫任务在独立线程执行，不阻塞主服务线程
+
+### API接口模块
+- 新闻列表和详情接口
+- 支持分页、分类和搜索
+- 手动触发爬取接口
+- 服务状态监控接口
+- 缓存刷新接口
+
+### 定时任务模块
+- 每30分钟自动更新缓存
+- 每天凌晨2点执行完整爬取
+- 支持失败重试机制
+
+### 数据存储模块
+- 结构化数据存储
+- 支持分类存储
+- 数据库索引优化
+
+## 快速开始
+
+### 环境要求
+
+- Python 3.8+
+- pip
+
+### 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+### 启动服务
+
+```bash
+# 方式1: 使用启动脚本
+python run.py
+
+# 方式2: 直接使用uvicorn
+uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+```
+
+### 访问服务
+
+- 服务地址: http://localhost:8001
+- API文档: http://localhost:8001/docs
+- 健康检查: http://localhost:8001/health
+
+## API接口
+
+### 新闻接口
+
+- `GET /api/news/` - 获取新闻列表（支持分页、分类、搜索）
+- `GET /api/news/{article_id}` - 获取新闻详情
+- `GET /api/news/crawl` - 手动触发新闻爬取
+- `GET /api/news/status/info` - 获取服务状态信息
+- `POST /api/news/cache/refresh` - 手动刷新缓存
+
+### 基础接口
+
+- `GET /` - 服务信息
+- `GET /health` - 健康检查（包含缓存状态）
+
+## 缓存机制详解
+
+### 服务状态
+- **preparing**: 数据更新中，服务暂时不可用
+- **ready**: 服务就绪，可以正常访问
+- **error**: 服务错误，需要检查日志
+
+### 工作流程
+1. **服务启动**: 立即启动HTTP服务，后台线程执行初始数据爬取
+2. **爬虫执行**: 爬虫执行期间状态保持为"就绪"，使用现有数据响应请求
+3. **数据写入**: 只有在写入数据库时才短暂设为"准备中"
+4. **数据就绪**: 写入完成后立即恢复为"就绪"状态
+5. **定时更新**: 每30分钟后台线程更新数据，遵循相同的精细状态管理
+6. **非阻塞响应**: 整个过程中API接口始终可正常响应请求
+
+### 测试缓存机制
+```bash
+# 运行缓存测试脚本
+python test_cache.py
+
+# 运行多线程效果测试脚本
+python test_threading.py
+
+# 运行多线程改进演示脚本
+python demo_threading_improvement.py
+
+# 运行精细状态管理测试脚本
+python test_fine_grained_status.py
+
+# 运行精细状态管理演示脚本
+python demo_fine_grained_status.py
+```
+
+## 配置说明
+
+### 环境变量
+
+- `HOST`: 服务监听地址 (默认: 0.0.0.0)
+- `PORT`: 服务端口 (默认: 8001)
+- `RELOAD`: 是否启用热重载 (默认: false)
+- `DATABASE_URL`: 数据库连接URL
+- `LOG_LEVEL`: 日志级别 (默认: INFO)
+
+### 配置文件
+
+可以通过 `.env` 文件配置应用参数：
+
+```env
+# 应用配置
+APP_NAME=NowInOpenHarmony API
+APP_VERSION=1.0.0
+DEBUG=false
+
+# 数据库配置
+DATABASE_URL=sqlite:///./openharmony_news.db
+
+# 爬虫配置
+CRAWLER_DELAY=1.0
+CRAWLER_TIMEOUT=10
+MAX_RETRIES=3
+
+# 定时任务配置
+ENABLE_SCHEDULER=true
+CACHE_UPDATE_INTERVAL=30
+FULL_CRAWL_HOUR=2
+
+# 缓存配置
+ENABLE_CACHE=true
+CACHE_INITIAL_LOAD=true
+```
+
+## 项目结构
+
+```
+Server/
+├── api/                    # API接口模块
+│   ├── __init__.py
+│   └── news.py            # 新闻接口
+├── core/                   # 核心模块
+│   ├── __init__.py
+│   ├── cache.py           # 缓存管理
+│   ├── config.py          # 配置管理
+│   ├── database.py        # 数据库管理
+│   ├── logging_config.py  # 日志配置
+│   └── scheduler.py       # 定时任务调度
+├── models/                 # 数据模型
+│   ├── __init__.py
+│   └── news.py            # 新闻相关模型
+├── services/               # 服务层
+│   ├── __init__.py
+│   └── openharmony_crawler.py  # OpenHarmony爬虫
+├── logs/                   # 日志文件目录
+├── main.py                 # 主应用文件
+├── run.py                  # 启动脚本
+├── test_cache.py           # 缓存测试脚本
+├── test_threading.py       # 多线程效果测试脚本
+├── demo_threading_improvement.py  # 多线程改进演示脚本
+├── test_fine_grained_status.py   # 精细状态管理测试脚本
+├── demo_fine_grained_status.py   # 精细状态管理演示脚本
+├── requirements.txt        # 依赖文件
+└── README.md              # 项目说明
+```
+
+## 多线程改进
+
+### 问题背景
+原始实现中，爬虫任务在主线程中同步执行，导致：
+- 服务启动时需要等待爬虫完成（6-7分钟）
+- 定时更新期间API请求被阻塞
+- 用户体验差，服务响应延迟
+
+### 解决方案
+采用多线程架构：
+- **ThreadPoolExecutor**: 使用线程池管理爬虫任务
+- **后台执行**: 爬虫任务在独立线程中执行
+- **非阻塞响应**: 主服务线程立即响应API请求
+- **状态管理**: 通过缓存状态反映爬虫进度
+
+### 改进效果
+- ✅ 服务启动后立即可以响应请求
+- ✅ 爬虫执行期间API接口正常响应
+- ✅ 支持并发请求，不会阻塞
+- ✅ 精细状态管理：只有在写入数据库时才设为"准备中"
+- ✅ 其他时候都使用数据库内容响应，最大化服务可用性
+
+### 技术实现
+```python
+# 使用ThreadPoolExecutor执行爬虫任务
+self.thread_pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="CrawlerWorker")
+
+# 提交任务到后台线程
+future = self.thread_pool.submit(self._run_crawler_in_thread, "任务名称")
+
+# 精细状态管理
+def set_updating(self, is_updating: bool):
+    if is_updating:
+        self.set_status(ServiceStatus.PREPARING)  # 只在写入时设为准备中
+    else:
+        self.set_status(ServiceStatus.READY)      # 写入完成后立即恢复就绪
+```
+
+## 开发指南
+
+### 添加新的数据源
+
+1. 在 `services/` 目录下创建新的爬虫类
+2. 实现数据采集和解析逻辑
+3. 在 `scheduler.py` 中添加定时任务
+4. 更新数据库模型（如需要）
+
+### 添加新的API接口
+
+1. 在 `api/` 目录下创建新的路由文件
+2. 定义数据模型（如需要）
+3. 在 `main.py` 中注册路由
+4. 更新API文档
+
+### 数据库迁移
+
+当前使用 SQLite 进行开发，生产环境建议使用 PostgreSQL：
+
+1. 安装 PostgreSQL 驱动: `pip install psycopg2-binary`
+2. 更新 `DATABASE_URL` 环境变量
+3. 运行数据库初始化脚本
+
+## 部署说明
+
+### 开发环境
+
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 启动服务
+python run.py
+
+# 测试缓存机制
+python test_cache.py
+```
+
+### 生产环境
+
+1. 使用 Gunicorn 部署:
+```bash
+pip install gunicorn
+gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8001
+```
+
+2. 配置 Nginx 反向代理
+3. 使用 PostgreSQL 数据库
+4. 配置日志轮转
+5. 设置监控和告警
+
+### Docker部署
+
+```bash
+# 构建并启动
+docker-compose up --build
+
+# 后台运行
+docker-compose up -d
+```
+
+## 监控和调试
+
+### 查看服务状态
+```bash
+curl http://localhost:8001/health
+curl http://localhost:8001/api/news/status/info
+```
+
+### 查看日志
+```bash
+tail -f logs/openharmony_api_*.log
+tail -f logs/error_*.log
+```
+
+### 手动刷新缓存
+```bash
+curl -X POST http://localhost:8001/api/news/cache/refresh
+```
+
+## 贡献指南
+
+1. Fork 项目
+2. 创建功能分支
+3. 提交代码
+4. 创建 Pull Request
+
+## 许可证
+
+本项目采用 MIT 许可证。
+
+## 联系方式
+
+如有问题或建议，请通过以下方式联系：
+
+- 项目地址: [GitHub Repository]
+- 邮箱: [your-email@example.com] 

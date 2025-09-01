@@ -1,0 +1,80 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_cCMULAEiJdg6wAfmNIyGIvXLyj9wsLD776bOEhSOuDQ=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BA739F97820E4931F0FDF55A6C28B32BBA59F5372FA9EDFB356F54293EEEC2854591C7A5BFAB5D5",
+          "profile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_cCMULAEiJdg6wAfmNIyGIvXLyj9wsLD776bOEhSOuDQ=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_cCMULAEiJdg6wAfmNIyGIvXLyj9wsLD776bOEhSOuDQ=.p12",
+          "storePassword": "0000001B4EC88D0DB386CD92BE39947810814C57541D2F536CDD9184470650917A910C385D282D043DAF05"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "5.1.0(18)",
+        "compatibleSdkVersion": "5.0.5(17)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "default",
+      "srcPath": "./product/default",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "common",
+      "srcPath": "./commons/common",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "feature",
+      "srcPath": "./features/feature",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
