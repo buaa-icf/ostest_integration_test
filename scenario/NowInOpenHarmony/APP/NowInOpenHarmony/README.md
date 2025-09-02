@@ -91,7 +91,6 @@ graph TB
     subgraph "外部数据源"
         T[OpenHarmony官网<br/>https://openharmony.cn]
         U[CSDN平台<br/>技术文章]
-        V[其他数据源<br/>可扩展]
     end
     
     A --> D
