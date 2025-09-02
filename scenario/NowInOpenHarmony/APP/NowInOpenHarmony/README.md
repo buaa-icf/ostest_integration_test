@@ -143,9 +143,6 @@ graph TB
 
 #### 1. 技术栈
 - **开发语言**: ArkTS
-- **UI框架**: ArkUI - HarmonyOS原生UI开发框架
-- **运行平台**: HarmonyOS NEXT 5.1.0
-- **兼容版本**: HarmonyOS 5.0.5及以上
 - **网络请求**: @ohos/axios 2.2.6 - HTTP客户端库
 - **Markdown渲染**: @lidary/markdown 2.0.4 - 代码内容渲染
 - **数据存储**: 
@@ -300,7 +297,6 @@ graph TB
 2. **Common HSP (commons/common)**
    - 公共基础库，提供核心功能和工具类
    - 包含网络请求、数据库操作、工具函数
-   - 为其他模块提供基础设施支持
 
 3. **Feature HSP (features/feature)**
    - 功能特性模块，包含业务组件和管理器
@@ -466,38 +462,6 @@ sequenceDiagram
 - 统一的颜色和字体规范
 - 矢量图标和高分辨率图片支持
 
-## 部署指南
-
-### 服务端部署
-[服务端部署说明...]
-
-### 客户端构建
-1. **环境要求**
-   - HarmonyOS SDK 5.1.0+
-   - DevEco Studio 5.0+
-   - Node.js 18+
-
-2. **构建步骤**
-   ```bash
-   # 安装依赖
-   ohpm install
-   
-   # 构建项目
-   hvigor build
-   
-   # 运行调试
-   hvigor run
-   ```
-
-3. **发布打包**
-   ```bash
-   # 构建发布版本
-   hvigor build --mode release
-   
-   # 生成APP包
-   hvigor package
-   ```
-
 ## 功能特性
 
 ### 核心功能
@@ -517,10 +481,3 @@ sequenceDiagram
 - 🛡️ 完善的错误处理机制
 - 💾 智能数据缓存策略
 
-## 开发团队
-
-本项目采用前后端分离架构，为OpenHarmony生态提供高质量的新闻聚合应用解决方案。
-
----
-
-*更新时间: 2024年12月*
