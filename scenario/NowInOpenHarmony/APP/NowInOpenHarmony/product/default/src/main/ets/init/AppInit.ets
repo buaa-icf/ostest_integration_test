@@ -1,18 +1,23 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import {
-  DEFAULT_COLOR_MODE,
-  DEFAULT_FONT_SIZE,
-  GET_BREAK_POINT_SYSTEM,
-  GET_USER_CONFIG,
-  kvDatabase,
-  logger,
-  preferenceDB,
-  PreferenceEnum,
-  UserConfigViewModel
+  logger, preferenceDB
 } from "common";
 import { common } from "@kit.AbilityKit";
-import { AppStorageV2, promptAction, window } from "@kit.ArkUI";
+import { promptAction } from "@kit.ArkUI";
 import { colorModManager, newsManager, userConfigManager } from "feature";
-import { BusinessError } from "@kit.BasicServicesKit";
 
 const AppInit_LOG_TAG = 'AppInit: '
 
@@ -27,7 +32,7 @@ export class AppInit {
     const isPreferenceDBInitSuccess: boolean = preferenceDB.init(context)
     if (isPreferenceDBInitSuccess) {
       logger.info(`${AppInit_LOG_TAG}首选项数据对象初始化成功`)
-      if(userConfigManager.syncDataToAppStorage()){
+      if (userConfigManager.syncDataToAppStorage()) {
         return true
       }
       return false
@@ -38,13 +43,12 @@ export class AppInit {
     }
   }
 
-  async initAll(uiAbilityContext: common.UIAbilityContext,applicationContext:common.ApplicationContext){
+  async initAll(uiAbilityContext: common.UIAbilityContext, applicationContext: common.ApplicationContext) {
     await newsManager.init(uiAbilityContext)
     this.configInit(uiAbilityContext)
     colorModManager.init(applicationContext)
     newsManager.updateNewsListToDB()
   }
-
 }
 
 export const appInit = new AppInit()
