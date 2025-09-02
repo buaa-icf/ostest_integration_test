@@ -152,7 +152,7 @@ graph TB
 
 #### 2. 项目结构
 ```
-HarmonyOS客户端/
+根目录/
 ├── AppScope/                       # 应用级配置
 │   ├── app.json5                  # 应用配置文件
 │   └── resources/                 # 应用级资源文件
