@@ -106,6 +106,18 @@ Note:If the text contains special characters, please escape them according to th
                         rule="may"
                         type="copyright"/>
             </policy>
+            <policy
+                    desc=""
+                    name="projectPolicy">
+                <policyitem
+                        desc="Developed By XBXyftx."
+                        filefilter="copyrightPolicyFilter"
+                        group="defaultGroup"
+                        name="XBXyftx"
+                        path=".*"
+                        rule="may"
+                        type="copyright"/>
+            </policy>
         </policylist>
         <filefilterlist>
             <filefilter name="binaryFileTypePolicyFilter" desc="Filters for binary file policies" >
