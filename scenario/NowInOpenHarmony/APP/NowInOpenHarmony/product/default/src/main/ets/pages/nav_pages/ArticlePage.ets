@@ -1,3 +1,6 @@
+import { AppStorageV2 } from '@kit.ArkUI'
+import { GET_USER_CONFIG, UserConfigViewModel } from 'common'
+
 /**
  * Copyright (c) 2025 XBXyftx
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +17,7 @@
  */
 @ComponentV2
 struct ArticlePage {
+  @Local baseFontSize: number = AppStorageV2.connect(UserConfigViewModel, GET_USER_CONFIG)!.fontSize
   build() {
     Column() {
 
