@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 import {
-  logger, preferenceDB
+  GET_USER_CONFIG, logger, preferenceDB, UserConfigViewModel
 } from "common";
 import { common } from "@kit.AbilityKit";
-import { promptAction } from "@kit.ArkUI";
+import { AppStorageV2, promptAction } from "@kit.ArkUI";
 import { colorModManager, newsManager, userConfigManager } from "feature";
+import { lvCode, lvText } from "@luvi/lv-markdown-in";
+
 
 const AppInit_LOG_TAG = 'AppInit: '
 
@@ -46,9 +48,16 @@ export class AppInit {
   async initAll(uiAbilityContext: common.UIAbilityContext, applicationContext: common.ApplicationContext) {
     await newsManager.init(uiAbilityContext)
     this.configInit(uiAbilityContext)
-    colorModManager.init(applicationContext)
-    newsManager.updateNewsListToDB()
+    await colorModManager.init(applicationContext)
+    await newsManager.updateNewsListToDB()
   }
+  markDownConfigInit(){
+    let baseFontSize =  AppStorageV2.connect(UserConfigViewModel, GET_USER_CONFIG, () => new UserConfigViewModel())!.fontSize
+    lvCode.setIndexState(true)
+    lvText.setTextSize(baseFontSize)
+    logger.info(`${AppInit_LOG_TAG}Markdown初始化成功`)
+  }
+
 }
 
 export const appInit = new AppInit()

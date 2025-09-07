@@ -18,7 +18,8 @@
   "dependencies": {
     "@lidary/markdown": "^2.0.4",
     "@hw-agconnect/ui-skeleton": "^1.0.0",
-    "@ohos/axios": "^2.2.6"
+    "@ohos/axios": "^2.2.6",
+    "@luvi/lv-markdown-in": "^2.0.15"
   },
   "devDependencies": {
     "@ohos/hypium": "1.0.21",

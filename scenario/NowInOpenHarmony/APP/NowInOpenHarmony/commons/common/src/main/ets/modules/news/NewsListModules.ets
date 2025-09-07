@@ -16,7 +16,7 @@
 /**
  * 内容类型枚举
  */
-export enum ContentType {
+export enum CONTENT_TYPE_ENUM {
   TEXT = "text",
   IMAGE = "image",
   VIDEO = "video",
@@ -29,7 +29,7 @@ export enum ContentType {
  */
 export interface NewsContentBlock {
   /** 内容类型 */
-  type: ContentType;
+  type: CONTENT_TYPE_ENUM;
   /** 内容值 */
   value: string;
 }

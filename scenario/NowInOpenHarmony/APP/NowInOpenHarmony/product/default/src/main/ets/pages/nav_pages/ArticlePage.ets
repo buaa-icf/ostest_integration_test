@@ -19,7 +19,7 @@ import { GET_USER_CONFIG, UserConfigViewModel } from 'common'
 struct ArticlePage {
   @Local baseFontSize: number = AppStorageV2.connect(UserConfigViewModel, GET_USER_CONFIG)!.fontSize
   build() {
-    Column() {
+    NavDestination() {
 
     }
     .width('100%')

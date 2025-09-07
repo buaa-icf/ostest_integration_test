@@ -46,7 +46,8 @@
               "entity.system.home"
             ],
             "actions": [
-              "action.system.home"
+              "action.system.home",
+              "ohos.want.action.viewData"
             ]
           }
         ],
