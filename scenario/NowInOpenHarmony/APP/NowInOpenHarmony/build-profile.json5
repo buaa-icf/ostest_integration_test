@@ -19,13 +19,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "C:\\Users\\Lenovo\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.cer",
+          "certpath": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.cer",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B286144FBF0040A5720F65059E2FC93165083EFDD372AA3F3B88550F377F608E65CFD09B52E64BB",
-          "profile": "C:\\Users\\Lenovo\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p7b",
+          "keyPassword": "0000001A309A5BCE57EE73B7E9696205D1A5C3236A017A41DA14CA932F95A44C8F009F2C0E21E18E1CFE",
+          "profile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\Lenovo\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p12",
-          "storePassword": "0000001B6F69A3AB81AADCB247E1E1D192625CBED883A2CDF6B53FA6C0B0431E6A7B7E22BABA14565459A6"
+          "storeFile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p12",
+          "storePassword": "0000001A2A407AD383E8ED4997205B89C5E4F54947EE90FEEA4AB9B1A0A21777A051B343A19742CA4128"
         }
       }
     ],

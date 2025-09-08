@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { IS_STICKY, NewsArticle, NewsListHeaderIsSticky } from "common"
+import { IS_STICKY, NAV_PATH_STUCK, NewsArticle, NewsListHeaderIsSticky } from "common"
 import { NewsList, newsManager, NewsSwiper } from "feature"
 import { AppStorageV2 } from "@kit.ArkUI"
 
@@ -21,6 +21,7 @@ const MainPage_TAG = 'MainPage: '
 @Preview
 @ComponentV2
 export struct MainPage {
+  @Local navPathStuck: NavPathStack = AppStorageV2.connect(NavPathStack, NAV_PATH_STUCK, () => new NavPathStack())!
   @Local newsList: NewsArticle[] | null = null
   @Local isNewsListSticky: NewsListHeaderIsSticky =
     AppStorageV2.connect(NewsListHeaderIsSticky, IS_STICKY, () => new NewsListHeaderIsSticky())!
@@ -56,9 +57,9 @@ export struct MainPage {
             }
           }
 
-          NewsList({ newsList: this.newsList ?? [], listScroller: this.listScroller })
+          NewsList({ newsList: this.newsList ?? [], listScroller: this.listScroller, navStuck: this.navPathStuck })
         }
-        .onReachStart(()=>{
+        .onReachStart(() => {
           this.isNewsListSticky.isSticky = false
         })
         .edgeEffect(EdgeEffect.Spring, { alwaysEnabled: true })

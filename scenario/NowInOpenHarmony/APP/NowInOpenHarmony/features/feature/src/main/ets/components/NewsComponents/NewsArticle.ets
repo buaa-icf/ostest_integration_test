@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 import {
-  CONTENT_TYPE_ENUM,
-  DEVICE_TYPES, NewsArticle, NewsContentBlock } from "common"
+  CONTENT_TYPE_ENUM, DEVICE_TYPES, NewsArticle, NewsContentBlock
+} from "common"
 import { deviceInfo } from "@kit.BasicServicesKit"
 import { LvMarkdownIn } from '@luvi/lv-markdown-in'
+
 /**
  * 文章内容渲染组件
  * @param article 带渲染文章内容
@@ -35,43 +36,58 @@ export struct NewsArticleView {
   @Param baseFontSize: number = 0
   @Local deviceType: DEVICE_TYPES =
     deviceInfo.deviceType === DEVICE_TYPES.PHONE ? DEVICE_TYPES.PHONE : DEVICE_TYPES.TABLET
+
   @Builder
-  articleInfoBuilder(){
-    Row(){
-      Text(`日期：${this.article.date} ${this.article.source?'来源：':''}${this.article.source}`)
-        .fontSize(this.baseFontSize)
+  articleInfoBuilder() {
+    Row() {
+      Text(`日期：${this.article.date} ${this.article.source ? '来源：' : ''}${this.article.source}`)
+        .fontSize(this.baseFontSize+(this.deviceType === DEVICE_TYPES.PHONE ? 8 : 12))
     }
     .width('100%')
   }
+
   build() {
     // 根组件
-    Column() {
-      Text(this.article.title)
-        .alignSelf(ItemAlign.Start)
-        .fontSize(this.baseFontSize + this.deviceType === DEVICE_TYPES.PHONE ? 8 : 10)
-      // 日期来源行
-      this.articleInfoBuilder()
-      
-      ForEach(this.article.content,(item:NewsContentBlock,i:number)=>{
-        if (item.type === CONTENT_TYPE_ENUM.TEXT) {
-          Text(item.value)
-            .fontSize(this.baseFontSize)
-        }else if (item.type === CONTENT_TYPE_ENUM.IMAGE){
-          Image(item.value)
-            .width('80%')
-        }else if (item.type === CONTENT_TYPE_ENUM.VIDEO){
-          Video({
-            src:item.value
-          })
-        }else if (item.type === CONTENT_TYPE_ENUM.CODE){
-          LvMarkdownIn({
-            text:item.value
-          })
-        }
-      })
+    Scroll() {
+      Column({space:10+(this.baseFontSize*(this.deviceType === DEVICE_TYPES.PHONE ?0.3:0.5))}) {
+        Text(this.article.title)
+          .alignSelf(ItemAlign.Start)
+          .fontSize(this.baseFontSize + (this.deviceType === DEVICE_TYPES.PHONE ? 12 : 16))
+          .fontWeight(900)
+        // 日期来源行
+        this.articleInfoBuilder()
+
+        ForEach(this.article.content, (item: NewsContentBlock, i: number) => {
+          if (item.type === CONTENT_TYPE_ENUM.TEXT) {
+            Text(item.value)
+              .fontSize(this.baseFontSize+ (this.deviceType === DEVICE_TYPES.PHONE ? 0 : 6))
+          } else if (item.type === CONTENT_TYPE_ENUM.IMAGE) {
+            Image(item.value)
+              .width('80%')
+              .alignSelf(ItemAlign.Center)
+          } else if (item.type === CONTENT_TYPE_ENUM.VIDEO) {
+            Video({
+              src: item.value
+            })
+              .width('80%')
+              .alignSelf(ItemAlign.Center)
+          } else if (item.type === CONTENT_TYPE_ENUM.CODE) {
+            LvMarkdownIn({
+              text: item.value
+            })
+          }
+        })
+      }
+      .padding(5)
+      .borderRadius(20)
+      .alignItems(HorizontalAlign.Start)
+      .backgroundColor($r('app.color.article_info_builder_bg'))
+
     }
-    .backgroundColor($r('app.color.article_info_builder_bg'))
+    .scrollBar(BarState.Off)
+    .borderRadius(20)
     .width('100%')
     .height('100%')
+
   }
 }

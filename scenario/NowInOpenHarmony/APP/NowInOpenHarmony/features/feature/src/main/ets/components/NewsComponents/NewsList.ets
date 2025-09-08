@@ -22,7 +22,8 @@ import {
   NewsArticle,
   NewsListHeaderIsSticky,
   NEWS_LIST_ANIMATION_PARAM,
-  NewsListDataSource
+  NewsListDataSource,
+  NAV_DESTS
 } from "common"
 import { AppStorageV2, curves } from "@kit.ArkUI"
 import { deviceInfo } from "@kit.BasicServicesKit"
@@ -33,6 +34,7 @@ const NewsList_LOG_TAG = 'NewsList: '
 export struct NewsList {
   @Param listScroller: Scroller = new Scroller()
   @Param newsList: NewsArticle[] = []
+  @Param navStuck:NavPathStack = new NavPathStack()
   @Local navPathStuck: NavPathStack = AppStorageV2.connect(NavPathStack, NAV_PATH_STUCK, () => new NavPathStack())!
   @Local deviceType: DEVICE_TYPES =
     deviceInfo.deviceType === DEVICE_TYPES.PHONE ? DEVICE_TYPES.PHONE : DEVICE_TYPES.TABLET
@@ -172,6 +174,12 @@ export struct NewsList {
           .borderRadius(20)
 
         }
+        .onClick(()=>{
+          this.navStuck.replacePath({
+            name:NAV_DESTS.ARTICLE,
+            param:news
+          })
+        })
         .transition(NEWS_LIST_ITEM_ANIMATE_PARAM)
         .width('100%')
         .alignSelf(ItemAlign.Center)

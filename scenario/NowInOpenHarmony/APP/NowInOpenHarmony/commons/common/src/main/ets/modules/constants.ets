@@ -24,6 +24,7 @@ export const NEWS_LIST_ITEM_ANIMATE_PARAM = TransitionEffect.OPACITY
 
 export enum NAV_DESTS {
   MAIN = 'Main',
+  ARTICLE = 'Article'
 }
 
 export enum KV_DB_KEYS {
