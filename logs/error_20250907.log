@@ -1,0 +1,155 @@
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:39:47 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:39:47 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:40:24 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:40:24 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:50:41 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:50:41 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:50:41 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:50:41 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:50:41 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:50:41 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:50:41 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:50:41 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:50:41 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:50:41 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:51:30 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:51:30 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:51:30 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:51:30 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:51:30 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:51:30 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:51:30 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:51:30 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:51:30 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:51:30 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']
+2025-09-07 18:51:30 - services.news_service - ERROR - ❌ [CSDN批次] 文章数据转换失败: 1 validation error for NewsArticle
+date
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-07 18:51:30 - services.news_service - ERROR - 文章数据字段: ['id', 'title', 'date', 'url', 'content', 'category', 'summary', 'source', 'created_at', 'updated_at']

@@ -25,6 +25,7 @@ import {
 import { ColorModChoseButton } from 'feature'
 import { MainPage } from './nav_pages/MainPage'
 import { deviceInfo } from '@kit.BasicServicesKit'
+import { ArticlePage } from './nav_pages/ArticlePage'
 
 const Main_LOG_TAG = 'Main: '
 
@@ -91,6 +92,8 @@ struct Main {
   NavDestMap(name: string) {
     if (name === NAV_DESTS.MAIN) {
       Main()
+    }else if (name === NAV_DESTS.ARTICLE) {
+      ArticlePage()
     }
   }
 

@@ -39,6 +39,7 @@ class ServerHealthAPI {
 
     } catch (err) {
       logger.error(ServerHealthAPI_TAG+'err: ' + JSON.stringify(err))
+      return false
     }
     return false
   }

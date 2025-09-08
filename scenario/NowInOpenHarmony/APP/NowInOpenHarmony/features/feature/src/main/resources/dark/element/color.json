@@ -55,6 +55,10 @@
     {
       "name": "back_to_top",
       "value": "#FFFFFFFF"
+    },
+    {
+      "name": "article_info_builder_bg",
+      "value": "#CD000000"
     }
   ]
 }
