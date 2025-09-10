@@ -21,6 +21,10 @@ from datetime import datetime
 from enum import Enum
 
 from models.news import NewsArticle, NewsResponse
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from services.openharmony_image_crawler import OpenHarmonyImageCrawler
 
 logger = logging.getLogger(__name__)
 
@@ -261,6 +265,127 @@ def get_news_cache() -> NewsCache:
 
 def init_cache():
     """初始化缓存"""
-    global _news_cache
+    global _news_cache, _banner_cache
     _news_cache = NewsCache()
-    logger.info("新闻缓存初始化完成") 
+    _banner_cache = BannerCache()
+    logger.info("新闻缓存初始化完成")
+    logger.info("轮播图缓存初始化完成")
+
+
+class BannerCache:
+    """轮播图缓存管理器"""
+    
+    def __init__(self):
+        self._cache: List[Dict[str, Any]] = []
+        self._cache_lock = threading.RLock()
+        self._status = ServiceStatus.PREPARING  # 初始状态为准备中，等待首次爬取
+        self._last_update = None
+        self._update_count = 0
+        self._error_message = None
+        self._is_updating = False
+        self._first_load_completed = False  # 标记是否完成首次加载
+        
+    def get_status(self) -> Dict[str, Any]:
+        """获取轮播图服务状态"""
+        with self._cache_lock:
+            return {
+                "status": self._status.value,
+                "last_update": self._last_update,
+                "cache_count": len(self._cache),
+                "update_count": self._update_count,
+                "error_message": self._error_message,
+                "is_updating": self._is_updating,
+                "first_load_completed": self._first_load_completed
+            }
+    
+    def set_status(self, status: ServiceStatus, error_message: Optional[str] = None):
+        """设置服务状态"""
+        with self._cache_lock:
+            self._status = status
+            self._error_message = error_message
+            logger.info(f"轮播图服务状态更新: {status.value}")
+    
+    def set_updating(self, is_updating: bool):
+        """设置更新状态"""
+        with self._cache_lock:
+            self._is_updating = is_updating
+            if is_updating:
+                logger.info("开始轮播图数据更新，状态设为准备中")
+                self.set_status(ServiceStatus.PREPARING)
+            else:
+                logger.info("轮播图数据更新完成，状态设为就绪")
+                self.set_status(ServiceStatus.READY)
+    
+    def get_banner_images(self) -> List[Dict[str, Any]]:
+        """获取轮播图数据"""
+        with self._cache_lock:
+            if self._status == ServiceStatus.ERROR:
+                raise Exception(f"轮播图服务错误: {self._error_message}")
+            
+            return self._cache.copy()
+    
+    def update_cache(self, banner_data: List[Dict[str, Any]]):
+        """更新轮播图缓存数据"""
+        with self._cache_lock:
+            try:
+                # 设置更新状态
+                self.set_updating(True)
+                
+                # 更新缓存
+                self._cache = banner_data.copy()
+                self._last_update = datetime.now().isoformat()
+                self._update_count += 1
+                
+                # 标记首次加载完成
+                if not self._first_load_completed:
+                    self._first_load_completed = True
+                    logger.info("🎉 轮播图首次加载完成")
+                
+                # 设置完成状态 - 只有在有数据时才设为READY
+                if len(banner_data) > 0:
+                    self.set_updating(False)  # 这会设置为READY
+                    logger.info(f"🖼️ 轮播图缓存更新成功，共 {len(banner_data)} 张图片，状态：READY")
+                else:
+                    # 如果没有数据，保持PREPARING状态
+                    self._is_updating = False
+                    self._status = ServiceStatus.PREPARING
+                    logger.warning("⚠️ 轮播图缓存更新完成，但未获取到数据，状态保持：PREPARING")
+                
+            except Exception as e:
+                error_msg = f"轮播图缓存更新失败: {str(e)}"
+                self.set_status(ServiceStatus.ERROR, error_msg)
+                self._is_updating = False
+                logger.error(error_msg)
+                raise
+    
+    def get_cache_info(self) -> Dict[str, Any]:
+        """获取轮播图缓存信息"""
+        with self._cache_lock:
+            return {
+                "cache_size": len(self._cache),
+                "last_update": self._last_update,
+                "update_count": self._update_count,
+                "status": self._status.value,
+                "error_message": self._error_message,
+                "is_updating": self._is_updating
+            }
+    
+    def clear_cache(self):
+        """清空轮播图缓存"""
+        with self._cache_lock:
+            self._cache.clear()
+            self._last_update = None
+            self._update_count = 0
+            self.set_updating(True)
+            logger.info("轮播图缓存已清空")
+
+
+# 全局轮播图缓存实例
+_banner_cache: Optional[BannerCache] = None
+
+def get_banner_cache() -> BannerCache:
+    """获取轮播图缓存实例"""
+    global _banner_cache
+    if _banner_cache is None:
+        _banner_cache = BannerCache()
+    return _banner_cache 

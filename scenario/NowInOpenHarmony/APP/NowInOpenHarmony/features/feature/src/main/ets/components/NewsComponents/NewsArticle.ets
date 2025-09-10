@@ -59,7 +59,7 @@ export struct NewsArticleView {
 
         ForEach(this.article.content, (item: NewsContentBlock, i: number) => {
           if (item.type === CONTENT_TYPE_ENUM.TEXT) {
-            Text(item.value)
+            Text(`        ${item.value}`)
               .fontSize(this.baseFontSize+ (this.deviceType === DEVICE_TYPES.PHONE ? 0 : 6))
           } else if (item.type === CONTENT_TYPE_ENUM.IMAGE) {
             Image(item.value)
@@ -73,7 +73,7 @@ export struct NewsArticleView {
               .alignSelf(ItemAlign.Center)
           } else if (item.type === CONTENT_TYPE_ENUM.CODE) {
             LvMarkdownIn({
-              text: item.value
+              text: `        ${item.value}`
             })
           }
         })

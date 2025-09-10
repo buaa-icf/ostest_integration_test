@@ -12,13 +12,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * 首页顶部轮播图数据结构
- */
-export interface NewsSwiperResModule{
-  success:boolean
-  images:ResourceStr[]
-  total:4
-  message:string
-  timestamp:string
+
+export interface SwiperState {
+  cache_status: CacheStatus
+}
+
+export interface CacheStatus {
+  status: CACHE_STATUS
+  error_message:null|string
+}
+
+export enum CACHE_STATUS {
+  preparing = 'preparing',
+  ready = 'ready',
+  error = 'error'
 }

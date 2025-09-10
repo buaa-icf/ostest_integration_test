@@ -14,7 +14,7 @@
  */
 import { promptAction, Router } from "@kit.ArkUI"
 import {
-  logger, NewsArticle, newsListApi, serverHealthApi
+  logger, NewsArticle, NewsListAPI, ServerHealthAPI
 } from "common"
 
 const START_PAGE_TAGE = 'StartPage:  '
@@ -33,7 +33,7 @@ struct StarPage {
       logger.debug(START_PAGE_TAGE + '清理启动页')
       this.uiRouter.clear()
     }, 2000)
-    await serverHealthApi.isServerReady().then((res: boolean) => {
+    await ServerHealthAPI.isServerReady().then((res: boolean) => {
       logger.debug(START_PAGE_TAGE + res.valueOf())
       if (res) {
         isServerReady = true
@@ -45,7 +45,7 @@ struct StarPage {
     })
     if (isServerReady) {
       logger.debug(START_PAGE_TAGE + '尝试获取全部新闻列表')
-      newsListApi.getAllNews().then((res: NewsArticle[] | null) => {
+      NewsListAPI.getAllNews().then((res: NewsArticle[] | null) => {
         if (res === null) {
           logger.warn(START_PAGE_TAGE + '')
         } else {

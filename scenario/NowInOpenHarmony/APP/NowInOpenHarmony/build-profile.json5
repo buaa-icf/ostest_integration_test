@@ -19,13 +19,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.cer",
+          "storeFile": "./sign/default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p12",
+          "storePassword": "0000001AD3F3E55F18587E026613C67EA8F3BD69F0DF8859EBC45272F4029A6CC944C9C6772ED31B2631",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001A309A5BCE57EE73B7E9696205D1A5C3236A017A41DA14CA932F95A44C8F009F2C0E21E18E1CFE",
-          "profile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p7b",
+          "keyPassword": "0000001A64EE903990C9AAC4A36E093C676B5AC6E1E0180F9C96EFC18546A82AEB6EF27F9EA80C8C0D44",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p12",
-          "storePassword": "0000001A2A407AD383E8ED4997205B89C5E4F54947EE90FEEA4AB9B1A0A21777A051B343A19742CA4128"
+          "profile": "./sign/default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p7b",
+          "certpath": "./sign/default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.cer"
         }
       }
     ],

@@ -48,8 +48,9 @@ export class AppInit {
   async initAll(uiAbilityContext: common.UIAbilityContext, applicationContext: common.ApplicationContext) {
     await newsManager.init(uiAbilityContext)
     this.configInit(uiAbilityContext)
-    await colorModManager.init(applicationContext)
+    colorModManager.init(applicationContext)
     await newsManager.updateNewsListToDB()
+    await newsManager.updateNewsSwiperToDB()
   }
   markDownConfigInit(){
     let baseFontSize =  AppStorageV2.connect(UserConfigViewModel, GET_USER_CONFIG, () => new UserConfigViewModel())!.fontSize

@@ -147,61 +147,6 @@ async def get_openharmony_news(
         logger.error(f"获取OpenHarmony官网新闻失败: {e}")
         raise HTTPException(status_code=500, detail="获取OpenHarmony官网新闻失败")
 
-@router.get("/csdn", response_model=NewsResponse)
-async def get_csdn_news(
-    page: int = Query(1, ge=1, description="页码"),
-    page_size: int = Query(20, ge=1, le=100, description="每页数量"),
-    search: Optional[str] = Query(None, description="搜索关键词")
-):
-    """
-    获取CSDN最新资讯
-    """
-    try:
-        # 从缓存获取数据，过滤CSDN来源
-        cache = get_news_cache()
-        cache_status = cache.get_status()
-        
-        # 检查服务状态
-        if cache_status["status"] == ServiceStatus.ERROR.value:
-            raise HTTPException(
-                status_code=503, 
-                detail=f"服务暂时不可用: {cache_status.get('error_message', '未知错误')}"
-            )
-        
-        # 如果服务正在准备中，返回提示信息
-        if cache_status["status"] == ServiceStatus.PREPARING.value:
-            return NewsResponse(
-                articles=[],
-                total=0,
-                page=page,
-                page_size=page_size,
-                has_next=False,
-                has_prev=False
-            )
-        
-        # 从缓存获取数据，只返回CSDN来源的文章
-        result = cache.get_news(page=page, page_size=page_size, search=search)
-        
-        # 过滤只保留CSDN来源的文章
-        filtered_articles = [
-            article for article in result.articles 
-            if getattr(article, 'source', None) == 'CSDN'
-        ]
-        
-        return NewsResponse(
-            articles=filtered_articles,
-            total=len(filtered_articles),
-            page=page,
-            page_size=page_size,
-            has_next=len(filtered_articles) == page_size,
-            has_prev=page > 1
-        )
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"获取CSDN新闻失败: {e}")
-        raise HTTPException(status_code=500, detail="获取CSDN新闻失败")
 
 @router.post("/crawl")
 async def crawl_news(
@@ -279,7 +224,6 @@ async def get_service_status():
             "endpoints": {
                 "all_news": "/api/news/",
                 "openharmony_news": "/api/news/openharmony",
-                "csdn_news": "/api/news/csdn",
                 "news_detail": "/api/news/{article_id}",
                 "manual_crawl": "/api/news/crawl",
                 "service_status": "/api/news/status/info",
