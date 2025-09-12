@@ -51,9 +51,9 @@ export struct NewsArticleView {
     Scroll() {
       Column({space:10+(this.baseFontSize*(this.deviceType === DEVICE_TYPES.PHONE ?0.3:0.5))}) {
         Text(this.article.title)
-          .alignSelf(ItemAlign.Start)
           .fontSize(this.baseFontSize + (this.deviceType === DEVICE_TYPES.PHONE ? 12 : 16))
           .fontWeight(900)
+          .alignSelf(ItemAlign.Center)
         // 日期来源行
         this.articleInfoBuilder()
 
@@ -61,20 +61,24 @@ export struct NewsArticleView {
           if (item.type === CONTENT_TYPE_ENUM.TEXT) {
             Text(`        ${item.value}`)
               .fontSize(this.baseFontSize+ (this.deviceType === DEVICE_TYPES.PHONE ? 0 : 6))
+              .width('90%')
+              .alignSelf(ItemAlign.Center)
           } else if (item.type === CONTENT_TYPE_ENUM.IMAGE) {
             Image(item.value)
-              .width('80%')
+              .width('90%')
               .alignSelf(ItemAlign.Center)
           } else if (item.type === CONTENT_TYPE_ENUM.VIDEO) {
             Video({
               src: item.value
             })
-              .width('80%')
+              .width('90%')
               .alignSelf(ItemAlign.Center)
           } else if (item.type === CONTENT_TYPE_ENUM.CODE) {
             LvMarkdownIn({
               text: `        ${item.value}`
             })
+              .width('90%')
+              .alignSelf(ItemAlign.Center)
           }
         })
       }

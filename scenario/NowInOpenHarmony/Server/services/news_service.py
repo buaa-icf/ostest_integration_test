@@ -16,11 +16,13 @@ from typing import List, Dict, Optional
 from enum import Enum
 
 from .openharmony_crawler import OpenHarmonyCrawler
+from .openharmony_blog_crawler import OpenHarmonyBlogCrawler
 
 logger = logging.getLogger(__name__)
 
 class NewsSource(str, Enum):
     OPENHARMONY = "openharmony"
+    OPENHARMONY_BLOG = "openharmony_blog"
     ALL = "all"
 
 class NewsService:
@@ -30,6 +32,7 @@ class NewsService:
     
     def __init__(self):
         self.openharmony_crawler = OpenHarmonyCrawler()
+        self.openharmony_blog_crawler = OpenHarmonyBlogCrawler()
     
     def crawl_news(self, source: NewsSource = NewsSource.ALL) -> List[Dict]:
         """
@@ -44,13 +47,9 @@ class NewsService:
         articles = []
         
         try:
-            if source == NewsSource.OPENHARMONY or source == NewsSource.ALL:
-                logger.info("🌐 开始爬取OpenHarmony官网新闻...")
-                
-                import time
-                
-                # 定义分批回调函数
-                def oh_batch_callback(batch_articles):
+            # 通用分批回调函数
+            def create_batch_callback(source_name):
+                def batch_callback(batch_articles):
                     from core.cache import get_news_cache
                     from models.news import NewsArticle
                     cache = get_news_cache()
@@ -69,25 +68,33 @@ class NewsService:
                                         if isinstance(block, dict) and 'type' in block and 'value' in block:
                                             validated_content.append(block)
                                         else:
-                                            logger.warning(f"⚠️ [OpenHarmony批次] 无效的content块: {block}")
+                                            logger.warning(f"⚠️ [{source_name}批次] 无效的content块: {block}")
                                     article_dict['content'] = validated_content
                                 else:
-                                    logger.warning(f"⚠️ [OpenHarmony批次] content不是列表格式: {type(content)}")
+                                    logger.warning(f"⚠️ [{source_name}批次] content不是列表格式: {type(content)}")
                                     article_dict['content'] = []
                             
                             news_article = NewsArticle(**article_dict)
                             news_articles.append(news_article)
                         except Exception as e:
-                            logger.error(f"❌ [OpenHarmony批次] 文章数据转换失败: {e}")
+                            logger.error(f"❌ [{source_name}批次] 文章数据转换失败: {e}")
                             logger.error(f"文章数据字段: {list(article_dict.keys()) if isinstance(article_dict, dict) else type(article_dict)}")
                             continue
                     
                     if news_articles:
                         cache.append_to_cache(news_articles)
-                        logger.info(f"📝 [OpenHarmony批次] 已写入 {len(news_articles)} 篇文章到缓存")
+                        logger.info(f"📝 [{source_name}批次] 已写入 {len(news_articles)} 篇文章到缓存")
                     else:
-                        logger.warning(f"⚠️ [OpenHarmony批次] 没有有效文章可写入")
+                        logger.warning(f"⚠️ [{source_name}批次] 没有有效文章可写入")
+                return batch_callback
+            
+            import time
+            
+            # 爬取OpenHarmony官网新闻
+            if source == NewsSource.OPENHARMONY or source == NewsSource.ALL:
+                logger.info("🌐 开始爬取OpenHarmony官网新闻...")
                 
+                oh_batch_callback = create_batch_callback("OpenHarmony官网")
                 start_time = time.time()
                 oh_articles = self.openharmony_crawler.crawl_openharmony_news(
                     batch_callback=oh_batch_callback, batch_size=20)
@@ -95,6 +102,19 @@ class NewsService:
                 
                 articles.extend(oh_articles)
                 logger.info(f"✅ OpenHarmony官网新闻爬取完成，获取 {len(oh_articles)} 篇文章，耗时 {end_time-start_time:.2f}秒")
+            
+            # 爬取OpenHarmony技术博客
+            if source == NewsSource.OPENHARMONY_BLOG or source == NewsSource.ALL:
+                logger.info("📚 开始爬取OpenHarmony技术博客...")
+                
+                blog_batch_callback = create_batch_callback("OpenHarmony博客")
+                start_time = time.time()
+                blog_articles = self.openharmony_blog_crawler.crawl_openharmony_blog_news(
+                    batch_callback=blog_batch_callback, batch_size=20)
+                end_time = time.time()
+                
+                articles.extend(blog_articles)
+                logger.info(f"✅ OpenHarmony技术博客爬取完成，获取 {len(blog_articles)} 篇文章，耗时 {end_time-start_time:.2f}秒")
             
         except Exception as e:
             logger.error(f"新闻爬取过程中发生错误: {e}")
@@ -114,6 +134,12 @@ class NewsService:
                 "source": NewsSource.OPENHARMONY,
                 "name": "OpenHarmony官网",
                 "description": "OpenHarmony官方网站最新动态和新闻",
+                "base_url": "https://www.openharmony.cn"
+            },
+            {
+                "source": NewsSource.OPENHARMONY_BLOG,
+                "name": "OpenHarmony技术博客",
+                "description": "OpenHarmony官网技术博客文章，深度技术分享",
                 "base_url": "https://www.openharmony.cn"
             }
         ]

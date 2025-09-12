@@ -155,7 +155,9 @@ def print_startup_info(host, port):
             break
     
     print("\n🎯 主要API端点:")
-    print(f"  📰 新闻列表: http://{preferred_ip}:{port}/api/news/?all=true")
+    print(f"  📰 全部新闻: http://{preferred_ip}:{port}/api/news/?all=true")
+    print(f"  🌐 官网新闻: http://{preferred_ip}:{port}/api/news/openharmony")
+    print(f"  📚 技术博客: http://{preferred_ip}:{port}/api/news/blog")
     print(f"  📱 Banner图片: http://{preferred_ip}:{port}/api/banner/mobile")
     print(f"  ⚡ 服务状态: http://{preferred_ip}:{port}/api/health")
     
@@ -177,7 +179,8 @@ def print_startup_info(host, port):
     print(f"  分页新闻: http://{base_ip}:{port}/api/news/?page=1&page_size=20")
     print(f"  搜索新闻: http://{base_ip}:{port}/api/news/?search=关键词")
     print(f"  分类新闻: http://{base_ip}:{port}/api/news/?category=官方动态")
-    print(f"  OpenHarmony新闻: http://{base_ip}:{port}/api/news/openharmony")
+    print(f"  OpenHarmony官网: http://{base_ip}:{port}/api/news/openharmony")
+    print(f"  OpenHarmony技术博客: http://{base_ip}:{port}/api/news/blog")
     print(f"  手动爬取: http://{base_ip}:{port}/api/news/crawl (POST)")
     print(f"  新闻服务状态: http://{base_ip}:{port}/api/news/status/info")
     
@@ -191,7 +194,9 @@ def print_startup_info(host, port):
     print(f"  清空Banner缓存: http://{base_ip}:{port}/api/banner/cache/clear (DELETE)")
     
     print("\n📊 API参数示例:")
-    print(f"  强制爬取新闻: http://{base_ip}:{port}/api/news/crawl?source=all&limit=50")
+    print(f"  强制爬取全部新闻: http://{base_ip}:{port}/api/news/crawl?source=all&limit=50")
+    print(f"  爬取官网新闻: http://{base_ip}:{port}/api/news/crawl?source=openharmony")
+    print(f"  爬取技术博客: http://{base_ip}:{port}/api/news/crawl?source=openharmony_blog")
     print(f"  强制爬取Banner: http://{base_ip}:{port}/api/banner/mobile?force_crawl=true")
     print(f"  下载Banner图片: http://{base_ip}:{port}/api/banner/mobile/enhanced?download_images=true")
     print(f"  增强版爬取: http://{base_ip}:{port}/api/banner/crawl?use_enhanced=true")

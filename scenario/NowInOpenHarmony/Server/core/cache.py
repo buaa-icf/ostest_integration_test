@@ -102,11 +102,22 @@ class NewsCache:
                        (news.summary and search_lower in news.summary.lower())
                 ]
             
-            # 时间排序：按日期由近到远排序
+            # 🔥 改进：由于缓存写入时已经排序，这里只做轻量级验证
+            # 检查是否需要重新排序（防御性编程）
             try:
-                filtered_news.sort(key=lambda x: self._parse_date_for_sorting(x.date), reverse=True)
+                if len(filtered_news) > 1:
+                    # 检查前两篇文章的日期顺序
+                    first_date = self._parse_date_for_sorting(filtered_news[0].date)
+                    second_date = self._parse_date_for_sorting(filtered_news[1].date)
+                    
+                    # 如果顺序不对，重新排序
+                    if first_date < second_date:
+                        logger.info("🔄 [读取排序] 检测到顺序异常，执行重新排序")
+                        filtered_news.sort(key=lambda x: self._parse_date_for_sorting(x.date), reverse=True)
+                    else:
+                        logger.debug("✅ [读取排序] 日期顺序正确，无需重新排序")
             except Exception as e:
-                logger.warning(f"日期排序失败，使用原始顺序: {e}")
+                logger.warning(f"⚠️ [读取排序] 日期顺序检查失败，使用原始顺序: {e}")
             
             # 分页处理
             total = len(filtered_news)
@@ -124,17 +135,67 @@ class NewsCache:
             )
     
     def _parse_date_for_sorting(self, date_str: str) -> datetime:
-        """解析日期字符串用于排序"""
+        """
+        解析日期字符串用于排序，支持多种日期格式
+        支持格式：2024-08-31, 2024.08.31, 2024/08/31, 2024年08月31日等
+        """
         try:
-            # 尝试多种日期格式
+            if not date_str or not isinstance(date_str, str):
+                logger.warning(f"无效的日期字符串: {date_str}")
+                return datetime(1970, 1, 1)
+            
+            # 清理日期字符串
+            date_str = date_str.strip()
+            
+            # 1. 优先使用正则表达式提取日期组件，支持更多格式
+            import re
+            
+            # 匹配 YYYY-MM-DD, YYYY.MM.DD, YYYY/MM/DD 格式（支持单数字月/日）
+            date_patterns = [
+                r'(\d{4})[-./](\d{1,2})[-./](\d{1,2})',  # 2024-08-31, 2024.08.31, 2024/08/31
+                r'(\d{4})年(\d{1,2})月(\d{1,2})日?',      # 2024年08月31日
+                r'(\d{4})年(\d{1,2})月(\d{1,2})',        # 2024年08月31
+                r'(\d{1,2})[-./](\d{1,2})[-./](\d{4})',  # 31-08-2024, 31.08.2024 (DD-MM-YYYY)
+            ]
+            
+            for pattern in date_patterns:
+                match = re.search(pattern, date_str)
+                if match:
+                    groups = match.groups()
+                    try:
+                        if len(groups) == 3:
+                            # 检查是否是DD-MM-YYYY格式
+                            if pattern.startswith(r'(\d{1,2})'):
+                                day, month, year = groups
+                            else:
+                                year, month, day = groups
+                            
+                            year = int(year)
+                            month = int(month)
+                            day = int(day)
+                            
+                            # 验证日期有效性
+                            if 1 <= month <= 12 and 1 <= day <= 31 and 1900 <= year <= 2100:
+                                parsed_date = datetime(year, month, day)
+                                logger.debug(f"✅ 日期解析成功: {date_str} -> {parsed_date.strftime('%Y-%m-%d')}")
+                                return parsed_date
+                    except (ValueError, TypeError) as e:
+                        logger.debug(f"正则匹配但转换失败: {date_str}, 错误: {e}")
+                        continue
+            
+            # 2. 如果正则匹配失败，尝试标准datetime格式
             date_formats = [
-                '%Y-%m-%d',           # 2023-12-25
-                '%Y/%m/%d',           # 2023/12/25
-                '%Y-%m-%d %H:%M:%S',  # 2023-12-25 10:30:00
-                '%Y/%m/%d %H:%M:%S',  # 2023/12/25 10:30:00
-                '%Y年%m月%d日',        # 2023年12月25日
-                '%m-%d',              # 12-25 (假设为当年)
-                '%m/%d',              # 12/25 (假设为当年)
+                '%Y-%m-%d',           # 2024-08-31
+                '%Y.%m.%d',           # 2024.08.31
+                '%Y/%m/%d',           # 2024/08/31
+                '%Y-%m-%d %H:%M:%S',  # 2024-08-31 10:30:00
+                '%Y.%m.%d %H:%M:%S',  # 2024.08.31 10:30:00
+                '%Y/%m/%d %H:%M:%S',  # 2024/08/31 10:30:00
+                '%Y年%m月%d日',        # 2024年08月31日
+                '%Y年%m月%d',          # 2024年08月31
+                '%m-%d',              # 08-31 (假设为当年)
+                '%m.%d',              # 08.31 (假设为当年)
+                '%m/%d',              # 08/31 (假设为当年)
             ]
             
             for date_format in date_formats:
@@ -143,24 +204,92 @@ class NewsCache:
                     # 如果只有月日，补充当前年份
                     if '%Y' not in date_format:
                         parsed_date = parsed_date.replace(year=datetime.now().year)
+                    logger.debug(f"✅ strptime解析成功: {date_str} -> {parsed_date.strftime('%Y-%m-%d')}")
                     return parsed_date
                 except ValueError:
                     continue
             
-            # 如果都失败了，尝试提取数字
-            import re
-            date_match = re.search(r'(\d{4})[-/年](\d{1,2})[-/月](\d{1,2})', date_str)
-            if date_match:
-                year, month, day = date_match.groups()
-                return datetime(int(year), int(month), int(day))
+            # 3. 最后的尝试：提取任何可能的数字组合
+            number_match = re.findall(r'\d+', date_str)
+            if len(number_match) >= 3:
+                try:
+                    # 假设第一个是年份（如果是4位数），否则按顺序处理
+                    nums = [int(x) for x in number_match[:3]]
+                    
+                    # 判断年份位置
+                    if nums[0] > 1900:  # 第一个数字是年份
+                        year, month, day = nums[0], nums[1], nums[2]
+                    elif nums[2] > 1900:  # 第三个数字是年份
+                        day, month, year = nums[0], nums[1], nums[2]
+                    else:
+                        # 默认当前年份
+                        year = datetime.now().year
+                        month, day = nums[0], nums[1]
+                    
+                    if 1 <= month <= 12 and 1 <= day <= 31:
+                        parsed_date = datetime(year, month, day)
+                        logger.debug(f"✅ 数字提取解析成功: {date_str} -> {parsed_date.strftime('%Y-%m-%d')}")
+                        return parsed_date
+                except (ValueError, IndexError):
+                    pass
             
             # 最后的fallback：返回Unix纪元时间
-            logger.warning(f"无法解析日期格式: {date_str}")
+            logger.warning(f"⚠️ 无法解析日期格式: '{date_str}'，使用默认时间")
             return datetime(1970, 1, 1)
             
         except Exception as e:
-            logger.warning(f"日期解析异常: {date_str}, 错误: {e}")
+            logger.error(f"❌ 日期解析异常: '{date_str}', 错误: {e}")
             return datetime(1970, 1, 1)
+    
+    def _sort_articles_by_date(self, articles: List[NewsArticle]) -> List[NewsArticle]:
+        """
+        按日期对文章进行排序（由近到远）
+        在数据合并时统一触发排序，确保数据一致性
+        """
+        try:
+            if not articles:
+                return articles
+            
+            logger.info(f"🔄 [缓存排序] 开始对 {len(articles)} 篇文章进行日期排序...")
+            
+            # 统计日期解析情况
+            parse_stats = {"success": 0, "failed": 0, "examples": []}
+            
+            def sort_key_with_stats(article):
+                parsed_date = self._parse_date_for_sorting(article.date)
+                if parsed_date.year > 1970:
+                    parse_stats["success"] += 1
+                    if len(parse_stats["examples"]) < 3:
+                        parse_stats["examples"].append(f"{article.date} -> {parsed_date.strftime('%Y-%m-%d')}")
+                else:
+                    parse_stats["failed"] += 1
+                return parsed_date
+            
+            # 执行排序
+            sorted_articles = sorted(articles, key=sort_key_with_stats, reverse=True)
+            
+            # 输出统计信息
+            total = len(articles)
+            success_rate = (parse_stats["success"] / total * 100) if total > 0 else 0
+            
+            logger.info(f"✅ [缓存排序] 排序完成！")
+            logger.info(f"📊 [缓存排序] 成功解析: {parse_stats['success']}/{total} ({success_rate:.1f}%)")
+            if parse_stats["failed"] > 0:
+                logger.warning(f"⚠️ [缓存排序] 解析失败: {parse_stats['failed']} 篇文章")
+            
+            if parse_stats["examples"]:
+                logger.info(f"📅 [缓存排序] 解析示例: {', '.join(parse_stats['examples'])}")
+            
+            # 显示排序后的前几篇文章的日期
+            if sorted_articles:
+                latest_dates = [article.date for article in sorted_articles[:3]]
+                logger.info(f"📈 [缓存排序] 最新文章日期: {latest_dates}")
+            
+            return sorted_articles
+            
+        except Exception as e:
+            logger.error(f"❌ [缓存排序] 排序失败: {e}")
+            return articles  # 排序失败时返回原列表
     
     def update_cache(self, news_data: List[NewsArticle]):
         """更新缓存数据（完全替换）"""
@@ -169,8 +298,12 @@ class NewsCache:
                 # 设置更新状态为True，状态变为准备中
                 self.set_updating(True)
                 
+                # 🔥 关键改进：在数据合并时触发日期排序
+                logger.info(f"🔄 [完整更新] 开始更新缓存，原始数据: {len(news_data)} 篇文章")
+                sorted_news_data = self._sort_articles_by_date(news_data.copy())
+                
                 # 更新缓存
-                self._cache = news_data.copy()
+                self._cache = sorted_news_data
                 self._last_update = datetime.now().isoformat()
                 self._update_count += 1
                 
@@ -215,6 +348,11 @@ class NewsCache:
                 if unique_articles:
                     # 追加新文章
                     self._cache.extend(unique_articles)
+                    
+                    # 🔥 关键改进：分批写入后立即触发排序，保持数据一致性
+                    logger.info(f"🔄 [分批更新] 追加 {len(unique_articles)} 篇文章后触发排序")
+                    self._cache = self._sort_articles_by_date(self._cache)
+                    
                     self._last_update = datetime.now().isoformat()
                     
                     # 🔥 关键修改：如果缓存中有文章了，就设置状态为READY
