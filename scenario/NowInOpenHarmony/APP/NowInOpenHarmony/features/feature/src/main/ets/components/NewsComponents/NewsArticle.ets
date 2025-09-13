@@ -43,7 +43,8 @@ export struct NewsArticleView {
       Text(`日期：${this.article.date} ${this.article.source ? '来源：' : ''}${this.article.source}`)
         .fontSize(this.baseFontSize+(this.deviceType === DEVICE_TYPES.PHONE ? 8 : 12))
     }
-    .width('100%')
+    .alignSelf(ItemAlign.Start)
+    .width('95%')
   }
 
   build() {
@@ -51,6 +52,7 @@ export struct NewsArticleView {
     Scroll() {
       Column({space:10+(this.baseFontSize*(this.deviceType === DEVICE_TYPES.PHONE ?0.3:0.5))}) {
         Text(this.article.title)
+          .width('95%')
           .fontSize(this.baseFontSize + (this.deviceType === DEVICE_TYPES.PHONE ? 12 : 16))
           .fontWeight(900)
           .alignSelf(ItemAlign.Center)

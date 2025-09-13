@@ -34,8 +34,8 @@ export enum KV_DB_KEYS {
 
 // export const SERVE_BASE_ADDRESS = 'http://localhost:8001'
 // export const SERVE_BASE_ADDRESS = 'http://192.168.1.4:8001'
-// export const SERVE_BASE_ADDRESS = 'http://192.168.43.7:8001'
-export const SERVE_BASE_ADDRESS = 'http://192.168.43.6:8001'
+export const SERVE_BASE_ADDRESS = 'http://192.168.43.7:8001'
+// export const SERVE_BASE_ADDRESS = 'http://192.168.43.6:8001'
 export const GET_USER_CONFIG = 'UserConfig'
 
 
