@@ -92,7 +92,7 @@ struct Main {
   NavDestMap(name: string) {
     if (name === NAV_DESTS.MAIN) {
       Main()
-    }else if (name === NAV_DESTS.ARTICLE) {
+    } else if (name === NAV_DESTS.ARTICLE) {
       ArticlePage()
     }
   }
