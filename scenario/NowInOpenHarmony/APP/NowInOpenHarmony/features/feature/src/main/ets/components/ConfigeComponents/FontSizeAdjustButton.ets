@@ -40,19 +40,23 @@ struct FontSizeAdjustDialog {
       Text('字体大小调整')
         .fontSize(22)
         .fontWeight(600)
+        .fontColor($r('app.color.font_adjust_dialog_title'))
         .margin({ bottom: 20 })
 
       Text(`当前大小: ${this.tempFontSize}`)
         .fontSize(18)
+        .fontColor($r('app.color.font_adjust_dialog_text'))
         .margin({ bottom: 10 })
 
       Text('示例文字 Example Text')
         .fontSize(this.tempFontSize)
+        .fontColor($r('app.color.font_adjust_dialog_text'))
         .margin({ bottom: 20 })
 
       Row() {
         Text('小')
           .fontSize(12)
+          .fontColor($r('app.color.font_adjust_dialog_text'))
         Slider({
           value: this.tempFontSize,
           min: 12,
@@ -61,11 +65,15 @@ struct FontSizeAdjustDialog {
         })
           .layoutWeight(1)
           .margin({ left: 15, right: 15 })
+          .trackColor($r('app.color.font_adjust_slider_track'))
+          .selectedColor($r('app.color.font_adjust_slider_selected'))
+          .blockColor($r('app.color.font_adjust_slider_selected'))
           .onChange((value: number) => {
             this.tempFontSize = Math.round(value)
           })
         Text('大')
           .fontSize(18)
+          .fontColor($r('app.color.font_adjust_dialog_text'))
       }
       .width('100%')
       .margin({ bottom: 30 })
@@ -73,9 +81,9 @@ struct FontSizeAdjustDialog {
       Row() {
         Button('取消')
           .fontSize(16)
-          .backgroundColor(Color.Transparent)
-          .fontColor('#666666')
-          .border({ width: 1, color: '#CCCCCC' })
+          .backgroundColor($r('app.color.font_adjust_cancel_bg'))
+          .fontColor($r('app.color.font_adjust_cancel_text'))
+          .border({ width: 1, color: $r('app.color.font_adjust_dialog_border') })
           .width(100)
           .height(40)
           .onClick(() => {
@@ -85,8 +93,8 @@ struct FontSizeAdjustDialog {
 
         Button('确认')
           .fontSize(16)
-          .backgroundColor('#007DFF')
-          .fontColor(Color.White)
+          .backgroundColor($r('app.color.font_adjust_confirm_bg'))
+          .fontColor($r('app.color.font_adjust_confirm_text'))
           .width(100)
           .height(40)
           .onClick(() => {
@@ -99,7 +107,7 @@ struct FontSizeAdjustDialog {
     }
     .width(400)
     .padding(24)
-    .backgroundColor(Color.White)
+    .backgroundColor($r('app.color.font_adjust_dialog_bg'))
     .borderRadius(12)
   }
 }
@@ -217,19 +225,23 @@ export struct FontSizeAdjustButton {
       Text('字体大小调整')
         .fontSize(this.deviceType === DEVICE_TYPES.PHONE ? 18 : 22)
         .fontWeight(600)
+        .fontColor($r('app.color.font_adjust_dialog_title'))
         .margin({ bottom: 20 })
 
       Text(`当前大小: ${this.tempFontSize}`)
         .fontSize(this.deviceType === DEVICE_TYPES.PHONE ? 14 : 18)
+        .fontColor($r('app.color.font_adjust_dialog_text'))
         .margin({ bottom: 10 })
 
       Text('示例文字 Example Text')
         .fontSize(this.tempFontSize)
+        .fontColor($r('app.color.font_adjust_dialog_text'))
         .margin({ bottom: 20 })
 
       Row() {
         Text('小')
           .fontSize(12)
+          .fontColor($r('app.color.font_adjust_dialog_text'))
         Slider({
           value: this.tempFontSize,
           min: 12,
@@ -238,11 +250,15 @@ export struct FontSizeAdjustButton {
         })
           .layoutWeight(1)
           .margin({ left: 10, right: 10 })
+          .trackColor($r('app.color.font_adjust_slider_track'))
+          .selectedColor($r('app.color.font_adjust_slider_selected'))
+          .blockColor($r('app.color.font_adjust_slider_selected'))
           .onChange((value: number) => {
             this.onFontSizeChange(Math.round(value))
           })
         Text('大')
           .fontSize(18)
+          .fontColor($r('app.color.font_adjust_dialog_text'))
       }
       .width('100%')
       .margin({ bottom: 30 })
@@ -250,9 +266,9 @@ export struct FontSizeAdjustButton {
       Row() {
         Button('取消')
           .fontSize(this.deviceType === DEVICE_TYPES.PHONE ? 16 : 18)
-          .backgroundColor(Color.Transparent)
-          .fontColor($r('app.color.color_change_button_font'))
-          .border({ width: 1, color: $r('app.color.color_change_button_background') })
+          .backgroundColor($r('app.color.font_adjust_cancel_bg'))
+          .fontColor($r('app.color.font_adjust_cancel_text'))
+          .border({ width: 1, color: $r('app.color.font_adjust_dialog_border') })
           .width(this.deviceType === DEVICE_TYPES.PHONE ? 80 : 100)
           .height(this.deviceType === DEVICE_TYPES.PHONE ? 40 : 45)
           .onClick(() => {
@@ -261,8 +277,8 @@ export struct FontSizeAdjustButton {
 
         Button('确认')
           .fontSize(this.deviceType === DEVICE_TYPES.PHONE ? 16 : 18)
-          .backgroundColor($r('app.color.color_change_button_svg'))
-          .fontColor(Color.White)
+          .backgroundColor($r('app.color.font_adjust_confirm_bg'))
+          .fontColor($r('app.color.font_adjust_confirm_text'))
           .width(this.deviceType === DEVICE_TYPES.PHONE ? 80 : 100)
           .height(this.deviceType === DEVICE_TYPES.PHONE ? 40 : 45)
           .onClick(() => {
@@ -304,7 +320,7 @@ export struct FontSizeAdjustButton {
         height: 300,
         dragBar: true,
         maskColor: Color.Black,
-        backgroundColor: Color.White,
+        backgroundColor: $r('app.color.font_adjust_sheet_bg'),
         onDisappear: () => {
           this.cancelFontSizeChange()
         }
