@@ -19,7 +19,7 @@ import { deviceInfo } from '@kit.BasicServicesKit'
 
 @ComponentV2
 export struct ArticlePage {
-  @Local baseFontSize: number = AppStorageV2.connect(UserConfigViewModel, GET_USER_CONFIG)!.fontSize
+  @Local userConfig: UserConfigViewModel = AppStorageV2.connect(UserConfigViewModel, GET_USER_CONFIG, () => new UserConfigViewModel())!
   @Local article:NewsArticle = {
     id: '',
     title: '',
@@ -33,7 +33,7 @@ export struct ArticlePage {
     NavDestination() {
       Column(){
         Column(){
-          NewsArticleView({article:this.article,baseFontSize:this.baseFontSize})
+          NewsArticleView({article:this.article,baseFontSize:this.userConfig.fontSize})
             .width('100%')
         }
         .width(this.deviceType === DEVICE_TYPES.PHONE ?'100%':'90%')

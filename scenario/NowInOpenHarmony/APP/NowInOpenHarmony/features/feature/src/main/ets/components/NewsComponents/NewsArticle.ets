@@ -43,7 +43,7 @@ export struct NewsArticleView {
       Text(`日期：${this.article.date} ${this.article.source ? '来源：' : ''}${this.article.source}`)
         .fontSize(this.baseFontSize+(this.deviceType === DEVICE_TYPES.PHONE ? 8 : 12))
     }
-    .width('100%')
+    .width('90%')
   }
 
   build() {
