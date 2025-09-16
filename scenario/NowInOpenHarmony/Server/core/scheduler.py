@@ -20,7 +20,7 @@ import asyncio
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
-from .cache import get_news_cache, ServiceStatus
+from .cache import get_news_cache, get_banner_cache, ServiceStatus
 from services.news_service import get_news_service, NewsSource
 
 logger = logging.getLogger(__name__)
@@ -40,6 +40,15 @@ class TaskScheduler:
                 trigger=IntervalTrigger(hours=3),
                 id='update_cache_all',
                 name='更新所有新闻源缓存',
+                replace_existing=True
+            )
+            
+            # 每3小时更新一次轮播图（与新闻更新时间间隔一致）
+            self.scheduler.add_job(
+                self._update_banner_cache_job,
+                trigger=IntervalTrigger(hours=3),
+                id='update_banner_cache',
+                name='更新轮播图缓存',
                 replace_existing=True
             )
             
@@ -122,6 +131,71 @@ class TaskScheduler:
         except Exception as e:
             logger.error(f"提交完整爬取任务失败: {e}")
     
+    def _run_banner_crawler_in_thread(self, task_name: str):
+        """在线程中执行轮播图爬虫任务"""
+        try:
+            logger.info(f"🖼️ 开始执行{task_name}")
+            
+            # 获取轮播图缓存实例
+            banner_cache = get_banner_cache()
+            
+            # 设置为正在更新状态（这会将状态设为PREPARING）
+            banner_cache.set_updating(True)
+            
+            # 优先使用增强版爬虫，如果失败则回退到传统爬虫
+            banner_info_list = []
+            
+            try:
+                # 尝试使用增强版爬虫
+                from services.enhanced_mobile_banner_crawler import EnhancedMobileBannerCrawler
+                enhanced_crawler = EnhancedMobileBannerCrawler()
+                banner_info_list = enhanced_crawler.crawl_mobile_banners(
+                    download_images=False,  # 定时任务不下载图片
+                    save_directory=""
+                )
+                logger.info(f"✅ 使用增强版爬虫成功，获取 {len(banner_info_list)} 张图片")
+                
+            except Exception as enhanced_error:
+                logger.warning(f"⚠️ 增强版爬虫失败，尝试传统爬虫: {enhanced_error}")
+                
+                # 回退到传统爬虫
+                try:
+                    from services.openharmony_image_crawler import OpenHarmonyImageCrawler
+                    crawler = OpenHarmonyImageCrawler()
+                    banner_info_list = crawler.get_banner_image_info()
+                    logger.info(f"✅ 使用传统爬虫成功，获取 {len(banner_info_list)} 张图片")
+                    
+                except Exception as traditional_error:
+                    logger.error(f"❌ 传统爬虫也失败: {traditional_error}")
+                    raise traditional_error
+            
+            # 更新缓存（update_cache方法会根据数据情况设置正确的状态）
+            banner_cache.update_cache(banner_info_list)
+            
+            if banner_info_list:
+                logger.info(f"✅ {task_name}完成，共更新 {len(banner_info_list)} 张轮播图，状态已设为READY")
+            else:
+                logger.warning(f"⚠️ {task_name}完成，但未找到任何轮播图，状态保持PREPARING")
+            
+        except Exception as e:
+            logger.error(f"❌ {task_name}失败: {e}", exc_info=True)
+            # 设置错误状态
+            banner_cache = get_banner_cache()
+            banner_cache.set_status(ServiceStatus.ERROR, str(e))
+            banner_cache.set_updating(False)  # 确保停止更新状态
+    
+    async def _update_banner_cache_job(self):
+        """定时更新轮播图缓存任务"""
+        try:
+            # 在线程池中执行轮播图爬虫任务
+            task_name = "定时轮播图更新任务"
+            future = self.thread_pool.submit(self._run_banner_crawler_in_thread, task_name)
+            # 不等待完成，让任务在后台执行
+            logger.info(f"{task_name}已提交到后台线程")
+            
+        except Exception as e:
+            logger.error(f"提交定时轮播图更新任务失败: {e}")
+    
     async def initial_cache_load(self):
         """初始缓存加载（服务启动时执行）"""
         try:
@@ -135,8 +209,12 @@ class TaskScheduler:
             # 在线程池中执行爬虫任务
             future = self.thread_pool.submit(self._run_crawler_in_thread, "初始缓存加载", NewsSource.ALL)
             
+            # 同时启动轮播图初始加载
+            banner_future = self.thread_pool.submit(self._run_banner_crawler_in_thread, "初始轮播图加载")
+            
             # 不等待完成，让任务在后台执行，服务可以立即启动
             logger.info("初始缓存加载任务已提交到后台线程，服务可以立即响应请求")
+            logger.info("初始轮播图加载任务已提交到后台线程")
             
         except Exception as e:
             logger.error(f"提交初始缓存加载任务失败: {e}")
@@ -161,6 +239,24 @@ class TaskScheduler:
             # 设置错误状态
             cache = get_news_cache()
             cache.set_status(ServiceStatus.ERROR, str(e))
+    
+    async def manual_banner_crawl(self):
+        """手动触发轮播图爬取任务"""
+        try:
+            logger.info("开始执行手动轮播图爬取任务")
+            
+            # 在线程池中执行轮播图爬虫任务
+            task_name = "手动轮播图爬取任务"
+            future = self.thread_pool.submit(self._run_banner_crawler_in_thread, task_name)
+            
+            # 不等待完成，让任务在后台执行
+            logger.info(f"{task_name}已提交到后台线程")
+            
+        except Exception as e:
+            logger.error(f"提交手动轮播图爬取任务失败: {e}")
+            # 设置错误状态
+            banner_cache = get_banner_cache()
+            banner_cache.set_status(ServiceStatus.ERROR, str(e))
     
     def start(self):
         """启动调度器"""

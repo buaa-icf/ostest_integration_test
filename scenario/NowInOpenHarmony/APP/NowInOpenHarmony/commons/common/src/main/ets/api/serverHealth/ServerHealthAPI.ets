@@ -15,15 +15,16 @@
 import { axiosHttp } from '../http/AxiosHttp'
 import { ServerStatus, SystemStatus } from '../../modules/server/ServerHelth'
 import { logger } from '../../utils/logger/logger'
+import { BusinessError } from '@kit.BasicServicesKit'
 
 const ServerHealthAPI_TAG = 'ServerHealthAPI: '
 
-class ServerHealthAPI {
+export class ServerHealthAPI {
   /**
    * 判断服务端数据更新状态，是否处于可获取状态。
    * @returns 服务端数据是否可获取
    */
-  async isServerReady(): Promise<boolean> {
+  static async isServerReady(): Promise<boolean> {
     try {
       const res = await axiosHttp.request<SystemStatus>({
         url: '/api/health',
@@ -37,13 +38,12 @@ class ServerHealthAPI {
         return true
       }
 
-    } catch (err) {
-      logger.error(ServerHealthAPI_TAG+'err: ' + JSON.stringify(err))
+    } catch (e) {
+      let err = e as BusinessError
+      logger.error(`${ServerHealthAPI_TAG}${err.message}`)
       return false
     }
     return false
   }
 }
-
-export const serverHealthApi = new ServerHealthAPI()
 

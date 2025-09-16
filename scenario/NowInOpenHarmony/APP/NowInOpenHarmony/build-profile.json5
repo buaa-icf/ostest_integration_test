@@ -21,11 +21,11 @@
         "material": {
           "certpath": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.cer",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001A309A5BCE57EE73B7E9696205D1A5C3236A017A41DA14CA932F95A44C8F009F2C0E21E18E1CFE",
+          "keyPassword": "0000001B1CBC6CD06621AF71050A324C94748486B65D6E772A5D4E25670D131CD4F2FA58C147A24AD18305",
           "profile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p7b",
           "signAlg": "SHA256withECDSA",
           "storeFile": "C:\\Users\\ASUS\\.ohos\\config\\default_NowInOpenHarmony_eYo66xHVN8v9hDTHrbRRkQqUrbaxpGaW9siPq1aOztA=.p12",
-          "storePassword": "0000001A2A407AD383E8ED4997205B89C5E4F54947EE90FEEA4AB9B1A0A21777A051B343A19742CA4128"
+          "storePassword": "0000001B47F6495B2B802B734349191C895F068055570A2EBCFF7A3CD3CE152491130E2D452491D85C33A6"
         }
       }
     ],

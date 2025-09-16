@@ -19,8 +19,10 @@ import {
   KV_DB_KEYS,
   logger,
   NewsArticle,
-  newsListApi,
-  serverHealthApi
+  NewsListAPI,
+  NewsSwiperAPI,
+  NewsSwiperStateAPI,
+  ServerHealthAPI
 } from "common"
 import { common } from "@kit.AbilityKit"
 import { distributedKVStore } from "@kit.ArkData"
@@ -58,8 +60,8 @@ export class NewsManager {
    * @returns 是否成功获取以及持久化
    */
   async updateNewsListToDB(): Promise<boolean> {
-    if (await serverHealthApi.isServerReady()) {
-      const news: NewsArticle[] | null = (await newsListApi.getAllNews())
+    if (await ServerHealthAPI.isServerReady()) {
+      const news: NewsArticle[] | null = (await NewsListAPI.getAllNews())
       if (news && this.appKVDb) {
         logger.info(`${NewsManager_LOG_TAG}成功获取最新新闻，总条数: ${news.length}`)
         try {
@@ -72,7 +74,7 @@ export class NewsManager {
           return false
         }
       }
-      logger.error(`${NewsManager_LOG_TAG}获取新闻失败`)
+      logger.error(`${NewsManager_LOG_TAG}获取新闻失败,新闻数据或键值数据库为空。`)
       return false
     }
     logger.error(`${NewsManager_LOG_TAG}获取新闻失败，后端服务状态异常，返回false`)
@@ -89,6 +91,44 @@ export class NewsManager {
       } catch (e) {
         let err = e as BusinessError
         logger.error(`${NewsManager_LOG_TAG}尝试获取数据库新闻列表数据发生异常，异常信息: ${err.message}`)
+        return null
+      }
+    }
+    return null
+  }
+
+  async updateNewsSwiperToDB(): Promise<boolean> {
+    if (await NewsSwiperStateAPI.isSwiperServerReady()) {
+      let swiperData: ResourceStr[] | null = await NewsSwiperAPI.getNewsSwiperImgData()
+      if (swiperData && this.appKVDb) {
+        logger.info(`${NewsManager_LOG_TAG}成功获取最新轮播图数据，总条数: ${swiperData.length}`)
+        try {
+          this.appKVDb.put(KV_DB_KEYS.NEWS_SWIPER, JSON.stringify(swiperData))
+          logger.info(`${NewsManager_LOG_TAG}轮播图数据库写入成功，无异常`)
+          return true
+        } catch (e) {
+          let err = e as BusinessError
+          logger.error(`${NewsManager_LOG_TAG}更新数据库NewsSwiper数据发生异常，异常信息: ${err.message}`)
+          return false
+        }
+      }
+      logger.error(`${NewsManager_LOG_TAG}获取到的轮播图数据或键值数据库为空`)
+      return false
+    }
+    logger.error(`${NewsManager_LOG_TAG}获取轮播图数据失败，后端轮播图服务状态异常`)
+    return false
+  }
+
+  async getNewsSwiperDataFromDB(): Promise<ResourceStr[] | null> {
+    if (this.appKVDb) {
+      try {
+        const res: string = (await this.appKVDb.get(KV_DB_KEYS.NEWS_SWIPER)) as string
+        logger.info(`${NewsManager_LOG_TAG}读取到数据库轮播图数据列表数据: ${res}`)
+        const newsSwiperData = JSON.parse(res) as ResourceStr[]
+        return newsSwiperData
+      } catch (e) {
+        let err = e as BusinessError
+        logger.error(`${NewsManager_LOG_TAG}尝试获取数据库轮播图数据发生异常，异常信息: ${err.message}`)
         return null
       }
     }

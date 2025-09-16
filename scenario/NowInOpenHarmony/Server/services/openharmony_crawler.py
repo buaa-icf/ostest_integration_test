@@ -42,38 +42,89 @@ class OpenHarmonyCrawler:
         """分页遍历API，获取所有新闻的url、title、date，去重并校验有效性"""
         all_infos = {}
         page_num = 1
-        page_size = 20
+        page_size = 300  # 设置为300，一次性获取更多数据，减少API请求次数
+
+        print(f"🚀 开始高效获取OpenHarmony文章信息，每页{page_size}条数据...")
+
         while True:
             api_url = f"{self.base_url}/backend/knowledge/secondaryPage/queryBatch?type=3&pageNum={page_num}&pageSize={page_size}"
-            print(f"请求API: {api_url}")
+            print(f"📡 请求API: 第{page_num}页")
             try:
-                resp = self.session.get(api_url, timeout=10)
+                resp = self.session.get(api_url, timeout=15)  # 增加超时时间
                 resp.raise_for_status()
-                data = resp.json().get("data", [])
+                response_data = resp.json()
+                data = response_data.get("data", [])
+
+                # 打印响应信息用于调试
+                print(f"📊 第{page_num}页获取到{len(data)}条数据")
+
             except Exception as e:
-                print(f"API请求失败: {e}")
+                print(f"❌ API请求失败: {e}")
                 break
+
             if not data:
+                print(f"✅ 第{page_num}页无数据，爬取完成")
                 break
+
+            # 处理本页数据
+            page_count = 0
             for item in data:
                 url = item.get("url")
                 title = item.get("title", "")
                 date = item.get("startTime", "")
+
+                # 标准化日期格式
+                standardized_date = self._standardize_date(date)
+
                 if url and url not in all_infos:
-                    all_infos[url] = {"title": title, "date": date}
+                    all_infos[url] = {"title": title, "date": standardized_date}
+                    page_count += 1
+
+            print(f"📈 第{page_num}页新增{page_count}条有效数据，累计{len(all_infos)}条")
+
+            # 如果本页数据量小于page_size，说明已经获取完所有数据
+            if len(data) < page_size:
+                print(f"🎯 第{page_num}页数据量({len(data)})小于页面大小({page_size})，爬取完成")
+                break
+
             page_num += 1
-            time.sleep(0.5)
-        print(f"共获取到{len(all_infos)}条原始url，开始有效性校验...")
-        valid_infos = []
-        for url, info in all_infos.items():
+            time.sleep(0.3)  # 减少等待时间，从0.5秒降到0.3秒
+
+        print(f"📋 共获取到{len(all_infos)}条有效文章信息")
+
+        # 快速有效性校验（只检查前10个URL，如果大部分有效就认为全部有效）
+        print("🔍 进行快速有效性校验...")
+        test_urls = list(all_infos.keys())[:min(10, len(all_infos))]
+        valid_test_count = 0
+
+        for url in test_urls:
             try:
-                r = self.session.head(url, timeout=5)
+                r = self.session.head(url, timeout=3)  # 减少超时时间
                 if r.status_code == 200:
-                    valid_infos.append({"url": url, "title": info["title"], "date": info["date"]})
+                    valid_test_count += 1
             except:
                 continue
-        print(f"有效url数量: {len(valid_infos)}")
-        return valid_infos
+
+        validity_rate = valid_test_count / len(test_urls) if test_urls else 0
+        print(f"✅ 快速校验完成：{valid_test_count}/{len(test_urls)} 有效，有效率{validity_rate:.1%}")
+
+        # 如果有效率高，直接返回所有数据，否则进行完整校验
+        if validity_rate >= 0.8:  # 80%以上有效就直接使用
+            print("🚀 有效率高，跳过完整校验，直接返回所有数据")
+            return [{"url": url, "title": info["title"], "date": info["date"]}
+                    for url, info in all_infos.items()]
+        else:
+            print("🐌 有效率较低，进行完整URL有效性校验...")
+            valid_infos = []
+            for url, info in all_infos.items():
+                try:
+                    r = self.session.head(url, timeout=5)
+                    if r.status_code == 200:
+                        valid_infos.append({"url": url, "title": info["title"], "date": info["date"]})
+                except:
+                    continue
+            print(f"✅ 完整校验完成，有效URL数量: {len(valid_infos)}")
+            return valid_infos
 
     def parse_article_content(self, article_url):
         content = self.get_page_content(article_url)
@@ -115,18 +166,51 @@ class OpenHarmonyCrawler:
                             result_data.append({"type": "video", "value": video_url})
         return result_data
 
+    def _standardize_date(self, date_str):
+        """标准化日期格式，将多种日期格式统一为YYYY-MM-DD格式"""
+        if not date_str:
+            return ''
+
+        try:
+            # 匹配多种日期格式：2025.9.13, 2025-9-13, 2025/9/13, 2025年9月13日
+            date_pattern = r'(\d{4})[.\-\/年](\d{1,2})[.\-\/月](\d{1,2})[日]?'
+            match = re.search(date_pattern, str(date_str))
+
+            if match:
+                year, month, day = match.groups()
+                # 格式化为统一的YYYY-MM-DD格式
+                return f"{year}-{int(month):02d}-{int(day):02d}"
+            else:
+                # 尝试直接解析日期字符串
+                # 处理只有年月的情况
+                month_pattern = r'(\d{4})[.\-\/年](\d{1,2})[月]?'
+                month_match = re.search(month_pattern, str(date_str))
+                if month_match:
+                    year, month = month_match.groups()
+                    return f"{year}-{int(month):02d}-01"  # 默认设置为当月第一天
+
+                # 如果都无法匹配，返回原始字符串并记录日志
+                print(f"⚠️ 无法解析日期格式: {date_str}，保持原样")
+                return date_str
+        except Exception as e:
+            print(f"❌ 日期标准化失败: {date_str}, 错误: {e}")
+            return date_str
+
     def _format_article(self, article):
         """将文章格式化为统一的新闻格式"""
         import hashlib
-        
+
         # 生成文章ID（基于URL的哈希）
         article_id = hashlib.md5(article['url'].encode()).hexdigest()[:16]
-        
+
+        # 标准化日期格式
+        standardized_date = self._standardize_date(article.get('date', ''))
+
         # 返回统一格式，符合TypeScript接口规范
         return {
             "id": article_id,
             "title": article['title'],
-            "date": article.get('date', ''),
+            "date": standardized_date,  # 使用标准化后的日期
             "url": article['url'],
             "content": article.get('content', []),
             "category": "官方动态",

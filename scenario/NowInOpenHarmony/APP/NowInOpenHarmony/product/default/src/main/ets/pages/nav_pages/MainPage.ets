@@ -27,20 +27,30 @@ export struct MainPage {
     AppStorageV2.connect(NewsListHeaderIsSticky, IS_STICKY, () => new NewsListHeaderIsSticky())!
   @Local listScroller: Scroller = new Scroller()
   @Local isLoading: boolean = false
+  @Local newsSwiperData: ResourceStr[] | null = []
 
   async aboutToAppear(): Promise<void> {
     this.newsList = await newsManager.getNewsArticleListFromDB()
     if (!this.newsList) {
       this.getUIContext().getPromptAction().showToast({ message: `当前数据库新闻数据为空,请连接后端服务以更新数据` })
     } else if (this.newsList) {
-      this.getUIContext().getPromptAction().showToast({ message: `查询到${this.newsList.length}条新闻数据` })
+      this.getUIContext().getPromptAction().showToast({ message: `从数据库查询到${this.newsList.length}条新闻数据` })
+    }
+    this.newsSwiperData = await newsManager.getNewsSwiperDataFromDB()
+    if (!this.newsSwiperData) {
+      this.getUIContext().getPromptAction().showToast({ message: `当前数据库轮播图数据为空,请连接后端服务以更新数据` })
+    } else if (this.newsSwiperData) {
+      this.getUIContext()
+        .getPromptAction()
+        .showToast({ message: `从数据库查询到${this.newsSwiperData.length}条轮播图数据` })
     }
   }
 
   async reloadAllData() {
     this.getUIContext().getPromptAction().showToast({ message: '刷新数据' })
-    if (await newsManager.updateNewsListToDB()) {
+    if (await newsManager.updateNewsListToDB() && await newsManager.updateNewsSwiperToDB()) {
       this.newsList = await newsManager.getNewsArticleListFromDB()
+      this.newsSwiperData = await newsManager.getNewsSwiperDataFromDB()
       return true
     }
     this.getUIContext().getPromptAction().showToast({ message: '获取新数据失败请稍后再试。' })
@@ -53,7 +63,7 @@ export struct MainPage {
         List({ space: 20, scroller: this.listScroller }) {
           ListItemGroup() {
             ListItem() {
-              NewsSwiper()
+              NewsSwiper({ swiperData: this.newsSwiperData ?? [] })
             }
           }
 

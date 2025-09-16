@@ -34,7 +34,7 @@ const NewsList_LOG_TAG = 'NewsList: '
 export struct NewsList {
   @Param listScroller: Scroller = new Scroller()
   @Param newsList: NewsArticle[] = []
-  @Param navStuck:NavPathStack = new NavPathStack()
+  @Param navStuck: NavPathStack = new NavPathStack()
   @Local navPathStuck: NavPathStack = AppStorageV2.connect(NavPathStack, NAV_PATH_STUCK, () => new NavPathStack())!
   @Local deviceType: DEVICE_TYPES =
     deviceInfo.deviceType === DEVICE_TYPES.PHONE ? DEVICE_TYPES.PHONE : DEVICE_TYPES.TABLET
@@ -47,10 +47,11 @@ export struct NewsList {
   @Local newsListDataSource: NewsListDataSource = new NewsListDataSource()
 
   @Monitor('newsList')
-  resetDataSource(){
-    logger.info('捕获到newsList变化'+this.newsList.length)
+  resetDataSource() {
+    logger.info('捕获到newsList变化' + this.newsList.length)
     this.newsListDataSource.resetData(this.newsList)
   }
+
   @Builder
   NewsListHeaderBuilder() {
     Column() {
@@ -89,7 +90,7 @@ export struct NewsList {
     .animation(NEWS_LIST_ANIMATION_PARAM)
     .onAreaChange((oldValue: Area, newValue: Area) => {
       if (!this.isOnAreaChange) {
-        if (oldValue.position.y == 0&&newValue.position.y == 0) {
+        if (oldValue.position.y == 0 && newValue.position.y == 0) {
           this.isNewsListSticky.isSticky = false
         } else {
           this.isNewsListSticky.isSticky = true
@@ -174,10 +175,10 @@ export struct NewsList {
           .borderRadius(20)
 
         }
-        .onClick(()=>{
+        .onClick(() => {
           this.navStuck.replacePath({
-            name:NAV_DESTS.ARTICLE,
-            param:news
+            name: NAV_DESTS.ARTICLE,
+            param: news
           })
         })
         .transition(NEWS_LIST_ITEM_ANIMATE_PARAM)

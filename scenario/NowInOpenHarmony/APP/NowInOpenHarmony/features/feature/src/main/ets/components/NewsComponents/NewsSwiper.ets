@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { NewsSwiperModule } from 'common'
 import { promptAction } from '@kit.ArkUI'
 
 /**
@@ -21,20 +20,13 @@ import { promptAction } from '@kit.ArkUI'
  */
 @ComponentV2
 export struct NewsSwiper {
-  @Param swiperList: NewsSwiperModule [] = [
-    new NewsSwiperModule('https://images.openharmony.cn/%E9%A6%96%E9%A1%B5/banner/20240411/4.1releas%E6%89%8B%E6%9C%BA.jpg',
-      '开源生态大会'),
-    new NewsSwiperModule('https://images.openharmony.cn/%E6%B4%BB%E5%8A%A8/%E5%88%9B%E6%96%B0%E8%B5%9B2023/20230831/%E4%B8%89%E6%96%B9%E5%BA%93%E7%A7%BB%E5%8A%A8%E7%AB%AF.png',
-      '开源生态大会'),
-    new NewsSwiperModule('https://images.openharmony.cn/%E6%B4%BB%E5%8A%A8/%E6%98%8E%E6%98%9F%E5%BC%80%E5%8F%91%E6%9D%BF20250728/%E9%A6%96%E9%A1%B5banner657-433.jpg',
-      '开源生态大会')
-  ]
+  @Param swiperData: ResourceStr[] = []
 
   build() {
     Column() {
       Swiper(){
-        ForEach(this.swiperList,(item:NewsSwiperModule)=>{
-          Image(item.img)
+        ForEach(this.swiperData,(item:ResourceStr)=>{
+          Image(item)
             .width('100%')
             .objectFit(ImageFit.Fill)
             .onClick(()=>{
@@ -51,7 +43,6 @@ export struct NewsSwiper {
       .interval(2000)
     }
     .alignItems(HorizontalAlign.Center)
-    // .margin({left:5,right:5})
     .borderRadius(20)
     .width('100%')
 

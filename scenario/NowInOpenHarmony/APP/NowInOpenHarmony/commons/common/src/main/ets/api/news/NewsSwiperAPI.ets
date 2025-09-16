@@ -12,27 +12,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { NewsArticle, NewsResponse } from "../../modules/news/NewsListModules";
-import { logger } from "../../utils/logger/logger";
-import { axiosHttp } from "../http/AxiosHttp";
-import { BusinessError } from "@kit.BasicServicesKit";
+import { NewsSwiperResModule } from "../../modules/news/NewsSwiperModules"
+import { logger } from "../../utils"
+import { axiosHttp } from "../http/AxiosHttp"
+import { BusinessError } from "@kit.BasicServicesKit"
 
-const NewsListAPI_TAG = 'NewsListAPI: '
-
-export class NewsListAPI{
+const NewsSwiperAPI_LOG_TAG = 'NewsSwiperAPI: '
+export class NewsSwiperAPI{
   /**
-   * 获取全部新闻列表接口，在调用前请先调用isServerReady接口
-   * @returns 若是出现异常则为空正常则为全部新闻列表NewsArticle[]
+   * 获取轮播图数据
+   * @returns 轮播图链接列表
    */
-  static async getAllNews(): Promise<NewsArticle[] | null>{
+  static async getNewsSwiperImgData():Promise<null|ResourceStr[]>{
     try {
-      const res = await axiosHttp.request<NewsResponse>({
-        url:'/api/news/?all=true'
+      const res = await axiosHttp.request<NewsSwiperResModule>({
+        url:'/api/banner/mobile'
       })
-      return res.articles
+      logger.info(`${NewsSwiperAPI_LOG_TAG}${JSON.stringify(res)}`)
+      return res.images
     }catch (e){
       let err = e as BusinessError
-      logger.error(`${NewsListAPI_TAG}${err.message}`)
+      logger.error(`${NewsSwiperAPI_LOG_TAG}${err.message}`)
       return null
     }
   }
