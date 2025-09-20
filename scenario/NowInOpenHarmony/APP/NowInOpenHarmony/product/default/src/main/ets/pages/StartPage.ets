@@ -16,7 +16,7 @@ import { promptAction, Router } from "@kit.ArkUI"
 import {
   logger, NewsArticle, NewsListAPI, ServerHealthAPI
 } from "common"
-
+import { window } from '@kit.ArkUI';
 const START_PAGE_TAGE = 'StartPage:  '
 
 @Entry

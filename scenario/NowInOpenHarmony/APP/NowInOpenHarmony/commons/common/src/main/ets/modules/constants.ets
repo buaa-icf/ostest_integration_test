@@ -37,7 +37,7 @@ export enum KV_DB_KEYS {
 export const SERVE_BASE_ADDRESS = 'http://192.168.43.7:8001'
 // export const SERVE_BASE_ADDRESS = 'http://192.168.43.6:8001'
 export const GET_USER_CONFIG = 'UserConfig'
-
+export const WINDOW_WIDTH = 'Window width'
 
 export enum PreferenceEnum {
   /**
