@@ -69,7 +69,7 @@ struct StarPage {
 
   updateFontSize() {
     const num = 16
-    this.fontsize = (Math.floor((this.winWidth)/num))+20
+    this.fontsize = (Math.floor((this.winWidth) / num)) + 20
   }
 
   build() {
@@ -79,7 +79,7 @@ struct StarPage {
         .width('20%')
         .margin({ bottom: 100 })
       Text('Welcome To')
-        .fontSize((this.fontsize*0.8))
+        .fontSize((this.fontsize * 0.8))
         .fontColor('#ff00be53')
       Text('NowInOpenHarmony')
         .fontSize(this.fontsize)
