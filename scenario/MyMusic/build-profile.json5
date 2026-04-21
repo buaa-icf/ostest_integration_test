@@ -1,19 +1,5 @@
 {
   "app": {
-    "signingConfigs": [
-      {
-        "name": "default",
-        "material": {
-          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_MyMusic_lkCEl5hB6byCgDNwkkzI0Yqu7GQgF9mylAcmfpHqqu0=.cer",
-          "storePassword": "0000001A5D81B6F25E5CC6B951272A30FD6EECBBEBE648454DD8512C79F9A8199626F359999C87A25490",
-          "keyAlias": "debugKey",
-          "keyPassword": "0000001A4578F40CB0E0D337541C6DCAB8487F05F92486F150039235E2F2FB471B63E33E8985269FA14C",
-          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_MyMusic_lkCEl5hB6byCgDNwkkzI0Yqu7GQgF9mylAcmfpHqqu0=.p7b",
-          "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_MyMusic_lkCEl5hB6byCgDNwkkzI0Yqu7GQgF9mylAcmfpHqqu0=.p12"
-        }
-      }
-    ],
     "products": [
       {
         "name": "default",
@@ -21,6 +7,7 @@
         "compileSdkVersion": 10,
         "compatibleSdkVersion": 10,
         "runtimeOS": "OpenHarmony",
+        "targetSdkVersion": 10
       }
     ],
     "buildModeSet": [
