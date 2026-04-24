@@ -14,36 +14,48 @@
  */
 
 import hilog from '@ohos.hilog';
+import router from '@ohos.router';
+import AbilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
+
+const TRACK_STRING_SAMPLE_SUITE: string = 'TrackStringSampleCoverageTest';
+const TRACK_STRING_SAMPLE_URL: string = 'pages/stateManagement/track/TrackStringSample';
 
 @Entry
 @Component
 struct Index {
+  @State private hasRouted: boolean = false;
+
   aboutToAppear() {
     hilog.info(0x0000, 'testTag', '%{public}s', 'TestAbility index aboutToAppear');
+    if (this.hasRouted || !this.shouldOpenTrackStringSample()) {
+      return;
+    }
+    this.hasRouted = true;
+    router.replaceUrl({ url: TRACK_STRING_SAMPLE_URL });
   }
- @State message: string = 'Hello World'
-   build() {
-         Row() {
-           Column() {
-             Text(this.message)
-               .fontSize(50)
-               .fontWeight(FontWeight.Bold)
-             Button() {
-               Text('next page')
-                 .fontSize(20)
-                 .fontWeight(FontWeight.Bold)
-             }.type(ButtonType.Capsule)
-             .margin({
-               top: 20
-             })
-             .backgroundColor('#0D9FFB')
-             .width('35%')
-             .height('5%')
-             .onClick(()=>{
-             })
-           }
-             .width('100%')
-         }
-             .height('100%')
-   }
- }
+
+  private shouldOpenTrackStringSample(): boolean {
+    let abilityDelegatorArguments: AbilityDelegatorRegistry.AbilityDelegatorArgs =
+      AbilityDelegatorRegistry.getArguments();
+    let suiteName: string = '';
+    if (abilityDelegatorArguments.parameters && abilityDelegatorArguments.parameters['-s class']) {
+      suiteName = abilityDelegatorArguments.parameters['-s class'] as string;
+    } else if (abilityDelegatorArguments.testCaseNames) {
+      suiteName = abilityDelegatorArguments.testCaseNames;
+    }
+    return suiteName.indexOf(TRACK_STRING_SAMPLE_SUITE) !== -1;
+  }
+
+  build() {
+    Row() {
+      Column() {
+        Text('TrackStringSample test host')
+          .id('trackStringSampleHost')
+          .fontSize(24)
+          .fontWeight(FontWeight.Bold)
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}

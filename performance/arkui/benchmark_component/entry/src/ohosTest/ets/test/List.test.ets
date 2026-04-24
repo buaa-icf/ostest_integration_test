@@ -16,9 +16,11 @@
 import abilityTest from './Ability.test'
 import monitorInheritConstructorTest from './MonitorInheritConstructor.test'
 import stateTest from './State.test'
+import trackStringSampleCoverageTest from './TrackStringSampleCoverage.test'
 
 export default function testsuite() {
   abilityTest()
   monitorInheritConstructorTest()
   stateTest()
+  trackStringSampleCoverageTest()
 }
