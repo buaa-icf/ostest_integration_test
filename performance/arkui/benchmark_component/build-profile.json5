@@ -15,14 +15,28 @@
 
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/hong/.ohos/config/default_benchmark_component_fgoZhP3c-rsg8RO5Huy41ixWYJsG_kp4JFlBgEI8k5s=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B8F67A135BA9D83A48166E73282FCDC71B9D8656F409A6FFE299235A64B3D92366F458AA6D6FC96",
+          "profile": "/Users/hong/.ohos/config/default_benchmark_component_fgoZhP3c-rsg8RO5Huy41ixWYJsG_kp4JFlBgEI8k5s=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/hong/.ohos/config/default_benchmark_component_fgoZhP3c-rsg8RO5Huy41ixWYJsG_kp4JFlBgEI8k5s=.p12",
+          "storePassword": "0000001BFC1AB8A5070465228EC2BD4B2F34316B6D19F0582EFC366020AC996AB0CBCABEFCE6624D4FCF3D"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
-        "compileSdkVersion": 10,
-        "compatibleSdkVersion": 10,
-        "targetSdkVersion": 10
+        "compileSdkVersion": 23,
+        "compatibleSdkVersion": 23,
+        "targetSdkVersion": 23
       }
     ],
     "buildModeSet": [

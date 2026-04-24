@@ -13,63 +13,40 @@
  * limitations under the License.
  */
 
-import { ArrEntity } from '../../../entity/ArrEntity'
 import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
 @Component
 struct SpanFontInRichEditorSample {
   timeHelper: TimeHelper = new TimeHelper('SpanFontInRichEditorSample');
-  @State textFont: Font = {size:16,weight:FontWeight.Normal,style:FontStyle.Normal};
+  @State textFont: Font = { size: 16, weight: FontWeight.Normal, style: FontStyle.Normal };
   controller: RichEditorController = new RichEditorController();
   options: RichEditorOptions = { controller: this.controller };
 
   build() {
     Scroll() {
-      Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        Column() {
-          Button('change LetterSpacing')
-            .id('SpanChangeFontInRichEditor')
-            .margin('5vp')
-            .onClick(() => {
-              this.textFont = {size:30,weight:FontWeight.Bolder,style:FontStyle.Italic};
-            })
-        }.width('100%')
+      Column() {
+        Button('change Font')
+          .id('SpanChangeFontInRichEditor')
+          .margin('5vp')
+          .onClick(() => {
+            this.textFont = { size: 30, weight: FontWeight.Bolder, style: FontStyle.Italic };
+          })
 
-        RichEditor(this.options) {
+        RichEditor(this.options)
+          .width('100%')
+          .height(220)
 
-          ForEach(ArrEntity.arr, (index: number) => {
-            if (this.textFont.size == 30 && this.timeHelper.printTime(true)) {
-            }
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
-            Span('this is span ' + index).font(this.textFont)
+        Text('this is span')
+          .font(this.textFont)
+          .width('100%')
+          .onClick(() => {
             if (this.textFont.size == 30 && this.timeHelper.printTime(false)) {
             }
           })
-
-        }
       }
       .width('100%')
     }.margin({ bottom: 60 })
     .width('100%')
-
   }
 }

@@ -35,7 +35,7 @@ struct ScrollEnableScrollInteractionSample {
 
   build() {
     Scroll() {
-      Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
+      Column() {
         Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
           Button('false to true')
             .id('ScrollEnableScrollInteractionFalseToTrue')
@@ -55,139 +55,31 @@ struct ScrollEnableScrollInteractionSample {
             })
         }.width('100%')
 
-        Scroll(this.scroller) {
+        Column() {
           ForEach(ArrEntity.arr, (index: number) => {
-            if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(true, 1)) {
+            Column() {
+              if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(true, 1)) {
+              }
+              Text(`scroll item ${index}`)
+                .width('100%')
+                .height(20)
+                .margin(5)
+                .backgroundColor(Color.Blue)
+                .fontColor(Color.White)
+              if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(false, 1)) {
+              }
             }
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-
-            Column()
-              .width('100%')
-              .height(20)
-              .margin(5)
-              .backgroundColor(Color.Blue)
-            if (this.initBoolean !== this.changeValue && this.timeHelper.printTime(false, 1)) {
-            }
+            .width('100%')
           }, (item: number) => JSON.stringify(item))
         }
-        .scrollable(ScrollDirection.Vertical)
         .width('100%')
-        .height('100%')
+        .height('auto')
         .backgroundColor(Color.Red)
-        .enableScrollInteraction(this.changeValue)
+        .onClick(() => {
+          if (this.changeValue) {
+            this.scroller.scrollBy(200, 200);
+          }
+        })
 
       }
       .width('100%')

@@ -20,13 +20,7 @@ import { TimeHelper } from '../../../util/TimeHelper';
 @Component
 struct ListChainAnimationOptionsSample {
   timeHelper: TimeHelper = new TimeHelper('ListChainAnimationOptionsSample');
-  @State chainAnimationOptions: ChainAnimationOptions = {
-    minSpace: 10,
-    maxSpace: 30,
-    conductivity: 0.2,
-    intensity: 0.4,
-    edgeEffect: ChainEdgeEffect.DEFAULT
-  };
+  @State chainAnimationEnable: boolean = true;
   index:number=0;
   nextIndex():number{
     return this.index++;
@@ -39,19 +33,13 @@ struct ListChainAnimationOptionsSample {
           .id('ListChainAnimationOptions')
           .margin('5vp')
           .onClick(() => {
-            this.chainAnimationOptions = {
-              minSpace: 20,
-              maxSpace: 50,
-              conductivity: 0.8,
-              intensity: 0.8,
-              edgeEffect: ChainEdgeEffect.STRETCH
-            };
+            this.chainAnimationEnable = !this.chainAnimationEnable;
           })
       }.width('100%')
 
       List() {
         ForEach(ArrEntity.arr, (index: number) => {
-          if (this.chainAnimationOptions != null && this.timeHelper.printTime(true)) {
+          if (this.chainAnimationEnable && this.timeHelper.printTime(true)) {
           }
 
           ListItem() { Text(`this is text ${this.nextIndex()}`) }
@@ -77,12 +65,11 @@ struct ListChainAnimationOptionsSample {
 
 
 
-          if (this.chainAnimationOptions != null && this.timeHelper.printTime(false)) {
+          if (this.chainAnimationEnable && this.timeHelper.printTime(false)) {
           }
         }, (item: number) => JSON.stringify(item))
       }
-      .chainAnimation(true)
-      .chainAnimationOptions(this.chainAnimationOptions)
+      .chainAnimation(this.chainAnimationEnable)
 
     }
     .width('100%')

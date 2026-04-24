@@ -38,7 +38,7 @@ struct ChildObservedV2ArraySample {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct ObservedV2ArraySample {
   a = timeHelper.printStateTime(true, 1, new StateModel(StateConstants.CREATE_STATE, true))
   testData: B = new B();
@@ -116,7 +116,7 @@ struct ObservedV2ArraySample {
         .margin({ bottom: 50, top: 50 })
       Text(`parent value: ${this.testData.arr[0]}`)
       Button('parent click: 读@ObservedV2的耗时')
-        .id('getStateTimeTaken')
+        .id('getStateTimeTakenObservedV2Array')
         .onClick(() => {
           timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           for (let index = 0; index < ArrEntity.STATE_LOOP; index++) {

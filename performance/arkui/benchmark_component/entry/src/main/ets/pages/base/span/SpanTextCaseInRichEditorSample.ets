@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { ArrEntity } from '../../../entity/ArrEntity'
 import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
@@ -26,7 +25,7 @@ struct SpanTextCaseInRichEditorSample {
 
   build() {
     Scroll() {
-      Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
+      Column() {
         Button('TextCase.Normal')
           .id('TextCase.Normal.RichEditor')
           .margin('5vp')
@@ -46,40 +45,20 @@ struct SpanTextCaseInRichEditorSample {
             this.testCase = TextCase.UpperCase;
           })
 
-        RichEditor(this.options) {
+        RichEditor(this.options)
+          .width('100%')
+          .height(220)
 
-          ForEach(ArrEntity.arr, (index: number) => {
-            if (this.testCase != null && this.timeHelper.printTime(true)) {
-            }
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
-            Span('this is span '+ index).textCase(this.testCase)
+        Text('this is span')
+          .textCase(this.testCase)
+          .width('100%')
+          .onClick(() => {
             if (this.testCase != null && this.timeHelper.printTime(false)) {
             }
           })
-
-        }
       }
       .width('100%')
     }.margin({ bottom: 60 })
     .width('100%')
-
   }
 }
