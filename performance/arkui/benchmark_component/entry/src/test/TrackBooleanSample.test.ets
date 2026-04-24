@@ -1,6 +1,8 @@
 import { beforeEach, describe, expect, it } from '@ohos/hypium';
+import router from '@ohos.router';
+import '../main/ets/pages/stateManagement/track/TrackBooleanSample';
 
-class TrackClassModel {
+class TrackClassModelForTest {
   public value: string;
   public value1: number;
   public value2: boolean;
@@ -49,12 +51,18 @@ class TrackClassModel {
   }
 }
 
+function wait(ms: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(), ms);
+  });
+}
+
 export default function trackBooleanSampleTest() {
   describe('TrackBooleanSampleLocalTest', () => {
-    let model: TrackClassModel;
+    let model: TrackClassModelForTest;
 
     beforeEach(() => {
-      model = new TrackClassModel(
+      model = new TrackClassModelForTest(
         'value1',
         1,
         false,
@@ -99,6 +107,16 @@ export default function trackBooleanSampleTest() {
       expect(model.value17).assertEqual(1);
       expect(model.value18).assertEqual(false);
       expect(model.value19).assertEqual('any1');
+    });
+
+    it('TrackBooleanSample_route_initialization_001', 0, async () => {
+      let pushed: boolean = false;
+      router.pushUrl({
+        url: 'pages/stateManagement/track/TrackBooleanSample'
+      });
+      pushed = true;
+      await wait(200);
+      expect(pushed).assertEqual(true);
     });
   });
 }
