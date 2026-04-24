@@ -37,6 +37,14 @@ async function pressBack() {
   await driver.delayMs(3000);
 }
 
+async function ensureAbilityStarted() {
+  await abilityDelegatorRegistry.startAbility({
+    bundleName: 'cn.openharmony.benchmarksample',
+    abilityName: 'EntryAbility'
+  });
+  await driver.delayMs(3000);
+}
+
 export default function stateTest() {
   describe('StateTest', () => {
     beforeAll(() => {
@@ -553,6 +561,7 @@ export default function stateTest() {
     })
     // 点击首页@Track
     it('TrackBenchMarkTest', 0, async () => {
+      await ensureAbilityStarted();
       await driver.delayMs(3000);
       await checkButtonAndClickWithID('@Track')
       //读写@Track装饰的string类型
