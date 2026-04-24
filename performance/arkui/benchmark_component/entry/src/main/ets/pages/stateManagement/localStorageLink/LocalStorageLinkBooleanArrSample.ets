@@ -59,7 +59,7 @@ struct ChildLocalStorageLinkBooleanArrSample {
         })
       // 更改将同步至LocalStorage中的'link'以及Parent.parentBooleanArrLink
       Button('child click: 读@LocalStorageLink的耗时')
-        .id('getStateTimeTaken')
+        .id('getStateTimeTakenLocalStorageLinkBooleanArr')
         .onClick(() => {
           this.timeHelper.printStateTime(true, 1, new StateModel(StateConstants.READ_STATE, true))
           let tmp = this.childBooleanLink[0]

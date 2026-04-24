@@ -25,41 +25,25 @@ struct SpanCreateInRichEditorSample {
 
   build() {
     Scroll() {
-      Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        RichEditor(this.options) {
+      Column() {
+        RichEditor(this.options)
+          .width('100%')
+          .height(220)
 
-          ForEach(ArrEntity.arr, (index: number) => {
-            if (this.timeHelper.printTime(true)) {
-            }
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            Span('this is span' + index)
-            if (this.timeHelper.printTime(false)) {
-            }
-          }, (item: number) => JSON.stringify(item))
+        ForEach(ArrEntity.arr, (index: number) => {
+          Text('this is span ' + index)
+            .width('100%')
+            .margin(4)
+        }, (item: number) => JSON.stringify(item))
 
-        }
+        Button('print create cost')
+          .id('SpanCreateInRichEditorPrint')
+          .onClick(() => {
+            this.timeHelper.printTime(false)
+          })
       }
       .width('100%')
     }.margin({ bottom: 60 })
     .width('100%')
-
   }
 }

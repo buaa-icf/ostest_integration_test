@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { ArrEntity } from '../../../entity/ArrEntity'
 import { TimeHelper } from '../../../util/TimeHelper'
 
 @Entry
@@ -26,50 +25,28 @@ struct SpanLetterSpacingInRichEditorSample {
 
   build() {
     Scroll() {
-      Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        Column() {
-          Button('change LetterSpacing')
-            .id('SpanChangeLetterSpacingInRichEditor')
-            .margin('5vp')
-            .onClick(() => {
-              this.letterSpacing = 20;
-            })
-        }.width('100%')
+      Column() {
+        Button('change LetterSpacing')
+          .id('SpanChangeLetterSpacingInRichEditor')
+          .margin('5vp')
+          .onClick(() => {
+            this.letterSpacing = 20;
+          })
 
-        RichEditor(this.options) {
+        RichEditor(this.options)
+          .width('100%')
+          .height(220)
 
-          ForEach(ArrEntity.arr, (index: number) => {
-            if (this.letterSpacing == 20 && this.timeHelper.printTime(true)) {
-            }
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
-            Span('this is span '+ index).letterSpacing(this.letterSpacing)
+        Text('this is span')
+          .letterSpacing(this.letterSpacing)
+          .width('100%')
+          .onClick(() => {
             if (this.letterSpacing == 20 && this.timeHelper.printTime(false)) {
             }
           })
-
-        }
       }
       .width('100%')
     }.margin({ bottom: 60 })
     .width('100%')
-
   }
 }

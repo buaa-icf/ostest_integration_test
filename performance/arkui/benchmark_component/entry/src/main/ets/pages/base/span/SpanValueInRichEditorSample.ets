@@ -26,51 +26,27 @@ struct SpanValueInRichEditorSample {
 
   build() {
     Scroll() {
-      Flex({ direction: FlexDirection.Row, wrap: FlexWrap.Wrap }) {
-        Column() {
-          Button('change value')
-            .id('SpanChangeValueInRichEditor')
-            .margin('5vp')
-            .onClick(() => {
-              this.textStr = ArrEntity.textOneHundredHuLength;
-            })
-        }.width('100%')
+      Column() {
+        Button('change value')
+          .id('SpanChangeValueInRichEditor')
+          .margin('5vp')
+          .onClick(() => {
+            this.textStr = ArrEntity.textOneHundredHuLength;
+          })
 
-        RichEditor(this.options) {
+        RichEditor(this.options)
+          .width('100%')
+          .height(220)
 
-          ForEach(ArrEntity.arr, (index: number) => {
-            if (this.textStr.length > 10 && this.timeHelper.printTime(true)) {
-            }
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-            Span(this.textStr)
-
+        Text(this.textStr)
+          .width('100%')
+          .onClick(() => {
             if (this.textStr.length > 10 && this.timeHelper.printTime(false)) {
             }
           })
-
-        }
       }
       .width('100%')
     }.margin({ bottom: 60 })
     .width('100%')
-
   }
 }
