@@ -18,7 +18,7 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 
- class TrackClassModel {
+export class TrackClassModel {
   public value: string;
   public value1: number;
   public value2: boolean;
