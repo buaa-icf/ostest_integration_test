@@ -102,6 +102,7 @@ struct TrackBooleanArrSample {
           .textAlign(TextAlign.Center)
           .margin({bottom: 50, top: 50})
         Text(`track value: ${this.track.value6[0]}`)
+          .id('trackBooleanArrValue')
         Button('读@Track的耗时')
           .id('getStateTimeTaken')
           .onClick(() => {
