@@ -19,7 +19,7 @@ import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 import { StateUtils } from '../StateUtils';
 
-class TrackClassModel {
+export class TrackClassModel {
   public value: string;
   public value1: number;
   @Track public value2: boolean;

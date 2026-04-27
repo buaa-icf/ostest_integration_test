@@ -18,7 +18,7 @@ import { ArrEntity } from '../../../entity/ArrEntity';
 import { TimeHelper } from '../../../util/TimeHelper'
 import { StateConstants, StateModel } from '../StateModel';
 
- class TrackClassModel {
+export class TrackClassModel {
   public value: string;
   public value1: number;
   public value2: boolean;
@@ -102,6 +102,7 @@ struct TrackBooleanArrSample {
           .textAlign(TextAlign.Center)
           .margin({bottom: 50, top: 50})
         Text(`track value: ${this.track.value6[0]}`)
+          .id('trackBooleanArrValue')
         Button('读@Track的耗时')
           .id('getStateTimeTaken')
           .onClick(() => {

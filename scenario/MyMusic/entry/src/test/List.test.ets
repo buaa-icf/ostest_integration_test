@@ -14,7 +14,9 @@
  */
 
 import localUnitTest from './LocalUnit.test';
+import dataClumpsTest from './DataClumps.test';
 
 export default function testsuite() {
   localUnitTest();
+  dataClumpsTest();
 }
