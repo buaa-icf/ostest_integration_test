@@ -20,6 +20,7 @@ import TriItemData from '../main/ets/viewmodel/TriItemData';
 import MidItemData from '../main/ets/viewmodel/MidItemData';
 import ListHistoryItemData from '../main/ets/viewmodel/ListHistoryItemData';
 import ItemData from '../main/ets/viewmodel/ItemData';
+import { MainViewModel } from '../main/ets/viewmodel/MainViewModel';
 
 /**
  * Reference test suite for the data-clumps refactoring candidate
@@ -198,6 +199,49 @@ export default function dataClumpsTest() {
       expect(mid.list).assertEqual(audioList);
       expect(hist.list).assertEqual(audioList);
       expect(item.list).assertEqual(audioList);
+    });
+
+    it('MainViewModel_builds_book_tri_data_with_shared_constructor_fields', 0, () => {
+      const viewModel: MainViewModel = new MainViewModel();
+
+      const bookRows: Array<BookTriItemData[]> = viewModel.getBookTriData1();
+
+      expect(bookRows.length).assertEqual(4);
+      expect(bookRows[0].length).assertEqual(3);
+
+      const firstBook: BookTriItemData = bookRows[0][0];
+
+      expect(firstBook.title.length > 0).assertTrue();
+      expect(firstBook.subTitle.length > 0).assertTrue();
+      expect(firstBook.rank).assertEqual('1');
+      expect(firstBook.score.length > 0).assertTrue();
+      expect(firstBook.playNum.length > 0).assertTrue();
+      expect(firstBook.list.length).assertEqual(12);
+      expect(firstBook.others !== undefined).assertTrue();
+    });
+
+    it('MainViewModel_builds_shared_item_data_shapes_for_pages', 0, () => {
+      const viewModel: MainViewModel = new MainViewModel();
+
+      const firstGrid: ItemData[] = viewModel.getFirstGridData();
+      const secondGrid: MidItemData[] = viewModel.getSecondGridData();
+      const thirdGrid: Array<TriItemData[]> = viewModel.getThirdGridData();
+      const historyRows: Array<ListHistoryItemData> = viewModel.getListHistoryData();
+
+      expect(firstGrid.length).assertEqual(8);
+      expect(firstGrid[0].list.length).assertEqual(3);
+      expect(firstGrid[0].title.length > 0).assertTrue();
+
+      expect(secondGrid.length).assertEqual(12);
+      expect(secondGrid[0].list.length > 0).assertTrue();
+      expect(secondGrid[0].subTitle.length > 0).assertTrue();
+
+      expect(thirdGrid.length).assertEqual(4);
+      expect(thirdGrid[0].length).assertEqual(3);
+      expect(thirdGrid[0][0].list.length > 0).assertTrue();
+
+      expect(historyRows.length).assertEqual(5);
+      expect(historyRows[0].list.length > 0).assertTrue();
     });
   });
 }

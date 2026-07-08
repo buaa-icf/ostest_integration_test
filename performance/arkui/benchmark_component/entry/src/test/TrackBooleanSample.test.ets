@@ -69,5 +69,20 @@ export default function trackBooleanSampleTest() {
       await wait(200);
       expect(pushed).assertEqual(true);
     });
+
+    it('TrackClassModel_boolean_field_can_be_read_and_written_001', 0, () => {
+      expect(model.value2).assertEqual(false);
+
+      model.value2 = true;
+
+      expect(model.value2).assertEqual(true);
+      expect(model.value).assertEqual('value1');
+      expect(model.value6[1]).assertEqual(true);
+      expect(model.value19).assertEqual('any1');
+
+      model.value2 = !model.value2;
+
+      expect(model.value2).assertEqual(false);
+    });
   });
 }

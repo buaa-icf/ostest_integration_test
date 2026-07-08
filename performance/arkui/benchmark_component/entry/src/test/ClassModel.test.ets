@@ -1,5 +1,20 @@
 import { beforeEach, describe, expect, it } from '@ohos/hypium';
-import { ClassModel, TrackClassModel } from '../main/ets/pages/stateManagement/ClassModel';
+import {
+  ClassModel,
+  LanguageEnum,
+  TrackClassModel,
+  booleanArr,
+  classModel,
+  classModel1,
+  classModel2,
+  classModel3,
+  classModelArr,
+  enumArr,
+  numberArr,
+  objectArr,
+  stringArr,
+  trackClassModel
+} from '../main/ets/pages/stateManagement/ClassModel';
 
 export default function classModelTest() {
   describe('ClassModelLocalTest', () => {
@@ -97,6 +112,66 @@ export default function classModelTest() {
       expect(trackModel.value17).assertEqual(500);
       expect(trackModel.value18).assertEqual(false);
       expect(trackModel.value19).assertEqual('obj-track-c');
+    });
+
+    it('exported_class_models_keep_shared_data_clump_fields_001', 0, () => {
+      expect(classModel.value).assertEqual('value1');
+      expect(classModel.value1).assertEqual(1);
+      expect(classModel.value2).assertEqual(false);
+      expect(classModel.value4[0]).assertEqual('valueArr1');
+      expect(classModel.value5[3]).assertEqual(3);
+      expect(classModel.value6[1]).assertEqual(true);
+      expect(classModel.value8).assertEqual('value1');
+      expect(classModel.value16).assertEqual('value1');
+
+      expect(classModel1.value).assertEqual('value2');
+      expect(classModel1.value1).assertEqual(0);
+      expect(classModel1.value2).assertEqual(true);
+      expect(classModel1.value4[2]).assertEqual('valueArr4');
+
+      expect(classModel2.value).assertEqual('value3');
+      expect(classModel2.value1).assertEqual(100);
+      expect(classModel2.value3).assertEqual('any100');
+
+      expect(classModel3.value).assertEqual('value4');
+      expect(classModel3.value1).assertEqual(200);
+      expect(classModel3.value3).assertEqual('any500');
+    });
+
+    it('exported_arrays_reference_models_used_by_state_pages_001', 0, () => {
+      expect(classModelArr.length).assertEqual(10);
+      expect(classModelArr[0]).assertEqual(classModel);
+      expect(classModelArr[1]).assertEqual(classModel1);
+      expect(classModelArr[2]).assertEqual(classModel2);
+
+      expect(booleanArr.length).assertEqual(10);
+      expect(booleanArr[0]).assertEqual(true);
+      expect(booleanArr[1]).assertEqual(false);
+
+      expect(numberArr.length).assertEqual(10);
+      expect(numberArr[0]).assertEqual(14);
+      expect(numberArr[9]).assertEqual(23);
+
+      expect(objectArr.length).assertEqual(10);
+      expect(stringArr.length).assertEqual(10);
+      expect(objectArr[0]).assertEqual(stringArr[0]);
+
+      expect(enumArr.length).assertEqual(10);
+      expect(enumArr[0]).assertEqual(LanguageEnum.English);
+      expect(enumArr[1]).assertEqual(LanguageEnum.Chinese);
+    });
+
+    it('exported_track_class_model_keeps_tracked_and_untracked_fields_001', 0, () => {
+      expect(trackClassModel.value).assertEqual('value1');
+      expect(trackClassModel.value1).assertEqual(1);
+      expect(trackClassModel.value2).assertEqual(false);
+      expect(trackClassModel.value3).assertEqual('any1');
+      expect(trackClassModel.value4[2]).assertEqual('valueArr3');
+      expect(trackClassModel.value5[3]).assertEqual(3);
+      expect(trackClassModel.value6[1]).assertEqual(true);
+      expect(trackClassModel.value8).assertEqual('value1');
+      expect(trackClassModel.value16).assertEqual('value1');
+      expect(trackClassModel.value19).assertEqual('any1');
     });
   });
 }
