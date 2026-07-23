@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import ItemData from '../viewmodel/ListHistoryItemData';
+import ListHistoryItemData from '../viewmodel/ListHistoryItemData';
+import MediaItemInit from '../viewmodel/MediaItemInit';
 import PlayerManager  from '../manager/PlayerManager';
 import prompt from '@ohos.promptAction';
 
@@ -22,7 +23,7 @@ import prompt from '@ohos.promptAction';
  */
 @Component
 export default struct ListHistoryItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '',[]);
+  private item: ListHistoryItemData = new ListHistoryItemData(new MediaItemInit('', $r('app.media.fig1'), '', []));
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   build() {

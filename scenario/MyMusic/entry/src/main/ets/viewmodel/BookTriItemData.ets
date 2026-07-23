@@ -1,49 +1,12 @@
-/*
- * Copyright (c) 2023 Shenzhen Kaihong Digital Industry Development Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-import AudioItem from '../manager/AudioItem';
+import MediaItemData from './MediaItemData';
+import MediaItemInit from './MediaItemInit';
+import ItemStats from './ItemStats';
 
-/**
- * List item data entity.
- */
-export default class BookTriItemData {
-  /**
-   * Text of list item.
-   */
-  title: string;
-  /**
-   * Image of list item.
-   */
-  img: Resource;
-  /**
-   * Other resource of list item.
-   */
-  others?: string;
-  subTitle: string;
-  rank: string;
-  score: string;
-  playNum: string;
-  list:AudioItem[];
+export default class BookTriItemData extends MediaItemData {
+  stats: ItemStats;
 
-  constructor(title: string, img: Resource, subTitle: string, rank: string, score: string, playNum: string,list:AudioItem[], others?: string) {
-    this.title = title;
-    this.img = img;
-    this.others = others;
-    this.subTitle = subTitle;
-    this.rank = rank;
-    this.score = score;
-    this.playNum = playNum;
-    this.list = list;
+  constructor(init: MediaItemInit, stats: ItemStats) {
+    super(init);
+    this.stats = stats;
   }
 }

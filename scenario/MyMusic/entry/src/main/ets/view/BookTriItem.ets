@@ -32,7 +32,7 @@ export default struct BookTriItem {
             .width($r('app.float.home_third_Cell_width'))
             .height('84vp')
             .borderRadius($r('app.float.home_backgroundImage_borderRadius'))
-          Text(item.rank)
+          Text(item.stats.rank)
             .fontSize('20fp')
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.Orange)
@@ -61,7 +61,7 @@ export default struct BookTriItem {
                 .height('10vp')
                 .width('10vp')
                 .margin('1vp')
-              Text(item.playNum)
+              Text(item.stats.playNum)
                 .fontSize($r('app.float.small_text_size'))
                 .fontColor(Color.Grey)
             }
@@ -71,7 +71,7 @@ export default struct BookTriItem {
           .height('72vp')
 
           Blank()
-          Text(item.score)
+          Text(item.stats.score)
         }
         .margin($r('app.float.home_homeCell_margin'))
         .onClick(() => {

@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import ItemData from '../viewmodel/MidItemData';
+import MidItemData from '../viewmodel/MidItemData';
+import MediaItemInit from '../viewmodel/MediaItemInit';
 import hilog from '@ohos.hilog';
 import prompt from '@ohos.promptAction';
 import PlayerManager  from '../manager/PlayerManager';
@@ -23,13 +24,13 @@ import PlayerManager  from '../manager/PlayerManager';
  */
 @Component
 export default struct MidItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '',[], '');
+  private item: MidItemData = new MidItemData(new MediaItemInit('', $r('app.media.fig1'), '', [], ''));
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
   private spaceString = '';
 
   aboutToAppear() {
     let space: number = 0;
-    if (this.item.others !== undefined) {
+    if (this.item.others !== undefined && typeof this.item.others === 'string') {
       space = this.item.others.length;
     }
     for (let i = 0; i < space*3; i++) {
