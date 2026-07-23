@@ -25,7 +25,7 @@ import MineUserItem from './MineUserItem';
 export default struct MineActivityItem {
   private item: ItemData = new ItemData('', [$r('app.media.fig21')],
     new MineListItemData('', $r('app.media.fig21'), '', Visibility.None, Visibility.None),
-    0, 0, 0, [], undefined);
+    0, 0, 0, []);
 
   @State imgWidth: string = '90%';
 

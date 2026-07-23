@@ -14,6 +14,7 @@
  */
 
 import ItemData from '../viewmodel/ItemData';
+import MediaItemInit from '../viewmodel/MediaItemInit';
 import prompt from '@ohos.promptAction';
 
 /**
@@ -21,7 +22,7 @@ import prompt from '@ohos.promptAction';
  */
 @Component
 export default struct SmallItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '', [],$r('app.media.fig1'));
+  private item: ItemData = new ItemData(new MediaItemInit('', $r('app.media.fig1'), '', [], $r('app.media.fig1')));
 
   build() {
     Column() {

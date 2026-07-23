@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import ItemData from '../viewmodel/ItemData';
+import MediaItemInit from '../viewmodel/MediaItemInit';
 import prompt from '@ohos.promptAction';
 import PlayerManager from '../manager/PlayerManager';
 
@@ -21,7 +22,7 @@ import PlayerManager from '../manager/PlayerManager';
  */
 @Component
 export default struct BookFirstItem {
-  private item: ItemData = new ItemData('', $r('app.media.fig1'), '',[], $r('app.media.fig1'));
+  private item: ItemData = new ItemData(new MediaItemInit('', $r('app.media.fig1'), '', [], $r('app.media.fig1')));
   private playerManager: PlayerManager = AppStorage.get('playerManager') as PlayerManager;
 
   build() {
